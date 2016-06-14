@@ -41,7 +41,7 @@
 
 텍스트 언어 인코딩을 [**UTF-8**](https://ko.wikipedia.org/wiki/UTF-8)로 설정하여 모든 유니코드 문자를 표현할 수 있도록 설정하고, **깨지는 한글 문제를 해결**한다.
 
-> ※ [`http-equiv`](https://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv) 속성을 사용하면 `<meta>` 요소에서 정의된 명령(사항)을 먼저 실행한 후에 페이지를 로딩한다. 이를 **프라그마 디렉티브(Pragma Directive)**라고 한다.
+> ※ [`http-equiv`](https://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv) 속성을 사용하면 `<meta>` 요소에서 정의된 명령(사항)을 먼저 실행한 후에 페이지를 로딩한다. 이를 **프라그마 디렉티브(Pragma Directive)**라고 한다. (`equiv`는 **equivalent**의 약자)
 
 ```html
 <html>
@@ -87,7 +87,7 @@
 </html>
 ```
 
-> ※ [DTD 위에 주석이 올 경우 발생하는 문제점(IE에서만)](http://f10024.tistory.com/1)
+> ※ [DTD 위에 주석이 올 경우 발생하는 문제점](http://f10024.tistory.com/1)
 
 > [IE renders my page in Quirks mode](http://stackoverflow.com/questions/18517290/ie-renders-my-page-in-quirks-mode?rq=1) 글을 참고해 읽어보면 DTD 위에 코드 또는 주석이 존재할 경우 올바르지 않은 DTD로 간주하여 웹 브라우저는 비표준 모드로 동작하게 됨을 알 수 있다. 고로 DTD 위에는 어떤 텍스트, 주석, 코드 등을 사용하지 않는 것이 좋다.
 
@@ -101,6 +101,19 @@
 > <meta charset="UTF-8">
 > <title>Title</title>
 > ```
+
+-
+
+> ※ 문서가 표준모드로 렌더링되는지 확인하는 방법 [#](https://developer.mozilla.org/ko/docs/Web/API/Document/compatMode)
+
+> ```js
+> document.compatMode
+> ```
+
+> - 표준 모드일 경우, `CSS1Compat`를 출력
+> - 비표준 모드일 경우, `BackCompat`를 출력
+
+-
 
 ### HTML 구조화 (기초 응용)
 
@@ -136,6 +149,11 @@
 
 비 표준 코드이나, Microsoft Internet Explorer(이하 IE)의 호환성 보기 모드를 설정하는 코드로 이를 사용할 경우 IE의 동작 버전을 설정할 수 있다.
 
+- 7 버전으로 렌더링. `<meta http-equiv="X-UA-Compatible" content="IE=Emulate7">`
+- 8 버전으로 렌더링. `<meta http-equiv="X-UA-Compatible" content="IE=8">`
+- 9 버전으로 렌더링. `<meta http-equiv="X-UA-Compatible" content="IE=9">`
+- 최신 버전으로 렌더링. `<meta http-equiv="X-UA-Compatible" content="IE=Edge">`
+
 ```html
 <!DOCTYPE html>
 <html lang="ko-KR" dir="ltr">
@@ -150,6 +168,8 @@
 ```
 
 모바일 최적화 코드를 사용하면 각각의 모바일 기기에 최적화된 화면을 제공할 수 있다.
+
+> ※ [meta viewport(메타 뷰포트 태그) 사용법](http://aboooks.tistory.com/352)
 
 ```html
 <!DOCTYPE html>
@@ -216,23 +236,13 @@
 
 -
 
-### 문서가 표준모드로 렌더링되는지 확인하는 방법 [#](https://developer.mozilla.org/ko/docs/Web/API/Document/compatMode)
-
-- 표준 모드일 경우, `CSS1Compat`
-- 비표준 모드일 경우, `BackCompat`
-
-```js
-document.compatMode
-```
-
--
-
 ### 기타/참고
 
 - 텍스트 에디터 [Sublime Text](http://sublimetext.com/3)
 - 텍스트 에디터 [Brackets](http://brackets.io)
 - 텍스트 에디터 [Atom](http://atom.io)
 - Sublime Text 패키지 컨트롤 [Package Control](http://packagecontrol.io)
+- 빠른 코딩을 위한 도구, [Emmet](http://emmet.io)
 - Chrome 익스텐션(Extension) [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc) 설치
 
 
