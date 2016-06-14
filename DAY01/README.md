@@ -73,6 +73,9 @@
 
 문서 유형 정의(DTD, Document Type Definition)를 문서 최상단에 입력하여 웹 브라우저에게 현재 문서가 웹 표준 문서임을 알린다. (표준 모드로 동작)
 
+> ※ [비표준 모드(Quirk Mode) vs 표준 모드(Standard Mode)](http://naradesign.net/wp/2007/03/27/118/)
+
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -83,6 +86,21 @@
   <body></body>
 </html>
 ```
+
+> ※ [DTD 위에 주석이 올 경우 발생하는 문제점(IE에서만)](http://f10024.tistory.com/1)
+
+> [IE renders my page in Quirks mode](http://stackoverflow.com/questions/18517290/ie-renders-my-page-in-quirks-mode?rq=1) 글을 참고해 읽어보면 DTD 위에 코드 또는 주석이 존재할 경우 올바르지 않은 DTD로 간주하여 웹 브라우저는 비표준 모드로 동작하게 됨을 알 수 있다. 고로 DTD 위에는 어떤 텍스트, 주석, 코드 등을 사용하지 않는 것이 좋다.
+
+> ```php
+> <?php require'core/init.php';?>
+> <?php include_once 'include/IE8Etc.php';?>
+> <!DOCTYPE html>
+> <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+> <html>
+> <head>
+> <meta charset="UTF-8">
+> <title>Title</title>
+> ```
 
 ### HTML 구조화 (기초 응용)
 
