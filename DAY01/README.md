@@ -243,7 +243,7 @@
 - 텍스트 에디터 [Atom](http://atom.io)
 - Sublime Text 패키지 컨트롤 [Package Control](http://packagecontrol.io)
 - 빠른 코딩을 위한 도구, [Emmet](http://emmet.io)
-- Chrome 익스텐션(Extension) [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc) 설치
+- Chrome 익스텐션(Extension) [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc)
 
 
 
