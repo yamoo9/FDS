@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<!--[if IE 6]><html lang="ko-KR" class="ie6"><![endif]-->
-<!--[if IE 7]><html lang="ko-KR" class="ie7"><![endif]-->
-<!--[if IE 8]><html lang="ko-KR" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="ko-KR" class="ie9"><![endif]-->
+<!--[if IE 6]><html lang="ko-KR" class="lt-ie10 lt-ie9 lt-ie8 ie6"><![endif]-->
+<!--[if IE 7]><html lang="ko-KR" class="lt-ie10 lt-ie9 lt-ie8 ie7"><![endif]-->
+<!--[if IE 8]><html lang="ko-KR" class="lt-ie10 lt-ie9 ie8"><![endif]-->
+<!--[if IE 9]><html lang="ko-KR" class="lt-ie10 ie9"><![endif]-->
 <!--[if !IE]><!--><html lang="ko-KR"><!--<![endif]-->
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=8">
-    <title>1일차 공부 내용 복습</title>
+    <!-- HTML Entity Code -->
+    <title>2일차 공부는 재밌게! &lt; FDS 패스트 캠퍼스</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="IE 조건부 주석문을 포함한 다양한 방법을 공부 중입니다.">
+    <meta name="keywords" content="HTML5, Semantic, Markup, Structure, Design">
 
     <!-- MS IE 조건부 주석문 : IE 해석 가능: v6 ~ v9 까지만 적용 -->
     <!-- 특정 조건에서 주석이 아니라, 코드문으로 해석됨. -->
@@ -22,8 +23,8 @@
     <!-- <style type="text/css"> -->
     <style>
       .ie7 body { background: #db439b; }
-      .ie8 body { background: #39bcd3; }
-      .ie9 body { background: #62d834; }
+      .ie8 body { background: #db439b; }
+      .lt-ie9 body { background: #62d834; }
       body {
         background: #8b5fe4;
       }
@@ -33,12 +34,23 @@
 
     <!-- 제목 6단계 -->
     <!-- Heading 1~6 -->
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
+    <h1>제목 1 <sup>Heading 1</sup></h1>
+    <h2>제목 2 <sub>Heading 2</sub></h2>
     <h3>Heading 3</h3>
     <h4>Heading 4</h4>
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
+
+<!-- Preserved Text -->
+<!-- Emmet Code: h1+h2+h3+h4+h5+h6|e -->
+<pre>
+  &lt;h1&gt;&lt;/h1&gt;
+  &lt;h2&gt;&lt;/h2&gt;
+  &lt;h3&gt;&lt;/h3&gt;
+  &lt;h4&gt;&lt;/h4&gt;
+  &lt;h5&gt;&lt;/h5&gt;
+  &lt;h6&gt;&lt;/h6&gt;
+</pre>
 
     <!-- 수평선 (Horizontal Rule) -->
     <hr>
