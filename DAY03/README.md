@@ -102,3 +102,4 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 - [HTML 폼 가이드, MDN](https://developer.mozilla.org/ko/docs/Web/Guide/HTML/%ED%8F%BC)
 - [블록 엘리먼트, MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements)
 - [인라인 엘리먼트, MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Inline_elements)
+- [메타요소 요약, NAVER 카페](http://cafe.naver.com/webstandardproject/603)

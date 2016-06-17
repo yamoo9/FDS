@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>HTML 표(Table)</title>
+  <style>
+    /* 축약 요소에 마우스가 올라가면 UI 커서 모양이 도움말(? 모양) 표시 됨. */
+    /* 속성 선택자(Attribute Selector) */
+    abbr[title] {
+      cursor: help;
+    }
+
+    /**
+     * --------------------------------
+     * 테이블 디자인
+     * ----------------------------- */
+    table {
+      /* 테두리 사이 공간을 접는다 */
+      border-collapse: collapse;
+    }
+    table, th, td {
+      /* 테두리 디자인: 두께 모양(직선) 색(글자 색을 상속); */
+      border: 1px solid #120d20;
+    }
+    th, td {
+      padding: 1em;
+    }
+
+    /*.demo tr:nth-child(even) {
+      background: #ff0;
+    }*/
+
+    .demo col {
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>문서 메타데이터 표</h2>
+
+  <!--
+    표에 스타일 속성을 사용하지 않는다. CSS로 대체 한다.
+    border
+    bgcolor
+    cellpadding
+    cellspacing
+  -->
+
+  <!-- WAI-ARIA -->
+
+  <p id="metadata-table-summary">본 표는 4행 3열로 구성된.....</p>
+  <table aria-describedby="metadata-table-summary">
+    <caption>HTML 문서 메타데이터 표</caption>
+    <!-- 행: table row -->
+    <thead>
+      <tr>
+        <!-- 셀 제목: table cell header -->
+        <th scope="col">Element</th>
+        <th scope="col">Description</th>
+        <th scope="col">Support</th>
+      </tr>
+    </thead>
+    <!-- 컬럼(Column) 합치기: colspan -->
+    <!-- <tfoot>
+      <tr>
+
+        <td colspan="3">Total Count</td>
+      </tr>
+    </tfoot> -->
+    <tr>
+      <th scope="row">
+        <code>&lt;base&gt;</code>
+      </th>
+      <!-- 셀 내용: table cell data -->
+      <td>
+        <!-- 축약: abbreviation -->
+        HTML Base 요소 (<code>&lt;base&gt;</code>)는 문서에 포함된 모든 상대
+        <a target="_blank" href="https://ko.wikipedia.org/wiki/URL"><abbr title="Uniform Resource Locator">URL</abbr></a>들의 기준 <abbr>URL</abbr>을 나타냅니다.
+        한 문서에 하나의 <code>&lt;base&gt;</code> 요소만이 올수 있습니다.
+      </td>
+      <td><abbr title="Hyper Text Markup Language">HTML</abbr> 4.01</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <code>&lt;head&gt;</code>
+      </th>
+      <td>
+        HTML Head 요소 (<code>&lt;head&gt;</code>)는 문서의 제목과 스크립트,스타일 시트의 링크 또는 선언을 포함하는 문서의 일반적인 정보 (메타데이터)를 제공합니다.
+      </td>
+      <td><abbr title="Hyper Text Markup Language">HTML</abbr> 4.01</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <code>&lt;link&gt;</code>
+      </th>
+      <td>
+        HTML Link 요소 (<code>&lt;link&gt;</code>) 는 현재 문서와 외부 리소스와의 관계를 명시합니다. 이 요소는 네비게이션을 위한 관계형 프레임워크의 정의에도 사용될 수 있습니다. 이 요소는 스타일 시트에 링크하는 데에 가장 많이 사용됩니다.
+      </td>
+      <td><abbr title="Hyper Text Markup Language">HTML</abbr> 4.01</td>
+    </tr>
+  </table>
+
+
+</body>
+</html>

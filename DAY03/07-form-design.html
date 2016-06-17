@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>HTML 폼(Form) 디자인</title>
+</head>
+<body>
+
+  <h2>폼 디자인(설계): 사용자 정보 등록 폼</h2>
+
+  <!-- 파일 업로드 시에 사용. enctype="multipart/form-data" -->
+  <form
+    name="register_form"
+    action="#"
+    method="POST">
+    <p>
+      <!-- input 요소에 암묵적 레이블 연결  -->
+      <!-- <label>ID: <input type="text"></label> -->
+      <!-- input 요소에 명시적 레이블 연결 -->
+      <label for="user_id">ID</label>:
+      <input
+        id="user_id"
+        name="user_id"
+        type="text">
+    </p>
+    <p>
+      <label for="user_password">PASS</label>:
+      <input
+        type="password"
+        name="user_password"
+        id="user_password">
+    </p>
+    <p><label for="user_email">E-mail</label>: <input type="email" name="user_email" id="user_email"></p>
+    <p>
+      <button type="submit">전송</button>
+      <button type="reset">초기화</button>
+    </p>
+  </form>
+
+</body>
+</html>
