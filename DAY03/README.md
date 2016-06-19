@@ -34,7 +34,7 @@
 ### HTML 이미지
 
 - `src`, `alt` 속성은 필히 입력해야 한다. (필수 속성)
-- `width`, `height` 속성은 필히 입력해야 하는 것은 아니지만, (선택 속성)<br>좋은 UX(사용자 경험)를 위해서는 입력하는 것을 권장한다.
+- `width`, `height` 속성은 필히 입력해야 하는 것은 아니지만, (선택 속성)<br>※ 좋은 UX(사용자 경험)를 위해서는 입력하는 것을 권장한다.
 
 ```html
 <img src="이미지 경로" alt="이미지 설명" width="이미지 가로 폭" height="이미지 세로 폭">
@@ -61,8 +61,8 @@
 ```
 
 > ※ 이미지맵 참고 URL
-> - [image-map](https://blog.goolara.com/tag/image-map/)
-> - [image-maps](http://www.jednet.co.uk/edw/image_maps.html)
+> - [Slicing vs Image Mapping](https://blog.goolara.com/tag/image-map/)
+> - [Image map hot spots](http://www.jednet.co.uk/edw/image_maps.html)
 >
 > ※ Adobe Dreamweaver 같은 도구를 사용하면 이미지맵 그리기가 수월하다.
 >
@@ -113,14 +113,15 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 </dl>
 ```
 
-실제 컨텐츠의 의미에 따라 순차, 비순차, 정의 목록을 사용한다. 각 `li` 요소들은 루트가 되는 `ul(ol)`로 부터 list style을 상속받는다.    
-간혹 `li` 요소를 `div`로 나타내는 코드를 볼 수 있는데 이는 잘못된 것이다.
+실제 컨텐츠의 의미에 따라 순차, 비순차, 정의 목록을 사용한다. 각 `<li>` 요소들은 부모가 되는 `<ul>(<ol>)` 요소로부터 `list-style` 스타일 속성 값을 상속 받는다.
+그리고 `<li>` 요소를 제외한 다른 요소(`<div>`와 같은)가 `<ul>(<ol>)` 요소 내부에 들어오면 이는 문법 오류이다.
 
-####2-Depth 설계
+#### Depth 2 설계
+
 ```html
 <ol>
 	<li><a href="">불</a>
-		<!-- li요소는 자식으로 li요소를 가질 수 없다. ul혹은 ol요소로 다시 감싸준다 -->
+		<!-- <li> 요소는 자식으로 <li> 요소를 가질 수 없다. <ul> 혹은 <ol> 요소로 다시 감싼다. -->
 		<ul>
 			<li><a href="">라이터</a></li>
 			<li><a href="">돋보기</a></li>
@@ -129,18 +130,19 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 	<li><a href="">필터(물)</a></li>
 	<li><a href="">칼</a></li>
 </ol>
-<!-- 3-Depth도 같은 구조를 가진다 -->
+<!-- Depth 3도 같은 구조를 가진다. -->
 ```
 
- > `li`는 탭 포커스가 가지 않기 때문에 `a`요소를 내부에 넣어주어 접근성을 향상시켜준다. 
+ > ※ 내비게이션(Navigation)을 제작할 경우 목록이 자주 사용된다.<br>
+ > 이런 경우, `<li>` 내부에 `<a>`요소를 위치시켜 탭 포커스(Tab Focus)가 적용되도록 설정하여 접근성을 향상 시켜준다.
 
-####인용문
+#### 인용문
 
 ```html
-<!-- 출처는 cite 속성을 이용한다 -->
+<!-- 출처는 cite 속성을 이용한다. -->
 <blockquote cite="http://blog.naver.com/PostView.nhn?blogId=autumncloud&amp;logNo=70130993741">
 	<p>계획 자체는 중요하지 않으나 계획수립은 무엇보다 중요하다.</p>
-	<!-- citation -->
+	<!-- <cite>: Citation, 인용/예시 -->
 	<cite>Dwight D. Eisenhower</cite>
 </blockquote>
 ```
@@ -151,14 +153,14 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 
 표는 X, Y축으로 구성된 2차원 정보를 나타냄으로 시각 장애인이 읽기 어려운 콘텐츠로 접근성을 고려하여 제작해야 한다.
 
- > 페이지 레이아웃을 잡을 때 테이블을 쓰면 안되지만, 표를 나타낼 때는 테이블을 써야한다.    
-한때 '웹 표준을 위해서 테이블을 쓰면 안된다'라는 말이 퍼진 적이 있는데 이는 와전된 내용이다. 
+> 페이지 레이아웃을 잡을 때 테이블을 쓰면 안되지만, 표를 나타낼 때는 테이블을 써야한다.
+> 한 때 '웹 표준 디자인에서는 테이블을 쓰면 안된다'라는 말이 퍼진 적이 있는데 이는 잘못 전파된 내용이다.
 
-```html 
+```html
 <p id="metadata-table-summary">본 표는 4행 3열로 구성된 ...</p>
-<!-- 표에 스타일 속성(cellpadding, cellspacing, border)을 직접 사용하지 않는다. CSS로 분리한다 -->
-<!-- html5로 넘어오면서 summary 속성은 표준에서 제외됐다. 대신 WAI-ARIA를 이용한다 -->
-<!-- WAI-ARIA: 차후 수업에서 다룰 예정 -->
+<!-- 표에 구시대의 유물은 '표현 속성'(cellpadding, cellspacing, border)을 사용하지 않아야 한다. 대신 CSS로 대체한다. -->
+<!-- HTML5 표준으로 넘어오면서 summary 속성은 표준에서 제외 됐다. 대신 WAI-ARIA를 이용하여 접근성을 향상시킬 수 있다. -->
+<!-- ※ WAI-ARIA: 차후 수업에서 다룰 예정 -->
 <table aria-decribedby="metadata-table-summary">
 	<!-- 테이블의 제목 -->
 	<caption>적절한 테이블 제목을 작성해야 한다</caption>
@@ -181,23 +183,25 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 			<th scope="row">
 				<code>&lt;base&gt;</code>
 			</th>
-			<!-- 셀 내용: tale cell data -->
+			<!-- 셀 내용: table cell data -->
 			<td>
 				<!-- <abbr> 축약: abbreviation -->
-				<!-- a요소에 속성 target 값으로 "_blank"를 넣어주면 새로운창에 링크가 띄워진다 -->
+				<!-- <a>요소에 속성 target 값으로 "_blank"를 넣어주면 새로운 창(탭)에 링크된 페이지가 띄워진다. -->
 				HTML Base 요소(<code>&lt;base&gt;</code>)는 문서에 포함된 모든 상대 <a href=" ... " target="_blank"><abbr title="Uniform Resource Locator">URL</abbr></a>들의 기준 <abbr>URL</abbr>을 나타냅니다.
-				한 문서에 하나의 <code>&lt;base&gt;</code> 요소만이 올 수 있습니다
+				한 문서에 하나의 <code>&lt;base&gt;</code> 요소만이 올 수 있습니다.
 			</td>
 		</tr>
 	</tbody>
 </table>
 ```
- - 표 제목은 WAI-ARIA보다 caption 방식이 더 좋다
- - 접근성 향상을 위해 scope지정을 해주어야 한다.
- - 브라우저가 렌더링 할 때 `thead`, `tfoot`이 없다면 자동적으로 `tbody`를 생성한다
 
-####셀 병합
-```html 
+- 표 제목을 사용할 경우, WAI-ARIA보다 caption 방식이 우선된다. (※ 향후 자세하게 다뤄볼 것이다)
+- `<th>` 요소에 `scope` 속성을 통해 열 제목인지, 행 제목인지를 설정하면 접근성을 향상할 수 있다.
+- 웹 브라우저 렌더링 시에 `<thead>`, `<tfoot>`로 감싼 영역이 없다면, 나머지 `<tr>` 영역을 `<tbody>`로 자동 감싼다.
+
+#### 셀 병합
+
+```html
 <tr>
 	<td>something</td>
 	<td colspan="2">something</td>
@@ -213,40 +217,50 @@ HTML 표준에서 사용 가능한 목록 유형은 3가지!
 	<!-- <td>something</td> -->
 	<td>something</td>
 </tr>
-``` 
+```
+
+속성 | 설명
+--- | ---
+`colspan` | 열(column)을 병합한다.
+`rowspan` | 행(row)을 병합한다.
 
 -
 
 ### Block, Inline 요소
 
- - block 요소의 기본 값: 높이는 자식만큼, 폭은 부모만큼
- - inline 요소의 기본 값: 높이, 폭 모두 내부 텍스트만큼 가진다.
+**`block` 요소의 특징**<br>높이(`height`)는 자식 만큼, 폭(`width`)은 부모 만큼 설정된다.
+
+**`inline` 요소의 특징**<br>높이, 폭 모두 내부 텍스트 만큼 가진다.
+
+> ※ CSS 박스모델(Box-Model)은 CSS 공부에서 자세하게 다룰 것이다.
 
 -
 
 ### HTML 폼
 
-```html 
+```html
 <!-- action: 데이터를 보낼 곳, 메서드: 보내는 방식 -->
 <form action="/register.php" method="POST" name="register_form" enctype="multipart/form-data">
-	<!-- input 요소에 암묵적 레이블 연결, 일부 스크린리더는 읽지 못하므로 권장하지 않음-->
-	<label>ID: <input type="text"></label>
-	<!-- input 요소에 명시적 레이블 연결 for와 id가 연결된다 -->
-	<!-- id는 접근성, name은 서버에서 필요하므로 둘다 기입한다 -->
+	<!-- input 요소에 암묵적 레이블 연결, 일부 스크린리더는 읽지 못하므로 권장하지 않음 -->
+	<!-- <label>ID: <input type="text"></label> -->
+
+	<!-- input 요소에 명시적 레이블 연결: for 속성과 id 속성이 연결 된다. -->
+	<!-- id 속성은 접근성, name 속성은 서버에 값을 전송할 경우, 필요하므로 둘 다 기입한다. -->
 	<label for="user_id">ID</label>: <input type="text" id="user_id" name="user_id">
 	<button type="submit">전송</button>
 </form>
 
 ```
 
-####GET vs POST
+#### 전송 방식 `GET` vs `POST`
+
 조건 | GET | POST
 ---|---|---
 보안 | POST에 비해 덜 보안적 | GET에 비해 보안적
 데이터 제한 | 제한적, url 허용 길이만큼 | 제한 없음
 데이터 타입 제한 | 오직 아스키 문자만 해당 | 제한 없음, 바이너리 역시 사용가능
 뒤로가기, 재전송 | 사용자가 입력한 내용 다시 작성 | 사용자에게 지워짐을 경고 함
-인코딩 | application-x-www-form-urlencoded | multipart/form-data, application-x-www-form-urlencoded
+인코딩 | `application-x-www-form-urlencoded` | `multipart/form-data`, `application-x-www-form-urlencoded`
 
 -
 
