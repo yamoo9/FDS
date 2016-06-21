@@ -1,0 +1,11 @@
+body {
+  background: #ff0;
+}
+
+body::before {
+  display: block;
+  text-align: center;
+  content: 'Unsupport JS';
+  font-size: 100px;
+  color: #303030;
+}
