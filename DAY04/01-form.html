@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>HTML Form 디자인</title>
+</head>
+<body>
+
+  <form name="register_form" action="#" method="GET">
+
+    <div>
+      <label for="register-id">id</label>
+      <input name="id" id="register-id" type="text">
+    </div>
+
+    <div>
+      <label for="register-password">password</label>
+      <input name="password" id="register-password" type="password">
+    </div>
+
+    <div>
+      <h3>Gender</h3>
+
+      <!-- 명시적 label 사용법 -->
+      <!-- <div>
+        <input id="register-male" name="gender-a-type" type="radio"> <label for="register-male">Male</label>
+        <input id="register-female" name="gender-a-type" type="radio"> <label for="register-female">Female</label>
+      </div> -->
+
+      <!-- <hr> -->
+
+      <!-- 암묵적 label 사용법 -->
+      <div>
+        <label> <input checked name="gender" value="1" type="radio"> Male </label>
+        <label> <input name="gender" value="2" type="radio"> Female </label>
+      </div>
+    </div>
+
+    <div>
+      <h3>Hobby</h3>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="book" name="hobby"> Read a Book</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="sleep" name="hobby"> Sleeping</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="movie" name="hobby"> Watch a Movie</label>
+        </li>
+      </ul>
+    </div>
+
+    <input type="submit" value="전송">
+
+    <button type="reset">초기화</button>
+
+    <!-- <button type="submit"><img src="" alt="">전송</button> -->
+
+  </form>
+
+</body>
+</html>
