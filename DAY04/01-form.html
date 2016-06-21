@@ -9,15 +9,23 @@
 
   <form name="register_form" action="#" method="GET">
 
-    <div>
-      <label for="register-id">id</label>
-      <input name="id" id="register-id" type="text">
-    </div>
+    <fieldset>
+      <legend>필수 입력</legend>
+      <div>
+        <label for="register-id">id</label>
+        <input name="id" id="register-id" type="text" placeholder="user name" maxlength="10">
+      </div>
 
-    <div>
-      <label for="register-password">password</label>
-      <input name="password" id="register-password" type="password">
-    </div>
+      <div>
+        <label for="register-email">E-Mail</label>
+        <input type="email" id="register-email" placeholder="user@email.com">
+      </div>
+
+      <div>
+        <label for="register-password">password</label>
+        <input name="password" id="register-password" type="password">
+      </div>
+    </fieldset>
 
     <div>
       <h3>Gender</h3>
@@ -52,9 +60,41 @@
       </ul>
     </div>
 
-    <input type="submit" value="전송">
+    <hr>
 
-    <button type="reset">초기화</button>
+    <div>
+      <label for="register-upload">File</label>
+      <input multiple type="file" id="register-upload" name="register-upload">
+    </div>
+
+    <hr>
+
+    <textarea name="register-message" cols="30" rows="10"></textarea>
+
+    <hr>
+
+    <div>
+      <h3>Your Job</h3>
+      <select name="register-job">
+        <option value="">Select Your Job</option>
+        <optgroup label="web">
+          <option value="student">web planner</option>
+          <option value="student">web designer</option>
+          <option value="student">web developer</option>
+        </optgroup>
+        <option value="instructor">instructor</option>
+        <option value="doctor">doctor</option>
+        <option value="student">student</option>
+        <option value="etc">etc.</option>
+      </select>
+    </div>
+
+    <hr>
+
+    <div>
+      <input type="submit" value="전송">
+      <button type="reset">초기화</button>
+    </div>
 
     <!-- <button type="submit"><img src="" alt="">전송</button> -->
 
