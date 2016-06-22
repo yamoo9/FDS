@@ -62,6 +62,47 @@
 
 -
 
+### HTML 기타 요소
+
+##### 인용
+- 긴 인용 `<blockquote></blockquote>`
+- 짧은 인용 `<q></q>` (잘 사용하지 않음)
+
+##### 축약
+- NN (Standard) `<abbr title="eXtensible Markup Language">XML</abbr>`
+- IE (Deprecated) `<acronym title="eXtensible Markup Language">XML</acronym>` (사용 X)
+
+##### 웹 정보
+
+```html
+<address>
+  E Main: <a href="mailto:yamoo9@naver.com">yamoo9@naver.com</a><br>
+  Phone: <a href="tel:010-1111-1111">010-1111-1111</a>
+</address>
+```
+
+##### 추가/지움
+
+```html
+<p>오늘 비가 <del>내릴 것</del> <ins>오지 않을 것</ins>p>
+```
+
+##### 보존/엔티티코드/키보드
+
+```html
+<pre>
+&lt;p&gt;야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!.
+않고 설레게 고동소리 찬란한? 그대, 운동화도 어디에나 햇볕처럼 다 들리는 아름다운,
+아름답다 실수조차도 하고 엮어가는, 쉬지 소리 않고 쿵쿵대는 눈부신 찬란한.
+그대 어디에나 청춘아!, 숨 죽여도 꽃처럼 다 들리는 않고 흐르는 티셔츠 사명으로
+장엄한 꽃보다 청춘 &lt;kbd&gt;Ctrl + Alt + V&lt;/kbd&gt; 청춘의, 엮어가는 땀 세상을
+너 젊음의 해도 하고 눈부신 실수조차도 하루를 고동소리! 심장 청춘, 꽃보다 만들.
+청춘, 설레게, 엮어가는 청춘의, 다 들리는 어디에나 찬란한 쉬지 아름다운 거추장스런
+운동화도 사명으로 꽃처럼 하고 너야말로 티셔츠 설레는 청춘아! 너 젊음의 쿵쿵대는
+하루를 장엄한 가슴을.&lt;/p&gt;
+</pre>
+```
+
 ### 기타/참고
 
 <!-- - [pages.github.com](https://pages.github.com/) -->
