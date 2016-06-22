@@ -8,7 +8,7 @@
 
 ### Team Activity
 
-**[30분]** 팀 단위로 디자이너가 제작한 [PSD(Photoshop Document) 파일](https://www.dropbox.com/sh/pl3vrst3re24sht/AAD-koAIko_i493P-v9hSF1Ia?dl=0)을 선택 후, 개별 분석하여 HTML 문서 구조화(Markup) 한다.
+**[20분]** 팀 단위로 디자이너가 제작한 [PSD(Photoshop Document) 파일](https://www.dropbox.com/sh/pl3vrst3re24sht/AAD-koAIko_i493P-v9hSF1Ia?dl=0)을 선택 후, 개별 분석하여 HTML 문서 구조화(Markup) 한다.
 
 ![PSD_Lists](../Assets/PSD_Lists.png)
 
@@ -57,3 +57,5 @@
 -
 
 ### 기타/참고
+
+<!-- - [pages.github.com](https://pages.github.com/) -->
