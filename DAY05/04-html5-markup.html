@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>(X)HTML vs HTML5 Markup</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /*::-webkit-input-placeholder {
+       color: red;
+    }
+    ::-moz-placeholder {
+       color: red;
+    }
+    :-ms-input-placeholder {
+       color: red;
+    }*/
+  </style>
+  <script>
+    // 문서에 input 요소를 생성한다.
+    // 생성한 요소를 변수 my_num_input에 참조한다.
+    // var my_num_input = document.createElement('input');
+    // // 변수 my_num_input에 참조된 문서 객체 input 요소에 속성(Attribute)을 설정(set)한다.
+    // my_num_input.setAttribute('type', 'email');
+    // // console.log('my_num_input.getAttribute("type"):', my_num_input.getAttribute('type'));
+    // // 조건(my_num_input 요소의 type 속성 값이 'text' 인가?) 확인
+    // if ( my_num_input.getAttribute('type') === 'text' ) {
+    //   // input[type="number"]를 지원하지 않는 브라우저 대응하는 코드
+    //   console.log('input "number" 유형을 지원하지 않습니다.');
+    // } else {
+    //   console.log('input "number" 유형을 지원합니다.');
+    // }
+  </script>
+</head>
+<body>
+
+  <div>
+    outer div
+    <div>
+      <!--
+      HTML5에서는 <a> 요소가 블록 요소를 감쌀 수 있도록 변경되었지만,
+      내부에 또 다른 클릭 가능한 컴포넌트가 존재한다면 그것은 문법 오류이다.
+      -->
+      <a href="">
+        inner <div>div</div>
+        <!-- <button type="button">this is btn</button> -->
+      </a>
+      <span>s<em>pan</em></span>
+    </div>
+  </div>
+
+  <!-- HTML4.01 or XHTML 1.0 Markup -->
+  <!-- #header+#gnb+#main+#sidebar+#footer -->
+  <!-- <div id="header">
+    <input type="text" placeholder="hey you!">
+  </div>
+  <div id="gnb"></div>
+  <div id="main"></div>
+  <div id="sidebar"></div>
+  <div id="footer"></div> -->
+
+  <!-- HTML5 Markup -->
+  <!-- header+nav+main+aside+footer -->
+  <!-- <header class="page-header"></header>
+  <nav>
+
+  </nav> -->
+
+  <!-- section(범용) vs article(독립) -->
+
+  <!-- <section>
+    <article>
+      <section>
+        <article></article>
+      </section>
+    </article>
+  </section> -->
+  <!-- <main>
+    <h1></h1>
+  </main>
+  <aside>
+    <h1></h1>
+  </aside>
+  <footer class="page-footer"></footer> -->
+
+  <h1>Top Level Heading</h1>
+
+  <section>
+    <!-- <hgroup> -->
+      <h2>section title</h2>
+      <h3>section sub title</h3>
+    <!-- </hgroup> -->
+    <!-- <section>
+      <h3>section sub title</h3>
+    </section> -->
+  </section>
+
+</body>
+</html>
