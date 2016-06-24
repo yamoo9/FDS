@@ -1,3 +1,63 @@
 body {
   margin: 10%;
 }
+
+/**
+ * --------------------------------
+ * .lecture
+ * ----------------------------- */
+/* 기본적인 리스트 스타일 초기화 */
+.reset-list ul,
+.reset-list ol,
+ul.reset-list,
+ol.reset-list {
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/**
+ * --------------------------------
+ * 파일 타입 이미지 제공을 위한 기본 디자인
+ * ----------------------------- */
+.lecture-file-list a {
+  display: block;
+  /*font-size: 38px;*/
+  font-size: 2.38em;
+  text-decoration: none;
+  text-indent: 40px;
+  background-repeat: no-repeat;
+}
+
+/**
+ * --------------------------------
+ * 파일 포멧에 따라 자동적으로 아이콘을
+ * 배경 이미지로 설정하는 스타일
+ * ----------------------------- */
+a[href$=".psd"] {
+  background-image: url("../images/psd.png");
+}
+a[href$=".ai"] {
+  background-image: url("../images/ai.png");
+}
+a[href$=".txt"] {
+  background-image: url("../images/txt.png");
+}
+a[href$=".avi"] {
+  background-image: url("../images/avi.png");
+}
+a[href$=".mov"] {
+  background-image: url("../images/mov.png");
+}
+a[href$=".pdf"] {
+  background-image: url("../images/pdf.png");
+}
+a[href^="http://"][target="_blank"] {
+  /* 배경 이미지 설정 */
+  background-image: url("../images/external-link.png");
+  background-position: 0 4px;
+}
+
+
+
