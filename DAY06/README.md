@@ -323,7 +323,11 @@ screen_out 클래스만 가지고 있는 요소를 선택한다. 즉 <div class=
 a[href="..."][class="some"] /* 여러 조건을 걸 수도 있다 */
 ```
 
+-
+
 **파일 포맷별 아이콘 설정**
+
+![D6](../Assets/D6.jpg)
 
 ```html
 <div class="lecture">
