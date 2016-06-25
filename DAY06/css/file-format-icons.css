@@ -1,10 +1,12 @@
+/*! file-format-icons.css © yamoo9.net, 2016 */
+
 body {
-  margin: 10%;
+  margin: 5% 10%;
 }
 
 /**
  * --------------------------------
- * .lecture
+ * .reset-list 스타일 모듈
  * ----------------------------- */
 /* 기본적인 리스트 스타일 초기화 */
 .reset-list ul,
@@ -21,13 +23,23 @@ ol.reset-list {
  * --------------------------------
  * 파일 타입 이미지 제공을 위한 기본 디자인
  * ----------------------------- */
+.lecture-title {
+  font-weight: lighter;
+  font-weight: 200;
+}
+
+.lecture-file-list li {
+  padding-top: 0.26em;
+  padding-bottom: 0.26em;
+}
 .lecture-file-list a {
-  display: block;
-  /*font-size: 38px;*/
-  font-size: 2.38em;
+  display: inline-block;
+  padding-top: 0.25em;
+  font-size: 1.2em;
   text-decoration: none;
-  text-indent: 40px;
+  text-indent: 1.4em;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /**
@@ -37,26 +49,36 @@ ol.reset-list {
  * ----------------------------- */
 a[href$=".psd"] {
   background-image: url("../images/psd.png");
+  color: #1b2662;
 }
 a[href$=".ai"] {
   background-image: url("../images/ai.png");
+  color: #43300e;
 }
 a[href$=".txt"] {
   background-image: url("../images/txt.png");
+  color: #bbbcbb;
 }
 a[href$=".avi"] {
   background-image: url("../images/avi.png");
+  color: #8e8e8e;
 }
 a[href$=".mov"] {
   background-image: url("../images/mov.png");
+  color: #81c0bf;
 }
 a[href$=".pdf"] {
   background-image: url("../images/pdf.png");
+  color: #d10804;
 }
 a[href^="http://"][target="_blank"] {
   /* 배경 이미지 설정 */
+  padding-right: 0.56em;
+  text-indent: 0;
   background-image: url("../images/external-link.png");
-  background-position: 0 4px;
+  background-position: 100% 0.13em;
+  background-size: 0.5em;
+  color: #363636;
 }
 
 
