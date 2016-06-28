@@ -236,5 +236,4 @@ a:focus:hover {
 ### 기타/참고
 
 - [ISO Language Codes](http://www.w3schools.com/tags/ref_language_codes.asp)
-- [CSS 레이아웃을 배웁시다](http://ko.learnlayout.com/toc.html)nguage_codes.asp)
 - [CSS 레이아웃을 배웁시다](http://ko.learnlayout.com/toc.html)
