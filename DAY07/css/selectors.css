@@ -1,5 +1,6 @@
 body {
   line-height: 1.6;
+  margin: 20%;
 }
 
 /**
@@ -9,6 +10,7 @@ body {
  * [attr="value"]
  * [attr|="value"]
  * [attr~="value"]
+ * [attr*="value"]
  * ----------------------------- */
 
 /* 공백으로 구분되는 단어가 일치할 때 선택 */
@@ -74,7 +76,7 @@ body {
 /*a:link {}*/
 a {
   padding-left: 0.25em; /* 4px === 0.25em */
-  padding-right: .25em;
+  padding-right: 4px;
   text-decoration: none;
   color: #363636;
 }
@@ -103,4 +105,26 @@ a:active {
 /* 키보드 포커싱 상태 */
 a:focus {
   outline: 3px solid #fc414b;
+}
+
+a:focus:hover {
+  outline-offset: 10px;
+}
+
+/**
+ * --------------------------------
+ * .box
+ * ----------------------------- */
+.box {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 200px;
+  height: 200px;
+  outline: none;
+  background: #efefef;
+}
+
+.box:hover {
+  outline: 10px solid #fe4940;
 }
