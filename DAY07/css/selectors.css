@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /*@import url("common.css");*/
 
 body {
@@ -270,4 +272,29 @@ abbr {
 
 .parent :not(a):not(li):not(.child) {
   border: 1px solid #b64926;
+}
+
+/**
+ * --------------------------------
+ * 사용자가 커서로 클릭 후, 텍스트 블록을
+ * 선택할 경우 가상으로 요소를 만들어 디자인
+ *
+ * color
+ * background-color
+ * cursor
+ * outline
+ * text-decoration
+ * text-emphasis-color
+ * text-shadow
+ * ----------------------------- */
+::-moz-selection {
+  cursor: move;
+  background: #fc4b55;
+  color: #fff;
+}
+::selection {
+  cursor: move;
+  background: #fc4b55;
+  color: #fff;
+  text-shadow: -2px 0px 1px #6300b5, 2px 0px 1px #e4ee09;
 }
