@@ -83,7 +83,6 @@ A. 강사가 선택한 Good 답변
          | :nth-last-child(an + b) | 부모 요소의 자식 요소 중, 수학 표현식에 따른 계산 결과를 처리 후 선택 (뒤로부터 색인)
          | :nth-of-type(an + b) | 동일한 유형 중, 수학 표현식에 따른 계산 결과를 처리 후 선택
          | :nth-last-of-type(an + b) | 동일한 유형 중, 수학 표현식에 따른 계산 결과를 처리 후 선택 (뒤로부터 색인)
-<<<<<<< HEAD
 **가상 요소** | :root | 루트 요소 선택
         | :empty | 요소 내 내용이 빈 경우 선택
         | :target | 문서의 URI의 조각 식별자(/#id)를 가진 요소 선택
@@ -95,7 +94,6 @@ A. 강사가 선택한 Good 답변
         | :read-write |
         | :optional |
         | :out-of-range |
-=======
          | :lang(language) | 요소에 lang 속성이 language인 것을 선택(속성 선택자가 더 직관적일 수 있다)
 **가상 요소** | ::root | 루트 요소 선택
         | ::empty | 요소 내 내용이 빈 경우 선택
