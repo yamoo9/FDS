@@ -225,7 +225,6 @@ a:focus:hover {
 이후 수업에서는 Normalize CSS를 사용할 계획
 
 ---
->>>>>>> origin/master
 
 #### 선택자 참고 자료
 
