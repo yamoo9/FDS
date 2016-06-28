@@ -80,7 +80,7 @@ a {
   padding-left: 0.25em; /* 4px === 0.25em */
   padding-right: 4px;
   text-decoration: none;
-  color: #363636;
+  color: #34c0ff;
 }
 /* 방문한 상태 */
 /* 가능한 상태 속성
@@ -183,6 +183,10 @@ a:focus:hover {
   color: #ec0904;
 }
 
+.dropcap {
+  margin: 0;
+}
+
 /* 가상으로 요소를 생성한다. */
 .dropcap::first-letter {
 /*.dropcap::first-line {*/
@@ -191,6 +195,79 @@ a:focus:hover {
   line-height: 1;
 }
 
-.dropcap {
-  margin: 0;
+/**
+ * --------------------------------
+ * 가상 요소
+ * ::before
+ * ::after
+ * ----------------------------- */
+
+abbr {
+  cursor: help;
+}
+
+.msg .before,
+.msg::before {
+  content: 'Hey!!';
+  color: #3a0099;
+}
+
+.msg p::before {
+  /*display: block;*/
+  content: 'designer ';
+  color: #25a04d;
+}
+
+.msg .after,
+.msg::after {
+  content: 'Hand Up!';
+  color: #604887;
+}
+
+
+
+
+@media print {
+  /**
+   * --------------------------------
+   * 접근성 관점에서 링크의 주소를 출력하는 스타일
+   * ----------------------------- */
+  a::after {
+  /* 함수: () 안에 전달하는 무엇을 통해 뭔가를 처리해서 결과를 보여준다. */
+    content: '(' attr(href) ')';
+    color: #fc4a54;
+  }
+
+  abbr::after {
+    content: '(' attr(title) ')';
+  }
+}
+
+
+/* HTML <html>, XML <cook>, <book>, .. */
+:root {}
+
+:target {
+  background: #ff0;
+}
+
+/**
+ * --------------------------------
+ * :not(selector)
+ * ----------------------------- */
+
+.parent {
+  background: #ff0;
+}
+
+/*.parent * {
+  border: 1px solid #b64926;
+}
+
+.parent a {
+  border: none;
+}*/
+
+.parent :not(a):not(li):not(.child) {
+  border: 1px solid #b64926;
 }
