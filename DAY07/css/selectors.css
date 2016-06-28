@@ -1,6 +1,8 @@
+/*@import url("common.css");*/
+
 body {
   line-height: 1.6;
-  margin: 20%;
+  margin: 5% 20%;
 }
 
 /**
@@ -127,4 +129,68 @@ a:focus:hover {
 
 .box:hover {
   outline: 10px solid #fe4940;
+}
+
+/**
+ * --------------------------------
+ * .rounded-box
+ * ----------------------------- */
+.rounded-box {
+  width: 200px;
+  background: #eee;
+}
+
+.rounded-box > *:first-child {
+  background: #aea28f;
+  color: #fff;
+}
+.rounded-box :last-child {
+  border: 3px solid #e0cba9;
+  padding: 10px;
+}
+
+.wrapper:last-child {
+
+}
+
+:lang(ja) {
+  /* 일본어 사용 */
+}
+
+[lang|="en"] {
+
+}
+
+:lang(es) {
+  /* 스페인어 사용 */
+}
+
+/**
+ * --------------------------------
+ * 가상(유사, 의사) 요소
+ * Pseudo Element
+ * 가상으로 요소(콘텐츠)를 만들어 줍니다.
+ *
+ * CSS 2/2.1     | CSS 3+
+ * :first-line   | ::first-line
+ * :first-letter | ::first-letter
+ * :before       | ::before
+ * :after        | ::after
+ * ----------------------------- */
+
+/* 잡지 디자인 드롭캡(Dropcap) */
+.dropcap-demo {
+  color: #ec0904;
+}
+
+/* 가상으로 요소를 생성한다. */
+.dropcap::first-letter {
+/*.dropcap::first-line {*/
+  font-size: 300%;
+  color: #ec0904;
+  line-height: 1;
+}
+
+.dropcap {
+  margin: 0;
 }

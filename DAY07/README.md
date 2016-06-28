@@ -97,6 +97,7 @@ A. 강사가 선택한 Good 답변
 
 - [W3C, Selectors Level 3](https://www.w3.org/TR/selectors/#selectors)
 - [MDN, Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- [lang-pseudo Selector](https://www.w3.org/TR/selectors/#lang-pseudo)
 
 -
 
