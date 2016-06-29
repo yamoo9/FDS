@@ -8,7 +8,9 @@
   /*width: 50vw;*/ /* viewport width */
   /*width: auto;*/
   /*height: 100vh;*/ /* vh? = viewport height */
-  width: 500px;
+  width: 90%;
+  max-width: 900px;
+  min-width: 600px;
   height: 333px;
   line-height: 333px;
   margin: 100px auto;
@@ -34,4 +36,32 @@
   padding-top: inherit;
   padding-left: inherit;
   background: #f3a647;
+}
+
+.change-display-inline-block li {
+  display: inline-block;
+}
+
+.change-display-inline-block img {
+  vertical-align: middle;
+}
+
+/**
+ * --------------------------------
+ * margin 속기형(Short Properties)
+ * ----------------------------- */
+
+p {
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+
+  /*margin: top right bottom left;
+  margin: top right bottom;
+  margin: top right ????(top) ????(right);
+  margin: top ????(top) ????(top) ????(right);*/
+
+  margin: 1em 1em 1em 1em;
+  margin: 1em;
 }
