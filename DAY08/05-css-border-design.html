@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 테두리 디자인</title>
+  <style>
+
+  .box {
+    /*display: table-cell;*/
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    /* border short properties */
+    border: 10px solid red;
+    border-bottom-width: 20px;
+    border-bottom-color: transparent;
+    border-right-color: #ffb03b;
+    text-align: center;
+    /*vertical-align: middle;*/ /* inline, table 요소에만 적용 가능 */
+    background: #fff;
+    color: #50c0fd;
+  }
+
+  .border-solid {border-right-style: solid;}
+  .border-dashed {border-right-style: dashed;}
+  .border-dotted {border-right-style: dotted;}
+
+  .nanum {
+    font-family: "Apple SD Gothic Neo", "Nanum Gothic", 나눔고딕, 돋움, Dotum, Sans-Serif;
+  }
+
+  </style>
+</head>
+<body class="nanum">
+
+  <!--
+  /* 테두리 모양 설정 | solid: 직선, dashed: 파선, dotted: 점선, double: 이중괘선, inset, outset, ... */
+  border-{top|right|bottom|left}-style: solid;
+  /* 테두리 두께 설정 */
+  border-{top|right|bottom|left}-width: 1px;
+  /* 테두리 색상 설정 */
+  border-{top|right|bottom|left}-color: red;
+  /* border 속기형 작성법 패턴 1 */
+  /*border-top: style width color;*/
+  border-top: solid 1px lime;
+  /*border-top: width style color;*/
+  border-top: 3px double purple;
+  /*border-top: color width style;*/
+  border-top: darkred 10px inset;
+  /* border 속기형 작성법 패턴 2 */
+  /*border: style width color; // top, right, bottom, left 모두 설정*/
+  -->
+
+  <div class="box border-solid">SOLID</div>
+
+  <div class="box border-dashed">DASHED</div>
+
+  <div class="box border-dotted">DOTTED</div>
+
+</body>
+</html>
