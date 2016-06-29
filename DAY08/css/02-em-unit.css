@@ -1,0 +1,25 @@
+/*! em-unit.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * em 단위 사용의 어려움
+ * ----------------------------- */
+
+/**
+ * --------------------------------
+ * 박스 스타일
+ * ----------------------------- */
+div {
+  width: 60%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px dashed #fff;
+  padding: 5%;
+  color: #fff;
+}
+
+.wrapper-parent { background: #7045cf; }
+.parent         { background: #724fb7; }
+.child          { background: #9077c4; }
+.inner-child    { background: #b0a6c4; }
