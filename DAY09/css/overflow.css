@@ -1,0 +1,23 @@
+/**
+ * display: [none, block, inline, inline-block];
+ * overflow: [visible, hidden, auto, scroll];
+ */
+.parent-box {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 200px;
+  height: 80px;
+  border: 3px solid #aea28f;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+.ovs {
+  overflow: scroll;
+}
+
+.ova {
+  overflow: auto;
+}
