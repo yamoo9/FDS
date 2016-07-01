@@ -35,3 +35,7 @@
 - CSS 레이아웃 속성
 - CSS 리스트 속성
 - CSS 테이블 속성
+
+### 기타/참고
+
+- [HTML5 안티 앨리어싱](http://www.html5rocks.com/ko/tutorials/internals/antialiasing-101/)
