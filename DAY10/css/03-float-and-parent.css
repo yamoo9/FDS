@@ -1,0 +1,68 @@
+.wrapper {
+  float: left;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #eee;
+}
+
+.page-nav {
+  float: left;
+}
+.page-nav ul {
+  float: left;
+}
+.page-nav li {
+  float: left;
+}
+.page-nav a {
+  float: left;
+}
+.page-nav img {
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.parent {
+  /* 방법 1. 부모 요소도 띄워라 float 적용 */
+  float: left;
+  width: 720px;
+  /*height: 100px;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  /*border: 1px solid hsl(180, 3%, 93%);*/
+  background: #efefef;
+}
+
+.child {
+  /* 자식요소들에게 플로트 적용 */
+  float: left;
+  width: 140px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: hsl(0, 0%, 100%);
+}
+
+.child:first-child  { background: hsl(20, 20%, 40%); }
+.child:nth-child(2) {
+  height: 140px;
+  background: hsl(140, 20%, 40%);
+}
+.child:last-child   {
+  /*float: none;*/
+  background: hsl(220, 20%, 40%);
+}
+
