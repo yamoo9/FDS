@@ -29,8 +29,16 @@ body {
   margin-right: 10px;
 }
 
+.image-container.blank-bottom-img img + * {
+  overflow: hidden;
+}
+
 .image-container p {
+  /*float: right;*/
+  /*width: calc(100% - 300px);*/
+  /*overflow: hidden;*/
   margin-bottom: 1.5em;
+  /*padding-left: 310px;*/
   color: #13415b;
   font-size: 0.875rem; /* 14px */
 }
