@@ -10,3 +10,8 @@ ol.reset-list {
   padding-left:  0;
   list-style:    none;
 }
+
+/* 이미지 하단의 공백을 제거하는 속성 */
+img {
+  vertical-align: bottom;
+}
