@@ -29,7 +29,8 @@ body {
   margin-right: 10px;
 }
 
-.image-container.blank-bottom-img img + * {
+.image-container.blank-bottom-img img + *,
+img.blank-bottom + * {
   overflow: hidden;
 }
 
