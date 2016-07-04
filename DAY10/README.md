@@ -98,6 +98,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac magna mauri
 
 ### 기타/참고
 
+- [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/)
+- [Force Element To Self-Clear its Children](https://css-tricks.com/snippets/css/clear-fix/)
 - [CSS 레이아웃을 배웁시다](http://ko.learnlayout.com/toc.html)
 - [All About Floats](https://css-tricks.com/all-about-floats/)
 - [CSS: Clearing Floats with Overflow](http://webdesignerwall.com/tutorials/css-clearing-floats-with-overflow) [#](http://firejune.com/1653/Float+%EC%86%8D%EC%84%B1%EC%9D%98+%EB%86%92%EC%9D%B4+%EB%AC%B8%EC%A0%9C%EB%A5%BC+Overflow%EB%A1%9C+%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94+%EB%B0%A9%EB%B2%95)
