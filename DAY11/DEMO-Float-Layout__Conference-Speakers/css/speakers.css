@@ -1,0 +1,138 @@
+/*! speakers.css © yamoo9.net, 2016 */
+
+/* ----------------------------------------------------
+/* Basic Style */
+html {
+  overflow-y: visible;
+  font-size: 10px;
+}
+body {
+  /*
+  [참고] http://caniuse.com/#search=rem
+  rem 단위 지원: IE 9+
+  font 속기형 작성법에서 rem 단위 지원: IE 11+
+  */
+  font: 1.6rem/1.5 "Open Sans", sans-serif;
+  color: #494949;
+}
+
+/*
+[참고] http://caniuse.com/#search=selection
+::selection 지원: IE 9+
+Firefox는 벤더 프리픽스를 사용해야 함.
+*/
+::selection {
+  background: hsla(33, 9%, 55%, 0.25);
+  color: #484848;
+}
+::-moz-selection {
+  background: hsla(33, 9%, 55%, 0.25);
+  color: #484848;
+}
+
+/* ----------------------------------------------------
+ * .conference-speakers */
+.conference-speakers {
+  width: 120rem;
+  margin: 10rem auto;
+  border: 0.1rem solid #efefef;
+}
+/* ----------------------------------------------------
+ * .speaker */
+.conference-speakers .speaker {
+  float: left;
+  width: 100%;
+}
+.conference-speakers .speaker:hover {
+  background: #fff2e2;
+}
+/* ----------------------------------------------------
+ * .speaker.layout-half */
+.conference-speakers .speaker.layout-half {
+  width: 50%;
+}
+/* ----------------------------------------------------
+ * .speaker-photo */
+.conference-speakers .speaker-photo {
+  float: left;
+  width: 50%;
+  height: auto;
+}
+/* ----------------------------------------------------
+ * .speaker-photo.align-right */
+.conference-speakers .speaker-photo.align-right {
+  float: right;
+}
+/* ----------------------------------------------------
+ * .speaker-bio */
+.conference-speakers .speaker-bio {
+  float: right;
+  width: 50%;
+  position: relative;
+  z-index: 100;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  text-align: center;
+}
+.conference-speakers .speaker-bio::after {
+  position: absolute;
+  top: 60%;
+  left: -2.5rem;
+  border-right: 2.5rem solid #fff2e2;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+}
+.conference-speakers .speaker:hover .speaker-bio::after {
+  content: '';
+}
+/* ----------------------------------------------------
+ * .speaker-bio.arrow-right */
+.conference-speakers .speaker-bio.arrow-right::after {
+  left: 100%;
+  border-right: none;
+  border-left: 2.5rem solid #fff2e2;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+}
+/* ----------------------------------------------------
+ * .speaker-name */
+.conference-speakers .speaker-name {
+  margin-top: 5.5rem;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+/* ----------------------------------------------------
+ * .speaker-desc */
+.conference-speakers .speaker-desc {
+  margin-top: 1.8rem;
+}
+.conference-speakers .speaker-desc::after {
+  content: '';
+  display: block;
+  width: 6rem;
+  margin-top: 1.3rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-top: 0.1rem solid #494949;
+}
+/* ----------------------------------------------------
+ * .speaker-twitter */
+.conference-speakers .speaker-twitter {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-top: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  background: url("../images/sprite-icon-twitter.svg") no-repeat;
+  background-position: left bottom;
+  background-size: 2.4rem;
+}
+.conference-speakers .speaker-twitter:hover,
+.conference-speakers .speaker-twitter:focus {
+  background-position: left top;
+}
+.conference-speakers .speaker-twitter:focus {
+  outline: none;
+}
