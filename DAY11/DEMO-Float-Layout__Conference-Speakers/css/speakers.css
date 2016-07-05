@@ -3,7 +3,7 @@
 /* ----------------------------------------------------
 /* Basic Style */
 html {
-  overflow-y: visible;
+  overflow-y: scroll;
   font-size: 10px;
 }
 body {

@@ -75,6 +75,7 @@ CSS 포지션 속성을 활용하여 __Explode iPhone 레이아웃/애니메이�
 ### 기타/참고
 
 - [CSS 레이아웃을 배웁시다](http://ko.learnlayout.com/toc.html)
+- [마진/패딩 % 설정의 기준은?](http://stackoverflow.com/questions/11003911/why-are-margin-padding-percentages-in-css-always-calculated-against-width)
 - [lucy](http://lucy.29cm.co.kr/hello)
 - [conference](http://themes-pixeden.com/landing/conference/home3.html#home)
 - [trendhunter.com](http://www.trendhunter.com/trends/topshop-x-adidas-originals-ads)
