@@ -4,6 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>상단/하단 바 고정 포지션</title>
+  <link rel="stylesheet" href="../Resources/SpoqaHanSans-kr.css">
   <link rel="stylesheet" href="../Resources/reset.css">
   <link rel="stylesheet" href="../Resources/common.css">
   <link rel="stylesheet" href="css/01-typography.css">
@@ -34,5 +35,18 @@
     <h4>Footer Bar</h4>
   </div>
 
+<script>
+var memory_scrollY = null;
+var header_bar = document.querySelector('#page-header-bar');
+var footer_bar = document.querySelector('#page-footer-bar');
+window.addEventListener('scroll', function(event) {
+  if (memory_scrollY < this.scrollY) {
+    header_bar.style.top = '-100%';
+  } else {
+    header_bar.style.top = 0;
+  }
+  memory_scrollY = this.scrollY;
+});
+</script>
 </body>
 </html>

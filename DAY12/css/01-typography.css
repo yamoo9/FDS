@@ -1,8 +1,8 @@
  body {
    /*font-size: 1em;*/
    min-height: 100vh;
-   margin-left: 20%;
-   margin-right: 20%;
+   /* margin-left: 20%; */
+   /* margin-right: 20%; */
    line-height: 1.5;
    font-family: "Spoqa Han Sans", sans-serif;
    color: #3c3c3c;
@@ -13,16 +13,16 @@
    background-size: 1px 1.5em;
  }
  /**
-  * 본문 디자인
+  * ë³¸ë¬¸ ë””ìžì¸
   */
  h1,h2,h3,h4,h5,h6,p {
    margin-bottom: 1.5em;
  }
 
  /*
-   제목 디자인
-   타입 스케일 배율: x1.25
-   h6 = 기본 글자 크기(16) x 1.25 = 20
+   ì œëª© ë””ìžì¸
+   íƒ€ìž… ìŠ¤ì¼€ì¼ ë°°ìœ¨: x1.25
+   h6 = ê¸°ë³¸ ê¸€ìž í¬ê¸°(16) x 1.25 = 20
    h5 = 20 x 1.25 = 25
    h4 = 25 x 1.25 = 31.25
    .
@@ -32,8 +32,8 @@
 h6 {
  font-size: 1.25em;
  /*
-   STEP 1) 행 개수 = ceil( 글자 크기(1.25) / 기본 행간(1.5) )
-   STEP 2) 행간 = 행 개수 x 기본 행간(1.5) / 글자 크기(1.25)
+   STEP 1) í–‰ ê°œìˆ˜ = ceil( ê¸€ìž í¬ê¸°(1.25) / ê¸°ë³¸ í–‰ê°„(1.5) )
+   STEP 2) í–‰ê°„ = í–‰ ê°œìˆ˜ x ê¸°ë³¸ í–‰ê°„(1.5) / ê¸€ìž í¬ê¸°(1.25)
   */
  line-height: 1.2;
  margin-bottom: 1.2em;
