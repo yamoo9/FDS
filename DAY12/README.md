@@ -367,6 +367,12 @@ body {
     40px auto,
     cover;
 }
+
+#page-header-bar {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
 ```
 
 ---
