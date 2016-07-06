@@ -377,6 +377,8 @@ body {
 - [type-scale](http://type-scale.com/)
 - [modularscale](http://www.modularscale.com/)
 - [gridlover](http://www.gridlover.net/)
+- [Type Anatomy](https://www.supremo.tv/typeterms/)
+- [Kerning Game](http://type.method.ac/)
 
 -
 

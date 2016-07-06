@@ -1,0 +1,99 @@
+html {
+  height: 100%;
+  background: radial-gradient(#3dc3df, #683dc4);
+  /*
+
+  radial-gradient([<shape> at <position>], <color-stop> [<location>], <color-stop>);
+
+  ------------------------------------------------------------------------
+
+  <shape>
+  그라데이션 모양
+  circle (정원) 또는 ellipse (타원) 중 하나.
+  기본값 ellipse
+
+  ------------------------------------------------------------------------
+
+  <position>
+  그라데이션이 그려지는 시작 위치.
+  기본값 center
+
+  ------------------------------------------------------------------------
+
+  <extent-keyword>
+
+  그라데이션이 그려지는 모양을 설정하는 형상 키워드.
+
+    closest-side
+    그라데이션 모양은 중심에서 가장 가까운 그라데이션 박스 모서리에 (circle의 경우) 또는
+    중심에서 가장 가까운 수직과 수평의 가장자리에 (ellipse의 경우) 내접합니다.
+
+    closest-corner
+    그라데이션 모양은 중심에서 가장 가까운 그래디언트 상자의 정점에 접하고 있습니다.
+
+    farthest-side
+    형상이 그 중심에서 가장 먼 쪽 (또는 세로와 가로의 가장자리)에 접하는 것을 제외하고
+    closest-side와 같습니다.
+
+    farthest-corner
+    그라데이션 모양은 중심에서 가장 먼 그래디언트 상자의 정점에 접하고 있습니다.
+  */
+}
+
+body {
+  margin: 0;
+}
+
+.button-set {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 326px;
+  padding: 0.1em;
+  border-radius: 30px;
+  background: #eee;
+  /* Mobile Default Android Browser 50- */
+  -webkit-transform: translate(-50%, -50%);
+  /* MS IE 9 */
+  -ms-transform: translate(-50%, -50%);
+  /* Web Standard */
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 25px #443377;
+  /*box-shadow: inset x y blur spread color;*/
+}
+
+.button-set [class*="button-"] {
+  cursor: pointer;
+  float: left;
+  border: none;
+  padding: 1em 3em;
+  background: #fff;
+  color: #6a6a6a;
+  transition: all 0.3s ease-out;
+}
+
+.button-set [class*="button-"]:hover,
+.button-set [class*="button-"]:focus {
+  color: #4a4a4a;
+  background: #d4d6e5;
+  background: linear-gradient(#fff, transparent 50%);
+  box-shadow: inset 0 -6px 10px hsla(0,0%,0%,.1);
+}
+
+.button-set [class*="button-"]:focus {
+  outline: none;
+}
+
+.button-set [class*="button-"]:first-child {
+  border-radius: 20px 0 0 20px;
+  border-right: 1px solid #e4e4e4;
+}
+
+.button-set [class*="button-"]:last-child {
+  border-radius: 0 20px 20px 0;
+  border-left: 1px solid #e4e4e4;
+}
+
+.button-set [class*="button-"] .fa {
+  margin-right: 0.4em;
+}
