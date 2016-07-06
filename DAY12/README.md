@@ -297,7 +297,7 @@ small, .milli {
 
 ###Position
 
- - `static` : 
+ - `static` :
   - default. 모든 요소의 기본값
  - `relative` :
   - 원래 위치에서 상대적, 주는 속성(top, left, right, bottom)에 따라 이동
@@ -319,7 +319,7 @@ small, .milli {
   - `z-index` 속성값은 양의 정수, 0, 음의 정수 사용가능
   - 1단위가 아닌 10 또는 100단위로 사용하는 것이 유지보수 관점에서 권장된다
 
-####Centering(Vertical, Horizontal)
+####박스 센터 포지셔닝 Centering(Vertical, Horizontal)
 
 ```css
 .box {
@@ -329,17 +329,21 @@ small, .milli {
   transform: translate(-50%, -50%);
   /* MS IE 9 */
   -ms-transform: translate(-50%, -50%);
-  /* Mobile Default Android Browser 50-
+  /* Mobile Default Android Browser 50- */
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 ```
 
-####그림자 효과
+####그림자 효과 Shadow Effect
 
 ```css
-/* box-shadow: outset x y blur spread color; */
-box-shadow: outset 0 6px 5px #eaeaea;
+/* box-shadow: [inset] x y blur spread color; */
+box-shadow: 0 6px 5px #eaeaea; /* 그림자가 바깥쪽 방향으로 생김 */
+box-shadow: inset 0 6px 5px #eaeaea; /* 그림자가 안쪽 방향으로 생김 */
+
+/* text-shadow: x y blur spread color; */
+text-shadow: 0 2px 1px #828282;
 ```
 
 ---
@@ -355,14 +359,14 @@ box-shadow: outset 0 6px 5px #eaeaea;
 <div id="page-footer-bar"><h4>Footer bar</h4></div>
 ```
 ```css
-/* Multibackground. CSS3부터 사용가능 */
+/* 멀티 배경 이미지 삽입(Multibackground). IE 9+ */
 
 body {
-  background: 
-    linear-gradient(45deg, hsla(0,50%,0%,0.3) 50% transparent 50%), 
-    url(" ... "), 
+  background:
+    linear-gradient(45deg, hsla(0,50%,0%,0.3) 50% transparent 50%),
+    url(" ... "),
     url(" ... ") no-repeat center;
-  background-size: 
+  background-size:
     5px 5px,
     40px auto,
     cover;
