@@ -295,6 +295,82 @@ small, .milli {
 
 ---
 
+###Position
+
+ - `static` : 
+  - default. 모든 요소의 기본값
+ - `relative` :
+  - 원래 위치에서 상대적, 주는 속성(top, left, right, bottom)에 따라 이동
+  - 일반 흐름(normal flow)에 영향을 주지 않는다
+ - `absolute` :
+  - offsetParent
+  - 부모 위치에서 상대적, relative 처럼 속성에 따라 이동
+  - 부모 요소는 자격이 필요하다. position 값이 static이 아니고 가장 가까운 요소를 찾는다.
+  - 일반 흐름(normal flow)에 영향을 준다
+  - display 값이 block으로 변경된다.
+  - 일반적으로 `absolute`의 부모에 `relative`를 주는 이유는 일반흐름을 깨지 않기 때문이다.
+  - `float`의 경우 부모요소가 float된 요소를 감쌀 수 있는 방법이 있으나, `absolute`는 height를 지정하여야 한다.
+ - `fixed` :
+  - `absolute`와 유사하게 처리되나 결과는 다르다
+  - 고정형태로 위치가 설정된다. 화면 스크롤과 상관 없이 항상 그 자리르 유지한다.
+
+ - `z-index` :
+  - z-index속성은 반드시 position 속성(static 제외)과 함께 사용된다.
+  - `z-index` 속성값은 양의 정수, 0, 음의 정수 사용가능
+  - 1단위가 아닌 10 또는 100단위로 사용하는 것이 유지보수 관점에서 권장된다
+
+####Centering(Vertical, Horizontal)
+
+```css
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* MS IE 9 */
+  -ms-transform: translate(-50%, -50%);
+  /* Mobile Default Android Browser 50-
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+```
+
+####그림자 효과
+
+```css
+/* box-shadow: outset x y blur spread color; */
+box-shadow: outset 0 6px 5px #eaeaea;
+```
+
+---
+
+###상단/하단 바 고정 포지션
+
+```html
+<div id="page-header-bar"><h4>Header bar</h4></div>
+<main>
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <h1>Lorem ipsum dolor sit amet.</h1>
+</main>
+<div id="page-footer-bar"><h4>Footer bar</h4></div>
+```
+```css
+/* Multibackground. CSS3부터 사용가능 */
+
+body {
+  background: 
+    linear-gradient(45deg, hsla(0,50%,0%,0.3) 50% transparent 50%), 
+    url(" ... "), 
+    url(" ... ") no-repeat center;
+  background-size: 
+    5px 5px,
+    40px auto,
+    cover;
+}
+```
+
+---
+
 ### 모듈러 타이포그래피 도구
 
 - [Typografier](http://typografier.web-dev.tools/)
