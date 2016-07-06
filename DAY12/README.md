@@ -67,6 +67,12 @@ Typography System 제작 결과물
 
 -
 
+##### 타이포그래피 + 버티컬 리듬을 고려한 설계
+
+[![Web-Typography-+-Vertical-Rhythm](../Assets/Web-Typography-+-Vertical-Rhythm.jpg)](Web Typography + Vertical Rhythm.psd)
+
+-
+
 ##### 본문 디자인
 
 ```css
