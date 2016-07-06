@@ -6,74 +6,7 @@
   <title>웹 타이포그래피 + 버티컬 리듬</title>
   <link rel="stylesheet" href="../Resources/SpoqaHanSans-kr.css">
   <link rel="stylesheet" href="../Resources/reset.css">
-  <style>
-    body {
-      /*font-size: 1em;*/
-      min-height: 100vh;
-      margin-left: 20%;
-      margin-right: 20%;
-      line-height: 1.5;
-      font-family: "Spoqa Han Sans", sans-serif;
-      color: #3c3c3c;
-      background: #fff;
-    }
-    body.show-baseline {
-      background-image: linear-gradient(180deg, transparent 95%, #683dc4 95%);
-      background-size: 1px 1.5em;
-    }
-    /**
-     * 본문 디자인
-     */
-    h1,h2,h3,h4,h5,h6,p {
-      margin-bottom: 1.5em;
-    }
-
-    /*
-      제목 디자인
-      타입 스케일 배율: x1.25
-      h6 = 기본 글자 크기(16) x 1.25 = 20
-      h5 = 20 x 1.25 = 25
-      h4 = 25 x 1.25 = 31.25
-      .
-      .
-      .
-    */
-   h6 {
-    font-size: 1.25em;
-    /*
-      STEP 1) 행 개수 = ceil( 글자 크기(1.25) / 기본 행간(1.5) )
-      STEP 2) 행간 = 행 개수 x 기본 행간(1.5) / 글자 크기(1.25)
-     */
-    line-height: 1.2;
-    margin-bottom: 1.2em;
-   }
-   h5 {
-    font-size: 1.5625em;
-    line-height: 1.92;
-    margin-bottom: .96em;
-   }
-   h4 {
-    font-size: 1.953em;
-    line-height: 1.54;
-    margin-bottom: .7681em;
-   }
-   .yota {
-    font-size: 2.441em;
-    line-height: 1.85;
-    margin-bottom: .6146em;
-   }
-   h2, .h2 {
-    font-size: 3.0517em;
-    line-height: 1.48;
-    margin-bottom: .4916em;
-   }
-   h1, .h1 {
-    font-size: 3.8146em;
-    line-height: 1.18;
-    margin-bottom: 0.3933em;
-   }
-
-  </style>
+  <link rel="stylesheet" href="css/01-typography.css">
 </head>
 <body class="show-baseline">
 
@@ -89,17 +22,6 @@
 <h6>도시, 비가 내린다</h6>
 <p>좋고 싫음을 나누고 재방문 의사를 표출한다든지 누군가에게 가보라고 권하는 글은 사유의 결과물이 아니다. 즉, 내 것이 아니라는 얘기다. 그것이 내 것이 되기 위해선 사유가 전제되어야 한다. 같은 음식을 먹어도 왜 그 음식이 특별했는지, 그 음식이 내 인생에 어떻게 작용했는지 등 조금 더 추상적인 것들을 물리적인 글로 치환하는 작업을 거치게 되면, 그 시간에 대한 기억은 더 온전한 형태와 의미를 갖추게 된다. 그리고 그런 일련의 작업들을 꾸준히 하다 보면 모든 순간들에 기승전결이 생기고 전에는 보지 못 했던 것들까지 볼 수 있는 예민하고 디테일한 감성을 가질 수 있게 된다.</p>
 
-<script>
-// 사용자가 Shift + G 키를 누르면
-// 토글 베이스라인이 설정된다.
-document.addEventListener('keydown', function(event) {
-  var shift = event.shiftKey;
-  var key = event.keyCode;
-  if(shift && key === 71) {
-    this.body.classList.toggle('show-baseline');
-  }
-});
-
-</script>
+<script src="js/toggleBaseline.js"></script>
 </body>
 </html>

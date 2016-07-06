@@ -1,0 +1,65 @@
+ body {
+   /*font-size: 1em;*/
+   min-height: 100vh;
+   margin-left: 20%;
+   margin-right: 20%;
+   line-height: 1.5;
+   font-family: "Spoqa Han Sans", sans-serif;
+   color: #3c3c3c;
+   background: #fff;
+ }
+ body.show-baseline {
+   background-image: linear-gradient(180deg, transparent 95%, #683dc4 95%);
+   background-size: 1px 1.5em;
+ }
+ /**
+  * 본문 디자인
+  */
+ h1,h2,h3,h4,h5,h6,p {
+   margin-bottom: 1.5em;
+ }
+
+ /*
+   제목 디자인
+   타입 스케일 배율: x1.25
+   h6 = 기본 글자 크기(16) x 1.25 = 20
+   h5 = 20 x 1.25 = 25
+   h4 = 25 x 1.25 = 31.25
+   .
+   .
+   .
+ */
+h6 {
+ font-size: 1.25em;
+ /*
+   STEP 1) 행 개수 = ceil( 글자 크기(1.25) / 기본 행간(1.5) )
+   STEP 2) 행간 = 행 개수 x 기본 행간(1.5) / 글자 크기(1.25)
+  */
+ line-height: 1.2;
+ margin-bottom: 1.2em;
+}
+h5 {
+ font-size: 1.5625em;
+ line-height: 1.92;
+ margin-bottom: .96em;
+}
+h4 {
+ font-size: 1.953em;
+ line-height: 1.54;
+ margin-bottom: .7681em;
+}
+.yota {
+ font-size: 2.441em;
+ line-height: 1.85;
+ margin-bottom: .6146em;
+}
+h2, .h2 {
+ font-size: 3.0517em;
+ line-height: 1.48;
+ margin-bottom: .4916em;
+}
+h1, .h1 {
+ font-size: 3.8146em;
+ line-height: 1.18;
+ margin-bottom: 0.3933em;
+}
