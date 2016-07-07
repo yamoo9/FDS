@@ -1,0 +1,91 @@
+/*
+#0493D7
+#06B1F5
+#18FFFF
+#026289
+#99F1FF
+#8FDFFF
+#D1F9FF
+#A9E7F1
+#667E87
+#9FAFB5
+*/
+
+/**
+ * --------------------------------
+ * Grid Overlay
+ * ----------------------------- */
+body.show-grid::before {
+  content: '';
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(transparent 95%, #fc414b 95%);
+  background-size: 1px 24px;
+}
+
+
+/**
+ * --------------------------------
+ * .page-header
+ * ----------------------------- */
+.page-header {
+  height: 144px;
+  background: #06B1F5;
+}
+
+.page-header::before {
+  display: block;
+  content: '';
+  height: 24px;
+  background: #0493D7;
+}
+
+.page-header .brand {
+  float: left;
+  margin-top: 36px;
+  width: 220px;
+  height: 48px;
+  background: #18FFFF;
+}
+
+.page-header .gnb {
+  float: right;
+  margin-top: 48px;
+}
+
+.page-header .gnb li {
+  float: left;
+  margin-left: 30px;
+}
+
+.page-header .gnb a {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  width: 94px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  background: #026289;
+  color: rgba(255,255,255,0.2);
+}
+
+.page-header .gnb a:focus {
+  outline: 3px solid #fff;
+  color: #fff;
+}
+
+/**
+ * --------------------------------
+ * Common Grid Style Module
+ * ----------------------------- */
+.wrapper {
+  width: 940px;
+  height: 96px;
+  margin-left: auto;
+  margin-right: auto;
+}
