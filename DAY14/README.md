@@ -32,7 +32,7 @@
 
 ```
 ```css
-/* 위의 방식은 container가 없을 경우 그리드가 보이지 않게 된다. */
+/* 코드 최적화 */
 
 body.overlay-grid::after {
 	content: '';
@@ -44,7 +44,7 @@ body.overlay-grid::after {
 	transform: translateX(-50%);
 }
 
-body.oberlay-grid::after,
+body.overlay-grid::after,
 .container {
 	width: 960px;
 	margin-left: auto;
