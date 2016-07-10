@@ -52,15 +52,15 @@ body.overlay-grid::after,
    margin-right: 10px;
  }
 
- .col-1  { width: 60px;  }
- .col-2  { width: 140px; }
- .col-3  { width: 220px; }
- .col-4  { width: 300px; }
- .col-5  { width: 380px; }
- .col-6  { width: 460px; }
- .col-7  { width: 540px; }
- .col-8  { width: 620px; }
- .col-9  { width: 700px; }
- .col-10 { width: 780px; }
- .col-11 { width: 860px; }
- .col-12 { width: 940px; }
+ .col-1  { width: 60px;  }  /* 계산식: 60*1+(20*(1-1))px   */
+ .col-2  { width: 140px; }  /* 계산식: 60*2+(20*(2-1))px   */
+ .col-3  { width: 220px; }  /* 계산식: 60*3+(20*(3-1))px   */
+ .col-4  { width: 300px; }  /* 계산식: 60*4+(20*(4-1))px   */
+ .col-5  { width: 380px; }  /* 계산식: 60*5+(20*(5-1))px   */
+ .col-6  { width: 460px; }  /* 계산식: 60*6+(20*(6-1))px   */
+ .col-7  { width: 540px; }  /* 계산식: 60*7+(20*(7-1))px   */
+ .col-8  { width: 620px; }  /* 계산식: 60*8+(20*(8-1))px   */
+ .col-9  { width: 700px; }  /* 계산식: 60*9+(20*(9-1))px   */
+ .col-10 { width: 780px; }  /* 계산식: 60*10+(20*(10-1))px */
+ .col-11 { width: 860px; }  /* 계산식: 60*11+(20*(11-1))px */
+ .col-12 { width: 940px; }  /* 계산식: 60*12+(20*(12-1))px */
