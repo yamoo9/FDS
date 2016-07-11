@@ -21,13 +21,17 @@
 }
 
 .grid-container.show-grid::before {
-  background: hsla(60, 50%, 50%, 0.3);
   background:
     linear-gradient(90deg, rgba(191, 64, 64, 0.3) 81%, rgba(0, 0, 0, 0) 81%),
-    linear-gradient(rgba(0, 0, 0, 0) 26px, #26923f 26px);
-  background-size:
-    160px 1px,
-    1px 1.6875rem;
+    linear-gradient(transparent 26px, #26923f 26px);
+    background-size: 160px 1px, 1px 1.6875rem;
+}
+
+.grid-container.show-grid-split::before {
+  background:
+    linear-gradient(90deg, transparent 8.4%, rgba(191, 64, 64, 0.3) 8.4%, rgba(191, 64, 64, 0.3) 91.6%, transparent 91.6%),
+    linear-gradient(transparent 26px, #26923f 26px);
+    background-size: 156.25px 1px, 1px 1.6875rem;
 }
 
 
@@ -48,7 +52,7 @@
  * Unit Module
  * ----------------------------- */
 .grid [class*="unit-"] { float: left; margin-right: 30px; }
-.grid [class*="unit-"]:last-child, .last, .omega { margin-right: 0; }
+.grid .last, .grid .omega { margin-right: 0; }
 .grid .unit-1 { width: 130px; }
 .grid .unit-2 { width: 290px; }
 .grid .unit-3 { width: 450px; }
@@ -57,3 +61,30 @@
 .grid .unit-6 { width: 930px; }
 .grid .unit-7 { width: 1090px; }
 .grid .unit-8 { width: 1250px; }
+
+/**
+ * --------------------------------
+ * Push, Pull Module
+ * ----------------------------- */
+.grid [class*="push-"],
+.grid [class*="pull-"] {
+  position: relative;
+}
+
+.push-1 { left: 160px; }
+.push-2 { left: 320px; }
+.push-3 { left: 480px; }
+.push-4 { left: 640px; }
+.push-5 { left: 800px; }
+.push-6 { left: 960px; }
+.push-7 { left: 1120px; }
+.push-8 { left: 1280px; }
+
+.pull-1 { right: 160px; }
+.pull-2 { right: 320px; }
+.pull-3 { right: 480px; }
+.pull-4 { right: 640px; }
+.pull-5 { right: 800px; }
+.pull-6 { right: 960px; }
+.pull-7 { right: 1120px; }
+.pull-8 { right: 1280px; }
