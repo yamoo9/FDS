@@ -57,89 +57,37 @@
   float: left;
   margin-right: 30px;
 }
-.grid .last, .grid .omega {
-  margin-right: 0;
-}
-.grid .unit-1 {
-  width: 130px;
-}
-.grid .unit-2 {
-  width: 290px;
-}
-.grid .unit-3 {
-  width: 450px;
-}
-.grid .unit-4 {
-  width: 610px;
-}
-.grid .unit-5 {
-  width: 770px;
-}
-.grid .unit-6 {
-  width: 930px;
-}
-.grid .unit-7 {
-  width: 1090px;
-}
-.grid .unit-8 {
-  width: 1250px;
-}
+.grid .last, .grid .omega { margin-right: 0; }
+.grid .unit-1 { width: 130px; }
+.grid .unit-2 { width: 290px; }
+.grid .unit-3 { width: 450px; }
+.grid .unit-4 { width: 610px; }
+.grid .unit-5 { width: 770px; }
+.grid .unit-6 { width: 930px; }
+.grid .unit-7 { width: 1090px; }
+.grid .unit-8 { width: 1250px; }
 
 /**
  * --------------------------------
  * Push, Pull Module
  * ----------------------------- */
-.grid [class*="push-"], .grid [class*="pull-"] {
-  position: relative;
-}
-.grid .push-1 {
-  left: 160px;
-}
-.grid .push-2 {
-  left: 320px;
-}
-.grid .push-3 {
-  left: 480px;
-}
-.grid .push-4 {
-  left: 640px;
-}
-.grid .push-5 {
-  left: 800px;
-}
-.grid .push-6 {
-  left: 960px;
-}
-.grid .push-7 {
-  left: 1120px;
-}
-.grid .push-8 {
-  left: 1280px;
-}
-.grid .pull-1 {
-  right: 160px;
-}
-.grid .pull-2 {
-  right: 320px;
-}
-.grid .pull-3 {
-  right: 480px;
-}
-.grid .pull-4 {
-  right: 640px;
-}
-.grid .pull-5 {
-  right: 800px;
-}
-.grid .pull-6 {
-  right: 960px;
-}
-.grid .pull-7 {
-  right: 1120px;
-}
-.grid .pull-8 {
-  right: 1280px;
-}
+.grid [class*="push-"], .grid [class*="pull-"] { position: relative; }
+.grid .push-1 { left: 160px; }
+.grid .push-2 { left: 320px; }
+.grid .push-3 { left: 480px; }
+.grid .push-4 { left: 640px; }
+.grid .push-5 { left: 800px; }
+.grid .push-6 { left: 960px; }
+.grid .push-7 { left: 1120px; }
+.grid .push-8 { left: 1280px; }
+.grid .pull-1 { right: 160px; }
+.grid .pull-2 { right: 320px; }
+.grid .pull-3 { right: 480px; }
+.grid .pull-4 { right: 640px; }
+.grid .pull-5 { right: 800px; }
+.grid .pull-6 { right: 960px; }
+.grid .pull-7 { right: 1120px; }
+.grid .pull-8 { right: 1280px; }
 
 /**
  * --------------------------------
