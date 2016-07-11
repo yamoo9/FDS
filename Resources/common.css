@@ -22,6 +22,16 @@ img.blank-bottom + * {
   overflow: hidden;
 }
 
+img.flex-img {
+  width: 100%;
+  height: auto;
+}
+
+img.horizontal-center-img {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
 /* 클리어 픽스 */
 .clearfix::after,
 .cf::after {
