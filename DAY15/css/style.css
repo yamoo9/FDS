@@ -1,4 +1,4 @@
-/*! style.css © yamoo9.net, 2016 */
+/*! style.css Ãƒâ€šÃ‚Â© yamoo9.net, 2016 */
 
 ::selection {
   background: #8dcbe0;
@@ -33,7 +33,9 @@ h1 {
   font-size: 3rem;
   font-weight: 200;
   color: #212121;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6875rem;
+  margin-top: 0;
+  line-height: 5.0625rem;
 }
 
 h1 a {
@@ -50,4 +52,13 @@ h1 a:focus {
 
 a {
   color: #3498db;
+}
+
+.page {
+  padding-top: 3rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.6875rem;
 }
