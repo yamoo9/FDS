@@ -124,9 +124,9 @@
 /* 기본 링크 스타일 */
 a {
   text-decoration: none;
-  <!-- padding-bottom: 2px; -->
+  /* padding-bottom: 2px; */
   padding-bottom: 0.125rem;
-  <!-- border-bottom: 1px solid; -->
+  /* border-bottom: 1px solid; */
   border-bottom-width: 0.0625rem solid;
 }
 
