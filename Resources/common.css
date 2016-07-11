@@ -1,6 +1,6 @@
-/*! common.css © yamoo9.net, 2016 */
+/*! common.css Â© yamoo9.net, 2016 */
 
-/* 목록 초기화 재사용 가능한 스타일 모듈 */
+/* ëª©ë¡ ì´ˆê¸°í™” ìž¬ì‚¬ìš© ê°€ëŠ¥í•œ ìŠ¤íƒ€ì¼ ëª¨ë“ˆ */
 .reset-list ul,
 .reset-list ol,
 ul.reset-list,
@@ -11,12 +11,12 @@ ol.reset-list {
   list-style:    none;
 }
 
-/* 이미지 하단의 공백을 제거하는 속성 */
+/* ì´ë¯¸ì§€ í•˜ë‹¨ì˜ ê³µë°±ì„ ì œê±°í•˜ëŠ” ì†ì„± */
 img {
   vertical-align: bottom;
 }
 
-/* 이미지 하단에 공백을 형성하여 옆으로 배치되는 글들이 동일한 공간을 가질 수 있도록 설정 */
+/* ì´ë¯¸ì§€ í•˜ë‹¨ì— ê³µë°±ì„ í˜•ì„±í•˜ì—¬ ì˜†ìœ¼ë¡œ ë°°ì¹˜ë˜ëŠ” ê¸€ë“¤ì´ ë™ì¼í•œ ê³µê°„ì„ ê°€ì§ˆ ìˆ˜ ìžˆë„ë¡ ì„¤ì • */
 .blank-bottom-img img + *,
 img.blank-bottom + * {
   overflow: hidden;
@@ -32,7 +32,7 @@ img.horizontal-center-img {
   transform: translateX(-50%);
 }
 
-/* 클리어 픽스 */
+/* í´ë¦¬ì–´ í”½ìŠ¤ */
 .clearfix::after,
 .cf::after {
   content: '';
@@ -43,4 +43,22 @@ img.horizontal-center-img {
 .lt-ie8 .clearfix,
 .lt-ie8 .cf {
   zoom: 1;
+}
+
+.readable-hidden {
+  overflow: hidden;
+  /* position: absolute; */
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+}
+.readable-hidden.focusable:focus {
+  overflow: visible;
+  position: static;
+  clip:     auto;
+  width:    auto;
+  height:   auto;
+  margin:   0;
 }
