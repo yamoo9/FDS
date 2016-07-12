@@ -83,3 +83,110 @@ button.slide-from-bottom::after {
   top: 100%;
   bottom: -100%;
 }
+
+/* button.grow-* */
+button[class*="grow-"] {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border: 4px solid #46d1aa;
+  padding: 0.725em 0.9em;
+  background: #46d1aa;
+  color: #0d392d;
+}
+
+button[class*="grow-"]::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #4ff5c0;
+  transition: all 0.3s;
+}
+
+button.button-round[class*="grow-"]::before {
+  border-radius: 1.5px;
+}
+
+button.button-rounder[class*="grow-"]::before {
+  border-radius: 3px;
+}
+
+button.button-roundest[class*="grow-"]::before {
+  border-radius: 6px;
+}
+
+button.grow-rectangle::before {
+  transform: scale(0);
+}
+
+button.grow-rectangle:hover::before,
+button.grow-rectangle:focus::before {
+  transform: scale(1);
+}
+
+button.grow-ellipse::before {
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+button.grow-ellipse:hover::before,
+button.grow-ellipse:focus::before {
+  transform: scale(1.6);
+}
+
+button.grow-circle::before {
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  transform: scale(0);
+}
+
+button.grow-circle:hover::before,
+button.grow-circle:focus::before {
+  transform: scale(1.6);
+}
+
+button.grow-skew::before {
+  left: 50%;
+  right: 50%;
+  transform: skewX(45deg);
+}
+button.grow-skew:hover::before,
+button.grow-skew:focus::before {
+  left: -20%;
+  right: -20%;
+}
+
+button.grow-skew-45::before {
+  left: 20%;
+  right: 80%;
+  transform: skewX(-45deg);
+}
+button.grow-skew-45:hover::before,
+button.grow-skew-45:focus::before {
+  left: -20%;
+  right: -20%;
+}
+
+button.grow-spin::before {
+  transform: rotate(-180deg) scale(0);
+}
+button.grow-spin:hover::before,
+button.grow-spin:focus::before {
+  transform: rotate(0deg) scale(1);
+}
+
+button.grow-spin-ccw::before {
+  transform: rotate(180deg) scale(0);
+}
+button.grow-spin-ccw:hover::before,
+button.grow-spin-ccw:focus::before {
+  transform: rotate(0deg) scale(1);
+}
