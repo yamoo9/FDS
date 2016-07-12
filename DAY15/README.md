@@ -1,3 +1,7 @@
+###### Front-End Develop SCHOOL
+
+# DAY 15
+
 ###Unit Module
 
 ```css
@@ -34,10 +38,10 @@
   width: 100%;
   height: 100vh;
   background: hsla(60, 50%,50%, 0.3);
-  background: 
+  background:
     linear-gradient(90deg, rgba(191, 64,64, 0.3) 81%,transparent 81%),
     linear-gradient(rgba(0,0,0,0) 26px, #26923f 26px);
-  background-size: 160px 1px, 1px 1.6875rem; 
+  background-size: 160px 1px, 1px 1.6875rem;
 }
 ```
 

@@ -30,7 +30,7 @@ a {
 
 .fade-bg:hover,
 .fade-bg:focus {
-  background: #65b1e3;
+  background: #1c80dc;
   color: #fff;
 }
 
@@ -60,7 +60,7 @@ a[class*="slide-"]::after {
   content: attr(data-linktext);
   position: absolute;
   width: 100%;
-  background: #1f74bf;
+  background: #1c80dc;
   color: #fff;
   transition: all 0.25s;
   text-align: center;
@@ -110,6 +110,7 @@ a.slide-from-bottom:focus::after {
  * .fade-underline
  */
 
+
 /**
  * ---------------------------------
  * 언더라인 슬라이드(← → ↔)
@@ -117,3 +118,4 @@ a.slide-from-bottom:focus::after {
  * .underline-from-right
  * .underline-from-center
  */
+
