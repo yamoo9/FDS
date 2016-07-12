@@ -109,7 +109,20 @@ a.slide-from-bottom:focus::after {
  * 언더라인 페이드
  * .fade-underline
  */
+.fade-underline {
+  border-bottom: 2px solid transparent;
+  /* 장면 전환: A → B, B → A */
+  /* transition: 속성 지속시간 움직임유형 지연시간; */
+  transition: all .25s ease;
+  /* 언제 animation 사용해야 하나? */
+  /* 별도의 사용자 인터랙션 없이 처음부터 움직임을 제어하려면 animation */
+  /* keyframe 기반으로 애니메이션 제어를 하려면 animation */
+}
 
+.fade-underline:hover,
+.fade-underline:focus {
+  border-bottom-color: currentColor;
+}
 
 /**
  * ---------------------------------
@@ -118,4 +131,55 @@ a.slide-from-bottom:focus::after {
  * .underline-from-right
  * .underline-from-center
  */
+a[class*="underline-"] {
+  position: relative;
+  /*overflow: hidden;*/
+  /*display: inline-block;*/
+  /*vertical-align: bottom;*/
+  /*padding-bottom: 0;*/
+  border-bottom: none;
+}
 
+a[class*="underline-"]::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  /*width: 100%;*/
+  border-bottom: 2px solid currentColor;
+  transition: all 0.3s;
+}
+
+a.underline-from-left::before {
+  /*left: -100%;*/
+  left: 0;
+  right: 100%;
+}
+
+a.underline-from-left:hover::before,
+a.underline-from-left:focus::before {
+  /*left: 0;*/
+  left: 0;
+  right: 0%;
+}
+
+a.underline-from-right::before {
+  left: 100%;
+  right: 0;
+}
+
+a.underline-from-right:hover::before,
+a.underline-from-right:focus::before {
+  left: 0;
+  right: 0;
+}
+
+a.underline-from-center::before {
+  left: 50%;
+  right: 50%;
+}
+
+a.underline-from-center:hover::before,
+a.underline-from-center:focus::before {
+  left: 0;
+  right: 0;
+}
