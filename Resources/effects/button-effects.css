@@ -1,2 +1,85 @@
 @charset "utf-8";
 /*! button-effects.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * .button
+ * 버튼 기본 모듈
+ * ----------------------------- */
+.button {
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid #939393;
+  padding: 0.65em 0.85em;
+  background: #ececec;
+  color: #122122;
+  font-size: 1rem;
+}
+
+/* .button-3d */
+.button.button-3d {
+  border-bottom: none;
+  box-shadow:
+    1px 1px 1px #939393,
+    2px 2px 1px #939393,
+    3px 3px 1px #939393,
+    4px 4px 2px #939393,
+    5px 5px 3px #939393;
+}
+
+.button-round { border-radius: 3px; }
+.button-rounder { border-radius: 6px; }
+.button-roundest { border-radius: 12px; }
+
+/* button.slide-from-* */
+button[class*="slide-"] {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border: 5px solid #4a43af;
+  background: #4a43af;
+  color: #fff;
+}
+button[class*="slide-"]::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: #6655fb;
+  transition: all 0.3s;
+}
+
+button[class*="slide-"]:hover::after,
+button[class*="slide-"]:focus::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+button.slide-from-left::after {
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+}
+
+button.slide-from-right::after {
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  right: -100%;
+}
+
+button.slide-from-top::after {
+  left: 0;
+  right: 0;
+  top: -100%;
+  bottom: 100%;
+}
+
+button.slide-from-bottom::after {
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+}

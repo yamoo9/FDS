@@ -159,7 +159,7 @@ a.underline-from-left:hover::before,
 a.underline-from-left:focus::before {
   /*left: 0;*/
   left: 0;
-  right: 0%;
+  right: 0;
 }
 
 a.underline-from-right::before {
