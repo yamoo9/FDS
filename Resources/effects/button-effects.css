@@ -180,7 +180,7 @@ button.grow-spin::before {
 }
 button.grow-spin:hover::before,
 button.grow-spin:focus::before {
-  transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(2);
 }
 
 button.grow-spin-ccw::before {
@@ -188,5 +188,5 @@ button.grow-spin-ccw::before {
 }
 button.grow-spin-ccw:hover::before,
 button.grow-spin-ccw:focus::before {
-  transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(2);
 }

@@ -3,7 +3,7 @@
  * 1280 - 30 = 1250px
  * base-font-size: 0.9375rem (18px)
  * base-leading-ratio: 1.5; // 18 * 1.5 = 27px
- * gutter-direction: after; // margin-right Ã¬â€šÂ¬Ã¬Å¡Â©
+ * gutter-direction: after; // margin-right ÃƒÂ¬Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¬Ã…Â¡Ã‚Â©
  */
 
 /**
@@ -22,7 +22,7 @@
   height: 500vh;
 }
 .grid-container.show-grid::before {
-  background: linear-gradient(90deg, rgba(191, 64, 64, 0.3) 81%, rgba(0, 0, 0, 0) 81%), linear-gradient(transparent 26px, #26923f 26px);
+  background: linear-gradient(90deg, rgba(191, 64, 64, 0.3) 80%, rgba(0, 0, 0, 0) 80%), linear-gradient(rgba(0, 0, 0, 0) 26px, #26923f 26px);
   background-size: 160px 1px, 1px 1.6875rem;
 }
 .grid-container.show-grid-split::before {
