@@ -4,3 +4,11 @@ body {
   font: 0.875rem/1.5rem "Spoqa Han Sans", sans-serif;
   color: #202020;
 }
+
+.column {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  background-clip: content-box;
+  background-origin: content-box;
+}

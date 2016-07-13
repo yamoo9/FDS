@@ -106,3 +106,18 @@
 .unit-5-12 { width: 41.66666666666667%; }
 .unit-7-12 { width: 58.333333333333336%; }
 .unit-11-12 { width: 91.66666666666666%; }
+
+/**
+ * --------------------------------
+ * 거터 모듈 .gutter
+ */
+.gutter,
+.gutter-group [class*="unit-"] {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.grid .no-gutter {
+  padding-left: 0;
+  padding-right: 0;
+}
