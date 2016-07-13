@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Masonry Layout</title>
+  <link rel="stylesheet" href="../Resources/common.css">
+  <style>
+    /*참고 URL: CSS3 Multiple column layout(http://caniuse.com/#feat=multicolumn) */
+    .masonry-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      column-gap: 1.5rem;
+      line-height: 1.5rem;
+    }
+    .masonry-container .masonry-item {
+      display: inline-block;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .masonry-container .masonry-item h2 {
+      margin-bottom: 0.625rem;
+      line-height: 1;
+      font-weight: 100;
+    }
+
+    .masonry-container .masonry-item p {
+      margin: 0;
+      text-align: justify;
+      font-size: 0.8125rem;
+      color: #434433;
+    }
+
+    .masonry-container .masonry-item img {
+      margin-bottom: 1.5rem;
+    }
+
+    @media only screen and (min-width: 25rem) {
+        .masonry-container {
+            -moz-column-count: 1;
+            -webkit-column-count: 1;
+            column-count: 1;
+        }
+    }
+
+    @media only screen and (min-width: 37.5rem) {
+        .masonry-container {
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+        }
+    }
+
+    @media only screen and (min-width: 43.75rem) {
+        .masonry-container {
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+            column-count: 3;
+        }
+    }
+
+    @media only screen and (min-width: 56.25rem) {
+        .masonry-container {
+            -moz-column-count: 4;
+            -webkit-column-count: 4;
+            column-count: 4;
+        }
+    }
+
+    @media only screen and (min-width: 68.75rem) {
+        .masonry-container {
+            -moz-column-count: 5;
+            -webkit-column-count: 5;
+            column-count: 5;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="masonry-container">
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x200/000/fff/?text=1" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 보기만 꽃보다 너 쿵쿵대는 설레는 숨소리가 흐르는 찬란한 아름답다 가슴을 내일의, 아름다운 장엄한 실수조차도 고동소리 않고 청춘아! 어디에나 거추장스런 엮어가는 빛나는 햇볕처럼 피어나는 씩씩하게 젊음의 소리.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x300/000/fff/?text=2" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 쿵쿵대는 운동화도 햇볕처럼 다 들리는 만들, 설레게 피어나는 거추장스런 그대 해도! 만들 티셔츠 청춘, 설레게 찬란한 너 세상을 아름답다 눈부신 하루를 빛나는 않고 하고, 가슴을 씩씩하게 땀 꽃처럼 해도 피어나는 다 들리는 내일의. 운동화도 찬란한 설레는 엮어가는 심장, 젊음의 세상을 내일의 눈부신 그대 티셔츠 청춘 쉬지, 사명으로 만들.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x200/000/fff/?text=3" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 내일의 설레는 고동소리 장엄한 청춘아! 너야말로 흐르는 그대 꽃보다 아름답다 빛나는 찬란한, 청춘의 너, 않고 숨 죽여도 거추장스런 가슴을 해도! 쿵쿵대는 심장 운동화도, 햇볕처럼 청춘의 설레게 피어나는 엮어가는 티셔츠 눈부신 그대 실수조차도. 아름답다 청춘의 쿵쿵대는 청춘 내일의 빛나는 세상을 소리 않고 티셔츠 하고 청춘아!! 아름다운 너 젊음의 꽃처럼 만들 땀 씩씩하게 찬란한 흐르는, 청춘아! 엮어가는 해도 가슴을.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x400/000/fff/?text=4" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 사명으로 아름답다 아름다운 청춘 꽃처럼, 고동소리 흐르는 심장 눈부신 않고 세상을 실수조차도! 운동화도 설레는, 해도? 꽃처럼, 고동소리. 보기만 피어나는 실수조차도 만들 다 들리는 거추장스런 설레는, 소리 청춘아!. 피어나는 가슴을 쉬지 아름답다, 엮어가는 청춘의 땀 운동화도! 너야말로 않고 장엄한 가슴을 거추장스런, 소리 만들 햇볕처럼 아름답다 청춘 티셔츠 고동소리 숨 죽여도, 설레는 아름다운 하고 어디에나 흐르는 세상을 꽃보다 숨소리가 청춘아! 해도 땀. 청춘의 꽃처럼 청춘아!, 다 들리는 어디에나 하고 티셔츠 눈부신, 꽃보다 실수조차도 심장 청춘 젊음의 쿵쿵대는, 숨소리가 세상을 설레는 너?</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x100/000/fff/?text=5" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 청춘아! 빛나는, 숨소리가! 피어나는 사명으로 내일의 다 들리는 하고 씩씩하게, 청춘 빛나는 흐르는 땀. 하루를 내일의 하고 거추장스런 씩씩하게 설레는 피어나는 쉬지 어디에나 너야말로 아름답다, 찬란한 땀 장엄한 세상을 햇볕처럼 만들 소리 실수조차도 운동화도, 숨소리가 다 들리는 않고 고동소리 젊음의? 땀, 너. 장엄한 흐르는 심장 땀 쉬지, 사명으로 어디에나 쿵쿵대는 엮어가는 보기만 햇볕처럼 않고 실수조차도 운동화도 꽃처럼 티셔츠 내일의 젊음의 눈부신 찬란한 설레는 숨 죽여도 청춘아! 아름답다 하고! 눈부신, 햇볕처럼 땀 그대. 않고 땀 숨 죽여도 피어나는. 소리 다 들리는 찬란한 청춘, 세상을 숨 죽여도 만들 하루를 티셔츠 눈부신 가슴을 꽃보다 설레게 숨소리가 않고 엮어가는 청춘의, 아름답다 씩씩하게 심장. 보기만 소리, 너?</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x300/000/fff/?text=6" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 소리 숨 죽여도, 사명으로 티셔츠 않고 다 들리는 쿵쿵대는 숨소리가 청춘의 세상을 흐르는, 젊음의 눈부신 꽃처럼. 해도, 다 들리는?</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x200/000/fff/?text=7" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 눈부신 쉬지 세상을 햇볕처럼 해도 청춘아! 빛나는 엮어가는 운동화도 내일의, 젊음의, 설레는 가슴을 꽃처럼 거추장스런 너야말로 티셔츠 청춘의 찬란한 사명으로. 어디에나 설레게 쉬지, 해도 내일의 눈부신 찬란한 않고 청춘 사명으로 심장 하고 햇볕처럼 만들 고동소리 운동화도.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x200/000/fff/?text=8" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 소리 빛나는 청춘 만들 피어나는 거추장스런 너 해도 하루를 찬란한 설레는 다 들리는 운동화도 쉬지 눈부신 아름답다 장엄한, 가슴을 그대, 젊음의 실수조차도 내일의 꽃보다 쿵쿵대는 너야말로. 청춘.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x400/000/fff/?text=9" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 쿵쿵대는 청춘 꽃보다, 하고 고동소리 눈부신 땀, 씩씩하게 찬란한 그대 청춘아! 빛나는 않고 엮어가는, 너 햇볕처럼 숨 죽여도. 그대 하루를 가슴을 운동화도 엮어가는 어디에나 청춘 다 들리는 쉬지 해도 흐르는? 청춘의 꽃처럼 보기만 꽃보다. 씩씩하게 청춘아! 엮어가는 어디에나 설레게 내일의, 거추장스런 실수조차도 땀 찬란한 청춘의 가슴을 그대 쿵쿵대는.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x300/000/fff/?text=10" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 하고 젊음의, 운동화도 거추장스런, 설레게 해도 다 들리는 숨 죽여도 햇볕처럼 고동소리 어디에나 너 땀 않고. 설레게 쿵쿵대는 고동소리, 실수조차도 운동화도 청춘 거추장스런. 햇볕처럼 꽃보다 너 아름다운 장엄한, 설레게 다 들리는 쿵쿵대는 만들 청춘아! 씩씩하게 거추장스런 보기만 티셔츠 설레는 사명으로 그대, 흐르는 하루를 고동소리 너야말로 않고, 가슴을 젊음의. 쿵쿵대는 꽃처럼 고동소리 하루를 아름다운 꽃보다 사명으로, 세상을 장엄한 눈부신 청춘아! 피어나는 엮어가는 숨소리가, 설레는 빛나는 보기만 내일의, 그대 않고 흐르는.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x100/000/fff/?text=11" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 설레게 아름답다, 않고 그대 쉬지 너야말로, 흐르는 장엄한 운동화도 청춘아! 하루를 빛나는 가슴을 꽃처럼 내일의 청춘의 피어나는 숨 죽여도 해도 하고 쿵쿵대는 소리 씩씩하게 눈부신 청춘 어디에나 만들, 햇볕처럼 땀? 내일의, 가슴을 그대. 너 설레게 장엄한, 만들! 찬란한 쉬지 청춘아!, 햇볕처럼 숨 죽여도 하고 씩씩하게 아름답다 보기만 사명으로!</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x200/000/fff/?text=12" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 사명으로 해도, 티셔츠 소리 않고 흐르는? 꽃보다 그대 티셔츠 꽃처럼 심장. 눈부신 그대 엮어가는 보기만 땀 햇볕처럼. 거추장스런 내일의 햇볕처럼 사명으로 빛나는 가슴을 고동소리, 쿵쿵대는 너야말로 어디에나 해도 너, 않고, 찬란한 청춘 눈부신 씩씩하게 설레게, 다 들리는?</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x400/000/fff/?text=13" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 만들 보기만 엮어가는, 쉬지 숨소리가, 다 들리는 않고 씩씩하게 아름답다, 세상을 그대 꽃보다 눈부신 어디에나 심장 티셔츠 쿵쿵대는 장엄한 너 청춘아! 내일의 땀 숨 죽여도 설레게 거추장스런 설레는 피어나는 운동화도 고동소리. 청춘의 하루를 너야말로 엮어가는 거추장스런 꽃처럼 세상을, 청춘아! 쿵쿵대는 보기만 청춘, 빛나는 쉬지, 내일의 심장 장엄한 다 들리는.</p>
+    </div>
+    <div class="masonry-item">
+      <h2>headline</h2>
+      <img class="flex-img" src="http://placehold.it/400x300/000/fff/?text=14" alt="">
+      <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 운동화도 꽃보다 심장 다 들리는 청춘, 너 티셔츠, 않고 어디에나 세상을, 내일의 설레게 땀 하루를 사명으로 거추장스런.</p>
+    </div>
+  </div>
+
+</body>
+</html>
