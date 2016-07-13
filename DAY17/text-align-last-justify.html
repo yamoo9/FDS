@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 텍스트 양쪽 정렬</title>
+  <link href="css/jua-hanna.css" rel="stylesheet">
+  <style>
+    ::-moz-selection {
+      background: #000;
+      color: #fff;
+    }
+
+    ::selection {
+      background: #000;
+      color: #fff;
+    }
+
+    body {
+      margin: 3rem;
+    }
+
+    .jua {
+        font-family:'BM JUA','배달의민족 주아',sans-serif;
+    }
+    .hana{
+        font-family:'BM HANNA','배달의민족 한나', sans-serif;
+    }
+
+    .align-last-justify {
+      width: 20rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+      /* 참고 URL: http://caniuse.com/#search=text-align-last */
+      -moz-text-align-last: justify;
+      text-align-last: justify;
+      font-weight: 900;
+      font-size: 6rem;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="align-last-justify hana">잘 먹 고 잘 살 자</p>
+
+</body>
+</html>

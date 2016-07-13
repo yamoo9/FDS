@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Sprite Animation DEMO</title>
+  <style>
+    body {
+      margin: 4.5rem;
+    }
+
+    .sprite-anim-demo {
+      border: 1px solid #999;
+      height: 100px;
+      width: 100px;
+      background: url("images/Sprite-Image-demo.png") no-repeat;
+      animation: ziglezigle steps(9) 1s infinite;
+    }
+
+    @keyframes ziglezigle {
+      0% { background-position-x: 0; }
+      /*10% { background-position-x: -100px; }
+      20% { background-position-x: -200px; }
+      30% { background-position-x: -300px; }
+      40% { background-position-x: -400px; }
+      50% { background-position-x: -500px; }
+      60% { background-position-x: -600px; }
+      70% { background-position-x: -700px; }
+      80% { background-position-x: -800px; }
+      90% { background-position-x: -900px; }*/
+      100% { background-position-x: -900px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sprite-anim-demo"></div>
+
+</body>
+</html>

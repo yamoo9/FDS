@@ -1,2 +1,108 @@
 @charset "utf-8";
 /*! grid-fluid(flexable).css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 컨테이너 모듈 .grid
+ */
+.grid::before,
+.grid::after {
+  content: '';
+  display: table;
+}
+.grid::after {
+  clear: both;
+}
+
+/**
+ * --------------------------------
+ * 유닛 모듈 .unit-{$divide-number}-{$units}
+ */
+[class*="unit-"] {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+}
+
+.unit-1-2,
+.unit-2-4,
+.unit-3-6,
+.unit-4-8,
+.unit-5-10,
+.unit-6-12 { width: 50%; }
+
+.unit-1-3,
+.unit-2-6,
+.unit-3-9,
+.unit-4-12 { width: 33.3333%; }
+
+.unit-2-3,
+.unit-4-6,
+.unit-6-9,
+.unit-8-12 { width: 66.6667%; }
+
+.unit-1-4,
+.unit-2-8,
+.unit-3-12 { width: 25%; }
+
+.unit-3-4,
+.unit-6-8,
+.unit-9-12 { width: 75%; }
+
+.unit-1-5,
+.unit-2-10 { width: 20%; }
+
+.unit-2-5,
+.unit-4-10 { width: 40%; }
+
+.unit-3-5,
+.unit-6-10 { width: 60%; }
+
+.unit-4-5,
+.unit-8-10 { width: 80%; }
+
+.unit-1-6,
+.unit-2-12 { width: 16.666666667%; }
+
+.unit-5-6,
+.unit-10-12 { width: 83.333333333%; }
+
+.unit-1-7 { width: 14.285714286%; }
+.unit-2-7 { width: 28.571428571%; }
+.unit-3-7 { width: 42.857142857%; }
+.unit-4-7 { width: 57.142857143%; }
+.unit-5-7 { width: 71.428571429%; }
+.unit-6-7 { width: 85.714285714%; }
+
+.unit-1-8 { width: 12.5%; }
+.unit-3-8 { width: 37.5%; }
+.unit-5-8 { width: 62.5%; }
+.unit-7-8 { width: 87.5%; }
+
+.unit-1-9 { width: 11.11111111111111%; }
+.unit-2-9 { width: 22.22222222222222%; }
+.unit-4-9 { width: 44.44444444444444%; }
+.unit-5-9 { width: 55.55555555555556%; }
+.unit-7-9 { width: 77.77777777777779%; }
+.unit-8-9 { width: 88.88888888888889%; }
+
+.unit-1-10 { width: 10%; }
+.unit-3-10 { width: 30%; }
+.unit-7-10 { width: 70%; }
+.unit-9-10 { width: 90%; }
+
+.unit-1-11 { width: 9.090909090909092%; }
+.unit-2-11 { width: 18.181818181818183%; }
+.unit-3-11 { width: 27.27272727272727%; }
+.unit-4-11 { width: 36.36363636363637%; }
+.unit-5-11 { width: 45.45454545454545%; }
+.unit-6-11 { width: 54.54545454545454%; }
+.unit-7-11 { width: 63.63636363636363%; }
+.unit-8-11 { width: 72.72727272727273%; }
+.unit-9-11 { width: 81.81818181818183%; }
+.unit-10-11 { width: 90.9090909090909%; }
+
+.unit-1-12 { width: 90.9090909090909%; }
+.unit-5-12 { width: 41.66666666666667%; }
+.unit-7-12 { width: 58.333333333333336%; }
+.unit-11-12 { width: 91.66666666666666%; }
