@@ -46,10 +46,46 @@ GREAT NAVIGATION IS GREAT UX
 - [makr.com](https://makr.com/)
 - [blog.crazyegg.com](https://blog.crazyegg.com/)
 
+
 ##### Video BG
 - [holzweiler.no](https://www.holzweiler.no/)
 - [clebee.net](https://www.clebee.net/)
 - [bvaccel.com](https://www.bvaccel.com/)
+
+```html
+<section id="holzweiler-header">
+  
+</section>
+<section id="holzweiler-go-shop">
+  <a href="#">
+    <!-- autoplay: 자동재생, loop: 무한반복 -->
+    <video autoplay loop src="...">
+      <!-- IE 8- 에서는 대체할 수 있는 기술 또는 문구를 삽입 -->
+    </video>
+  </a>
+</section>
+```
+```css
+#holzweiler-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  background: rgba(255,255,255, 0.3);
+}
+#holzweiler-go-shop {
+  
+}
+#holzweiler-go-shop a {
+  display: block;
+}
+#holzweiler-go-shop video {
+  width: 100%;
+}
+```
+
 
 -
 
