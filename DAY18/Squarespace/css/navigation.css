@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+/**
+ * --------------------------------
+ * #squarespace-header
+ * ----------------------------- */
+#squarespace-header {
+  box-sizing: border-box;
+  padding-top: 2.25rem;
+  padding-left: 4rem;
+  background: url("../images/hero-desktop.jpg") center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* #sqarespace-brand */
+#sqarespace-brand {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 4.375rem;
+  width: 10.625rem;
+  height: 1.625rem;
+}
+
+#sqarespace-brand a {
+  display: block;
+}
+
+#sqarespace-brand img {
+  vertical-align: top;
+}
+
+/* #squarespace-gnb */
+#squarespace-gnb {
+  position: relative;
+  top: -2px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+#squarespace-gnb li {
+  float: left;
+  margin-right: 3rem;
+}
+
+#squarespace-gnb a {
+  display: block;
+  position: relative;
+  padding-bottom: 0.12em;
+  font-weight: 200;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#squarespace-gnb a:focus {
+  /*outline: none;*/
+}
+
+#squarespace-gnb a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 100%;
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s;
+}
+
+#squarespace-gnb a:hover::before,
+#squarespace-gnb a:focus::before,
+#squarespace-gnb a.active::before {
+  left: 0;
+  right: 0;
+}
