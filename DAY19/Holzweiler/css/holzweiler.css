@@ -174,6 +174,10 @@
   padding-bottom: 0;
 }
 
+#holzweiler-header .holzweiler-unb .depth-2 {
+  min-width: 40px;
+}
+
 #holzweiler-header a {
   border-bottom: 1px solid transparent;
   padding-bottom: 0.1em;
@@ -281,6 +285,7 @@
 #holzweiler-notice button:focus,
 #holzweiler-header a:focus,
 #holzweiler-go-shop a:focus {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
+  outline: none;
+  /*outline: 3px solid #fff;
+  outline-offset: 2px;*/
 }
