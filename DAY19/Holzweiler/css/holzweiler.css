@@ -143,6 +143,37 @@
   margin-right: 1rem;
 }
 
+/* depth-2 */
+#holzweiler-header .depth-2 {
+  display: none;
+  position: absolute;
+  top: 1.5em;
+  min-width: 142px;
+  padding: 1em;
+  background: #272223;
+}
+
+/* .depth-1 a:hover + .depth-2 */
+/*#holzweiler-header .depth-1 a:hover + .depth-2,
+#holzweiler-header .depth-1 a:focus + .depth-2 {
+  display: block;
+}*/
+/* .depth-1 > li:hover .depth-2 */
+#holzweiler-header .depth-1 > li:hover {
+  padding-bottom: 1em;
+}
+#holzweiler-header .depth-1 > li:hover .depth-2 {
+  display: block;
+}
+
+#holzweiler-header .depth-2 li {
+  margin-bottom: 0.475em;
+}
+
+#holzweiler-header .depth-2 a {
+  padding-bottom: 0;
+}
+
 #holzweiler-header a {
   border-bottom: 1px solid transparent;
   padding-bottom: 0.1em;
@@ -250,5 +281,6 @@
 #holzweiler-notice button:focus,
 #holzweiler-header a:focus,
 #holzweiler-go-shop a:focus {
-  outline: none;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }

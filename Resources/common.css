@@ -37,11 +37,6 @@ img.horizontal-center-img {
   clear: both;
 }
 
-.lt-ie8 .clearfix,
-.lt-ie8 .cf {
-  zoom: 1;
-}
-
 .readable-hidden {
   overflow: hidden;
   position: absolute;
