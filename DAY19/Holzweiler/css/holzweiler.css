@@ -1,0 +1,254 @@
+@charset "utf-8";
+/*! holzweiler.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * #holzweiler-notice
+ * ----------------------------- */
+ .fixed-sticky-bottom {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background: #231f20;
+  color: #fff;
+}
+
+#holzweiler-notice a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.1em;
+  transition: all 0.3s;
+  font-size: 1.375rem;
+  font-weight: 100;
+}
+
+#holzweiler-notice a:hover,
+#holzweiler-notice a:focus {
+  border-bottom-color: #fff;
+}
+
+.fixed-sticky-bottom .holzweiler-close-button {
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  border: none;
+  background: none;
+  width: 20px;
+  height: 20px;
+}
+
+.fixed-sticky-bottom .holzweiler-close-button::before,
+.fixed-sticky-bottom .holzweiler-close-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 1px;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.fixed-sticky-bottom .holzweiler-close-button::before {
+  transform: rotate(45deg);
+}
+
+.fixed-sticky-bottom .holzweiler-close-button::after {
+  transform: rotate(-45deg);
+}
+
+.fixed-sticky-bottom .holzweiler-close-button:hover::before,
+.fixed-sticky-bottom .holzweiler-close-button:hover::after,
+.fixed-sticky-bottom .holzweiler-close-button:focus::before,
+.fixed-sticky-bottom .holzweiler-close-button:focus::after {
+  transform: rotate(0deg);
+}
+
+/**
+ * --------------------------------
+ * #holzweiler-header
+ * ----------------------------- */
+#holzweiler-header {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  /*background: rgba(255,255,255,0.4);*/
+}
+
+#holzweiler-header .holzweiler-brand {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin: 0;
+  width: 270px;
+  transform: translateX(-50%);
+}
+
+#holzweiler-header .holzweiler-brand a {
+  position: relative;
+  display: block;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+#holzweiler-header .holzweiler-brand a:focus::before,
+#holzweiler-header .holzweiler-brand a:focus::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #fff;
+}
+
+#holzweiler-header .holzweiler-brand a:focus::before {
+  left: -8%;
+  border-left: 1px solid #fff;
+  transform: rotate(-45deg);
+}
+
+#holzweiler-header .holzweiler-brand a:focus::after {
+  right: -8%;
+  border-right: 1px solid #fff;
+  transform: rotate(45deg);
+}
+
+#holzweiler-header .holzweiler-gnb,
+#holzweiler-header .holzweiler-unb {
+  position: absolute;
+  top: 42px;
+}
+
+#holzweiler-header .holzweiler-gnb {
+  left: 70px;
+}
+
+#holzweiler-header .holzweiler-unb {
+  right: 70px;
+}
+
+#holzweiler-header .depth-1 > li {
+  float: left;
+  position: relative;
+  margin-right: 1rem;
+}
+
+#holzweiler-header a {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.1em;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#holzweiler-header a:hover,
+#holzweiler-header a:focus {
+  border-bottom-color: currentColor;
+}
+
+#holzweiler-header a.shopping-cart {
+  opacity: 0.5;
+}
+
+/**
+ * --------------------------------
+ * #holzweiler-go-shop
+ * ----------------------------- */
+#holzweiler-go-shop {
+  position: relative;
+  z-index: 1;
+  height: calc(100vh - 110px);
+  text-align: center;
+}
+
+#holzweiler-go-shop a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+#holzweiler-go-shop a::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -1.5%;
+  transition: all .3s ease;
+  background: transparent;
+}
+
+#holzweiler-go-shop a:focus::before {
+  background:
+    linear-gradient(45deg, transparent 50%, #000 50%, #000 51%, transparent 51%),
+    linear-gradient(-45deg, transparent 50%, #000 50%, #000 51%, transparent 54%),
+    hsla(0, 0%, 0%, 0.5);
+  background-size:
+    10px 10px,
+    10px 10px,
+    100% 100%;
+}
+
+#holzweiler-go-shop .wrapper {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#holzweiler-go-shop h3 {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: 200;
+  font-size: 80px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+#holzweiler-go-shop span {
+  font-weight: 100;
+}
+
+#holzweiler-go-shop .go-arrow {
+  position: relative;
+  vertical-align: -1px;
+  left: 3px;
+  transition: all 0.3s;
+}
+
+#holzweiler-go-shop a:hover .go-arrow {
+  left: 6px;
+}
+
+#holzweiler-go-shop video {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/**
+ * --------------------------------
+ * Focus - Outline None
+ * ----------------------------- */
+#holzweiler-notice a:focus,
+#holzweiler-notice button:focus,
+#holzweiler-header a:focus,
+#holzweiler-go-shop a:focus {
+  outline: none;
+}
