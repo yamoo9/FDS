@@ -10,3 +10,14 @@
 - [CSS Tricks.com - Using Multi-Step Animations and Transitions](https://css-tricks.com/using-multi-step-animations-transitions/)
 - [CSS Tricks.com - Animation Tricks: State Jumping, Negative Delays, Animating Origin, and More](https://css-tricks.com/css-animation-tricks/)
 - [CSS Tricks.com - Shake Css Keyframe Animation](https://css-tricks.com/snippets/css/shake-css-keyframe-animation/)
+- [easings.net](http://easings.net/)
+
+```css
+트랜지션 속성: <transition-property>: color | background | transform | all
+트랜지션 지속시간: <transition-duration>: 400ms | 0.3s
+트랜지션 이징 함수: <transition-timing>-function: linear | ease | ease-in | ease-out
+트랜지션 지연시간: <transition-delay>: 400ms | 0.3s
+
+트랜지션 속기형 작성법
+transition: (property | all) 1s ease 0.3s
+```
