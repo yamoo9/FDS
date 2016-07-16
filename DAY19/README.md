@@ -8,7 +8,7 @@
 
 포토샵 action을 이용한다
 
-![Photoshop Export Action](./Assets/PhotoShop_Export_Action.jpg)
+![Photoshop Export Action](../Assets/PhotoShop_Export_Action.jpg)
 
  - 창(window) 항목의 액션(action) 선택
  - 처음 액션을 등록한다면 그룹을 먼저 만들기를 추천
