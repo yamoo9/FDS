@@ -8,15 +8,15 @@
 
 ###Flexible Video
 
-####HTML5 <video>
+####HTML5 &lt;video&gt;
 
  - Flexible Image와 방법이 유사
 
-####Youtube, Vimeo 비디오 파일( <iframe>, <object>, <embed> )
+####Youtube, Vimeo 비디오 파일( iframe, object, embed )
 
- - <iframe> 을 감싸는 컨테이너 요소가 필요
- - position 속성 필요(<iframe>요소는 `absolute` 부모요소는 `relative`)
- - <iframe>요소에 `top: 0; width: 100%; height: 100%;`
+ - &lt;iframe&gt; 을 감싸는 컨테이너 요소가 필요
+ - position 속성 필요(iframe요소는 `absolute` 부모요소는 `relative`)
+ - iframe요소에 `top: 0; width: 100%; height: 100%;`
  - 부모 컨테이너 요소에는 `height: 0; padding-bottom: *스크린비율`
 
 ```html
