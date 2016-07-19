@@ -4,7 +4,25 @@
 
 ### 반응형 웹 디자인 (RWD)
 
+-
 
+### Sublime Text ─ Snippet
+
+```xml
+<snippet>
+  <content><![CDATA[@media
+  (-webkit-min-device-pixel-ratio: ${1:2}),
+  (min--moz-device-pixel-ratio: ${1:2}),
+  (min-resolution: ${1:2}dppx),
+  (min-resolution: 96*${1:2}$2dpi)
+{
+  $0
+}]]></content>
+  <tabTrigger>retina/</tabTrigger>
+  <scope>source.css</scope>
+  <description>Bitmap 고해상도 이미지 미디어쿼리 구문</description>
+</snippet>
+```
 
 -
 
