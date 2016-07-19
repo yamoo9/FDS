@@ -20,9 +20,46 @@ img.blank-bottom + * {
   overflow: hidden;
 }
 
-img.flex-img {
+
+/* 콘텐츠 이미지(<img>)에 적용되는 Fluid Image */
+img.rwd-img,
+video.rwd-video {
   width: 100%;
   height: auto;
+}
+
+/* 배경 이미지(CSS)에 적용되는 Fluid BG Image */
+.rwd-img-3-4 {
+  width: 100%;
+  padding-bottom: 75%;
+  background-size: cover;
+  background-position: center center;
+}
+.rwd-img-9-16 {
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.rwd-media-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  /*
+    스크린 비율(가로x세로)
+    4:3  = 75%
+    16:9 = 56.25%
+    21:9 = 42.857142857%;
+  */
+  /*padding-top: 30px;*/
+  padding-bottom: 56.25%;
+}
+.rwd-media {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 img.horizontal-center-img {

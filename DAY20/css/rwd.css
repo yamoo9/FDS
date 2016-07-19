@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*! RWD.css © yamoo9.net, 2016 */
+
+/*
+ * Fluid Grid
+ * -----------------------------------
+ * target:content = result
+ * 450px:1200px = 37.5%
+ */
+
+/*
+ * Flexible Image
+ * -----------------------------------
+ * [ Content Image ]
+ * width: 100%;
+ * height: auto;
+ *
+ * [ Keep Scale Image ]
+ * max-width: 100%;
+ *
+ * [ BG Image ]
+ * width: 100%;
+ * padding-bottom: 40%; 800x320 => 40%
+ *
+ * [ Crop Image ]
+ * ※ BG Image 방식에 height 고정
+ */
+
+/*
+ * Flexible Video
+ * -----------------------------------
+ * HTML5 <video>
+ * ※ Flexible Image와 방법이 유사.
+ *
+ * Youtube, Vimeo 비디오 파일 <iframe>, <object>, <embed>
+ * <iframe>을 감싸는 컨테이너 요소가 필요.
+ *
+ */
+
+
+
+/* Media Qeueries / Breakpoint */
