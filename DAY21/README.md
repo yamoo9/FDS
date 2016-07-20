@@ -266,9 +266,9 @@ __3 컬럼 레이아웃__을 디자인한다고 가정.
   color: #fff
 }
 
-/* 본래 사용하는 float 방식
+/* 본래 사용하는 float 방식 */
 .box-float {
-  margin-right: calc ( 12.8% * 0.19 );
+  margin-right: calc( 12.8% * 0.19 );
 }
 
 .box-isolate {
