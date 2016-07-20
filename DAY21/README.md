@@ -382,13 +382,13 @@ flex: none;
 - align-items
   - flex-start
   - center
-  - felx-end
+  - flex-end
   - baseline
   - stretch
 - align-self
   - flex-start
   - center
-  - felx-end
+  - flex-end
   - baseline
   - stretch
 - align-content
