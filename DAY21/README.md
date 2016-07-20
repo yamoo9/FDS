@@ -90,7 +90,13 @@ float: left;
 width: 25%;
 ```
 
+##### Chrome vs Firefox, Safari, Windows 2008
+
 ![](../Assets/sub-pixel-bug.gif)
+
+##### Chrome vs Firefox, Safari, MacOS 2016
+
+![](../Assets/sub-pixel-2016-mac.jpg)
 
 ```css
 .container {
