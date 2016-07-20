@@ -90,7 +90,7 @@ float: left;
 width: 25%;
 ```
 
-##### Chrome vs Firefox, Safari, Windows 2008
+##### Opera vs Safari vs IE vs Firefox, Windows 2008
 
 ![](../Assets/sub-pixel-bug.gif)
 
