@@ -54,6 +54,7 @@ html {
     /* 박스 크기 설정 */
     box-sizing: border-box;
     /* 텍스트 크기 조정 설정 */
+    /* iOS와 IE 버그로 인해 삽입된 코드, Nomalize 에서도 볼 수 있다. */
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -233,6 +234,58 @@ __3 컬럼 레이아웃__을 디자인한다고 가정.
 
 ![isolate-설명-09](https://github.com/yamoo9-Lab/sass-workflow/raw/2015.11/Class%20[2015.11]/DATA/DAY15/images/isolate/isolate-explain-9.png)
 
+```html
+<div class="grid-container show-grid">
+  <div class="grid">
+    <div class="box box-float">1</div>
+    <div class="box box-float">2</div>
+    <div class="box box-float">3</div>
+    <div class="box box-float">4</div>
+  </div>
+</div>
+<div class="grid-container show-grid">
+  <div class="grid">
+    <div class="box box-isolate isolate-order-1">A</div>
+    <div class="box box-isolate isolate-order-2">B</div>
+    <div class="box box-isolate isolate-order-3">C</div>
+    <div class="box box-isolate isolate-order-4">D</div>
+  </div>
+</div>
+```
+```css
+.grid {
+  margin-bottom: calc( 27px * 1 );
+}
+.box {
+  float: left;
+  width: calc( 12.8% * 0.81 );
+  height: calc( 27px *2 );
+  text-align: center;
+  line-height: calc( 27px * 2 );
+  background: #aaa;
+  color: #fff
+}
+
+/* 본래 사용하는 float 방식
+.box-float {
+  margin-right: calc ( 12.8% * 0.19 );
+}
+
+.box-isolate {
+  /* 핵심 코드 */
+  margin-right: -100%;
+}
+
+.isolate-order-1 { margin-left: calc( 12.8% * 0 )}
+.isolate-order-2 { margin-left: calc( 12.8% * 1 )}
+.isolate-order-3 { margin-left: calc( 12.8% * 2 )}
+.isolate-order-4 { margin-left: calc( 12.8% * 3 )}
+```
+
+####장점
+ - 오더 값 주기 좋다
+ - 서브 픽셀 렌더링 버그 해결
+
 -
 
 #### 참고
@@ -344,6 +397,83 @@ flex: none;
   - flex-end
   - space-between
   - space-around
+
+```html
+<div class="flex-container">
+  <div class="flex-items item-1">Flexbox 1</div>
+  <div class="flex-items item-2">Flexbox 2</div>
+  <div class="flex-items item-3">Flexbox 3</div>
+</div>
+```
+```css
+.flex-container {
+  /* 앞 뒤로 inline 혹은 block 컨텐츠를 넣어서 inline-flex 와의 차이를 테스트 해보자 */
+  display: flex;
+  flex-direction: row-reverse;
+  /* 넘치는 박스는 아래로 떨어진다 */
+  flex-wrap: wrap;
+  /* 정 중앙, 센터박스 */
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  height: 500px;
+  border: 5px solid #333;
+  padding: 0.625rem;
+}
+.flex-items {
+  width: 100px;
+  background: #333;
+  color: #fff;
+}
+
+.item-1 { height: 50px }
+.item-2 { height: 120px }
+.item-3 { height: 800px }
+
+/* 중앙 정렬 모듈화 */
+center-x-y {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+####HTML 기본 레이아웃
+```html
+<header>Header</header>
+<main>
+  <section>section</section>
+  <aside class="side-A">aside A</aside>
+  <aside class="side-B">aside B</aside>
+</main>
+<footer>
+```
+```css
+header, footer {
+  heigth: 100px;
+  background: yellow;
+}
+main {
+  display: flex;
+  background: #aaa;
+  borer: 2px solid;
+}
+section {
+  order: 2;
+  background: #1179fe;
+  flex-basis: 300px;
+  flex-grow: 1;
+}
+.side-A {
+  background: #29ea3e;
+  order: 1;
+}
+.side-B {
+  background: #c8123e;
+  order: 3;
+}
+
+```
 
 ---
 
