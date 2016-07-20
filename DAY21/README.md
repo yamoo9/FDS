@@ -376,7 +376,7 @@ flex: none;
 - justify-content
   - flex-start
   - center
-  - felx-end
+  - flex-end
   - space-between
   - space-around
 - align-items
