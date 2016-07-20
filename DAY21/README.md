@@ -350,6 +350,7 @@ flex: none;
 ### 기타/참고
 
 - [Flexbox Video Tutorial by yamoo9](https://www.youtube.com/watch?v=f_c_8LmGQ-4)
+- [CSS Tricks, A Guide To Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [solved-by-flexbox](http://philipwalton.github.io/solved-by-flexbox/)
 - [flexboxgrid](http://flexboxgrid.com/)
 - [bootstrap4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)
