@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS3 Flexbox Layout</title>
+  <link rel="stylesheet" href="../Resources/common.css">
+  <link rel="stylesheet" href="../Resources/initialization/normalize.css">
+  <style>
+    body {
+      margin: 3rem;
+    }
+    .center-x-y {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      /*display: inline-flex;*/
+      /*flex-direction: row;*/
+      /*flex-direction: row-reverse;*/
+      /*flex-direction: column;*/
+      /*flex-direction: column-reverse;*/
+      /*flex-wrap: nowrap;*/
+      /*flex-wrap: wrap;*/
+      /*flex-wrap: wrap-reverse;*/
+      /*flex-flow: row nowrap;*/
+      /*flex-flow: wrap column;*/
+      margin: 2rem 0;
+      height: 400px;
+      border: 5px solid #333;
+      padding: 0.625rem;
+    }
+    .flex-items {
+      width: 100px;
+      background: #333;
+      color: #fff;
+    }
+    .item-1 { /*height: 50px;*/ background: #f0a518; }
+    .item-2 { /*height: 120px;*/ background: #1eb1ec; }
+    .item-3 { /*height: 80px;*/ background: #e90058; }
+  </style>
+</head>
+<body>
+
+  <div>
+    <img src="http://placehold.it/400x200/000/fff/?text=normal flow M" alt="normal flow M" width="400" height="200">
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-items item-1 center-x-y">Flexbox 1</div>
+    <div class="flex-items item-2 center-x-y">Flexbox 2</div>
+    <div class="flex-items item-3 center-x-y">Flexbox 3</div>
+  </div>
+
+  <img src="http://placehold.it/400x200/ff0/232323/?text=normal flow V" alt="normal flow V" width="400" height="200">
+
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, voluptatem aspernatur non quam ullam laudantium enim dolores tempora deserunt facere.</p>
+    <p>Eius vel, nihil expedita quam amet nemo ex reiciendis vero ipsam nostrum, accusamus earum omnis enim minus placeat sint necessitatibus.</p>
+    <p>Quas perferendis suscipit omnis officia consequatur voluptatem praesentium obcaecati eligendi consequuntur unde hic inventore dolor, autem, aliquid ducimus consectetur facere.</p>
+    <p>Est accusantium neque quia sit omnis facere harum vero magnam voluptatibus nulla modi quis aliquid laborum voluptas minima, quas iure!</p>
+    <p>Incidunt excepturi ipsum architecto amet cupiditate totam quos maxime, adipisci vero, nihil recusandae deserunt, accusantium, in eligendi corporis magnam voluptate.</p>
+    <p>Repellat nesciunt animi at reprehenderit modi repellendus quisquam tempora, iure similique aut fuga porro corporis numquam praesentium, tenetur incidunt sed.</p>
+    <p>Vel accusantium vitae, soluta! Sunt, dolore officia id, nesciunt iusto earum? Velit distinctio soluta eveniet rerum similique, ratione quam dolore.</p>
+    <p>Ipsum quisquam, nemo non autem quae a dolor quam ut soluta, ab voluptatibus mollitia, expedita saepe consectetur tempora ea maiores?</p>
+  </div>
+
+</body>
+</html>
