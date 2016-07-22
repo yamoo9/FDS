@@ -1,0 +1,140 @@
+// 한 줄 주석
+
+// sass VS scss
+// sass 문법과 scss 문법은 한 줄 주석은 동일!
+
+/*
+ Multi
+ line
+ Comment
+ */
+
+// ※ 여러 줄 주석 사용 시 주의 점!
+// sass VS scss
+// scss 문법과 달리 sass 문법은 여러 줄 주석 사용 시, 끝나는 부분 앞에 공백이 한 개 존재해야 함!
+
+
+//
+ * --------------------------------
+ * 중첩 규칙
+ * & 부모 참조 선택자
+.page
+  .page-header
+    position: relative
+    height: 20vh
+  .brand
+    overflow: hidden
+    position: absolute
+    left: 100%
+    a
+      color: #fc414b
+      // 기본적으로 중첩된 구조 내에서 &를 사용할 경우,
+      // 부모를 참조하는 형태로 사용되나...
+      .chrome &:hover
+        color: #6b141c
+      &:focus,
+      &:active
+        outline: none
+      & span
+        font-weight: 900
+  // 다음과 같이 & 뒤에 선택자 이름 형태로 붙게 될 경우,
+  // 중첩된 요소의 하위가 아닌, 개별적인 모듈로 확장되는 것으로 가늠.
+  // 가장 상위 요소의 바로 아래 하위에서만 발생하는 현상으로 보임.
+  // &-sample
+  //   background: #333
+  //   a
+  //     color: #34c0ff
+  //     &:focus
+  //       color: #123c54
+
+
+
+/* 중첩 속성 */
+.page
+  margin: 20px 0 10px
+    left: 40px
+  // margin:
+  //   top: 20px
+  //   right: 10px
+  //   bottom: 0px
+  //   left: auto
+
+  font: 1rem/1.5 "Spoqa Han Sans", sans-serif
+    weight: 200
+    variant: small-caps
+
+  // font:
+  //   size: 1rem
+  //   weight: 600
+  //   style: oblique
+  //   variant: small-caps
+  //   family: "Spoqa Han Sans", sans-serif
+
+  border:
+    top:
+      color: red
+      style: solid
+      width: 2px
+    bottom:
+      color: transparent
+      style: solid
+      width: 2px
+    right:
+      color: hotpink
+      style: dashed
+      width: 2px
+
+//
+ * --------------------------------
+ * Sass 중첩 규칙 + 미디어쿼리
+
+aside.page-sidebar
+  float: left
+  width: 100%
+  @media (min-width: 600px)
+    width: 45%
+  @media (min-width: 1100px)
+    width: 33.3333%
+
+//
+ * --------------------------------
+ * 선택자 상속(Selector Inheritance)
+
+$button-radius: 2px
+$button-align: center
+$button-gap: 0.6em
+$button-default-color: #eaeaea
+$button-primary-color: #e30d4f
+$button-secondary-color: #8200dc
+
+%button
+  display: inline-block
+  padding: $button-gap 1em
+  background: $button-default-color
+  text-align: $button-align
+  &.primary
+    background: $button-primary-color
+    color: lighten($button-primary-color, 30%)
+  &.secondary
+    background: $button-secondary-color
+    color: lighten($button-secondary-color, 30%)
+  &.round
+    border-radius: $button-radius
+  &.rounder
+    border-radius: $button-radius * 2
+  &.roundest
+    border-radius: $button-radius * 4
+
+.button-error
+  @extend .buttons !optional
+  background: #f00
+  color: #fff
+  border: 3px solid darken(#f00, 42%)
+
+
+.yamoo9-button
+  @extend %button
+.adolf-button
+  @extend %button
+.kurid-button
+  @extend %button

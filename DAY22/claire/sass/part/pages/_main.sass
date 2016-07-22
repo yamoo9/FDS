@@ -1,0 +1,21 @@
+main
+  margin-bottom: $gap
+  background: $color-yellow
+
+  [class*="content-"]
+    float: left
+    height: 600px
+
+  .content-left
+    width: 380px
+    margin-right: 20px
+    background: $color-pink
+
+  .content-right
+    width: 780px
+    background: $color-sky
+
+  &::after
+    display: block
+    content: ''
+    clear: both

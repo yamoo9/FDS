@@ -1,0 +1,3 @@
+@import url(normalize.css);body{margin:0}.warp{width:1180px;margin-left:auto;margin-right:auto}.navigation{height:120px;margin-bottom:24px;background:#806cfe}main{margin-bottom:24px;background:#ff0}main [class*="content-"]{float:left;height:600px}main .content-left{width:380px;margin-right:20px;background:#fe6c99}main .content-right{width:780px;background:#18ffff}main::after{display:block;content:'';clear:both}.footer{height:96px;background:#747475}
+
+/*# sourceMappingURL=../map/style.css.map */

@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/*
+ Multi
+ line
+ Comment
+ */
+.page .page-header {
+  position: relative;
+  height: 20vh;
+}
+
+.page .brand {
+  overflow: hidden;
+  position: absolute;
+  left: 100%;
+}
+
+.page .brand a {
+  color: #fc414b;
+}
+
+.chrome .page .brand a:hover {
+  color: #6b141c;
+}
+
+.page .brand a:focus, .page .brand a:active {
+  outline: none;
+}
+
+.page .brand a span {
+  font-weight: 900;
+}
+
+/* 중첩 속성 */
+.page {
+  margin: 20px 0 10px;
+  margin-left: 40px;
+  font: 1rem/1.5 "Spoqa Han Sans", sans-serif;
+  font-weight: 200;
+  font-variant: small-caps;
+  border-top-color: red;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-right-color: hotpink;
+  border-right-style: dashed;
+  border-right-width: 2px;
+}
+
+aside.page-sidebar {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  aside.page-sidebar {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1100px) {
+  aside.page-sidebar {
+    width: 33.3333%;
+  }
+}
+
+.yamoo9-button, .adolf-button, .kurid-button {
+  display: inline-block;
+  padding: 0.6em 1em;
+  background: #eaeaea;
+  text-align: center;
+}
+
+.primary.yamoo9-button, .primary.adolf-button, .primary.kurid-button {
+  background: #e30d4f;
+  color: #f990b1;
+}
+
+.secondary.yamoo9-button, .secondary.adolf-button, .secondary.kurid-button {
+  background: #8200dc;
+  color: #c776ff;
+}
+
+.round.yamoo9-button, .round.adolf-button, .round.kurid-button {
+  border-radius: 2px;
+}
+
+.rounder.yamoo9-button, .rounder.adolf-button, .rounder.kurid-button {
+  border-radius: 4px;
+}
+
+.roundest.yamoo9-button, .roundest.adolf-button, .roundest.kurid-button {
+  border-radius: 8px;
+}
+
+.button-error {
+  background: #f00;
+  color: #fff;
+  border: 3px solid #290000;
+}
+
+/*# sourceMappingURL=../map/style.css.map */
