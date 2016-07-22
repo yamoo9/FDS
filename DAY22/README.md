@@ -125,9 +125,195 @@ $ node-sass -w sass/ -o css/
 
 -
 
+###Sourcemap
+
+Chrome 에서는 모듈화된 `{sass, scss}` 파일과 컴파일된 `css` 파일을 매핑시켜 준다.
+ - 개발도구 - settings - source 항목에서 `Enable JavaScript source maps`, `Enable CSS source maps`를 체크해준다
+ - `--source-map [폴더명]` 옵션으로 소스맵 파일을 만들 수 있다.
+
+-
+
+###Syntax
+
+```html
+<div class="page">
+  <header class="page-header">
+    <h1 class="brand">Sass is Awesome!!</h1>
+  </header>
+</div>
+```
+```sass
+// style.sass
+
+.page
+  margin:
+    //중첩 속성
+    top: 20px
+    right: 10px
+    bottom: 0px
+    left: auto
+
+  font:
+    size: 1rem
+    weight: 600
+
+  // 속기형
+  font: 1rem/1.5 "Spoqa Han Sans", sans-serif
+    weight: 200
+    variant: small-caps
+
+  .page-header
+    position: relative
+    height: 20vh
+
+  .brand
+    overflow: hidden
+    position: absolute
+    left: 100%
+    a
+      color: #fc414b
+      // & <- 부모 참조 선택자, 중첩된 구조에서 사용
+      &:hover
+        color: #6b141c
+      // 하위 선택자 블럭 안에서도 상위 요소에대한 참조가 가능
+      .ho-woo &:hover
+
+  // 다음과 같이 & 뒤에 선택자 이름 형태로 붙게 될 경우
+  // 중첩된 요소의 하위가 아닌, 개별적인 모듈로 확장되는 것으로 확인됨
+  // 아직 연구 및 정리가 필요함
+  $-sample
+    a
+      color: #34c0ff
+      &:hover
+
+
+/*
+ Sass 중첩 규칙 + 미디어 쿼리
+ */
+aside.page-sidebar
+  float: left
+  width: 100%
+  @media (min-width: 600px)
+    width:45%
+  @media (min-width: 1100px)
+    width: 33.3333%
+
+
+/*
+ 선택자 상속
+ */
+
+$button-radius: 4px
+$button-align: center
+$button-gap: 0.6em
+$button-default-color: #ddd
+$button-primary-color: #2789d3
+$button-secondary-color: #8200dc
+
+.button
+  display: inline-block
+  padding: $button-gap 1em
+  background: $button-default-color
+  text-align: $button-align
+
+  &.primary
+    background: $button-primary-color
+    color: lighten($button-primary-color, 30%)
+  &.secondary
+    background: $button-secondary-color
+    color: lighten($button-secondary-color, 30%)
+  &.round
+    border-radius: $button-radius
+  &.rounder
+    border-radius: $button-radius * 2
+  &.roundest
+    border-radius: $button-radius * 4
+
+// 컴파일된 css파일 확인
+.someone-button
+  @extend .button
+
+.button-error
+  @extend .button
+  background: red
+  color: #fff
+  border: 3px solid darken(#f00, 40%)
+
+.button-error
+  // 있다면 상속, 없다면 무시
+  @extend .buttonsss !optional
+  background: red
+  color: #fff
+  border: 3px solid darken(#f00, 40%)
+
+/*
+ 대체 선택자 %
+ */
+
+%button
+  display: inline-block
+  [ code... ]
+
+.someone-button
+  @extend %button
+
+```
+```sass
+// button-module.sass
+
+$btn-bg: #5d7ad4
+
+%btn
+  background: $btn-bg
+  color: darken($btn-bg, 40%)
+
+.page, .wrapper
+  button
+    @extend %btn
+```
+
+###Import
+
+```sass
+// style.sass
+@import modules/config
+[code...]
+
+
+// modules/_config.sass
+@import common, partials/pages
+[code...]
+
+
+// modules/_common.sass
+[code...]
+
+
+// modules/partials/_pages.sass
+/*
+ 간혹 합치고 싶지 않은 css 코드를 import 하고 싶을 경우
+ */
+@import Normlize.css
+@import wrap, navigation, footer
+[code...]
+
+
+// modules/partials/_wrap.sass
+[code...]
+
+
+// modules/partials/_navigation.sass
+[code...]
+
+
+// modules/partials/_footer.sass
+[code...]
+
+```
+-
+
 ### 기타/참고
 
 - [sass-guidelin.es](http://sass-guidelin.es/ko/)
 - [sassmeister.com](http://www.sassmeister.com/)
 - [내가 Sass를 선택한 이유](https://windtale.net/blog/why-i-choose-sass/)
-- [hyperterm.org](https://hyperterm.org/)
