@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* CSS Comment */
+/*
+ 여러
+ 줄
+ 라인
+ 출력
+ 가능? */
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .row::before, .container .row::after {
+  content: '';
+  display: table;
+}
+
+.container .row::after {
+  clear: both;
+}
+
+.lt-ie8 .container .row {
+  zoom: 1;
+}
+
+.col-1 {
+  width: 100px;
+}
+
+.col-2 {
+  width: 200px;
+}
+
+/*# sourceMappingURL=../map/sass-review.css.map */

@@ -1,0 +1,34 @@
+// RWD(Fluid Grid Layout, Flexible Image/Video, Media Queries)
+// + Mobile First + Progressive Enhancement = Adapt Web
+
+$medium-screen: 960px;
+$large-screen: 1280px;
+$wide-screen: 1600px;
+
+.page-header {
+  float: left;
+  width: 100%;
+  @media (min-width: $medium-screen) {
+    width: 1/4*100%;
+  }
+  @media (min-width: $large-screen) {
+    width: 1/6*100%;
+  }
+  @media (min-width: $wide-screen) {
+    width: 1/10*100%;
+  }
+}
+
+.main-content {
+  float: right;
+  width: 90%;
+  @media (min-width: $medium-screen) and (max-width: $large-screen - 1) {
+    width: 1/3*100%;
+  }
+  @media (min-width: $large-screen) {
+    width: 1/2*100%;
+  }
+  @media (min-width: $wide-screen) {
+    width: 100%;
+  }
+}
