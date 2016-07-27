@@ -1,3 +1,7 @@
+###### Front-End Develop SCHOOL
+
+# DAY 23
+
 ###Sass Syntax
 
 > **Document와 친구가 될 시간입니다.**

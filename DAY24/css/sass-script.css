@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* 웹 폰트 */
+@import url("http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-ko.css");
+/* 본문 설계 */
+body {
+  font: 14px/1.5 "Spoqa Han Sans"; }
+
+#area .fast-campus {
+  margin-left: 20%;
+  margin-right: 20%; }
+  #area .fast-campus::after {
+    content: 'dynamic content'; }
+
+@media screen and (min-width: 760px) {
+  .fast-campus {
+    display: flex;
+    flex-flow: row-reverse wrap; } }
+
+@media screen and (min-width: 1220px) {
+  .fast-campus {
+    display: block;
+    padding: 1rem; } }
+
+@media not screen and (min-width: 21cm) {
+  .fast-campus {
+    background: #fff !important;
+    color: #000 !important; } }
+
+header, main, footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* 믹스인 사용 */
+header {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+main {
+  width: 1000px;
+  height: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+nav {
+  height: 40vh; }
+  nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0; }
+    nav ul li {
+      width: 10%;
+      height: 0;
+      -webkit-transition: width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease;
+      -moz-transition: width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease;
+      -ms-transition: width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease;
+      -o-transition: width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease;
+      transition: width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease; }
+      nav ul li:hover {
+        width: 100%;
+        height: 50vh; }
+
+footer {
+  position: absolute;
+  width: 100%;
+  /* demo:start */
+  /* demo:end */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  footer div {
+    background: #333; }
+  footer p {
+    margin-top: 100%;
+    margin-bottom: 100%; }
+  footer span {
+    color: #fff; }
+  footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0; }

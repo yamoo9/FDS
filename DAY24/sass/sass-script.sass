@@ -1,0 +1,104 @@
+//
+ * --------------------------------
+ * Sass Script Operation
+
+@import var
+@import mixins
+
+/* 웹 폰트 */
+// (인터폴레이션 보간법) => 문자를 접합(용접과 비슷)
+@import url("http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-#{$spoqa-language}.css")
+
+/* 본문 설계 */
+body
+  font: #{$base-font-size}/#{$base-line-height} $spoqa-font-family
+  // font-size: $base-font-size
+  // font-family: $spoqa-font-family
+  // line-height: $base-line-height
+
+
+// @debug 디렉티브(지시자)를 사용하면 명령 창에 디버그 결과를 출력한다.
+// @debug type-of(red) // color
+
+//
+ * --------------------------------
+ * 보간법(Interpolation) #{}
+$selector: fast-campus
+$pseudo-name: after
+
+#area .#{$selector}
+  margin:
+    left: 20%
+    right: 20%
+  &::#{$pseudo-name}
+    content: 'dynamic content'
+
+//
+ * --------------------------------
+ * 보간법 + 미디어쿼리
+$media-md: "screen and (min-width: 760px)"
+$media-lg: "screen and (min-width: 1220px)"
+$media-print: "not screen and (min-width: 21cm)"
+
+.#{$selector}
+  @media #{$media-md}
+    display: flex
+    flex-flow: row-reverse wrap
+  @media #{$media-lg}
+    display: block
+    padding: 1rem
+  @media #{$media-print}
+    background: #fff !important
+    color: #000 !important
+
+%box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+%border-radius
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+
+/* 믹스인 사용 */
+header
+  @extend %box-sizing
+  +box-sizing(content-box)
+
+main
+  +size(1000px, 300px)
+  @extend %box-sizing
+  +box-sizing
+
+nav
+  +size($h: 40vh)
+  ul
+    +reset-list
+    li
+      +size(10%, 0)
+      +transition(width 1s ease, height 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s, width 1s ease, width 1s ease, width 1s ease, width 1s ease)
+      &:hover
+        +size(100%, 50vh)
+
+=demo($bg: transparent, $fg: null)
+  /* demo:start */
+  div
+    background: $bg
+  @content
+  span
+    color: $fg
+  /* demo:end */
+
+footer
+  position: absolute
+  width: 100%
+  +demo(#333, #fff)
+    p
+      margin:
+        top: 100%
+        bottom: 100%
+  @extend %box-sizing
+  +box-sizing
+  ul
+    +reset-list
