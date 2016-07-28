@@ -53,7 +53,7 @@ not false // true
 $selector: fast-campus
 $pseudo-name: after
 
-#area .#{selector}
+#area .#{$selector}
   margin:
     left: 20%
     right: 20%
@@ -210,11 +210,11 @@ Mixin, 외부에서 전달받은 인자 또는 콘텐츠를 병합해서 코드 
 ##### 믹스인 정의
 직관적으로 정의 가능
 
-##### 정적 믹스인 호출
-`@include 믹스인이름`
-
 ##### 정적 믹스인
 `@mixin 믹스인이름 {}`
+
+##### 정적 믹스인 호출
+`@include 믹스인이름`
 
 ##### 동적 믹스인
 `@mixin 믹스인이름(매개변수1, 매개변수2) {}`
