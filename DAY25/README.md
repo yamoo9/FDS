@@ -65,3 +65,270 @@
 - 전달인자가 다수일 경우에 이를 줄여 표현할 수 있다. ex) `$args...`
 - 줄여서(`...`) 전달하는 인자 표현식에서 `맵(Map) 데이터 유형`을 사용할 경우, `$를 제외한 키(Key)`를 전달하여 처리 가능하다. (반복문 없이)
 - 믹스인 내부에 `@content`를 사용하면 믹스인 호출 과정에서 믹스인 내부에서 처리될 콘텐츠(코드 블록)를 전달하여 코드를 섞을 수 있다.
+
+-
+
+###함수
+
+```scss
+//color-custom-function.scss
+
+@function remove-unit($unit) {
+  @return $unit / ( $unit*0+1 );
+}
+
+@function rem($px, $base-font-size: 16px){
+  // 결과값 반환(return)
+  @return ( $px/$base-font-size) * 1rem;
+}
+
+@function _hsla($hex, $alpha){
+  // @debug $hue / ($hue * 0 + 1)
+  
+  // 내림 함수 floor
+  $hue: floor( remove-unit(hue($hex)) );
+  $saturation: floor( saturation($hex) );
+  $lightness: floor( lightness );
+
+  $result: "hsla(#{hue}, #{saturation}, #{lightness}, #{alpha})";
+  unquote($result);
+}
+```
+```sass
+//style.sass
+body
+  color: _hsla(#3d96ff, 0.3)
+```
+ - Color 함수
+
+```sass
+// 각도를 돌려 색을 변형
+adjust-hue($color, $degree)
+
+// 많이 사용되는 함수
+lighten($color, $amount)
+darken($color, $amount)
+saturate($color, $amount)
+desaturate($color, $amount)
+grayscale($color)
+
+complement($color) // 보색
+invert($color) // 보색, 명도까지 반전
+
+// Get 함수(Getter)
+alpha($color)
+opacity($color)
+
+// Set 함수(Setter)
+rgba($color, $alpha)
+
+// 불투명하게 변경
+opacify($color, $amount) / fade-in($color, $amount)
+
+// 투명하게 변경
+transparentize($color, $amount) / fade-out($color, $amount)
+```
+
+- Number 함수
+
+```sass
+// 퍼센트
+percentage($number)
+
+// 반올림
+round($number)
+
+// 올림
+ceil($number)
+
+// 내림
+floor($number)
+
+// 절대값
+abs($number)
+
+// 최소값 반환
+min($numbers...)
+
+// 최대값 반환
+max($number...)
+
+// $limit이하의 랜덤한 숫자 반환
+random([$limit])
+```
+
+-
+
+###Condition( @if )
+
+```scss
+$value: null;
+
+h1 {
+  @if $value == false {
+    color: blue;
+  } @else if $value == null {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+```
+```css
+/* 컴파일 결과 */
+h1 {
+  color: green; }
+```
+
+- 대비색상 믹스인
+
+```scss
+@mixin contrast-color($color, $compare-light: 50%, $amount: 20%) {
+  // 유효성 검사
+  @if type-of($color) != color {
+    @error "전달받은 값은 #{$color} 값은 색상 데이터 유형이 아닙니다."
+  }
+
+  $lightness: lightness($color) > $compare-light;
+  $bg-color: null;
+  @if ($lightness == true) {
+    $bg-color: darken($color, $amount);
+  } @else {
+    $bg-color: lighten($color, $amount);
+  }
+  color: $color;
+  background-color: $bg-color;
+}
+```
+
+####if() 함수
+
+```scss
+$main-bg: #000
+
+.main {
+  // if (조건, 참일 경우, 거짓일 경우)
+  color: if($main-bg == black, #fff, #000)
+  // 결과: color: #fff
+}
+```
+
+-
+
+###Loops(@while, @for, @each)
+
+####@while
+
+```scss
+// 1회만 처리
+@if 조건 {
+  조건이 참인 경우 , 코드 블록문이 처리
+}
+
+// 조건이 참일 동안 계속 처리, 무한 루프에 빠질 수 있으므로 잘 사용해야 한다.
+@while 조건 {
+  조건이 참인 경우, 코드 블록문이 처리
+}
+```
+```sass
+$i: 1
+$total: 12
+$unit-width: 60px
+$gutter: 20px
+$gutter-direction: after
+
+%cf::after
+  display: block
+  content: ''
+  clear: both
+
+%col
+  float: left
+  margin:
+    left: $gutter / 2
+    right: $gutter / 2
+  @if $gutter-direction == split
+    margin:
+      left: $gutter / 2
+      right: $gutter /2
+  @if $gutter-direction == before
+    margin-left: $gutter
+  @if $gutter-direction == after
+    margin-right: $gutter
+  @if $gutter-direction == inside
+    padding:
+      left: $gutter / 2
+      right: $gutter / 2
+
+@function width($n)
+  @return $unit-width * $n + $gutter * ($n -1);
+
+@while $i <= $total
+  .grid
+    @extend %cf
+    & .col-#{$i}
+      @extend %col
+      width: width($i);
+
+  // 조건 변화 코드
+  $i: $i + 1
+```
+
+
+
+-
+
+###그리드 시스템 sass로 응용하기
+
+```sass
+$base-font-size: rem(18px)
+$base-leading-ratio: $base-font-size * 1.5
+$page-width: 1280px
+$column-count: 8
+$unit-width: 130px
+$pattern-width: $unit-width + $gutter-width
+$gutter-width: 30px
+$gutter-direction: after
+$avail-page-width: $page-width - $gutter-width
+
+@funcion draw-colum-pattern ($hex, $alpha: 0.3)
+  $location: percentage($unit-width/$pattern-width)
+  @return linear-gradient(90deg, rgba($hex, $alpha), $loaction)
+
+@function draw-leading-pattern($color, $opacity: 1)
+  $location: $base-leading-ratio - 1
+  @return linear-gradient(transparent $location rgba($color, $opacity) $location)
+
+.grid-container
+  &::before
+    content: '';
+    position: absolute
+    z-index: 10000
+    top: 0
+    left: 0
+    width: 100%
+
+  &.show-grid::before
+    heigth: 500vh
+    draw-colum-pattern(#68c8de, 0.7)
+    draw-leading-pattern(#f00)
+
+%cf::after
+  content: ''
+  display: block
+  clear: both
+
+.grid [class*="unit-"]
+  float: left
+  $half-gutter-width: $gutter-width / 2
+  @if $gutter-direction == after
+    margin-right: $gutter-width
+  @else if $gutter-direction == before
+    margin-left: $gutter-width
+  @else if else $gutter-direction == split
+    margin-left: $half-gutter-width
+    margin-right: $half-gutter-width
+  @else
+    @error "before, after, split를 전달해야 한다."
+
+```
