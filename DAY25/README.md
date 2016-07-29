@@ -27,7 +27,7 @@
 `특정 문자열에 #{$변수}를 접합`
 
 - font 속기형 작성 시, 나눗셈 연산(`/`)으로 처리되지 않게 하기 위함
-- webfont 사용할 경웨 font information을 변수로 처리
+- webfont 사용할 경우, font information을 변수로 처리
 - Selector String 조합에 변수를 처리
 - Media Queries 구문에 변수를 처리
 
@@ -74,30 +74,39 @@
 //color-custom-function.scss
 
 @function remove-unit($unit) {
+  // 결과값 반환(return)
   @return $unit / ( $unit*0+1 );
 }
 
-@function rem($px, $base-font-size: 16px){
-  // 결과값 반환(return)
-  @return ( $px/$base-font-size) * 1rem;
+@function rem($px, $base-font-size: 16px) {
+  @return ( $px/$base-font-size ) * 1rem;
 }
 
-@function _hsla($hex, $alpha){
-  // @debug $hue / ($hue * 0 + 1)
-  
+@function hsla($hex, $alpha){
+  // 디버깅 (@debug)
+  // @debug $hue / ($hue * 0 + 1);
+
   // 내림 함수 floor
-  $hue: floor( remove-unit(hue($hex)) );
+  $hue: floor( remove-unit( hue($hex) ) );
   $saturation: floor( saturation($hex) );
-  $lightness: floor( lightness );
+  $lightness: floor( lightness($hex) );
 
   $result: "hsla(#{hue}, #{saturation}, #{lightness}, #{alpha})";
   @return unquote($result);
+}
+
+@function shade($hex, $amount) {
+  @return mix(#000, $hex, $amount);
+}
+
+@function tint($hex, $amount) {
+  @return mix(#fff, $hex, $amount);
 }
 ```
 ```sass
 //style.sass
 body
-  color: _hsla(#3d96ff, 0.3)
+  color: hsla(#3d96ff, 0.3)
 ```
  - Color 함수
 
@@ -132,7 +141,7 @@ transparentize($color, $amount) / fade-out($color, $amount)
 - Number 함수
 
 ```sass
-// 퍼센트
+// 퍼센트(%) 반환
 percentage($number)
 
 // 반올림
@@ -153,7 +162,7 @@ min($numbers...)
 // 최대값 반환
 max($number...)
 
-// $limit이하의 랜덤한 숫자 반환
+// $limit이하의 랜덤한 숫자(정수) 반환
 random([$limit])
 ```
 
@@ -204,7 +213,7 @@ h1 {
 ####if() 함수
 
 ```scss
-$main-bg: #000
+$main-bg: #000;
 
 .main {
   // if (조건, 참일 경우, 거짓일 경우)
@@ -225,7 +234,7 @@ $main-bg: #000
   조건이 참인 경우 , 코드 블록문이 처리
 }
 
-// 조건이 참일 동안 계속 처리, 무한 루프에 빠질 수 있으므로 잘 사용해야 한다.
+// 조건이 참일 동안 계속 처리, 조건이 계속 참일 경우.. 무한 루프에 빠질 수 있으므로 사용에 주의해야 한다.
 @while 조건 {
   조건이 참인 경우, 코드 블록문이 처리
 }
@@ -258,11 +267,11 @@ $page-width: $total * $unit-width + $gutter * ($total -1)
       right: $gutter /2
   @if $gutter-direction == before
     margin-left: $gutter
-    &.last 
+    &.last
       margin-left: 0
   @if $gutter-direction == after
     margin-right: $gutter
-    &.last 
+    &.last
       margin-right: 0
 
   @if $gutter-direction == inside
@@ -337,7 +346,7 @@ $headings: (h1: 3rem 1.2, h2: 2rem 1.45, h3: 1.5rem 1.6)
 ###그리드 시스템 sass로 응용하기
 
 ```sass
-$base-font-size: rem(18px)
+$base-font-size: 16px
 $base-leading-ratio: $base-font-size * 1.5
 $page-width: 1280px
 $column-count: 8
@@ -347,7 +356,7 @@ $gutter-width: 30px
 $gutter-direction: after
 $avail-page-width: $page-width - $gutter-width
 
-@funcion draw-column-pattern ($hex, $alpha: 0.3)
+@funcion draw-column-pattern($hex, $alpha: 0.3)
   $location: percentage($unit-width/$pattern-width)
   @return linear-gradient(90deg, rgba($hex, $alpha), $loaction)
 
