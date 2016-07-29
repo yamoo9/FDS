@@ -84,14 +84,14 @@ body
 // 미디어 쿼리 사용 예
 $media-md: "screen and (min-width: 760px)"
 $media-lg: "screen and (min-width: 1220px)"
-$media-print: "screen and (min-width: 21px)"
+$media-print: "print and (min-width: 21cm)"
 
 .#{$selector}
   @media #{$media-md}
     display: flex
     flex-flow: row-reverse wrap
 
-  @media #{media-lg}
+  @media #{$media-lg}
     display: block
     padding: 1rem
 

@@ -1,0 +1,12 @@
+* + html .demo {
+  color: #303030;
+}
+
+@media \0screen {
+  body {
+    margin: 0 auto;
+  }
+  .content-block {
+    padding-top: 20%;
+  }
+}

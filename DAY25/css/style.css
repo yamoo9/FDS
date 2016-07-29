@@ -1,0 +1,7 @@
+body {
+  color: hsla(212, 100%, 61%, 0.3);
+  font-size: 2.2rem;
+  margin-left: 0.625rem;
+  background: cyan;
+  border-color: #74ffff;
+}

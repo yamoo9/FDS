@@ -1,0 +1,18 @@
+// IE 7 핵 믹스인
+=ie7hack($selector)
+  *+html #{$selector}
+    @content
+
+// IE 8 미디어쿼리 핵 믹스인
+// @media \0screen {}
+// Sass 문법
+=ie8hack
+  @media \0screen
+    @content
+
+// SCSS 문법
+ @mixin ie8hack {
+  @media \0screen {
+    @content;
+  }
+ }
