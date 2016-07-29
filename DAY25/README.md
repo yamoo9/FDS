@@ -91,7 +91,7 @@
   $lightness: floor( lightness );
 
   $result: "hsla(#{hue}, #{saturation}, #{lightness}, #{alpha})";
-  unquote($result);
+  @return unquote($result);
 }
 ```
 ```sass
@@ -186,7 +186,7 @@ h1 {
 @mixin contrast-color($color, $compare-light: 50%, $amount: 20%) {
   // 유효성 검사
   @if type-of($color) != color {
-    @error "전달받은 값은 #{$color} 값은 색상 데이터 유형이 아닙니다."
+    @error "전달받은 #{$color} 값은 색상 데이터 유형이 아닙니다.";
   }
 
   $lightness: lightness($color) > $compare-light;
@@ -217,7 +217,7 @@ $main-bg: #000
 
 ###Loops(@while, @for, @each)
 
-####@while
+####@while문
 
 ```scss
 // 1회만 처리
@@ -236,6 +236,11 @@ $total: 12
 $unit-width: 60px
 $gutter: 20px
 $gutter-direction: after
+$fluid: true
+$page-width: $total * $unit-width + $gutter * ($total -1)
+// target / context * 100
+// @if fluid
+// percentage(width/context)
 
 %cf::after
   display: block
@@ -253,15 +258,24 @@ $gutter-direction: after
       right: $gutter /2
   @if $gutter-direction == before
     margin-left: $gutter
+    &.last 
+      margin-left: 0
   @if $gutter-direction == after
     margin-right: $gutter
+    &.last 
+      margin-right: 0
+
   @if $gutter-direction == inside
     padding:
       left: $gutter / 2
       right: $gutter / 2
 
 @function width($n)
-  @return $unit-width * $n + $gutter * ($n -1);
+  $w: $unit-width * $n + $gutter * ($n -1);
+  @if not $fluid
+    @return $w
+  @else
+    @return percentage($w/$page-width)
 
 @while $i <= $total
   .grid
@@ -274,7 +288,49 @@ $gutter-direction: after
   $i: $i + 1
 ```
 
+####for문
 
+```sass
+$total: 12
+
+@for $i from 1 through $total
+  .grid
+    @extend %cf
+  .col-#{$i}
+    @extend %col
+    width: width($i)
+```
+
+####@each문 ( in ~ [list, map])
+
+```sass
+$buttons: play pause stop prev next forward backward
+
+// list에서 각각의 아이템을 뽑아서 대입한다
+@each $button in $buttons
+  .button-#{$button}
+    background: url("../images/button-#{button}.png")
+
+
+// map 데이터
+$headings: (h1: 3rem 1.2, h2: 2rem 1.45, h3: 1.5rem 1.6)
+
+@each $heading in $headings
+  $h: nth($heading, 1)
+  $v: nth($heading, 2)
+  $fz: nth($v, 1) // 3rem
+  $lh: nth($v, 2) // 1.2
+  #{$h}
+    font-size: $v
+    line-height: $lh
+// 보다 간단히
+@each $heading, $info in $headings
+  $fz: nth($info, 1)
+  $lh: nth($info, 2)
+  #{$heading}
+    font-size: $fz
+    line-height: $lh
+```
 
 -
 
@@ -291,7 +347,7 @@ $gutter-width: 30px
 $gutter-direction: after
 $avail-page-width: $page-width - $gutter-width
 
-@funcion draw-colum-pattern ($hex, $alpha: 0.3)
+@funcion draw-column-pattern ($hex, $alpha: 0.3)
   $location: percentage($unit-width/$pattern-width)
   @return linear-gradient(90deg, rgba($hex, $alpha), $loaction)
 
@@ -325,7 +381,7 @@ $avail-page-width: $page-width - $gutter-width
     margin-right: $gutter-width
   @else if $gutter-direction == before
     margin-left: $gutter-width
-  @else if else $gutter-direction == split
+  @else if $gutter-direction == split
     margin-left: $half-gutter-width
     margin-right: $half-gutter-width
   @else
