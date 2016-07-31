@@ -267,7 +267,7 @@ $page-width: $total * $unit-width + $gutter * ($total -1)
       right: $gutter /2
   @if $gutter-direction == before
     margin-left: $gutter
-    &.last
+    &.first
       margin-left: 0
   @if $gutter-direction == after
     margin-right: $gutter
