@@ -351,18 +351,23 @@ $base-leading-ratio: $base-font-size * 1.5
 $page-width: 1280px
 $column-count: 8
 $unit-width: 130px
-$pattern-width: $unit-width + $gutter-width
 $gutter-width: 30px
+$pattern-width: $unit-width + $gutter-width
 $gutter-direction: after
 $avail-page-width: $page-width - $gutter-width
 
-@funcion draw-column-pattern($hex, $alpha: 0.3)
+@function draw-column-pattern($hex, $alpha: 0.3)
   $location: percentage($unit-width/$pattern-width)
-  @return linear-gradient(90deg, rgba($hex, $alpha), $loaction)
+  @if $gutter-direction == after
+    @return linear-gradient(90deg, rgba($hex, $alpha) $location, transparent $location)
+  @else if $gutter-direction == before
+    @return linear-gradient(270deg, rgba($hex, $alpha) $location, transparent $location)
+  @else if $gutter-direction == split
+    @return linear-gradient(90deg, transparent (100-$location)/2, rgba($hex, $alpha) (100-$location)/2, rgba($hex, $alpha) (100+$location)/2, transparent (100+$location)/2)
 
 @function draw-leading-pattern($color, $opacity: 1)
   $location: $base-leading-ratio - 1
-  @return linear-gradient(transparent $location rgba($color, $opacity) $location)
+  @return linear-gradient(transparent $location, rgba($color, $opacity) $location)
 
 .grid-container
   &::before
@@ -375,8 +380,8 @@ $avail-page-width: $page-width - $gutter-width
 
   &.show-grid::before
     heigth: 500vh
-    draw-colum-pattern(#68c8de, 0.7)
-    draw-leading-pattern(#f00)
+    background: draw-column-pattern(#68c8de, 0.7), draw-leading-pattern(#f00)
+    background-size: $pattern-width $base-leading-ratio
 
 %cf::after
   content: ''
@@ -384,6 +389,7 @@ $avail-page-width: $page-width - $gutter-width
   clear: both
 
 .grid [class*="unit-"]
+  @extend %cf
   float: left
   $half-gutter-width: $gutter-width / 2
   @if $gutter-direction == after
@@ -395,5 +401,4 @@ $avail-page-width: $page-width - $gutter-width
     margin-right: $half-gutter-width
   @else
     @error "before, after, split를 전달해야 한다."
-
 ```
