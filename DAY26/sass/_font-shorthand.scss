@@ -1,0 +1,24 @@
+/*! _font-shorthand.scss | Font 속기형 믹스인 © yamoo9.net, 2016 */
+
+// font-shorthand() 믹스인이 활용하는 함수
+@function _font-shorthand($fz: 16px, $lh: 1.5) {
+  @return #{$fz}/#{$lh};
+}
+
+// 정규 믹스인 font-shorthand
+@mixin font-shorthand(
+  $fz: null,
+  $ff: null,
+  $lh: 1.5,
+  $etc: null
+) {
+  @if $fz == null or $ff == null {
+    @error "font-size, font-family는 필수 속성입니다. 값을 입력해주세요.";
+  }
+  font: $etc _font-shorthand($fz, $lh) $ff;
+}
+
+// 단축 믹스인 font
+@mixin font($args...) {
+  @include font-shorthand($args...);
+}
