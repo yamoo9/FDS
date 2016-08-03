@@ -34,44 +34,6 @@
   <button type="button">#20f97d</button>
   <button type="button">#f2ce09</button>
 </div>
-<script>
-var body = document.body;
-var btn_group = document.getElementById('button-group');
-// console.log(btn_group);
-var btns = btn_group.getElementsByTagName('button');
-// console.log(btns);
-var btn_1 = btns[0];
-var btn_2 = btns[1];
-var btn_3 = btns[2];
-var btn_4 = btns[3];
-var btn_5 = btns[4];
-
-btn_1.onclick = function() {
-  var wanted_color = this.firstChild.nodeValue;
-  body.style.backgroundColor = wanted_color;
-};
-btn_2.onclick = function() {
-  var wanted_color = this.firstChild.nodeValue;
-  body.style.backgroundColor = wanted_color;
-};
-btn_3.onclick = function() {
-  var wanted_color = this.firstChild.nodeValue;
-  body.style.backgroundColor = wanted_color;
-};
-btn_4.onclick = function() {
-  var wanted_color = this.firstChild.nodeValue;
-  body.style.backgroundColor = wanted_color;
-};
-btn_5.onclick = function() {
-  var wanted_color = this.firstChild.nodeValue;
-  body.style.backgroundColor = wanted_color;
-};
-
-</script>
-
-
-
-
 
 <div>
   <p title="time is gold.">오늘 잠시 졸은 시간은 더 이상 오지 않는다.</p>
@@ -82,7 +44,7 @@ btn_5.onclick = function() {
 <div class="note-01">
   <h2 id="heading-01">headline</h2>
   <ul>
-    <li><a href="">item-01</a></li>
+    <li><a href="#target">item-01</a></li>
     <li><a href="">item-02</a></li>
     <li><a href="">item-03</a></li>
   </ul>
@@ -104,7 +66,7 @@ btn_5.onclick = function() {
   </ul>
 </div>
 <div class="note-04">
-  <h2 id="heading-04">headline</h2>
+  <h2>headline</h2>
   <ul>
     <li><a href="">item-01</a></li>
     <li><a href="">item-02</a></li>
@@ -202,6 +164,33 @@ var body = document.body; // DOM Legacy (Lv. 0), HTML DOM
 // body.onmouseleave = function() {
 //   body.style.backgroundColor = '#fff';
 // };
+
+var body = document.body;
+var btn_group = document.getElementById('button-group');
+// console.log(btn_group);
+var btns = btn_group.getElementsByTagName('button');
+// console.log(btns);
+var btn_1 = btns[0];
+var btn_2 = btns[1];
+var btn_3 = btns[2];
+var btn_4 = btns[3];
+var btn_5 = btns[4];
+
+// 문서_대상.이벤트 = 할일(함수);
+
+var changeBGColor = function() {
+  body.style.backgroudColor = this.firstChild.nodeValue;
+  // return undefined;
+};
+
+// changeBGColor(); // window
+
+btn_1.onmouseenter = changeBGColor;
+btn_2.onmouseenter = changeBGColor;
+btn_3.onmouseenter = changeBGColor;
+btn_4.onmouseenter = changeBGColor;
+btn_5.onmouseenter = changeBGColor;
+
 </script>
 </body>
 </html>
