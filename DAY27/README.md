@@ -2,8 +2,8 @@
 
 # DAY 27
 
-> 웹 브라우저 상에서 자바스크립트가 주로 할 일은, HTML 문서의 요소를 찾아서(Traversing, Selecting)    
-> 조작(Manipulation, Interactive)을 수행한다. 인터페이스로서 DOM이 제공되고, 이때 사용되는 언어가 자바스크립트이다.    
+> 웹 브라우저 상에서 자바스크립트가 주로 할 일은, HTML 문서의 요소를 찾아서(Traversing, Selecting)
+> 조작(Manipulation, Interactive)을 수행한다. 인터페이스로서 DOM이 제공되고, 이때 사용되는 언어가 자바스크립트이다.
 > CSS와 맞물려 생각한다면 어렵지 않게 다가갈 수 있다.
 
 ###DOM(Document Object Model)
@@ -36,7 +36,7 @@ console.log(document.getElementsByTagName('p')[0]);
 console.log(document.getElementsByTagName('p')[0].nodeType));
 ```
 
-> 위 코드에서 냄새가 나지 않는가? 프로그래머로서 중복을 용인할 수 없다.    
+> 위 코드에서 냄새가 나지 않는가? 프로그래머로서 중복을 용인할 수 없다.
 > 중복되는 코드가 보이므로 이를 변수에 담아서 사용한다.
 
 ```javascript
