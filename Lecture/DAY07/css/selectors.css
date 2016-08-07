@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+/*@import url("common.css");*/
+
+body {
+  line-height: 1.6;
+  margin: 5% 20%;
+}
+
+/**
+ * --------------------------------
+ * 속성 선택자
+ * [attr]
+ * [attr="value"]
+ * [attr|="value"]
+ * [attr~="value"]
+ * [attr*="value"]
+ * ----------------------------- */
+
+/* 공백으로 구분되는 단어가 일치할 때 선택 */
+[class~="container"] {
+  /*border: 1px dashed #cacaca;*/
+  /*padding: 1em;*/
+}
+
+/* 하이픈(-)으로 구분되는 단어가 일치할 때 선택 */
+[lang|="en"] {
+  color: #4d4840;
+}
+
+/**
+ * --------------------------------
+ * 상태 디자인(State Design) 선택자
+ * 기본 상태(Normal)
+ * 커서가 올라간 상태(Hover)
+ * 커서로 누른 상태(Active)
+ * ----------------------------- */
+
+/* 기본 상태(Normal) */
+.container p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.88em;
+  color: #84888a;
+  background: #fff;
+}
+
+/* 커서가 올라간 상태(Hover) */
+/* Pseudo Class: 가상(유사, 의사) 클래스 */
+.container p:hover {
+  color: #0c0d0d;
+  background: #bfbfbf;
+}
+/* ※ 실제 class 속성을 적용한 예 */
+/*.container p.hover {
+  color: #0c0d0d;
+}*/
+
+/* 커서로 누른 상태(Active) */
+.container p:active {
+  background-color: #000;
+  color: #fff;
+}
+
+/**
+ * --------------------------------
+ * 하이퍼링크 (<a href>)
+ * 상태 디자인(State Design)
+ * 가상(유사, 의사) 클래스
+ * Pseudo Class
+ * --------------------------------
+ * :link    | 기본 상태
+ * :visited | 방문한 상태
+ * :hover   | 커서 올라간 상태
+ * :active  | 커서로 누르고 있는 상태
+ * :focus   | 키보드 포커싱 상태
+ * ----------------------------- */
+
+/* 기본 상태 */
+/*a:link {}*/
+a {
+  padding-left: 0.25em; /* 4px === 0.25em */
+  padding-right: 4px;
+  text-decoration: none;
+  color: #34c0ff;
+}
+/* 방문한 상태 */
+/* 가능한 상태 속성
+- color
+- background-color
+- border-color (and border-color for separate sides)
+- outline color
+- column-rule-color
+- the color parts of fill and stroke
+ */
+a:visited {
+  color: #fc414b;
+}
+/* 커서 올라간 상태 */
+a:hover {
+  /*text-decoration: underline;*/
+  padding-bottom: 1px;
+  border-bottom: 2px dotted;
+}
+/* 커서로 누른 상태 */
+a:active {
+  background: #ff0;
+}
+/* 키보드 포커싱 상태 */
+a:focus {
+  outline: 3px solid #fc414b;
+}
+
+a:focus:hover {
+  outline-offset: 10px;
+}
+
+/**
+ * --------------------------------
+ * .box
+ * ----------------------------- */
+.box {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 200px;
+  height: 200px;
+  outline: none;
+  background: #efefef;
+}
+
+.box:hover {
+  outline: 10px solid #fe4940;
+}
+
+/**
+ * --------------------------------
+ * .rounded-box
+ * ----------------------------- */
+.rounded-box {
+  width: 200px;
+  background: #eee;
+}
+
+.rounded-box > *:first-child {
+  background: #aea28f;
+  color: #fff;
+}
+.rounded-box :last-child {
+  border: 3px solid #e0cba9;
+  padding: 10px;
+}
+
+.wrapper:last-child {
+
+}
+
+:lang(ja) {
+  /* 일본어 사용 */
+}
+
+[lang|="en"] {
+
+}
+
+:lang(es) {
+  /* 스페인어 사용 */
+}
+
+/**
+ * --------------------------------
+ * 가상(유사, 의사) 요소
+ * Pseudo Element
+ * 가상으로 요소(콘텐츠)를 만들어 줍니다.
+ *
+ * CSS 2/2.1     | CSS 3+
+ * :first-line   | ::first-line
+ * :first-letter | ::first-letter
+ * :before       | ::before
+ * :after        | ::after
+ * ----------------------------- */
+
+/* 잡지 디자인 드롭캡(Dropcap) */
+.dropcap-demo {
+  color: #ec0904;
+}
+
+.dropcap {
+  margin: 0;
+}
+
+/* 가상으로 요소를 생성한다. */
+.dropcap::first-letter {
+/*.dropcap::first-line {*/
+  font-size: 300%;
+  color: #ec0904;
+  line-height: 1;
+}
+
+/**
+ * --------------------------------
+ * 가상 요소
+ * ::before
+ * ::after
+ * ----------------------------- */
+
+abbr {
+  cursor: help;
+}
+
+.msg .before,
+.msg::before {
+  content: 'Hey!!';
+  color: #3a0099;
+}
+
+.msg p::before {
+  /*display: block;*/
+  content: 'designer ';
+  color: #25a04d;
+}
+
+.msg .after,
+.msg::after {
+  content: 'Hand Up!';
+  color: #604887;
+}
+
+
+
+
+@media print {
+  /**
+   * --------------------------------
+   * 접근성 관점에서 링크의 주소를 출력하는 스타일
+   * ----------------------------- */
+  a::after {
+  /* 함수: () 안에 전달하는 무엇을 통해 뭔가를 처리해서 결과를 보여준다. */
+    content: '(' attr(href) ')';
+    color: #fc4a54;
+  }
+
+  abbr::after {
+    content: '(' attr(title) ')';
+  }
+}
+
+
+/* HTML <html>, XML <cook>, <book>, .. */
+:root {}
+
+:target {
+  background: #ff0;
+}
+
+/**
+ * --------------------------------
+ * :not(selector)
+ * ----------------------------- */
+
+.parent {
+  background: #ff0;
+}
+
+/*.parent * {
+  border: 1px solid #b64926;
+}
+
+.parent a {
+  border: none;
+}*/
+
+.parent :not(a):not(li):not(.child) {
+  border: 1px solid #b64926;
+}
+
+/**
+ * --------------------------------
+ * 사용자가 커서로 클릭 후, 텍스트 블록을
+ * 선택할 경우 가상으로 요소를 만들어 디자인
+ *
+ * color
+ * background-color
+ * cursor
+ * outline
+ * text-decoration
+ * text-emphasis-color
+ * text-shadow
+ * ----------------------------- */
+::-moz-selection {
+  cursor: move;
+  background: #fc4b55;
+  color: #fff;
+}
+::selection {
+  cursor: move;
+  background: #fc4b55;
+  color: #fff;
+  text-shadow: -2px 0px 1px #6300b5, 2px 0px 1px #e4ee09;
+}

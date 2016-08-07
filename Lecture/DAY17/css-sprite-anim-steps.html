@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS3 Animation</title>
+  <style>
+    body {
+      margin: 3rem;
+    }
+
+    .anim-steps {
+      background: url("images/css-sprite-animation-steps-penguin.png") no-repeat;
+      width: 102.4px;
+      height: 102px;
+      animation: jump-penguin 0.8s steps(10) infinite;
+    }
+
+    @keyframes jump-penguin {
+      from {
+        background-position-x: 0;
+      }
+      to {
+        background-position-x: -1024px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="anim-steps"></div>
+
+</body>
+</html>

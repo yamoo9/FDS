@@ -1,0 +1,98 @@
+/*! em-unit.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * em 단위 사용의 어려움
+ * ----------------------------- */
+html {
+  font-size: 100%; /* 16px */
+}
+
+/**
+ * --------------------------------
+ * 미디어 기술 사용 @media
+ * CSS3 미디어쿼리 @media 환경 and (조건1) and (조건2)
+ * 중단점 (Breakpoint) 설계(Design)
+ * --1-- 600 --2-- 1000 --3--
+ */
+
+/* IE 6-8 */
+/*@media screen {}*/
+
+/* IE 6-8 (X) */
+/*@media only screen {}*/
+
+@media only screen and (max-width: 600px) {
+  body::before {
+    content: '스크린의 폭이 600px보다 작습니다.';
+  }
+  body {background: #000;}
+}
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+  body::before {
+    content: '스크린의 폭이 600px보다 크고 1000px보다 작습니다.';
+  }
+  body {background: #888;}
+}
+
+@media only screen and (min-width: 1001px) {
+  body::before {
+    content: '스크린의 폭이 1000px보다 큽니다.';
+  }
+  body {background: #fff;}
+}
+
+
+body {
+  font-size: 87.5%; /* 16 * 0.875 = 14px */
+}
+
+/**
+ * --------------------------------
+ * em이 아닌, rem 단위를 사용해야 하는 이유
+ * ----------------------------- */
+
+
+/**
+ * --------------------------------
+ * 박스 스타일
+ * ----------------------------- */
+div {
+  width: 60%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px dashed #fff;
+  padding: 5%;
+  color: #fff;
+}
+
+.wrapper-parent {
+  font-size: 40px;
+  /*1em === 14px*/
+  font-size: 2.5em; /* 14 * 2.5 = 35px */
+  font-size: 2.5rem;
+  background: #7045cf;
+}
+
+.parent {
+  font-size: 30px;
+  /* 1em === 35px */
+  font-size: 1.88em; /* 35 * 1.88 = 65.8px */
+  font-size: 1.88rem;
+  background: #724fb7;
+}
+
+.child {
+  font-size: 20px;
+  font-size: 1.25em;
+  font-size: 1.25rem;
+  background: #9077c4;
+}
+
+.inner-child {
+  font-size: 10px;
+  font-size: 0.63em;
+  font-size: 0.63rem;
+  background: #b0a6c4;
+}

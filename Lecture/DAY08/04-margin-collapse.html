@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>부모 요소에 패딩, 보더 값이 없을 때... 자식 요소의 마진 값은 어떻게 설정되나?</title>
+  <link rel="stylesheet" href="../Resources/reset.css">
+  <style>
+    /* Parent */
+    .parent {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff22d;
+    }
+
+    body > .parent:nth-last-of-type(1) {
+      /*margin-top: 20px;*/
+      padding-top: 1px;
+      background: #fd6e23;
+    }
+
+    /* Child */
+    .child {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      text-align: center;
+      background: #2d3fca;
+      color: #fff;
+    }
+
+    body > .parent:nth-last-of-type(1) > .child:only-child {
+      margin-top: 30px;
+      background: #24bafd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="parent">
+    <div class="child">Group 1</div>
+  </div>
+
+  <div class="parent">
+    <div class="child">Group 2</div>
+  </div>
+
+</body>
+</html>

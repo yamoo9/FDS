@@ -1,0 +1,68 @@
+/* CSS Comment */
+
+// ------------------------
+// Sass Multiline Comment
+/*
+ 여러
+ 줄
+ 라인
+ 출력
+ 가능?
+
+body
+  margin: 0
+
+// ------------------------
+// Singleline Comment
+// Not Compile
+// Sass Comment
+
+// 여러 줄
+// 라인일 경우
+// 출력되나?
+
+
+//
+ * --------------------------------
+ * 중첩 규칙/속성
+ * Nested Rules/Properties
+
+// Sass 변수
+// ※ 추후 분리
+$page-width: 1200px
+$columns: 12
+$column-width: $page-width / $columns
+
+.container
+  max-width: $page-width
+  margin:
+    left: auto
+    right: auto
+  .row
+    &::before,
+    &::after
+      content: ''
+      display: table
+    &::after
+      clear: both
+    .lt-ie8 &
+      zoom: 1
+
+// col의 공통 모듈
+// 대체 선택자를 활용하여 재사용 가능한 모듈 코드를 정의
+// [class*="col-"]
+%col-module
+  float: left
+  padding:
+    left: 1rem
+    right: 1rem
+
+// 컬럼 모듈
+.col-1
+  @extend [class*="col-"] !optional
+  // @extend %col-module
+  width: $column-width
+.col-2
+  @extend [class*="col-"] !optional
+  // @extend %col-module
+  width: $column-width * 2

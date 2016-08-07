@@ -1,0 +1,24 @@
+@function remove-unit($unit) {
+  @return $unit/($unit*0+1);
+}
+
+// rem(20px) -> 1.25rem
+@function rem($px, $base-font-size: 16px) {
+  // 결과 값을 반환(return)
+  // $px: 20px;
+  // <html> 요소의 기본 글자 크기는 16px
+  // 20/16
+  @return ($px/$base-font-size) * 1rem;
+}
+
+@function hsla($hex, $alpha) {
+  // 실행: _hsla(#393909, 0.4)
+  // 결과: hsla(hue, saturation, lightness, alpha)
+  $hue: floor( remove-unit( hue($hex) ) );
+  $saturation: floor( saturation($hex) );
+  $lightness: floor( lightness($hex) );
+  // @return hsla($hue, $saturation, $lightness, $alpha);
+  // $result: hsla($hue, $saturation, $lightness, $alpha);
+  $result: "hsla(#{$hue}, #{$saturation}, #{$lightness}, #{$alpha})";
+  @return unquote($result);
+}

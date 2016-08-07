@@ -1,0 +1,47 @@
+.page-header {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .page-header {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page-header {
+    width: 16.66666667%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .page-header {
+    width: 10%;
+  }
+}
+
+.main-content {
+  float: right;
+  width: 90%;
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .main-content {
+    width: 33.33333333%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-content {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .main-content {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=../../map/scripts/media-quries.css.map */

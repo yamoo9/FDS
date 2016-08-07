@@ -1,0 +1,68 @@
+/*! style.css @ yamoo9.net, 2016 */
+
+::selection {
+  background: #8dcbe0;
+  color: #15464a;
+}
+
+::-moz-selection {
+  background: #33bbe6;
+  color: #fff;
+}
+
+/* ------------------------------------------------- */
+
+body {
+  font-family: "Spoqa Han Sans";
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #6c6c6c;
+}
+
+/* ------------------------------------------------- */
+
+.wrapper {
+  width: 100%;
+  max-width: 50rem;
+  margin: 2rem auto;
+}
+
+/* ------------------------------------------------- */
+
+h1 {
+  font-size: 3rem;
+  font-weight: 200;
+  color: #212121;
+  margin-bottom: 1.6875rem;
+  margin-top: 0;
+  line-height: 5.0625rem;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #565656;
+}
+
+h1 a:hover,
+h1 a:focus {
+  color: #000;
+}
+
+/* ------------------------------------------------- */
+
+a {
+  color: #3498db;
+}
+
+.page {
+  padding-top: 3rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.6875rem;
+}
+
+img {
+  margin-bottom: 1.5rem;
+}

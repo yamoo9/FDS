@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>DOM Scripting with JavaScript</title>
+</head>
+<body>
+
+  <p class="my-para">
+    <strong>Hello</strong> How are you doing?
+  </p>
+
+  <form name="primary_form" action="#" method="GET">
+    <p>
+      <label for="c_id">ID</label>
+      <input type="text" name="c_id" id="c_id" placeholder="yamoo9">
+    </p>
+    <button type="submit">전송</button>
+  </form>
+
+  <form name="secondary-form" action="#" method="GET">
+    <p>
+      <label for="c_mail">Email</label>
+      <input type="email" name="c_mail" id="c_mail" placeholder="yamoo9@example.com">
+    </p>
+    <button type="submit">전송</button>
+  </form>
+
+<script>
+// DOM Lv.0 방식
+var forms = document.forms;
+// console.log(forms); // [form, form]
+
+// ---------------------------------------------
+// 과거의 코드는 사라져야....
+if (document.layers) {
+// NN
+// console.info('NN 웹 브라우저가 확실합니다!');
+} else {
+// IE
+// console.info('IE 웹 브라우저가 확실합니다!');
+}
+
+/**
+ * --------------------------------
+ * DOM Level 1
+ * document.documentElement
+ * document.getElementsByTagName()
+ * document.getElementById()
+ * ----------------------------- */
+
+var root_element;
+
+root_element = document.documentElement; // HTML 문서에서만 가능
+root_element = document.getElementsByTagName('html')[0] // XML, HTML 문서에서 사용 가능
+// console.log('root_element:', root_element); // <html>
+
+var head = document.head; // HTML 에서만 사용 가능
+var body = document.body; // HTML 에서만 사용 가능
+
+var inputs = document.getElementsByTagName('input');
+var buttons = document.getElementsByTagName('button');
+// console.log('inputs:', inputs);
+// console.log('buttons:', buttons);
+
+// ID 속성을 통한 접근 방법(Interface: Selecting)
+var c_id = document.getElementById('c_id');
+var c_mail = document.getElementById('c_mail');
+// console.log('c_id:', c_id);
+// console.log('c_mail:', c_mail);
+
+// ----------
+
+var first_para = document.getElementsByTagName('p').item(0);
+var first_para_nodes = first_para.childNodes;
+
+console.log(first_para_nodes[0].nodeType === document.ELEMENT_NODE);
+console.log(first_para_nodes[1].nodeType === document.ELEMENT_NODE);
+console.log(first_para_nodes[2].nodeType === document.TEXT_NODE);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.container, .page-footer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1263px;
+  min-height: 632px;
+}
+
+.page-footer {
+  width: 80vh;
+  background: #3d3c31;
+  color: rgba(168, 166, 146, 0.45);
+}
+
+@media screen and (min-width: 800px) {
+  .page-footer {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=../../map/scripts/variables.css.map */

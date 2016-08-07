@@ -1,0 +1,14 @@
+/*! alt-no-js.env.css © yamoo9.net, 2016 */
+@charset "utf-8";
+
+body {
+  background: #ff0;
+}
+
+body::before {
+  display: block;
+  content: 'Unsupport JS';
+  text-align: center;
+  font-size: 100px;
+  color: #303030;
+}

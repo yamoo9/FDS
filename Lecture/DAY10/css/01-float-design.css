@@ -1,0 +1,45 @@
+/**
+ * Float 속성
+ * <img> 요소를 좌/우로 부유시켜 텍스트가 이미지를 둘러싸도록 설정하기 위해 고안된 기술이나,
+ * 오늘 날 그리드 시스템(멀티 컬럼 레이아웃)에 활용됩니다.
+ *
+ * HTML 모든 요소는 float 속성 기본 값이 none으로 설정되어 있습니다.
+ * 이를 사용자가 필요에 따라 float 방향을 왼쪽(left), 오른쪽(right)으로 설정할 수 있습니다.
+ * 이에 따라 float이 적용된 요소의 뒤에 마크업(구조화)된 요소는 float의 영향을 받습니다.
+ */
+
+/**
+ * --------------------------------
+ * Float DEMO
+ * ----------------------------- */
+body {
+  margin: 2rem 20%;
+  line-height: 1.45;
+}
+
+.image-container {
+  width: 550px;
+  margin-bottom: 1rem;
+  border: 4px solid #34c0ff;
+  padding: 1rem;
+}
+
+.image-container img {
+  float: left;
+  margin-right: 10px;
+}
+
+.image-container.blank-bottom-img img + *,
+img.blank-bottom + * {
+  overflow: hidden;
+}
+
+.image-container p {
+  /*float: right;*/
+  /*width: calc(100% - 300px);*/
+  /*overflow: hidden;*/
+  margin-bottom: 1.5em;
+  /*padding-left: 310px;*/
+  color: #13415b;
+  font-size: 0.875rem; /* 14px */
+}

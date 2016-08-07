@@ -1,0 +1,11 @@
+.temp {
+  background: #000;
+  color: #fff;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.row {
+  margin-bottom: 24px;
+}

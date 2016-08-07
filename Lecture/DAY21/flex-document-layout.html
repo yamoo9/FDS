@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>HTML 문서 기본 레이아웃</title>
+  <style>
+    body { margin: 0; }
+    header, footer { height: 100px; }
+    header { background: #ff0; }
+    footer { background: #feae09; }
+    main {
+      display: flex;
+      border: 10px solid #111;
+      /*height: 400px;*/
+    }
+    section { height: 500px; order: 2; background: #1179fe; flex-grow: 1; flex-basis: 300px;}
+    aside { flex-shrink: 0; height: 200px;}
+    .side-A { order: 1; background: #b8b8b8; width: 200px; }
+    .side-B { align-self: flex-end; order: 3; background: #652cbc; width: 200px; }
+  </style>
+</head>
+<body>
+
+  <header>header</header>
+  <main>
+    <section>section</section>
+    <aside class="side-A">aside A</aside>
+    <aside class="side-B">aside B</aside>
+  </main>
+  <footer>footer</footer>
+
+</body>
+</html>

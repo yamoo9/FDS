@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>TEST</title>
+  <style>
+    #parent>.child:first-child~div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    <div class="child">
+      <div class="child">...</div>
+      <p class="child">...</p>
+      <ul class="reset-list">
+        <li><a href="child/item-1.html">item-1</a></li>
+        <li><a href="child/item-2.html">item-2</a></li>
+        <li><a href="child/item-3.html">item-3</a></li>
+      </ul>
+    </div>
+    <div class="child">
+      <div class="child">...</div>
+      <p class="child">...</p>
+      <div class="child">...</div>
+      <ul class="reset-list">
+        <li><a href="child/content-1.html">content-1</a></li>
+        <li><a href="child/content-2.html">content-2</a></li>
+      </ul>
+    </div>
+    <div class="child">
+      <div class="child">...</div>
+      <p class="child">...</p>
+    </div>
+  </div>
+</body>
+</html>

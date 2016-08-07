@@ -1,0 +1,30 @@
+/*! box-model.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 마진이 상하 방향으로 접혀지는 현상
+ * ----------------------------- */
+h1 {
+  margin-bottom: 30px;
+  font-weight: bolder; /* 하위 호환 고려 */
+  font-weight: 900; /*100 - 400(normal) - 700(bold) - 900(bolder) */
+  font-size: 2.2em;
+}
+
+p {
+  margin-top: 20px;
+  color: #323130;
+  font-size: 0.875em; /* 14px */
+}
+
+p a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #000;
+  color: #fff;
+}
+
+p span {
+  background: #f00;
+  color: #ff0;
+}

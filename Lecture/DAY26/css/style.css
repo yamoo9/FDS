@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*! style.css © yamoo9.net, 2016 */
+body {
+  width: 940px;
+  margin: 4rem auto;
+}
+
+.page-footer {
+  margin-top: 1rem;
+}
+
+.page-footer address {
+  font-style: normal;
+}

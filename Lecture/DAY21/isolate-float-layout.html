@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>격리된 플로팅 레이아웃</title>
+  <link rel="stylesheet" href="../Resources/initialization/normalize.css">
+  <link rel="stylesheet" href="../Resources/common.css">
+  <link rel="stylesheet" href="../Resources/grid-system/grid-fluid-1280-8.css">
+  <style>
+    .box {
+      float: left;
+      width: calc( 12.8% * 0.81 );
+      height: calc( 27px * 2 );
+      text-align: center;
+      line-height: calc( 27px * 2 );
+      background: #313133;
+      color: #fff;
+    }
+    /* 본래 사용하는 float 방식 */
+    .box-float {
+      margin-right: calc( 12.8% * 0.19 );
+    }
+
+    /* 격리된 float 레이아웃 방식: Isolate Float Layout Technique */
+    [class*="box-isolate"] {
+      margin-right: -100%; /* KEY POINT!!! */
+    }
+
+    .isolate-order-1 { margin-left: calc(12.8% * 0); }
+    .isolate-order-2 { margin-left: calc(12.8% * 1); }
+    .isolate-order-3 { margin-left: calc(12.8% * 2); }
+    .isolate-order-4 { margin-left: calc(12.8% * 3); }
+    .isolate-order-5 { margin-left: calc(12.8% * 4); }
+    .isolate-order-6 { margin-left: calc(12.8% * 5); }
+
+    .grid {
+      margin-bottom: calc( 27px * 1 );
+    }
+
+    .grid *:nth-child(1) { background: #ffb03b; }
+    .grid *:nth-child(2) { background: #34c3ff; }
+    .grid *:nth-child(3) { background: #fc1f3d; }
+    .grid *:nth-child(4) { background: #5dff2d; }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container show-grid">
+    <div class="grid">
+      <div class="box box-float">1</div>
+      <div class="box box-float">2</div>
+      <div class="box box-float">3</div>
+      <div class="box box-float">4</div>
+    </div>
+    <div class="grid">
+      <div class="box box-isolate isolate-order-3">A</div>
+      <div class="box box-isolate isolate-order-4">B</div>
+      <div class="box box-isolate isolate-order-1">C</div>
+      <div class="box box-isolate isolate-order-2">D</div>
+      <div class="box box-isolate isolate-order-5">E</div>
+      <div class="box box-isolate isolate-order-6">F</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+/*! common.css © yamoo9.net, 2016 */
+
+/* 공통 스타일 */
+h1, h2, h4 {
+  font-weight: 100;
+  color: #544b44;
+}
+
+/* 개별 스타일 */
+h1 {
+  font-size: 3em; /* 16px * 3 = 48px  */
+}
+
+h2 {
+  font-size: 2em; /* 16px * 3 = 32px  */
+}
+
+h4 {
+  font-size: 1.5em; /* 16px * 1.5 = 24px  */
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>동일한 링크의 &lt;a&gt; 요소를 이미지와 텍스트에 동시 적용할 경우</title>
+  <link rel="stylesheet" href="../Resources/common.css">
+  <style>
+    body {
+      width: 80%; margin: 2rem auto;
+    }
+    a {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Case 1. -->
+  <h2>Case 1.</h2>
+  <div>
+    <a href="http://fastcampus.co.kr/">
+      <img src="http://placehold.it/400x200/000/fff/?text=image" alt="">
+      <p>image description</p>
+    </a>
+  </div>
+
+  <h2>Case 2.</h2>
+  <!-- Case 2. -->
+  <div>
+    <a href="http://fastcampus.co.kr/">
+      <img src="http://placehold.it/400x200/000/fff/?text=image" alt="">
+    </a>
+    <a href="http://fastcampus.co.kr/">
+      <p>image description</p>
+    </a>
+  </div>
+
+  <hr>
+
+  <!-- Solution 1. (Like Case 1.) -->
+  <h2>Solution 1.</h2>
+  <div>
+    <a href="http://fastcampus.co.kr/">
+      <img src="http://placehold.it/400x200/000/fff/?text=image" alt="">
+      <p>image description</p>
+    </a>
+  </div>
+
+  <!-- solution 2. -->
+  <h2>Solution 2.</h2>
+  <div>
+    <a href="http://fastcampus.co.kr/" tabindex="-1" aria-hidden="true">
+      <img src="http://placehold.it/400x200/000/fff/?text=image" alt="">
+    </a>
+    <a href="">
+      <p>image description</p>
+    </a>
+  </div>
+
+  <!-- solution 3. JavaScript 사용 -->
+  <h2>Solution 3.</h2>
+  <div class="solution-3">
+    <img src="http://placehold.it/400x200/000/fff/?text=image" alt="" style="cursor: pointer;">
+    <a href="http://fastcampus.co.kr/">
+      <p>image description</p>
+    </a>
+  </div>
+  <script>
+    var s3 = document.querySelector('.solution-3');
+    s3.addEventListener('click', function(evt) {
+      var img = this.querySelector('img');
+      var a = this.querySelector('a');
+      var a_href = a.getAttribute('href');
+      img.addEventListener('click', function() {
+        window.location.href= a_href;
+      });
+    });
+  </script>
+
+</body>
+</html>

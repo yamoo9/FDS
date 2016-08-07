@@ -1,0 +1,132 @@
+/**
+ * --------------------------------
+ * 첫번째 방법
+ * 부모요소도 float을 적용하라.
+ * ※ 권장하지 않음!!!!
+ * ----------------------------- */
+/*.wrapper {
+  float: left;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #eee;
+}
+
+.page-nav {
+  float: left;
+}
+.page-nav ul {
+  float: left;
+}
+.page-nav li {
+  float: left;
+}
+.page-nav a {
+  float: left;
+}
+.page-nav img {
+  float: left;
+}*/
+
+/**
+ * --------------------------------
+ * 두번째 방법
+ * 의미는 없되, 표현을 위한 목적으로 <div>
+ * 요소를 생성하여 class="clear"를 설정
+ * ※ 권장하지 않음!!!!
+ * ----------------------------- */
+ .clear {
+   clear: both;
+ }
+
+ /**
+  * --------------------------------
+  * 세번째 방법
+  * 부모요소에 overflow: hidden | auto;
+  * 값을 설정하면 자식 요소만큼 높이가 생긴다.
+  * ※ 권장하지 않음!!!!
+  * ----------------------------- */
+.float-container {
+  overflow: hidden;
+  overflow: auto;
+}
+
+/**
+ * --------------------------------
+ * 네번째 방법
+ * 두번째 방법을 의미적으로 사용할 수 있도록
+ * 응용한 방법 .clearfix
+ * ----------------------------- */
+/* Legacy Method v1 */
+.clearfix::after {
+  content: 'pseudo element';
+  visibility: hidden;
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.lt-ie8 .clearfix {
+  zoom: 1;
+}
+
+/* Legacy Method v1.1 */
+.new-clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.lt-ie8 .new-clearfix {
+  zoom: 1;
+}
+
+/* New Method */
+.micro-clearfix::before,
+.micro-clearfix::after {
+  content: '';
+  display: table;
+}
+.micro-clearfix::after {
+  clear: both;
+}
+
+.lt-ie8 .micro-clearfix {
+  zoom: 1;
+}
+
+
+
+.parent {
+  /* 방법 1. 부모 요소도 띄워라 float 적용 */
+  /*float: left;*/
+  width: 720px;
+  /*height: 100px;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  /*border: 1px solid hsl(180, 3%, 93%);*/
+  background: #efefef;
+}
+
+.child {
+  /* 자식요소들에게 플로트 적용 */
+  float: left;
+  width: 140px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: hsl(0, 0%, 100%);
+}
+
+.child:first-child  { background: hsl(20, 20%, 40%); }
+.child:nth-child(2) {
+  height: 140px;
+  background: hsl(140, 20%, 40%);
+}
+.child:nth-child(3) {
+  font-weight: 900;
+  /*float: none;*/
+  background: hsl(220, 20%, 40%);
+}
+

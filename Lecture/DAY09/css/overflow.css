@@ -1,0 +1,39 @@
+html {
+  overflow-y: scroll;
+}
+
+/**
+ * display: [none, block, inline, inline-block];
+ * overflow: [visible, hidden, auto, scroll];
+ */
+
+h2 {
+  text-indent: 3em;
+  margin-top: 2em;
+  font-weight: 900;
+  color: #635d52;
+  padding-top: 1em;
+  border-top: 1px solid #ddd;
+}
+
+.parent-box {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 300px;
+  padding: 1em;
+  height: 80px;
+  border: 3px solid #aea28f;
+  line-height: 1.5;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+.ovs {
+  overflow: scroll;
+}
+
+.ova {
+  overflow: auto;
+}

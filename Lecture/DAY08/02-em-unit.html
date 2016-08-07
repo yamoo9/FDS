@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 단위 - em의 적용 어려움의 문제점</title>
+  <link rel="stylesheet" href="../Resources/reset.css">
+  <link rel="stylesheet" href="../Resources/common.css">
+  <link rel="stylesheet" href="css/02-em-unit.css">
+  <!-- 모바일 최적화 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <!-- 시작: .wrapper-parent -->
+  <div class="wrapper-parent">
+    wrapper-parent
+    <!-- 시작: .parent -->
+    <div class="parent">
+      parent
+      <!-- 시작: .child -->
+      <div class="child">
+        child
+        <!-- 시작: .inner-child -->
+        <div class="inner-child">
+          inner-child
+        </div>
+        <!-- 끝: .inner-child -->
+      </div>
+      <!-- 끝: .child -->
+    </div>
+    <!-- 끝: .parent -->
+  </div>
+  <!-- 끝: .wrapper-parent -->
+
+</body>
+</html>

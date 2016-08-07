@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 선택자: CSS를 공부하는데 있어 50% 가량!!! 중요!!</title>
+  <link rel="stylesheet" href="css/selectors.css">
+</head>
+
+<body>
+  <!-- http://www.daum.net/ 코드 중 쇼핑 홈 코드 일부 -->
+  <div id="shoppingGrpTab" class="cont_g cont_shop #shopping shop1_on">
+    <h3 id="shopping1Tab" class="tit_tabcont tit_shop1 #title">
+      <a href="http://shopping.daum.net/main.daum" class="link_tit #1tab">쇼핑홈</a>
+    </h3>
+    <div id="shopping1" class="wrap_tabcont wrap_shop1 #1tab">
+      <h4 class="screen_out">쇼핑몰</h4>
+      <button type="button" class="btn btn-buy">구매</button>
+      <button type="button" class="btn btn-cancel-buy">취소</button>
+      <div id="shop1tabIndex" class="shop_mall shopTabIndex_5">
+        <h4>쇼핑몰 탐방</h4>
+        <ul class="list_mall #mall">
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=6GsUm" target="_blank" class="link_cont @6-1"><strong>옥션</strong></a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=6GsX9" target="_blank" class="link_cont @6-2">11번가</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=DluT6" target="_blank" class="link_cont @6-3">G마켓</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=6eqqG" target="_blank" class="link_cont @6-4">CJ몰</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=BjjMY" target="_blank" class="link_cont @6-5">위메프</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=DPi6p" target="_blank" class="link_cont @6-6">롯데i몰</a></li>
+          <li class="cl_b"><a href="http://go.shopping.daum.net/link/go.daum?dataseq=DPi6q" target="_blank" class="link_cont @6-7">GS샵</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=Cm3zo" target="_blank" class="link_cont @6-8">롯데닷컴</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=DnThW" target="_blank" class="link_cont @6-9"><strong>하프클럽</strong></a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=CfRbT" target="_blank" class="link_cont @6-10">SSG.COM</a></li>
+          <li class="cl_b"><a href="http://go.shopping.daum.net/link/go.daum?dataseq=DnThh" target="_blank" class="link_cont @6-11"><strong>패션플러스</strong></a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=6SFAk" target="_blank" class="link_cont @6-12">iSTYLE24</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=AXyED" target="_blank" class="link_cont @6-13">쇼핑기획전</a></li>
+          <li><a href="http://go.shopping.daum.net/link/go.daum?dataseq=Cm3zj" target="_blank" class="link_cont @6-14">1분쇼핑</a></li>
+        </ul>
+      </div>
+      <div class="parent">
+        <ul>
+          <li><a href="">wow</a></li>
+        </ul>
+        <h4 class="screen_out">상품</h4>
+        <!-- <div></div> -->
+        <ul class="list_img list_goods #content">
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Dvi7S_m&amp;do=0" target="_blank" class="link_cont @6-1"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/alicegohome_B1_20160621153948_4235.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">편안한 느낌!<br>클래스가달라</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Dvk5l_m&amp;do=1" target="_blank" class="link_cont @6-2"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/muran33_B1_20160623091621_4409.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">오늘의 핫딜!<br>80%수입가구</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DuyOx_m&amp;do=2" target="_blank" class="link_cont @6-3"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/sonatural_B1_20160607140919_6036.gif" width="70" height="70" class="img_init" alt=""><span class="txt_cont">물놀이 방수!<br>눈썹타투50%</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DvLoI_m&amp;do=3" target="_blank" class="link_cont @6-4"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/21dressroom_B1_20160622144305_9054.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">초여름명품st<br><em class="color_g">전상품 21%↓</em></span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DviXA_m&amp;do=4" target="_blank" class="link_cont @6-5"><img src="http://shop2.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/rere_peper_B0_20160623135335_2198.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">예쁘다고난리<br>주말특가10%</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DvhKU_m&amp;do=5" target="_blank" class="link_cont @6-6"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/rere_cjmall_B0_20160623104017_7807.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">금강여름특가<br>만원대부터!</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Dw5Qd_m&amp;do=6" target="_blank" class="link_cont @6-7"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/auction_B1_20160624103146_7310.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">이세트하나면<br>비와도걱정끝</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DvKC2_m&amp;do=7" target="_blank" class="link_cont @6-8"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/styleonme_B1_20160622100842_5418.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">우아하고예뻐<br><em class="color_g">백화점퀄리티</em></span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=DuzwU_m&amp;do=8" target="_blank" class="link_cont @6-9"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/young2686_B1_20160621153332_1914.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">미시들인생템<br>극찬이쏟아져</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Duza6_m&amp;do=9" target="_blank" class="link_cont @6-10"><img src="http://shop2.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1m/fashionplus_B1_20160621160919_6837.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">팬텀골프~<br>파격2만대~</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Dviw4_m&amp;do=10" target="_blank" class="link_cont @6-11"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1/rere_jojean_B0_20160617140403_8216.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">인기1위팬츠<br>지금딱예뻐</span></a>
+          </li>
+          <li>
+            <a href="http://go.shopping.daum.net/link/go.daum?dataseq=Duyp8_m&amp;do=11" target="_blank" class="link_cont @6-12"><img src="http://shop1.daumcdn.net/shophow/c/image/content/set/A_top_box_th_1m/lotteimall_B1_20160621145311_8289.jpg" width="70" height="70" class="img_init" alt=""><span class="txt_cont">시리즈 특가!<br>남자의 품격</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h3 id="shopping2Tab" class="tit_tabcont tit_shop2 #title">
+      <a href="http://shopping.daum.net/shopevent/A_sh_event_A854/tabid:beauty" class="link_tit #2tab">소호</a>
+    </h3>
+    <div id="shopping2" class="wrap_tabcont wrap_shop2 #2tab">
+      <span class="screen_out">내용을 가져오기 전 입니다. 바로 확인하시려면 제목 링크를 눌러주세요.</span>
+    </div>
+    <h3 id="shopping3Tab" class="tit_tabcont tit_shop3 #title">
+      <a id="shop3tabIndex" href="http://go.shopping.daum.net/link/go.daum?dataseq=DuYX2_t" class="link_tit shopTabIndex_0 #3tab">조아맘</a>
+    </h3>
+    <div id="shopping3" class="wrap_tabcont wrap_shop3 #3tab">
+    <a href="/hey.html#psd"></a>
+      <span class="screen_out oops">내용을 가져오기 전 입니다. 바로 확인하시려면 제목 링크를 눌러주세요.</span>
+      <span class="oops screen_out">내용을 가져오기 전 입니다. 바로 확인하시려면 제목 링크를 눌러주세요.</span>
+    </div>
+
+
+
+
+    <h3 id="shopping4Tab" class="tit_tabcont tit_shop4 #title">
+
+  <a id="shop4tabIndex" href="http://go.shopping.daum.net/link/go.daum?dataseq=Dn9wU" class="link_tit shopTabIndex_3 #4tab">위메프</a>
+  </h3>
+    <div id="shopping4" class="wrap_tabcont wrap_shop4 #4tab">
+      <span class="screen_out">내용을 가져오기 전 입니다. 바로 확인하시려면 제목 링크를 눌러주세요.</span>
+    </div>
+    <h3 id="shopping5Tab" class="tit_tabcont tit_shop5 #title">
+
+  <a id="shop5tabIndex" href="http://go.shopping.daum.net/link/go.daum?dataseq=DuYWO_t" class="link_tit shopTabIndex_2 #5tab">CJmall</a>
+  </h3>
+    <div id="shopping5" class="wrap_tabcont wrap_shop5 #5tab">
+      <span class="screen_out">내용을 가져오기 전 입니다. 바로 확인하시려면 제목 링크를 눌러주세요.</span>
+    </div>
+    <div class="rel_shop">
+      <strong class="screen_out">나의 쇼핑도움 링크모음</strong>
+      <span class="img_vert rel_link fst">
+  <a href="http://shopping.daum.net/shoppingbox/tab:1tab" class="link_rel #mallmenu1">최근 클릭상품</a>
+  </span>
+      <span class="rel_link">
+  <a href="http://shopping.daum.net/bestshop/category.daum" class="link_rel #mallmenu2">베스트100</a>
+  </span>
+      <div class="page_daum page_type2">
+        <div class="info_page">
+          <span class="screen_out">현재 페이지</span><strong id="shoppingPageNum" class="num_index">4</strong>
+          <span class="txt_slash">/</span>
+          <span class="screen_out">총 페이지</span><span id="shoppingTotalPageNum">10</span>
+        </div>
+        <button id="shoppingPrevBtn" type="button" class="btn_daum btn_page"><span class="ir_wa">&lt; 이전 탭</span></button>
+        <button id="shoppingNextBtn" type="button" class="btn_daum btn_page btn_next"><span class="ir_wa">&gt; 다음 탭</span></button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

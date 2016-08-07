@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>레이아웃 테이블</title>
+  <style>
+    /**
+     * --------------------------------
+     * 테이블 디자인
+     * ----------------------------- */
+    table {
+      /* 테두리 사이 공간을 접는다 */
+      border-collapse: collapse;
+    }
+    table, th, td {
+      /* 테두리 디자인: 두께 모양(직선) 색(글자 색을 상속); */
+      border: 1px solid #120d20;
+    }
+    th, td {
+      padding: 1em;
+    }
+
+    /*.demo tr:nth-child(even) {
+      background: #ff0;
+    }*/
+
+    .demo col {
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+  <table class="demo">
+    <!-- <caption>적절한 테이블 제목</caption> -->
+    <!-- <colgroup>
+      <col>
+      <col span="2">
+    </colgroup> -->
+    <tr>
+      <th>제목</th>
+      <th>제목</th>
+      <th>제목</th>
+    </tr>
+    <tr>
+      <td colspan="2">내용</td>
+      <!-- <td>내용</td> -->
+      <td>내용</td>
+    </tr>
+    <tr>
+      <td>내용</td>
+      <td rowspan="2">내용</td>
+      <td>내용</td>
+    </tr>
+    <tr>
+      <td>내용</td>
+      <!-- <td>내용</td> -->
+      <td>내용</td>
+    </tr>
+  </table>
+</body>
+</html>

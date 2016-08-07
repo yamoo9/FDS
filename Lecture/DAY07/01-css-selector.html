@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 선택자</title>
+  <link rel="stylesheet" href="../Resources/reset.css">
+  <link rel="stylesheet" href="../Resources/common.css">
+  <link rel="stylesheet" href="css/selectors.css">
+</head>
+
+<body>
+
+  <a href="#area-msg">Go to MSG</a>
+
+  <div class="container america">
+    <!-- 미국식 영어 -->
+    <p lang="en-US">Lorem <span>ipsum</span> dolor sit amet, consectetur adipisicing elit. Sequi facilis facere, eveniet commodi ratione laudantium a natus dolorem recusandae aspernatur.</p>
+  </div>
+  <div class="spain container">
+    <!-- 스페인어 -->
+    <p lang="es">Mujer uno dolor más de, poder mismo si. Soluciones expedición casi paria, marejada asunción velo molesto nihilista mosca placenta conejo.</p>
+  </div>
+  <div class="container nation">
+    <!-- 영국식 영어 -->
+    <p lang="en-GB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi facilis facere, eveniet commodi ratione laudantium a natus dolorem recusandae aspernatur.</p>
+  </div>
+  <hr>
+  <div class="page" lang="en">
+    <h3>Page Title</h3>
+    <p>Lorem ipsum <a href="http://daum.net/">DAUM</a> sit amet, consectetur adipisicing elit. Omnis, rerum, ab! <a href="#">Possimus</a> rerum autem earum delectus eligendi corrupti atque <a href="http://fastcampus.co.kr/">FASTCAMPUS</a>. Lorem ipsum dolor.</p>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit. Omnis, rerum, ab! <a href="#">Possimus</a> rerum autem earum delectus eligendi corrupti atque <a href="http://google.com/">GOOGLE</a>. Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit. Omnis, rerum, ab! <a href="#">Possigymus</a> rerum autem earum delectus eligendi corrupti atque <a href="#">vero</a>.</p>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit. Omnis, rerum, ab! <a href="#">Possimus</a> rerum autem earum delectus eligendi corrupti atque <a href="#">vero</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, nihil!</p>
+  </div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <hr>
+  <ul class="reset-list rounded-box">
+    <li>A
+      <ul>
+        <li>A-1</li>
+        <li>A-2</li>
+        <li>A-3</li>
+      </ul>
+    </li>
+    <li>B</li>
+    <li>C</li>
+  </ul>
+  <hr>
+  <div class="wrapper">
+    <div class="inner"></div>
+    <ul>
+      <li>item-1</li>
+      <li>item-2</li>
+      <li>item-3</li>
+      <li>item-4</li>
+      <li>item-5</li>
+      <li>item-6</li>
+      <li>item-7</li>
+      <li>item-8</li>
+    </ul>
+  </div>
+  <hr>
+  <h2 class="dropcap-demo">Magazine Dropcap Design</h2>
+  <p class="dropcap">The Olympic Games could be a "big failure," Rio de Janeiro's acting governor Francisco Dornelles has warned, due to budget shortfalls that threaten to compromise security and mobility during the games</p>
+  <p class="dropcap">We are excited to launch our new company and product Ooooh. After being featured in too many magazines to mention and having created an online stir, we know that Ooooh is going to be big. You may have seen us in the Dinosaurs’ Den where we were we told that we didn’t need them because we were already doing it so well ourselves, so that’s what we have continued to do. We also hope to win Startup Fictional Business of the Year this Year.</p>
+  <p class="dropcap">Democratic Party’s 2016 ticket. The pair coordinated outfits, spoke glowingly about one another, wrapped arms around each other and unified a fractured party at a crucial moment in this campaign.</p>
+  <p class="dropcap">Yet there remains well-founded skepticism that Monday’s campaign rally in Cincinnati was the start of a campaign in which Hillary Clinton selects Elizabeth Warren as her vice presidential pick. Yes, it made for a good rally. No, it doesn’t make Clinton’s path to the Presidency any easier. In fact, it could make it more difficult.</p>
+  <p class="dropcap">Oops... “I’m the daughter of a maintenance man who made it all the way to the United States Senator,” Warren said at her first joint appearance with Clinton. “Hillary Clinton is the granddaughter of a factory worker who is going to make it all the way to the White House.”</p>
+  <p class="dropcap">The room erupted in cheers. Clinton stood and smiled, her hands carefully clasped in front of her. She listened as Warren showered praise on her and eviscerated presumptive Republican nominee Donald Trump. “You know I could do this all day,” Warren remarked to the room and to herself, as if reminding Clinton that her talents are available.</p>
+
+  <hr>
+
+  <div id="area-msg" class="msg">
+    <!-- ::before -->
+    <!-- <div class="before">hey!!</div> -->
+    <p>
+    <!-- ::before -->
+    Далеко-далеко за <a href="http://link1.com/">словесными</a> горами в стране, гласных и согласных живут рыбные тексты. <a href="http://link2.com/">Даже мир сих</a>, большой переписывается имени своих повстречался на берегу <abbr title="дd оw рj оd г3 еd">дороге</abbr> свое эта имеет, выйти, рукопись решила пустился lorem буквоград не.</p>
+    <!-- <div class="after">hand up!</div> -->
+  </div>
+
+  <hr>
+
+  <div class="parent">
+    <div class="child">child in parent 1</div>
+  </div>
+
+  <!-- .parent *:only-of-type -->
+
+  <div class="parent">
+    <div class="child">child in parent 2</div>
+    <p>Далеко-далеко за словесными.</p>
+    <ul>
+      <li><a href="">item-5</a></li>
+      <li><a href="">item-6</a></li>
+      <li><a href="">item-7</a></li>
+    </ul>
+    <ol>
+      <li>order content 01</li>
+      <li>order content 02</li>
+      <li>order content 03</li>
+      <li>order content 04</li>
+      <li>order content 05</li>
+    </ol>
+  </div>
+
+</body>
+
+</html>

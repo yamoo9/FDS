@@ -1,0 +1,55 @@
+/* 박스 사이징: IE 8+ | http://caniuse.com/#search=box-sizing */
+body *, body *::before, body *::after {
+  box-sizing: border-box;
+}
+
+/* 초기화 목록 */
+.reset-list-group ul,
+.reset-list-group ol,
+ul.reset-list,
+ol.reset-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* 이미지 오버플로우 */
+.image-overflow-group img + *,
+img.image-overflow + * {
+  overflow: hidden;
+}
+
+/* IR 배경이미지 기법 */
+.ir {
+  display: block;
+  overflow: hidden;
+  text-indent: -9999em;
+}
+
+/* 클리어픽스 */
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* 스크린리더에서 읽을 수 있는 숨김 텍스트 */
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip:     rect(0,0,0,0);
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+}
+.readable-hidden.focusable:focus {
+  overflow: visible;
+  position: static;
+  clip:     auto;
+  width:    auto;
+  height:   auto;
+  margin:   0;
+}

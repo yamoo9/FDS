@@ -1,0 +1,9 @@
+footer button,
+footer a[role=button],
+footer input[type="button"] {
+  background: #5d7ad4;
+  color: #152350;
+  border: none;
+}
+
+/*# sourceMappingURL=../map/buttons-module.css.map */

@@ -1,0 +1,148 @@
+body {
+  color: hsla(212, 100%, 61%, 0.3);
+  font-size: 2.2rem;
+  margin-left: 0.625rem;
+  background: cyan;
+  border-color: #74ffff;
+}
+
+.grid::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.col-1 {
+  width: 4.25532%;
+}
+
+.col-2 {
+  width: 10.6383%;
+}
+
+.col-3 {
+  width: 17.02128%;
+}
+
+.col-4 {
+  width: 23.40426%;
+}
+
+.col-5 {
+  width: 29.78723%;
+}
+
+.col-6 {
+  width: 36.17021%;
+}
+
+.col-7 {
+  width: 42.55319%;
+}
+
+.col-8 {
+  width: 48.93617%;
+}
+
+.col-9 {
+  width: 55.31915%;
+}
+
+.col-10 {
+  width: 61.70213%;
+}
+
+.col-11 {
+  width: 68.08511%;
+}
+
+.col-12 {
+  width: 74.46809%;
+}
+
+.button-play {
+  background: url("../images/button-play.png");
+}
+
+.button-pause {
+  background: url("../images/button-pause.png");
+}
+
+.button-stop {
+  background: url("../images/button-stop.png");
+}
+
+.button-prev {
+  background: url("../images/button-prev.png");
+}
+
+.button-next {
+  background: url("../images/button-next.png");
+}
+
+.button-forward {
+  background: url("../images/button-forward.png");
+}
+
+.button-backward {
+  background: url("../images/button-backward.png");
+}
+
+.button-show {
+  background: url("../images/button-show.png");
+}
+
+.button-hide {
+  background: url("../images/button-hide.png");
+}
+
+.button-toggle {
+  background: url("../images/button-toggle.png");
+}
+
+.button-active {
+  background: url("../images/button-active.png");
+}
+
+.button-deactive {
+  background: url("../images/button-deactive.png");
+}
+
+.button-on {
+  background: url("../images/button-on.png");
+}
+
+.button-off {
+  background: url("../images/button-off.png");
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.45;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.74;
+}
+
+h5 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}

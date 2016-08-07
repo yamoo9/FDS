@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*! RWD.css © yamoo9.net, 2016 */
+
+/*
+ * Fluid Grid
+ * -----------------------------------
+ * target:content = result
+ * 450px:1200px = 37.5%
+ */
+
+/*
+ * Flexible Image
+ * -----------------------------------
+ * [ Content Image ]
+ * width: 100%;
+ * height: auto;
+ *
+ * [ Keep Scale Image ]
+ * max-width: 100%;
+ *
+ * [ BG Image ]
+ * width: 100%;
+ * padding-bottom: 40%; 800x320 => 40%
+ *
+ * [ Crop Image ]
+ * ※ BG Image 방식에 height 고정
+ */
+
+/*
+ * Flexible Video
+ * -----------------------------------
+ * HTML5 <video>
+ * ※ Flexible Image와 방법이 유사.
+ *
+ * Youtube, Vimeo 비디오 파일 <iframe>, <object>, <embed>
+ * <iframe>을 감싸는 컨테이너 요소가 필요.
+ * position 속성 필요 (<iframe> 요소는 absolute, 부모 컨테이너 요소는 relative)
+ * <iframe> 요소에 top: 0; width: 100%; height: 100%;
+ * 부모 컨테이너 요소에는 height: 0; padding-bottom: <아래 스크린 비율>;
+ * ※ margin, padding 속성에 설정되는 % 값의 기준 크기는 부모 요소가 된다.
+ * -----------------------------------
+ * 스크린 비율(가로x세로)
+ * 4:3  = 75%
+ * 16:9 = 56.25%
+ * 21:9 = 42.857142857%
+ */
+
+/* Media Qeueries / Breakpoint */
+
+/* CSS v2 */
+/* @media screen {} */
+/* @media all {} */
+/* @media print {} */
+
+/* CSS v3 */
+/* @media [only|not] <media-type> and (<condition>) {} */
+
+
+/*
+중단점 설계 참고 URL: https://material.google.com/layout/responsive-ui.html
+
+반응형 UI - 중단점(Breakpoint) 설계에 따른
+레이아웃(Layout) 디자인 가이드
+
+-
+
+최적의 사용자 경험(UX)을 위한 중단점 설계 (Material Design)
+
+480, 600, 840, 960, 1280, 1440, 1600
+
+① 600을 기준 삼아...
+
+600 이하의 경우는 싱글 레이아웃(콘텐츠 레벨이 복잡하지 않은 1계층)으로 Summary/Details View를 한 화면에 모두 제공하지 않는다. (독립적으로 제공)
+
+600 이상의 경우는 멀티 레이아웃(복잡한 콘텐츠 레벨)으로 Summary/Details View를 한 화면에 모두 제공할 수 있다.
+
+② 1600 이상을 넘어가는 와이드 스크린의 경우는 상황에 따라 그리드 레이아웃이 변경될 수 있는데 크게 다음과 같은 방법으로 처리할 수 있다.
+
+1. 가운데 정렬을 유지하면서 마진을 키우는 경우
+2. 왼쪽에 정렬된 상태에서 오른쪽 공간이 커지는 경우
+3. 콘텐츠가 추가되면서 레이아웃이 보다 복잡하게 변경되는 경우
+*/
+

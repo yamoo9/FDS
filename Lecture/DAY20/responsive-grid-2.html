@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>반응형 그리드 시스템</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../Resources/common.css">
+  <link rel="stylesheet" href="../Resources/initialization/normalize.css">
+  <link rel="stylesheet" href="../Resources/grid-system/grid-responsive.css">
+  <style>
+    .page section {
+      box-sizing: border-box;
+      color: #fff;
+      padding: 1.5rem;
+      height: 100vh;
+    }
+    .page section:nth-child(1) { background: #aea28f; }
+    .page section:nth-child(2) { background: #88a07c; }
+    .page section:nth-child(3) { background: #9e807c; }
+
+    .page div {
+      margin-bottom: 1em;
+    }
+
+    @media (min-width: 600px) {
+      .page section:nth-child(2),
+      .page section:nth-child(3) { height: 50vh; }
+    }
+
+    @media (min-width: 900px) {
+      .page section:nth-child(2),
+      .page section:nth-child(3) { height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page container">
+    <section class="unit-m-1-2 unit-l-1-3 gutter-group">
+      <div class="gutter unit-m-1-2 unit-l-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, maiores, velit! Magnam doloremque autem quam deleniti culpa nemo natus, optio.</div>
+      <div class="gutter unit-m-1-2 unit-l-1">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Залетают на берегу текста приставка от всех напоивший вопрос коварный последний не, меня, он рукопись путь семантика необходимыми строчка, переписали прямо языком.</div>
+    </section>
+    <section class="unit-m-1-2 unit-l-1-3">
+      <h2 class="headline">Headline 2</h2>
+    </section>
+    <section class="unit-m-1-2 unit-l-1-3">
+      <h2 class="headline">Headline 3</h2>
+    </section>
+  </div>
+
+</body>
+</html>
