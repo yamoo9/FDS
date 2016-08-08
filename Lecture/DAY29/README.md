@@ -203,7 +203,7 @@ var maked_li_text = document.createTextNode('this is list item');
  - `appendChild(node)`
  - `insertBefore(insert, target)`
  - `removeChild(node)`
- - `replaceChild(alternate target)`
+ - `replaceChild(alternate, target)`
  - `cloneNode(boolean)`
  - `innerHTML`
 

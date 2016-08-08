@@ -4,6 +4,8 @@
 
 ## 자바스크립트(JavaScript)
 
+![](images/JavaScript.png)
+
 Javascript는 HTML, CSS와 함께 웹을 구성하는 요소중 하나로 웹브라우저에서 동작하는 유일한 언어이다.
 
 JavaScript는 멀티-패러다임 언어로 명령형 (imperative), 함수형 (functional), 프로토타입 기반 (prototype-based) 객체지향형 언어다.
@@ -22,13 +24,13 @@ JavaScript는 웹은 물론 모바일 하이브리드 앱(PhoneGap, Sencha Touch
 
 Front-end 영역은 이미 JQuery, AngulaJS, React, Backbone과 같은 JavaScript Framework가 강세를 나타내고 있으며 Back-end 영역 역시 node.js, express, SocketIO 등의 JavaScript Framework가 두각을 나타내고 있고 Front-end와 Back-end를 아우르는 웹 프로그래밍 언어의 표준으로 자리잡고 있다.
 
-![](../Assets/most-Popular-technologies.png)
+![](images/most-Popular-technologies.jpg)
 
 [Stackoverflow Developer Survey Results 2016](http://stackoverflow.com/research/developer-survey-2016#technology)
 
 -
 
-![](../Assets/rank_of_top_language_github.png)
+![](images/rank_of_top_language_github.jpg)
 
 The rank of top languages on Github.com over time
 
