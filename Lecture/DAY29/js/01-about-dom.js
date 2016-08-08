@@ -61,17 +61,18 @@ var parent_el_first_child_el;
 
 // console.log(parent_el_first_child_el);
 
-var test_list     = parent_el_first_child_el.childNodes;
+// var test_list     = parent_el_first_child_el.childNodes;
+var test_list     = parent_el_first_child_el.children;
 var test_list_len = test_list.length;
 
 for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
   node_type = test_list[k].nodeType;
   if (node_type === 1) {
-    console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
+    // console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
   if (node_type === 3) {
-    console.log('current node is TEXT_NODE.'); }
+    // console.log('current node is TEXT_NODE.'); }
   if (node_type === 8) {
-    console.log('current node is COMMENT_NODE.'); }
+    // console.log('current node is COMMENT_NODE.'); }
 }
 
 
