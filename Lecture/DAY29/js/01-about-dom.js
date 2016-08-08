@@ -43,6 +43,8 @@ for ( var i=0; i<9; i=i+1 ) {
   if ( parent_el_child_nodes[i].nodeType === 1 ) {
     // console.log( '%c current node is ELEMENT_NODE.', 'background: #222; color: #bada55' );
     // console.log( 'current node is ELEMENT_NODE.' );
+    parent_el_first_child_el = parent_el_child_nodes[i];
+    break;
   }
   // 3: TEXT_NODE
   else {
@@ -50,3 +52,27 @@ for ( var i=0; i<9; i=i+1 ) {
     // console.log( 'current node is TEXT_NODE.' );
   }
 }
+
+/**
+ * -------------------------------------------------------------
+ * #parent .child:first-child 요소의 자식노드들 순환하여 노드 유형 로그하기
+ * ------------------------------------------------------------- */
+var parent_el_first_child_el;
+
+// console.log(parent_el_first_child_el);
+
+var test_list     = parent_el_first_child_el.childNodes;
+var test_list_len = test_list.length;
+
+for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
+  node_type = test_list[k].nodeType;
+  if (node_type === 1) {
+    console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
+  if (node_type === 3) {
+    console.log('current node is TEXT_NODE.'); }
+  if (node_type === 8) {
+    console.log('current node is COMMENT_NODE.'); }
+}
+
+
+
