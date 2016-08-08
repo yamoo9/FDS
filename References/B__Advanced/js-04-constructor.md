@@ -1,5 +1,8 @@
-###### Fast Campus
-## Javascript & jQuery 정복 CAMP
+###### Front-End Develop SCHOOL
+
+## Javascript Advanced
+
+[← 레퍼런스로 돌아가기](README.md)
 
 ### 모던 자바스크립트 패턴
 

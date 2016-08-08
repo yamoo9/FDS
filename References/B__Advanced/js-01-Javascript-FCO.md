@@ -1,7 +1,8 @@
-###### Fast Campus
-## Javascript & jQuery 정복 CAMP
+###### Front-End Develop SCHOOL
 
-[← 레퍼런스로 돌아가기](js-00-reference.md)
+## Javascript Advanced
+
+[← 레퍼런스로 돌아가기](README.md)
 
 ### Javascript 함수는 일급객체
 
