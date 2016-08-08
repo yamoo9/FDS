@@ -49,8 +49,21 @@ maked_unordered_list_item.appendChild(maked_unordered_list_item_text);
 // 목적지에 해당하는 요소를 직접 생성한 다음에 문서에 붙여보겠다.
 
 // <div id="target-container"></div>
-var target_conatainer = document.createElement('div');
+var target_container = document.createElement('div');
 // setAttribute(attribute, value);
-target_conatainer.setAttribute('id', 'target-container');
-target_conatainer.appendChild(maked_unordered_list);
-document.body.appendChild(target_conatainer);
+target_container.setAttribute('id', 'target-container');
+target_container.appendChild(maked_unordered_list);
+// document.body.appendChild(target_container);
+
+var body = document.body;
+var target = body.firstChild;
+
+// body.insertBefore(target_container, target);
+
+
+// 가능한 청년들이여! 아래 헬퍼 함수를 만들지어다.
+function prependChild(child_node, parent_node) {
+  parent_node.insertBefore(child_node, parent_node.firstChild);
+}
+
+prependChild(target_container, body);
