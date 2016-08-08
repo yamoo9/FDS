@@ -2,7 +2,7 @@
 
 # 프론트엔드 개발 SCHOOL
 
-![open-img](Assets/open-img.png)
+![open-img](Lecture/Assets/open-img.png)
 
 ### INTRODUCE
 
