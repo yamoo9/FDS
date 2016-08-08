@@ -90,5 +90,35 @@ for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
 //    TEXT_NODE의 경우만 접근이 가능
 //    ELEMENT_NODE의 경우는 null 반환
 
+/**
+ * --------------------------------
+ * DOM API | IE 9+
+ * Traversal Properties
+ * .firstChild      -> .firstElementChild
+ * .lastChild       -> .lastElementChild
+ * .previousSibling -> .previousElementSibling
+ * .nextSibling     -> .nextElementSibling
+ * .parentNode      -> .parentElement
+ * ----------------------------- */
 
+// -----------------------------
+// NODE Information
+// -----------------------------
+// HTML DOM 방식의 속성 접근 방법
+// 웹의 초창기 때부터 존재하던 속성들
+// id, className, title, ...
+console.log('parent_el 요소노드의 id 속성:', parent_el.id);           // 'parent'
+console.log('parent_el 요소노드의 class 속성:', parent_el.className); // ''
+console.log('parent_el 요소노드의 title 속성:', parent_el.title);     // ''
 
+// 새롭게 등장한 속성들
+// data-*, aria-*, role, ...
+
+// console.log('parent_el.role: ', parent_el.role);
+console.log('parent_el.role: ', parent_el.getAttribute('role'));
+// console.log('parent_el.data-container: ', parent_el.data-container);
+// console.log('parent_el.data-container: ', parent_el['data-container']);
+console.log('parent_el.data-container: ', parent_el.getAttribute('data-container'));
+// console.log('parent_el.aria-hidden: ', parent_el.aria-hidden);
+// console.log('parent_el.aria-hidden: ', parent_el['aria-hidden']);
+console.log('parent_el.aria-hidden: ', parent_el.getAttribute('aria-hidden'));
