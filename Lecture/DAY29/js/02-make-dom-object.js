@@ -41,5 +41,16 @@ target_place.appendChild(maked_division);
  * 동적으로 생성된 <ul><li>list item</li></ul>을
  * 문서의 특정 요소 내부 마지막 자식으로 추가(삽입)
  * ---------------------------------------------------------------- */
+maked_unordered_list.appendChild(maked_unordered_list_item);
+maked_unordered_list_item.appendChild(maked_unordered_list_item_text);
 
+// console.log(maked_unordered_list);
 
+// 목적지에 해당하는 요소를 직접 생성한 다음에 문서에 붙여보겠다.
+
+// <div id="target-container"></div>
+var target_conatainer = document.createElement('div');
+// setAttribute(attribute, value);
+target_conatainer.setAttribute('id', 'target-container');
+target_conatainer.appendChild(maked_unordered_list);
+document.body.appendChild(target_conatainer);
