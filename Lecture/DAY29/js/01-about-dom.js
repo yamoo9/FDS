@@ -68,11 +68,14 @@ var test_list_len = test_list.length;
 for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
   node_type = test_list[k].nodeType;
   if (node_type === 1) {
-    console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
+    // console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900');
+  }
   if (node_type === 3) {
-    console.log('current node is TEXT_NODE.'); }
+    // console.log('current node is TEXT_NODE.');
+  }
   if (node_type === 8) {
-    console.log('current node is COMMENT_NODE.'); }
+    // console.log('current node is COMMENT_NODE.');
+  }
 }
 
 
@@ -107,18 +110,57 @@ for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
 // HTML DOM 방식의 속성 접근 방법
 // 웹의 초창기 때부터 존재하던 속성들
 // id, className, title, ...
-console.log('parent_el 요소노드의 id 속성:', parent_el.id);           // 'parent'
-console.log('parent_el 요소노드의 class 속성:', parent_el.className); // ''
-console.log('parent_el 요소노드의 title 속성:', parent_el.title);     // ''
+// console.log('parent_el 요소노드의 id 속성:', parent_el.id);           // 'parent'
+// console.log('parent_el 요소노드의 class 속성:', parent_el.className); // ''
+// console.log('parent_el 요소노드의 title 속성:', parent_el.title);     // ''
 
 // 새롭게 등장한 속성들
 // data-*, aria-*, role, ...
 
 // console.log('parent_el.role: ', parent_el.role);
-console.log('parent_el.role: ', parent_el.getAttribute('role'));
+// console.log('parent_el.role: ', parent_el.getAttribute('role'));
 // console.log('parent_el.data-container: ', parent_el.data-container);
 // console.log('parent_el.data-container: ', parent_el['data-container']);
-console.log('parent_el.data-container: ', parent_el.getAttribute('data-container'));
+// console.log('parent_el.data-container: ', parent_el.getAttribute('data-container'));
 // console.log('parent_el.aria-hidden: ', parent_el.aria-hidden);
 // console.log('parent_el.aria-hidden: ', parent_el['aria-hidden']);
-console.log('parent_el.aria-hidden: ', parent_el.getAttribute('aria-hidden'));
+// console.log('parent_el.aria-hidden: ', parent_el.getAttribute('aria-hidden'));
+
+
+/**
+ * ----------------------------------------------------------------------------
+ * #parent 내부의 요소 중 자식이 없는 요소를 모두 콘솔에 기록하라.
+ * ※ 주의! hasChildNodes()는 빈 공백 또한 자식노드로 읽기 때문에 공백이 없을 때만 사용 가능하다.
+ * ---------------------------------------------------------------------------- */
+
+var parent            = document.getElementById('parent');
+var parent_childs     = parent.getElementsByTagName('div');
+var parent_childs_len = parent_childs.length;
+
+for(var i=0; i<parent_childs_len; i=i+1) {
+  var child = parent_childs[i];
+  if ( !child.hasChildNodes() ) {
+    // console.log(child);
+  }
+}
+
+/**
+ * --------------------------------
+ * 클래스 속성 값으로 문서 객체 대상 선택하기
+ * IE 9+ 지원
+ * ----------------------------- */
+// document.links; // HTMLCollection
+var childs = document.getElementsByClassName('child'); // NodeList
+// console.log(childs, childs.length);
+
+var container = document.getElementsByClassName('container');
+// console.log(container, container.length);
+
+/**
+ * --------------------------------
+ * CSS 선택자를 통해 문서 객체를 선택하는 방법
+ * IE 8+ 지원
+ * .querySelector('#id .class');
+ * .querySelectorAll('#id .class');
+ * .querySelector() === .querySelectorAll()[0]
+ * ----------------------------- */
