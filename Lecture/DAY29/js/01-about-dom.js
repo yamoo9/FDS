@@ -68,12 +68,27 @@ var test_list_len = test_list.length;
 for ( var node_type, k=0; k<test_list_len; k=k+1 ) {
   node_type = test_list[k].nodeType;
   if (node_type === 1) {
-    // console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
+    console.log('%c current node is ELEMENT_NODE.', 'font-weight: 900'); }
   if (node_type === 3) {
-    // console.log('current node is TEXT_NODE.'); }
+    console.log('current node is TEXT_NODE.'); }
   if (node_type === 8) {
-    // console.log('current node is COMMENT_NODE.'); }
+    console.log('current node is COMMENT_NODE.'); }
 }
+
+
+// ------------------------------------------
+// 노드(Node)의 유형/이름/값을 출력하는 방법
+// ------------------------------------------
+// 1. nodeType
+//    ELEMENT_NODE = 1
+//    TEXT_NODE    = 3
+//    COMMENT_NODE = 8
+// 2. nodeName
+//    ELEMENT_NODE의 경우는 요소 이름을 대문자로 반환
+//    TEXT_NODE의 경우는 '#text' 반환
+// 3. nodeValue
+//    TEXT_NODE의 경우만 접근이 가능
+//    ELEMENT_NODE의 경우는 null 반환
 
 
 
