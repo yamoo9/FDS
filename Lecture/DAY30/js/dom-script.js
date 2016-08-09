@@ -63,4 +63,27 @@ function prependChild(parent_node, child_node) {
   parent_node.insertBefore(child_node, parent_node.firstChild);
 }
 
-prependChild(body, modal);
+// prependChild(body, modal);
+
+// 특정 노드 ~ 뒤에 삽입하는 헬퍼 함수
+// insertBefore(insert_node, target_node)
+// insertAfter(target_node, insert_node)
+function insertAfter(target_node, insert_node) {
+  // 삽입하고자 하는 노드를 목표 노드 뒤에 추가해주는 헬퍼 함수이다.
+  // 함수 내부의 var 키워드를 사용한 변수 선언은 『지역 변수』가 된다.
+  var next_node = target_node.nextSibling;
+  var parent_node = target_node.parentNode;
+  // 만약 next_node가 존재한다면
+  if ( next_node ) {
+    parent_node.insertBefore(insert_node, next_node);
+  }
+  // next_node가 존재하지 않는다면
+  else {
+    parent_node.appendChild(insert_node);
+  }
+}
+
+var script = document.querySelector('script');
+
+insertAfter(script, modal);
+
