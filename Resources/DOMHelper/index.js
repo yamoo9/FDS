@@ -31,16 +31,30 @@ function insertAfter(target_node, insert_node) {
   else { parent_node.appendChild(insert_node); }
 }
 
-function queryAll(selector, context) {
-  // 유효성 검사
-  // 문자 데이터인지 확인
-  if ( typeof selector !== 'string' ) { throw new Error('전달인자는 문자열만 가능합니다.'); }
-  // if ( typeof selector !== 'string' ) { console.error('전달인자는 문자열만 가능합니다.'); }
-  // console.info('오류 발생 후 코드가 실행되는가?');
-  if ( !context ) { context = document; }
-  return context.querySelectorAll(selector);
+// .querySelectorAll() 메소드를 단축하여 사용할 수 있는 헬퍼 함수
+function queryAll(selector_str, context) {
+  // 사용자가 올바른 데이터를 전달하였는가? 검증
+  if ( typeof selector_str !== 'string') {
+    // 조건이 참이 되면 오류 발생
+    throw new Error('첫번째 전달인자는 문자 유형이어야 합니다.');
+  }
+  // context 인자 값을 사용자가 전달하였는가?
+  // 사용자가 context 값을 전달하지 않았을 경우는 undefined 이다.
+  // if (typeof context === 'undefined') {
+  if (!context) { context = document; }
+  return context.querySelectorAll(selector_str);
 }
 
-function query(selector, context) {
-  return queryAll(selector, context)[0];
+function query(selector, parent) {
+  return queryAll(selector, parent)[0];
 }
+
+// function $q(selector, hook, context) {
+//   var method;
+//   if ( hook === 1 ) {
+//     method = 'query';
+//   } else {
+//     method = 'queryAll';
+//   }
+//   return window[method](selector, context);
+// }
