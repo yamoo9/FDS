@@ -37,8 +37,8 @@ function makeModal() {
     insertAfter(last_script, modal);
     // 상태 변경
     exist_modal = !exist_modal;
-    this.setAttribute('disabled', true);
   }
+  // this.setAttribute('disabled', true);
 }
 
 function removeModal() {
@@ -50,7 +50,7 @@ function removeModal() {
 
   // 상태 변경
   exist_modal = !exist_modal;
-  make_btn.removeAttribute('disabled');
+  // make_btn.removeAttribute('disabled');
 }
 
 make_btn.onclick = makeModal;
