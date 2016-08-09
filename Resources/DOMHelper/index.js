@@ -30,3 +30,17 @@ function insertAfter(target_node, insert_node) {
   if ( next_node ) { parent_node.insertBefore(insert_node, next_node); }
   else { parent_node.appendChild(insert_node); }
 }
+
+function queryAll(selector, context) {
+  // 유효성 검사
+  // 문자 데이터인지 확인
+  if ( typeof selector !== 'string' ) { throw new Error('전달인자는 문자열만 가능합니다.'); }
+  // if ( typeof selector !== 'string' ) { console.error('전달인자는 문자열만 가능합니다.'); }
+  // console.info('오류 발생 후 코드가 실행되는가?');
+  if ( !context ) { context = document; }
+  return context.querySelectorAll(selector);
+}
+
+function query(selector, context) {
+  return queryAll(selector, context)[0];
+}
