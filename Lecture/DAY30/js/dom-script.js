@@ -41,5 +41,26 @@ modal.appendChild( modal_title );
 modal.appendChild( modal_desc );
 modal.appendChild( btn_modal_cta );
 modal.appendChild( btn_modal_close );
-// <body> 요소 맨 뒷편에 삽입
-document.body.appendChild(modal);
+
+// <body> 요소 맨 뒷편에 삽입(추가)
+var body = document.body;
+// body.appendChild(modal);
+
+// <body> 요소 맨 앞에 삽입(추가)
+// 방법 1. 표준 DOM API 방법인 insertBefore() 메소드를 활용
+// target_node.parentNode.insertBefore(insert_node, target_node)
+// var script_in_body = body.querySelector('script'); // IE 8+
+// console.log('target_node:', script_in_body);
+// var script_parent = script_in_body.parentNode;
+// console.log('target_node.parentNode:', script_parent);
+// script_parent.insertBefore(modal, script_in_body);
+
+
+// 방법 2. 사용자 정의(Custom) 헬퍼 함수 prependChild()를 활용
+// parent_node.appendChild(child_node);
+// prependChild(parent, child);
+function prependChild(parent_node, child_node) {
+  parent_node.insertBefore(child_node, parent_node.firstChild);
+}
+
+prependChild(body, modal);
