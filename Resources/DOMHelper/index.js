@@ -58,3 +58,18 @@ function query(selector, parent) {
 //   }
 //   return window[method](selector, context);
 // }
+
+// 문서 객체(노드)를 제거하는 헬퍼 함수
+function removeNode(node) {
+  node.parentNode.removeChild(node);
+}
+
+// createElement(), createTextNode()
+// 2가지 일을 동시에 수행하는 헬퍼 함수
+// "요소노드를 생성한 다음 내부에 텍스트노드를 자식 노드로 삽입"
+function createNode(el_name, text) {
+  var el_node = document.createElement(el_name);
+  var text_node = document.createTextNode(text);
+  el_node.appendChild(text_node);
+  return el_node;
+}
