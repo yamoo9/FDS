@@ -69,7 +69,9 @@ function removeNode(node) {
 // "요소노드를 생성한 다음 내부에 텍스트노드를 자식 노드로 삽입"
 function createNode(el_name, text) {
   var el_node = document.createElement(el_name);
-  var text_node = document.createTextNode(text);
-  el_node.appendChild(text_node);
+  if ( typeof text !== 'undefined' && typeof text === 'string' ) {
+    var text_node = document.createTextNode(text);
+    el_node.appendChild(text_node);
+  }
   return el_node;
 }
