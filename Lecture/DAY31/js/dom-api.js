@@ -32,22 +32,11 @@ var deep_clone_replace_p = replace_p.cloneNode(true); // <p>의 모든 것을 �
 // 매개변수 1: 이동시키고자 하는 노드
 // 매개변수 2: 이동시키고자 하는 목표가 되는 노드
 function changePositionNodes(moving_node, target_node) {
-  // moving_node의 위치를 기억하기 위한 위치 변수로 다음 노드를 참조.
-  var next_node = moving_node.nextSibling;
-  // moving_node의 부모 노드가 존재하는지 유무를 파악하기 위한 변수.
-  var parent_node = moving_node.parentNode;
-  // 교체 과정에서 사라진 노드를 변수에 기억시킴.
-  var removed_node = target_node.parentNode.replaceChild(moving_node, target_node);
-  // 다음 노드가 존재할 경우
-  if (next_node) {
-    next_node.parentNode.insertBefore(removed_node, next_node);
-  }
-  // 부모 노드가 존재할 경우
-  else if (parent_node) {
-    parent_node.appendChild(removed_node);
-  }
-  // 부모 노드가 존재하지 않을 경우
-  else {
-    return removed_node;
-  }
+	var next_node = moving_node.nextSibling;
+	target_node.parentNode.replaceChild(moving_node, target_node);
+	if (next_node) {
+		next_node.parentNode.insertBefore(target_node, next_node);
+	} else {
+		moving_node.parentNode.appendChild(target_node);
+	}
 }
