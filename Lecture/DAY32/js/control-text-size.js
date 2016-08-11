@@ -3,21 +3,30 @@ var page_header  = query('.page-header');
 var increase_btn = query('.btn-increase-text');
 var decrease_btn = query('.btn-decrease-text');
 var change_text  = 10;
+var limit_up     = 46;
+var limit_down   = 12;
 
 // 글자 크기 변경 함수
 function changeTextSize() {
   // console.log('context:', this.firstChild.nodeValue);
   var operator = this.firstChild.nodeValue;
-  var _change_text = change_text;
+  var _current_text;
   // page_header의 글자 크기를 키운다.
   // 글자 크기를 연산이 가능하도록 변경
   var current_size = parseInt(page_header.style.fontSize);
-  // 글자 크기를 변경(키움)하여 해당 요소에 설정
-  if (operator === '-') {
-    _change_text = change_text * -1;
+
+  if (operator === '+') {
+    _current_text = current_size + change_text;
+  } else {
+    _current_text = current_size - change_text;
   }
-  page_header.style.fontSize = current_size + _change_text + 'px';
-  console.log(page_header.style.fontSize);
+  // 글자 크기를 변경(키움)하여 해당 요소에 설정
+  if ( _current_text > limit_up || _current_text < limit_down) {
+    _current_text = current_size;
+  }
+
+  page_header.style.fontSize = _current_text + 'px';
+  // console.log(page_header.style.fontSize);
 };
 
 // 검증
