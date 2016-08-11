@@ -52,7 +52,7 @@ decrease_btn.onclick = changeTextSize;
 // window.getComputedStyle(대상,가상요소).스타일속성
 // ------------------------------------------------
 function getStyle(el, property, pseudo) {
-  var value;
+  var value, el_style;
   // 유효성 검사
   if ( el.nodeType !== 1 ) {
     console.error('첫번째 인자 el은 요소노드여야 합니다.');
@@ -63,12 +63,26 @@ function getStyle(el, property, pseudo) {
   if ( typeof pseudo !== 'string' && pseudo ) {
     console.error('세번째 인자 pseudo는 문자열이야 합니다.');
   }
-  if (window.getComputedStyle) {
-    value = window.getComputedStyle(el,pseudo)[property];
+
+  // CSS 속성 이름이 카멜케이스화
+  property = camelCase(property);
+
+  if ( window.getComputedStyle ) {
+    el_style = window.getComputedStyle(el,pseudo);
+    if (pseudo && el_style.content === '') {
+      return null;
+    }
+    value = el_style[property];
   } else {
     value = el.currentStyle[property];
   }
   return value;
+}
+
+function camelCase(css_prop) {
+   return css_prop.replace(/-./g, function($1){
+      return $1.replace('-','').toUpperCase();
+   });
 }
 
 // ------------------------------------------------
