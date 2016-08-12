@@ -2,7 +2,7 @@
 
 [← Back](README.md)
 
-## 자바스크립트 콘텐츠 흐름(Control Flow)
+## 자바스크립트 제어 흐름(Control Flow)
 
 제어문(Control flow statement)은 조건에 따른 명령 실행(조건문)이나 반복 실행(반복문)이 필요할 때 사용된다.
 

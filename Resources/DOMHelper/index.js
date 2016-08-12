@@ -95,7 +95,7 @@ function getStyle(el, property, pseudo) {
   if ( typeof property !== 'string' ) {
     console.error('두번째 인자 property는 문자열이야 합니다.');
   }
-  if ( typeof pseudo !== 'string' && pseudo ) {
+  if ( pseudo && typeof pseudo !== 'string' ) {
     console.error('세번째 인자 pseudo는 문자열이야 합니다.');
   }
 
@@ -114,8 +114,8 @@ function getStyle(el, property, pseudo) {
   return value;
 }
 
-function camelCase(css_prop) {
-   return css_prop.replace(/-./g, function($1){
-      return $1.replace('-','').toUpperCase();
+function camelCase(text) {
+   return text.replace(/(\s|-|_)./g, function($1){
+      return $1.replace(/(\s|-|_)/g,'').toUpperCase();
    });
 }
