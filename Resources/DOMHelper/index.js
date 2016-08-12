@@ -5,6 +5,26 @@ function isType(data) {
    return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
 }
 
+// 데이터 간 동등한지 유무 파악 헬퍼 함수
+function equal(data1, data2) {
+   return data1 == data2;
+}
+
+// 데이터 간 완전하게 동등한지 유무 파악 헬퍼 함수
+function strictEqual(data1, data2) {
+   return data1 === data2;
+}
+
+function throwError(type1, type2, err_msg) {
+  err_msg = err_msg || '기본 오류 메시지';
+  if ( isType(type1) !== type2 ) { throw new Error(err_msg); }
+}
+
+function validDate(data, type) {
+  throwError(type, 'string'); // 오류 발생 시 멈추고 화면에 오류 메시지 출력
+  return strictEqual( isType(data), type );
+}
+
 /**
  * prependChild(부모노드, 자식노드)
  * 부모노드의 첫번째 자식노드로 삽입한다.
