@@ -119,3 +119,14 @@ new String('primitive') instanceof String; // true
 // Uncaught TypeError: Cannot read property 'constructor' of null(…)
 // 이유는... constructor 속성은 객체만이 가지는 속성이기 때문이다.
 (null).constructor; // null, undefined는 객체가 아니기 때문에 속성이 없다.
+
+
+// ------------------------------------------------------------------------------
+// 연산자
+// ------------------------------------------------------------------------------
+// 산술 연산자 +, -, *, /
+// 나머지 연산자 %
+var doll_message = ['안녕', '밥 먹었니?', '공부는 잘하고?', '결혼은 언제?', '아이는 몇 명?'];
+for (var count = 0, messages = doll_message.length; count < messages; count++ ) {
+  console.log(doll_message[ count % messages ]);
+}

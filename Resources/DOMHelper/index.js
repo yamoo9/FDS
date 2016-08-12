@@ -1,5 +1,10 @@
 /*! DOMHelper.js © yamoo9.net, 2016 */
 
+// 자바스크립트의 모든 데이터 유형을 올바르게 감지할 수 있는 헬퍼 함수
+function isType(data) {
+   return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+
 /**
  * prependChild(부모노드, 자식노드)
  * 부모노드의 첫번째 자식노드로 삽입한다.
