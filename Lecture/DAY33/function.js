@@ -198,24 +198,15 @@ switch( today ) {
 // switch ~ case 문 응용
 
 function init() {
-  var event_types = [];
-  event_types.push('click');
-  event_types.push('dblclick');
-  event_types.push('mouseenter');
-  event_types.push('mouseover');
-  event_types.push('mouseout');
-  event_types.push('mouseleave');
-  event_types.push('focus');
-  event_types.push('blur');
   // 지역 변수
+  var event_types = 'click dblclick mouseenter mouseover mouseout mouseleave focus blur'.split(' ');
   var random_count = Math.floor( Math.random() * event_types.length );
   var event_type = event_types[ random_count ];
-  console.log(event_type);
   var callback;
   var dom_el = query('.result');
-  dom_el.setAttribute('tabindex', 0);
-
   dom_el.innerHTML = 'this is dom object.';
+  dom_el.setAttribute('tabindex', 0);
+  console.log(event_type);
 
   switch(event_type) {
     case 'click':
