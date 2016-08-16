@@ -185,20 +185,21 @@ function isntElNode(node) {
 }
 
 // ------------------------------------------------
-// 요소노드의 이름이 동일한지 체크하는 헬퍼 함수
+// 요소노드의 이름이 동일한지, 아닌지 체크하는 헬퍼 함수
 function isElName(node, name) {
   if ( isntElNode(node) ) { errorMsg('첫번째 인자로 요소노드가 전달되어야 합니다.') }
   if ( isType(name) !== 'string' ) { errorMsg('두번째 인자로 텍스트 데이터 유형이 전달되어야 합니다.') }
   return (node.localName || node.nodeName.toLowerCase()) === name;
 }
+function isntElName(node, name) {
+  return !isElName(node, name);
+}
 
 // ------------------------------------------------
-// 텍스트노드의 유형인지 체크하는 함수
+// 텍스트노드의 유형인지, 아닌지 체크하는 함수
 function isTextNode(node) {
   return node.nodeType === 3;
 }
-// ------------------------------------------------
-// 텍스트노드의 유형이 아닌지 체크하는 함수
 function isntTextNode(node) {
   // return !isTextNode(node);
   return node.nodeType !== 3;

@@ -76,9 +76,52 @@ var collection = document.body.childNodes;
 for ( var el_collection=[], i = collection.length - 1; collection[i]; i-- ) {
    let node = collection[i];
    if( isTextNode(node) || isElName(node,'script') ) { // #text, <script> (ㅇ)
-       continue;
+       // continue;
+       break;
    }
    el_collection.push(node); // #text, <script> (x)
 }
 
 // console.log( el_collection );
+
+
+// break 예제
+var units = 'px em rem % vw vh vmin vmax'.split(' ');
+var unit;
+var i = 0;
+var l = units.length;
+
+var demo_container = query('.demo-container');
+var get_value = getStyle(demo_container, 'margin-bottom');
+
+// getUnit( getStyle(demo_container, 'margin-bottom') );
+
+// function hasUnit(){}
+function getUnit(value){
+  var i=0,l=getUnit.units.length,unit;
+  var reg;
+  for ( ; i<l; i++ ) {
+    unit = getUnit.units[i];
+    if ( value.indexOf(unit) > -1) {
+      break;
+    }
+  }
+  return unit;
+}
+// 함수 또한 객체이기 때문에 속성을 가질 수 있다.
+getUnit.units = 'px rem em % vw vh vmin vmax'.split(' ');
+
+for( ; i<l; i++ ) {
+  unit = units[i];
+  // console.log( get_value.indexOf(unit) > -1 );
+  if ( get_value.indexOf(unit) > -1 ) {
+    // 특정 단위가 존재한다.
+
+  }
+  // console.log(unit);
+}
+
+// ECMAScript 2015 <for ~ of>
+// for ( let unit of units ) {
+//   console.log(unit);
+// }
