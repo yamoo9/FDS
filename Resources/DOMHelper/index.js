@@ -224,37 +224,30 @@ function nextEl(node) {
 
 // ------------------------------------------------
 // 첫번째 자식요소 노드를 찾는 헬퍼 함수
-function _firstEl(node) {
-  return node.children[0];
-}
-
-function _lastEl(node) {
-  var children = node.children;
-  return children[children.length - 1];
-}
-
-
 function firstEl(node) {
   if ( isntElNode(node) ) { errorMsg('요소노드를 전달해야 합니다.'); }
   if ( node.firstElementChild ) {
     return node.firstElementChild;
   } else {
-    // IE 6-8
-    // node 찾고자 하는 자식 노드의 부모이다.
-    // 제일 먼저 부모 노드인 node의 첫번째 자식 노드를 찾는다.
     node = node.firstChild;
-    // return;
-    // 만약 찾은 자식 노드가 요소 노드가 아니라면 다음 형제 노드를 찾는다.
-    // 다음 형제 노드가 요소 노드라면 반환하고, 아니라면 다시 다음 형제 노드를 요소노드인지 확인한다.
-    // console.log(node && isntElNode(node));
-    // return;
     return ( node && isntElNode(node) ) ? nextEl(node) : node;
   }
-  // 함수는 명시적으로 어떤 값도 반환하지 않을 경우 undefined를 반환한다.
-  // return undefined;
 }
-
 // 마지막 자식요소 노드를 찾는 헬퍼 함수
 function lastEl(node) {
-
+  if ( isntElNode(node) ) { errorMsg('요소노드를 전달해야 합니다.'); }
+  if ( node.lastElementChild ) {
+    return node.lastElementChild;
+  } else {
+    node = node.lastChild;
+    return ( node && isntElNode(node) ) ? prevEl(node) : node;
+  }
+}
+// 목적에 도달하는 쉬운 헬퍼 함수
+function _firstEl(node) {
+  return node.children[0];
+}
+function _lastEl(node) {
+  var children = node.children;
+  return children[children.length - 1];
 }
