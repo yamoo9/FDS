@@ -289,6 +289,8 @@ function getUnit(value){
 }
 getUnit.units = 'px rem em % vw vh vmin vmax'.split(' ');
 
+// JavaSCript 함수는 객체이다.
+// 객체는 속성을 가진다.
 function removeUnit(value) {
   removeUnit.unit = getUnit(value);
   return parseFloat(value, 10);
