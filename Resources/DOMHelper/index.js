@@ -153,14 +153,44 @@ function errorMsg(message) {
   throw new Error(message);
 }
 
+function isElNode(node) {
+  return node.nodeType === 1;
+}
+function isntElNode(node) {
+  return !isElNode(node);
+  // return node.nodeType !== 1;
+}
+
 function prevEl(node) {
   // 검증: 유효성 검사
-  if ( node.nodeType !== 1 ) {
+  if ( isntElNode(node) ) {
     errorMsg('전달된 인자는 요소노드여야 합니다.');
   }
-  // node.previousSibling; // 요소노드, 텍스트노드, 주석노드 ???
-  do {
-    node = node.previousSibling;
-  } while(node && node.nodeType !== 1);
-  return node;
+  // 구형 IE 9+, 신형 웹 브라우저
+  if ( node.previousElementSibling ) {
+    return node.previousElementSibling;
+  }
+  // 구형 IE 6-8
+  else {
+    do { node = node.previousSibling; }
+    while(node && !isElNode(node) );
+    return node;
+  }
+}
+
+function nextEl(node) {
+  // 검증: 유효성 검사
+  if ( isntElNode(node) ) {
+    errorMsg('전달된 인자는 요소노드여야 합니다.');
+  }
+  // 구형 IE 9+, 신형 웹 브라우저
+  if ( node.nextElementSibling ) {
+    return node.nextElementSibling;
+  }
+  // 구형 IE 6-8
+  else {
+    do { node = node.nextSibling; }
+    while(node && !isElNode(node) );
+    return node;
+  }
 }
