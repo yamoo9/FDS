@@ -108,3 +108,12 @@ for( ; i<l; i++ ) {
 // for ( let unit of units ) {
 //   console.log(unit);
 // }
+
+// -------------------------------------------------------
+// for ~ in 문
+// for ( var property in obj ) {
+//     if ( obj.hasOwnProperty(property) ) {
+//         console.log('속성:', property);
+//         console.log('값:', obj[property]);
+//     }
+// }
