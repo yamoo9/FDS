@@ -144,3 +144,23 @@ function camelCase(text) {
       return $1.replace(/(\s|-|_)/g,'').toUpperCase();
    });
 }
+
+function errorMsg(message) {
+  if ( isType(message) !== 'string' ) {
+    // 함수 자신을 다시 호출: 재귀함수
+    errorMsg('오류 메시지는 문자 데이터 유형이어야 합니다.');
+  }
+  throw new Error(message);
+}
+
+function prevEl(node) {
+  // 검증: 유효성 검사
+  if ( node.nodeType !== 1 ) {
+    errorMsg('전달된 인자는 요소노드여야 합니다.');
+  }
+  // node.previousSibling; // 요소노드, 텍스트노드, 주석노드 ???
+  do {
+    node = node.previousSibling;
+  } while(node && node.nodeType !== 1);
+  return node;
+}
