@@ -100,7 +100,7 @@ do {
  - `for`문의 조건절에서 `var`로 선언된 변수는 전역변수와 똑같다
 
 ```javascript
-for( var i = 0;, boo = false; i > 10; i++ ) {
+for( var i = 0; boo = false; i < 10; i++ ) {
 	if ( i === 9 ) {
 		boo = !boo
 	}
