@@ -39,14 +39,46 @@ for( var i=0, boo=false; i < 10; i++ ) {
 
   // console.log( boo ? '참참참!' : '짝짝짝!' );
   // ↕ 코드를 병합하면 .... 아래처럼 코드를 변경할 수 있다.
-  console.log( (i === 9 ? !boo : boo) ? '참참참!' : '짝짝짝!' );
+  // console.log( (i === 9 ? !boo : boo) ? '참참참!' : '짝짝짝!' );
 }
 
+// for문 continue를 사용해보는 예제
+var fruits = ['바나나', true,'딸기', false, '포도', null, '수박'];
+fruits.push(function(){});
+fruits.push({ 'name': 'object'});
 
-// var demo_container = query(".demo-container");
 
-// // console.log(demo_container.firstChild);
 
-// var demo_container_first_el = firstEl(demo_container);
+// 미션! fruits 변수에 참조된 데이터 (배열)에는 과일이 아닌 것들이 포함되어 있습니다.
+// 이를 for문을 사용하여 불필요한 데이터를 뺀 실제 과일만 담은 배열을 반환하시오.
+var real_fruits = [],
+    fruit,
+    k = 0,
+    o = fruits.length;
 
-// console.log(demo_container_first_el);
+for ( ; k<o; k=k+1 ) {
+  fruit = fruits[k];
+  if( isType(fruit) !== 'string' ) {
+    // console.log(fruit);
+    continue;
+  }
+  real_fruits.push(fruit);
+}
+
+console.log(real_fruits);
+
+// continue 실전 예제
+// <body> 요소의 자식노드 중, <script>, #text 노드가 아닌 요소노드를 찾아
+// el_collection 배열에 수집하라.
+
+var collection = document.body.childNodes;
+
+for ( var el_collection=[], i = collection.length - 1; collection[i]; i-- ) {
+   let node = collection[i];
+   if(node.nodeType === 3 || node.localName === 'script') { // #text, <script> (ㅇ)
+       continue;
+   }
+   el_collection.push(node);
+}
+
+console.log( el_collection );
