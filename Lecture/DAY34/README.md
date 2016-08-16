@@ -4,6 +4,8 @@
 
 ### 8월 16일부터 9월 2일 전까지, 코스 커리큘럼 스케쥴
 
+※ 9월 1, 2일 Back-End 특강
+
 ![](../Assets/0816-schedule.jpg)
 
 ##### 1. JavaScript 목표
