@@ -272,3 +272,29 @@ function _lastEl(node) {
   var children = node.children;
   return children[children.length - 1];
 }
+
+// ------------------------------------------------
+// 단위 제거/가져오기/소유하고 있는지 확인
+function getUnit(value){
+  var i=0,l=getUnit.units.length,unit;
+  var reg;
+  for ( ; i<l; i++ ) {
+    unit = getUnit.units[i];
+    if ( value.indexOf(unit) > -1 ) {
+      // break;
+      return unit;
+    }
+  }
+  return null;
+}
+getUnit.units = 'px rem em % vw vh vmin vmax'.split(' ');
+
+function removeUnit(value) {
+  removeUnit.unit = getUnit(value);
+  return parseFloat(value, 10);
+}
+removeUnit.unit = null;
+
+function hasUnit(value) {
+  return !!getUnit(value);
+}
