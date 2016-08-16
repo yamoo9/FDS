@@ -1,5 +1,22 @@
 /*! DOMHelper.js © yamoo9.net, 2016 */
 
+// ECMAScript 2015 Syntax
+// var cleanWhiteSpace = ( el=document ) => {
+// ECMAScript 3rd Edition
+function cleanWhilteSpace(el) {
+    el = el || document;
+    var current_node = el.firstChild;
+    while( current_node ) {
+      if ( current_node.nodeType === 3 && !/\S/.test(current_node.nodeValue) ) {
+          removeNode(current_node);
+      } else if ( current_node.nodeType === 1 ) {
+          cleanWhiteSpace(current_node);
+      }
+      current_node = current_node.nextSibling;
+    }
+};
+
+
 // 자바스크립트의 모든 데이터 유형을 올바르게 감지할 수 있는 헬퍼 함수
 function isType(data) {
    return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
@@ -139,12 +156,16 @@ function getStyle(el, property, pseudo) {
   return value;
 }
 
+// ------------------------------------------------
+// 전달된 텍스트를 카멜케이스화하여 반환하는 헬퍼 함수
 function camelCase(text) {
    return text.replace(/(\s|-|_)./g, function($1){
       return $1.replace(/(\s|-|_)/g,'').toUpperCase();
    });
 }
 
+// ------------------------------------------------
+// 오류 메시지를 출력하는 헬퍼 함수
 function errorMsg(message) {
   if ( isType(message) !== 'string' ) {
     // 함수 자신을 다시 호출: 재귀함수
@@ -153,6 +174,8 @@ function errorMsg(message) {
   throw new Error(message);
 }
 
+// ------------------------------------------------
+// 요소노드인지 아닌지를 체크하여 참/거짓을 반환하는 헬퍼함수
 function isElNode(node) {
   return node.nodeType === 1;
 }
@@ -161,6 +184,8 @@ function isntElNode(node) {
   // return node.nodeType !== 1;
 }
 
+// ------------------------------------------------
+// 이전 형제요소 노드를 찾는 헬퍼 함수
 function prevEl(node) {
   // 검증: 유효성 검사
   if ( isntElNode(node) ) {
@@ -178,11 +203,13 @@ function prevEl(node) {
   }
 }
 
+// ------------------------------------------------
+// 다음 형제요소 노드를 찾는 헬퍼 함수
 function nextEl(node) {
   // 검증: 유효성 검사
-  if ( isntElNode(node) ) {
-    errorMsg('전달된 인자는 요소노드여야 합니다.');
-  }
+  // if ( isntElNode(node) ) {
+  //   errorMsg('전달된 인자는 요소노드여야 합니다.');
+  // }
   // 구형 IE 9+, 신형 웹 브라우저
   if ( node.nextElementSibling ) {
     return node.nextElementSibling;
@@ -193,4 +220,41 @@ function nextEl(node) {
     while(node && !isElNode(node) );
     return node;
   }
+}
+
+// ------------------------------------------------
+// 첫번째 자식요소 노드를 찾는 헬퍼 함수
+function _firstEl(node) {
+  return node.children[0];
+}
+
+function _lastEl(node) {
+  var children = node.children;
+  return children[children.length - 1];
+}
+
+
+function firstEl(node) {
+  if ( isntElNode(node) ) { errorMsg('요소노드를 전달해야 합니다.'); }
+  if ( node.firstElementChild ) {
+    return node.firstElementChild;
+  } else {
+    // IE 6-8
+    // node 찾고자 하는 자식 노드의 부모이다.
+    // 제일 먼저 부모 노드인 node의 첫번째 자식 노드를 찾는다.
+    node = node.firstChild;
+    // return;
+    // 만약 찾은 자식 노드가 요소 노드가 아니라면 다음 형제 노드를 찾는다.
+    // 다음 형제 노드가 요소 노드라면 반환하고, 아니라면 다시 다음 형제 노드를 요소노드인지 확인한다.
+    // console.log(node && isntElNode(node));
+    // return;
+    return ( node && isntElNode(node) ) ? nextEl(node) : node;
+  }
+  // 함수는 명시적으로 어떤 값도 반환하지 않을 경우 undefined를 반환한다.
+  // return undefined;
+}
+
+// 마지막 자식요소 노드를 찾는 헬퍼 함수
+function lastEl(node) {
+
 }
