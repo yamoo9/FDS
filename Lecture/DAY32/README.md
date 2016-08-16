@@ -16,8 +16,8 @@
 ```
 ```javascript
 var page_header = query('.page-header');
-var increase_btn = query('btn-increase-text');
-var decrease_btn = query('btn-decrease-text');
+var increase_btn = query('.btn-increase-text');
+var decrease_btn = query('.btn-decrease-text');
 
 //page_header 요소 객체의 글자 크기 초기화
 page_header.style.fontSize = '16px';
