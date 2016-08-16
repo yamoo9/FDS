@@ -65,7 +65,7 @@ for ( ; k<o; k=k+1 ) {
   real_fruits.push(fruit);
 }
 
-console.log(real_fruits);
+// console.log(real_fruits);
 
 // continue 실전 예제
 // <body> 요소의 자식노드 중, <script>, #text 노드가 아닌 요소노드를 찾아
@@ -75,10 +75,10 @@ var collection = document.body.childNodes;
 
 for ( var el_collection=[], i = collection.length - 1; collection[i]; i-- ) {
    let node = collection[i];
-   if(node.nodeType === 3 || node.localName === 'script') { // #text, <script> (ㅇ)
+   if( isTextNode(node) || isElName(node,'script') ) { // #text, <script> (ㅇ)
        continue;
    }
-   el_collection.push(node);
+   el_collection.push(node); // #text, <script> (x)
 }
 
-console.log( el_collection );
+// console.log( el_collection );
