@@ -184,3 +184,25 @@ var fn = function (cb) {
 fn( function() {
   console.log('전달된 함수가 실행되었습니다.');
 } );
+
+// ----------------------------------------------------
+// 자바스크립트 클로저 함수란?
+// ----------------------------------------------------
+// 자바스크립트 함수는 일급 객체의 요건을 모두 충족한다.
+// 인자로서 전달도 가능하며, 값으로서 반환 또한 가능하다.
+// 함수가 실행되어 내부에 존재하는 함수를 외부로 반환할 경우
+// 클로저가 생성되며, 반환된 함수는 클로저 영역을 참조할 수 있다.
+// 이 때 반환된 함수를 클로저 함수라 명한다.
+
+function countDown(number) {
+  if ( typeof number !== 'number' ) { throw new Error('숫자를 전달하세요.'); }
+  var _num = number;
+  // countDown 외부 함수 내부에 존재하는 함수
+  var _countDown = function() {
+    console.log('_num:', _num--);
+  };
+  return _countDown;
+}
+
+var countDown10 = countDown(10);
+// console.log(_countDown);
