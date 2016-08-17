@@ -246,11 +246,11 @@
 
   // 네임스페이스 패턴
   // 네임스페이스 객체를 생성하여 외부에 공개한다.
-  global.yamoo9 = {
-    'type':     isType,
-    'isElName': isElName,
-    'isElNode': isElNode,
-    'css':      css,
-  };
+  // global.yamoo9 = {
+  //   'type':     isType,
+  //   'isElName': isElName,
+  //   'isElNode': isElNode,
+  //   'css':      css,
+  // };
 
 })(this); // this === window object
