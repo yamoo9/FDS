@@ -41,11 +41,14 @@ for ( var movie of movielist ) {
 // 배열 객체(Array)의 메소드: .forEach(원소, 순서, 배열)
 // .forEach() 문은 반환 값이 없다. (undefined)
 // 참고 URL: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-movielist.forEach(function(item, idx) {
+
+var callback = function(item, idx) {
   // console.log('item '+ idx +': ', item);
   // return 하더라도 반환 값이 없다.
   // return 'item '+ idx +': ' + item;
-});
+}
+
+movielist.forEach(callback);
 
 // console.log('movielist.forEach() 결과: ', movielist);
 
@@ -159,3 +162,25 @@ strictFn();  // this === undefined
 window.strictFn(); // this === window 객체
 
 document.onclick = strictFn; // this === window.document 객체
+
+
+// ------------------------------------------------------------------------
+// 자바스크립트 함수는 일급 객체(First Class Object)
+// ------------------------------------------------------------------------
+
+// callback === cb
+var fn = function (cb) {
+  // 인자로 함수 데이터 유형이 전달되었다면 함수를 실행하라.
+  if ( typeof cb === 'function' ) {
+    // cb();
+    window.setTimeout(cb, 2000);
+  } else {
+    throw new Error('전달인자는 함수 데이터 유형이어야 합니다.');
+  }
+};
+
+// 자바스크립트 함수가 일급 객체인 이유!
+// 함수를 다른 함수의 인자로 전달할 수 있다.
+fn( function() {
+  console.log('전달된 함수가 실행되었습니다.');
+} );
