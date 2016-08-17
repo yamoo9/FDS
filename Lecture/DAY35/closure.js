@@ -25,16 +25,24 @@ var i=0, l=demo_nav_links.length;
 // +function(){}();
 // ~function(){}();
 // !function(){}();
-(function(){
+// (function(){
   // 외부와 단절된 독립된 공간이 형성
   // 캡슐화
-}());
+// }());
 // (function(){})();
 
 
+// var fn = function() {};
+
 for(; i<l; i++) {
   // 클로저 사용 예시
-  demo_nav_links[i].onclick = showMeIndexWrapper(i);
+  demo_nav_links[i].onclick = (function(count){
+    return function() {
+      console.log(count);
+    };
+  }(i));
+
+  // demo_nav_links[i].onclick = showMeIndexWrapper(i);
   // demo_nav_links[i].onclick = function() {
   //   console.log(i);
   // }
