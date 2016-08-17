@@ -103,3 +103,59 @@ var scopeFnExpression = function() {
 scopeFnExpression(); // window.scopeFnExpression()와 같다.
 
 console.log('함수 외부:', movielist);
+
+// 함수 정의
+// 매개변수 parameter
+// function 함수이름(매개변수1, 매개변수2, ...) {
+// ....
+// }
+
+// 함수 호출
+// 전달인자 argument
+// 함수이름(전달인자1, 전달인자2, ...);
+
+// -------------------------------------------------------------------------------------
+
+// 인스턴스란?
+// var obj1 = {};
+// 생성자 함수인 Object가 new 키워드를 만나 아이를 낳았는데 그 아이는 객체(인스턴스)이다.
+// var obj2 = new Object();
+// var arr1 = [];
+// var arr2 = new Array();
+
+
+// 일반 함수(글로벌 스코프에 정의된 함수)
+function showMe() {
+  console.log(this);
+  return this;
+}
+
+showMe() === window;
+
+// 객체의 속성에 함수를 할당 (메소드가 됨)
+var fds = {
+  'callMe': showMe
+};
+
+fds.callMe() === fds;
+
+// 자바스크립트 엄격 모드
+function strictFn() {
+  // 엄격 모드 발동
+  // ※ ECMASCript 2015 버전부터는 기본 설정 값이 "엄격 모드"
+  'use strict';
+  // 변수 선언 시에 var 키워드를 강제화 한다. (오류 발생)
+  var hi_message = 'Hello';
+  // this 컨텍스트 참조 변수는 더 이상 window 전역 객체가 아닌 undefiend 이다.
+  console.log(this, hi_message);
+}
+
+// 엄격 모드가 아닌, 자바스크립트에서는 전역에서 함수를 호출할 경우,
+// 그 함수의 컨텍스트를 암묵적으로 전역 객체인 window를 가리켰다. (문제 발생!!)
+strictFn();  // this === undefined
+
+// 반면 엄격 모드에서 명시적으로 특정 객체가 함수를 호출하게 되면
+// this 컨텍스트 참조 변수는 해당 객체를 참조한다.
+window.strictFn(); // this === window 객체
+
+document.onclick = strictFn; // this === window.document 객체
