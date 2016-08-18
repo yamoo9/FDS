@@ -300,3 +300,25 @@ removeUnit.unit = null;
 function hasUnit(value) {
   return !!getUnit(value);
 }
+
+// 함수를 작성하는 이유
+// 재사용할 것 같은 코드들....
+// 매번 짜는 것은 비 효율적이다 보니
+// 능률적으로 코드를 처리하기 위해 코드 묶음을
+// 재사용/확장할 수 있도록 처리.
+// 유사 배열을 배열화
+function makeArray(data) {
+  // 전달된 객체는 배열 또는 유사 배열인가?
+  var check_data = isType(data), result_arr = [], len = data.length;
+  // 실제 배열
+  if (check_data === 'array') {
+    return data;
+  }
+  // 유사 배열
+  if ( len && check_data !== 'string' ) {
+    while( len-- ) {
+      result_arr.push( data[len] );
+    }
+  }
+  return result_arr.reverse();
+}
