@@ -322,3 +322,46 @@ function makeArray(data) {
   }
   return result_arr.reverse();
 }
+
+// function convertArray( data ){
+//     if ( Array.from ) {
+//         return Array.from( data );
+//     } else {
+//         return Array.prototype.slice.call(data);
+//     }
+// }
+
+// 1. 정식으로 클로저를 사용하는 방법으로 문제 해결 방법
+function convertArray_wrapper() {
+  // 내부에서 클로저 함수를 반환
+  var closureFn;
+  if ( Array.from ) {
+    // Array.from이 지원되는가?
+    closureFn = function(data) {
+      return Array.from(data);
+    };
+  } else {
+    // 지원되지 않는가?
+    closureFn = function(data) {
+      return Array.prototype.slice.call(data);
+    }
+  }
+  return closureFn;
+}
+
+var convertArray = convertArray_wrapper();
+
+// 2. 약식(IIFE 패턴)을 사용하여 클로저 처리하는 문제 해결 방법
+var convertArray = (function(){
+  if (Array.from) {
+    return function(data) {
+      return Array.from(data);
+    }
+  } else {
+    return function(data) {
+      return Array.prototype.slice.call(data);
+    }
+  }
+
+
+})();
