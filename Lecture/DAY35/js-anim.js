@@ -58,10 +58,11 @@ function movingBox(box, position, callback) {
 
 demo_box.onclick = function(event) {
   // console.log('clicked demo box.');
-  movingBox(this, {
-    'x': event.clientX,
-    'y': event.clientY
-  }, function() {
-    alert('애니메이션 끝났다구!!!');
-  });
+  this.style.left = '300px';
+  // movingBox(this, {
+  //   'x': event.clientX,
+  //   'y': event.clientY
+  // }, function() {
+  //   alert('애니메이션 끝났다구!!!');
+  // });
 };

@@ -8,10 +8,18 @@
     body {
       margin: 5rem;
     }
+    .wrapper {
+      display: inline-flex;
+      border: 4px solid;
+    }
+    .wrapper:hover {
+      transform: translateX(100px);
+      transition: all 1s;
+    }
     .demo-box {
-      position: absolute;
+      /*position: absolute;
       top: 80px;
-      left: 80px;
+      left: 80px;*/
       width: 100px;
       height: 100px;
       background: #434343;
@@ -22,11 +30,18 @@
       /*transition: all 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275);*/
     }
   </style>
-  <script src="../../Resources/DOMHelper/DOMHelper.js"></script>
+  <script src="../../Resources/DOMHelper/index.js"></script>
 </head>
 <body>
 
-<!-- <div class="demo-box">demo box</div> -->
+<div class="wrapper">
+  <div style="background: red" class="demo-box">demo box 1</div>
+  <div style="background: green" class="demo-box">demo box 2</div>
+  <div style="background: red" class="demo-box">demo box 3</div>
+  <div style="background: green" class="demo-box">demo box 4</div>
+  <div style="background: blue" class="demo-box">demo box 5</div>
+</div>
+
 
 <nav class="demo-navigation">
   <ul>
@@ -39,7 +54,7 @@
 
 <!-- <script src="closure.js"></script> -->
 <!-- <script src="loop-function.js"></script> -->
-<!-- <script src="js-anim.js"></script> -->
+<script src="js-anim.js"></script>
 
 <script>
 (function(exports, $){

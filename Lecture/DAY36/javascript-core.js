@@ -101,33 +101,38 @@
   var unb = new Navigation('유틸리티 내비게이션 바');
 })(this);
 
+
+
+
+
+
 (function(global){
   'use strict';
 
   // 숫자 객체 생성자를 사용하여 숫자 1부터 10까지를 변수 num1 ~ num10에 생성하여라.
   // 단, num1 ~ num10에는 숫자 값이 담겨야 한다.
-  global.num1  = (new Number(1)).valueOf();
-  global.num2  = (new Number(2)).valueOf();
-  global.num3  = (new Number(3)).valueOf();
-  global.num4  = (new Number(4)).valueOf();
-  global.num5  = (new Number(5)).valueOf();
-  global.num6  = (new Number(6)).valueOf();
-  global.num7  = (new Number(7)).valueOf();
-  global.num8  = (new Number(8)).valueOf();
-  global.num9  = (new Number(9)).valueOf();
-  global.num10 = (new Number(10)).valueOf();
+  var num1  = (new Number(1)).valueOf();
+  var num2  = (new Number(2)).valueOf();
+  var num3  = (new Number(3)).valueOf();
+  var num4  = (new Number(4)).valueOf();
+  var num5  = (new Number(5)).valueOf();
+  var num6  = (new Number(6)).valueOf();
+  var num7  = (new Number(7)).valueOf();
+  var num8  = (new Number(8)).valueOf();
+  var num9  = (new Number(9)).valueOf();
+  var num10 = (new Number(10)).valueOf();
 
   // 불리언 객체 생성자를 사용하여 불리언 true, false로 연속되는 변수 boo1 ~ boo10에 생성하여라.
   // 단, boo1 ~ boo10에는 불리언 값이 담겨야 한다.
-  global.boo1  = (new Boolean(true)).valueOf();
-  global.boo2  = (new Boolean(false)).valueOf();
-  global.boo3  = (new Boolean(true)).valueOf();
-  global.boo4  = (new Boolean(false)).valueOf();
-  global.boo5  = (new Boolean(true)).valueOf();
-  global.boo6  = (new Boolean(false)).valueOf();
-  global.boo7  = (new Boolean(true)).valueOf();
-  global.boo8  = (new Boolean(false)).valueOf();
-  global.boo9  = (new Boolean(true)).valueOf();
-  global.boo10 = (new Boolean(false)).valueOf();
+  var boo1  = (new Boolean(true)).valueOf();
+  var boo2  = (new Boolean(false)).valueOf();
+  var boo3  = (new Boolean(true)).valueOf();
+  var boo4  = (new Boolean(false)).valueOf();
+  var boo5  = (new Boolean(true)).valueOf();
+  var boo6  = (new Boolean(false)).valueOf();
+  var boo7  = (new Boolean(true)).valueOf();
+  var boo8  = (new Boolean(false)).valueOf();
+  var boo9  = (new Boolean(true)).valueOf();
+  var boo10 = (new Boolean(false)).valueOf();
 
 })(this);
