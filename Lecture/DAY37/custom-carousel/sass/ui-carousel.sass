@@ -4,6 +4,13 @@
 // ------------------------------------------------
 // Configuration
 // ------------------------------------------------
+// Function
+@function tint($color, $amount: 10%, $mix: #fff)
+  @return mix($color, $mix, $amount)
+
+@function shade($color, $amount: 10%, $mix: #000)
+  @return mix($color, $mix, $amount)
+
 // Mixin
 =flex-align-center($orientation: both, $flow: row nowrap)
   display: flex
@@ -24,8 +31,9 @@
 // Variables
 $carousel-prefix: ui-carousel
 $content-bg: #34c0ff
-$content-width: 300px
+$content-width: 600px
 $content-height: 400px
+$content-buttons-width: $content-width / 12
 
 // ------------------------------------------------
 body.demonstration
@@ -38,6 +46,7 @@ body.demonstration
   // absolute 된 버튼 그룹의 offsetParent로 설정하기 위함
   position: relative
   border: 4px solid #bebebe
+  width: $content-width
   height: $content-height
   overflow: auto
   // 스크립트 지원 시 컴포넌트 스크롤 감춤
@@ -47,12 +56,15 @@ body.demonstration
 
   .#{$carousel-prefix}--content
     +flex-align-center
-    width: $content-width
+    width: $content-width - $content-buttons-width
     height: $content-height
     color: #fff
     @for $i from 1 through 6
       &:nth-child(#{$i})
-        background: mix($content-bg, #454545, 15%*$i)
+        background: shade($content-bg, 16% * $i)
+    // 자바스크립트 미지원 환경에서는 버튼이 화면에서 감춰짐.
+    .no-js &
+      width: 100%
 
   .#{$carousel-prefix}--navigation__buttons
     display: flex
@@ -60,10 +72,23 @@ body.demonstration
     position: absolute
     top: 0
     right: 0
+    width: $content-buttons-width
     height: $content-height
+
+    // 자바스크립트 미지원 환경에서는 버튼이 화면에서 감춰짐.
+    .no-js &
+      display: none
+
     button
+      $button-color: #404345
       @extend %reset-button !optional
       width: 100%
       cursor: pointer
-      background: #404345
+      background: $button-color
       color: #fff
+      transition: all 0.3s
+      &:hover,
+      &:focus
+        background: tint($button-color, 80%)
+      &[class*="__prev_button"]
+        // margin-bottom: 1px
