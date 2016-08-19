@@ -42,7 +42,7 @@
 
   // 애플리케이션 초기화
   function init(selector) {
-    // 스타일 식별자 class 속성 설정
+    // 캐로셀 컴포넌트로 설정할 요소에 스타일 식별자 class 속성 설정
     var carousel = query(selector);
     // var carousel = query('article');
     // 기존 carousel 참조 문서 객체의 class 속성 값을 메모리
@@ -53,6 +53,7 @@
     carousel.setAttribute('role', 'application');
     carousel.setAttribute('aria-label', 'Demonstration UI Carousel Component');
 
+    // ------------------------------------------------------------------------------
     // 래핑 요소를 생성
     var carousel_contents_wrapper = createNode('div');
     // 래핑 요소에 클래스 속성 설정
@@ -62,11 +63,28 @@
     // 캐로셀 콘텐츠 래핑
     var carousel_contents = makeArray( queryAll(selector + '> *') );
     carousel_contents.forEach(function(content, index) {
+      // 자식 요소에 class 속성 설정
+      content.setAttribute('class', 'ui-carousel--content');
+      // 자식 요소의 내부에서 제목 요소를 찾아 class 속성 설정
+      var headline = query('h2', content);
+      headline.setAttribute('class', 'ui-carousel--content__headline');
       // 래핑 요소에 자식 요소로 삽입
       carousel_contents_wrapper.appendChild(content);
     });
     // 캐로셀 컴포넌트의 첫번째 자식 요소로 삽입
     prependChild(carousel, carousel_contents_wrapper);
+
+    // ------------------------------------------------------------------------------
+    // 버튼 그룹과 버튼 요소들을 동적으로 생성
+    var button_group = createNode('div');
+    // 버튼 그룹에 class 식별자 설정
+    button_group.setAttribute('class', 'ui-carousel--navigation__buttons');
+    button_group.setAttribute('role', 'group');
+    // 버튼 생성
+    var prev_button = createNode('button');
+    prev_button.setAttribute('type', 'button');
+    var next_button = prev_button.cloneNode();
+    console.log(prev_button, next_button);
 
   }
 
