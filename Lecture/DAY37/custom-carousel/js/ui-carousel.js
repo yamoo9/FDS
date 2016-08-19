@@ -24,6 +24,9 @@
 (function(global){
   'use strict';
 
+  var carousel_contents_wrapper;
+  var content_height;
+
   // -----------------------------------------------------
   // 1. [절차 지향] 함수 형 방식으로 진행
   // -----------------------------------------------------
@@ -55,7 +58,7 @@
 
     // ------------------------------------------------------------------------------
     // 래핑 요소를 생성
-    var carousel_contents_wrapper = createNode('div');
+    carousel_contents_wrapper = createNode('div');
     // 래핑 요소에 클래스 속성 설정
     carousel_contents_wrapper.setAttribute('class', 'ui-carousel--content__wrapper');
     // 래핑 요소에 WAI-ARIA 속성 설정
@@ -94,6 +97,12 @@
     // // 버튼에 아이콘 폰트 추가
     // next_button.innerHTML = '<span class="fa fa-angle-down" aria-hidden="true"></span>';
     // console.log(prev_button, next_button);
+
+    // 콘텐츠 래퍼 문서 객체로부터 첫번째 자식 객체(콘텐트)를 변수에 참조
+    var content = firstEl(carousel_contents_wrapper);
+    // 콘텐트의 높이를 가져온다.
+    content_height = removeUnit(css(content, 'height'));
+
     // 템플릿코드를 사용한 innerHTML을 활용한 예시
     var button_group_html_code = [
       '<div class="ui-carousel--navigation__buttons" role="group">',
@@ -129,17 +138,29 @@
     // 어떤 버튼을 사용자가 클릭했는지 구분한다.
     var check_class = this.getAttribute('class');
 
+    var carousel_contents_wrapper = prevEl(this.parentNode);
+    var current_wrapper_top = removeUnit( css(carousel_contents_wrapper, 'top') );
+    var changed_wrapper_top;
+
     // 콘텐츠 래퍼를 이동시켜 준다.
     if ( /prev/.test(check_class) ) {
-      // console.log('previous button');
-
+      changed_wrapper_top = current_wrapper_top + content_height;
+      if ( changed_wrapper_top === 400 ) {
+        changed_wrapper_top = -1200;
+      }
+      css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
     } else {
-      // console.log('next button');
+      changed_wrapper_top = current_wrapper_top - content_height;
+      if ( changed_wrapper_top === -1600 ) {
+        changed_wrapper_top = 0;
+      }
+      css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
     }
   }
 
   // 초기화 실행
   init('.main-ad-area');
+  init('.demo-A');
 
 })(this);
 

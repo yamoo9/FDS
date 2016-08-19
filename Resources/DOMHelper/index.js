@@ -156,6 +156,24 @@ function getStyle(el, property, pseudo) {
   return value;
 }
 
+function setStyle(elNode, property, value) {
+  if ( isntElNode(elNode) ) {
+    errorMsg('요소노드가 전달되어야 합니다.');
+  }
+  if (isType(property) !== 'string') {
+    errorMsg('두번째 전달인자는 문자열이어야 합니다.');
+  }
+  elNode.style[property] = value;
+}
+
+function css(elNode, prop, value) {
+  if ( !value ) {
+    return getStyle(elNode, prop);
+  } else {
+    setStyle(elNode, prop, value);
+  }
+}
+
 // ------------------------------------------------
 // 전달된 텍스트를 카멜케이스화하여 반환하는 헬퍼 함수
 function camelCase(text) {
