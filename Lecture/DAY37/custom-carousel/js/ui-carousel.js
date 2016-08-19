@@ -76,16 +76,37 @@
 
     // ------------------------------------------------------------------------------
     // 버튼 그룹과 버튼 요소들을 동적으로 생성
-    var button_group = createNode('div');
-    // 버튼 그룹에 class 식별자 설정
-    button_group.setAttribute('class', 'ui-carousel--navigation__buttons');
-    button_group.setAttribute('role', 'group');
-    // 버튼 생성
-    var prev_button = createNode('button');
-    prev_button.setAttribute('type', 'button');
-    var next_button = prev_button.cloneNode();
-    console.log(prev_button, next_button);
-
+    // var button_group = createNode('div');
+    // // 버튼 그룹에 class 식별자 설정
+    // button_group.setAttribute('class', 'ui-carousel--navigation__buttons');
+    // button_group.setAttribute('role', 'group');
+    // // 버튼 생성
+    // var prev_button = createNode('button');
+    // prev_button.setAttribute('type', 'button');
+    // var next_button = prev_button.cloneNode();
+    // // 각 버튼에 class 식별자를 설정
+    // prev_button.setAttribute('class', 'ui-carousel--navigation__prev_button');
+    // prev_button.setAttribute('aria-label', 'previous content');
+    // // 버튼에 아이콘 폰트 추가
+    // prev_button.innerHTML = '<span class="fa fa-angle-up" aria-hidden="true"></span>';
+    // next_button.setAttribute('class', 'ui-carousel--navigation__next_button');
+    // next_button.setAttribute('aria-label', 'next content');
+    // // 버튼에 아이콘 폰트 추가
+    // next_button.innerHTML = '<span class="fa fa-angle-down" aria-hidden="true"></span>';
+    // console.log(prev_button, next_button);
+    // 템플릿코드를 사용한 innerHTML을 활용한 예시
+    var button_group_html_code = [
+      '<div class="ui-carousel--navigation__buttons" role="group">',
+        '<button aria-label="previous content" type="button" class="ui-carousel--navigation__prev_button">',
+          '<span class="fa fa-angle-up" aria-hidden="true"></span>',
+        '</button>',
+        '<button aria-label="next content"type="button"class="ui-carousel--navigation__next_button">',
+          '<span class="fa fa-angle-down" aria-hidden="true"></span>',
+        '</button>',
+      '</div>'
+    ].join('');
+    // console.log(button_group_html_code);
+    carousel.innerHTML += button_group_html_code;
   }
 
   // 초기화 실행
