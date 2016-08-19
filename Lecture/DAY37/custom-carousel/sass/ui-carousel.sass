@@ -4,25 +4,39 @@
 // ------------------------------------------------
 // Configuration
 // ------------------------------------------------
-// Placeholder Selector
-%align-hv-center
+// Mixin
+=flex-align-center($orientation: both, $flow: row nowrap)
   display: flex
-  justify-content: center
-  align-items: center
+  flex-flow: $flow
+  @if $orientation == both
+    justify-content: center
+    align-items: center
+  @if $orientation == h
+    justify-content: center
+  @if $orientation == v
+    align-items: center
+
+// Placeholder Selector
+%reset-button
+  background: transparent
+  border: none
 
 // Variables
+$carousel-prefix: ui-carousel
 $content-bg: #34c0ff
 $content-width: 300px
 $content-height: 400px
 
 // ------------------------------------------------
 body.demonstration
+  +flex-align-center
   min-height: 100vh
-  @extend %align-hv-center
 
 // ------------------------------------------------
 // UI Carousel Component Style
-.ui-carousel
+.#{$carousel-prefix}
+  // absolute 된 버튼 그룹의 offsetParent로 설정하기 위함
+  position: relative
   border: 4px solid #bebebe
   height: $content-height
   overflow: auto
@@ -31,11 +45,25 @@ body.demonstration
   .js &
     overflow: hidden
 
-  .ui-carousel--content
-    @extend %align-hv-center
+  .#{$carousel-prefix}--content
+    +flex-align-center
     width: $content-width
     height: $content-height
     color: #fff
     @for $i from 1 through 6
       &:nth-child(#{$i})
         background: mix($content-bg, #454545, 15%*$i)
+
+  .#{$carousel-prefix}--navigation__buttons
+    display: flex
+    flex-wrap: wrap
+    position: absolute
+    top: 0
+    right: 0
+    height: $content-height
+    button
+      @extend %reset-button !optional
+      width: 100%
+      cursor: pointer
+      background: #404345
+      color: #fff
