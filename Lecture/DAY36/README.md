@@ -10,7 +10,7 @@
 	var yamoo9 = 'hi'; // 지역변수
 })(this);
 
-console.log(yamoo9) // error
+console.log(yamoo9); // error
 ```
 ```javascript
 (function(global){
@@ -21,7 +21,7 @@ console.log(yamoo9) // error
 	global.y9 = yamoo9;
 })(this);
 
-console.log(y9) // hi
+console.log(y9); // hi
 ```
 
 ####놀아봅시다
@@ -35,15 +35,15 @@ function today(){
 		case 0:
 		case 6:
 			console.log('오예 주말 핵이득');
-			break
-		default
+			break;
+		default:
 		console.log('하....출근....');
 	}
 }
 // 혹은
 function today(date){
 	var today = (new Date()).getDay();
-	var week = '일월화수목금토'
+	var week = '일월화수목금토';
 	if ( date ? (week.indexOf(date) === 0 || week.indexOf(date) === 6 ): week[today] === '일' || week[today] === '토'){
 		console.log('오예 주말 핵이득');
 	} else {
@@ -69,16 +69,16 @@ function today(date){
 
 	// .button-set 선택
 	var button_set = query('.button-set');
-	// .button-set [CONTEXT] 내부에서 .button 을 모두 수집 [NODELIST]
+	// .button-set [CONTEXT] 내부에서 .button 을 모두 수집 [NODELIST] → [ARRAY]
 	var buttons = makeArray( queryAll('.button') );
-	// 수집된 [NODELIST]를 순환하여 클릭 이벤트에 함수를 연결한다
+	// 수집된 [NODELIST] → [ARRAY]를 순환하여 클릭 이벤트에 함수를 연결한다
 	buttons.forEach(function(button, idx){
 		button.onclick = function(event){
 			event.preventDefault();
 			console.log(idx)
 		}
 	});
-	// 혹은
+	// 혹은 ( 클로저 함수 사용 )
 	for(var i = 0; i < buttons.length;i++){
 		buttons[i].onclick = (function(btn){
 			return function() {
@@ -86,7 +86,7 @@ function today(date){
 			}
 		})(i)
 	}
-	// 혹은( js의 간단한 속성 추가 원리를 이용 )
+	// 혹은 ( js의 간단한 속성 추가 원리를 이용 )
 	for( var i = 0; i < buttons.length; i++ ){
 		button = button[i];
 		button.index = i;
@@ -113,11 +113,11 @@ function today(date){
 
 ```javascript
 function air(arg1, arg2, arg3) {
-	console.log(arguments);
-	console.log(arguments.length)
+	console.log(arguments); // ['hello', '안녕', '니하오']
+	console.log(arguments.length) // 3
 }
-air('hello', '안녕', '니하오');
-air();
+air('hello', '안녕', '니하오'); // ['hello', '안녕', '니하오'], 3
+air(); // [], 0
 ```
 
 
@@ -133,18 +133,18 @@ function makeArray(data){
 		return data;
 	} else if ( len && check_data !== 'string' ) {
 		while( len-- ) {
-			result.push( data[len] )
+			result.push( data[len] );
 		}
 	}
-	return  result_arr.reverse();
-	
+	return result_arr.reverse();
+
 }
 
 // 이미 제공되는 메서드를 사용할 수 있다. (크로스 브라우징 이슈 있음)
-Array.from([])
+// Array.from()
 function convertArray(data){
 	if (Array.form){
-		return Array.from
+		return Array.from(data);
 	} else {
 		return Array.prototype.slice.call(data);
 	}
@@ -167,7 +167,7 @@ function convertArray_wrapper() {
 		}
 	}
 	// 내부에서 클로저 함수를 반환
-	return closureFn 
+	return closureFn;
 }
 // 리턴될 내부 함수를 covertArray에 할당
 var convertArray = convertArray_wrapper();
@@ -187,15 +187,15 @@ var convertArray = (function(){
 
 // 함수 선언부를 괄호로 감싸고 `()`로 호출하였으므로 [ 선언과 동시에 호출 ]
 // Array.from을 지원한다면 위의 구문이
-var convertArray = function(data0 {
+var convertArray = function(data) {
 	return Array.from(data);
-})
+};
 // 이렇게 바뀌고
 
 // Array.from을 지원하지 않는다면
 var convertArray = function(data){
 	return Array.prototype.slice.call(data);
-}
+};
 // 이렇게 바뀐다
 ```
 
@@ -230,32 +230,24 @@ var mocha = new Coffee('모카');
 	// 숫자 객체 생성자를 사용하여 숫자 1부터 10까지를 변수 num1 ~ num10에 생성
 	// num1 ~ num10 에는 숫자 값이 담겨야 한다
 
-	var num1 = (new Number(1)).valueOf()
-	var num2 = (new Number(2)).valueOf()
-	var num3 = (new Number(3)).valueOf()
-	var num4 = (new Number(4)).valueOf()
-	var num5 = (new Number(5)).valueOf()
+	var num1 = (new Number(1)).valueOf();
+	var num2 = (new Number(2)).valueOf();
+	var num3 = (new Number(3)).valueOf();
+	var num4 = (new Number(4)).valueOf();
+	var num5 = (new Number(5)).valueOf();
 	.
 	.
 	.
 
 	// 불리언 객체 생성자를 사용하여 불리언 true, false로 연속되는 변수 boo1 ~ boo10에 생성
 	// boo1 ~ boo10에는 불리언 값이 담겨야 한다
-	var boo1 = (new Boolean(true)).valueOf()
-	var boo2 = (new Boolean(false)).valueOf()
-	var boo3 = (new Boolean(true)).valueOf()
-	var boo4 = (new Boolean(false)).valueOf()
-	var boo5 = (new Boolean(true)).valueOf()
+	var boo1 = (new Boolean(true)).valueOf();
+	var boo2 = (new Boolean(false)).valueOf();
+	var boo3 = (new Boolean(true)).valueOf();
+	var boo4 = (new Boolean(false)).valueOf();
+	var boo5 = (new Boolean(true)).valueOf();
 	.
 	.
 	.
-})(this)
+})(this);
 ```
-
--
-
-### jQuery v3.x
-
-- [jquery-core-3-0-upgrade-guide](http://jquery.com/upgrade-guide/3.0/#jquery-core-3-0-upgrade-guide)
-- [whats-new-jquery-3-0](https://codebrahma.com/whats-new-jquery-3-0/)
-- [jquery-3-1-0-released-no-more-silent-errors](https://blog.jquery.com/2016/07/07/jquery-3-1-0-released-no-more-silent-errors/)
