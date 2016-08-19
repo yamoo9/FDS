@@ -107,6 +107,35 @@
     ].join('');
     // console.log(button_group_html_code);
     carousel.innerHTML += button_group_html_code;
+
+    // 버튼에 이벤트 바인딩을 하고자 한다.
+    bindEvent();
+  }
+
+  // ------------------------------------------------------------------------------
+  // 버튼에 이벤트 바인딩
+  function bindEvent() {
+    var buttons = queryAll('.ui-carousel--navigation__buttons button');
+    var len = buttons.length;
+    while( buttons[--len] ) {
+      buttons[len].onclick = movingCarouselContents;
+    }
+  }
+
+  // ------------------------------------------------------------------------------
+  // 버튼에 연결된 함수
+  function movingCarouselContents() {
+    // 기능 구현
+    // 어떤 버튼을 사용자가 클릭했는지 구분한다.
+    var check_class = this.getAttribute('class');
+
+    // 콘텐츠 래퍼를 이동시켜 준다.
+    if ( /prev/.test(check_class) ) {
+      // console.log('previous button');
+
+    } else {
+      // console.log('next button');
+    }
   }
 
   // 초기화 실행
