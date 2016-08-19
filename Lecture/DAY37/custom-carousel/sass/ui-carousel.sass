@@ -1,32 +1,36 @@
-// Normalize Module
+// External Modules
 @import normalize
 
 // ------------------------------------------------
 // Configuration
 // ------------------------------------------------
-
+// Placeholder Selector
 %align-hv-center
   display: flex
   justify-content: center
   align-items: center
 
+// Variables
 $content-bg: #34c0ff
 $content-width: 300px
 $content-height: 400px
 
 // ------------------------------------------------
-
 body.demonstration
   min-height: 100vh
   @extend %align-hv-center
 
+// ------------------------------------------------
 // UI Carousel Component Style
 .ui-carousel
   border: 4px solid #bebebe
   height: $content-height
   overflow: auto
+  // 스크립트 지원 시 컴포넌트 스크롤 감춤
+  // 콘텐츠 블록 마스크 효과 처리
   .js &
     overflow: hidden
+
   .ui-carousel--content
     @extend %align-hv-center
     width: $content-width

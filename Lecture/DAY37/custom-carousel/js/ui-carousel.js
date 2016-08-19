@@ -1,7 +1,26 @@
 /*! ui-carousel.js © yamoo9.net, 2016 */
 
-// UI Carousel 컴포넌트(Component) 제작
+// 자바스크립트가 지원되는 환경 임을 식별할 수 있는 모듈
+(function(global){
+  'use strict';
 
+  // <html> 요소를 찾아서 class 속성에서 'no-js' 값을 'js'로 변경
+  global.html = query('html');
+
+  if ( html.classList ) {
+    // 신형 방식 IE 10+
+    html.classList.remove('no-js');
+    html.classList.add('js');
+  } else {
+    // 구형 방식
+    var html_class_attr = html.getAttribute('class');
+    // 설정
+    html.setAttribute('class', html_class_attr.replace(/no-js/,'js'));
+  }
+
+}(this));
+
+// UI Carousel 컴포넌트(Component) 제작
 (function(global){
   'use strict';
 
