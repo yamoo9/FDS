@@ -28,10 +28,50 @@
   // 1. [절차 지향] 함수 형 방식으로 진행
   // -----------------------------------------------------
   // 1.1 컴퍼넌트 분석
+  // 애플리케이션 초기화
+  //  해당 요소를 컴포넌트 화
+  //  요소의 클래스 설정
+  //  버튼을 동적으로 생성
+  //  버튼 이벤트 핸들링
+  // 핸들러 작성
+  //  콘텐츠 래퍼를 이동 기능
   // 1.2 기능 설계
   // 1.3 기능 구현
   // 1.4 테스트
   // 1.5 빌드(배포)
+
+  // 애플리케이션 초기화
+  function init(selector) {
+    // 스타일 식별자 class 속성 설정
+    var carousel = query(selector);
+    // var carousel = query('article');
+    // 기존 carousel 참조 문서 객체의 class 속성 값을 메모리
+    // 객체.속성 방식을 사용하여 메모리
+    carousel.origin_class = carousel.getAttribute('class') || '';
+    carousel.setAttribute('class', (carousel.origin_class + ' ui-carousel').trim() );
+    // WAI-ARIA 설정
+    carousel.setAttribute('role', 'application');
+    carousel.setAttribute('aria-label', 'Demonstration UI Carousel Component');
+
+    // 래핑 요소를 생성
+    var carousel_contents_wrapper = createNode('div');
+    // 래핑 요소에 클래스 속성 설정
+    carousel_contents_wrapper.setAttribute('class', 'ui-carousel--content__wrapper');
+    // 래핑 요소에 WAI-ARIA 속성 설정
+    carousel_contents_wrapper.setAttribute('role', 'group');
+    // 캐로셀 콘텐츠 래핑
+    var carousel_contents = makeArray( queryAll(selector + '> *') );
+    carousel_contents.forEach(function(content, index) {
+      // 래핑 요소에 자식 요소로 삽입
+      carousel_contents_wrapper.appendChild(content);
+    });
+    // 캐로셀 컴포넌트의 첫번째 자식 요소로 삽입
+    prependChild(carousel, carousel_contents_wrapper);
+
+  }
+
+  // 초기화 실행
+  init('.main-ad-area');
 
 })(this);
 
