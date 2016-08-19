@@ -1,11 +1,54 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko-KR" class="js">
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
-  <title>캐로셀 UI 컴포넌트</title>
+  <title>캐로셀 ─ 자바스크립트 UI 컴포넌트</title>
+  <link rel="stylesheet" href="css/ui-carousel.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="demonstration">
 
+  <article
+    aria-label="Demonstration UI Carousel Component"
+    class="ui-carousel"
+    role="application">
+    <!-- contents -->
+    <div class="ui-carousel--content__wrapper" role="group">
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">01</h2>
+      </section>
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">02</h2>
+      </section>
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">03</h2>
+      </section>
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">04</h2>
+      </section>
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">05</h2>
+      </section>
+      <section class="ui-carousel--content">
+        <h2 class="ui-carousel--content__headline">06</h2>
+      </section>
+    </div>
+    <!-- buttons -->
+    <div class="ui-carousel--navigation__buttons" role="group">
+      <button
+        aria-label="previous content"
+        type="button"
+        class="ui-carousel--navigation__prev_button">&lt;</button>
+      <button
+        aria-label="next content"
+        type="button"
+        class="ui-carousel--navigation__next_button">&gt;</button>
+    </div>
+  </article>
+
+
+<script src="../../../Resources/DOMHelper/index.js"></script>
+<script src="js/ui-carousel.js"></script>
 </body>
 </html>
