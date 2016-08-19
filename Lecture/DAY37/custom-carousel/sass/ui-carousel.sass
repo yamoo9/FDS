@@ -34,6 +34,7 @@ $content-bg: #34c0ff
 $content-width: 600px
 $content-height: 400px
 $content-buttons-width: $content-width / 12
+$max-content-total: 10
 
 // ------------------------------------------------
 body.demonstration
@@ -58,15 +59,16 @@ body.demonstration
     position: absolute
     top: 0
     left: 0
+    transition: all 0.35s ease
 
   .#{$carousel-prefix}--content
     +flex-align-center
     width: $content-width - $content-buttons-width
     height: $content-height
     color: #fff
-    @for $i from 1 through 6
+    @for $i from 1 through $max-content-total
       &:nth-child(#{$i})
-        background: shade($content-bg, 16% * $i)
+        background: shade($content-bg, 10% * $i)
     // 자바스크립트 미지원 환경에서는 버튼이 화면에서 감춰짐.
     .no-js &
       width: 100%
