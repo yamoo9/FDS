@@ -26,6 +26,7 @@
 
   var carousel_contents_wrapper;
   var content_height;
+  var carousel_contents_total;
 
   // -----------------------------------------------------
   // 1. [절차 지향] 함수 형 방식으로 진행
@@ -65,6 +66,7 @@
     carousel_contents_wrapper.setAttribute('role', 'group');
     // 캐로셀 콘텐츠 래핑
     var carousel_contents = makeArray( queryAll(selector + '> *') );
+    carousel_contents_total = carousel_contents.length;
     carousel_contents.forEach(function(content, index) {
       // 자식 요소에 class 속성 설정
       content.setAttribute('class', 'ui-carousel--content');
@@ -145,13 +147,13 @@
     // 콘텐츠 래퍼를 이동시켜 준다.
     if ( /prev/.test(check_class) ) {
       changed_wrapper_top = current_wrapper_top + content_height;
-      if ( changed_wrapper_top === 400 ) {
-        changed_wrapper_top = -1200;
+      if ( changed_wrapper_top === content_height ) {
+        changed_wrapper_top = -1 * ( content_height * (carousel_contents_total - 1) );
       }
       css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
     } else {
       changed_wrapper_top = current_wrapper_top - content_height;
-      if ( changed_wrapper_top === -1600 ) {
+      if ( changed_wrapper_top === -1 * (content_height * carousel_contents_total) ) {
         changed_wrapper_top = 0;
       }
       css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
@@ -160,7 +162,7 @@
 
   // 초기화 실행
   init('.main-ad-area');
-  init('.demo-A');
+  // init('.demo-A');
 
 })(this);
 
@@ -178,5 +180,27 @@
   // 2.3 정의된 기능 구현
   // 2.4 테스트
   // 2.5 빌드(배포)
+
+  function Carousel(selector) {
+    this.carousel = query(selector);
+    this.init();
+  }
+
+  Carousel.prototype = {
+    'constructor': Carousel,
+    'init': function() {
+
+    },
+    'bindEvent': function() {
+
+    },
+    'movingCarouselContents': function() {
+
+    }
+  }
+
+  // 객체 생성
+  global.main_ad_area = new Carousel('.main-ad-area');
+  global.demo_A = new Carousel('.demo-A');
 
 })(this);
