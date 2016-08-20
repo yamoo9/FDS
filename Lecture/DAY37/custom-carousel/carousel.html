@@ -10,7 +10,6 @@
 </head>
 <body class="demonstration">
 
-  <!-- 스크립트가 동적으로 처리한 결과 예시 -->
   <article class="main-ad-area">
     <section>
       <h2>AD Headline 01</h2>
@@ -26,140 +25,13 @@
     </section>
   </article>
 
-  <!-- <div class="demo-A">
-    <div>
-      <h2>demo 1 headline</h2>
-    </div>
-    <div>
-      <h2>demo 2 headline</h2>
-    </div>
-    <div>
-      <h2>demo 3 headline</h2>
-    </div>
-    <div>
-      <h2>demo 4 headline</h2>
-    </div>
-    <div>
-      <h2>demo 5 headline</h2>
-    </div>
-    <div>
-      <h2>demo 6 headline</h2>
-    </div>
-    <div>
-      <h2>demo 7 headline</h2>
-    </div>
-    <div>
-      <h2>demo 8 headline</h2>
-    </div>
-  </div>
-  <div class="demo-B">
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-    <div>
-      <h2>demo B headline</h2>
-    </div>
-  </div>
-  <div class="demo-C">
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-    <div>
-      <h2>demo C headline</h2>
-    </div>
-  </div> -->
-  <!-- div.demo-D>div*8>h2{demo D headline} -->
-  <!-- div.demo-E>div*8>h2{demo E headline} -->
-
-
-  <!-- 마크업 완료된 예시 -->
-  <!-- <article
-    aria-label="Demonstration UI Carousel Component"
-    class="ui-carousel"
-    role="application">
-    contents
-    <div class="ui-carousel--content__wrapper" role="group">
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">01</h2>
-      </section>
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">02</h2>
-      </section>
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">03</h2>
-      </section>
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">04</h2>
-      </section>
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">05</h2>
-      </section>
-      <section class="ui-carousel--content">
-        <h2 class="ui-carousel--content__headline">06</h2>
-      </section>
-    </div>
-    buttons
-    <div class="ui-carousel--navigation__buttons" role="group">
-      <button
-        aria-label="previous content"
-        type="button"
-        class="ui-carousel--navigation__prev_button">
-          <span class="fa fa-angle-up" aria-hidden="true"></span>
-        </button>
-      <button
-        aria-label="next content"
-        type="button"
-        class="ui-carousel--navigation__next_button">
-          <span class="fa fa-angle-down" aria-hidden="true"></span>
-        </button>
-    </div>
-  </article> -->
-
-
 <script src="../../../Resources/DOMHelper/index.js"></script>
 <script src="js/ui-carousel.js"></script>
 <script>
 (function(global){
-  var main_ad_area = new Carousel('.main-ad-area');
-  // var demo_A = new Carousel('.demo-A');
-  // var demo_B = new Carousel('.demo-B');
-  // var demo_C = new Carousel('.demo-C');
+  // Carousel 객체 생성
+  global.main_ad_area = new Carousel('.main-ad-area');
+  console.log(main_ad_area.constructor);
 })(this);
 </script>
 </body>

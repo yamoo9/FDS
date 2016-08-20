@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR" class="no-js">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 시작하기</title>
+  <!-- 우리가 만들던 DOM 헬퍼 라이브러리 -->
+  <!-- <script src="../../../Resources/DOMHelper/DOMHelper.js"></script> -->
+  <!-- 자바스크립트 DOM 조작에 최적화된 인기 라이브러리: jQuery -->
+  <!-- CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- Local -->
+  <script>
+  // CDN jQuery 로드가 실패했다면... 로컬 jQuery 파일을 로드하라.
+
+  // if(!this.jQuery) {
+  //   document.writeln('<script src="../../../Resources/library/jquery-3.1.0.min.js"><\/script>');
+  // }
+
+  // 위 코드와 동일한 결과를 수행하는 || 조건 처리
+  this.jQuery||document.write('<script src="../../../Resources/library/jquery-3.1.0.min.js"><\/script>');
+  </script>
+  <script>
+  // IIFE 패턴(모듈)으로 전역을 오염시키지 않는다.
+  (function(global, $){
+    // 엄격모드
+    'use strict';
+
+    // 자바스크립트 지원환경 유무 파악 class 식별자 처리
+    $('html').removeClass('no-js').addClass('js');
+
+    // 문서 로드가 완료되면 실행되는 초기화 함수 init
+    function init() {
+
+      // 문서에 이 코드가 처리될 시기에는 아직 완성되지 않은 <body> 내부의 객체는 접근이 불가능.
+      var $container = $('.container');
+      console.log($container.length);
+    }
+
+    // 문서 객체 모델이 완성된 후가 되면 init 함수를 실행하라.
+    $(document).ready(init);
+
+  })(this, this.jQuery);
+  </script>
+</head>
+<body>
+
+  <div class="container"></div>
+
+</body>
+</html>

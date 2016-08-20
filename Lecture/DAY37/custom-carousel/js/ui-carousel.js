@@ -21,29 +21,31 @@
 }(this));
 
 // UI Carousel 컴포넌트(Component) 제작
+
+// -----------------------------------------------------
+// 1. [절차 지향] 함수 형 방식으로 진행
+// -----------------------------------------------------
+// 1.1 컴퍼넌트 분석
+// 애플리케이션 초기화
+//  해당 요소를 컴포넌트 화
+//  요소의 클래스 설정
+//  버튼을 동적으로 생성
+//  버튼 이벤트 핸들링
+// 핸들러 작성
+//  콘텐츠 래퍼를 이동 기능
+// 1.2 기능 설계
+// 1.3 기능 구현
+// 1.4 테스트
+// 1.5 빌드(배포)
 (function(global){
   'use strict';
 
+
+  // 모듈 내에서 사용할 공통 변수
   var carousel;
   var carousel_contents_wrapper;
   var content_height;
   var carousel_contents_total;
-
-  // -----------------------------------------------------
-  // 1. [절차 지향] 함수 형 방식으로 진행
-  // -----------------------------------------------------
-  // 1.1 컴퍼넌트 분석
-  // 애플리케이션 초기화
-  //  해당 요소를 컴포넌트 화
-  //  요소의 클래스 설정
-  //  버튼을 동적으로 생성
-  //  버튼 이벤트 핸들링
-  // 핸들러 작성
-  //  콘텐츠 래퍼를 이동 기능
-  // 1.2 기능 설계
-  // 1.3 기능 구현
-  // 1.4 테스트
-  // 1.5 빌드(배포)
 
   // 애플리케이션 초기화
   function init(selector) {
@@ -127,7 +129,6 @@
   // ------------------------------------------------------------------------------
   // 버튼에 이벤트 바인딩
   function bindEvent() {
-    // var buttons = queryAll('.ui-carousel--navigation__buttons button');
     var buttons = queryAll('.ui-carousel--navigation__buttons button', carousel);
     var len = buttons.length;
     while( buttons[--len] ) {
@@ -141,7 +142,6 @@
     // 기능 구현
     // 어떤 버튼을 사용자가 클릭했는지 구분한다.
     var check_class = this.getAttribute('class');
-
     var carousel_contents_wrapper = prevEl(this.parentNode);
     var current_wrapper_top = removeUnit( css(carousel_contents_wrapper, 'top') );
     var changed_wrapper_top;
@@ -163,33 +163,32 @@
   }
 
   // 초기화 실행
-  init('.main-ad-area');
-  // init('.demo-A');
+  // init('.main-ad-area');
 
-});
+}(this));
 
-
-
-
+// -----------------------------------------------------
+// 2. [객체 지향] 커스텀 객체 형태로 변경
+// -----------------------------------------------------
+// 2.1 객체 생성자 (ES 2015. class 제작)
+// 2.2 객체 생성자의 프로토타입 객체를 통해 공유할 수 있는 기능 정의
+// 2.3 정의된 기능 구현
+// 2.4 테스트
+// 2.5 빌드(배포)
 (function(global){
   'use strict';
 
-  // -----------------------------------------------------
-  // 2. [객체 지향] 커스텀 객체 형태로 변경
-  // -----------------------------------------------------
-  // 2.1 객체 생성자 (ES 2015. class 제작)
-  // 2.2 객체 생성자의 프로토타입 객체를 통해 공유할 수 있는 기능 정의
-  // 2.3 정의된 기능 구현
-  // 2.4 테스트
-  // 2.5 빌드(배포)
-
+  // 객체 생성자 함수 정의
   function Carousel(selector) {
     this.carousel = query(selector);
     this.init();
   }
 
+  // 생성자 함수의 프로토타입 객체 정의
   Carousel.prototype = {
+
     'constructor': Carousel,
+
     'init': function() {
       var carousel = this.carousel;
       carousel.origin_class = carousel.getAttribute('class') || '';
@@ -223,6 +222,7 @@
       carousel.innerHTML += button_group_html_code;
       this.bindEvent();
     },
+
     'bindEvent': function() {
       var buttons = this.carousel.querySelectorAll('.ui-carousel--navigation__buttons button');
       var len = buttons.length;
@@ -230,6 +230,7 @@
         buttons[len].onclick = this.movingCarouselContents.bind(buttons[len], this);
       }
     },
+
     'movingCarouselContents': function(carousel) {
       var check_class = this.getAttribute('class');
       var carousel_contents_wrapper = prevEl(this.parentNode);
@@ -251,9 +252,100 @@
         css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
       }
     }
+
+
   };
 
   // 전역에 커스텀 객체 Carousel 노출
-  global.Carousel = Carousel;
+  // global.Carousel = Carousel;
 
-})(this);
+}(this));
+
+// -----------------------------------------------------
+// 2-1. [객체 지향] ECMAScript 2015, Class 사용
+// -----------------------------------------------------
+(function(global){
+  'use strict';
+
+  // 클래스 정의
+  global.Carousel = class Carousel {
+
+    // 생성자 정의
+    constructor(selector) {
+      this.carousel = query(selector);
+      this.init();
+    }
+
+    // 정적 메소드 추가
+    static makeArray(data) {
+      return global.makeArray(data);
+    }
+
+    // 초기화
+    init() {
+      var carousel = this.carousel;
+      carousel.origin_class = carousel.getAttribute('class') || '';
+      carousel.setAttribute('class', (carousel.origin_class + ' ui-carousel').trim() );
+      carousel.setAttribute('role', 'application');
+      carousel.setAttribute('aria-label', 'Demonstration UI Carousel Component');
+      var carousel_contents_wrapper = createNode('div');
+      carousel_contents_wrapper.setAttribute('class', 'ui-carousel--content__wrapper');
+      carousel_contents_wrapper.setAttribute('role', 'group');
+      var carousel_contents = makeArray( carousel.children );
+      this.carousel_contents_total = carousel_contents.length;
+      carousel_contents.forEach(function(content, index) {
+        content.setAttribute('class', 'ui-carousel--content');
+        var headline = query('h2', content);
+        headline.setAttribute('class', 'ui-carousel--content__headline');
+        carousel_contents_wrapper.appendChild(content);
+      });
+      prependChild(carousel, carousel_contents_wrapper);
+      var content = firstEl(carousel_contents_wrapper);
+      this.content_height = removeUnit(css(content, 'height'));
+      var button_group_html_code = [
+        '<div class="ui-carousel--navigation__buttons" role="group">',
+          '<button aria-label="previous content" type="button" class="ui-carousel--navigation__prev_button">',
+            '<span class="fa fa-angle-up" aria-hidden="true"></span>',
+          '</button>',
+          '<button aria-label="next content"type="button"class="ui-carousel--navigation__next_button">',
+            '<span class="fa fa-angle-down" aria-hidden="true"></span>',
+          '</button>',
+        '</div>'
+      ].join('');
+      carousel.innerHTML += button_group_html_code;
+      this.bindEvent();
+    }
+
+    bindEvent() {
+      var buttons = this.carousel.querySelectorAll('.ui-carousel--navigation__buttons button');
+      var len = buttons.length;
+      while( buttons[--len] ) {
+        buttons[len].onclick = this.movingCarouselContents.bind(buttons[len], this);
+      }
+    }
+
+    movingCarouselContents(carousel) {
+      var check_class = this.getAttribute('class');
+      var carousel_contents_wrapper = prevEl(this.parentNode);
+      var current_wrapper_top = removeUnit( css(carousel_contents_wrapper, 'top') );
+      var changed_wrapper_top;
+      var content_height = carousel.content_height;
+      var carousel_contents_total = carousel.carousel_contents_total;
+      if ( /prev/.test(check_class) ) {
+        changed_wrapper_top = current_wrapper_top + content_height;
+        if ( changed_wrapper_top === content_height ) {
+          changed_wrapper_top = -1 * ( content_height * (carousel_contents_total - 1) );
+        }
+        css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
+      } else {
+        changed_wrapper_top = current_wrapper_top - content_height;
+        if ( changed_wrapper_top === -1 * (content_height * carousel_contents_total) ) {
+          changed_wrapper_top = 0;
+        }
+        css(carousel_contents_wrapper, 'top', changed_wrapper_top + 'px');
+      }
+    }
+
+  };
+
+}(this));
