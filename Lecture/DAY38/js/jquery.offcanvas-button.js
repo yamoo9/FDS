@@ -28,6 +28,7 @@
     $wrapper.animate({
       'left': global.parseInt($wrapper.css('left')) == 0 ? wrapper_origin_pos : 0
     });
+    $this.toggleClass('open-menu');
   }
 
 
