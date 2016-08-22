@@ -24,6 +24,7 @@
     // console.log($this.jquery); // jQuery 버전 출력
     var $wrapper = $this.parent();
     // console.log($wrapper, $wrapper[0]);
+    console.log($wrapper.css('left'));
     // 부모요소 $wrapper의 left 속성을 이동
     $wrapper.animate({
       'left': global.parseInt($wrapper.css('left')) == 0 ? wrapper_origin_pos : 0

@@ -8,10 +8,58 @@
     .selected {
       background: #ff0;
     }
+    .demo-box {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .demo-box.primary {
+      background: #f00;
+    }
+    .demo-box.secondary {
+      background: #ff0;
+    }
   </style>
   <script src="../../Resources/library/jquery-3.1.0.min.js"></script>
+  <script>
+    jQuery(function($) {
+      $('.demo-box')
+        .css({'cursor': 'pointer'})
+        .attr({'tabindex': 0})
+        .on('click', function() {
+          // $(this).css({
+          //   'width': '+=10',
+          //   'height': '+=10'
+          // });
+          $(this).css({
+            'width': function() {
+              console.log(arguments);
+              value = parseInt(arguments[1], 10);
+              if ( value < 120 ) {
+                return value + 10 + 'px';
+              }
+            },
+            'height': function(index, value) {
+              return parseInt(value, 10) + 10 + 'px';
+            }
+          });
+        });
+    });
+  </script>
 </head>
 <body>
+
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
+  <div class="demo-box">demo box</div>
 
   <div class="page">
     <div class="page-header">
@@ -19,14 +67,14 @@
       <p class="slogan">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, magni!</p>
       <nav class="page-gnb">
         <ul>
-          <li><a href="#">item 28</a></li>
+          <li><a href="#">itecanm 28</a></li>
           <li><a href="">item 27</a></li>
           <li><a href="#">item 26</a></li>
           <li><a href="">item 25</a></li>
           <li><a href="">item 24</a></li>
           <li><a href="#">item 23</a></li>
           <li><a href="">item 22</a></li>
-          <li><a href="">item 21</a></li>
+          <li><a href=""></a></li>
         </ul>
       </nav>
       <main>

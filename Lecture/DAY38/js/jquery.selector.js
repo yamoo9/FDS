@@ -10,3 +10,12 @@
 // :nth-child(fomular)
 // :nth-of-type(fomular)
 // :only-child
+
+// ----------------------------------------------------------------
+// jQuery.fn.css() 사용법
+// ----------------------------------------------------------------
+// [GETTER] $().css('font-size')
+// [SETTER] $().css('font-size', '20px')
+// [CSS_MAP] $().css({'font-size': '+=10px', 'margin-left': '1em'})
+// [CALLBACK] $().css({'key': function(){ return value; }})
+// ----------------------------------------------------------------
