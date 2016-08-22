@@ -50,11 +50,16 @@
 </head>
 <body>
 
+<div class="demo">
+  <button type="button" class="change-text-button">아래 단락 내용 변경</button>
+  <p>문서객체모델은 아직 준비되지 않았습니다.</p>
+</div>
+
 <script>
   // jQuery 라이브러리 로드에 성공했는가?
-  window.jQuery ?
-    document.write('<p>jQuery 로딩에 성공했습니다.</p>') :
-    document.write('<p>jQuery 로딩에 성공 못했습니다.</p>');
+  // window.jQuery ?
+    // document.write('<p>jQuery 로딩에 성공했습니다.</p>') :
+    // document.write('<p>jQuery 로딩에 성공 못했습니다.</p>');
 
   // Modernizr 사용법
   // if ( !Modernizr.cssanimations ) {
@@ -62,7 +67,29 @@
   //     // setInterval, setTimeout 보다는 requestAnimationFrame 사용하는 것이 좋다.
   // }
 
-  console.log('body 요소의 끝자락에서 코드가 실행되었다.');
+  // console.log('body 요소의 끝자락에서 코드가 실행되었다.');
+
+  (function(global, $){
+    'use strict';
+
+    // 문서에서 버튼 .change-text-button을 선택한다.
+    var $ctb = $('.change-text-button');
+    // 선택된 버튼을 사용자가 클릭하면 아래 위치한(다음 요소) 단락 요소의 텍스트 내용을 변경한다.
+    // $ctb.click(function() {
+    $ctb.on('click', function() {
+      // console.log(!!this.css, !!$(this).css); // this는 jQuery 객체가 아닌 문서객체 참조
+      $(this).next().text('버튼을 클릭했기에 이 텍스트 내용은 변경된 것이여!');
+      // attribute VS property
+      // $(this).prop('disabled', true); // JavaScript
+      $(this).attr('disabled', true); // HTML
+    });
+
+    // $('.demo p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다.');
+    // global.setTimeout(function() {
+    //   $('.demo').find('p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다.');
+    // }, 2000);
+
+  })(this, this.jQuery);
 </script>
 </body>
 </html>

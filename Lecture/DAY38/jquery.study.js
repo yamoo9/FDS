@@ -44,7 +44,11 @@ jQuery(document).ready(function() {
 })(this, this.jQuery);
 
 // 또 다른 방법
-// jQuery(function($) {
+jQuery(function($) {
+
+});
+
+// jQuery(document).ready(function($) {
 
 // });
 
@@ -71,8 +75,8 @@ jQuery(document).ready(function() {
   // 함수.속성
   // 정적 메소드 (Static Method)
   // jQuery.type = function(data) { return Object.prototype.toString.call(data).slice(8,-1).toLowerCase(); }
-  console.log($.type( $ ));
-  console.log($.type( $() ), $().jquery);
+  // console.log($.type( $ )); // 함수
+  // console.log($.type( $() ), $().jquery); // 객체
 
   // jQuery 생성자가 만들어낸 객체의 메소드
   // 인스턴스 메소드
@@ -80,7 +84,6 @@ jQuery(document).ready(function() {
   //  this === jQuery 인스턴스 객체
   //  this.each(function(index, el) { // 순환하면서 CSS 코드를 처리 });
   // }
-
   $('body :first-child, body :last-child').css({
     'color': 'red',
     'line-height': 1.4
