@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR" class="no-js">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery Library</title>
+  <style>
+    body {
+      height: 100vh;
+    }
+    /* CSS 포지션 스티키를 지원하는 브라우저: FF, Safari */
+    .csspositionsticky body {
+      background: #25a04d;
+    }
+    /* CSS 포지션 스티키를 미지원하는 브라우저: IE, Edge, Chrome, Android */
+    .no-csspositionsticky {
+      background: #fc414b;
+    }
+
+    /* 우아한 기능 저하: 크로스 브라우징을 목적으로 사용자 환경을 감지한 후, 대체 방식을 제공 */
+    .no-cssborderradius {
+      background-image: url('rounded-corner.png');
+    }
+  </style>
+  <script src="modernizr.custom.min.js"></script>
+  <script src="../../Resources/library/detectizr.js"></script>
+  <script>
+    // Detectizr 사용법
+    Detectizr.detect({
+      // 옵션
+      'addAllFeaturesAsClass': false,
+      'detectDevice':          true,
+      'detectDeviceModel':     true,
+      'detectScreen':          true,
+      'detectOS':              true,
+      'detectBrowser':         true,
+      'detectPlugins':         true,
+      'detectPlugins':         true
+    });
+    Detectizr.init();
+  </script>
+</head>
+<body>
+
+<script src="../../Resources/library/jquery-3.1.0.min.js"></script>
+<script>
+  // jQuery 라이브러리 로드에 성공했는가?
+  window.jQuery ?
+    document.write('<p>jQuery 로딩에 성공했습니다.</p>') :
+    document.write('<p>jQuery 로딩에 성공 못했습니다.</p>');
+
+  // Modernizr 사용법
+  if ( !Modernizr.cssanimations ) {
+      // 자바스크립트 애니메이션 사용
+      // setInterval, setTimeout 보다는 requestAnimationFrame 사용하는 것이 좋다.
+  }
+</script>
+</body>
+</html>

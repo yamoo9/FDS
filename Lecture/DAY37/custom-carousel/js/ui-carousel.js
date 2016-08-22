@@ -221,6 +221,8 @@
       ].join('');
       carousel.innerHTML += button_group_html_code;
       this.bindEvent();
+      // 메소드 체이닝의 핵심
+      // return this;
     },
 
     'bindEvent': function() {
