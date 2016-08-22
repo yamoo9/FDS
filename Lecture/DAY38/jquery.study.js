@@ -43,10 +43,47 @@ jQuery(document).ready(function() {
   // console.log(global.$ === global.jQuery);
 })(this, this.jQuery);
 
+// 또 다른 방법
+// jQuery(function($) {
+
+// });
+
 // --------------------------------------------------------------------------------
 
 // 방법 5. jQuery() 팩토리 함수에 함수를 전달한 후, 인자 값을 $로 받는다.
-jQuery.noConflict(true)(function($) {
-  // jQuery 라고 한다면 jQuery 버전이 찍힌다.
-  console.log($().jquery);
-});
+// var $j = jQuery.noConflict(true); // 결과는 함수가 반환된다.
+
+// 반환된 함수를 실행
+// $j(function($) {
+//   console.log($ === window.$j);
+// });
+
+
+// --------------------------------------------------------------------------------
+
+// $와 $()는 다르다.
+// jQuery 와 jQuery() 결과는 다르다.
+// jQuery는 `함수`이다.
+// jQuery() `함수 실행 결과`는 `jQuery {} 인스턴스 객체`가 반환된다.
+
+(function($){
+  'use strict';
+  // 함수.속성
+  // 정적 메소드 (Static Method)
+  // jQuery.type = function(data) { return Object.prototype.toString.call(data).slice(8,-1).toLowerCase(); }
+  console.log($.type( $ ));
+  console.log($.type( $() ), $().jquery);
+
+  // jQuery 생성자가 만들어낸 객체의 메소드
+  // 인스턴스 메소드
+  // jQuery.prototype.css = function(prop, value){
+  //  this === jQuery 인스턴스 객체
+  //  this.each(function(index, el) { // 순환하면서 CSS 코드를 처리 });
+  // }
+
+  $('body :first-child, body :last-child').css({
+    'color': 'red',
+    'line-height': 1.4
+  });
+
+})(this.jQuery);
