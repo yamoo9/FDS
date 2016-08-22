@@ -73,16 +73,16 @@
     'use strict';
 
     // 문서에서 버튼 .change-text-button을 선택한다.
-    var $ctb = $('.change-text-button');
+    // var $ctb = $('.change-text-button');
     // 선택된 버튼을 사용자가 클릭하면 아래 위치한(다음 요소) 단락 요소의 텍스트 내용을 변경한다.
     // $ctb.click(function() {
-    $ctb.on('click', function() {
+    // $ctb.on('click', function() {
       // console.log(!!this.css, !!$(this).css); // this는 jQuery 객체가 아닌 문서객체 참조
-      $(this).next().text('버튼을 클릭했기에 이 텍스트 내용은 변경된 것이여!');
+      // $(this).next().text('버튼을 클릭했기에 이 텍스트 내용은 변경된 것이여!');
       // attribute VS property
       // $(this).prop('disabled', true); // JavaScript
-      $(this).attr('disabled', true); // HTML
-    });
+      // $(this).attr('disabled', true); // HTML
+    // });
 
     // $('.demo p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다.');
     // global.setTimeout(function() {
