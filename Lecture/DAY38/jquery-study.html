@@ -25,24 +25,31 @@
   <script src="modernizr.custom.min.js"></script>
   <script src="../../Resources/library/detectizr.js"></script>
   <script>
-    // Detectizr 사용법
-    Detectizr.detect({
-      // 옵션
-      'addAllFeaturesAsClass': false,
-      'detectDevice':          true,
-      'detectDeviceModel':     true,
-      'detectScreen':          true,
-      'detectOS':              true,
-      'detectBrowser':         true,
-      'detectPlugins':         true,
-      'detectPlugins':         true
+    window.addEventListener('DOMContentLoaded', function() {
+       console.log('DOM이 완성되었다.');
     });
-    Detectizr.init();
+
+    window.onload = function() {
+       console.log('DOM이 완성되었을 뿐 아니라, 이미지를 포함한 미디어 파일까지 모두 다운로드 완료 되었다.');
+    };
+    // Detectizr 사용법
+    // Detectizr.init({
+    //   // 옵션
+    //   'addAllFeaturesAsClass': false,
+    //   'detectDevice':          true,
+    //   'detectDeviceModel':     false,
+    //   'detectScreen':          false,
+    //   'detectOS':              false,
+    //   'detectBrowser':         false,
+    //   'detectPlugins':         false,
+    //   'detectPlugins':         false
+    // });
   </script>
+  <script src="../../Resources/library/jquery-3.1.0.min.js"></script>
+  <script src="jquery.study.js"></script>
 </head>
 <body>
 
-<script src="../../Resources/library/jquery-3.1.0.min.js"></script>
 <script>
   // jQuery 라이브러리 로드에 성공했는가?
   window.jQuery ?
@@ -50,10 +57,12 @@
     document.write('<p>jQuery 로딩에 성공 못했습니다.</p>');
 
   // Modernizr 사용법
-  if ( !Modernizr.cssanimations ) {
-      // 자바스크립트 애니메이션 사용
-      // setInterval, setTimeout 보다는 requestAnimationFrame 사용하는 것이 좋다.
-  }
+  // if ( !Modernizr.cssanimations ) {
+  //     // 자바스크립트 애니메이션 사용
+  //     // setInterval, setTimeout 보다는 requestAnimationFrame 사용하는 것이 좋다.
+  // }
+
+  console.log('body 요소의 끝자락에서 코드가 실행되었다.');
 </script>
 </body>
 </html>

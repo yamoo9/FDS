@@ -9,9 +9,9 @@
  */
 window.Detectizr = (function(window, navigator, document, undefined) {
   var Detectizr = {},
-    Modernizr = window.Modernizr,
-    deviceTypes = ["tv", "tablet", "mobile", "desktop"],
-    options = {
+      Modernizr = window.Modernizr,
+      deviceTypes = ["tv", "tablet", "mobile", "desktop"],
+      options = {
       // option for enabling HTML classes of all features (not only the true features) to be added
       addAllFeaturesAsClass: false,
       // option for enabling detection of device
@@ -513,16 +513,17 @@ window.Detectizr = (function(window, navigator, document, undefined) {
   Detectizr.detect = function(settings) {
     return detect(settings);
   };
-  Detectizr.init = function() {
+  Detectizr.init = function(settings) {
     if (Detectizr !== undefined) {
       Detectizr.browser = {
         userAgent: (navigator.userAgent || navigator.vendor || window.opera || "").toLowerCase()
       };
-      Detectizr.detect();
+      Detectizr.detect(settings);
     }
   };
 
-  // Detectizr.init();
+  Detectizr.init();
 
   return Detectizr;
+
 }(this, this.navigator, this.document));
