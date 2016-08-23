@@ -105,7 +105,8 @@
     // var $this = $(item);
     var $this = $letters.eq(index);
     // $this.on('mouseenter', letterOvers);
-    $this.on('mouseenter', $.proxy(letterOvers, $this));
+    $this.one('mouseenter', $.proxy(letterOvers, $this));
+    $this.one('mouseenter', $.proxy(playEffectSound, $this));
   });
 
   function letterOvers() {
@@ -114,8 +115,30 @@
     // console.log('$this:', $this);
     this.css({
       'transform': 'scale(1.5)',
-      'margin': '0 0 0 10px'
+      'margin-right': '10px'
     });
+  }
+
+  // HTML5 Audio 객체 생성
+  var effect_sound = $('<audio>',{
+    'src': '../../Resources/media/tong.mp3'
+  })[0];
+
+  // effect_sound.oncanplay = function() {
+  //   this.play();
+  // };
+
+  function audioStop(audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  function playEffectSound() {
+    // HTML5 Audio 실행
+    // console.log('playEffectSound');
+    // 음원이 플레이 중이라면 멈춤
+    audioStop(effect_sound);
+    effect_sound.play();
   }
 
 })(this, this.jQuery);
