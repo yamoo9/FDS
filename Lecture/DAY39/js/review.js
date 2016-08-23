@@ -57,8 +57,8 @@ demo1.onmouseenter = myFn; // 결과: this === demo1
 
 demo1.onclick = function() {
   // Function.prototype.call 메소드를 사용하여 함수를 빌려쓰기 패턴
-  myFn();          // 결과: this === window object
-  myFn.call(this); // 결과: this === demo1
+  // myFn();          // 결과: this === window object
+  // myFn.call(this); // 결과: this === demo1
 };
 
 demo2.onmouseenter = meFn; // 결과: this === demo2
@@ -68,6 +68,25 @@ demo2.onclick = function() {
   window.meFn();   // 결과: this === window object
   meFn.call(this); // 결과: this === demo2
 };
+
+// ----------------------------------------------------------------------
+// jQuery 함수 내부에서의 this
+// ----------------------------------------------------------------------
+
+// jQuery(document).ready(function($){});
+jQuery(function($) {
+  'use strict';
+  console.log('jQuery 팩토리 함수에 전달된 콜백 함수 내부에서의 this:', this); // this === document
+  var $demo1 = $('.demo1');
+  $demo1.on('mousedown', {'$this': $demo1}, function(evt){
+    // console.log(arguments);
+    // console.log('이벤트 객체의 .data.$this 참조 값:', evt.data.$this );
+    // var $this = evt.data.$this;
+    // $this.css('font-size', '+=20');
+    // console.log('this:', this); // this === .demo1 문서 객체
+    // console.log('$(this):', $(this).jquery); // jQuery 객체
+  });
+});
 
 
 /**
