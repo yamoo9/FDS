@@ -115,61 +115,61 @@ fn();
 }(jQuery));
 
 // IIFE + Closure
-var fnWrapper = function() {
-  return function() {
+// var fnWrapper = function() {
+//   return function() {
 
-  };
-};
+//   };
+// };
 
-var fnc = fnWrapper();
-
-
-var fnc_iffy = (function(){
-  return function() {
-
-  };
-})();
+// var fnc = fnWrapper();
 
 
-var y9 = {
-  'members': [],
-  'job': 'instructor',
-  'getName': (function(){
-    var name = 'hoon';
-    return function() {
-      return name;
-    }
-  })()
-};
+// var fnc_iffy = (function(){
+//   return function() {
 
-(function(yamoo9){
-
-  yamoo9.memory = [];
-
-})((this.yamoo9 = this.yamoo9 || {}));
+//   };
+// })();
 
 
-(function(yamoo9){
-  console.log(yamoo9.memory);
-  var members = [];
-  var name = 'hoon';
-  var job = 'instructor';
+// var y9 = {
+//   'members': [],
+//   'job': 'instructor',
+//   'getName': (function(){
+//     var name = 'hoon';
+//     return function() {
+//       return name;
+//     }
+//   })();
+// };
 
-  yamoo9.getName = function() {
-    return name;
-  };
+// (function(yamoo9){
 
-})((this.yamoo9 = this.yamoo9 || {}));
+//   yamoo9.memory = [];
+
+// })((this.yamoo9 = this.yamoo9 || {}));
 
 
-(function(global){
+// (function(yamoo9){
+//   console.log(yamoo9.memory);
+//   var members = [];
+//   var name = 'hoon';
+//   var job = 'instructor';
 
-  var private_member = [];
+//   yamoo9.getName = function() {
+//     return name;
+//   };
 
-  global.yamoo9 = {
-    'accessMember': function() {
-      return private_member;
-    }
-  };
+// })((this.yamoo9 = this.yamoo9 || {}));
 
-})(this);
+
+// (function(global){
+
+//   var private_member = [];
+
+//   global.yamoo9 = {
+//     'accessMember': function() {
+//       return private_member;
+//     }
+//   };
+
+// })(this);
