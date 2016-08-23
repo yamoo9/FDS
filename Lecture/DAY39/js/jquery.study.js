@@ -100,6 +100,7 @@
 
   // 불필요한 처리를 하지 않는 코드를 작성하도록
   // 코드 리뷰 -> 리팩토링을 해보자.
+  // jQuery(['<span>', '<span>', '<span>'])
   $letters.each(function(index, item) {
     // var $this = $(item);
     var $this = $letters.eq(index);
@@ -108,10 +109,13 @@
   });
 
   function letterOvers() {
-    console.log('this:', this);
+    // console.log('this:', this);
     // $(this).css('color', '#52c88c');
     // console.log('$this:', $this);
-    this.css('color', '#52c88c');
+    this.css({
+      'transform': 'scale(1.5)',
+      'margin': '0 0 0 10px'
+    });
   }
 
 })(this, this.jQuery);
