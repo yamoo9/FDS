@@ -71,14 +71,47 @@
   // console.log(h1_text); // ['j','Q',...,'d']
   // jQuery.map() 유틸리티 메소드(Static Method, Class Method)
   h1_text = $.map(h1_text, function(item, index) {
+    // 텍스트 내용이 있을 경우
     if($.trim(item)) {
-      // console.log('<span>'+item+'</span>');
+      // <span>으로 감싼다.
       return '<span>'+item+'</span>';
-    } else {
+    }
+    // 빈 공백일 경우
+    else {
+      // 공백을 반환한다.
       return item;
     }
   });
   h1_text = h1_text.join('');
-  $h1.html(h1_text);
+  $h1.html(h1_text); // Setter
+
+  // var $letters = $('span', $h1);
+  var $letters = $h1.find('span');
+
+  // 쉬운 코드... 하지만 좋지 않은 코드
+  // 이유는? 이벤트 발생 시마다 this 문서 객체를
+  // jQuery() 팩토리 함수로 감싸 jQuery 객체를
+  // 생성해야 하기 때문.
+  // $letters.on('mouseenter', letterOver);
+
+  // function letterOver() {
+  //   $(this).css('background', '#ff0');
+  // }
+
+  // 불필요한 처리를 하지 않는 코드를 작성하도록
+  // 코드 리뷰 -> 리팩토링을 해보자.
+  $letters.each(function(index, item) {
+    // var $this = $(item);
+    var $this = $letters.eq(index);
+    // $this.on('mouseenter', letterOvers);
+    $this.on('mouseenter', $.proxy(letterOvers, $this));
+  });
+
+  function letterOvers() {
+    console.log('this:', this);
+    // $(this).css('color', '#52c88c');
+    // console.log('$this:', $this);
+    this.css('color', '#52c88c');
+  }
 
 })(this, this.jQuery);
