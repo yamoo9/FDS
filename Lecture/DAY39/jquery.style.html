@@ -44,19 +44,25 @@
 
       var $demo_box = $('.demo-box');
       // 이벤트 위임
-      $('.button-controls').on('click', 'button', function() {
+      $('.button-controls').on('click', 'button', {'$index': 0}, function(event) {
         switch(this.getAttribute('class')) {
           case 'addClass_look':
             // console.log('addClass_look');
             $demo_box.addClass('look');
+            // $demo_box.addClass(function(index, current_class) {
+            //   return '~' + current_class + '~';
+            // });
           break;
           case 'removeClass_look':
             // console.log('removeClass_look');
-            $demo_box.removeClass('look');
+            // $demo_box.removeClass('look');
+            $demo_box.removeClass();
           break;
           case 'toggleClass_look':
             // console.log('toggleClass_look');
-            $demo_box.toggleClass('look');
+            // console.log(event.data.$index++ % 5 === 0);
+            // $demo_box.toggleClass('look', event.data.$index++ % 5 === 0);
+            $demo_box.toggleClass( (event.data.$index += 3) % 6 === 0 );
           break;
         }
       });
