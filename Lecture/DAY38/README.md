@@ -8,16 +8,7 @@
 1. $( document ).ready()
 1. 다른 자바스크립트 라이브러리와의 충돌 방지
 1. 요소 선택 (Selecting Elements)
-1. 선택된 대상 작업 (Getter, Setter, Chaining)
-1. 요소 조작 (Manipulating Elements)
-1. 속성 제어 (Attributes)
-1. jQuery 객체 (The jQuery Object)
-1. 탐색 (Traversing)
-1. CSS 스타일링/수치 (CSS, Styling, & Dimensions)
-1. 데이터 메소드 (Data Methods)
-1. 유틸리티 메소드 (Utility Methods)
-1. jQuery 객체, jQuery가 아닌 객체 순환
-1. jQuery .index() 함수 사용
+
 
 -
 
@@ -34,8 +25,8 @@
 /* CSS 포지션 스티키 미지원 벤더 : IE, Edge, Chrome, Android */
 .no-csspositionsticky body {
 	background: red; }
-/* 
- * CSS로 분기 처리를 할 수 있게 됐다!! 
+/*
+ * CSS로 분기 처리를 할 수 있게 됐다!!
  */
 ```
 
@@ -77,9 +68,9 @@ Detectizr.detect({
 var $container = $('.container');
 // 단순한 Number
 var container_count = $container.length();
-``` 
+```
 
-####`$` 충돌 방지 
+####`$` 충돌 방지
 
  -  다른 라이브러리에서 $를 쓴다면 충돌이 일어 날 수있다
 
@@ -87,7 +78,7 @@ var container_count = $container.length();
 console.log(window.$ === window.jQuery) // true
 
 // 1. $를 쓰지 않고 jQuery만 표기한다
-// winodw.onload 이벤트를 대체할 수 있는 window.addEventListener('DOMContentLoaded') 이벤트를 
+// winodw.onload 이벤트를 대체할 수 있는 window.addEventListener('DOMContentLoaded') 이벤트를
 // 추상화한 jQuery(document).ready()구문을 지원한다
 jQuery(document).ready(function(){
 	jQuery('body').css('background', '#ff0011');
@@ -183,7 +174,7 @@ jQuery.noConflict(true)(function($){
 <div class="offcanvas-menu-wrapper">
 	<button class="toggle-menu-button"
 			type="button"
-			aria-label="오프 캔버스 메뉴 펼침" 
+			aria-label="오프 캔버스 메뉴 펼침"
 			aria-expanded="false">
 		<span>-</span>
 		<span>-</span>
@@ -261,7 +252,7 @@ $('html a:not(:first-child)');
 
 ####Filter
 
- - 직관적인 선택자를 사용하여 요소에 접근할 수 있다(기존 css선택자에는 없음) 
+ - 직관적인 선택자를 사용하여 요소에 접근할 수 있다(기존 css선택자에는 없음)
 
 ```javascript
 $('a:first').addClass('selected');
