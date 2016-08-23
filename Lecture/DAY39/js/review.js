@@ -56,13 +56,17 @@ var demo2 = document.querySelector('.demo2');
 demo1.onmouseenter = myFn; // 결과: this === demo1
 
 demo1.onclick = function() {
-  myFn(); // 결과: this === window object
+  // Function.prototype.call 메소드를 사용하여 함수를 빌려쓰기 패턴
+  myFn();          // 결과: this === window object
+  myFn.call(this); // 결과: this === demo1
 };
 
 demo2.onmouseenter = meFn; // 결과: this === demo2
 
 demo2.onclick = function() {
-  meFn(); // 결과: this === undefined
+  meFn();          // 결과: this === undefined
+  window.meFn();   // 결과: this === window object
+  meFn.call(this); // 결과: this === demo2
 };
 
 
