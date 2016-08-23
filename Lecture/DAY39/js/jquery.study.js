@@ -107,6 +107,7 @@
     // $this.on('mouseenter', letterOvers);
     $this.one('mouseenter', $.proxy(letterOvers, $this));
     $this.one('mouseenter', $.proxy(playEffectSound, $this));
+    // $this.one('mouseenter', playEffectSound.bind($this));
   });
 
   function letterOvers() {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 스타일 클래스 속성 제어</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .demo-box {
+      width: 400px;
+      height: 60px;
+      box-sizing: border-box;
+      margin: 1rem 0;
+      border: 5px solid #999;
+      padding: 1em;
+      text-align: center;
+      transition: all .3s ease;
+    }
+    .demo-box.look {
+      border-width: 10px;
+      border-color: #5225e2;
+      padding: 0.75em 0 0 0;
+    }
+  </style>
+  <script src="../../Resources/library/jquery-3.1.0.slim.min.js"></script>
+  <script>
+  (function(global, $){
+    'use strict';
+
+    function init() {
+      // --------------------------------------------------------------------------------------------
+      // class 속성 제어 방법
+      // --------------------------------------------------------------------------------------------
+      // .hasClass(): 해당 클래스 속성을 소유했는가? Boolean
+      // .addClass(): 해당 클래스가 없다면 추가한다. jQuery Object
+      // .removeClass(): 해당 클래스가 있다면 제거한다. jQuery Object | 인자 값이 없다면 모든 클래스 속성을 제거한다.
+      // .toggleClass(): 해당 클래스 속성을 토글한다. (해당 클래스 속성을 소유했다면 제거, 소유하지 않았다면 추가)
+
+      var $demo_box = $('.demo-box');
+      // 이벤트 위임
+      $('.button-controls').on('click', 'button', function() {
+        switch(this.getAttribute('class')) {
+          case 'addClass_look':
+            // console.log('addClass_look');
+            $demo_box.addClass('look');
+          break;
+          case 'removeClass_look':
+            // console.log('removeClass_look');
+            $demo_box.removeClass('look');
+          break;
+          case 'toggleClass_look':
+            // console.log('toggleClass_look');
+            $demo_box.toggleClass('look');
+          break;
+        }
+      });
+
+    };
+
+    // 문서 객체 모델이 준비가 되면 init 함수 실행
+    $(init);
+
+  })(this, this.jQuery);
+  </script>
+</head>
+<body>
+  <div role="group" class="button-controls">
+    <button type="button" class="addClass_look">add <strong>look</strong></button>
+    <button type="button" class="removeClass_look">remove <strong>look</strong></button>
+    <button type="button" class="toggleClass_look">toggle <strong>look</strong></button>
+  </div>
+  <div class="demo-box">demo box</div>
+
+</body>
+</html>
