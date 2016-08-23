@@ -55,14 +55,15 @@
           break;
           case 'removeClass_look':
             // console.log('removeClass_look');
-            // $demo_box.removeClass('look');
-            $demo_box.removeClass();
+            $demo_box.removeClass('look');
+            // $demo_box.removeClass();
           break;
           case 'toggleClass_look':
             // console.log('toggleClass_look');
             // console.log(event.data.$index++ % 5 === 0);
+            $demo_box.toggleClass('look');
             // $demo_box.toggleClass('look', event.data.$index++ % 5 === 0);
-            $demo_box.toggleClass( (event.data.$index += 3) % 6 === 0 );
+            // $demo_box.toggleClass( (event.data.$index += 3) % 6 === 0 );
           break;
         }
       });
