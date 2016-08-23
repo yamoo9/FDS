@@ -78,8 +78,10 @@ jQuery(function($) {
   'use strict';
   console.log('jQuery 팩토리 함수에 전달된 콜백 함수 내부에서의 this:', this); // this === document
   var $demo1 = $('.demo1');
-  $demo1.on('mousedown', {'$this': $demo1}, function(evt){
+
+  $demo1.on('mousedown', {'$this': $demo1, 'index': 1}, function(evt){
     // console.log(arguments);
+    console.log(evt.data.index++);
     // console.log('이벤트 객체의 .data.$this 참조 값:', evt.data.$this );
     // var $this = evt.data.$this;
     // $this.css('font-size', '+=20');
@@ -92,4 +94,82 @@ jQuery(function($) {
 /**
  * ----------------------------------------------------------------------------------
  * IIFE 패턴 (즉시실행함수)
+ * ----------------------------------------------------------------------------------
+ * 함수 표현식을 사용하여 사용자가 이름을 호출하는 과정을 생략하고 즉시 실행되는 함수 패턴을 말한다.
+ * 모듈 패턴에 자주 사용되며, 전역과 구분되는 지역을 형성함으로서 공개/비공개 멤버를 설정할 수 있다.
  * ---------------------------------------------------------------------------------- */
+var fn = function() {}; // 함수 표현식, 함수 값(Literal)
+
+// 메모리 저장공간의 이름 fn을 통해 기억된 데이터(함수)를 실행
+fn();
+
+// 즉시 실행 함수
+(function(global) {
+  console.log('즉시 실행함수 패턴 1');
+  console.log(global === window);
+})(this);
+
+(function($j$) {
+  console.log('즉시 실행함수 패턴 2');
+  console.log($j$ === window.jQuery);
+}(jQuery));
+
+// IIFE + Closure
+var fnWrapper = function() {
+  return function() {
+
+  };
+};
+
+var fnc = fnWrapper();
+
+
+var fnc_iffy = (function(){
+  return function() {
+
+  };
+})();
+
+
+var y9 = {
+  'members': [],
+  'job': 'instructor',
+  'getName': (function(){
+    var name = 'hoon';
+    return function() {
+      return name;
+    }
+  })()
+};
+
+(function(yamoo9){
+
+  yamoo9.memory = [];
+
+})((this.yamoo9 = this.yamoo9 || {}));
+
+
+(function(yamoo9){
+  console.log(yamoo9.memory);
+  var members = [];
+  var name = 'hoon';
+  var job = 'instructor';
+
+  yamoo9.getName = function() {
+    return name;
+  };
+
+})((this.yamoo9 = this.yamoo9 || {}));
+
+
+(function(global){
+
+  var private_member = [];
+
+  global.yamoo9 = {
+    'accessMember': function() {
+      return private_member;
+    }
+  };
+
+})(this);
