@@ -183,4 +183,65 @@
 
   // $(template);
 
+  // -------------------------------------------------------
+
+  var $h2 = $('<h2 id="demo-test-h2">demo heading 2</h2>');
+  var h3 = document.createElement('h3');
+  var h3_text = document.createTextNode('new content - heading 3');
+  h3.appendChild(h3_text);
+  var gnb = document.querySelector('.gnb');
+
+  var $ol = $('ol');
+
+  $ol.prependTo('body');
+
+  window.setTimeout(function() {
+    $ol.before( [gnb, h3, $h2] );
+  }, 3000);
+
+  // 보이는 모양대로 암기하기
+  // A.insertBefore(B)
+  // A -> B
+  // A.after(B)
+  // A -> B
+
+  // A.before(B)
+  // A.after(B)
+
+  // A.insertBefore(B)
+  // A.insertAfter(B)
+
+  // ---------------------------------------------------------
+  // 이벤트 바인딩 시에 이벤트 객체에 사용자가 정의한 객체를 합성 [객체 합성]
+  // 외부에 변수를 만들지 않고, 이벤트 객체를 통해 조건 처리하는 토글 구문
+  // ---------------------------------------------------------
+  // 2회 토글되는 경우
+  $('p:eq(0)').on('click', {'clicked': false}, function(ev){
+      if (!ev.data.clicked) { console.log('toggle 1'); }
+      else { console.log('toggle 2'); }
+      ev.data.clicked = !ev.data.clicked;
+  });
+
+  // 5회 토글되는 경우
+  $('p:eq(1)').on('click', {'click_count': 0}, function(ev){
+      var data = ev.data;
+      switch( data.click_count++ % 5 ) {
+        case 0:
+          console.log('toggle' + 0);
+        break;
+        case 1:
+          console.log('toggle' + 1);
+        break;
+        case 2:
+          console.log('toggle' + 2);
+        break;
+        case 3:
+          console.log('toggle' + 3);
+        break;
+        case 4:
+          console.log('toggle' + 4);
+        break;
+      }
+  });
+
 })(this.jQuery);
