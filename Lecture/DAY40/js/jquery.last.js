@@ -43,16 +43,33 @@
   // $gnb_list.filter('.first').remove();
   // 2. function
   $gnb_list
-    .add('nav, a')
-    .addClass('navigation-component')
-    .filter(function(index, element) {
-      var node_name = element.nodeName.toLowerCase();
-      return node_name === 'a' || node_name === 'nav';
-    })
-    .css({
-      'display': 'inline-block',
-      'padding': '1em'
-    });
+    // .add('nav, a')
+    // .addClass('navigation-component')
+    // .filter(function(index, element) {
+    //   var node_name = element.nodeName.toLowerCase();
+    //   return node_name === 'a' || node_name === 'nav';
+    // })
+    // .eq(-1).css('width', '4rem');
+    // .last().css('width', '4rem');
+    // .css({
+    //   'width': function(index, current_value) {
+    //     var $current_list = $gnb_list.eq(index);
+    //     if( $current_list.is('.last') ) {
+    //       // console.log($current_list[0]);
+    //       return '4rem';
+    //     }
+    //   }
+    // });
 
+    // ------------------------------------------------------------------
+    // .each( callback )
+    // .each( function(index, element){} )
+    // ------------------------------------------------------------------
+    $gnb_list.each(function(idx, el) {
+      // jQuery
+      // $(el).html( $(el).html() + $('<span>').text(idx * idx + 1) );
+      // DOM Script
+      // el.innerHTML += '<span>' + (idx * idx + 1) + '</span>';
+    });
 
 })(this, this.jQuery);
