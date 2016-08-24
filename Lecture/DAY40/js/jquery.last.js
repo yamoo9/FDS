@@ -97,8 +97,12 @@
 
 })(this, this.jQuery);
 
+// ------------------------------------------------------------------
+
 (function($){
   'use strict';
+
+  // ------------------------------------------------------------------
 
   var $gnb = $('.gnb');
 
@@ -109,12 +113,14 @@
     console.log(item);
   });
 
-
+  // ------------------------------------------------------------------
 
   // $gnb
   //   .find('li:first-child a').clone()
   //     .add('<p>링크 뒤에 나오는 단락</p>')
   //   .appendTo('li:first-child', $gnb);
+
+  // ------------------------------------------------------------------
 
   // jQuery 팩토리 함수를 통해 문서 객체를 생성할 수 있다.
   $('<div>')
@@ -128,5 +134,53 @@
       console.log(this);
     })
     .appendTo('.gnb');
+
+  // ------------------------------------------------------------------
+
+  var $new_div = $('<div>', {
+    'attr': {
+      'id': 'hi-seoul',
+      'class': 'custom-division',
+      'title': 'hey jude'
+    },
+    'text': 'Hey Division Element!!!!',
+    'on': {
+      'click': function() {
+        console.log(this);
+      }
+    }
+  }).appendTo('body');
+
+  // console.log($new_div);
+
+  // ------------------------------------------------------------------
+
+  $('p').first().attr('class', function(index, old_class){
+    return ':( ' + old_class + '/' + old_class + ' :-)';
+  });
+
+  $('p').first().attr('class', function(index, old_class){
+    // ECMAScript 2015 - String Template
+    return `:( ${old_class}/${old_class} :-)`;
+  });
+
+  // var form_action = '#';
+  // var form_method = 'GET';
+
+  // var template = [
+  //   '<form action="'+ form_action +'" method="'+ form_method +'">',
+  //     '<label for="demo">demo</label>',
+  //     '<input id="demo" type="text" maxlength="10">',
+  //   '</form>'
+  // ].join('');
+
+  // var template = `
+  // <form action="${form_action}" method="${form_method}">
+  //   <label for="demo">demo</label>
+  //   <input id="demo" type="text" maxlength="10">
+  // </form>
+  // `;
+
+  // $(template);
 
 })(this.jQuery);
