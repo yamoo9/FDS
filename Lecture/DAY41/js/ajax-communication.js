@@ -30,6 +30,8 @@
   // 통신 상태 확인
   if ( xhr.status === 200 ) {
     console.log('통신 데이터 전송 성공! ^ㄴ^');
+    // console.log(xhr.response);
+    document.querySelector('.ajax-result').textContent = xhr.response;
   } else {
     console.log('통신 데이터 전송 실패! ㅠ_ㅠ');
   }
