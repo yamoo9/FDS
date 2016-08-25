@@ -23,13 +23,14 @@
   // nodelist 순환하여 이베트 바인딩 <-> 핸들러(함수)
   for ( var link, i = nav_links.length - 1; nav_links[i]; i-- ) {
     link = nav_links[i];
-    // 1. 클로저 + 우회 메소드(proxy, bind) 사용
-    link.onclick = (function(index){
-      return viewUpdate.bind(link, index);
-    })(i);
+    // 1. 클로저 + 우회 메소드($.proxy, bind) 사용
+    // <a>about</a>
+    // link.onclick = (function(index){
+    //   return viewUpdate.bind(link, index);
+    // })(i);
     // 2. 객체.속성 사용
-    // link.idx = i;
-    // link.onclick = viewUpdate;
+    link.idx = i;
+    link.onclick = viewUpdate;
   }
 
   // 페이지 뷰를 업데이트 하는 함수
