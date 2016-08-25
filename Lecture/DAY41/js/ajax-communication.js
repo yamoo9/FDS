@@ -1,9 +1,14 @@
 (function(global, XHR){
   'use strict';
 
-  function createXHR() {
-    return new XHR();
-  }
+  var createXHR = (function(){
+    // IE 6 이하 웹 브라우저를 위한 대체 코드
+    // ActiveXObject('Microsoft.XMLHTTP')
+    XHR = XHR || ActiveXObject('Microsoft.XMLHTTP');
+    return function () {
+        return new XHR;
+    };
+  })();
 
   // 1. CREATE
   // XHLHttpRequest() 생성자 함수를 통해
@@ -44,7 +49,7 @@
   // }
 
   // xhr.open('GET', 'data/data.txt', true); // 비동기 통신
-  xhr.open('GET', 'data/data.txt'); // 비동기 통신
+  xhr.open('GET', 'data/data.html'); // 비동기 통신
   // xhr.open('GET', 'data/model.txt', false); // 동기 통신
 
   // 비동기 통신 객체에 이벤트 핸들러 바인딩
@@ -52,7 +57,8 @@
     console.log(this); // this === xhr 객체
     if ( this.status === 200 && this.readyState === 4 ) {
       console.log('통신 데이터 전송 성공! ^ㄴ^');
-      result_view.textContent = '[' + this.statusText + '] ' + this.responseText;
+      // result_view.textContent = '[' + this.statusText + '] ' + this.responseText;
+      result_view.innerHTML = this.responseText;
     } else {
       console.log('통신 데이터 전송 실패! ㅠ_ㅠ');
       result_view.textContent = '[' + this.statusText + '] ' + '데이터 로드에 실패했습니다....';
