@@ -276,7 +276,7 @@
 		var $this = $(evt.target); // 클릭된 a
 		var $parent = $this.parent() // li
 
-		$parent.radioClass();
+		$parent.radioClass('on');
 	})
 
 })(this, this.jQuery)
@@ -302,7 +302,7 @@
 				// '$this'라는 이름으로 jQuery화된 dom_el을 데이터로 저장
 				$.data(dom.el, '$this', $(dom_el))
 			}
-			return $.data('$this');
+			return $.data(dom_el, '$this');
 		}
 
 		$.$ = $.memory
