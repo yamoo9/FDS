@@ -49,16 +49,31 @@
   // }
 
   // xhr.open('GET', 'data/data.txt', true); // 비동기 통신
-  xhr.open('GET', 'data/data.html'); // 비동기 통신
+  xhr.open('GET', 'data/data.xml'); // 비동기 통신
   // xhr.open('GET', 'data/model.txt', false); // 동기 통신
 
   // 비동기 통신 객체에 이벤트 핸들러 바인딩
   xhr.onreadystatechange = function() {
-    console.log(this); // this === xhr 객체
+    // console.log(this); // this === xhr 객체
     if ( this.status === 200 && this.readyState === 4 ) {
       console.log('통신 데이터 전송 성공! ^ㄴ^');
+      // TEXT
       // result_view.textContent = '[' + this.statusText + '] ' + this.responseText;
-      result_view.innerHTML = this.responseText;
+      // HTML
+      // result_view.innerHTML = this.responseText;
+      // XML
+      var doc = this.responseXML;
+      var people = doc.querySelector('people');
+      var person_list = people.querySelectorAll('person');
+      var person, name, tel, mail, i = person_list.length - 1;
+      for( ; person_list[i]; i-- ) {
+        person = person_list[i];
+        name   = person.querySelector('name').firstChild.nodeValue;
+        tel    = person.querySelector('tel').firstChild.nodeValue;
+        mail   = person.querySelector('mail').firstChild.nodeValue;
+        // console.log(name, tel, mail);
+      }
+      // result_view
     }
     // console.log(xhr);
   }
