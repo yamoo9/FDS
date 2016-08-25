@@ -18,8 +18,8 @@
   // 2. OPEN
   // 마지막 인자 값이 false 라면 동기 통신!
   // 마지막 인자 값이 true 또는 생략하면 비동기 통신!
-  // xhr.open('GET', 'data/data.txt', false); // 동기 통신 Deprecated!!
-  xhr.open('GET', 'data/data.txt'); // 비동기 통신
+  xhr.open('GET', 'data/data.txt', false); // 동기 통신 Deprecated!!
+  // xhr.open('GET', 'data/data.txt'); // 비동기 통신
 
   // 3. SEND
   xhr.send();
@@ -28,12 +28,17 @@
   // 비동기 통신일 경우는.... 아래 코드가 바로 해석됨...
 
   var result_view = document.querySelector('.ajax-result');
+  var call_ajax_btn = document.querySelector('.call-ajax-data-btn');
+
+  function updateViewPlace() {
+    result_view.textContent = xhr.response;
+  }
 
   // 통신 상태 확인
   if ( xhr.status === 200 ) {
     console.log('통신 데이터 전송 성공! ^ㄴ^');
     // console.log(xhr.response);
-    result_view.textContent = xhr.response;
+    call_ajax_btn.onclick = updateViewPlace;
   } else {
     console.log('통신 데이터 전송 실패! ㅠ_ㅠ');
     result_view.textContent = '데이터 로드에 실패했습니다....';
