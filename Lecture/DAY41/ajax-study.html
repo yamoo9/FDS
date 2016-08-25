@@ -4,10 +4,56 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>비동기통신을 위한 AJAX를 공부해보자!</title>
+  <style>
+    body {
+      margin: 6rem 10rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 200;
+      font-family: "Spoqa Han Sans";
+      color: #704bdb;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .call-ajax-data-btn {
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      border: none;
+      background: #d2d2d2;
+      color: #1d1d1d;
+      font-size: 0.875rem;
+      font-weight: 200;
+    }
+    .call-ajax-data-btn:hover {
+      background: #b9b9b9;
+    }
+    .call-ajax-data-btn:active {
+      position: relative;
+      top: 2px;
+    }
+
+    .ajax-result {
+      box-sizing: border-box;
+      margin-top: 1.5rem;
+      border: 6px solid currentColor;
+      padding: 1rem;
+      color: #704bdb;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="ajax-result"></div>
+  <h1><abbr title="Asyncronous JavaScript And XML">AJAX</abbr></h1>
+
+  <button type="button" class="call-ajax-data-btn">View Update</button>
+
+  <div class="ajax-result">
+    Stand Ready...
+  </div>
 
 <script src="js/ajax-communication.js"></script>
 </body>
