@@ -1,3 +1,6 @@
+// --------------------------------------------------------------------------------
+// Native JavaScript AJAX 방식
+// --------------------------------------------------------------------------------
 (function(global, XHR){
   'use strict';
 
@@ -99,6 +102,7 @@
       // JSON.stringify( JavaScript(JSON 형태) 객체 )
       random_users = JSON.parse(random_users); // text -> object
       var people = random_users.results;
+      var person = {};
       // people 반복 순환 처리
       for ( var person of people ) {
         person.fullname = `${person.name.first} ${person.name.last}`;
@@ -126,6 +130,37 @@
 
   // updateViewPlace();
 
-
-
 })(this, this.XMLHttpRequest);
+
+// --------------------------------------------------------------------------------
+// jQuery AJAX 방식
+// --------------------------------------------------------------------------------
+(function(global, $){
+  'use strict';
+
+  // 유틸리티 메소드
+  // $.ajax()
+  // $.get()
+  // $.post()
+  // $.getJSON()
+  // $.getScript()
+
+  // JavaScript Promise 개념 사용
+  // ECMAScript 2015 Promise 기본 지원
+
+  // jQuery AJAX 단축 유틸리티 메소드
+  // $.getJSON('http://api.randomuser.me/?results=100')
+  //   .then(function(data, status, XHR) {
+  //     console.log(data.results); // 객체(Object)화가 되어 있음.
+  //   });
+
+  // jQuery AJAX Low-Level Interface 메소드
+  $.ajax({
+    'url'      : 'http://api.randomuser.me/?results=100',
+    'dataType' : 'json',
+    'success'  : function(data, status, XHR) {
+      console.log(data.results);
+    }
+  });
+
+})(this, this.jQuery);
