@@ -49,31 +49,67 @@
   // }
 
   // xhr.open('GET', 'data/data.txt', true); // 비동기 통신
-  xhr.open('GET', 'data/data.xml'); // 비동기 통신
+  xhr.open('GET', 'http://api.randomuser.me/?results=20&gender=female&nat=gb,br'); // 비동기 통신
   // xhr.open('GET', 'data/model.txt', false); // 동기 통신
 
   // 비동기 통신 객체에 이벤트 핸들러 바인딩
   xhr.onreadystatechange = function() {
     // console.log(this); // this === xhr 객체
     if ( this.status === 200 && this.readyState === 4 ) {
-      console.log('통신 데이터 전송 성공! ^ㄴ^');
+      // console.log('통신 데이터 전송 성공! ^ㄴ^');
+      // --------------------------------------------------------------
       // TEXT
       // result_view.textContent = '[' + this.statusText + '] ' + this.responseText;
+      // --------------------------------------------------------------
       // HTML
       // result_view.innerHTML = this.responseText;
+      // --------------------------------------------------------------
       // XML
-      var doc = this.responseXML;
-      var people = doc.querySelector('people');
-      var person_list = people.querySelectorAll('person');
-      var person, name, tel, mail, i = person_list.length - 1;
-      for( ; person_list[i]; i-- ) {
-        person = person_list[i];
-        name   = person.querySelector('name').firstChild.nodeValue;
-        tel    = person.querySelector('tel').firstChild.nodeValue;
-        mail   = person.querySelector('mail').firstChild.nodeValue;
-        // console.log(name, tel, mail);
+      // var doc = this.responseXML;
+      // var people = doc.querySelector('people');
+      // var person_list = people.querySelectorAll('person');
+      // var template = '<ul>';
+      // var person, name, tel, mail, i = person_list.length - 1;
+      // for( ; person_list[i]; i-- ) {
+      //   person = person_list[i];
+      //   name   = person.querySelector('name').firstChild.nodeValue;
+      //   tel    = person.querySelector('tel').firstChild.nodeValue;
+      //   mail   = person.querySelector('mail').firstChild.nodeValue;
+      //   // console.log(name, tel, mail);
+      //   template += [
+      //     '<li>',
+      //       '<span class="name"> '+ name +' </span>',
+      //       '<span class="tel"> '+ tel +' </span>',
+      //       '<span class="mail"> '+ mail +' </span>',
+      //     '</li>'
+      //   ].join('');
+      // }
+      // template += '</ul>';
+      // // console.log(template);
+      // result_view.innerHTML = template;
+      // -------------------------------------------------------------
+      // JSON
+      var random_users = this.response; // text file
+      // console.log(typeof random_users); // string
+      // [ text -> object ]
+      // JSON 객체의 parse() 메소드를 사용
+      // JSON.parse( JSON 문자열 )
+      // [ text <- object ]
+      // JSON 객체의 stringify() 메소드를 사용
+      // JSON.stringify( JavaScript(JSON 형태) 객체 )
+      random_users = JSON.parse(random_users); // text -> object
+      var people = random_users.results;
+      // people 반복 순환 처리
+      for ( var person of people ) {
+        person.fullname = `${person.name.first} ${person.name.last}`;
+        console.log(person.fullname);
+        console.log(person.gender);
+        console.log(person.email);
+        console.log(person.nat);
+        console.log(person.picture.thumbnail);
+        console.log(person.picture.medium);
+        console.log(person.picture.large);
       }
-      // result_view
     }
     // console.log(xhr);
   }
@@ -84,7 +120,11 @@
     // 비동기 통신을 요청했을 경우,
     // 이벤트(`readystatechange`)를 통해 비동기 데이터가 로드된 시점에
     // 아래 조건문이 수행되어야 한다.
+    this.onclick = null;
+    this.setAttribute('disabled', 'disabled');
   }
+
+  // updateViewPlace();
 
 
 
