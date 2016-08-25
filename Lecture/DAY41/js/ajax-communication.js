@@ -59,11 +59,8 @@
       console.log('통신 데이터 전송 성공! ^ㄴ^');
       // result_view.textContent = '[' + this.statusText + '] ' + this.responseText;
       result_view.innerHTML = this.responseText;
-    } else {
-      console.log('통신 데이터 전송 실패! ㅠ_ㅠ');
-      result_view.textContent = '[' + this.statusText + '] ' + '데이터 로드에 실패했습니다....';
     }
-    console.log(xhr);
+    // console.log(xhr);
   }
 
   function updateViewPlace() {
