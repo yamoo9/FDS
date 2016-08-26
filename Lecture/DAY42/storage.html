@@ -5,11 +5,24 @@
   <meta charset="UTF-8">
   <title>사용자의 웹 브라우저에 데이터를 저장하는 방법 - HTML5 Storage</title>
   <style>
+    html {
+      overflow: hidden;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .circle {
+      cursor: move;
       width: 100px;
       height: 100px;
-      background: #333;
+      background: #565656;
       border-radius: 50%;
+    }
+    .circle:hover {
+      background: #000;
     }
   </style>
   <!-- CDN: Google jQuery -->
@@ -22,5 +35,42 @@
 
 <!-- <script src="js/storage.js"></script> -->
 <script src="js/jquery.dataManager.js"></script>
+<script>
+(function(global, $){
+  'use strict';
+  var $c = $('.circle');
+  var cw = $c.outerWidth();
+  var ch = $c.outerHeight();
+  var is_mousedown = false;
+
+  $(document).on({
+    'mousedown': function(e) {
+      var cx = e.offsetX - (cw/2);
+      var cy = e.offsetY - (ch/2);
+      $c.offset({
+        'top': cy,
+        'left': cx
+      });
+      is_mousedown = true;
+    },
+    'mousemove': function(e) {
+      if ( is_mousedown ) {
+        var cx = e.offsetX - (cw/2);
+        var cy = e.offsetY - (ch/2);
+        if( e.target.nodeName !== 'DIV' ) {
+          $c.offset({
+            'top': cy,
+            'left': cx
+          });
+        }
+      }
+    },
+    'mouseup': function(e) {
+      is_mousedown = false;
+    }
+  });
+
+})(this, this.jQuery);
+</script>
 </body>
 </html>
