@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>AngularJS 스터디</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script>
+    (function(global, ng){
+      'use strict';
+      ng || document.write('<script src="framework/angular.min.js"><\/script>');
+      console.log('Angular 버전:', ng.version.full);
+    })(this, this.angular);
+  </script>
+</head>
+<body data-ng-init="application_name='MyApp using AngularJS Framework.'">
+
+  <input type="text" data-ng-model="application_name">
+
+  <!-- Expression -->
+  <h1 lang="en">{{application_name}}</h1>
+  <!-- Directive -->
+  <h2 lang="en" data-ng-bind="application_name"></h2>
+
+  <ul>
+    <li><a href="bower.json">server 요청</a></li>
+    <li><a href="#/home">home</a></li>
+    <li><a href="#/about">about</a></li>
+    <li><a href="#/works">works</a></li>
+  </ul>
+</body>
+</html>
