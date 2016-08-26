@@ -23,12 +23,12 @@
     })(),
     // 'get': function(key) { return 로컬스토리지로부터데이터를 반환(문자->객체) },
     'get': function(key) {
-      if (!key || $.type(key) !== 'string' || !this.support().json || this.support('localstorage')) {}
+      if (!key || $.type(key) !== 'string' || !this.support().json || !this.support('localstorage')) {}
       return global.JSON.parse( global.localStorage.getItem(key) );
     },
     // 'set': function(key, value) { 전달된 value를 문자화 해서 로컬스토리지 객체의 key 값으로 저장 },
     'set': function(key, value) {
-      if ( !key || !value || $.type(key) !== 'string' || !this.support().json || this.support('localstorage') ) {}
+      if ( !key || !value || $.type(key) !== 'string' || !this.support().json || !this.support('localstorage') ) {}
         global.localStorage.setItem(  key, global.JSON.stringify(value));
     },
     // 'del': function(key) { key에 해당하는 데이터를 로컬스토리지로부터 제거한다. },
