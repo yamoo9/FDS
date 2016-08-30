@@ -1,6 +1,6 @@
 ###### front-end develop school
 
-# day 42
+# DAY 42
 
 ##HTML5 Storage
 
@@ -96,7 +96,7 @@
 			}
 		},
 		'del': function(key){
-			global.localStorage.removeItem(key); 
+			global.localStorage.removeItem(key);
 		},
 		'clear': function(){
 			global.localStorage.clear();
