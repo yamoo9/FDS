@@ -68,9 +68,28 @@ people = [
 limit_count = people.length;
 ">
 
-<button type="button" data-ng-click="order_reverse = !order_reverse">나이 순 정렬 토글</button>
+<!-- <button type="button" data-ng-click="order_reverse = !order_reverse">나이 순 정렬 토글</button> -->
 
-<input type="search" data-ng-model="search.name">
+<p>
+  <label for="person_name">Name: </label>
+  <input id="person_name" type="search" data-ng-model="search.name">
+</p>
+<p>
+  <label for="person_age">Age: </label>
+  <input id="person_age" type="search" data-ng-model="search.age">
+</p>
+<p>
+  <label for="person_limit">Limit: </label>
+  <input id="person_limit" type="text" data-ng-model="limit_count">
+</p>
+<p>
+  <label>
+    <input name="sorting" type="radio" data-ng-click="order_reverse = false;"> 오름차순
+  </label>
+  <label>
+    <input name="sorting" type="radio" data-ng-click="order_reverse = true;"> 내림차순
+  </label>
+</p>
 
 <pre>
 {{ search | json }}
