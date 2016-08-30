@@ -21,6 +21,7 @@
   #people-table td {
     padding: 1em;
     border: 1px solid #817c87;
+    vertical-align: top;
   }
   .a11y-hidden {
     overflow: hidden;
@@ -42,71 +43,15 @@
     margin:   0;
   }
   </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script src="demo-try-4.js"></script>
 </head>
-<body data-ng-init="
-people = [
-  {
-    'name'    : 'tomy',
-    'age'     : 23,
-    'mail'    : 'tomy@study.com',
-    'birthday': '2001-09-02',
-    'has-money': 5300,
-    'picture' : {
-      'width': 200,
-      'height': 200,
-      'src': 'http://placehold.it/220x220/34c0ff/fff/?text=tomy'
-    }
-  },
-  {
-    'name'    : 'sunny',
-    'age'     : 32,
-    'mail'    : 'SUNNY@STUDY.COM',
-    'birthday': '1982-02-17',
-    'has-money': 10200,
-    'picture' : {
-      'width': 200,
-      'height': 200,
-      'src': 'http://placehold.it/220x220/7045cf/fff/?text=sunny'
-    }
-  },
-  {
-    'name'    : 'zeus',
-    'age'     : 61,
-    'mail'    : 'zeus@study.com',
-    'birthday': '1109-01-01',
-    'has-money': 1000000,
-    'picture' : {
-      'width': 200,
-      'height': 200,
-      'src': 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
-    }
-  },
-  {
-    'name'    : 'Aron',
-    'age'     : 18,
-    'mail'    : 'aron@study.com',
-    'birthday': '1998-11-21',
-    'has-money': 121900,
-    'picture' : {
-      'width': 200,
-      'height': 200,
-      'src': 'http://placehold.it/220x220/3a0099/fff/?text=aron'
-    }
-  }
-];
-ordermap = {
-  'sort'     : null,
-  'name'     : true,
-  'age'      : true,
-  'mail'     : true,
-  'birthday' : true
-};
-">
+<body>
 
 <!-- <pre>{{people | json}}</pre> -->
 
-<table id="people-table">
+<!-- ngController 디렉티브를 통해 컨트롤러 ↔ 뷰 연결 -->
+<table id="people-table" data-ng-controller="tableController">
 
   <caption class="a11y-hidden">People Table List</caption>
 
@@ -153,9 +98,22 @@ ordermap = {
     </th>
   </tr>
 
-  <tr colspan="4">
-    <pre>{{ sort | json }}</pre>
+  <tr>
+    <td colspan="2">
+      <pre>
+{{ this.people | json }}
+      </pre>
+    </td>
+    <td colspan="2">
+      <pre>
+{{ this.ordermap | json }}
+      </pre>
+    </td>
   </tr>
+
+  <!-- <tr colspan="4">
+    <pre>{{ sort | json }}</pre>
+  </tr> -->
 
   <tr data-ng-repeat="person in people | orderBy: ordermap.sort">
     <td>{{ person.name | uppercase }}</td>
