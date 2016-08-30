@@ -5,16 +5,22 @@
   <meta charset="UTF-8">
   <title>앵귤러 이해를 위한 실습 Part 3</title>
   <style>
-
+  pre {
+    padding: 1rem;
+    background: #ececec;
+    border-radius: 4px;
+  }
   </style>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 </head>
 <body data-ng-init="
+order_reverse = true;
 people = [
   {
     'name'    : 'tomy',
     'age'     : 23,
     'mail'    : 'tomy@study.com',
+    'birthday': '2001-09-02',
     'has-money': 5300,
     'picture' : {
       'width': 200,
@@ -25,7 +31,8 @@ people = [
   {
     'name'    : 'sunny',
     'age'     : 32,
-    'mail'    : 'sunny@study.com',
+    'mail'    : 'SUNNY@STUDY.COM',
+    'birthday': '1982-02-17',
     'has-money': 10200,
     'picture' : {
       'width': 200,
@@ -37,22 +44,42 @@ people = [
     'name'    : 'zeus',
     'age'     : 61,
     'mail'    : 'zeus@study.com',
+    'birthday': '1109-01-01',
     'has-money': 1000000,
     'picture' : {
       'width': 200,
       'height': 200,
       'src': 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
     }
+  },
+  {
+    'name'    : 'Aron',
+    'age'     : 18,
+    'mail'    : 'aron@study.com',
+    'birthday': '1998-11-21',
+    'has-money': 121900,
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/3a0099/fff/?text=aron'
+    }
   }
 ];
 ">
 
+<button type="button" data-ng-click="order_reverse = !order_reverse">나이 순 정렬 토글</button>
+
 <ol class="people-list">
   <!-- 시작: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
-  <li data-ng-repeat="person in people">
-    <div data-ng-bind="person.name"></div>
+  <!-- orderBy 필터 -->
+  <li data-ng-repeat="person in people | orderBy: 'age':order_reverse">
+  <!-- uppercase 필터 -->
+    <div data-ng-bind="person.name | uppercase"></div>
     <div data-ng-bind="person.age"></div>
-    <div data-ng-bind="person.mail"></div>
+    <!-- lowercase 필터 -->
+    <div data-ng-bind="person.mail | lowercase"></div>
+    <!-- date 필터 -->
+    <div data-ng-bind="person.birthday | date:'yyyy년 MM월 dd일'"></div>
     <!-- angular 필터 (|) -->
     <!-- Currency:Symbol:FrectionSize -->
     <!-- <div data-ng-bind="person['has-money'] | currency:'EURO(€) ':0"></div> -->
@@ -69,6 +96,13 @@ people = [
   </li>
   <!-- 종료: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
 </ol>
+
+<pre>
+<code>
+<!-- JSON 필터 -->
+{{ people | json }}
+</code>
+</pre>
 
 </body>
 </html>
