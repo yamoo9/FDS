@@ -15,19 +15,31 @@ people = [
     'name'    : 'tomy',
     'age'     : 23,
     'mail'    : 'tomy@study.com',
-    'picture' : 'http://placehold.it/220x220/34c0ff/fff/?text=tomy'
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/34c0ff/fff/?text=tomy'
+    }
   },
   {
     'name'    : 'sunny',
     'age'     : 32,
     'mail'    : 'sunny@study.com',
-    'picture' : 'http://placehold.it/220x220/7045cf/fff/?text=sunny'
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/7045cf/fff/?text=sunny'
+    }
   },
   {
     'name'    : 'zeus',
     'age'     : 61,
     'mail'    : 'zeus@study.com',
-    'picture' : 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
+    }
   }
 ];
 ">
@@ -39,7 +51,12 @@ people = [
     <div data-ng-bind="person.age"></div>
     <div data-ng-bind="person.mail"></div>
     <div>
-      <img src="{{ person.picture }}" alt="{{ person.name }}">
+      <img
+        src="{{ person.picture.src }}"
+        alt="{{ person.name }}"
+        width="{{ person.picture.width }}"
+        height="{{ person.picture.height }}"
+      >
     </div>
   </li>
   <!-- 종료: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
