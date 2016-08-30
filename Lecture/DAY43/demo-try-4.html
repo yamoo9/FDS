@@ -95,11 +95,13 @@ people = [
     }
   }
 ];
-sort = null;
-name_r = true;
-age_r = true;
-mail_r = true;
-bir_r = true;
+ordermap = {
+  'sort'     : null,
+  'name'     : true,
+  'age'      : true,
+  'mail'     : true,
+  'birthday' : true
+};
 ">
 
 <!-- <pre>{{people | json}}</pre> -->
@@ -111,34 +113,42 @@ bir_r = true;
   <tr>
     <th>Name
     <button
-      data-ng-click="name_r = !name_r; sort = sort==='name' ? '-name' : 'name'"
+      data-ng-click="
+        ordermap.name = !ordermap.name;
+        ordermap.sort = ordermap.sort==='name' ? '-name' : 'name'"
       type="button"
       class="toggle-order-by-name-button">
-      {{ name_r ? '↑' : '↓' }}
+      {{ ordermap.name ? '↑' : '↓' }}
     </button>
     </th>
     <th>Age
     <button
-      data-ng-click="age_r = !age_r; sort = sort==='age' ? '-age' : 'age'"
+      data-ng-click="
+        ordermap.age = !ordermap.age;
+        ordermap.sort = ordermap.sort==='age' ? '-age' : 'age'"
       type="button"
-      class="toggle-order-by-name-button">
-      {{ age_r ? '↑' : '↓' }}
+      class="toggle-order-by-age-button">
+      {{ ordermap.age ? '↑' : '↓' }}
     </button>
     </th>
     <th>Mail
     <button
-      data-ng-click="mail_r = !mail_r; sort = sort==='mail' ? '-mail' : 'mail'"
+      data-ng-click="
+        ordermap.mail = !ordermap.mail;
+        ordermap.sort = ordermap.sort==='mail' ? '-mail' : 'mail'"
       type="button"
-      class="toggle-order-by-name-button">
-      {{ mail_r ? '↑' : '↓' }}
+      class="toggle-order-by-mail-button">
+      {{ ordermap.mail ? '↑' : '↓' }}
     </button>
     </th>
     <th>Birthday
     <button
-      data-ng-click="bir_r = !bir_r; sort = sort==='birthday' ? '-birthday' : 'birthday'"
+      data-ng-click="
+        ordermap.birthday = !ordermap.birthday;
+        ordermap.sort = ordermap.sort==='birthday' ? '-birthday' : 'birthday'"
       type="button"
-      class="toggle-order-by-name-button">
-      {{ bir_r ? '↑' : '↓' }}
+      class="toggle-order-by-birthday-button">
+      {{ ordermap.birthday ? '↑' : '↓' }}
     </button>
     </th>
   </tr>
@@ -147,7 +157,7 @@ bir_r = true;
     <pre>{{ sort | json }}</pre>
   </tr>
 
-  <tr data-ng-repeat="person in people | orderBy: sort">
+  <tr data-ng-repeat="person in people | orderBy: ordermap.sort">
     <td>{{ person.name | uppercase }}</td>
     <td>{{ person.age }}세</td>
     <td>{{ person.mail }}</td>
