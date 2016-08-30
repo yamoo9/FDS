@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>앵귤러 이해를 위한 실습 Part 4</title>
+  <style>
+  pre {
+    padding: 1rem;
+    background: #ececec;
+    border-radius: 4px;
+  }
+  #people-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  #people-table tr:nth-child(odd) {
+    background: #ffe0d0;
+  }
+  #people-table th,
+  #people-table td {
+    padding: 1em;
+    border: 1px solid #817c87;
+  }
+  .a11y-hidden {
+    overflow: hidden;
+    position: absolute;
+    clip:     rect(0 0 0 0); /* IE 6,7 */
+    clip:     rect(0,0,0,0);
+    width:    1px;
+    height:   1px;
+    margin:   -1px;
+    border:   0;
+    padding:  0;
+  }
+  .a11y-hidden.focusable:focus {
+    overflow: visible;
+    position: static;
+    clip:     auto;
+    width:    auto;
+    height:   auto;
+    margin:   0;
+  }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body data-ng-init="
+people = [
+  {
+    'name'    : 'tomy',
+    'age'     : 23,
+    'mail'    : 'tomy@study.com',
+    'birthday': '2001-09-02',
+    'has-money': 5300,
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/34c0ff/fff/?text=tomy'
+    }
+  },
+  {
+    'name'    : 'sunny',
+    'age'     : 32,
+    'mail'    : 'SUNNY@STUDY.COM',
+    'birthday': '1982-02-17',
+    'has-money': 10200,
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/7045cf/fff/?text=sunny'
+    }
+  },
+  {
+    'name'    : 'zeus',
+    'age'     : 61,
+    'mail'    : 'zeus@study.com',
+    'birthday': '1109-01-01',
+    'has-money': 1000000,
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
+    }
+  },
+  {
+    'name'    : 'Aron',
+    'age'     : 18,
+    'mail'    : 'aron@study.com',
+    'birthday': '1998-11-21',
+    'has-money': 121900,
+    'picture' : {
+      'width': 200,
+      'height': 200,
+      'src': 'http://placehold.it/220x220/3a0099/fff/?text=aron'
+    }
+  }
+];
+sort = null;
+name_r = true;
+age_r = true;
+mail_r = true;
+bir_r = true;
+">
+
+<!-- <pre>{{people | json}}</pre> -->
+
+<table id="people-table">
+
+  <caption class="a11y-hidden">People Table List</caption>
+
+  <tr>
+    <th>Name
+    <button
+      data-ng-click="name_r = !name_r; sort = sort==='name' ? '-name' : 'name'"
+      type="button"
+      class="toggle-order-by-name-button">
+      {{ name_r ? '↑' : '↓' }}
+    </button>
+    </th>
+    <th>Age
+    <button
+      data-ng-click="age_r = !age_r; sort = sort==='age' ? '-age' : 'age'"
+      type="button"
+      class="toggle-order-by-name-button">
+      {{ age_r ? '↑' : '↓' }}
+    </button>
+    </th>
+    <th>Mail
+    <button
+      data-ng-click="mail_r = !mail_r; sort = sort==='mail' ? '-mail' : 'mail'"
+      type="button"
+      class="toggle-order-by-name-button">
+      {{ mail_r ? '↑' : '↓' }}
+    </button>
+    </th>
+    <th>Birthday
+    <button
+      data-ng-click="bir_r = !bir_r; sort = sort==='birthday' ? '-birthday' : 'birthday'"
+      type="button"
+      class="toggle-order-by-name-button">
+      {{ bir_r ? '↑' : '↓' }}
+    </button>
+    </th>
+  </tr>
+
+  <tr colspan="4">
+    <pre>{{ sort | json }}</pre>
+  </tr>
+
+  <tr data-ng-repeat="person in people | orderBy: sort">
+    <td>{{ person.name | uppercase }}</td>
+    <td>{{ person.age }}세</td>
+    <td>{{ person.mail }}</td>
+    <td>{{ person.birthday | date:'yyyy년 MM월 dd일' }}</td>
+  </tr>
+
+</table>
+
+</body>
+</html>
