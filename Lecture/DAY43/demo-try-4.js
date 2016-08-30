@@ -4,11 +4,14 @@
 
   // console.log(ng.version.full);
 
-  // 컨트롤러
+  // 함수는 컨트롤러
+  // $scope 주입된 객체는 ViewModel 객체
   function tableController( $scope ) {
     // console.log($scope);
     // 모델(Data)
     // [지역변수] 외부에서 접근이 불가능
+    // 모델 데이터는 향후 외부로 분리하여 관리 한다.
+    // $http 서비스 객체를 사용한다.
     var people = [
       {
         'name'    : 'tomy',
@@ -59,7 +62,6 @@
         }
       }
     ];
-
     var ordermap = {
       'sort'     : null,
       'name'     : true,
@@ -67,10 +69,17 @@
       'mail'     : true,
       'birthday' : true
     };
+    function changeOrder(prop) {
+      $scope.ordermap[prop] = !$scope.ordermap[prop];
+      $scope.ordermap.sort = $scope.ordermap.sort === prop ? '-'+prop : prop;
+    }
 
     // $scope 객체를 통해 해당 속성에 접근이 뷰에서 가능
-    $scope.people = people;
-    $scope.ordermap = ordermap;
+    // $scope.속성
+    $scope.people      = people;
+    $scope.ordermap    = ordermap;
+    // $scope.메소드
+    $scope.changeOrder = changeOrder;
   }
 
   // 작성한 컨트롤러 공개

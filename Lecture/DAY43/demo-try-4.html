@@ -58,64 +58,56 @@
   <tr>
     <th>Name
     <button
-      data-ng-click="
-        ordermap.name = !ordermap.name;
-        ordermap.sort = ordermap.sort==='name' ? '-name' : 'name'"
+      data-ng-click="this.changeOrder('name')"
       type="button"
       class="toggle-order-by-name-button">
-      {{ ordermap.name ? '↑' : '↓' }}
+      {{ this.ordermap.name ? '↑' : '↓' }}
     </button>
     </th>
     <th>Age
     <button
-      data-ng-click="
-        ordermap.age = !ordermap.age;
-        ordermap.sort = ordermap.sort==='age' ? '-age' : 'age'"
+      data-ng-click="this.changeOrder('age')"
       type="button"
       class="toggle-order-by-age-button">
-      {{ ordermap.age ? '↑' : '↓' }}
+      {{ this.ordermap.age ? '↑' : '↓' }}
     </button>
     </th>
     <th>Mail
     <button
-      data-ng-click="
-        ordermap.mail = !ordermap.mail;
-        ordermap.sort = ordermap.sort==='mail' ? '-mail' : 'mail'"
+      data-ng-click="this.changeOrder('mail')"
       type="button"
       class="toggle-order-by-mail-button">
-      {{ ordermap.mail ? '↑' : '↓' }}
+      {{ this.ordermap.mail ? '↑' : '↓' }}
     </button>
     </th>
     <th>Birthday
     <button
-      data-ng-click="
-        ordermap.birthday = !ordermap.birthday;
-        ordermap.sort = ordermap.sort==='birthday' ? '-birthday' : 'birthday'"
+      data-ng-click="this.changeOrder('birthday')"
       type="button"
       class="toggle-order-by-birthday-button">
-      {{ ordermap.birthday ? '↑' : '↓' }}
+      {{ this.ordermap.birthday ? '↑' : '↓' }}
     </button>
     </th>
   </tr>
 
-  <tr>
-    <td colspan="2">
-      <pre>
-{{ this.people | json }}
-      </pre>
-    </td>
-    <td colspan="2">
-      <pre>
-{{ this.ordermap | json }}
-      </pre>
-    </td>
-  </tr>
+        <!-- <tr>
+          <td colspan="2">
+            <pre>
+      {{ this.people | json }}
+            </pre>
+          </td>
+          <td colspan="2">
+            <pre>
+      {{ this.ordermap | json }}
+            </pre>
+          </td>
+        </tr> -->
 
-  <!-- <tr colspan="4">
-    <pre>{{ sort | json }}</pre>
-  </tr> -->
+        <!-- <tr colspan="4">
+          <pre>{{ sort | json }}</pre>
+        </tr> -->
 
-  <tr data-ng-repeat="person in people | orderBy: ordermap.sort">
+  <tr data-ng-repeat="person in this.people | orderBy: this.ordermap.sort">
     <td>{{ person.name | uppercase }}</td>
     <td>{{ person.age }}세</td>
     <td>{{ person.mail }}</td>
