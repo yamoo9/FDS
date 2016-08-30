@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>앵귤러 이해를 위한 실습 Part 3</title>
+  <style>
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body data-ng-init="
+people = [
+  {
+    'name'    : 'tomy',
+    'age'     : 23,
+    'mail'    : 'tomy@study.com',
+    'picture' : 'http://placehold.it/220x220/34c0ff/fff/?text=tomy'
+  },
+  {
+    'name'    : 'sunny',
+    'age'     : 32,
+    'mail'    : 'sunny@study.com',
+    'picture' : 'http://placehold.it/220x220/7045cf/fff/?text=sunny'
+  },
+  {
+    'name'    : 'zeus',
+    'age'     : 61,
+    'mail'    : 'zeus@study.com',
+    'picture' : 'http://placehold.it/220x220/3a0099/fff/?text=zeus'
+  }
+];
+">
+
+<ul>
+  <li data-ng-repeat="person in people">
+    <div>{{ person.name }}</div>
+    <div>{{ person.age }}</div>
+    <div>{{ person.mail }}</div>
+    <div>
+      <img src="{{ person.picture }}" alt="{{ person.name }}">
+    </div>
+  </li>
+</ul>
+
+</body>
+</html>

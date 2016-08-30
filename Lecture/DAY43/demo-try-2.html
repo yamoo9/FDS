@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>앵귤러 이해를 위한 실습 Part 2</title>
+  <style>
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body data-ng-init="
+  test = null;
+  app = {
+    'name': 'DirectiveApp',
+    'switch': 'open',
+  }
+  items = ['settings', 'home', 'other'];
+">
+
+<!--
+  Directives & Expressions
+    ⊙ ng-cloak [FOUC(Flash Of Unstyled Content)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content)
+    ⊙ ng-switch
+    ⊙ ng-class
+    ⊙ ng-show
+-->
+
+<div data-ng-cloak class="demo-app-container" data-ng-switch="app.switch">
+  <h1 class="demo-app-title">{{app.name}}</h1>
+  <div class="demo-app-swicher">
+    <button data-ng-click="app.switch = 'open'">Open</button>
+    <button data-ng-click="app.switch = 'close'">Close</button>
+    <button data-ng-click="app.switch = 'etc'">etc...</button>
+  </div>
+  <!-- 상태 제어 -->
+  <p data-ng-switch-when="open" class="switch-is-open">
+    App Switch Value is Open.
+  </p>
+  <p data-ng-switch-when="close" class="switch-is-close">
+    App Switch Value is Close.
+  </p>
+  <p data-ng-switch-default class="switch-is-something">
+    App Switch Value is Something.
+  </p>
+</div>
+
+</body>
+</html>

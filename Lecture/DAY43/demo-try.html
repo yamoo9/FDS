@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <title>앵귤러 이해를 위한 실습 Part 1</title>
   <style>
+    html {
+      overflow: hidden;
+    }
     body {
       margin: 0;
       min-height: 100vh;
@@ -15,10 +18,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 1000px;
-      height: 300px;
+      /*width: 1000px;*/
+      min-height: 700px;
       /*background: #ececec;*/
       background: {{view_color}};
+      color: #fff;
+      font-size: 100px;
     }
   </style>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
