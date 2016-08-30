@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Directives &amp; Expressions - AngularJS</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    .toggle-palette-button {
+      cursor: pointer;
+      position: fixed;
+      z-index: 100;
+      top: 20px;
+      right: 20px;
+      border: 1px solid #E6E6E6;
+      background: #fff;
+      padding: 0.8em 1.2em;
+      border-radius: 4px;
+    }
+    .color-palette {
+      position: relative;
+      z-index: 100;
+      float: left;
+      width: 10%;
+      min-height: 100vh;
+      padding: 1em;
+      background-color: #fff;
+      box-sizing: border-box;
+      box-shadow: 4px 0px 6px hsla(0, 0%, 32%, 0.2);
+    }
+    .color-palette label {
+      cursor: pointer;
+      display: block;
+      margin-bottom: 0.4em;
+    }
+    .violet-red { color: #ff4183; }
+    .dove-gray { color: #757575; }
+    .governor-bay { color: #5549a6; }
+    .mahogany { color: #cf4646; }
+    .navi-blue { color: #0163c4; }
+    .color-place {
+      position: relative;
+      float: left;
+      width: 90%;
+      min-height: 100vh;
+      background-color: {{bg_color}};
+    }
+    .color-place:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: '{{bg_color.toUpperCase()}}';
+      font-size: 100px;
+      letter-spacing: -0.03em;
+      color: #fff;
+      text-shadow: 0 0 3px hsla(0, 0%, 32%, 0.4);
+    }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body data-ng-init="bg_color='#5549a6'; is_hidden=!true">
+
+  <!--
+    Directives & Expressions
+      ⊙ ng-init
+      ⊙ ng-show
+      ⊙ ng-hide
+      ⊙ ng-model
+      ⊙ ng-click
+  -->
+
+  <button class="toggle-palette-button" type="button" data-ng-click="is_hidden=!is_hidden">
+    <span data-ng-show="!is_hidden">컬러 팔레트 감추기</span>
+    <span data-ng-show="is_hidden">컬러 팔레트 보이기</span>
+  </button>
+
+  <div class="color-palette" data-ng-hide="is_hidden">
+    <label class="violet-red"><input type="radio" data-ng-model="bg_color" value="#ff4183"> Violet Red</label>
+    <label class="dove-gray"><input type="radio" data-ng-model="bg_color" value="#757575"> Dove Gray</label>
+    <label class="governor-bay"><input type="radio" data-ng-model="bg_color" value="#5549a6"> Govenor Bay</label>
+    <label class="mahogany"><input type="radio" data-ng-model="bg_color" value="#cf4646"> Mahogany</label>
+    <label class="navi-blue"><input type="radio" data-ng-model="bg_color" value="#0163c4"> Navi Blue</label>
+  </div>
+
+  <div class="color-place"></div>
+
+</body>
+</html>
+
+
+
+
