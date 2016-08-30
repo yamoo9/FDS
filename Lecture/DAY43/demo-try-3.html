@@ -32,16 +32,18 @@ people = [
 ];
 ">
 
-<ul>
+<ol class="people-list">
+  <!-- 시작: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
   <li data-ng-repeat="person in people">
-    <div>{{ person.name }}</div>
-    <div>{{ person.age }}</div>
-    <div>{{ person.mail }}</div>
+    <div data-ng-bind="person.name"></div>
+    <div data-ng-bind="person.age"></div>
+    <div data-ng-bind="person.mail"></div>
     <div>
       <img src="{{ person.picture }}" alt="{{ person.name }}">
     </div>
   </li>
-</ul>
+  <!-- 종료: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
+</ol>
 
 </body>
 </html>
