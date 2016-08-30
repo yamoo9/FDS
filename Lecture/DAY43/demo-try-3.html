@@ -65,15 +65,22 @@ people = [
     }
   }
 ];
+limit_count = people.length;
 ">
 
 <button type="button" data-ng-click="order_reverse = !order_reverse">나이 순 정렬 토글</button>
 
+<input type="search" data-ng-model="search.name">
+
+<pre>
+{{ search | json }}
+</pre>
+
 <ol class="people-list">
   <!-- 시작: people.length 개수만큼 반복하여 <li> 템플릿 완성 -->
-  <!-- orderBy 필터 -->
-  <li data-ng-repeat="person in people | orderBy: 'age':order_reverse">
-  <!-- uppercase 필터 -->
+  <!-- orderBy, limitTo, filter 필터 -->
+  <li data-ng-repeat="person in people | filter: search | limitTo: limit_count | orderBy: 'age':order_reverse">
+    <!-- uppercase 필터 -->
     <div data-ng-bind="person.name | uppercase"></div>
     <div data-ng-bind="person.age"></div>
     <!-- lowercase 필터 -->
