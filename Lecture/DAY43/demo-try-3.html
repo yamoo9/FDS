@@ -15,6 +15,7 @@ people = [
     'name'    : 'tomy',
     'age'     : 23,
     'mail'    : 'tomy@study.com',
+    'has-money': 5300,
     'picture' : {
       'width': 200,
       'height': 200,
@@ -25,6 +26,7 @@ people = [
     'name'    : 'sunny',
     'age'     : 32,
     'mail'    : 'sunny@study.com',
+    'has-money': 10200,
     'picture' : {
       'width': 200,
       'height': 200,
@@ -35,6 +37,7 @@ people = [
     'name'    : 'zeus',
     'age'     : 61,
     'mail'    : 'zeus@study.com',
+    'has-money': 1000000,
     'picture' : {
       'width': 200,
       'height': 200,
@@ -50,9 +53,14 @@ people = [
     <div data-ng-bind="person.name"></div>
     <div data-ng-bind="person.age"></div>
     <div data-ng-bind="person.mail"></div>
+    <!-- angular 필터 (|) -->
+    <!-- Currency:Symbol:FrectionSize -->
+    <!-- <div data-ng-bind="person['has-money'] | currency:'EURO(€) ':0"></div> -->
+    <div>{{ person['has-money'] | number:0 }}원</div>
     <div>
+      <!-- ngSrc: Lazy Loading (게으른 로딩) -->
       <img
-        src="{{ person.picture.src }}"
+        data-ng-src="{{ person.picture.src }}"
         alt="{{ person.name }}"
         width="{{ person.picture.width }}"
         height="{{ person.picture.height }}"

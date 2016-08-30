@@ -1,0 +1,32 @@
+[
+  {
+    "name"    : "tomy",
+    "age"     : 23,
+    "mail"    : "tomy@study.com",
+    "picture" : {
+      "width": 200,
+      "height": 200,
+      "src": "http://placehold.it/220x220/34c0ff/fff/?text=tomy"
+    }
+  },
+  {
+    "name"    : "sunny",
+    "age"     : 32,
+    "mail"    : "sunny@study.com",
+    "picture" : {
+      "width": 200,
+      "height": 200,
+      "src": "http://placehold.it/220x220/7045cf/fff/?text=sunny"
+    }
+  },
+  {
+    "name"    : "zeus",
+    "age"     : 61,
+    "mail"    : "zeus@study.com",
+    "picture" : {
+      "width": 200,
+      "height": 200,
+      "src": "http://placehold.it/220x220/3a0099/fff/?text=zeus"
+    }
+  }
+]
