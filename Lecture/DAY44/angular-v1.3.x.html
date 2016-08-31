@@ -18,9 +18,18 @@
     <p>{{ content }}</p>
   </div>
 
-  <div class="demo-temp" data-ng-controller="demoCtrl">
-    <h3>{{headline}}</h3>
+  <div class="demo-temp" data-ng-controller="demoCtrl as dc">
+    <h3>{{dc.headline}}</h3>
+    <!-- 컨트롤러 자신을 참조하는 dc 별칭을 확인 -->
+    <pre>{{ dc | json }}</pre>
   </div>
+
+  <section class="other-ctrl" data-ng-controller="otherCtrl as oc">
+    <article data-ng-click="oc.trigger()">
+      <!-- <h3 title="{{init_value}}">{{init_value}}</h3> -->
+      <h3 title="{{oc.init_value}}">{{oc.init_value ? '트리거 작동됨..' : '트리거 미작동..'}}</h3>
+    </article>
+  </section>
 
 <script>
 (function(global, angular, jq){
@@ -59,11 +68,48 @@
 
   });
 
-  app.controller('demoCtrl', function($scope) {
+  app.controller('demoCtrl', function() {
     // 비공개 멤버
     var headline = 'this App maked Angular';
     // 공개
-    $scope.headline = headline;
+    this.headline = headline;
+  });
+
+  ////////////
+  // $scope //
+  ////////////
+  // angular.module('ngApp').controller('otherCtrl', function($scope) {
+  //   // $scope.init_value = null;
+  //   $scope.init_value = '';
+  //   if ( jq.type($scope.init_value) === 'null' ) {
+  //     $scope.init_value = 'otherController';
+  //   } else {
+  //     $scope.init_value = 'not initialization.';
+  //   }
+  // });
+
+  ///////////////
+  // as syntax //
+  ///////////////
+  angular.module('ngApp').controller('otherCtrl', function() {
+
+    // 컨트롤러 참조 변수
+    var that = this;
+
+    that.init_value = null;
+    that.trigger    = trigger;
+
+    function trigger() {
+      console.log(that);
+      if ( jq.type(that.init_value) === 'null' ) {
+        that.init_value = 'otherController';
+      } else {
+        that.init_value = 'not initialization.';
+      }
+    }
+
+    global.setTimeout(trigger, 3000);
+
   });
 
 })(this, this.angular, this.jQuery);
