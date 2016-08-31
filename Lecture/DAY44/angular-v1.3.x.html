@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>앵귤러 모듈/컨트롤러</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body data-ng-app="ngApp">
+
+  <div class="ng-template" data-ng-controller="ngController">
+    <h1 class="ng-template-headline"></h1>
+    <button
+      data-ng-click="setContent()"
+      type="button"
+      class="fire-set-content-btn">fire conetnt below</button>
+    <p>{{ content }}</p>
+  </div>
+
+  <div class="demo-temp" data-ng-controller="demoCtrl">
+    <h3>{{headline}}</h3>
+  </div>
+
+<script>
+(function(global, angular, jq){
+  'use strict';
+
+  // angular 모듈 정의
+  var app = angular.module('ngApp', []);
+
+  // angular 모듈 객체의 controller() 메소드를 사용하여 컨트롤러 정의
+  app.controller('ngController', function($scope){
+
+    /////////////
+    // Angular //
+    /////////////
+
+    // 지역 변수 설정
+    var content_text = 'AngularJS Application is Awesome!!';
+    // $scope 객체의 속성/메소드 정의
+    $scope.content = '';
+    $scope.setContent = function() {
+      // console.log(this === $scope);
+      this.content = content_text;
+    };
+
+    ////////////
+    // jQuery //
+    ////////////
+    var ngTHeadline = jq('.ng-template-headline');
+
+    ////////
+    // JS //
+    ////////
+    content_text = content_text.split(' ').slice(-1).toString().toLowerCase().replace('!!', '');
+
+    ngTHeadline.text( content_text );
+
+  });
+
+  app.controller('demoCtrl', function($scope) {
+    // 비공개 멤버
+    var headline = 'this App maked Angular';
+    // 공개
+    $scope.headline = headline;
+  });
+
+})(this, this.angular, this.jQuery);
+</script>
+</body>
+</html>
