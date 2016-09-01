@@ -81,7 +81,7 @@ Lecture 일별 목차
 - 탐색, 조작, Radio UI 컴포넌트 [ 스태틱 & 인스턴스 메서드 ] . . . . . . . . . . . . . . . . . . . . . . [DAY40](./Lecture/DAY40/README.md)
 - 비동기 통신( Ajax ), JSON, SPA ( Single Page Application ) . . . . . . . . . . . . . . . . . . . [DAY41](./Lecture/DAY40/README.md)
 
-> Angular JS
+> Angular JS ( SPA를 위한 JS Framework )
 
 - LocalStorage, Angular 기본 . . . . . . . . . . . [DAY42](./Lecture/DAY40/README.md)
 - ng-repeat, filter, controller, $scope . . . . [DAY43](./Lecture/DAY40/README.md)
