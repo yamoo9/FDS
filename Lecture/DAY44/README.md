@@ -344,7 +344,7 @@ app.controller('tabController', ['$scope', function($scope){
 	</div>
 </body>
 ```
-```javascirpt
+```javascript
 (function(global, ng){
 	'use strict';
 

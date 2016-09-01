@@ -21,7 +21,8 @@
   <scope>source.css</scope>
   <description>Bitmap 고해상도 이미지 미디어쿼리 구문</description>
 </snippet>
-=======
+```
+
 ---
 
 ###Flexible Video
