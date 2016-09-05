@@ -8,7 +8,7 @@ Lecture 일별 목차
 
 > HTML
 
-- HTML 구조화, DTD, Meta 태그 . . . . . . . . . . . . . . . . . [DAY01](./Lecture/DAY01/README.md)
+- HTML 구조화, DTD, Meta 태그 . . . . . . . . . . . . . . . . [DAY01](./Lecture/DAY01/README.md)
 - IE 조건부 주석, 엔티티 코드, 파비콘 . . . . . . . . . . . . . . . [DAY02](./Lecture/DAY02/README.md)
 - 이미지, 이미지맵, 목록, 테이블, 폼 . . . . . . . . . . . . . . . . [DAY03](./Lecture/DAY03/README.md)
 - 폼(심화) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [DAY04](./Lecture/DAY04/README.md)
