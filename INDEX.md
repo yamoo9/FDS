@@ -79,11 +79,11 @@ Lecture 일별 목차
 - $ 충돌 방지, Selector, Filter, css( ) 메서드, Modernizr/Detectizr . . . . . . . . . . . . . . . [DAY38](./Lecture/DAY38/README.md)
 - css( ) 메서드, 효율적인 이벤트 등록, 스타일(CSS) 클래스 제어, RWD, this & IIFE 복습 . . . [DAY39](./Lecture/DAY39/README.md)
 - 탐색, 조작, Radio UI 컴포넌트 [ 스태틱 & 인스턴스 메서드 ] . . . . . . . . . . . . . . . . . . . . . . [DAY40](./Lecture/DAY40/README.md)
-- 비동기 통신( Ajax ), JSON, SPA ( Single Page Application ) . . . . . . . . . . . . . . . . . . . [DAY41](./Lecture/DAY40/README.md)
+- 비동기 통신( Ajax ), JSON, SPA ( Single Page Application ) . . . . . . . . . . . . . . . . . . . [DAY41](./Lecture/DAY41/README.md)
 
 > Angular JS ( SPA를 위한 JS Framework )
 
-- LocalStorage, Angular 기본 . . . . . . . . . . . [DAY42](./Lecture/DAY40/README.md)
-- ng-repeat, filter, controller, $scope . . . . [DAY43](./Lecture/DAY40/README.md)
-- 모듈화, $scope 보호, 탭 컴포넌트, $http . . . [DAY44](./Lecture/DAY40/README.md)
+- LocalStorage, Angular 기본 . . . . . . . . . . . [DAY42](./Lecture/DAY42/README.md)
+- ng-repeat, filter, controller, $scope . . . . [DAY43](./Lecture/DAY43/README.md)
+- 모듈화, $scope 보호, 탭 컴포넌트, $http . . . [DAY44](./Lecture/DAY44/README.md)
 
