@@ -1,0 +1,865 @@
+@charset "utf-8";
+/*! style.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 사용자가 선택한 블록 영역의 스타일
+ * 디자이너 설정하고자 하는 톤앤매너 결정
+ * ----------------------------- */
+/* Firefox */
+::-moz-selection {
+  background: #3c3d48;
+  color: #fff;
+}
+/* Modern Browsers */
+::selection {
+  background: #3c3d48;
+  color: #fff;
+}
+
+/**
+ * --------------------------------
+ * 웹 접근성
+ * ----------------------------- */
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip:     rect(0 0 0 0); /* IE 6,7 */
+  clip:     rect(0,0,0,0);
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+}
+.a11y-hidden.focusable:focus {
+  overflow: visible;
+  position: static;
+  clip:     auto;
+  width:    auto;
+  height:   auto;
+  margin:   0;
+}
+
+/**
+ * --------------------------------
+ * 웹폰트
+ * --------------------------------
+ * Montserrat
+ * PT-serif
+ * ----------------------------- */
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; /* Regular */
+}
+.PT-serif {
+  font-family: 'PT Serif', Serif;
+}
+
+
+/**
+ * --------------------------------
+ * 베이스 디자인
+ * ----------------------------- */
+html {
+  overflow-y: scroll;
+}
+
+/**
+ * --------------------------------
+ * 메뉴(menu) 영역
+ * ----------------------------- */
+.menu {
+  border-bottom: 1px solid #f2f2f2;
+  color: #3c3d48;
+  background: #fff;
+}
+.menu .container {
+  padding-top: 30px;
+  padding-bottom: 28px;
+}
+.menu .menu-tel {
+  padding-left: 26px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.17em;
+  line-height: 1.818181818;
+  background: url("../images/icons/Icon-headset.png") no-repeat 0 1px;
+}
+/*@media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2),
+  (min-resolution: 2dppx),
+  (min-resolution: 192dpi)
+{
+  .menu .menu-tel {
+    background-image: url("../images/icons/Icon-headset@2x.png");
+    background-size: 16px 17px;
+  }
+}*/
+.menu .brand {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 0.833333333;
+  text-align: center;
+}
+.menu .unb {
+  position: relative;
+  margin-top: 10px;
+}
+.menu .unb .lang,
+.menu .unb .currency {
+  float: left;
+  position: relative;
+  width: 50px;
+  height: 20px;
+}
+.menu .unb ul {
+  display: none;
+  position: absolute;
+  top: 0px;
+  border: 1px solid #333;
+  width: 50px;
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  background: #fff;
+}
+.unb button {
+  display: block;
+  border: none;
+  padding: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-size: 0.69rem;
+  font-family: inherit;
+  background: none;
+}
+.unb .lang button,
+.unb .currency button {
+  width: 50px;
+  height: 20px;
+}
+.unb .lang > button,
+.unb .currency > button {
+  background: url("../images/icons/Icon-select.svg") no-repeat center right;
+}
+.unb .lang {
+  position: relative;
+  left: -25px;
+}
+.unb .currency {
+  position: relative;
+  left: -17px;
+}
+.unb .btn-lock {
+  float: left;
+  overflow: hidden;
+  width: 20px;
+  margin-left: 15px;
+  text-indent: -9999em;
+  background: url("../images/icons/Icon-lock.svg") no-repeat 0 1px;
+}
+.unb .btn-login {
+  float: left;
+  position: relative;
+  left: 20px;
+  padding-left: 22px;
+  font-size: 10px;
+  font-size: 0.625rem;
+  letter-spacing: 0.17em;
+  color: #5b5d69;
+  background: url("../images/icons/Icon-face@2x.png") no-repeat 0 1px;
+  background-size: 12px 16px;
+}
+
+
+/**
+ * --------------------------------
+ * 글로벌 내비게이션(gnb) 영역
+ * ----------------------------- */
+.gnb ul {
+  margin: 14px 0 0 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.gnb li {
+  float: left;
+}
+.gnb li:last-child a {
+  position: relative;
+  right: -4px;
+  margin-right: 0;
+  padding-right: 0;
+}
+.gnb li.has-sub-menu a {
+  padding-right: 12px;
+  background: url("../images/icons/Icon-select.svg") no-repeat right 18px;
+}
+.gnb a {
+  display: block;
+  margin-right: 40px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1;
+  vertical-align: top;
+  color: #3c3d38;
+}
+
+
+/**
+ * --------------------------------
+ * 캐로셀(carousel) 영역
+ * ----------------------------- */
+.carousel {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  position: relative;
+  overflow: hidden;
+  height: 580px;
+  margin-top: 14px;
+}
+.carousel.fade-in {
+  opacity: 1;
+}
+.carousel-content {
+  position: relative;
+  background: #efeff1;
+  height: 580px;
+}
+.carousel-content .container {
+  position: relative;
+}
+.carousel-content h3 {
+  position: relative;
+  top: 218px;
+  left: 11px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 112px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 0.7;
+  color: #3c3d48;
+}
+.carousel-content p {
+  position: relative;
+  top: 220px;
+  left: 90px;
+  margin-bottom: 0;
+  font-size: 30px;
+  font-style: italic;
+  letter-spacing: 0.4em;
+  line-height: 0.7;
+  color: #afb0b5;
+}
+.carousel-content img {
+  position: absolute;
+  top: 0;
+  right: 3px;
+}
+
+/* 인디케이터 영역 */
+.carousel-indicator {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  bottom: 24px;
+  /*background: #ff0;*/
+  margin-left: -116px;
+  /*transform: translateX(-50%);*/
+}
+
+.carousel-indicator ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.carousel-indicator li {
+  float: left;
+  margin-left: 21px;
+  margin-right: 21px;
+}
+
+.carousel-indicator button {
+  box-sizing: border-box;
+  display: block;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #97979e;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+}
+
+.carousel-indicator .active button {
+  width: 11px;
+  height: 11px;
+  margin-top: -2px;
+  margin-left: -2px;
+  border: none;
+  background: #97979e;
+}
+
+.content-block {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #e5e5e5;
+}
+
+/**
+ * --------------------------------
+ * .banner-container
+ * ----------------------------- */
+.banner-container {
+  opacity: 0;
+  transition: all 1s ease;
+  transform: translateY(50px);
+}
+.banner-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.banner-container .banner-content {
+  height: 300px;
+  background: #fff;
+  border-radius: 5px;
+}
+.banner-container .banner-content.double-height {
+  float: right;
+  height: 620px;
+}
+.banner-container .banner-headline {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: #3c3d48;
+}
+.banner-container .sub-headline {
+  display: block;
+  text-transform: lowercase;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  color: #5b5d69;
+}
+.banner-container a {
+  border-radius: 3px;
+  padding: 1.8em 4.8em;
+  background: #e36556;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 10px;
+  color: #fff;
+}
+.banner-container a:hover,
+.banner-container a:focus {
+  background: #8d342e;
+}
+/* .banner-shoes */
+.banner-container .banner-shoes {
+  background: url("../images/banner/shoes.jpg") no-repeat;
+}
+.banner-container .banner-shoes .banner-headline {
+  position: relative;
+  top: 162px;
+}
+/* .banner-shoes */
+.banner-container .banner-leather-bags {
+  background: url("../images/banner/leather-bags.jpg") no-repeat;
+}
+/* .banner-leather-bags */
+.banner-container .banner-leather-bags .banner-headline {
+  margin-top: 43px;
+  margin-left: 40px;
+  text-align: left;
+}
+/* .banner-woman */
+.banner-container .banner-woman {
+  background: url("../images/banner/woman.jpg") no-repeat;
+  text-align: center;
+}
+.banner-container .banner-woman .banner-headline {
+  margin-top: 245px;
+  margin-bottom: 42px;
+}
+/* .banner-collection */
+.banner-container .banner-collection {
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding-left: 300px;
+  text-align: center;
+  background: url("../images/banner/collection.jpg") no-repeat;
+}
+.banner-container .banner-collection .banner-headline {
+  margin-top: 93px;
+  margin-bottom: 44px;
+}
+
+/**
+ * --------------------------------
+ * .products-tab
+ * ----------------------------- */
+.products-tab {
+  margin-top: 20px;
+}
+/* tab-handle */
+.tab-handle > div {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background: #fff;
+}
+.tab-handle a {
+  display: inline-block;
+  margin-right: 27px;
+  padding: 0.65em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #3c3d48;
+}
+.tab-handle a.active {
+  position: relative;
+}
+.tab-handle a.active::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  margin-left: -5px;
+  border-top: 5px solid #e36556;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+/* products */
+.products-tab .products {
+  margin-top: 20px;
+  text-align: center;
+}
+.products-tab .product-item {
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  background: #fff;
+}
+/* tag */
+[class*="tag-"] {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 43px;
+  height: 43px;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+}
+.tag-new { background: #62b951; }
+.tag-hit { background: #e3db56; }
+.tag-sale { background: #e36556; }
+/* img */
+.products-tab .product-item img {
+  vertical-align: top;
+}
+/* product-name */
+.products-tab .product-name {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #3c3d48;
+  line-height: 1.7;
+}
+/* product-price */
+.products-tab .product-price {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e36556;
+  line-height: 1.5;
+}
+.products-tab .sale-price {
+  color: #d7d7d7;
+  font-size: 10px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+.products-tab .product-item .hover-focus-view {
+  opacity: 0;
+  position: absolute;
+  bottom: 122px;
+  left: 50%;
+  margin-left: -44px;
+}
+.products-tab .product-item:hover img {
+  opacity: 0.1;
+}
+.products-tab .product-item:hover .hover-focus-view {
+  opacity: 1;
+}
+/* button */
+.products-tab .hover-focus-view a {
+  display: inline;
+  padding: 0.75em 1.375em;
+}
+.products-tab .button-add-to-shopping-cart {
+  border-radius: 3px 0 0 3px;
+  background: #cc5b4d url("../images/icons/Icon-cart.svg") no-repeat center;
+}
+.products-tab .button-add-to-shopping-cart:hover,
+.products-tab .button-add-to-shopping-cart:focus {
+  background-color: #86322c;
+}
+.products-tab .button-add-to-shopping-wishlist {
+  border-radius: 0 3px 3px 0;
+  background: #e67567 url("../images/icons/Icon-wishlist.svg") no-repeat center;
+}
+.products-tab .button-add-to-shopping-wishlist:hover,
+.products-tab .button-add-to-shopping-wishlist:focus {
+  background-color: #a13937;
+}
+
+/**
+ * --------------------------------
+ * .about-us
+ * ----------------------------- */
+.about-us {
+  margin-top: 20px;
+  text-align: center;
+}
+.about-us .view {
+  border-radius: 5px;
+  padding-bottom: 40px;
+  background: #fff;
+}
+.about-us .desc {
+  margin: 0 4em 40px;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  line-height: 1.733333333;
+  text-align: left;
+  /*text-align: justify;*/
+  /*text-align-last: left;*/
+  color: #5b5d69;
+}
+.about-us .ghost-button {
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 2px solid currentColor;
+  padding: 1.2em 4.4em;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  color: #e36556;
+}
+.about-us .ghost-button:hover,
+.about-us .ghost-button:focus {
+  color: #882928;
+}
+.headline {
+  margin-top: 40px;
+  margin-bottom: 28px;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3c3d48;
+  line-height: 0.7;
+}
+
+/**
+ * --------------------------------
+ * .from-the-blog
+ * ----------------------------- */
+.from-the-blog {
+  margin-top: 3px;
+  text-align: center;
+}
+.from-the-blog .headline {
+  margin-bottom: 40px;
+}
+.from-the-blog .blog-contents {
+  margin-top: 20px;
+  text-align: left;
+}
+.from-the-blog .blog-article {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  height: 300px;
+  border-radius: 5px;
+  padding: 30px 30px 15px 30px;
+  background: #fff;
+  color: #3c3d48;
+}
+.from-the-blog .article-photo {
+  color: #fff;
+  font-weight: 400;
+}
+.from-the-blog .blog-article * {
+  margin: 0;
+}
+.from-the-blog .blog-article > img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+/* blog-article-category */
+.from-the-blog .blog-article-category {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  color: #b8b9bd;
+}
+.from-the-blog .article-category-life .blog-article-category,
+.from-the-blog .article-category-travel .blog-article-category {
+  color: #fff;
+}
+.from-the-blog .article-category-life .blog-article-category {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 1em 1.6em;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  background: #e36556;
+}
+/* blog-article-headline */
+.from-the-blog .blog-article-headline {
+  margin-bottom: 7px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  color: inherit;
+}
+.from-the-blog .article-category-travel .blog-article-headline {
+  margin-top: 120px;
+  margin-bottom: 20px;
+}
+/* blog-article-summary */
+.from-the-blog .blog-article-summary {
+  margin-bottom: 9px;
+  font-size: 14px;
+  line-height: 1.571428571;
+  letter-spacing: 0.05em;
+  color: inherit;
+}
+.from-the-blog .article-category-life .blog-article-summary {
+  width: 80%;
+  margin-bottom: 35px;
+}
+/* write-time */
+.from-the-blog .write-time {
+  opacity: 0.5;
+  display: inline-block;
+  padding-left: 28px;
+  background: url("../images/icons/Icon-clock.svg") no-repeat;
+  line-height: 1.55;
+  font-size: 11px;
+  color: #5b5d69;
+}
+/* comment */
+.from-the-blog .comments {
+  display: inline-block;
+  padding-left: 22px;
+  background: url("../images/icons/Icon-comments.svg") no-repeat;
+  font-size: 11px;
+  line-height: 1.8;
+}
+/* author */
+.from-the-blog .author {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3c3d48;
+}
+.from-the-blog .author img {
+  margin-right: 10px;
+}
+
+/**
+ * --------------------------------
+ * .footer
+ * ----------------------------- */
+.footer {
+  background: #fff;
+  padding-top: 40px;
+}
+/* footer-nav */
+.footer-nav-category {
+  float: left;
+  width: 140px;
+  margin-right: 20px;
+}
+.footer .footer-category-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #3c3d48;
+  line-height: 1;
+}
+.footer-nav-category ul,
+.footer-sns,
+.footer-card-list ul {
+  margin-top: -2px;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.footer-nav-category a {
+  display: inline-block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #b8b9bd;
+}
+.footer-nav-category a:hover,
+.footer-nav-category a:focus {
+  color: #5b5d69;
+}
+/* footer-subscribe */
+.footer-subscribe {padding-left: 40px;box-sizing: border-box;}
+.footer-subscribe .footer-category-name {
+  margin-bottom: 20px;
+}
+.footer-sns {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.footer-sns li {
+  float: left;
+  margin-right: 10px;
+}
+.footer-sns a {
+  opacity: 0.65;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  transition: all .3s ease;
+}
+.footer-sns a:hover,
+.footer-sns a:focus {
+  opacity: 1;
+}
+.footer-sns .footer-sns-twitter { background: url("../images/icons/Icon-Twitter.svg") no-repeat; }
+.footer-sns .footer-sns-instagram { background: url("../images/icons/Icon-Instagram.svg") no-repeat; }
+.footer-sns .footer-sns-facebook { background: url("../images/icons/Icon-Facebook.svg") no-repeat; }
+.footer-sns .footer-sns-dribbble { background: url("../images/icons/Icon-Dribbble.svg") no-repeat; }
+.footer-sns .footer-sns-behance { background: url("../images/icons/Icon-Behance.svg") no-repeat; }
+/* footer-email-form */
+.footer-email-form {
+  margin-top: -5px;
+}
+.footer-email-form input {
+  width: 272px;
+  border-radius: 3px;
+  border: 2px solid currentColor;
+  padding: 1em;
+  font-size: 12px;
+  color: #e5e5e5;
+  vertical-align: top;
+}
+.footer-email-form input:focus {
+  outline: none;
+  color: #e36556;
+}
+.footer-email-form button {
+  margin-left: -8px;
+  width: 43px;
+  height: 43px;
+  border: none;
+  padding: 0;
+  background: #e36556 url("../images/icons/Icon-Arrow.svg") no-repeat center;
+  border-radius: 0 3px 3px 0;
+}
+.footer-email-form button:hover,
+.footer-email-form button:focus {
+  background-color: #a13b34;
+}
+/* footer-copyright */
+.footer-copyright {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid #f2f2f2;
+  height: 50px;
+}
+.footer-card-list ul {
+  margin-left: -20px;
+}
+.footer-card-list li {
+  float: left;
+  width: 25%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-card-list a {
+  display: block;
+}
+.footer-card-list .mastercard {
+  width: 39px;
+  height: 23px;
+  background: url("../images/icons/Icon-MasterCard.svg");
+}
+.footer-card-list .visa {
+  width: 39px;
+  height: 13px;
+  background: url("../images/icons/Icon-Visa@2x.png");
+  background-size: 39px 13px;
+}
+.footer-card-list .paypal {
+  width: 36px;
+  height: 10px;
+  background: url("../images/icons/Icon-PayPal.svg");
+}
+.footer-card-list .americanexpress {
+  width: 52px;
+  height: 16px;
+  background: url("../images/icons/Icon-AmericanExpress.svg");
+}
+/* footer-brand */
+.footer-brand {
+  float: left;
+  margin-top: 0;
+  margin-left: 29px;
+  margin-right: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3c3d48;
+}
+.footer-brand + small {
+  position: relative;
+  top: 4px;
+  font-size: 12px;
+  color: #b8b9bd;
+}

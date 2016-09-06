@@ -74,7 +74,7 @@ scene
   .addIndicators({
     'name': '페이드',
     'indent': 10,
-    'colorTigger': '#fe4940',
+    'colorTrigger': '#fe4940',
     'colorStart': '#34c0ff',
     'colorEnd': '#7eff28'
   })
@@ -85,7 +85,7 @@ scene
 
 - __`name`__ ─ 트리거 이름
 - __`indent`__ ─ 트리거 안쪽으로 이동하는 위치
-- __`colorTigger`__ ─ 트리거 색상
+- __`colorTrigger`__ ─ 트리거 색상
 - __`colorStart`__ ─ 시작 색상
 - __`colorEnd`__ ─ 끝 색상
 

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>ARBUZZ ─ eCommurce Service</title>
+  <!-- Mobile Optimize View -->
+  <meta name="viewport" content="width=980px, initial-scale=1">
+  <!-- Load Google WebFont -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i" rel="stylesheet">
+  <!-- CSS Style -->
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/960gs.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/polyfill.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+</head>
+<body>
+  <!-- MENU -->
+  <div class="menu montserrat">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <p class="menu-tel">24/7 &nbsp;037-2339-9874</p>
+        </div>
+        <h1 class="brand col-2 prefix-2">
+          arbuzz
+        </h1>
+        <div class="unb col-3 prefix-2">
+          <!-- <div class="lang" data-selected-value="en">
+            <select>
+              <option value="en" selected>en</option>
+              <option value="en">ko</option>
+            </select>
+          </div> -->
+          <!-- 사용자 정의 컴포넌트 ↓ -->
+          <nav class="lang">
+            <button type="button">en</button>
+            <ul>
+              <li><button type="button">en</button></li>
+              <li><button type="button">ko</button></li>
+            </ul>
+          </nav>
+          <!-- <div class="currency" data-selected-value="usd">
+            <select>
+              <option value="usd" selected>usd</option>
+              <option value="won">won</option>
+            </select>
+          </div> -->
+          <!-- 사용자 정의 컴포넌트 ↓ -->
+          <nav class="currency">
+            <button type="button">usd</button>
+            <ul>
+              <li><button type="button">usd</button></li>
+              <li><button type="button">won</button></li>
+            </ul>
+          </nav>
+          <button class="btn-lock" type="button">lock</button>
+          <button class="btn-login" type="button">log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GNB -->
+  <nav class="gnb container">
+    <ul class="row">
+      <li class="has-sub-menu"><a href="">men</a></li>
+      <li class="has-sub-menu"><a href="">women</a></li>
+      <li class="has-sub-menu"><a href="">kids</a></li>
+      <li class="has-sub-menu"><a href="">collection</a></li>
+      <li class="has-sub-menu"><a href="">outerwear</a></li>
+      <li><a href="">sale</a></li>
+      <li><a href="">about</a></li>
+      <li><a href="">blog</a></li>
+      <li><a href="">services</a></li>
+      <li><a href="">contacts</a></li>
+    </ul>
+  </nav>
+  <div class="header carousel">
+    <nav class="carousel-indicator">
+      <ul>
+        <li><button type="button" aria-label="Arbuzz 70% Sales"></button></li>
+        <li class="active"><button type="button" aria-label="Arbuzz 70% Sales"></button></li>
+        <li><button type="button" aria-label="Arbuzz 70% Sales"></button></li>
+        <li><button type="button" aria-label="Arbuzz 70% Sales"></button></li>
+      </ul>
+    </nav>
+    <div class="carousel-content-wrapper">
+      <div class="carousel-content">
+        <div class="container">
+          <h3 class="montserrat">arbuzz</h3>
+          <p class="PT-serif">Up to 70% off sale</p>
+          <img
+            src="images/header/woman.png"
+            alt="woman">
+          <!-- srcset="images/header/woman.png 1x, images/header/woman@2x.png 2x" -->
+        </div>
+      </div>
+      <!-- <div class="carousel-content">
+        <h3>arbuzz</h3>
+        <p>Up to 70% off sale</p>
+      </div>
+      <div class="carousel-content">
+        <h3>arbuzz</h3>
+        <p>Up to 70% off sale</p>
+      </div>
+      <div class="carousel-content">
+        <h3>arbuzz</h3>
+        <p>Up to 70% off sale</p>
+      </div> -->
+    </div>
+  </div>
+
+  <main class="content-block montserrat">
+    <!-- banner-container -->
+    <div class="banner-container container">
+      <div class="row">
+        <div class="banner-content banner-shoes col-4">
+          <h3 class="banner-headline">shoes <span class="PT-serif sub-headline">sale</span></h3>
+        </div>
+        <div class="banner-content banner-leather-bags col-4">
+          <h3 class="banner-headline">leather<br>bags</h3>
+        </div>
+        <div class="banner-content double-height banner-woman col-4">
+          <h3 class="banner-headline">women <span class="PT-serif sub-headline">save 50%</span></h3>
+          <a href="" class="show-now">shop now</a>
+        </div>
+        <div class="banner-content banner-collection col-8">
+          <h3 class="banner-headline">collection <span class="PT-serif sub-headline">fall 2016</span></h3>
+          <a href="">more</a>
+        </div>
+      </div>
+    </div>
+    <!-- // banner-container -->
+    <!-- products -->
+    <div class="products-tab container">
+      <div class="tab-handle row">
+        <div class="col-12">
+          <a class="active" href="#featured-products" role="button">featured products</a>
+          <a href="#new-arrivals" role="button">new arrivals</a>
+          <a href="#best-sellers" role="button">best sellers</a>
+        </div>
+      </div>
+      <div class="products row">
+        <div id="featured-products">
+          <!-- product-item -->
+          <div class="product-item col-3" role="group">
+            <div class="normal-view">
+              <!-- <div class="tag-new">new</div> -->
+              <img src="images/products/flowy-printed-dress.jpg" alt="flowy printed dress">
+              <h4 class="product-name">flowy printed dress</h4>
+              <div class="product-price">$16</div>
+            </div>
+            <div class="hover-focus-view">
+              <a href="" role="button" class="button-add-to-shopping-cart" aria-label="Add To Shopping Cart"></a>
+              <a href="" role="button" class="button-add-to-shopping-wishlist" aria-label="Add To Wishlist"></a>
+            </div>
+          </div>
+          <!-- // product-item -->
+          <!-- product-item -->
+          <div class="product-item col-3" role="group">
+            <div class="normal-view">
+              <div class="tag-new">new</div>
+              <img src="images/products/fitted-dress.jpg" alt="fitted dress">
+              <h4 class="product-name">fitted dress</h4>
+              <div class="product-price">$29.99 <span class="sale-price">$35</span></div>
+            </div>
+            <div class="hover-focus-view">
+              <a href="" role="button" class="button-add-to-shopping-cart" aria-label="Add To Shopping Cart"></a>
+              <a href="" role="button" class="button-add-to-shopping-wishlist" aria-label="Add To Wishlist"></a>
+            </div>
+          </div>
+          <!-- // product-item -->
+          <!-- product-item -->
+          <div class="product-item col-3" role="group">
+            <div class="normal-view">
+              <div class="tag-hit">hit</div>
+              <img src="images/products/fluted-hem-dress.jpg" alt="fluted hem dress">
+              <h4 class="product-name">fluted hem dress</h4>
+              <div class="product-price">$48,99</div>
+            </div>
+            <div class="hover-focus-view">
+              <a href="" role="button" class="button-add-to-shopping-cart" aria-label="Add To Shopping Cart"></a>
+              <a href="" role="button" class="button-add-to-shopping-wishlist" aria-label="Add To Wishlist"></a>
+            </div>
+          </div>
+          <!-- // product-item -->
+          <!-- product-item -->
+          <div class="product-item col-3" role="group">
+            <div class="normal-view">
+              <div class="tag-sale">sale 30%</div>
+              <img src="images/products/textured-pleats-dress.jpg" alt="textured pleats dress">
+              <h4 class="product-name">textured pleats dress</h4>
+              <div class="product-price">$35,99</div>
+            </div>
+            <div class="hover-focus-view">
+              <a href="" role="button" class="button-add-to-shopping-cart" aria-label="Add To Shopping Cart"></a>
+              <a href="" role="button" class="button-add-to-shopping-wishlist" aria-label="Add To Wishlist"></a>
+            </div>
+          </div>
+          <!-- // product-item -->
+        </div>
+        <!-- <div id="new-arrivals"></div> -->
+        <!-- <div id="best-sellers"></div> -->
+      </div>
+    </div>
+    <!-- 시작: .about-us -->
+    <div class="about-us container">
+      <div class="row">
+        <div class="view col-12">
+          <h3 class="headline">about us</h3>
+          <p class="PT-serif desc">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+          </p>
+          <a class="ghost-button" href="">read more</a>
+        </div>
+      </div>
+    </div>
+    <!-- 끝: .about-us -->
+    <!-- 시작: .from-the-blog -->
+    <div class="from-the-blog container">
+      <div class="row">
+        <h3 class="col-12 headline">from the blog</h3>
+      </div>
+      <div class="tab-handle row">
+        <div class="col-12">
+          <a class="active" href="#last-articles" role="button">last articles</a>
+          <a href="#most-viewed" role="button">most viewed</a>
+          <a href="#featured" role="button">featured</a>
+        </div>
+      </div>
+      <div class="blog-contents row">
+        <div id="last-articles">
+          <!-- blog-article -->
+          <div class="blog-article article-category-techno col-4" role="group">
+            <h4 class="blog-article-category">techno</h4>
+            <h3 class="blog-article-headline">Sci-Fi Films Make Us Think Real-Life Robots Will Be Rriendly Says Study</h3>
+            <p class="blog-article-summary PT-serif">Robotics designers should model robots based on those in films if they want the public to interact with them.</p>
+            <time class="write-time" datetime="2016-09-04">5 minutes ago</time>
+          </div>
+          <!-- // blog-article -->
+          <!-- blog-article -->
+          <div class="blog-article article-category-life article-photo col-4" role="group">
+            <img src="images/blog/life.jpg" alt="">
+            <h4 class="blog-article-category">life</h4>
+            <h3 class="blog-article-headline">Kanye West Claims He Sold $1 Million Worth Of Merchandise In Two Dayse</h3>
+            <p class="blog-article-summary PT-serif">We sort of want to see the receipts though.</p>
+            <span class="comments">43</span>
+          </div>
+          <!-- // blog-article -->
+          <!-- blog-article -->
+          <div class="blog-article article-category-travel article-photo col-4" role="group">
+            <img src="images/blog/travel.jpg" alt="">
+            <h4 class="blog-article-category">travel</h4>
+            <h3 class="blog-article-headline">The Five Most<br>Lust-Worthy Watches<br>From Baselworld</h3>
+            <span class="author"><img src="images/blog/jared-paul-stern.png" alt=""> JARED PAUL STERN</span>
+          </div>
+          <!-- // blog-article -->
+        </div>
+        <!-- <div id="most-viewed"></div> -->
+        <!-- <div id="featured"></div> -->
+      </div>
+    </div>
+    <!-- 끝: .from-the-blog -->
+  </main>
+
+  <footer class="footer montserrat">
+    <div class="container">
+      <div class="row">
+        <nav class="footer-nav col-7">
+          <div class="footer-nav-category">
+            <h4 class="footer-category-name">men</h4>
+            <ul>
+              <li><a href="">Jeans</a></li>
+              <li><a href="">Jumpers</a></li>
+              <li><a href="">Leather</a></li>
+              <li><a href="">Polo Shirts</a></li>
+              <li><a href="">Shorts</a></li>
+              <li><a href="">Boots</a></li>
+              <li><a href="">Watches</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-category">
+            <h4 class="footer-category-name">women</h4>
+            <ul>
+              <li><a href="">Dresses</a></li>
+              <li><a href="">Jumpsuits</a></li>
+              <li><a href="">Shirts</a></li>
+              <li><a href="">T-shirts</a></li>
+              <li><a href="">Sweatshirts</a></li>
+              <li><a href="">Jackets</a></li>
+              <li><a href="">Coats</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-category">
+            <h4 class="footer-category-name">kids</h4>
+            <ul>
+              <li><a href="">Shirts</a></li>
+              <li><a href="">T-shirts</a></li>
+              <li><a href="">Polos</a></li>
+              <li><a href="">Sweaters</a></li>
+              <li><a href="">Sweatshirts</a></li>
+              <li><a href="">Jackets</a></li>
+              <li><a href="">Watches</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="footer-subscribe col-5">
+          <h4 class="footer-category-name">FOLLOW US</h4>
+          <ul class="footer-sns row">
+            <li><a href="" aria-label="Twitter" class="footer-sns-twitter"></a></li>
+            <li><a href="" aria-label="Instagram" class="footer-sns-instagram"></a></li>
+            <li><a href="" aria-label="Facebook" class="footer-sns-facebook"></a></li>
+            <li><a href="" aria-label="Dribbble" class="footer-sns-dribbble"></a></li>
+            <li><a href="" aria-label="Behance" class="footer-sns-behance"></a></li>
+          </ul>
+          <h4 class="footer-category-name">Subscribe us</h4>
+          <form class="footer-email-form" method="GET" action="#">
+            <label for="subcribe-email" class="a11y-hidden">E-mail</label>
+            <input type="email" id="subcribe-email" name="subcribe-email" placeholder="E-mail">
+            <button type="button" aria-label="구독"></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <nav class="footer-card-list col-4">
+            <ul class="row">
+              <li><a href="" class="mastercard" aria-label="Master Card"></a></li>
+              <li><a href="" class="visa" aria-label="Visa"></a></li>
+              <li><a href="" class="paypal" aria-label="Pay Pal"></a></li>
+              <li><a href="" class="americanexpress" aria-label="American Express"></a></li>
+            </ul>
+          </nav>
+          <div class="prefix-3 col-5">
+            <h5 class="footer-brand">arbuzz</h5>
+            <small>&copy; 2016 Arbuzz UI Kit. All rights reserved</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- ScrollMagic JS Library -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<!-- JavaScript-->
+<script src="js/toggleGrid.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

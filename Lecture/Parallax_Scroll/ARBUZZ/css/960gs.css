@@ -1,0 +1,86 @@
+@charset "utf-8";
+/*! 960gs.css Â© yamoo9.net, 2016 */
+
+/*
+설계(Design) 내용 요약
+--------------------------------
+컬럼의 개수:          12
+컬럼(Column) 가로 폭: 60px
+거터(Gutter) 방향:   양쪽(Split)
+거터의 간격:          20(10px)
+페이지의 폭:          960px
+*/
+
+body.show-leading::before {content: '';position: absolute;z-index: 100000;top: 0;left: 0;width: 100%;height: 3300px;background: linear-gradient(transparent 9px, hsla(239, 59%, 54%, 0.45) 9px);background-size: 1px 10px;}
+
+/* container 모듈 */
+.container { width: 960px; margin-left: auto; margin-right: auto; }
+.container.show-grid { position: relative; }
+.container.show-grid::before {content: '';position: absolute;z-index: 10000;top: 0;left: 0;width: 100%;height: 1000px;background: linear-gradient(90deg, transparent 10px, hsla(186, 66%, 65%, 0.1) 10px, hsla(186, 66%, 65%, 0.05) 70px, transparent 70px);background-size: 80px 1px;}
+
+/* row 모듈 */
+.row:after, .row::after { content: ''; display: block; clear: both; }
+
+/* column 모듈 */
+[class*="col-"] { float: left; margin-left: 10px; margin-right: 10px; }
+.col-1 { width: 60px; }
+.col-2 { width: 140px; }
+.col-3 { width: 220px; }
+.col-4 {width: 300px;/* height: 400px; */}
+.col-5 { width: 380px; }
+.col-6 { width: 460px; }
+.col-7 { width: 540px; }
+.col-8 { width: 620px; }
+.col-9 { width: 700px; }
+.col-10 { width: 780px; }
+.col-11 { width: 860px; }
+.col-12 { width: 940px; }
+[class*="push-"], [class*="pull-"] { position: relative; }
+.push-1 { left: 80px; }
+.push-2 { left: 160px; }
+.push-3 { left: 240px; }
+.push-4 { left: 320px; }
+.push-5 { left: 400px; }
+.push-6 { left: 480px; }
+.push-7 { left: 560px; }
+.push-8 { left: 640px; }
+.push-9 { left: 720px; }
+.push-10 { left: 800px; }
+.push-11 { left: 880px; }
+.push-12 { left: 960px; }
+.pull-1 { left: -80px; }
+.pull-2 { left: -160px; }
+.pull-3 { left: -240px; }
+.pull-4 { left: -320px; }
+.pull-5 { left: -400px; }
+.pull-6 { left: -480px; }
+.pull-7 { left: -560px; }
+.pull-8 { left: -640px; }
+.pull-9 { left: -720px; }
+.pull-10 { left: -800px; }
+.pull-11 { left: -880px; }
+.pull-12 { left: -960px; }
+.prefix-1 { margin-left: 90px; }
+.prefix-2 { margin-left: 170px; }
+.prefix-3 { margin-left: 250px; }
+.prefix-4 { margin-left: 330px; }
+.prefix-5 { margin-left: 410px; }
+.prefix-6 { margin-left: 490px; }
+.prefix-7 { margin-left: 570px; }
+.prefix-8 { margin-left: 650px; }
+.prefix-9 { margin-left: 730px; }
+.prefix-10 { margin-left: 810px; }
+.prefix-11 { margin-left: 890px; }
+.prefix-12 { margin-left: 970px; }
+.suffix-1 { margin-right: 90px; }
+.suffix-2 { margin-right: 170px; }
+.suffix-3 { margin-right: 250px; }
+.suffix-4 { margin-right: 330px; }
+.suffix-5 { margin-right: 410px; }
+.suffix-6 { margin-right: 490px; }
+.suffix-7 { margin-right: 570px; }
+.suffix-8 { margin-right: 650px; }
+.suffix-9 { margin-right: 730px; }
+.suffix-10 { margin-right: 810px; }
+.suffix-11 { margin-right: 890px; }
+.suffix-12 { margin-right: 970px; }
