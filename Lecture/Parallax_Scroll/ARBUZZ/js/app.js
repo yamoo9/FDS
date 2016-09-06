@@ -24,22 +24,22 @@
   var carousel_pin = new SM.Scene({
     'triggerElement': '.carousel',
     'triggerHook': 0,
-    'duration': '90%'
+    'duration': 550
   });
 
   carousel_pin
     .setPin('.carousel', {'pushFollowers': false})
     .addTo(ctrl)
-    // .addIndicators({
-    //   'name': 'carousel pin',
-    //   'colorStart': '#fe4940',
-    //   'colorEnd': '#36a8fe'
-    // })
-    // .on('end', function(evt) {
-    //   console.log('end');
-    //   this.removePin(true);
-    // })
-    ;
+    .addIndicators({
+      'name': 'carousel pin',
+      'colorStart': '#fe4940',
+      'colorEnd': '#36a8fe'
+    })
+    .on('progress', function(e) {
+      var t = e.target.triggerElement();
+      t.style.opacity = 1 - e.progress;
+      // console.log('진행 중...', e.progress);
+    });
 
   ////////////////////////////////
   // 패럴럭스 씬 컨트롤(제어) 반복 구문 //
