@@ -218,15 +218,10 @@ html {
  * 캐로셀(carousel) 영역
  * ----------------------------- */
 .carousel {
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
   position: relative;
   overflow: hidden;
   height: 580px;
   margin-top: 14px;
-}
-.carousel.fade-in {
-  opacity: 1;
 }
 .carousel-content {
   position: relative;
@@ -265,7 +260,6 @@ html {
   top: 0;
   right: 3px;
 }
-
 /* 인디케이터 영역 */
 .carousel-indicator {
   position: absolute;
@@ -276,20 +270,17 @@ html {
   margin-left: -116px;
   /*transform: translateX(-50%);*/
 }
-
 .carousel-indicator ul {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
 }
-
 .carousel-indicator li {
   float: left;
   margin-left: 21px;
   margin-right: 21px;
 }
-
 .carousel-indicator button {
   box-sizing: border-box;
   display: block;
@@ -300,7 +291,6 @@ html {
   background: none;
   border-radius: 50%;
 }
-
 .carousel-indicator .active button {
   width: 11px;
   height: 11px;
@@ -309,7 +299,6 @@ html {
   border: none;
   background: #97979e;
 }
-
 .content-block {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -320,15 +309,6 @@ html {
  * --------------------------------
  * .banner-container
  * ----------------------------- */
-.banner-container {
-  opacity: 0;
-  transition: all 1s ease;
-  transform: translateY(50px);
-}
-.banner-container.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
 .banner-container .banner-content {
   height: 300px;
   background: #fff;

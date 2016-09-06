@@ -15,42 +15,25 @@
   // ScrollMagic //
   /////////////////
 
-  // ScrollMagic은 그냥 함수에 불과 네임스페이스 객체
-  // console.log(SM);
-
   // Controller 객체 설정
   var ctrl = new SM.Controller();
-  // Scene 객체 설정
-  var carousel_scene = new SM.Scene({
-    'triggerElement': '.carousel',
-    'triggerHook': 0,
-    'duration': 200,
-    // 'reverse': false
-  });
 
-  carousel_scene
-    .setClassToggle('.carousel', 'fade-in')
-    .addIndicators({
-      'name': 'carousel',
-      // 'indent': 1000,
-      'colorStart': '#fb62b0',
-      'colorEnd': '#561b3a',
-      'colorTrigger': '#5c00ee',
-    }) // 디버깅
+  //////////////////////////
+  // 패럴럭스 씬 제어 반복 구문 //
+  //////////////////////////
+  var scene_list = '.carousel, .banner-container, .products-tab, .about-us, .from-the-blog, .footer'.split(', ');
+
+  scene_list.forEach(function(trigger_el_selector, idx) {
+    var scene = new SM.Scene({
+      'triggerElement': trigger_el_selector,
+      'triggerHook': 0,
+      // 'duration': 100,
+      'offset': -500,
+      // 'reverse': false
+    })
+    .setClassToggle(trigger_el_selector, 'fade-in')
+    .addIndicators()
     .addTo(ctrl);
-
-  var banner_container_scene = new SM.Scene({
-    'triggerElement': '.banner-container',
-    'triggerHook': 0,
-    'offset': -500,
-    // 'reverse': false
   });
-
-  banner_container_scene
-    .setClassToggle('.banner-container', 'fade-in')
-    .addIndicators({
-      'name': 'banner_container'
-    }) // 디버깅
-    .addTo(ctrl);
 
 })(this, this.jQuery, this.ScrollMagic);
