@@ -1,11 +1,16 @@
 /* .carousel, .banner-container, .products-tab, .about-us, .from-the-blog, .footer */
 
-.carousel {
+/*.carousel {
   opacity: 0;
   transition: opacity 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 .carousel.fade-in {
   opacity: 1;
+}*/
+
+.content-block {
+  position: relative;
+  /*background: #fff;*/
 }
 
 .banner-container {
@@ -49,11 +54,15 @@
 }
 
 .footer {
+  position: relative;
+}
+
+.footer > * {
   opacity: 0;
   transition: all 1s ease;
   transform: translateY(50px);
 }
-.footer.fade-in {
+.footer > *.fade-in {
   opacity: 1;
   transform: translateY(0);
 }

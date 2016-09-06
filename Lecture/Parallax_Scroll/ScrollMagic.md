@@ -276,7 +276,7 @@ $.each($projects, function(idx, project){
 var pin = new ScrollMagic.Scene({
   'triggerElement': '#intro',
   'triggerHook': 0,
-  'location': '35%'
+  'duration': '35%'
 });
 
 pin
@@ -292,7 +292,7 @@ pin
 var pin1 = new ScrollMagic.Scene({
   'triggerElement': '#intro',
   'triggerHook': 0,
-  'location': '35%'
+  'duration': '35%'
 });
 
 pin1
@@ -318,7 +318,7 @@ pin2
 [GreenSock](https://greensock.com/) 라이브러리, ScrollMagic 플러그인 로드
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 ```
 
