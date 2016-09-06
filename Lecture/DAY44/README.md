@@ -1,6 +1,6 @@
-###### front-end develop school
+###### Front-End Develop SCHOOL
 
-# day 44
+# DAY 44
 
 ##Angular JS
 
@@ -89,7 +89,7 @@
 ```javascript
 (function(global, ng, jq){
 	'use strict';
-	
+
 	// 모듈 정의
 	var setNgApp = ng.module('ngApp', []);
 	// 정의된 모듈  가져올 때
@@ -351,7 +351,7 @@ app.controller('tabController', ['$scope', function($scope){
 	ng.module('fdsApp', []);
 
 	app.controller('fdsMemberListController', [$http', functions($scope, $http){
-		
+
 	}]);
 
 	var ctrl = this;

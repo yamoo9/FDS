@@ -1,6 +1,6 @@
-###### front-end develop school
+###### Front-End Develop SCHOOL
 
-# day 43
+# DAY 43
 
 ##Angular JS
 
@@ -22,7 +22,7 @@
 <body data-ng-init="
 	my_color = '#fc434b';
 	show = false;
-	colors = { 
+	colors = {
 		'pink': '#f97df1',
 		'sky': '#3399ff',
 		'emerald': '#b0ffcc',
@@ -38,19 +38,19 @@
 ">
 <h2>{{my_color}}, {{is_hidden}}</h2>
 
-<button 
-	type="button" 
-	class="toggle-palette-btn" 
+<button
+	type="button"
+	class="toggle-palette-btn"
 	data-ng-click="show = !show">
 	<span data-ng-show="show">팔레트 감추기</span>
 	<span data-ng-hide="show">팔레트 보이기</span>
 </button>
 <!-- span이 두개 들어가는게 비효율적으로 보인다 -->
-<button 
-	type="button" 
-	class="toggle-palette-btn" 
+<button
+	type="button"
+	class="toggle-palette-btn"
 	data-ng-click="show = !show">
-	팔레트 <span data-ng-bind="show ? '감추기' : '보이기'"></span> 
+	팔레트 <span data-ng-bind="show ? '감추기' : '보이기'"></span>
 </button>
 
 <!-- 제어에 따른 뷰 -->
@@ -120,15 +120,15 @@
 <button data-ng-click="order_reverse = !order_reverse">나이순 정렬</button>
 
 <p>
-<label for="person_name">Name: </label>	
+<label for="person_name">Name: </label>
 <input id="person_name" type="search" data-ng-model="search.name">
 </p>
 <p>
-<label for="person_age">Age: </label>	
+<label for="person_age">Age: </label>
 <input id="person_age" type="search" data-ng-model="search.age">
 </p>
 <p>
-<label for="result_count">Limit: </label>	
+<label for="result_count">Limit: </label>
 <input id="result_count" type="search" data-ng-model="limit_count">
 </p>
 
@@ -254,7 +254,7 @@
 			$scope.ordermap.sort = $scope.ordermap.sort === prop  '-'+ prop : prop;
 		}
 
-		// $scope 객체를 통해 뷰가 해당 속성에 접근 가능 
+		// $scope 객체를 통해 뷰가 해당 속성에 접근 가능
 		$scope.people = people;
 		$scope.ordermap = ordermap;
 		$scope.changeOrder = changeOrder;

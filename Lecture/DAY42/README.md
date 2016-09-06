@@ -1,4 +1,4 @@
-###### front-end develop school
+###### Front-End Develop SCHOOL
 
 # DAY 42
 

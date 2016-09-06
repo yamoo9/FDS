@@ -1,6 +1,6 @@
-###### front-end develop school
+###### Front-End Develop SCHOOL
 
-# day 41
+# DAY 41
 
 ##Ajax
 

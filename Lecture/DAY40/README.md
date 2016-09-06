@@ -1,6 +1,6 @@
-###### front-end develop school
+###### Front-End Develop SCHOOL
 
-# day 40
+#DAY 40
 
 ###jQuery Traversing
 
