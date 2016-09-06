@@ -333,7 +333,7 @@ var parallax_scene = new ScrollMagic.Scene({
 
 parallax_scene
   // 트윈 설정
-  .addTween( TweenMax.from('.parallax-bg', 1, {'y': '-50%', 'ease': Power0.easeNone}) )
+  .setTween( TweenMax.from('.parallax-bg', 1, {'y': '-50%', 'ease': Power0.easeNone}) )
   .addTo(controller);
 ```
 
@@ -355,6 +355,6 @@ var parallax_scene = new ScrollMagic.Scene({
 
 parallax_scene
   // 트윈 설정
-  .addTween( parallaxTl )
+  .setTween( parallaxTl )
   .addTo(controller);
 ```
