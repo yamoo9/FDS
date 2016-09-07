@@ -310,6 +310,7 @@ html {
  * .banner-container
  * ----------------------------- */
 .banner-container .banner-content {
+  overflow: hidden;
   height: 300px;
   background: #fff;
   border-radius: 5px;

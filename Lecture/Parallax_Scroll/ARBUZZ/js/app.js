@@ -1,32 +1,11 @@
-(function(global){
+(function(global, $, SM){
   'use strict';
 
   ///////////////
   // Detectizr //
   ///////////////
+
   global.Detectizr.detect();
-
-})(this);
-
-(function(global, $, SM){
-  'use strict';
-
-  //////////////
-  // TweenMax //
-  //////////////
-
-  // TweenMax.from('.brand', 1, {'y': -50});
-
-  // TweenMax.to('.brand', 1, {'y': 50});
-
-  // TweenMax.fromTo(document.querySelector('.brand'), 1, {'scaleX': 0, 'scaleY': 0}, {'scaleX': 1.2, 'scaleY': 1.2});
-
-  // $('.brand').on('click', function() {
-  //   // TweenMax.to(this, 1, {'scaleX': 2, 'scaleY': 2});
-  //   TweenMax.to(this, 1, {css: {rotation: 180, opacity: 0, scale: 0.5}, ease: Quad.easeInOut});
-  //   // $(this).animate({});
-  // });
-
 
   /////////////////
   // ScrollMagic //
@@ -35,70 +14,144 @@
   // Controller 객체 설정
   var ctrl = new SM.Controller();
 
-  //////////////////
-  // 핀 컨트롤(제어) //
-  //////////////////
-  var carousel_pin = new SM.Scene({
-    'triggerElement': '.carousel',
-    'triggerHook': 0,
-    'duration': 220
-  });
-
-  carousel_pin
-    .setPin('.carousel', {'pushFollowers': false})
-    .addTo(ctrl)
-    .addIndicators({
-      'name': 'carousel pin',
-      'colorStart': '#fe4940',
-      'colorEnd': '#36a8fe'
-    })
-    // .on('end', function(e) {
-    //   // console.log(e);
-    //   TweenMax.to( '.carousel h3', 1, {'x': -1000, 'autoAlpha': 0, 'ease': Power0.easeNone} )
-    // })
-    // .on('progress', function(e) {
-    //   var t = e.target.triggerElement();
-    //   t.style.opacity = 1 - e.progress;
-    //   // console.log('진행 중...', e.progress);
-    // });
-
-  ///////////////////////////
-  // GreenSock TimelineMax //
-  ///////////////////////////
-  var banner_tl = new TimelineMax();
-
-  banner_tl
-    .from( '.banner-shoes', 0.6, {'autoAlpha': 1, 'x': -1000, 'ease': Quad.easeOutBack} )
-    .from( '.banner-leather-bags', 0.6, {'autoAlpha': 1, 'x': 1000, 'ease': Quad.easeOutBack}, 0.3 )
-    .from( '.banner-woman', 0.6, {'autoAlpha': 1, 'x': 1000, 'ease': Quad.easeOutBack}, 0.4 )
-    .from( '.banner-collection', 0.6, {'autoAlpha': 1, 'x': -1000, 'ease': Quad.easeInOut},0.5 );
-
   ////////////////////////////////
   // 패럴럭스 씬 컨트롤(제어) 반복 구문 //
   ////////////////////////////////
-  // var scene_list = '.carousel, .banner-container, .products-tab, .about-us, .from-the-blog, .footer'.split(', ');
+
   var scene_list = '.banner-container, .products-tab, .about-us, .from-the-blog, .footer > *'.split(', ');
 
   scene_list.forEach(function(trigger_el_selector, idx) {
     var scene = new SM.Scene({
       'triggerElement': trigger_el_selector,
       'triggerHook': 0,
+      'offset': -600,
       // 'duration': 100,
-      // 'offset': -100 * idx,
-      'offset': -500,
       // 'reverse': false
     })
     .setClassToggle(trigger_el_selector, 'fade-in')
-    // .setPin(trigger_el_selector, {'pushFollowers': false})
-    .addTo(ctrl)
-    // .addIndicators({
-    //   'name': trigger_el_selector
-    // });
+    .addTo(ctrl);
 
-    if ( trigger_el_selector === '.banner-container' ) {
-      // console.log(scene);
-      scene.setTween( tl );
+    switch ( trigger_el_selector ) {
+      case '.banner-container':
+        scene.setTween( banner_tl );
+      break;
+      case '.products-tab':
+        scene.setTween( products_tl );
+      break;
     }
+
   });
+
+  //////////////////
+  // 핀 컨트롤(제어) //
+  //////////////////
+
+  var carousel_pin = new SM.Scene({
+    'triggerElement': '.carousel',
+    'triggerHook': 0,
+    'duration': 200
+  });
+
+  carousel_pin
+    .setPin('.carousel', {'pushFollowers': false})
+    .setTween(carousel_tl)
+    .addTo(ctrl);
+
+  ///////////////////////////////////
+  // GreenSock TimelineMax 애니메이션 //
+  ///////////////////////////////////
+
+  // 캐로셀
+  var carousel_tl = new TimelineMax();
+  carousel_tl
+    .from( '.carousel-content h3', 0.8, {
+      'css': {
+        'top': '-=10',
+        'left': '-=10'
+      },
+      'ease': Quad.easeInOut
+    } )
+    .from( '.carousel-content p', 1, {
+      'x': -20,
+      'ease': Quad.easeInOut
+    }, 0 )
+    .from( '.carousel-content img', 1, {
+      'x': 50,
+      'scale': 1.1,
+      'ease': Quad.easeInOut
+    }, 0 )
+
+  // 배너
+  var banner_tl = new TimelineMax();
+  banner_tl
+    .from('.banner-shoes', 0.6, {
+      'autoAlpha': 1,
+      'x': -1000,
+      'ease': Quad.easeOutBack
+    } )
+    .from('.banner-leather-bags', 0.6, {
+      'autoAlpha': 1,
+      'x': 1000,
+      'ease': Quad.easeOutBack
+    }, 0.3 )
+    .from('.banner-woman', 0.6, {
+      'autoAlpha': 1,
+      'x': 1000,
+      'ease': Quad.easeOutBack
+    }, 0.4 )
+    .from('.banner-collection', 0.6, {
+      'autoAlpha': 1,
+      'x': -1000,
+      'ease': Quad.easeInOut
+    }, 0.5 );
+
+  // 프로덕트
+  var products_tl = new TimelineMax();
+  products_tl
+    .fromTo('.products-tab .tab-handle', 0.4,
+    {
+      'autoAlpha': 0,
+      'scale': 0.5
+    },
+    {
+      'autoAlpha': 1,
+      'scale': 1
+    })
+    .fromTo('.products-tab .product-item:nth-child(1)', 0.4,
+    {
+      'autoAlpha': 0,
+      'scale': 0.5
+    },
+    {
+      'autoAlpha': 1,
+      'scale': 1
+    }, 0.2)
+    .fromTo('.products-tab .product-item:nth-child(2)', 0.4,
+    {
+      'autoAlpha': 0,
+      'scale': 0.5
+    },
+    {
+      'autoAlpha': 1,
+      'scale': 1
+    }, 0.4)
+    .fromTo('.products-tab .product-item:nth-child(3)', 0.4,
+    {
+      'autoAlpha': 0,
+      'scale': 0.5
+    },
+    {
+      'autoAlpha': 1,
+      'scale': 1
+    }, 0.6)
+    .fromTo('.products-tab .product-item:nth-child(4)', 0.4,
+    {
+      'autoAlpha': 0,
+      'scale': 0.5
+    },
+    {
+      'autoAlpha': 1,
+      'scale': 1
+    }, 0.8);
 
 })(this, this.jQuery, this.ScrollMagic);
