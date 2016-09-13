@@ -150,3 +150,74 @@ UX/UI에 관련된 내용을 정리하여 기술한 뷰를 제공하는 페이�
 ## 효선
 
 - 모바일 앱 View 페이지 구현 + GreenSock 모션 적용 (`<iframe>` 사용)
+
+-
+
+## 혜정
+
+laura.kang20@gmail.com
+
+Grid, Design PDF
+RWD System CSS
+
+- 언어/환경 정리
+  - [헤드퍼스트] HTML/CSS
+  - SVG
+  - [김춘경, 자바스크립트]
+- 과제 정리
+  - RWD, AWD Grid Layout 방향으로 발표
+- 포토폴리오 준비 (기존 사이트 선정)
+
+-
+
+## 은영
+
+1차 목표는 16일까지 완성
+
+- 유니세프 (비영리 단체), 모바일/데스크탑 전용 웹 페이지 제공 중...
+- RWD 구현 + Parallax 적용
+- HTML, CSS, jQuery 활용
+- 메인 / 활동 / 후원하기
+- 동작되는 기능/ 접근성 보다는 우선 페이지 뷰부터 완성
+
+-
+
+## 도훈
+
+- Emmet Game 발전...
+- dungeons and developers
+- Game UI 구현을 위한 View Layout jQuery Plguin 제작
+- Game Graphic -> View, Action
+
+-
+
+## 영배
+
+- Github.io Blog 정리 (배운 것 포스팅, 지식을 증명)
+- 코딩 스타일 가이드
+- 만들고 싶은 것: 음악인을 위한 노트 서비스 페이지 (API 활용, ToDoList, Links, BGM ...)
+- 완성이 목표가 아닌, 과정이 중요!!! (기록!!)
+
+-
+
+## 도원
+
+- kakaocorp.com 사이트 구현 [Mobile 접근 시 보여지는 처리 방식: JS]
+- Open API (대중교통수단 버스/지하철 도착 정보 View 구현)
+- Ajax 통신으로 데이터를 가져와 화면에 뿌림.
+
+JSON, XML 데이터 유형을 인증키를 발급 받아 요청 성공! (O)
+데이터를 받아오게 되면 뿌리는 뷰를 디자인(참고)
+
+```js
+// url + ?ServiceKey=서비스키url&&busRouteId=노선ID
+http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRouteAll?ServiceKey=vd%252BXuOxSYkSdD9ZqWeLHzhJliJHOVpDYseuOlZ%252BDtsct7EJkEPGm0sZUekQOPZqB%252BbFxyXmG18aCN9CNyud4Sw%253D%253D&busRouteId=25332
+```
+
+-
+
+## 선미
+
+- [RWD] PSD(Wireframe) -> HTML/CSS
+- Parallax Design : JS, ScrollMagic + GreenSock
+- A11y 구현/적용을 위한 기성 기업 사이트 선정/리뉴얼
