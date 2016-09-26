@@ -123,7 +123,7 @@
 
 ---
 
-## jekyll 특강 - Mac 환경
+## 1기 수료생 김한웅님의 Jekyll 특강 - `Mac 환경`
 
 - [한국어 버전 jekyll 사이트](https://jekyllrb-ko.github.io/)
 - [window 환경에서는 아래 링크 참조](http://hochulshin.com/how-to-use-jekyll-on-github-1/)
