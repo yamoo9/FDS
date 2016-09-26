@@ -112,12 +112,14 @@
 1. 포토샵 - File - Generate - Image Asset
 1. 레이어에서 name 으로 검색해서 파일 확장자 붙이기
 
->>예) icon
->>icon.svg
->>icon.svg, icon.png
->>icon.svg, icon.png, 200% icon@2x.png
+~~~
+예) icon
+icon.svg
+icon.svg, icon.png
+icon.svg, icon.png, 200% icon@2x.png
+~~~
 
-### 2. 포토샵 CS 하위 버전에서 이미지 자르기 action 만들기.
+## 2. 포토샵 CS 하위 버전에서 이미지 자르기 action 만들기.
 
 1. 자를 레이어의 영역이 선택 되어 있는 상태에서 new action을 만들어서 녹화 시작.
 1. 레이어 복제
