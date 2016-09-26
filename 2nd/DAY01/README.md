@@ -95,7 +95,7 @@
   - `<div>`
   - `<setion>`
   - `<article>`
-  - <aside>`
+  - `<aside>`
   -  `<main>`
 
 ---
