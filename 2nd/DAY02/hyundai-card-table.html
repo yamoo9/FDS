@@ -5,72 +5,11 @@
   <meta charset="UTF-8">
   <title>현대카드 표 디자인</title>
   <link rel="stylesheet" href="fonts/hyundai-card-font.css">
-  <style>
-  body {
-    margin: 4rem 8rem;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  .ym_tr {
-    font-family: "YouandiModernTR";
-  }
-  .ym_tb {
-    font-family: "YouandiModernTB";
-  }
-  .ym_heb {
-    font-family: "YouandiModernHEB";
-  }
-  .readable-hidden {
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-  }
-  .reset-list {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style: none;
-  }
-
-  /* hd-curture-project-table */
-  .hd-curture-project-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border-top: 3px solid #555555;
-    border-bottom: 1px solid #555555;
-  }
-  .hd-curture-project-table tr {
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .hd-curture-project-table tr:nth-child(2) > th:not(:first-child),
-  .hd-curture-project-table tr:nth-child(3) > *,
-  .hd-curture-project-table tr:nth-child(4) > * {
-    border-left: 1px solid #f0f0f0;
-  }
-  .hd-curture-project-table tr > *:first-child {
-    border-right: 1px solid #f0f0f0;
-  }
-  .hd-curture-project-table tr:nth-child(5) td {
-    border-right: 0;
-  }
-  .hd-curture-project-table th,
-  .hd-curture-project-table td {
-    padding: 1.6em 2em;
-  }
-  .hd-curture-project-table th {
-    text-align: left;
-  }
-  .hd-curture-project-table li::before {
-    content: '- ';
-    color: #666666;
-  }
-  </style>
+  <link rel="stylesheet" href="css/hc-table.css">
 </head>
 <body>
+  <!-- https://www.hyundaicard.com/cpl/cu/CPLCU0302_01.hc -->
+  <img class="rwd-img hd-curture-project-img" src="https://img.hyundaicard.com/cms_content/cp_culture/image/183825_BIG.jpg" alt="아이슬란드 대표 록 밴드 '시규어 로스'" width="1032" height="580">
 
   <table class="hd-curture-project-table ym_tr" aria-describedby="hd-curture-project-table-summary">
     <caption class="readable-hidden">현대카드 컬처프로젝트 24 시규어 로스 예매 정보</caption>
@@ -131,7 +70,7 @@
       <th scope="row">예매처</th>
       <td colspan="4">
         <ul class="reset-list">
-          <li>인터파크 홈페이지(ticket.interpark.com) 또는 고객센터(1544-1555)</li>
+          <li>인터파크 홈페이지(<a href="http://ticket.interpark.com">ticket.interpark.com</a>) 또는 고객센터(1544-1555)</li>
         </ul>
       </td>
     </tr>
