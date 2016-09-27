@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'YouandiModernTR';
+    font-style: normal;
+    font-weight: normal;
+    src: url(./Youandi_Modern_TextRegular.eot);
+    src: url(./Youandi_Modern_TextRegular.eot?#iefix) format('embedded-opentype'),
+         url(./Youandi_Modern_TextRegular.woff) format('woff')
+}
+@font-face {
+    font-family: 'YouandiModernTB';
+    font-style: normal;
+    font-weight: normal;
+    src: url(./Youandi_Modern_TextBold.eot);
+    src: url(./Youandi_Modern_TextBold?#iefix) format('embedded-opentype'),
+         url(./Youandi_Modern_TextBold.woff) format('woff')
+}
+@font-face {
+    font-family:'YouandiModernHEB';
+    font-style: normal;
+    font-weight: normal;
+    src: url(./Youandi_Modern_HeadExtraBold.eot);
+    src: url(./Youandi_Modern_HeadExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(./Youandi_Modern_HeadExtraBold.woff) format('woff')
+}
