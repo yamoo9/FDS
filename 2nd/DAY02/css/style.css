@@ -1,0 +1,35 @@
+/*! style.css © yamoo9.net, 2016 */
+body {
+  margin: 4rem;
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+/* 테이블 공통 디자인 */
+table {
+  /* 테두리 사이 공간이 제거 */
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid #111;
+}
+th, td {
+  padding: 0.45em 1em;
+}
+th {
+  text-align: left;
+}
+/*
+디자이너의 요구사항: 표 제목을 화면에서 감춤
+접근성 준수사항: 화면에서 감추되, 스크린리더는 읽음
+*/
+.readable-hidden,
+.a11y-hidden,
+.screen-off {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}

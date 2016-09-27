@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<title>JavaScript Core</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/01-var.js"></script>
+</head>
+<body>
+
+HTML5
+WCAG 2.0
+MWBP 1.0
+WAI-ARIA 1.0
+CSS 3
+ECMAScript 2015
+
+<p id="table-summary" class="readable-hidden">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 빛나는 피어나는 가슴을 청춘 사명으로 설레는 않고 다 들리는, 눈부신 그대 실수조차도 하루를 씩씩하게 내일의 소리, 하고!</p>
+
+<!-- 표 요소를 구조화(Markup) -->
+<table class="print-js-table" aria-describedby="table-summary">
+  <!-- 표 제목 구성(일반적으로 비주얼 상 표현되는 경우가 드뭅니다) -->
+  <caption class="readable-hidden">print javascript variables.</caption>
+  <!-- table row, 표의 행(Row) -->
+  <tr>
+    <!-- table cell header, 표의 제목 셀 -->
+    <th scope="row">x</th>
+    <!-- table cell data, 표의 내용 셀 -->
+    <td>
+      <script>document.write(x);</script>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">y</th>
+    <td>
+    <script>document.write(y);</script>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">language</th>
+    <td>
+    <script>document.write(language);</script>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
