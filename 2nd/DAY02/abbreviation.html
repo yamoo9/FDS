@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>축약, 인용</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+    }
+    /* 가상 클래스 */
+    /* 가상 요소 */
+    abbr { cursor: help; }
+
+    /* 미디어쿼리 */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      abbr:after,
+      abbr::after {
+        content: ' (' attr(title) ')';
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li>
+      <abbr lang="en" title="World Health Organization">WHO</abbr>
+    </li>
+    <li>
+      <abbr title="버스 카드 충전소">버카충</abbr>
+    </li>
+    <li>
+      <abbr title="세상에서 젤 귀여워">세젤귀</abbr>
+    </li>
+    <li>
+      <abbr title="오존층 파괴 애교">오파애</abbr>
+    </li>
+    <li>
+      <abbr title="프론트엔드 디벨롭 스쿨">프디스</abbr>
+    </li>
+  </ul>
+
+</body>
+</html>
