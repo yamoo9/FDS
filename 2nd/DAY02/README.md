@@ -161,5 +161,5 @@ abbr:, abbr:: 두번을 써주기.
 2. 화요일에 수업한 FDS/2nd/Resources/UI Kit - Aware/form.psd html 및 css로 완성하기.
 3. 화요일에 수업한 현대카드 테이블 html 및 css 로 완성하기. - 야무님 github 에 html 및 css 참고할 수 있음.
 
-## 위 과제를 자신의 깃헙에 (아이디/*fds*/hc-table/*index.html*) 경로로 올리기.
-## 자신의 깃헙(아이디/*fds*/*index.html*) 에 해당 과제로 바로 갈 수 있는 링크 리스트올리기.
+## 위 과제를 자신의 깃헙에 (아이디/*FDS*/hc-table/*index.html*) 경로로 올리기.
+## 자신의 깃헙(아이디/*FDS*/*index.html*) 에 해당 과제로 바로 갈 수 있는 링크 리스트올리기.
