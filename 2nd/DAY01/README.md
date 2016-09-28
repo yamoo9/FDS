@@ -2,8 +2,6 @@
 
 # DAY 01
 
-## 진행 내용
-
 ### 1. PSD to HTML/CSS
 
 디자인 리소스: [Article.psd](../Resources/Article.psd)
