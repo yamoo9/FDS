@@ -9,21 +9,32 @@
     blockquote > p:nth-of-type(2) ~ cite {
       background: #ff0;
     }
+
+    /*#demo, #quot, #para {}*/
+    [id] {}
+    [cite="http://wiki.com/quot"] {}
+    [data-app="fds-controller"] {}
+    [data-app|="fds"]{}
   </style>
 </head>
 <body>
 
-  <p>이순신 장군은 말하셨지. <q>내 죽음을 적에게 알리지 말라.</q> ...</p>
+  <div id="demo" data-app="fds-controller">
+    <p id="para">이순신 장군은 말하셨지. <q>내 죽음을 적에게 알리지 말라.</q> ...</p>
 
-  <!-- Block Quotation -->
-  <!-- 인용 글 -->
-  <!-- 출처 -->
-  <blockquote cite="http://wiki.com/quot">
-    <p>인용 1</p>
-    <!-- 인용에 사용된 글을 이야기 한 사람 citation -->
-    <cite>스피노피자</cite>
-    <p>인용 2</p>
-    <cite>갈릴레이 갈릴레오</cite>
-    <p>인용 3</p>
-    <cite>뉴튼</cite>
-  </blockquote>
+    <!-- Block Quotation -->
+    <!-- 인용 글 -->
+    <!-- 출처 -->
+    <blockquote id="quot" cite="http://wiki.com/quot">
+      <p>인용 1</p>
+      <!-- 인용에 사용된 글을 이야기 한 사람 citation -->
+      <cite>스피노피자</cite>
+      <p>인용 2</p>
+      <cite>갈릴레이 갈릴레오</cite>
+      <p>인용 3</p>
+      <cite>뉴튼</cite>
+    </blockquote>
+  </div>
+
+</body>
+</html>
