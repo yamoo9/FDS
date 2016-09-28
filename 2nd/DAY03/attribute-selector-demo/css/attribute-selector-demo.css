@@ -1,0 +1,55 @@
+body {
+  font: 14px/1.5 "Spoqa Han Sans", Sans-Serif;
+  letter-spacing: -0.03em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+abbr { cursor: help; }
+
+/* Common ----------------------------------------------------------------------------------- */
+.reset-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* DEMO Attr List --------------------------------------------------------------------------- */
+.demo-attr-list {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* External Link List ----------------------------------------------------------------------- */
+.external-list {}
+
+/* File Format List ------------------------------------------------------------------------- */
+.file-format-list {}
+
+/* SNS List --------------------------------------------------------------------------------- */
+.sns-list {}
+.sns-list:after,
+.sns-list::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.sns-list li {
+  float: left;
+  margin-right: 5px;
+}
+.sns-list a {
+  overflow: hidden;
+  display: block;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  text-indent: -9999em;
+}
+.sns-list a[href*="behance"]    { background-image: url("../images/icons/SNS/Behance.png");    }
+.sns-list a[href*="blogger"]    { background-image: url("../images/icons/SNS/Blogger.png");    }
+.sns-list a[href*="deviantart"] { background-image: url("../images/icons/SNS/DeviantArt.png"); }
+.sns-list a[href*="dropbox"]    { background-image: url("../images/icons/SNS/Dropbox.png");    }
+.sns-list a[href*="evernote"]   { background-image: url("../images/icons/SNS/Evernote.png");   }

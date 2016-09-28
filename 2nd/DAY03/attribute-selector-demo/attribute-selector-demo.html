@@ -4,54 +4,44 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>CSS 속성 선택자를 사용한 아이콘 디자인</title>
-  <style>
-  abbr { cursor: help; }
-
-  .sns-list {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style-type: none;
-  }
-
-  .sns-list:after,
-  .sns-list::after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
-  .sns-list li {
-    float: left;
-    margin-right: 5px;
-  }
-
-  .sns-list a {
-    overflow: hidden;
-    display: block;
-    width: 32px;
-    height: 32px;
-    text-decoration: none;
-    text-indent: -9999em;
-  }
-  .sns-list a[href*="behance"]    { background-image: url("images/icons/Behance.png");    }
-  .sns-list a[href*="blogger"]    { background-image: url("images/icons/Blogger.png");    }
-  .sns-list a[href*="deviantart"] { background-image: url("images/icons/DeviantArt.png"); }
-  .sns-list a[href*="dropbox"]    { background-image: url("images/icons/Dropbox.png");    }
-  .sns-list a[href*="evernote"]   { background-image: url("images/icons/Evernote.png");   }
-  </style>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/attribute-selector-demo.css">
 </head>
 <body>
 
-  <h1><abbr lang="en" title="Social Network Service">SNS</abbr> 링크 목록</h1>
+  <!-- External Link -->
+  <section class="demo-attr-list">
+    <h1>외부 링크(새 창, 새 탭) 감지 목록</h1>
+    <ul class="external-list reset-list">
+      <li>
+        <a href="../javascript-core-part2.html">javascript-core-part2</a>
+      </li>
+      <li>
+        <a href="css/attribute-selector-demo.css">attribute-selector-demo</a>
+      </li>
+      <li>
+        <a href="http://fastcampus.co.kr/" target="_blank">패스트캠퍼스</a>
+      </li>
+      <li>
+        <a href="https://github.com/yamoo9/FDS/">FDS GitHub Repository</a>
+      </li>
+    </ul>
+  </section>
 
-  <ul class="sns-list">
-    <li><a href="http://behance.com" title="Behance">Behance</a></li>
-    <li><a href="http://blogger.com" title="Blogger">Blogger</a></li>
-    <li><a href="http://deviantart.com" title="DeviantArt">DeviantArt</a></li>
-    <li><a href="http://dropbox.com" title="Dropbox">Dropbox</a></li>
-    <li><a href="http://evernote.com" title="Evernote">Evernote</a></li>
-  </ul>
+  <!-- File Format -->
+  <section class="demo-attr-list"></section>
+
+  <!-- SNS -->
+  <section class="demo-attr-list">
+    <h1><abbr lang="en" title="Social Network Service">SNS</abbr> 링크 목록</h1>
+    <ul class="sns-list reset-list">
+      <li><a href="http://behance.com" title="Behance">Behance</a></li>
+      <li><a href="http://blogger.com" title="Blogger">Blogger</a></li>
+      <li><a href="http://deviantart.com" title="DeviantArt">DeviantArt</a></li>
+      <li><a href="http://dropbox.com" title="Dropbox">Dropbox</a></li>
+      <li><a href="http://evernote.com" title="Evernote">Evernote</a></li>
+    </ul>
+  </section>
 
 </body>
 </html>
