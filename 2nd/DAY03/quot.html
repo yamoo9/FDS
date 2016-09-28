@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>인용(Quoation)</title>
+  <style>
+    /*1st, 2nd, 3rd, 4th, 5th, 6th, ...., nth*/
+    blockquote > p:nth-of-type(2) ~ cite {
+      background: #ff0;
+    }
+  </style>
+</head>
+<body>
+
+  <p>이순신 장군은 말하셨지. <q>내 죽음을 적에게 알리지 말라.</q> ...</p>
+
+  <!-- Block Quotation -->
+  <!-- 인용 글 -->
+  <!-- 출처 -->
+  <blockquote cite="http://wiki.com/quot">
+    <p>인용 1</p>
+    <!-- 인용에 사용된 글을 이야기 한 사람 citation -->
+    <cite>스피노피자</cite>
+    <p>인용 2</p>
+    <cite>갈릴레이 갈릴레오</cite>
+    <p>인용 3</p>
+    <cite>뉴튼</cite>
+  </blockquote>
