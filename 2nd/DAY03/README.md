@@ -1,3 +1,7 @@
+###### Front-End Develop SCHOOL
+
+# DAY 03
+
 ### DOM Script 기초
 
 #### 변수
@@ -191,9 +195,6 @@ svg 파일 내부에 클래스 path, rect에 공통 클래스를 준다.<br>
 스타일 클래스 내부에 부여된 클래스에 fill 요소의 컬러를 적용하면 된다.
 
 
-###### Front-End Develop SCHOOL
-
-# DAY 03
 
 ### 웹 프론트엔드는 아주 쉽습니다.
 
