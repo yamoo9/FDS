@@ -62,6 +62,17 @@ nav a:focus,
 
 /* File Format List ------------------------------------------------------------------------- */
 .file-format-list {}
+.file-format-list a {padding-left: 1.5em;}
+.file-format-list a[href$=".psd"]  { background: url("../images/icons/file-type-collection/svg/psd.svg") no-repeat; }
+.file-format-list a[href$=".ai"]   { background: url("../images/icons/file-type-collection/svg/ai.svg") no-repeat; }
+.file-format-list a[href$=".pdf"]  { background: url("../images/icons/file-type-collection/svg/pdf.svg") no-repeat; }
+.file-format-list a[href$=".id"]   { background: url("../images/icons/file-type-collection/svg/indesign.svg") no-repeat; }
+.file-format-list a[href$=".mp3"]  { background: url("../images/icons/file-type-collection/svg/mp3.svg") no-repeat; }
+.file-format-list a[href$=".mp4"]  { background: url("../images/icons/file-type-collection/svg/mp4.svg") no-repeat; }
+.file-format-list a[href$=".html"] { background: url("../images/icons/file-type-collection/svg/html.svg") no-repeat; }
+.file-format-list a[href$=".css"]  { background: url("../images/icons/file-type-collection/svg/css.svg") no-repeat; }
+.file-format-list a[href$=".js"]   { background: url("../images/icons/file-type-collection/svg/javascript.svg") no-repeat; }
+.file-format-list a[href$=".json"] { background: url("../images/icons/file-type-collection/svg/json-file.svg") no-repeat; }
 
 /* SNS List --------------------------------------------------------------------------------- */
 .sns-list {}
