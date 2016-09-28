@@ -5,25 +5,33 @@
 ### DOM Script 기초
 
 #### 변수
+
 > 변수를 지정하는 이유는 캐시에 저장을 해서 성능을 향상시키기 위해서이다.<br>
 > 변수를 저장하지 않으면 휘발적으로 값이 없어진다.<br>
 
-- 문서 열고 개발도구 누르고 엘리먼트 누르고 ESC누르면 콘솔창이 열림.<br>
+※ 문서 열고 개발도구 누르고 엘리먼트 누르고 ESC누르면 콘솔창이 열림.<br>
 
 #### 문서 객체를 찾아오는 방법 1. (단수, 1개)<br>
+
 **id 속성으로 문서 객체를 찾는 방법**<br>
 문서에서 #you 요소를 찾는다.
+
 ```js
 var you = document.getElementById('you');
 console.log('you:', you);
 ```
+
 ### 문서 객체를 찾아오는 방법 2. (복수, 여러 개 수집(Collection))
+
 **요소(Element)의 이름으로 문서 객체들을 찾는 방법**<br>
+
 문서에서 `<a>` 요소를 찾는다.
+
 ```js
 var links  = document.getElementsByTagName('a');
 console.log('links:', links);
 ```
+
 > 여러 개의 `<a>` 요소들을 찾아 온다.<br>
 찾아온(수집한) 문서 객체들의 목록을 Nodelist 라고 부른다.<br>
 Nodelist 안에서 아이템(item)을 빼오려면 .item() 메소드를 사용해야한다.<br>
@@ -38,11 +46,9 @@ var link_1 = links.item(0);
 var link_2 = links[1];
 ```
 
-
-
 #### `<vw>`
 
-**viewport width** 라는 의미이다
+**viewport width** 라는 의미이다.
 
 > 상대적으로 바뀌는 단위
 
@@ -52,21 +58,21 @@ var link_2 = links[1];
 
 #### 1) 자식과 자손의 선택자 표기법
 
-.demo.container .align-right<br>
+`.demo.container .align-right`<br>
 > 띄어쓰기가 되면 데모컨테이너 내부에서 찾는것 (자식요소)
 
-.demo.container.align-right
+`.demo.container.align-right`
 > 하나의 요소에 두개가 해당된 것을 의미
 
 > 익스스플로러 6버전에서는 선택자의 순서가 중요하다.<br> `.demo-container.align-right`와 `.align-right.demo-container`를 다르게 인식하지만 상위 버전에서는 구분 가능하다.
 
 #### 2) 자식과 자손의 차이 (특정 요소를 선택하는 방법)
 
-.demo-containter article
+`.demo-containter article`
 > demo-containter 안에 있는 article(자손) 모두를 찾음<br>
   ex) 총 3개
 
-.demo-containter > article
+`.demo-containter > article`
 > demo-containter 안에 있는 직계 자식(형제 요소들)를 찾음<br>
   ex) 아래에서는 2번째 줄의 `article`과 3번째 줄의 `article`을 의미한다
 
@@ -92,9 +98,9 @@ var link_2 = links[1];
 
 `> div` : * > div 로 인식 (사용은 피하자)<br>
 `+` : Adjacent Sibling Combinator(CSS2부터 사용)
-> h1+p : + 은 반드시 뒤에 요소를 의미한다. 이것은 h1의 바로 뒤의 형제에 p요소를 의미한다.<br>
+> `h1+p` : + 은 반드시 뒤에 요소를 의미한다. 이것은 h1의 바로 뒤의 형제에 p요소를 의미한다.<br>
 > Sibling : 형제들을 의미한다<br>
-> div#content + p : +에 공백을 넣어도 상관없다<br>
+> `div#content + p` : +에 공백을 넣어도 상관없다<br>
 
 `'~'` : General Sibling Combinator<br>
 > '일반 형제' 를 의미한다.<br>
@@ -113,7 +119,7 @@ var link_2 = links[1];
 ### `<nth-child>` 와 `<nth-of-type>`
 
 #### 1)`<nth-child>`
-<br>
+
 `<nth-child>` : 부모의 n번째 자식 요소를 의미한다.
 
 ```js
@@ -125,6 +131,7 @@ var link_2 = links[1];
   <li><a href="">즐겁게</a></li>
 </ul>
 ```
+
 > `<nth-child>`는 `<li>`에서 특정 요소를 선택할때 사용하는 것이 좋다.<br>
 > 상단의 코드에서, 만약 `ul > li:nth-child(2)`라고 선택자를 표시하면 이것은 2번째 자식요소를 말한다.<br>
 > 하지만 `<li>`요소가 아닌 다른 요소에서 사용 한다면 <br>
@@ -132,7 +139,7 @@ var link_2 = links[1];
 > 2번째 자식 요소라는 보장이 없기 때문에 선택이 되지 않아서 오류가 발생 할수도 있다.
 
 #### 2)`<nth-of-type>`
-<br>
+
 `<nth-of-type>` : 같은 유형의 n번째 형제를 의미한다.
 
 ```js
@@ -145,40 +152,47 @@ var link_2 = links[1];
   <cite>뉴튼</cite>
 </blockquote>
 ```
+
 > 위의 코드에서 `blockquote` 내부에서 2번째 `p`를 선택하고자 한다면,<br>
 > 위의 코드에서 `blockquote > p:nth-child(2)`를 쓰면 <br>
 > 2번째 요소가 `p`가 아니기때문에 값이 출력이 되지 않는다.<br>
 > 그러므로 `blockquote > p:nth-of-type(2)`를 사용해야한다.<br>
 
-- 하위브라우저가 가상 클래스가 작동이 안되니 클래스를 부여하는게 좋다.<br>
+※ 하위 브라우저가 가상 클래스가 작동이 안되니 클래스를 부여하는게 좋다.<br>
 
 #### `<q>`, `<bq>`, `<cite>`
-<br>
+
 `<q>`  : `quote`의 약자로 인용구가 짧을때 인라인 요소로 사용된다.<br>
 `<bq>` : `blockquote`의 약자로 인용구가 많을때 사용한다.<br>
 
 `<cite>` :<br>
-1) 요소로써의 `cite`는 인용에 사용된 글을 이야기 한 사람 citation을 의미한다. .<br>
+1) 요소로써의 `cite`는 인용에 사용된 글을 이야기 한 사람 citation을 의미한다.<br>
 2) 속성으로써의 `cite`는 인용한 웹페이지 주소를 표기할때 사용한다.
 
 ### 포토샵 기능
-포토샵에서 여러개를 자르기(icon)
+
+포토샵에서 여러 개를 자르기(icon)
+
 > file > automate >Crop and stratighten photo<br>
 
 포토샵에서 같은 색상 없애기
-> select> similiar 선택후 레이어에서 masking<br>
+
+> select > similiar 선택후 레이어에서 masking<br>
 
 ### 상대경로와 절대경로
- `../` : 현재 폴더에서 한칸 상위로 나가는 명령어<br>
- `./` : 자신의 현재 위치에서 찾는 (생략해도 동일한 결과) <br>
- `/` : 절대적인 하나의 경로를 기준으로 함 <br>
+
+`../` : 현재 폴더에서 한칸 상위로 나가는 명령어<br>
+`./` : 자신의 현재 위치에서 찾는 (생략해도 동일한 결과) <br>
+`/` : 절대적인 하나의 경로를 기준으로 함 <br>
 
 ### 멀티커서 사용법
+
 `컨트롤 + 쉬프트 + 방향키` : 다중으로 선택하기 위한 멀티커서를 사용가능하게 한다.<br>
 `멀티커서 상태 + 알트 + 방향키` : 블럭별로 커서 이동 <br>
 `멀티커서 상태 + 쉬프트 + 알트 + 방향키` :블럭 선택 <br>
+
 > 서브라임 교육과정 https://www.inflearn.com/?post_type=course&s=sublime <br>
-> https://developer.mozilla.org/ko/ (공부하기 좋은 사이트) <br>
+> MDN https://developer.mozilla.org/ko/ (공부하기 좋은 사이트) <br>
 
 ## Advanced Attrribute Select
 
@@ -190,11 +204,11 @@ var link_2 = links[1];
 > href에 "http://"와 target이 블랭크 값을 가진 것을 둘다 해당되는 요소를 의미한다.
 
 #### svg 파일에서 컬러 수정하는 방법
-<br>
+
 svg 파일 내부에 클래스 path, rect에 공통 클래스를 준다.<br>
 스타일 클래스 내부에 부여된 클래스에 fill 요소의 컬러를 적용하면 된다.
 
-
+-
 
 ### 웹 프론트엔드는 아주 쉽습니다.
 
@@ -203,4 +217,3 @@ svg 파일 내부에 클래스 path, rect에 공통 클래스를 준다.<br>
 
 <img src="../Assets/D3-front-end-easy-false.jpg" alt="" width="555" height="2691.75">
 <img src="../Assets/D3-daguri.jpg" alt="다구리" width="555" height="363.128571429">
-
