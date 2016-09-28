@@ -27,7 +27,7 @@ console.log('you:', you);
 // 문서 객체를 찾아오는 방법 2. (복수, 여러 개 수집(Collection))
 // 요소(Element)의 이름으로 문서 객체들을 찾는 방법
 // 문서에서 <a> 요소를 찾는다.
-var links = document.getElementsByTagName('a');
+var links  = document.getElementsByTagName('a');
 console.log('links:', links); // 여러 개의 <a> 요소들을 찾아 온다.
 // 찾아온(수집한) 문서 객체들의 목록을 Nodelist 라고 부른다.
 // Nodelist 안에서 아이템(item)을 빼오려면 .item() 메소드를 사용해야 하나,

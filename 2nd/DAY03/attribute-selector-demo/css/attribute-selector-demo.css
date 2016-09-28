@@ -41,6 +41,7 @@ nav a:focus,
   border-top: 1px solid #2bffd4;
   border-bottom: 1px solid #2bffd4;
   padding: 30px 0;
+  background: linear-gradient(0deg, hsla(168, 100%, 58%, 0.1) 5%, transparent, hsla(168, 100%, 58%, 0.1) 95%);
 }
 
 .demo-attr-list * {
@@ -60,7 +61,7 @@ nav a:focus,
   background-size: 13px 13px;
 }
 .external-list a[target="_blank"]:focus {
-  background: #3bf8f3;
+  background-color: #3bf8f3;
 }
 
 /* File Format List ------------------------------------------------------------------------- */
