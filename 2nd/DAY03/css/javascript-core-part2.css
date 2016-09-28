@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+.demo-container {
+  width: 70vw;
+  height: 100vh;
+  background: #000;
+}
+.demo-container.align-left {
+  margin-right: auto;
+}
+.demo-container.align-right {
+  margin-left: auto;
+}
+.demo-container.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}

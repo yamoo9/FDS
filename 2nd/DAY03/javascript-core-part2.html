@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>JavaScript Core Part 2</title>
+  <link rel="stylesheet" href="css/javascript-core-part2.css">
+  <!-- <script src="js/javascript-core-part2.js"></script> -->
+</head>
+<body>
+
+<button type="button" class="align-right-button">오른쪽 정렬</button>
+
+<div class="demo-container"></div>
+
+<script>
+// 문서에서 버튼을 찾아서
+var btn = document.getElementsByTagName('button');
+// 문서에서 찾은 demo-container 요소에
+var demo = document.getElementsByTagName('div')[0];
+// console.log(demo);
+// console.log(btn);
+// 사용자가 클릭하면
+// 기능(Function)이 동작된다.
+btn.item(0).onclick = function(){
+  // console.log('clicked button')
+  // align-right 클래스 속성을 추가한다.
+  var old_class = demo.getAttribute('class');
+  console.log('old_class:', old_class);
+  demo.setAttribute('class', old_class + ' align-right');
+};
+
+</script>
+</body>
+</html>
