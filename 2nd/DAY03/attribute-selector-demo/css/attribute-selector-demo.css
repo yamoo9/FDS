@@ -8,12 +8,26 @@ h1, h2, h3, h4, h5, h6 {
 abbr { cursor: help; }
 
 /* Common ----------------------------------------------------------------------------------- */
+nav ul,
+nav ol,
 .reset-list {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
   list-style-type: none;
 }
+nav a,
+.reset-list a {
+  text-decoration: none;
+}
+
+/* <a> 상태 디자인 */
+nav a:link,
+.reset-list a:link {}
+.reset-list a:hover {}
+.reset-list a:visited {}
+.reset-list a:active {}
+.reset-list a:focus {}
 
 /* DEMO Attr List --------------------------------------------------------------------------- */
 .demo-attr-list {
