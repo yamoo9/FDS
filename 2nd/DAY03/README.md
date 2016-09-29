@@ -210,7 +210,7 @@ svg 파일 내부에 클래스 path, rect에 공통 클래스를 준다.<br>
 
 -
 
-### 웹 프론트엔드는 아주 쉽습니다.
+### 웹 프론트엔드는 아주 쉽습니다..
 
 위 문구에 :fire:**열폭**:fire:한 **프론트엔드 현업 종사자/관계자들**. :rage1: :goberserk: :rage2: :rage3: :finnadie: :goberserk: :godmode: :feelsgood:<br>
 주먹:facepunch:을 부르는 문구였던 겁니다! **필살기 연타!!** :arrow_left: :arrow_lower_left: :arrow_down: :arrow_lower_right: :arrow_right: :heavy_plus_sign: :parking: :repeat:
