@@ -4,7 +4,7 @@
 
 ## GIT
 	- Version control system(버전 관리 시스템)으로 프로젝트를 진행하면서 생성하는 코드를 분산 관리 하기 위해 사용되는 툴이다.
-	
+
     - GIT의 용어 정리
     	> working directory
     		- 실질적으로 개발자가 소스를 작성하는 디렉토리(파일)
@@ -21,11 +21,11 @@
      		- fetch로 받아온 파일들을 local repo.에 있는 파일과 합치는 것이다.
      	> pull
      		- pull은 remote repo.에 있는 파일들을 fetch -> merge를 한번에 하는 것이다.
-     		
-    - GIT사용 방법 
+
+    - GIT사용 방법
 	  GUI환경 (Graphic User Interface) -> ex> 소스트리
 	  CLI환경 (Command line interface) -> ex> 명령프롬프트, 파워쉘, git bash, 터미널
-     
+
 	- GIT 장점?
 	  로벌 저장소가 제공된다.
 	  소스 코드 공유가 용이하다.
@@ -50,11 +50,11 @@
                       i : 삽입모드
                       q! : 저장안하고 나오기
                       :wq : 저장하고 나오기
-        
+
 
 # GIT 사용하기
 
-	1. local에서 원하는 경로로 가서 git를 사용할 폴더를 만든다. 
+	1. local에서 원하는 경로로 가서 git를 사용할 폴더를 만든다.
 		ex> c:\git     => 해당 경로(c드라이브 및)에 에 git라는 폴더를 만든다.
     2. 해당 폴더로 이동한다.
 	3. git 설정 초기화를 한다. (아래 단계부터는 명령창에서 명령어를 입력한다.)
@@ -77,8 +77,8 @@
     	ex> git commit -m "." 	=> -m 은 메시지를 입력하겠다라는 옵션이며 "메시지내용"을 함께 적어준다.
     13. push단계 : local repo. 에 있는 a.txt를 remote repo.로 올린다. 이 작업이 끝나면 서버(remote repo.)에 최종적으로 파일이 올라가게 되며 최신상태로 업데이트가 된다.
     	ex> git push origin master	=> master권한(branch명)으로 내 local repo.(origin)를 push하겠다 라는 의미이다. master와 origin은 별다른 설정이 없다면 이와 같이 설정이 된다.
-        
-    
+
+
     14. 추가적으로 다른 사용자와 함께 공유할 경우 충돌이 날 수 있는 상황을 생각해보자.
     15. A와 B가 같은 remote repo.를 각각의 local에 복제한 후 a.txt라는 파일을 각각 수정 하였다.
     16. A가 먼저 remote repo.에 push를 했을 때 B는 commit을 한 상태 였다.
@@ -87,9 +87,9 @@
     19. 이 때 merge를 통해 다른 부분(수정된 부분)을 찾아 바꿔주어 pull로 local을 최신상태를 만든다.
     20. 그 이후에 자신이 추가적으로 수정하여 remote repo.에 push하게 되면 완료가 된다.
     21. A는 pull을 하면 최신 상태를 받아 올 수 있고, A,B 모두 최신 상태를 local에 복사 할 수 있다.
-    
-    
-	
+
+
+
 	- 그 외 git 명령어
 	- git reference를 참고한다. https://git-scm.com/docs
 	  git 명령어 ‐‐help 	 => 도움말같이, 명령어 모를때 도움됨.
