@@ -5,19 +5,19 @@
 
 1. 변수 선언  
 ```
- ex) var my_name;                      // 변수 선언만 하게 되면 undefined
+ var my_name;                      // 변수 선언만 하게 되면 undefined
 ```
 
 2. 선언된 변수에 값 할당
 ```
-ex) current_state = 200;
+current_state = 200;
 ```
 
 3. 선언과 동시에 값 할당
 ```
-ex) var current_state = 200;         // 숫자
-    var is_finished   = false;           // 불리언
-    var container_el  = null;            // 비어 있다.
+ var current_state = 200;         // 숫자
+ var is_finished   = false;           // 불리언
+ var container_el  = null;            // 비어 있다.
 ```
 
 4. var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
@@ -45,13 +45,13 @@ second === first;       //false
 
 ## 문서 객체 제어
 
-`ex) my_parent=getElementById('my-parent');`
+` my_parent=getElementById('my-parent');`
  
 > HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다. 
  *(자바스크립트는 변수명에 **'-'**을 사용 할 수 없다. **'_'**를 사용하는 것에 주의.)*
 
 ```
-ex) my_parent.style.border='1px solid #7e5dc4';
+ my_parent.style.border='1px solid #7e5dc4';
     child_1.style.color = '#7e5dc4';
     child_2.style.background = '#7e5dc4';
     child_2.style.color = '#fff';
