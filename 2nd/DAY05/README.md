@@ -160,10 +160,10 @@ body {
 
 ## 포토샵 - 투명 배경 만들기
 
-1. Rectangula Marquee Tool로 원하는 부분 선택 (shift를 누르고 드래그하면 중복 선택가능)
+1. Rectangula Marquee Tool로 원하는 부분 선택 (shift를 누르고 드래그하면 중복 선택가능)<br>
 ![Rectangula Marquee Tool](http://pe-images.s3.amazonaws.com/basics/cc/new-features/2015/customize-toolbar/rectangular-marquee-tool-group.gif) 
 2. 복사 - 새창에서 붙여넣기 (복사 후 file-new 하면 clipboard의 이미지가 그대로 붙여넣기 됨)
-3. Magic Wand Tool로 버릴 배경 선택.
+3. Magic Wand Tool로 버릴 배경 선택.<br>
 ![magic wand tool](http://pe-images.s3.amazonaws.com/basics/clipping-masks/essentials/magic-wand-tool.gif)
 4. 배경 Delet
 5. Image - Trim 하면 가장자리 부분이 이미지에 맞게 잘린다.
