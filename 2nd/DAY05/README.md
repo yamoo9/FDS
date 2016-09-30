@@ -13,14 +13,14 @@
 current_state = 200;
 ```
 
-3. 선언과 동시에 값 할당
+3.선언과 동시에 값 할당
 ```
  var current_state = 200;         // 숫자
  var is_finished   = false;           // 불리언
  var container_el  = null;            // 비어 있다.
 ```
 
-4. var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
+4.var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
 
 ---
 
