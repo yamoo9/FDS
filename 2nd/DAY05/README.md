@@ -5,7 +5,7 @@
 
 1. 변수 선언  
 ```
- ex) var my_name;                      *// 변수 선언만 하게 되면 undefined*
+ ex) var my_name;                      _// 변수 선언만 하게 되면 undefined_
 ```
 
 2. 선언된 변수에 값 할당
