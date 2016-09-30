@@ -47,3 +47,26 @@ console.log('fds_view:', fds_view);
 
 // fds_model 변수 값이 바뀌었기 때문에 둘의 결과 값은 더 이상 동일하지 않다.
 console.log('fds_model === fds_view:', fds_model === fds_view);
+
+// -----------------------------------------------------------------
+// 문서에서 id 값이 my-parent, child-one, child-two 식별이 가능한 요소를 찾아와
+// 적절한 이름을 가진 변수에 할당한다.
+
+// var my_parent, child_1, child_2;
+// var my_parent = null;
+// var child_1   = null;
+// var child_2   = null;
+
+var my_parent = document.getElementById('my-parent');
+var child_1   = document.getElementById('child-one');
+var child_2   = document.getElementById('child-two');
+
+console.log('my_parent:', my_parent);
+console.log('child_1:', child_1);
+console.log('child_2:', child_2);
+
+// 문서 객체 제어
+my_parent.style.border = '1px solid #7e5dc4';
+child_1.style.color = '#7e5dc4';
+child_2.style.background = '#7e5dc4';
+child_2.style.color = '#fff';
