@@ -34,12 +34,12 @@ var second;
 second = first;
 second === first;        //true    ( '==='은  등호. equal)
 ```
->>단, 여기서 first과 second의 데이터는 같으나 메모리 저장소는 다름. 따라서
+- 단, 여기서 first과 second의 데이터는 같으나 메모리 저장소는 다름. 따라서
 ```
 first = 'another data';
 second === first;       //false
 ```
->>한 변수에만 다른 값을 할당하면 둘은 다른 값을 가지게 된다.
+- 한 변수에만 다른 값을 할당하면 둘은 다른 값을 가지게 된다.
  
 ---
 
@@ -47,8 +47,8 @@ second === first;       //false
 ```
  my_parent = getElementById('my-parent');
 ```
->HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다.
-(자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
+- HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다.
+ (자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
 
 ```
  my_parent.style.border='1px solid #7e5dc4';
@@ -56,7 +56,7 @@ second === first;       //false
  child_2.style.background = '#7e5dc4';
  child_2.style.color = '#fff';
 ```
->할당된 값을 사용해서 자바스크립트 안에서도 스타일을 제어할 수 있다.
+- 할당된 값을 사용해서 자바스크립트 안에서도 스타일을 제어할 수 있다.
 
 ---
 
@@ -103,7 +103,7 @@ img {
  height: auto;
 }
 ```
->'vertical-align'은 이미지를 화면에 꽉차게 할 때, 이미지 아래에 자동으로 삽입되는 간격을 없애고 싶을 때 사용.
+- 'vertical-align'은 이미지를 화면에 꽉차게 할 때, 이미지 아래에 자동으로 삽입되는 간격을 없애고 싶을 때 사용.
 
 ---
 
@@ -125,19 +125,19 @@ transform-origin: 0 0;
 ![](http://www.magazinedesigning.com/wp-content/uploads/2013/06/drop-caps-initials-4.jpg)
 ```
 p::first-letter {
- float: left;
- margin: ...;
- font-size: ...;
- font-weight: ...;
- line-height: ...;
+  float: left;
+  margin: ...;
+  font-size: ...;
+  font-weight: ...;
+  line-height: ...;
 }
 ```
 
 ## 브라우저 스타일 초기화 모듈
 ```
 body {
- margin: 0;
- font: 1rem/1.5 "Spoqa Han Sans", Sans-Serif;
+  margin: 0;
+  font: 1rem/1.5 "Spoqa Han Sans", Sans-Serif;
 }
 ```
 - font: (font-weight) (font-style) (font-variant) [font-size]/[line-height] [font-family];
@@ -149,22 +149,22 @@ body {
 ## clearfix 모듈
 ```
 .clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
+   content: '';
+   display: block;
+   clear: both;
 }
 ```
-> float 속성 적용이 많을 때 필요할 경우 clearfix 요소를 추가해서 제어할 수 있다.
+- float 속성 적용이 많을 때 필요할 경우 clearfix 요소를 추가해서 제어할 수 있다.
 
 ---
 
 ## 포토샵 - 투명 배경 만들기
 
-1. ![Rectangula Marquee Tool](http://pe-images.s3.amazonaws.com/basics/cc/new-features/2015/customize-toolbar/rectangular-marquee-tool-group.gif)
- Rectangula Marquee Tool로 원하는 부분 선택 (shift를 누르고 드래그하면 중복 선택가능)
+1. Rectangula Marquee Tool로 원하는 부분 선택 (shift를 누르고 드래그하면 중복 선택가능)
+![Rectangula Marquee Tool](http://pe-images.s3.amazonaws.com/basics/cc/new-features/2015/customize-toolbar/rectangular-marquee-tool-group.gif) 
 2. 복사 - 새창에서 붙여넣기 (복사 후 file-new 하면 clipboard의 이미지가 그대로 붙여넣기 됨)
-3. ![magic wand tool](http://pe-images.s3.amazonaws.com/basics/clipping-masks/essentials/magic-wand-tool.gif)
- Magic Wand Tool로 버릴 배경 선택.
+3. Magic Wand Tool로 버릴 배경 선택.
+![magic wand tool](http://pe-images.s3.amazonaws.com/basics/clipping-masks/essentials/magic-wand-tool.gif)
 4. 배경 Delet
 5. Image - Trim 하면 가장자리 부분이 이미지에 맞게 잘린다.
 6. 저장
