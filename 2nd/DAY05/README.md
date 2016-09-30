@@ -48,7 +48,7 @@ second === first;       //false
  my_parent = getElementById('my-parent');
 ```
 > HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다.
-> (자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
+ (자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
 
 ```
  my_parent.style.border='1px solid #7e5dc4';
@@ -112,9 +112,9 @@ img {
 transform: rotate(-90deg) translateX(-100%);
 transform-origin: 0 0;
 ```
-> * 'transform-origin'은 회전하는 기준점. 설정하지 않으면 기본값은 요소의 중심이다.(50% 50%)
-> * 'rotate'는 회전, '()'는 각도(-는 반시계 방향, 양수는 시계방향으로 돈다)
-> * 'translateX'는 X축(좌우 이동), 'translateY'는 Y축(상하 이동)
+>  'transform-origin'은 회전하는 기준점. 설정하지 않으면 기본값은 요소의 중심이다.(50% 50%)
+>  'rotate'는 회전, '()'는 각도(-는 반시계 방향, 양수는 시계방향으로 돈다)
+>  'translateX'는 X축(좌우 이동), 'translateY'는 Y축(상하 이동)
 >>  _단, 여기서는 90도 회전하였으므로 translateX(-100%)은 좌우가 아니라 아래로 이동하게 된다.
    회전한 요소의 width, height도 원래요소 모양으로 적용되므로 회전후 화면에 보이는 폭과 너비로 생각하면 안된다._
 
