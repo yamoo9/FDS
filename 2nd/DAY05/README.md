@@ -77,3 +77,9 @@ __시험을 앞둔 페친들을 위한 자극 짤.mp4__<br>
 [![](../Assets/D5-study-king.jpg)](https://www.facebook.com/MBC/videos/1337187736314270/)
 
 영상 보고 자극 받으세요!!!!!
+
+참고로 여러분의 교과서는 도서가 아니고,<br>
+[MDN](https://developer.mozilla.org/ko/docs/Web)입니다.
+
+![](../Assets/D5-MDN.jpg)
+
