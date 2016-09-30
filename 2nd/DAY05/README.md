@@ -44,9 +44,9 @@ second === first;       //false
 ---
 
 ## 문서 객체 제어
-
-` my_parent=getElementById('my-parent');`
- 
+```
+ my_parent = getElementById('my-parent');
+```
 > HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다. 
  *(자바스크립트는 변수명에 **'-'**을 사용 할 수 없다. **'_'**를 사용하는 것에 주의.)*
 
