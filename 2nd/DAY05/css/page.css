@@ -1,0 +1,87 @@
+/*! page.css © yamoo9.net, 2016 */
+
+/**
+ *  Attribute Selector
+ *    [attribute] e.g) [id], [title], [data-content]
+ *    [attribute="value"]
+ *    [attribute^="start_keyword"] e.g) [href^="/"], [href^="http://"][target="_blank"]
+ *    [attribute$="end_keyword"] e.g) [href$=".pdf"]
+ *    [attribute*="every"] e.g) [href*="mouse"]
+ *    [attribute~=" "]
+ *    [attribute|=" - "]
+ *
+ *  Pseudo Class VS Pseudo Element
+ *  CSS2 에서는 가상 클래스나 가상 요소 모두, 앞에는 `:`
+ *  CSS3 부터는 가상 요소 앞에는 `::`
+ *
+ *  가상 클래스는 `상태(Status)`와 관련된 것들
+ *  :link
+ *  :visited
+ *  :hover
+ *  :focus
+ *  :active
+ *  :lang(en)
+ *
+ *  가상 요소는 `가상으로 요소를 추가`
+ *  ::before
+ *  ::after
+ *  ::first-line
+ *  ::first-letter
+ *  ::selection
+ */
+
+html {
+  font-size: 100%; /* 16px */
+}
+
+/* 브라우저 스타일 초기화 */
+body {
+  margin: 0;
+  font: 1rem/1.5 "Spoqa Han Sans", Sans-Serif;
+}
+
+.kaushan {
+  font-family: "Kaushan Script";
+}
+
+.magazine-headline {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vh;
+  background: #000;
+  color: #fff;
+  padding: 0.6em 0.6em 0.6em 1.2em;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: 0 0;
+}
+
+.magazine-headline * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.magazine-headline p {
+  width: 70%;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  color: #e4e2c8;
+}
+
+/**
+ *  width, height 중 하나의 값에
+ *  다른 하나를 자동으로 비율 적용하는 방법
+ */
+.magazine-view img {
+  width: auto;
+  height: 100vh;
+  vertical-align: top;
+  margin-left: 100px;
+}
+
+/*.magazine-view img {
+  width: 50vw;
+  height: auto;
+}*/
