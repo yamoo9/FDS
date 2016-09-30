@@ -3,24 +3,24 @@
 
 ## 변수 선언 방법
 
-1. 변수 선언  
+1.변수 선언  
 ```
  var my_name;                      // 변수 선언만 하게 되면 undefined
 ```
 
-2. 선언된 변수에 값 할당
+2.선언된 변수에 값 할당
 ```
 current_state = 200;
 ```
 
-3. 선언과 동시에 값 할당
+3.선언과 동시에 값 할당
 ```
  var current_state = 200;         // 숫자
- var is_finished   = false;           // 불리언
- var container_el  = null;            // 비어 있다.
+ var is_finished   = false;       // 불리언
+ var container_el  = null;        // 비어 있다.
 ```
 
-4. var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
+4.var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
 
 ---
 
@@ -52,9 +52,9 @@ second === first;       //false
 
 ```
  my_parent.style.border='1px solid #7e5dc4';
-    child_1.style.color = '#7e5dc4';
-    child_2.style.background = '#7e5dc4';
-    child_2.style.color = '#fff';
+ child_1.style.color = '#7e5dc4';
+ child_2.style.background = '#7e5dc4';
+ child_2.style.color = '#fff';
 ```
 > 할당된 값을 사용해서 자바스크립트 안에서도 스타일을 제어할 수 있다.
 
@@ -103,7 +103,7 @@ img {
  height: auto;
 }
 ```
-> 'vertical-align'은 이미지를 화면에 꽉차게 하고 싶을 경우, 이미지 아래에 자동으로 삽입되는 간격을 없애고 싶을 때 사용.
+> 'vertical-align'은 이미지를 화면에 꽉차게 할 때, 이미지 아래에 자동으로 삽입되는 간격을 없애고 싶을 때 사용.
 
 ---
 
@@ -112,11 +112,11 @@ img {
 transform: rotate(-90deg) translateX(-100%);
 transform-origin: 0 0;
 ```
-> 'transform-origin'은 회전하는 기준점. 설정하지 않으면 기본값은 요소의 중심이다.(50% 50%)
-> 'rotate'는 회전, '()'는 각도(-는 반시계 방향, 양수는 시계방향으로 돈다)
-> 'translateX'는 X축(좌우 이동), 'translateY'는 Y축(상하 이동)
->> _단, 여기서는 90도 회전하였으므로 translateX(-100%)은 좌우가 아니라 아래로 이동하게 된다.
->> 회전한 요소의 width, height도 원래요소 모양으로 적용되므로 회전후 화면에 보이는 폭과 너비로 생각하면 안된다._
+> * 'transform-origin'은 회전하는 기준점. 설정하지 않으면 기본값은 요소의 중심이다.(50% 50%)
+> * 'rotate'는 회전, '()'는 각도(-는 반시계 방향, 양수는 시계방향으로 돈다)
+> * 'translateX'는 X축(좌우 이동), 'translateY'는 Y축(상하 이동)
+>>  _단, 여기서는 90도 회전하였으므로 translateX(-100%)은 좌우가 아니라 아래로 이동하게 된다.
+   회전한 요소의 width, height도 원래요소 모양으로 적용되므로 회전후 화면에 보이는 폭과 너비로 생각하면 안된다._
 
 ---
 
