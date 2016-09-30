@@ -44,6 +44,16 @@ body {
   font-family: "Kaushan Script";
 }
 
+/**
+ * --------------------------------
+ * .magazine-photo-area
+ * ----------------------------- */
+.magazine-photo-area {
+  float: left;
+  width: 50vw;
+  margin-right: 40px;
+}
+
 .magazine-headline {
   box-sizing: border-box;
   position: absolute;
@@ -85,3 +95,25 @@ body {
   width: 50vw;
   height: auto;
 }*/
+
+/**
+ * --------------------------------
+ * .magazine-contents
+ * ----------------------------- */
+ .magazine-contents {
+   float: left;
+   width: 40vw;
+ }
+
+ .magazine-contents p {
+  padding: 1em;
+  background: #fff;
+ }
+
+.dropcap::first-letter {
+  float: left;
+  margin-right: 15px;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 0.9;
+}
