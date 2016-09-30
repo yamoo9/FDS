@@ -34,12 +34,12 @@ var second;
 second = first;
 second === first;        //true    ( '==='은  등호. equal)
 ```
->> 단, 여기서 first과 second의 데이터는 같으나 메모리 저장소는 다름. 따라서
+>>단, 여기서 first과 second의 데이터는 같으나 메모리 저장소는 다름. 따라서
 ```
 first = 'another data';
 second === first;       //false
 ```
->> 한 변수에만 다른 값을 할당하면 둘은 다른 값을 가지게 된다.
+>>한 변수에만 다른 값을 할당하면 둘은 다른 값을 가지게 된다.
  
 ---
 
@@ -47,8 +47,8 @@ second === first;       //false
 ```
  my_parent = getElementById('my-parent');
 ```
-> HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다.
--(자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
+>HTML에 있는 'my-parent'라는 class(또는 id)명의 객체를 'my_parent'에 할당한다.
+>(자바스크립트에서는 변수명에 **'-'**을 사용 할 수 없다. **'__'**를 사용하는 것에 주의.)
 
 ```
  my_parent.style.border='1px solid #7e5dc4';
