@@ -16,8 +16,8 @@ ex) current_state = 200;
 3. 선언과 동시에 값 할당
 ```
 ex) var current_state = 200;         // 숫자
-var is_finished   = false;           // 불리언
-var container_el  = null;            // 비어 있다.
+    var is_finished   = false;           // 불리언
+    var container_el  = null;            // 비어 있다.
 ```
 
 4. var 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
@@ -52,9 +52,9 @@ second === first;       //false
 
 ```
 ex) my_parent.style.border='1px solid #7e5dc4';
-child_1.style.color = '#7e5dc4';
-child_2.style.background = '#7e5dc4';
-child_2.style.color = '#fff';
+    child_1.style.color = '#7e5dc4';
+    child_2.style.background = '#7e5dc4';
+    child_2.style.color = '#fff';
 ```
 > 할당된 값을 사용해서 자바스크립트 안에서도 스타일을 제어할 수 있다.
 
