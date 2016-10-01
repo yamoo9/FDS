@@ -23,6 +23,7 @@ current_state = 200;
 var current_state = 200;   // 숫자
 var is_finished   = false; // 불리언
 var container_el  = null;  // 비어 있다.
+var my_name;               // 변수 선언만 하게 되면 undefined
 ```
 
 #### 4. `var` 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
@@ -32,7 +33,7 @@ var current_state = 200,   // 숫자
     container_el  = null;  // 비어 있다.
 ```
 
--
+
 
 ##데이터 값 '복사'와 '참조'
 
@@ -54,15 +55,37 @@ first = 'another data';
 second === first; //false
 ```
 
--
+
+
+## 초기화
+var parent = null;
+var child_one = null;
+var child_two = null;
 
 ## 문서 객체 제어
 
-HTML 문서에서 'my-parent'라는 `id` 이름이 'my-parent'와 일치하는 문서 객체를 변수 `my_parent`에 할당한다.<br>
+1.HTML 문서에서 'my-parent'라는 `id` 이름이 'my-parent'와 일치하는 문서 객체를 변수 `my_parent`에 할당한다.<br>
 ※ 자바스크립트에서는 변수명에 **`-`**을 사용 할 수 없다. **`_`**를 사용하는 것에 주의.
 
 ```js
+사용법 : document.getElementById('아이디명')
+
 var my_parent = document.getElementById('my-parent');
+var child_1 = document.getElementById('child_one');
+var child_2 = document.getElementById('child_two');
+```
+2.console.log를 사용할 때 문자열을 넣어주면 해당 문자열을 출력하고, 변수명을 넣어주면 변수명에 들어가 있는 데이터를 출력한다.
+위에서 my_parent 변수에는 my-parent ID로 되어 있는 태그가 들어있기 때문에 해당 태그가 아래와 같이 출력된다.
+ex>
+my_parent : `<div id="my-parent" style="border: 1px solid rgb(126, 93, 196);">
+            <div id="child-one" style="color: rgb(126, 93, 196);">one</div>
+            <div id="child-two" style="background: rgb(126, 93, 196); color: rgb(255, 255, 255);">two</div>
+            </div>`
+```js
+사용법 : console.log('문자열',변수명);
+console.log('my_parent :', my_parent);
+console.log('child_one :', child_1);
+console.log('child_two :', child_2);
 ```
 
 변수에 할당된 값(문서 객체)을 사용해서 자바스크립트에서 __인라인 스타일 제어__할 수 있다.
@@ -73,6 +96,7 @@ my_parent.style.border   = '1px solid #7e5dc4';
 child_1.style.color      = '#7e5dc4';
 child_2.style.background = '#7e5dc4';
 child_2.style.color      = '#fff';
+
 ```
 
 ---
@@ -105,7 +129,7 @@ CSS2 에서는 가상 클래스나 가상 요소 모두 앞에 `:` 썼으나, CS
 ::selection    {}
 ```
 
--
+
 
 ###  width, height 중 하나의 값에 다른 하나를 자동으로 비율 적용하는 방법
 
@@ -128,7 +152,7 @@ img {
 
 ※ `vertical-align`은 이미지를 화면에 꽉차게 할 때, __이미지 아래에 존재하는 알 수 없는 공간을 없애고 싶을 때 사용__.
 
--
+
 
 ### Transform
 
@@ -145,7 +169,7 @@ img {
 - 단, 여기서는 90도 회전하였으므로 `translateX(-100%)`은 좌우가 아니라 아래로 이동하게 된다.
 - 회전한 요소의 `width`, `height`도 원래 요소 모양으로 적용되므로 회전후 화면에 보이는 폭과 너비로 생각하면 안된다.
 
--
+
 
 ### Dropcap 디자인
 
@@ -285,4 +309,3 @@ __시험을 앞둔 페친들을 위한 자극 짤.mp4__<br>
 [MDN](https://developer.mozilla.org/ko/docs/Web)입니다.
 
 ![](../Assets/D5-MDN.jpg)
-
