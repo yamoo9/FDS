@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS3 장면전환(Transition)</title>
+  <style>
+    .align-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      position: relative;
+      width: 300px;
+      height: 70px;
+      margin: 1em;
+      background: #ff0;
+      text-transform: uppercase;
+    }
+    .box::after {
+      content: '';
+      position: absolute;
+      top: 90%;
+      right: 100%;
+      bottom: 0;
+      left: 0;
+      background: #f00;
+      transition: all 0.4s;
+    }
+    .box:hover::after {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    box design box design box
+  </div>
+
+  <div class="box align-center">
+    box design box design box
+  </div>
+
+  <div class="box align-center">
+    box design box design box design
+  </div>
+
+</body>
+</html>
