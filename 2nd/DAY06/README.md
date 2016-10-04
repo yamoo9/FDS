@@ -50,9 +50,13 @@ var data2 = null;
 var data3 = undefined; // 거의 사용되지 않는다.
 ```
 
+
+
 # 과제
 -명시적, 암묵적인 input,lable for속성 사용법,
 -표준 기술적 관점과 접근성 관점에서의 사용법 알아볼것
+
+
 
 
 #### typeof
@@ -71,11 +75,13 @@ console.log('typeof b:', typeof b);
 console.log('typeof y:', typeof y);
 ```
 
+
 #### %c-
 콘솔창에 css 스타일로 표현이 가능하다.
 ```js
 console.log('%c------------------------------------------------', 'color: #55c4e1');
 ```
+
 
 #### 형 변환
 숫자값을 Boolean 데이터 값으로 변환
@@ -85,6 +91,7 @@ console.log('n_1:', Boolean(n_1) );
 console.log('n_2:', Boolean(n_2) );
 console.log('n_3:', Boolean(n_3) );
 ```
+
 
 
 ### DOM Scripting의 기본 패턴
@@ -102,7 +109,11 @@ document.onclick = function() {
 ```
 
 
+
+
+
 ## HTML + CSS
+
 
 ### table
 
@@ -110,8 +121,11 @@ document.onclick = function() {
  `col` ,`colgroup` 열의 병합 및 속성 지정
 
 
+
 ### background 속성 정리
 keynote참조 "https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%20-%2004%20Backgrounds.pdf"
+
+
 
 #### 컨텐츠이미지, 배경이미지 사용 여부 판단
 -의미가 있고 변경이 자주되는 이미지는 컨텐츠 이미지로 사용
@@ -122,8 +136,12 @@ keynote참조 "https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%2
 `png(Portable Network Graphics)` : 아이콘같은 제한된 색상의 투명이미지는 png-8 , 인물컷같이 고퀄리티의 투명이미지는 png-24로 이미지 파일을 생성하는것이 좋다.
 
 
+
+
 # 과제
 - 배경이미지를 사용하여 자신의 간단한 이력서 page를 제작할것
+
+
 
 #### 배경관련 CSS3의 새로운 기능
 ```css
@@ -148,10 +166,14 @@ background-color: hsla(120,100%,25%,0.3);
 -`cover` 이미지 크기 비율을 그대로 유지한 상태에서 이미지가 들어 있는 영역의 가로 또는 세로에 이미지를 맞춘다.(가로와 세로 중 큰 값에 맞춘다)
 -`contain` 이미지 크기 비율을 그대로 유지한 상태에서 원하는 영역에 전체 이미지가 들어가도록 가장 작은 크기로 이미지 스케일을 조정한다.(가로와 세로 중 큰 값에 맞춘다)
 
+
+
 #### ackground 속기형 작성 
  ```css
  selector {background: (color) (url) (repeat) (attachment) (position)}
  ```
+
+
 
 ### CSS 장면전환 (Transition)
 
