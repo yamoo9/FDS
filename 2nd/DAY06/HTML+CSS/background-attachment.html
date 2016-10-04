@@ -51,6 +51,13 @@
     .origin-content {
       background-origin: content-box;
     }
+    .fl {
+      float: left;
+      margin-right: 20px;
+    }
+    .clear {
+      clear: both;
+    }
   </style>
 </head>
 <body>
@@ -60,23 +67,27 @@
   <div class="container" lang="en">
     <h1>CSS Background Attachment Design</h1>
 
-    <div class="box">
-      clip border (default)
+    <div class="fl">
+      <div class="box">
+        clip border (default)
+      </div>
+
+      <div class="box clip-padding">
+        clip padding
+      </div>
+
+      <div class="box clip-content">
+        clip content
+      </div>
     </div>
 
-    <div class="box clip-padding">
-      clip padding
+    <div class="fl cf">
+      <div class="box box-bg origin-border">origin border</div>
+      <div class="box box-bg origin-padding">origin padding</div>
+      <div class="box box-bg origin-content">origin content</div>
     </div>
 
-    <div class="box clip-content">
-      clip content
-    </div>
-
-    <div class="box box-bg origin-border">origin border</div>
-    <div class="box box-bg origin-padding">origin padding</div>
-    <div class="box box-bg origin-content">origin content</div>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quisquam quaerat, qui exercitationem eligendi inventore, cumque quidem ipsam at aliquam, repudiandae eius esse minus nihil impedit veniam atque. Repudiandae, magni!</p>
+    <p class="clear">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quisquam quaerat, qui exercitationem eligendi inventore, cumque quidem ipsam at aliquam, repudiandae eius esse minus nihil impedit veniam atque. Repudiandae, magni!</p>
     <p>Fuga iusto laboriosam quia debitis qui nesciunt animi obcaecati ipsa, voluptatum, dolorem! Alias dolorem maxime enim quibusdam reiciendis quod, cumque amet sunt ab illo, corrupti consequuntur. Cumque consectetur consequatur fuga.</p>
     <p>Culpa doloribus commodi quas saepe voluptas ut odit porro dolore est accusamus aliquid repellat maiores quam, ab, provident optio fugit aut in corporis! Eos dolore, dolor quibusdam expedita, adipisci nemo.</p>
     <h2>Clair</h2>
