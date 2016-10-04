@@ -50,7 +50,7 @@ var data2 = null;
 var data3 = undefined; // 거의 사용되지 않는다.
 ```
 
-
+---
 
 # 과제
 -명시적, 암묵적인 input,lable for속성 사용법,
@@ -136,7 +136,7 @@ keynote참조 "https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%2
 `png(Portable Network Graphics)` : 아이콘같은 제한된 색상의 투명이미지는 png-8 , 인물컷같이 고퀄리티의 투명이미지는 png-24로 이미지 파일을 생성하는것이 좋다.
 
 
-
+---
 
 # 과제
 - 배경이미지를 사용하여 자신의 간단한 이력서 page를 제작할것
