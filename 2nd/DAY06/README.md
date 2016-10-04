@@ -164,7 +164,7 @@ background-color: hsla(120,100%,25%,0.3);
 
 
 
-#### ackground 속기형 작성 
+#### background 속기형 작성 
  ```css
  selector {background: (color) (url) (repeat) (attachment) (position)}
  ```
@@ -187,6 +187,15 @@ Transition 적용시 시작 장면과 끝 장면이 필요하다. 중간단계�
 
 #### 가상요소를 이용한 Transition 구현
 ```css
+.box {
+	position: relative;
+	width: 300px;
+	height: 70px;
+	margin: 1em;
+	background: #ff0;
+	text-transform: uppercase;
+}
+
 .box::after {
   content: '';
   position: absolute; // 가상요소는 자식으로 들어오기 때문에 box 클래스에 position: relative;를 적용하면 된다.
