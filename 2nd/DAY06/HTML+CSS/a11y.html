@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>축약 요소 사용 시 접근성 고려</title>
+  <style>
+    abbr {
+      cursor: help;
+    }
+
+    @media print {
+      a:after {
+        /* 함수(전달인자) */
+        content: '(' attr(href) ')';
+      }
+      abbr:after {
+        content: '(' attr(title) ')';
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p>
+    <a href="http://www.who.int/en/" target="_blank">
+      <abbr title="World Health Organization">WHO</abbr>
+    </a>에서는 오는 2017년 세계 보건 시장에....
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+.some {
+  border-bottom: 2px solid currentColor; /* IE 9+ */
+  text-align: justify; /* 양쪽 정렬: 사용에 주의가 요구: white river 현상 */
+  text-align-last: center; /* 크로스 브라우징 이슈 */
+  color: #30120f;
+}
