@@ -7,13 +7,14 @@
 ### 변수와 데이터 유형
 
 #### 1. 숫자 데이터 유형
- ```js
- ar k = 90;
- var m = -101;
- var j = 0;
- var b = 2.190356246345;
- var y = (k + m - j) * b / m; // 산술(사칙)연산
- ```
+
+```js
+var k = 90;
+var m = -101;
+var j = 0;
+var b = 2.190356246345;
+var y = (k + m - j) * b / m; // 산술(사칙)연산
+```
 
 #### 2. 문자 데이터 유형
  ```js
@@ -53,8 +54,8 @@ var data3 = undefined; // 거의 사용되지 않는다.
 ---
 
 # 과제
-- 명시적, 암묵적인 input,lable for속성 사용법,
-- 표준 기술적 관점과 접근성 관점에서의 사용법 알아볼것.
+- 명시적, 암묵적인 `<input>`,`<label>` `for` 속성 사용법,
+- 표준 기술적 관점과 접근성 관점에서의 사용법 알아볼 것.
 
 ---
 
@@ -92,8 +93,8 @@ console.log('n_3:', Boolean(n_3) );
 
 
 ### DOM Scripting의 기본 패턴
-`이벤트 연결` Event Binding이란
-`이벤트 속성`(Event Property)을 `함수` Function (이벤트 핸들러 Event Handler)에 연결시키는 것 
+`이벤트 연결` Event Binding이란?<br>
+`이벤트 속성`(Event Property)에 `함수` Function (이벤트 핸들러 Event Handler)를 연결시키는 것
 
 ```js
 document.onclick; // null
@@ -106,36 +107,35 @@ document.onclick = function() {
 ```
 
 
-
+---
 
 ## HTML + CSS
 
 
 ### table
 
-- 복잡한경우 `headers`와 `id`를 사용해 표의 접근성을 높일 수 있다.
--  `col` ,`colgroup` 열의 병합 및 속성 지정
+- 복잡한 표의 경우, `headers`와 `id`를 사용해 표의 접근성을 높일 수 있다.
+-  `<col>` ,`<colgroup>` 열의 병합 및 속성 지정
 
 
 
 ### background 속성 정리
-keynote참조 "https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%20-%2004%20Backgrounds.pdf"
-
-
+[keynote](https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%20-%2004%20Backgrounds.pdf) 참조
 
 #### 컨텐츠이미지, 배경이미지 사용 여부 판단
 - 의미가 있고 변경이 자주되는 이미지는 컨텐츠 이미지로 사용
-- UI요소 같이 추가 변경이 많이 없는 이미지들은 배경이미지로 스프라이트 처리해서 사용하는것이 좋다. <br>
+- UI요소 같이 추가 변경이 많이 없는 이미지들은 배경이미지로 스프라이트 처리해서 사용하는것이 좋다.<br>
 ※ 스프라이트 이미지를 사용하는 이유 : 이미지파일이 하나씩 늘어날수록 서버로의 요청횟수와 파일용량이 증가하게 되어 렌더링 성능저하로 이어지기 때문에 하나의 이미지 파일로 묶어 성능저하를 최소한으로 하기 위해서.<br>
 - 배경이미지는 최하단에 위치하므로 z-index에 영향을 받지 않는다.
 
-`png(Portable Network Graphics)` : 아이콘같은 제한된 색상의 투명이미지는 png-8 , 인물컷같이 고퀄리티의 투명이미지는 png-24로 이미지 파일을 생성하는것이 좋다.
+`png(Portable Network Graphics)`:<br>
+__아이콘 같은 제한된 색상의 투명이미지는 png-8__, __인물 컷같이 고퀄리티의 투명이미지는 png-24__로 이미지 파일을 생성하는 것이 좋다.
 
 
 ---
 
 # 과제
-- 배경이미지를 사용하여 자신의 간단한 이력서 page를 제작할것
+- 배경이미지를 사용하여 자신의 간단한 이력서 page를 제작할 것
 
 ---
 
@@ -145,7 +145,7 @@ keynote참조 "https://github.com/yamoo9/FDS/blob/master/Keynotes/02%20CSS/CSS%2
 border: 20px solid rgba(255, 0, 0, 0.3);
 background-color: hsla(120,100%,25%,0.3);
 ```
-`rgba`, `hlsa` 값을 배경색상으로 사용할 수 있다.
+`rgba`, `hlsa` 값을 배경 색상으로 사용할 수 있다.
 
 ```css
 .clip-padding {
@@ -159,13 +159,13 @@ background-color: hsla(120,100%,25%,0.3);
 - `background-clip` : 박스모델에 배경이 적용되는 영역을 지정할 수 있다. (기본은 border)
 - `background-origin` : 기준점을 설정하여 배경이미지 적용 (기본은 padding)
 
-`background-size` : cover contain px % em rem 사용가능
+`background-size` : cover | contain | px | % | em | rem 사용 가능
 - `cover` 이미지 크기 비율을 그대로 유지한 상태에서 이미지가 들어 있는 영역의 가로 또는 세로에 이미지를 맞춘다.(가로와 세로 중 큰 값에 맞춘다)
 - `contain` 이미지 크기 비율을 그대로 유지한 상태에서 원하는 영역에 전체 이미지가 들어가도록 가장 작은 크기로 이미지 스케일을 조정한다.(가로와 세로 중 큰 값에 맞춘다)
 
 
 
-#### background 속기형 작성 
+#### background 속기형 작성
  ```css
  selector {background: (color) (url) (repeat) (attachment) (position)}
  ```
@@ -174,7 +174,7 @@ background-color: hsla(120,100%,25%,0.3);
 
 ### CSS 장면전환 (Transition)
 
-Transition 적용시 시작 장면과 끝 장면이 필요하다. 중간단계는 없어 세부적인 조절은 어렵다.
+Transition 적용시 시작 장면과 끝 장면이 필요하다. 중간 단계는 없어 세부적인 조절은 어렵다.
 
 
 #### flex-box를 이용한 가로세로 중앙정렬 모듈
@@ -186,7 +186,7 @@ Transition 적용시 시작 장면과 끝 장면이 필요하다. 중간단계�
 }
 ```
 
-#### 가상요소를 이용한 Transition 구현
+#### 가상 요소를 이용한 Transition 구현
 ```css
 .box {
 	position: relative;
@@ -199,21 +199,21 @@ Transition 적용시 시작 장면과 끝 장면이 필요하다. 중간단계�
 
 .box::after {
   content: '';
-  position: absolute; // 가상요소는 자식으로 들어오기 때문에 box 클래스에 position: relative;를 적용하면 된다.
+  position: absolute; /* 가상요소는 자식으로 들어오기 때문에 box 클래스에 position: relative;를 적용하면 된다. */
   top: 90%;
   right: 100%;
   bottom: 0;
   left: 0;
   background: #f00;
-  transition: all 0.4s; //처음 장면에 Transition적용 // 모든(all)속성에 0.4초간  transition을 적용한다.
+  transition: all 0.4s; /* 처음 장면에 Transition적용: 모든(all) 속성에 0.4초간 transition을 적용한다. */
 }
 
 .box:hover::after {
   right: 0;
 }
 ```
-<br>
-<br>
+
+---
 
 ![](../Assets/D6-CodeLib.jpg)
 
