@@ -13,7 +13,7 @@ body {
  * --------------------------------
  * 가이드
  * ----------------------------- */
-.guide, body:hover {
+.guide {
   background: url("../images/leading-21.png");
   min-height: 100vh;
 }
@@ -40,6 +40,7 @@ body {
 p {
   margin-top: 21px;
   margin-bottom: 0;
+  letter-spacing: -0.02em;
 }
 
 /* 제목 디자인 */
@@ -47,6 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   /*margin-top: 21px;*/
   margin-bottom: 0;
   font-weight: 200;
+  letter-spacing: -0.05em;
   color: #787f94;
 }
 h6 {
@@ -96,4 +98,9 @@ h1 {
   font-size: 3.9023267453177928em;
   /*line-height: 1.153158178104723;*/
   line-height: 1.16;
+}
+
+img {
+  margin-top: 21px;
+  vertical-align: top;
 }

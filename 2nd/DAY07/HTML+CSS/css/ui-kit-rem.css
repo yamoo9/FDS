@@ -1,0 +1,88 @@
+@charset "utf-8";
+/*! ui-kit.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 초기 설정
+ * ----------------------------- */
+body {
+  margin: 0;
+}
+
+/**
+ * --------------------------------
+ * 가이드
+ * ----------------------------- */
+.guide {
+  background: url("../images/leading-21.png");
+  min-height: 100vh;
+}
+
+/**
+ * --------------------------------
+ * 레이아웃
+ * ----------------------------- */
+.container {
+  width: 50.625rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * --------------------------------
+ * 타이포그래피
+ * ----------------------------- */
+html {
+  font-size: 16px;
+}
+body {
+  /*font: 0.875rem/1.3125rem "Spoqa Han Sans", "Nanum Gothic", Dotum, Sans-Serif;*/
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  font-family: "Spoqa Han Sans", "Nanum Gothic", Dotum, Sans-Serif;
+}
+
+/* 본문 디자인 */
+p {
+  margin-top: 1.3125rem;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+}
+
+/* 제목 디자인 */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.3125rem;
+  margin-bottom: 0;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  color: #787f94;
+}
+h1, h2 {
+  line-height: 3.9375rem;
+}
+h3, h4, h5 {
+  line-height: 2.625rem;
+}
+h6 {
+  font-size: 0.875rem;
+}
+h5 {
+  font-size: 1.1488749999999999rem;
+}
+h4 {
+  font-size: 1.5084728749999998rem;
+}
+h3 {
+  font-size: 1.9806248848749997rem;
+}
+h2 {
+  font-size: 2.6005604738408743rem;
+}
+h1 {
+  font-size: 3.4145359021530677rem;
+}
+
+img {
+  margin-top: 1.3125rem;
+  vertical-align: top;
+}
