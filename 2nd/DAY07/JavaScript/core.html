@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>자바스크립트 코어 - 데이터 타입 변형, 타입 체크</title>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 9rem;
+      line-height: 1.5;
+      font-family: "Spoqa Han Sans";
+      font-weight: 200;
+      font-size: 3rem;
+    }
+  </style>
+  <!-- <script src="core.js"></script> -->
+</head>
+<body>
+
+  <p id="target">
+  <!-- <p id="target" style="font-size: 32px;"> -->
+    야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 장엄한 어디에나 빛나는, 티셔츠 꽃보다. 젊음의 실수조차도 다 들리는 엮어가는, 티셔츠 해도. 심장 티셔츠 설레는, 청춘의 않고! 고동소리 쉬지 세상을, 씩씩하게 빛나는 그대 하고 너, 가슴을 만들?
+  </p>
+
+<script>
+// 문서에서 id 속성 값이 'target'인 요소를 가져와 변수에 참조한다.
+var target_el = document.getElementById('target');
+console.log('target_el:', target_el);
+// 변수 target_el에 참조된 문서 객체의 style 속성을 사용하여 fontSize 값을 가져와 변수에 복사한다.
+var target_el_font_size = target_el.style.fontSize;
+// 문서 객체의 style 속성을 통해 가져올 수 있는 값은 인라인 스타일 속성 뿐이다.
+// 하여 백엔드 개발단에서 인라인 스타일 속성을 임의로 붙이는 이유가 이것에 있다.
+console.log('target_el_font_size:', target_el_font_size);
+
+// 하지만 style 속성을 사용하지 않고 CSS 문서의 스타일 값을 가져오는 방법을
+// DOM API에서는 제공한다. 이 방법을 사용하면 굳이 인라인 스타일을 추가하지 않아도 된다.
+
+// 표준 방법 W3C, IE 9+
+// window.getComputedStyle({문서객체}).fontSize
+var st_font_size = window.getComputedStyle(target_el).fontSize;
+console.log('st_font_size:', st_font_size);
+var convert_font_size = window.parseInt(st_font_size, 10);
+console.log('convert_font_size:', convert_font_size);
+
+// 비 표준 방법 for Microsift IE
+// {문서객체}.currentStyle.fontSize
+// var nst_font_size = target_el.currentStyle.fontSize;
+// console.log('nst_font_size:', nst_font_size);
+</script>
+</body>
+</html>
