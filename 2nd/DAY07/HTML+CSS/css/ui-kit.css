@@ -36,7 +36,37 @@ body {
   font: 87.5%/1.5 "Spoqa Han Sans", "Nanum Gothic", Dotum, Sans-Serif;
 }
 
+/* 본문 디자인 */
 p {
   margin-top: 21px;
-  margin-bottom: 21px;
+  margin-bottom: 0;
+}
+
+/* 제목 디자인 */
+h1, h2, h3, h4, h5, h6 {
+  /*margin-top: 21px;*/
+  margin-bottom: 0;
+  font-weight: 200;
+  color: #787f94;
+}
+h6 {
+  margin-top: 1.5em;
+  /*font-size: 14px;*/
+  font-size: 1em;
+}
+h5 {
+  margin-top: 1.142421935em;
+  font-size: 1.313em;
+  /*line-height: 2 * (1.5/1.313);*/
+  line-height: 2.284843869;
+}
+h4 {
+  margin-top: 0.8700852509528884;
+  font-size: 1.723969em;
+  /*
+   몇 칸의 행간 폭을 가지는가?: Math.ceil(본문 글자 크기의 상대비율/본문 글자 크기의 행간 비율)
+   글자 크기 비율에 상대적인 행간 비율 값은?: (본문 글자 크기의 행간 비율/본문 글자 크기의 상대비율)
+   행간은? 위 두개의 결과를 곱한 값
+   */
+  line-height: 1.7401705019057767;
 }
