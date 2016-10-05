@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*! ui-kit.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 초기 설정
+ * ----------------------------- */
+body {
+  margin: 0;
+}
+
+/**
+ * --------------------------------
+ * 가이드
+ * ----------------------------- */
+.guide {
+  background: url("../images/leading-21.png");
+  min-height: 100vh;
+}
+
+/**
+ * --------------------------------
+ * 레이아웃
+ * ----------------------------- */
+.container {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * --------------------------------
+ * 타이포그래피
+ * ----------------------------- */
+body {
+  font: 87.5%/1.5 "Spoqa Han Sans", "Nanum Gothic", Dotum, Sans-Serif;
+}
+
+p {
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
