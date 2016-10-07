@@ -13,7 +13,26 @@
   <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
   <link rel="stylesheet" href="css/ui-kit-rem.css">
   <style>
-
+    .demo-dl dt {
+      font-weight: 700;
+      color: #69d59c;
+    }
+    .demo-dl dd {
+      position: relative;
+      width: 300px;
+      margin-left: 0;
+      margin-bottom: 1em;
+      padding-left: 1.5em;
+    }
+    .demo-dl dd::before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      bottom: 5%;
+      left: 10px;
+      width: 0;
+      border-left: 3px solid #69d59c;
+    }
   </style>
 </head>
 <body class="container">
@@ -73,6 +92,14 @@
   <h2>오늘 태풍온다며?</h2>
 
   <p>고양이를 사랑하는 이들이 한 번쯤 관심 가질 블랙팬서와 역대 가장 원작 캐릭터의 성격을 잘 살려주고 있다고 생각되는 스파이더맨이 첫 등장을 하며 존재감을 확실히 굳혔다. 둘 다 솔로 영화 제작을 앞두고 있기에 더욱 관심 가는 캐릭터가 아닐 수 없는데, 굳이 따지자면 닥터 스트레인지와 각별한 관계인 스파이더맨에 더욱 기대가 실린다. 블랙팬서는 더 많은 비중으로 등장하지만, 짧게 등장한 스파이더맨에 비해 임팩트는 좀 덜한 듯했다.</p>
+
+<dl class="demo-dl">
+  <dt>창의적 문제해결</dt>
+  <dd>더 향상된 결과를 위해, 폭넓은 시각에서 다양한 관점을 통합해 새로운 해결안을 제시함. 통합해 새로운 해결안을 제시함. 통합해 새로운 해결안을 제시함. 통합해 새로운 해결안을 제시함.</dd>
+
+  <dt>창의적 문제해결 도구</dt>
+  <dd>잘 알려진 창의적 문제 해결법 도출을 위한 방법론들로는 브레인 스토밍, 마인드 맵 등이 있다.</dd>
+</dl>
 
 <script>
 function assignGuideClass() {
