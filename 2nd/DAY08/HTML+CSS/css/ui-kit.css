@@ -1,0 +1,106 @@
+@charset "utf-8";
+/*! ui-kit.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * 초기 설정
+ * ----------------------------- */
+body {
+  margin: 0;
+}
+
+/**
+ * --------------------------------
+ * 가이드
+ * ----------------------------- */
+.guide {
+  background: url("../images/leading-21.png");
+  min-height: 100vh;
+}
+
+/**
+ * --------------------------------
+ * 레이아웃
+ * ----------------------------- */
+.container {
+  width: 810px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * --------------------------------
+ * 타이포그래피
+ * ----------------------------- */
+body {
+  font: 87.5%/1.5 "Spoqa Han Sans", "Nanum Gothic", Dotum, Sans-Serif;
+}
+
+/* 본문 디자인 */
+p {
+  margin-top: 21px;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+}
+
+/* 제목 디자인 */
+h1, h2, h3, h4, h5, h6 {
+  /*margin-top: 21px;*/
+  margin-bottom: 0;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  color: #787f94;
+}
+h6 {
+  margin-top: 1.5em;
+  /*font-size: 14px;*/
+  font-size: 1em;
+}
+h5 {
+  /*margin-top: 1.142421935em;*/
+  margin-top: 1.15em;
+  font-size: 1.313em;
+  /*line-height: 2 * (1.5/1.313);*/
+  line-height: 2.284843869;
+}
+h4 {
+  /*margin-top: 0.8700852509528885em;*/
+  margin-top: 0.88em;
+  font-size: 1.7239689999999999em;
+  /*
+   몇 칸의 행간 폭을 가지는가?: Math.ceil(본문 글자 크기의 상대비율/본문 글자 크기의 행간 비율)
+   글자 크기 비율에 상대적인 행간 비율 값은?: (본문 글자 크기의 행간 비율/본문 글자 크기의 상대비율)
+   행간 비율은? 위 두개의 결과를 곱한 값
+   */
+  /*line-height: 1.740170501905777;*/
+  line-height: 1.75;
+}
+
+h3 {
+  /*margin-top: 0.6626696503830072em;*/
+  margin-top: 0.67em;
+  font-size: 2.263571297em;
+  /*line-height: 1.3253393007660144;*/
+  line-height: 1.33;
+}
+
+h2 {
+  /*margin-top: 0.5046988959505004em;*/
+  margin-top: 0.51em;
+  font-size: 2.972069112961em;
+  /*line-height: 1.5140966878515014;*/
+  line-height: 1.52;
+}
+
+h1 {
+  /*margin-top: 0.38438605936824105em;*/
+  margin-top: 0.39em;
+  font-size: 3.9023267453177928em;
+  /*line-height: 1.153158178104723;*/
+  line-height: 1.16;
+}
+
+img {
+  margin-top: 21px;
+  vertical-align: top;
+}

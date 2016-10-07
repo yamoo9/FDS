@@ -1,0 +1,12 @@
+body {
+  background: #19c8ff;
+  color: #fff;
+}
+
+body:before {
+  content: 'IE 8';
+}
+
+/*input {
+  vertical-align: middle;
+}*/
