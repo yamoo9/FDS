@@ -94,6 +94,10 @@
 ```
 
 ```css
+.custom-ui-dl {
+  margin-top: 1.3125rem;
+  margin-bottom: 1.3125rem;
+}
 .custom-ui-dl dt {
   font-weight: 700;
   color: #69d59c;
@@ -102,7 +106,7 @@
   position: relative;
   width: 300px;
   margin-left: 0;
-  margin-bottom: 1em;
+  margin-bottom: 1.3125rem;
   padding-left: 1.5em;
 }
 .custom-ui-dl dd::before {

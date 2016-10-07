@@ -1,0 +1,57 @@
+/*! gs-960-8-120-0.css © yamoo9.net, 2016 */
+
+body {margin: 0;}
+
+/**
+ * --------------------------------
+ * Module: Container
+ * ----------------------------- */
+.container {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container[class*="show-"] {
+  min-height: 100vh;
+}
+.container.show-grid {
+  background-image: linear-gradient(180deg, transparent 9px, #7400ff 9px), linear-gradient(90deg, hsla(237, 100%, 66%, 0.3), hsla(239, 100%, 79%, 0.3));
+  background-size: 1px 10px, 120px 1px;
+}
+.container.show-baseline {
+  /*background-image: linear-gradient(180deg, transparent 0%, transparent 90%, #7400ff 90%, #7400ff 100%);*/
+  background-image: linear-gradient(180deg, transparent 23px, #7400ff 23px);
+  background-size: 1px 24px;
+}
+.container.show-columns {
+  background-image: linear-gradient(90deg, hsla(237, 100%, 66%, 0.3), hsla(239, 100%, 79%, 0.3));
+  background-size: 120px 1px;
+}
+
+/**
+ * --------------------------------
+ * Module: Row
+ * ----------------------------- */
+.row::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.lt-ie8 .row { zoom: 1; }
+
+/**
+ * --------------------------------
+ * Module: Column
+ * ----------------------------- */
+[class*="col-"] {
+  float: left;
+}
+
+.col-1 { width: 120px; }
+.col-2 { width: 240px; }
+.col-3 { width: 360px; }
+.col-4 { width: 480px; }
+.col-5 { width: 600px; }
+.col-6 { width: 720px; }
+.col-7 { width: 840px; }
+.col-8 { width: 960px; }
