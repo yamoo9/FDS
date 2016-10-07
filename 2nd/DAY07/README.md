@@ -1,3 +1,5 @@
+###### Front-End Develop SCHOOL
+
 # DAY 07
 
 ## Javascript - 데이터 타입 변형, 타입 체크
