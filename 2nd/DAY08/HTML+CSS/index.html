@@ -1,29 +1,27 @@
 <!DOCTYPE html>
+<!--[if !IE]><!-->
 <html lang="ko-KR">
+<!--<![endif]-->
+<!--[if IE 6]><html lang="ko-KR" class="lt-ie10 lt-ie9 lt-ie8 ie6"><![endif]-->
+<!--[if IE 7]><html lang="ko-KR" class="lt-ie10 lt-ie9 lt-ie8 ie7"><![endif]-->
+<!--[if IE 8]><html lang="ko-KR" class="lt-ie10 lt-ie9 ie8"><![endif]-->
+<!--[if IE 9]><html lang="ko-KR" class="lt-ie10 ie9"><![endif]-->
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Emulate7">
   <meta charset="UTF-8">
   <title>UI Kit - 타이포그래피</title>
   <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/ui-kit-rem.css">
-  <!-- IE 조건부 주석문 IE 9- -->
-
-  <!-- Emmet 스니펫 -->
-  <!-- cc:ie -->
-  <!-- cc:noie -->
-
-  <!--[if IE 9]><link rel="stylesheet" href="css/ie/v9.css"><![endif]-->
-  <!--[if IE 8]><link rel="stylesheet" href="css/ie/v8.css"><![endif]-->
-  <!--[if IE 7]><link rel="stylesheet" href="css/ie/v7.css"><![endif]-->
-  <!--[if IE 6]><link rel="stylesheet" href="css/ie/v6.css"><![endif]-->
-
-  <!-- 8버전보다 낮은(이하) IE에서 처리되기 위한 조건부 주석문 -->
-  <!--[if lt IE 9]><link rel="stylesheet" href="css/ie/v8-.css"><![endif]-->
-  <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8-.css"><![endif]-->
-
-
-  <!-- IE 9 이하 브라우저에서는 해석하지 않는(부정) 조건부 주석문 -->
-  <!--[if !IE]><!--> <link rel="stylesheet" href="css/modern.css"> <!--<![endif]-->
+  <!-- <link rel="stylesheet" href="css/ui-kit-rem.css"> -->
+  <style>
+    /* IE 6 */
+    .ie6 body { background: #f00; }
+    /* IE 7 */
+    .ie7 body { background: #ff0; }
+    /* IE 8 */
+    .ie8 body { background: #f0f; }
+    /* IE 9 */
+    .ie9 body { background: #0ff; }
+  </style>
 </head>
 <body class="container">
 

@@ -9,12 +9,6 @@ body {
   margin: 0;
 }
 
-/*브라우저 선택자 핵 (IE): http://browserhacks.com/; */
-body, {
-  margin: 200px 400px;
-  background: #000 !important;
-}
-
 /**
  * --------------------------------
  * 가이드
