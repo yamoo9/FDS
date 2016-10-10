@@ -14,17 +14,35 @@
       font-size: 14px;
       letter-spacing: -0.02em;
     }
+    .container {
+      min-height: 100vh;
+    }
     .row {
       margin-bottom: 30px;
     }
     [class*="col-"] {
       text-align: justify;
     }
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      background: #333;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container show-baseline">
+  <div class="container show-columns">
+    <div class="row isolate">
+      <div class="box col-3 o3">1</div>
+      <div class="box col-2 order-11">2</div>
+      <div class="box col-2 o6">3</div>
+      <div class="box col-2 o8">4</div>
+      <div class="box col-2 o1">5</div>
+    </div>
     <div class="row">
       <div class="col-3">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 고동소리 눈부신 사명으로 보기만 거추장스런, 숨 죽여도 쿵쿵대는 엮어가는 다 들리는 어디에나 설레게 햇볕처럼 해도. 청춘의, 젊음의, 세상을? 그대 숨 죽여도 운동화도 너 실수조차도, 햇볕처럼 땀 빛나는. 어디에나, 설레는.</div>
       <div class="col-3">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 고동소리 눈부신 사명으로 보기만 거추장스런, 숨 죽여도 쿵쿵대는 엮어가는 다 들리는 어디에나 설레게 햇볕처럼 해도. 청춘의, 젊음의, 세상을? 그대 숨 죽여도 운동화도 너 실수조차도, 햇볕처럼 땀 빛나는. 어디에나, 설레는.</div>
@@ -32,9 +50,11 @@
       <div class="col-3">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 고동소리 눈부신 사명으로 보기만 거추장스런, 숨 죽여도 쿵쿵대는 엮어가는 다 들리는 어디에나 설레게 햇볕처럼 해도. 청춘의, 젊음의, 세상을? 그대 숨 죽여도 운동화도 너 실수조차도, 햇볕처럼 땀 빛나는. 어디에나, 설레는.</div>
     </div>
     <div class="row">
-      <div class="col-2 prefix-2 suffix-2">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 청춘 너 숨 죽여도 청춘의 가슴을 내일의 땀, 다 들리는 너야말로 하고 청춘아! 젊음의 사명으로 어디에나, 소리 햇볕처럼 씩씩하게 않고 거추장스런 장엄한 아름다운 설레게 해도 세상을 꽃처럼 설레는.</div>
-      <div class="col-3">숨소리가 쉬지, 해도 젊음의 숨 죽여도 않고 찬란한 햇볕처럼 소리 사명으로 티셔츠. 소리 티셔츠 너야말로 숨 죽여도? 피어나는, 땀 너야말로 엮어가는 그대 꽃보다 하고, 어디에나 장엄한 해도 내일의 않고 쿵쿵대는 소리, 청춘아!?</div>
-      <div class="col-3">가슴을 엮어가는 다 들리는 꽃보다, 거추장스런 내일의 꽃처럼. 쉬지 해도, 씩씩하게, 피어나는 가슴을 내일의 숨소리가 청춘아! 하루를 실수조차도 설레게 거추장스런, 보기만 엮어가는 청춘의. 어디에나 티셔츠 쉬지 청춘아!, 흐르는, 세상을 아름다운 만들!</div>
+      <div class="col-3 suffix-1">
+        <img src="http://placehold.it/317x200/" alt="">
+      </div>
+      <div class="col-4 push-4">숨소리가 쉬지, 해도 젊음의 숨 죽여도 않고 찬란한 햇볕처럼 소리 사명으로 티셔츠. 소리 티셔츠 너야말로 숨 죽여도? 피어나는, 땀 너야말로 엮어가는 그대 꽃보다 하고, 어디에나 장엄한 해도 내일의 않고 쿵쿵대는 소리, 청춘아!?</div>
+      <div class="col-4 pull-4">가슴을 엮어가는 다 들리는 꽃보다, 거추장스런 내일의 꽃처럼. 쉬지 해도, 씩씩하게, 피어나는 가슴을 내일의 숨소리가 청춘아! 하루를 실수조차도 설레게 거추장스런, 보기만 엮어가는 청춘의. 어디에나 티셔츠 쉬지 청춘아!, 흐르는, 세상을 아름다운 만들!</div>
     </div>
   </div>
 

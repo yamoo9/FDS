@@ -127,3 +127,36 @@
 .suffix-10 { margin-right: 1164px; }
 .suffix-11 { margin-right: 1279px; }
 .suffix-12 { margin-right: 1394px; }
+
+/**
+ * --------------------------------
+ * 격리된 프로팅 모듈
+ * ----------------------------- */
+.row.isolate [class*="col-"] {
+  margin-right: -100%;
+}
+
+.row.isolate .order-1,
+.row.isolate .o1 { margin-left: 14px; }
+.row.isolate .order-2,
+.row.isolate .o2 { margin-left: 129px; }
+.row.isolate .order-3,
+.row.isolate .o3 { margin-left: 244px; }
+.row.isolate .order-4,
+.row.isolate .o4 { margin-left: 359px; }
+.row.isolate .order-5,
+.row.isolate .o5 { margin-left: 474px; }
+.row.isolate .order-6,
+.row.isolate .o6 { margin-left: 589px; }
+.row.isolate .order-7,
+.row.isolate .o7 { margin-left: 704px; }
+.row.isolate .order-8,
+.row.isolate .o8 { margin-left: 819px; }
+.row.isolate .order-9,
+.row.isolate .o9 { margin-left: 934px; }
+.row.isolate .order-10,
+.row.isolate .o10 { margin-left: 1049px; }
+.row.isolate .order-11,
+.row.isolate .o11 { margin-left: 1164px; }
+.row.isolate .order-12,
+.row.isolate .o12 { margin-left: 1279px; }
