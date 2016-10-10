@@ -58,9 +58,12 @@ second === first; //false
 
 
 ## 초기화
+
+```js
 var parent = null;
 var child_one = null;
 var child_two = null;
+```
 
 ## 문서 객체 제어
 

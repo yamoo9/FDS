@@ -22,11 +22,16 @@
     .box:nth-child(1){background: #f00;}
     .box:nth-child(2n){background: #ff0;}
     .box:nth-child(3n){background: #00f;}
+
+    .col-4 {
+      position: relative;
+      z-index: 0;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container show-columns">
+  <div class="container show-grid">
     <div class="row">
       <div class="box col-4"></div>
       <div class="box col-2"></div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Position + Z Index</title>
+  <style>
+    /* 동일한 깊이(z-index)를 가지고 있다면 마크업 순서 상 나중에 나온 것이 상위 층에 존재하게 된다. */
+    .parent-1, .parent-2 {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 200px;
+      height: 200px;
+      background: transparent;
+    }
+    .parent-1 {
+      z-index: 0;
+    }
+    .parent-2 {
+      z-index: 0;
+    }
+    .child-1, .child-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      padding: 1em;
+    }
+    /* ※ 자식 간 깊이(z-index) 비교보다는 부모 간 비교가 중요하다. */
+    .child-1 {
+      z-index: 100;
+      top: 40px;
+      left: 40px;
+      background: #ff0;
+    }
+    .child-2 {
+      z-index: 0;
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="parent-1">
+    <div class="child-1">child 1</div>
+  </div>
+  <div class="parent-2">
+    <div class="child-2">child 2</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>자바스크립트 이벤트 핸들링</title>
+  <!-- 지난 시간에 작성한 CSS 그리드 시스템 파일 호출 -->
+  <link rel="stylesheet" href="gs.css">
+  <style>
+    .toggle-button-set {
+      display: flex;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: hsla(0, 0%, 0%, 0.45);
+      color: #fff;
+    }
+    .toggle-button-set button {
+      cursor: pointer;
+      border: none;
+      border-right: 1px solid hsla(0, 0%, 80%, 0.6);
+      padding: 0.7rem 1.4rem;
+      color: inherit;
+      background: hsla(0, 0%, 80%, 0.4);
+    }
+    .toggle-button-set button:hover,
+    .toggle-button-set button:focus {
+      background: hsla(0, 0%, 80%, 0.8);
+    }
+    .toggle-button-set button:first-child {
+      border-radius: 6px 0 0 6px;
+    }
+    .toggle-button-set button:last-child {
+      border-radius: 0 6px 6px 0;
+      border-right: 0;
+    }
+  </style>
+</head>
+<body class="this-is-body container">
+
+  <!-- button[type=button].show-grid{show grid}+button[type=button].hide-grid{hide grid} -->
+
+  <div class="toggle-button-set" role="group">
+    <button type="button" class="btn--show-grid">show grid</button>
+    <button type="button" class="btn--hide-grid">hide grid</button>
+  </div>
+
+<script src="core.js"></script>
+</body>
+</html>
