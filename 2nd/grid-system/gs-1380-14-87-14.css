@@ -1,0 +1,53 @@
+/*! gs-1380-14-87-14.css © yamoo9.net, 2016 */
+
+/**
+ *  페이지 폭: 1380px
+ *  컬럼 개수: 12
+ *  컬럼 폭: 87px
+ *  거터 폭: (14*2) = 28px
+ */
+
+/**
+ * --------------------------------
+ * 컨테이너 모듈
+ * ----------------------------- */
+.container {
+  width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * --------------------------------
+ * 로우 / 클리어픽스 모듈
+ * ----------------------------- */
+.row::after,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/**
+ * --------------------------------
+ * 컬럼 모듈
+ * ----------------------------- */
+[class*="col-"] {
+  /* 수평 레이아웃 */
+  float: left;
+  /* 거터 */
+  margin-left: 14px;
+  margin-right: 14px;
+}
+.col-1  { width: 87px;   }
+.col-2  { width: 202px;  }
+.col-3  { width: 317px;  }
+.col-4  { width: 432px;  }
+.col-5  { width: 547px;  }
+.col-6  { width: 662px;  }
+.col-7  { width: 777px;  }
+.col-8  { width: 892px;  }
+.col-9  { width: 1007px; }
+.col-10 { width: 1122px;  }
+.col-11 { width: 1237px;  }
+.col-12 { width: 1352px;  }
