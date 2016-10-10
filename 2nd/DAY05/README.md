@@ -26,7 +26,7 @@ var container_el  = null;  // 비어 있다.
 var my_name;               // 변수 선언만 하게 되면 undefined
 ```
 
-#### 4. `var` 키워드를 한 번만 사용하는 싱글톤(Singleton) 패턴
+#### 4. `var` 키워드를 한 번만 사용하여 여러개의 변수에 선언과 값 할당
 ```js
 var current_state = 200,   // 숫자
     is_finished   = false, // 불리언
