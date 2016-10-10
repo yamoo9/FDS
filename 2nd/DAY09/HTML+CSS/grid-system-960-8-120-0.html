@@ -13,31 +13,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="lib/gs-960-8-120-0.css">
   <style>
+    .row {
+      margin-bottom: 10px;
+    }
     .box {
-      height: 200px;
+      height: 100px;
       background: #000;
       color: #fff;
       text-align: center;
     }
-    .box:nth-child(1){background: #f00;}
-    .box:nth-child(2n){background: #ff0;}
-    .box:nth-child(3n){background: #00f;}
-
-    .col-4 {
-      position: relative;
-      z-index: 0;
-    }
+    .box:nth-child(1){background: #fd6e74;}
+    .box:nth-child(2n){background: #74ffe0;}
+    .box:nth-child(3n){background: #7dc1ff;}
+    .box:nth-child(4n){background: #a560ff;}
+    .box:nth-child(5n){background: #fc4485;}
+    .box:nth-child(6n){background: #fbe08b;}
+    .box:nth-child(7n){background: #f89379;}
+    .box:nth-child(8n){background: #6bf9f5;}
   </style>
 </head>
 <body>
 
-  <div class="container show-grid">
+  <div class="container">
     <div class="row">
-      <div class="box col-4"></div>
-      <div class="box col-2"></div>
-      <div class="box col-2"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="box col-1"></div>
+      <div class="box col-1 prefix-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <!-- <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div> -->
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div>
+      <div class="box col-1"></div> -->
+      <div class="box col-1 push-3"></div>
+      <div class="box col-1 push-1"></div>
+      <div class="box col-1 pull-1"></div>
+      <div class="box col-1 pull-3"></div>
+    </div>
+  </div>
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="box col-2 push-1"></div>
+      <div class="box col-2 push-3"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="box col-4 push-2"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="box col-2 push-3"></div>
+    </div>
+  </div> -->
+
 
 </body>
 </html>
