@@ -74,6 +74,11 @@
   margin-left: 14px;
   margin-right: 14px;
 }
+.fluid [class*="col-"] {
+  margin-left: 1.0144927536231882%;
+  margin-right: 1.0144927536231882%;
+}
+
 .col-1  { width: 87px;   }
 .col-2  { width: 202px;  }
 .col-3  { width: 317px;  }
@@ -86,6 +91,20 @@
 .col-10 { width: 1122px; }
 .col-11 { width: 1237px; }
 .col-12 { width: 1352px; }
+
+.fluid .col-1  { width: 6.304347826086956%;  }
+.fluid .col-2  { width: 14.637681159420291%; }
+.fluid .col-3  { width: 22.97101449275362%;  }
+.fluid .col-4  { width: 31.30434782608696%;  }
+.fluid .col-5  { width: 39.63768115942029%;  }
+.fluid .col-6  { width: 47.971014492753625%; }
+.fluid .col-7  { width: 56.30434782608695%;  }
+.fluid .col-8  { width: 64.6376811594203%;   }
+.fluid .col-9  { width: 72.97101449275362%;  }
+.fluid .col-10 { width: 81.30434782608695%;  }
+.fluid .col-11 { width: 89.6376811594203%;   }
+.fluid .col-12 { width: 97.97101449275362%;  }
+
 
 /**
  * --------------------------------
@@ -108,6 +127,19 @@
 .push-11 { left: 1265px; }
 .push-12 { left: 1380px; }
 
+.fluid .push-1  { left: 8.333333333333332%;  }
+.fluid .push-2  { left: 16.666666666666664%;  }
+.fluid .push-3  { left: 25%;  }
+.fluid .push-4  { left: 33.33333333333333%;  }
+.fluid .push-5  { left: 41.66666666666667%;  }
+.fluid .push-6  { left: 50%;  }
+.fluid .push-7  { left: 58.333333333333336%;  }
+.fluid .push-8  { left: 66.66666666666666%;  }
+.fluid .push-9  { left: 75%; }
+.fluid .push-10 { left: 83.33333333333334%; }
+.fluid .push-11 { left: 91.66666666666666%; }
+.fluid .push-12 { left: 100%; }
+
 .pull-1  { right: 115px;  }
 .pull-2  { right: 230px;  }
 .pull-3  { right: 345px;  }
@@ -120,6 +152,19 @@
 .pull-10 { right: 1150px; }
 .pull-11 { right: 1265px; }
 .pull-12 { right: 1380px; }
+
+.fluid .pull-1  { right: 8.333333333333332%;  }
+.fluid .pull-2  { right: 16.666666666666664%;  }
+.fluid .pull-3  { right: 25%;  }
+.fluid .pull-4  { right: 33.33333333333333%;  }
+.fluid .pull-5  { right: 41.66666666666667%;  }
+.fluid .pull-6  { right: 50%;  }
+.fluid .pull-7  { right: 58.333333333333336%;  }
+.fluid .pull-8  { right: 66.66666666666666%;  }
+.fluid .pull-9  { right: 75%; }
+.fluid .pull-10 { right: 83.33333333333334%; }
+.fluid .pull-11 { right: 91.66666666666666%; }
+.fluid .pull-12 { right: 100%; }
 
 /**
  * --------------------------------
