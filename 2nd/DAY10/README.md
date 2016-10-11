@@ -1,7 +1,7 @@
 ###### Front-End Develop SCHOOL
 
 # DAY 10
-
+<!--
 ### 자바스크립트 데이터 자료형 체크
 
 데이터 자료형 체크 방법
@@ -25,7 +25,7 @@
   - `for, in`
   - `for, of`
   - `forEach`
-  - `map`
+  - `map` -->
 
 
 ### CSS 그리드 시스템(Grid System)

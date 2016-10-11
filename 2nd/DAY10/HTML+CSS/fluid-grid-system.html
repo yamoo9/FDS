@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>고정 형태의 그리드 시스템을 유동 형태의 그리드 시스템으로 변경</title>
+  <link rel="stylesheet" href="../../grid-system/gs-1380-14-87-14.css">
+  <style>
+    body {
+      margin: 0;
+    }
+    .container {
+      /*width: 80%;*/
+      min-height: 100vh;
+    }
+    .row {
+      margin-bottom: 20px;
+    }
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container fluid show-grid">
+    <div class="row">
+      <div class="box col-6">column 6</div>
+      <div class="box col-6">column 6</div>
+    </div>
+    <div class="row">
+      <div class="box col-3">column 3</div>
+      <div class="box col-3">column 3</div>
+      <div class="box col-4">column 4</div>
+      <div class="box col-2">column 2</div>
+    </div>
+  </div>
+
+</body>
+</html>
