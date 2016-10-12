@@ -1,0 +1,18 @@
+.page.container {
+  min-width: 960px;
+  max-width: 1380px;
+}
+
+.page {
+  padding-top: 30px;
+}
+
+.page p {
+  margin-top: 0;
+}
+
+.page .banner {
+  background: url("https://img1.beachbodyimages.com/beachbody/image/upload/f_auto,q_auto/v1409762611/beachbodyblog/Beachbody-Blog-Pumpkin-Spice-Latte.jpg") no-repeat center top;
+  padding-bottom: 50%;
+  padding-bottom: calc(350/700*100%);
+}

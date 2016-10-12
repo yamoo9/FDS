@@ -9,11 +9,13 @@
 * Background Image
 * ---------------------------------------------------------------- */
 
-.fluid img, img.rwd-img {
+.fluid img,
+.fluid iframe,
+.rwd-img {
   width: 100%;
   height: auto;
 }
-.fluid .rwd-bg {
+.rwd-crop-bg {
   width: 100%;
   height: 0;
   background-size: cover;

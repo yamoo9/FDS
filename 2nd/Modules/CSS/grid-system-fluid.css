@@ -11,6 +11,10 @@
  * ----------------------------------------------------------------
  * 유동(Liquid, Fluid) 그리드
  * ---------------------------------------------------------------- */
+.container.fluid {
+  width: 100%;
+}
+
 .container.fluid.show-grid::before {
   background: linear-gradient(transparent 9px, #33ebe2 9px), linear-gradient(90deg, transparent 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 87.82608695652175%, transparent 87.82608695652175%);
   background-size: 1px 10px, 8.333333333333332% 1px;
