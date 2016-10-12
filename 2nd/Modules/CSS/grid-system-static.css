@@ -1,0 +1,187 @@
+/*! grid-system-static.css © yamoo9.net, 2016 */
+
+/**
+ *  페이지 폭: 1380px
+ *  컬럼 개수: 12
+ *  컬럼 폭: 87px
+ *  거터 폭: (14*2) = 28px
+ */
+
+/**
+ * ----------------------------------------------------------------
+ * 정적(Static) 그리드
+ * ---------------------------------------------------------------- */
+
+/**
+ * --------------------------------
+ * 컨테이너 모듈
+ * ----------------------------- */
+.container {
+  width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container[class*="show-"] {
+  position: relative;
+}
+.container[class*="show-"]::before {
+  content: '';
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container.show-grid::before {
+  background: linear-gradient(transparent 9px, #33ebe2 9px), linear-gradient(90deg, transparent 14px, hsla(163, 64%, 49%, 0.2) 14px, hsla(163, 64%, 49%, 0.2) 101px, transparent 101px);
+  background-size: 1px 10px, 115px 1px;
+}
+
+.container.show-baseline::before {
+  background: linear-gradient(transparent 9px, #33ebe2 9px);
+  background-size: 1px 10px;
+}
+.container.show-columns::before {
+  background: linear-gradient(90deg, transparent 14px, hsla(163, 64%, 49%, 0.2) 14px, hsla(163, 64%, 49%, 0.2) 101px, transparent 101px);
+  background-size: 115px 1px;
+}
+
+/**
+ * --------------------------------
+ * 로우 / 클리어픽스 모듈
+ * ----------------------------- */
+.row::after,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/**
+ * --------------------------------
+ * 컬럼 모듈
+ * ----------------------------- */
+[class*="col-"] {
+  /* 수평 레이아웃 */
+  float: left;
+  /* 거터 */
+  margin-left: 14px;
+  margin-right: 14px;
+}
+.fluid [class*="col-"] {
+  margin-left: 1.0144927536231882%;
+  margin-right: 1.0144927536231882%;
+}
+
+.col-1  { width: 87px;   }
+.col-2  { width: 202px;  }
+.col-3  { width: 317px;  }
+.col-4  { width: 432px;  }
+.col-5  { width: 547px;  }
+.col-6  { width: 662px;  }
+.col-7  { width: 777px;  }
+.col-8  { width: 892px;  }
+.col-9  { width: 1007px; }
+.col-10 { width: 1122px; }
+.col-11 { width: 1237px; }
+.col-12 { width: 1352px; }
+
+/**
+ * --------------------------------
+ * 푸쉬/풀 모듈
+ * ----------------------------- */
+[class*="push-"],
+[class*="pull-"] {
+  position: relative;
+}
+.push-1  { left: 115px;  }
+.push-2  { left: 230px;  }
+.push-3  { left: 345px;  }
+.push-4  { left: 460px;  }
+.push-5  { left: 575px;  }
+.push-6  { left: 690px;  }
+.push-7  { left: 805px;  }
+.push-8  { left: 920px;  }
+.push-9  { left: 1035px; }
+.push-10 { left: 1150px; }
+.push-11 { left: 1265px; }
+.push-12 { left: 1380px; }
+
+.pull-1  { right: 115px;  }
+.pull-2  { right: 230px;  }
+.pull-3  { right: 345px;  }
+.pull-4  { right: 460px;  }
+.pull-5  { right: 575px;  }
+.pull-6  { right: 690px;  }
+.pull-7  { right: 805px;  }
+.pull-8  { right: 920px;  }
+.pull-9  { right: 1035px; }
+.pull-10 { right: 1150px; }
+.pull-11 { right: 1265px; }
+.pull-12 { right: 1380px; }
+
+/**
+ * --------------------------------
+ * 프리픽스/서픽스 모듈
+ * ----------------------------- */
+.prefix-1  { margin-left: 129px;  }
+.prefix-2  { margin-left: 244px;  }
+.prefix-3  { margin-left: 359px;  }
+.prefix-4  { margin-left: 474px;  }
+.prefix-5  { margin-left: 589px;  }
+.prefix-6  { margin-left: 704px;  }
+.prefix-7  { margin-left: 819px;  }
+.prefix-8  { margin-left: 934px;  }
+.prefix-9  { margin-left: 1049px; }
+.prefix-10 { margin-left: 1164px; }
+.prefix-11 { margin-left: 1279px; }
+.prefix-12 { margin-left: 1394px; }
+
+.suffix-1  { margin-right: 129px;  }
+.suffix-2  { margin-right: 244px;  }
+.suffix-3  { margin-right: 359px;  }
+.suffix-4  { margin-right: 474px;  }
+.suffix-5  { margin-right: 589px;  }
+.suffix-6  { margin-right: 704px;  }
+.suffix-7  { margin-right: 819px;  }
+.suffix-8  { margin-right: 934px;  }
+.suffix-9  { margin-right: 1049px; }
+.suffix-10 { margin-right: 1164px; }
+.suffix-11 { margin-right: 1279px; }
+.suffix-12 { margin-right: 1394px; }
+
+
+/**
+ * --------------------------------
+ * 격리된 플로팅 모듈
+ * ----------------------------- */
+.row.isolate [class*="col-"] {
+  margin-right: -100%;
+}
+
+.row.isolate .order-1,
+.row.isolate .o1 { margin-left: 14px;    }
+.row.isolate .order-2,
+.row.isolate .o2 { margin-left: 129px;   }
+.row.isolate .order-3,
+.row.isolate .o3 { margin-left: 244px;   }
+.row.isolate .order-4,
+.row.isolate .o4 { margin-left: 359px;   }
+.row.isolate .order-5,
+.row.isolate .o5 { margin-left: 474px;   }
+.row.isolate .order-6,
+.row.isolate .o6 { margin-left: 589px;   }
+.row.isolate .order-7,
+.row.isolate .o7 { margin-left: 704px;   }
+.row.isolate .order-8,
+.row.isolate .o8 { margin-left: 819px;   }
+.row.isolate .order-9,
+.row.isolate .o9 { margin-left: 934px;   }
+.row.isolate .order-10,
+.row.isolate .o10 { margin-left: 1049px; }
+.row.isolate .order-11,
+.row.isolate .o11 { margin-left: 1164px; }
+.row.isolate .order-12,
+.row.isolate .o12 { margin-left: 1279px; }

@@ -1,0 +1,112 @@
+/*! grid-system-fluid.css © yamoo9.net, 2016 */
+
+/**
+ *  페이지 폭: 1380px
+ *  컬럼 개수: 12
+ *  컬럼 폭: 87px
+ *  거터 폭: (14*2) = 28px
+ */
+
+/**
+ * ----------------------------------------------------------------
+ * 유동(Liquid, Fluid) 그리드
+ * ---------------------------------------------------------------- */
+.container.fluid.show-grid::before {
+  background: linear-gradient(transparent 9px, #33ebe2 9px), linear-gradient(90deg, transparent 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 87.82608695652175%, transparent 87.82608695652175%);
+  background-size: 1px 10px, 8.333333333333332% 1px;
+}
+
+.container.fluid.show-columns::before {
+  background: linear-gradient(90deg, transparent 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 12.173913043478262%, hsla(163, 64%, 49%, 0.2) 87.82608695652175%, transparent 87.82608695652175%);
+  background-size: 8.333333333333332% 1px;
+}
+
+.fluid .col-1  { width: 6.304347826086956%;  }
+.fluid .col-2  { width: 14.637681159420291%; }
+.fluid .col-3  { width: 22.97101449275362%;  }
+.fluid .col-4  { width: 31.30434782608696%;  }
+.fluid .col-5  { width: 39.63768115942029%;  }
+.fluid .col-6  { width: 47.971014492753625%; }
+.fluid .col-7  { width: 56.30434782608695%;  }
+.fluid .col-8  { width: 64.6376811594203%;   }
+.fluid .col-9  { width: 72.97101449275362%;  }
+.fluid .col-10 { width: 81.30434782608695%;  }
+.fluid .col-11 { width: 89.6376811594203%;   }
+.fluid .col-12 { width: 97.97101449275362%;  }
+
+.fluid .push-1  { left: 8.333333333333332%;  }
+.fluid .push-2  { left: 16.666666666666664%; }
+.fluid .push-3  { left: 25%;                 }
+.fluid .push-4  { left: 33.33333333333333%;  }
+.fluid .push-5  { left: 41.66666666666667%;  }
+.fluid .push-6  { left: 50%;                 }
+.fluid .push-7  { left: 58.333333333333336%; }
+.fluid .push-8  { left: 66.66666666666666%;  }
+.fluid .push-9  { left: 75%;                 }
+.fluid .push-10 { left: 83.33333333333334%;  }
+.fluid .push-11 { left: 91.66666666666666%;  }
+.fluid .push-12 { left: 100%;                }
+
+.fluid .pull-1  { right: 8.333333333333332%;  }
+.fluid .pull-2  { right: 16.666666666666664%; }
+.fluid .pull-3  { right: 25%;                 }
+.fluid .pull-4  { right: 33.33333333333333%;  }
+.fluid .pull-5  { right: 41.66666666666667%;  }
+.fluid .pull-6  { right: 50%;                 }
+.fluid .pull-7  { right: 58.333333333333336%; }
+.fluid .pull-8  { right: 66.66666666666666%;  }
+.fluid .pull-9  { right: 75%;                 }
+.fluid .pull-10 { right: 83.33333333333334%;  }
+.fluid .pull-11 { right: 91.66666666666666%;  }
+.fluid .pull-12 { right: 100%;                }
+
+.fluid .prefix-1  { margin-left: 9.347826086956522%;  }
+.fluid .prefix-2  { margin-left: 17.681159420289855%; }
+.fluid .prefix-3  { margin-left: 26.014492753623188%; }
+.fluid .prefix-4  { margin-left: 34.34782608695652%;  }
+.fluid .prefix-5  { margin-left: 42.68115942028985%;  }
+.fluid .prefix-6  { margin-left: 51.01449275362319%;  }
+.fluid .prefix-7  { margin-left: 59.34782608695652%;  }
+.fluid .prefix-8  { margin-left: 67.68115942028986%;  }
+.fluid .prefix-9  { margin-left: 76.01449275362319%;  }
+.fluid .prefix-10 { margin-left: 84.34782608695653%;  }
+.fluid .prefix-11 { margin-left: 92.68115942028986%;  }
+.fluid .prefix-12 { margin-left: 101.0144927536232%;  }
+
+.fluid .suffix-1  { margin-right: 9.347826086956522%;  }
+.fluid .suffix-2  { margin-right: 17.681159420289855%; }
+.fluid .suffix-3  { margin-right: 26.014492753623188%; }
+.fluid .suffix-4  { margin-right: 34.34782608695652%;  }
+.fluid .suffix-5  { margin-right: 42.68115942028985%;  }
+.fluid .suffix-6  { margin-right: 51.01449275362319%;  }
+.fluid .suffix-7  { margin-right: 59.34782608695652%;  }
+.fluid .suffix-8  { margin-right: 67.68115942028986%;  }
+.fluid .suffix-9  { margin-right: 76.01449275362319%;  }
+.fluid .suffix-10 { margin-right: 84.34782608695653%;  }
+.fluid .suffix-11 { margin-right: 92.68115942028986%;  }
+.fluid .suffix-12 { margin-right: 101.0144927536232%;  }
+
+.fluid .row.isolate .order-1,
+.fluid .row.isolate .o1 { margin-left: 1.0144927536231882%; }
+.fluid .row.isolate .order-2,
+.fluid .row.isolate .o2 { margin-left: 9.347826086956522%;  }
+.fluid .row.isolate .order-3,
+.fluid .row.isolate .o3 { margin-left: 17.681159420289855%; }
+.fluid .row.isolate .order-4,
+.fluid .row.isolate .o4 { margin-left: 26.014492753623188%; }
+.fluid .row.isolate .order-5,
+.fluid .row.isolate .o5 { margin-left: 34.34782608695652%;  }
+.fluid .row.isolate .order-6,
+.fluid .row.isolate .o6 { margin-left: 42.68115942028985%;  }
+.fluid .row.isolate .order-7,
+.fluid .row.isolate .o7 { margin-left: 51.01449275362319%;  }
+.fluid .row.isolate .order-8,
+.fluid .row.isolate .o8 { margin-left: 59.34782608695652%;  }
+.fluid .row.isolate .order-9,
+.fluid .row.isolate .o9 { margin-left: 67.68115942028986%;  }
+.fluid .row.isolate .order-10,
+.fluid .row.isolate .o10 { margin-left: 76.01449275362319%; }
+.fluid .row.isolate .order-11,
+.fluid .row.isolate .o11 { margin-left: 84.34782608695653%; }
+.fluid .row.isolate .order-12,
+.fluid .row.isolate .o12 { margin-left: 92.68115942028986%; }
