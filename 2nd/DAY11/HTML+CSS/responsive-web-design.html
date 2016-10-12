@@ -22,7 +22,7 @@
 </head>
 <body>
 
-  <main class="page container fluid show-grid">
+  <main class="page container fluid">
     <div class="row isolate">
       <div class="col-3 o7">
         <img class="rwd-img" src="http://placehold.it/800x220/" alt="">
@@ -34,11 +34,16 @@
     </div>
     <div class="row">
       <div class="banner col-3 rwd-crop-bg"></div>
-      <div class="cropping col-4 rwd-crop">
-        <img src="images/Beachbody-Blog-Pumpkin-Spice-Latte.webp" alt="">
-      </div>
     </div>
   </main>
 
+<script src="../../Modules/JS/gs-utils.js"></script>
+<script>
+document.onkeydown = function(event) {
+  if ( event.shiftKey && event.keyCode === 71 ) {
+    toggleGrid();
+  }
+}
+</script>
 </body>
 </html>
