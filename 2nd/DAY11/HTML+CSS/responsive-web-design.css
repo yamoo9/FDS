@@ -16,3 +16,20 @@
   padding-bottom: 50%;
   padding-bottom: calc(350/700*100%);
 }
+
+.page .cropping {
+  height: 200px;
+}
+
+.page .cropping {
+  overflow: hidden;
+}
+
+.page .cropping img {
+  transition: all 0.3s cubic-bezier(0, 0.9, 1, 1);
+  transform: translateX(-50%) scale(1);
+}
+
+.page .cropping:hover img {
+  transform: translateX(-50%) scale(1.2);
+}
