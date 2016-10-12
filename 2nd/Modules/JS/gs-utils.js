@@ -11,7 +11,7 @@ function toggleGrid() {
   // 조건 검증
   // _container 요소에 .show-grid 클래스가 있어?
   // 있으면?
-  if ( _container.classList.contains('show-grid')  ) {
+  if ( _container.classList.contains('show-grid') ) {
     _container.classList.remove('show-grid');
   }
   // 없으면?

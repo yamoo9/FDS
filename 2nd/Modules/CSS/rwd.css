@@ -9,8 +9,6 @@
 * Background Image
 * ---------------------------------------------------------------- */
 
-.fluid img,
-.fluid iframe,
 .rwd-img {
   width: 100%;
   height: auto;
@@ -22,13 +20,12 @@
   background-size: cover;
 }
 
-.rwd-crop-container,
-.rwd-crop {
+.rwd-crop-container {
   position: relative;
+  height: 100px; /* default value */
 }
 
-img.rwd-crop,
-.rwd-crop img {
+.rwd-crop-container img {
   position: absolute;
   left: 50%;
   width: 100%;
