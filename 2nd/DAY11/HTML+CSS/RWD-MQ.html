@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>RWD, Media Queries</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background: #fe4940;
+      color: #fff;
+    }
+    body::before {
+      content: 'Mobile';
+      font-size: 100px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      body {
+        background: #21ffdf;
+        color: #000000;
+      }
+      body::before {
+        content: 'Tablet';
+      }
+    }
+    @media screen and (min-width: 1025px) {
+      body {
+        background: #6e00ff;
+        color: #1e023d;
+      }
+      body::before {
+        content: 'Desktop';
+      }
+    }
+  </style>
+</head>
+<body>
+
+</body>
+</html>
