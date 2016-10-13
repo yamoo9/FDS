@@ -163,7 +163,7 @@ var link_2 = links[1];
 #### `<q>`, `<bq>`, `<cite>`
 
 `<q>`  : `quote`의 약자로 인용구가 짧을때 인라인 요소로 사용된다.<br>
-`<bq>` : `blockquote`의 약자로 인용구가 많을때 사용한다.<br>
+`<blockquote>` : 인용구가 많을때 사용한다.<br>
 
 `<cite>` :<br>
 1) 요소로써의 `cite`는 인용에 사용된 글을 이야기 한 사람 citation을 의미한다.<br>
