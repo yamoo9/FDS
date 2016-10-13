@@ -131,7 +131,7 @@ console.log( "undefined.constructor : ",  undefined.constructor );
 #### 4. `isType() (사용자정의)`
 없는건 만들어 쓰자!
 ```js
-// 언어 차원에서 지원되지 않는 사용자 정의 함수를 통해 유형 검증!
+// 언어 차원에서 지원되지 않는 유형 검증을 사용자 정의 함수를 통해 해결!
 // isType() 유틸리티 헬퍼 함수
 // 객체가 아닌 유형도 검증이 가능 
 var num = 777;
