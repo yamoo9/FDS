@@ -110,7 +110,7 @@ var link_2 = links[1];
 `[cite="http:wiki.com/quot"]{}` : 사이트 값이 http:wiki.com/quot 가진 것을 찾는다.<br>
 `p [class="note"] = p.note`<br>
 
-`data` : date-app : date를 앞에 다가 넣으면 새로운 속성을 정의 할 수 있다.<br>
+`data` : data-app : data를 앞에 다가 넣으면 새로운 속성을 정의 할 수 있다.<br>
 `|` : '-'(하이픈)을 의미한다.<br>
 
 
