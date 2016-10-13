@@ -49,12 +49,12 @@
 ## Javascript
 
 * Array, Function, Object 형은 모두 참조가 가능한 객체이다. 
-* Object 는 legnth 속성을 가지지 않는다. 
+* Object 는 length 속성을 가지지 않는다. 
 
 ### 정보분석 (Comparative Data)
 
 #### 1. `typeof | typeof() (키워드)`
-typeof는 함수가 아니라, 뒤에나오는 데이터 유형을 감지하여 감지된 데이터 유형 값을 문자열로 반환한다.
+typeof는 함수가 아니라, 뒤에 나오는 데이터 유형을 감지하여 감지된 데이터 유형 값을 문자열로 반환한다.
 ```js
 // 싱글 'var' 패턴(single 'var' pattern)
 var num = 102,
@@ -66,8 +66,8 @@ console.log("str 변수에 복사된 데이터 유형:", typeof str); // => stri
 
 만약 감지하고자 하는 데이터 유형이 2개 이상이라면 _괄호()를 사용하여 데이터를 묶어서 체크_ 해야 한다.
 ```js
-console.log( typeof num + str );    // 8 + '' => 8 
-console.log( typeof (num + str) );  // string
+console.log( typeof num + str );    // "number문자열"
+console.log( typeof (num + str) );  // 숫자와 문열이 결합됨으로 string 반환
 ```
 
 array, object, null 모두 object 를 반환하므로 typeof 로 구분할 수 없다.
@@ -75,9 +75,9 @@ array, object, null 모두 object 를 반환하므로 typeof 로 구분할 수 �
 var arr = [num, boo, fnc],
     obj = {"number_type": num, "boolean": boo };
 
-console.log("arr 데이터 유형:", typeof arr);
-console.log("obj 데이터 유형:", typeof obj);
-console.log("null 데이터 유형:", typeof null);
+console.log("arr 데이터 유형:", typeof arr);  //object
+console.log("obj 데이터 유형:", typeof obj);  //object
+console.log("null 데이터 유형:", typeof null);  //object
 ```
 <br>
 
@@ -87,8 +87,12 @@ console.log("null 데이터 유형:", typeof null);
     - 생성된 객체의 모체(클래스(Class), 프로토타입(prototype))
     - 설계가 바뀌면 인스턴스도 바뀐다.
 ```js
-// 인트턴스 instanseof 원형(모체)  => '인스턴스' 는 '원형'으로 생성된 객체인가
+// 인트턴스 instanseof 원형(모체)  => '인스턴스' 는 '원형'으로부터 생성된 객체
 // return BOOLEAN {true, false}
+var obj = {},
+    arr = [],
+    fnc = function(){};
+
 console.log( 'obj instanceof Object:'   , obj instanceof Object);   // true
 console.log( 'arr instanceof Array:'    , arr instanceof Array);    // true
 console.log( 'arr instanceof Object:'   , arr instanceof Object);   // true
@@ -99,9 +103,12 @@ console.log( 'fnc instanceof Function:' , fnc instanceof Function); // true
 ```js
 // 원시 데이터 유형은 실상 객체가 아닌, 값이다.
 // 자바스크립트 엔진이 원시 데이터 유형(null, undefined 제외)의 값을 마치 객체인 것처럼 사용할 수 있게 제공하는 것일뿐.
-console.log( 'num instanceof Number:', num instanceof Number);
-console.log( 'str instanceof String:', str instanceof String);
-console.log( 'boo instanceof Boolean:', boo instanceof Boolean);
+var num = 10,
+    str = "문자열",
+    boo = true;
+console.log( 'num instanceof Number:', num instanceof Number);  //false
+console.log( 'str instanceof String:', str instanceof String);  //false
+console.log( 'boo instanceof Boolean:', boo instanceof Boolean);  //false
 ```
 <br>
 
@@ -110,8 +117,8 @@ console.log( 'boo instanceof Boolean:', boo instanceof Boolean);
 * 객체에 대해서는 정확한 값을 반환하지만, 아래와 같이 null, undefined 은 에러를 발생한다.
 ```js
 // 에러 발생
-console.log( "null.constructor : ", null.constructor );
-console.log( "undefined.constructor : ",  undefined.constructor ); 
+console.log( "null.constructor : ", null.constructor );             //Cannot read property 'constructor' of null
+console.log( "undefined.constructor : ",  undefined.constructor );  //Cannot read property 'constructor' of undefined
 ```
 
 <br>
@@ -121,12 +128,16 @@ console.log( "undefined.constructor : ",  undefined.constructor );
 #### 4. `isType() (사용자정의)`
 없는건 만들어 쓰자!
 ```js
-// 언어 차원에서 지원되지 않는 사용자 정의 함수
+// 언어 차원에서 지원되지 않는 사용자 정의 함수를 통해 유형 검증!
 // isType() 유틸리티 헬퍼 함수
 // 객체가 아닌 유형도 검증이 가능 
+var num = 777;
+
 function isType(data) {
     return Object.prototype.toString.call(data).toLowerCase().slice(8, -1);
 }
+
+console.log(isType(num));  //"number";
 ```
 
 <br>
@@ -145,8 +156,8 @@ function isType(data) {
 - 2011.01.26 이후 업데이트 되지 않아 최근 동향과 맞지 않는다.
 
 #### # normalize.css [https://necolas.github.io/normalize.css/]
-- 브라우저 사이의 간극을 줄이는 목적으로 제작됨.
-- /*! 주석문 */ 은 삭제하지 않는다. (license 관련)
+- 브라우저 사이의 기본 스타일 간극을 줄이는 목적으로 제작됨.
+- 앞에 느낌표가 붙은 /*! 주석문 */ 은 삭제하지 않는다. (license 관련)
 ```css
 -ms-text-size-adjust: 100%; /* 3 */
 -webkit-text-size-adjust: 100%; /* 3 */
@@ -180,9 +191,10 @@ calc() 내장함수를 사용하여 퍼센트 계산
 function toggleGrid() {
   var _container = document.querySelector('.container');
 
-  // 있으면?
-  if ( _container.classList.contains('show-grid')  ) {
+  // show-grid 클래스가 있으면?
+  if ( _container.classList.contains('show-grid')  ) {  /* classList 메서드는 IE 10 부터 부분 지원 */
     _container.classList.remove('show-grid');
+    
   }
   // 없으면?
   else {
