@@ -117,8 +117,12 @@ console.log( 'boo instanceof Boolean:', boo instanceof Boolean);  //false
 * 객체에 대해서는 정확한 값을 반환하지만, 아래와 같이 null, undefined 은 에러를 발생한다.
 ```js
 // 에러 발생
-console.log( "null.constructor : ", null.constructor );             //Cannot read property 'constructor' of null
-console.log( "undefined.constructor : ",  undefined.constructor );  //Cannot read property 'constructor' of undefined
+console.log( "null.constructor : ", null.constructor );             
+
+//Cannot read property 'constructor' of null
+console.log( "undefined.constructor : ",  undefined.constructor );  
+
+//Cannot read property 'constructor' of undefined
 ```
 
 <br>
