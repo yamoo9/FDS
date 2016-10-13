@@ -118,10 +118,9 @@ console.log( 'boo instanceof Boolean:', boo instanceof Boolean);  //false
 ```js
 // 에러 발생
 console.log( "null.constructor : ", null.constructor );             
-
 //Cannot read property 'constructor' of null
-console.log( "undefined.constructor : ",  undefined.constructor );  
 
+console.log( "undefined.constructor : ",  undefined.constructor );  
 //Cannot read property 'constructor' of undefined
 ```
 
