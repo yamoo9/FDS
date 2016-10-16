@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Layout Module - Flexbox</title>
+  <style>
+    body {
+      margin: 4rem 14rem;
+    }
+    .container {
+      display: flex;
+      height: 450px;
+      border: 4px solid #34c0ff;
+      flex-flow: wrap;
+      /*justify-content: space-between;*/
+      /*align-items: flex-start;*/
+      align-content: flex-start;
+    }
+    /*.container:last-of-type {
+      display: flex;
+    }*/
+    .item {
+      /*padding: 1rem;*/
+      color: #fff;
+      width: 100px;
+      /*height: 100px;*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /*flex-grow: 1;*/
+      /*flex-shrink: 0;*/
+      /*flex-basis: initial;*/
+      /*flex: 0 0 160px;*/
+    }
+    .item:nth-child(1n) { align-self: flex-end; /*flex-grow: 1;*/ /*order: 4;*/ background: #2c9da7; }
+    .item:nth-child(2n) { align-self: flex-end; /*flex-grow: 1;*/ /*order: 3;*/ background: #202296; }
+    .item:nth-child(3n) { align-self: stretch; /*flex-grow: 1;*/ /*order: 2;*/ background: #941473; }
+    .item:nth-child(4n) { align-self: center; /*flex-grow: 1;*/ /*order: -1;*/ /*order: 1;*/ background: #3d9a21; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item">item 4</div>
+    <!-- <div class="item">item 5</div>
+    <div class="item">item 6</div>
+    <div class="item">item 7</div>
+    <div class="item">item 8</div>
+    <div class="item">item 9</div>
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item">item 4</div>
+    <div class="item">item 5</div>
+    <div class="item">item 6</div>
+    <div class="item">item 7</div>
+    <div class="item">item 8</div>
+    <div class="item">item 9</div> -->
+  </div>
+<!--
+  <div class="container">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item">item 4</div>
+  </div> -->
+
+</body>
+</html>
