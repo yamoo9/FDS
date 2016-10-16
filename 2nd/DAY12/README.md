@@ -108,11 +108,56 @@
 
     - 키보드로 내비게이션을 운용할 수 없다
     - 탭, 엔터, 스페이스 키만으로 운용
-    - 마우스가 올라왔을때 focus가 와야하며, 시각적으로 표시 해주어야 한다.
+    - 마우스가 올라왔을때 focus가 와야하며 툴팁과 같은 시각적 표시가 있어야 한다.
     - focus를 못받는 요소에는 onclick 이벤트를 주지 않아야 한다.
     - 방향키, 스페이스, page up/down 등의 키보드 탐색을 지원해야 한다.
 
 * tabindex 속성값을 주면 `<div>`, `<span>` 요소와 같이 포커스를 못받는 요소에게 포커스를 줄 수 있다.
+
+#### 요소에 마우스 오버, 포커싱 시 툴팁 띄우기 예시
+```html
+<style>
+    .tooltip{
+      position: relative;
+      padding: 1em;
+    }
+    .tooltip:hover .tooltip-content,
+    .tooltip:focus .tooltip-content
+    {
+      display: block;
+    }
+    .tooltip-content{
+      display: none;
+      position: absolute;
+      top: 20px;
+      left: 60px;
+      width: 140px;
+      padding: 0.5em 1em;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="tooltip" role="tooltip" tabindex="0">
+    구독게시판 
+    <span class="tooltip-content">즐겨찾기 게시판의 소식을 네이버 ME에서 모아보세요!</span>
+  </div>
+
+  <script>
+    var tooltip = document.querySelector(".tooltip");
+    tooltip.onkeydown = function(event){
+      // esc 키를 누르면 툴팁 제거
+      if(event.keyCode === 27){ 
+        tooltip.querySelector(".tooltip-content").style.display = "none";
+      }
+    }
+    tooltip.onblur = function(event){
+      tooltip.querySelector(".tooltip-content").removeAttribute("style");
+    }
+  </script>
+</body>
+
+```
 
 > 404페이지
 > - 홈링크 제공
@@ -146,15 +191,28 @@
 * main axis : item 이 정렬되는 주축
 * cross axis : 주축에 교차가 되는 축
 
+#### # 컨테이너와 관련된 속성들
+
+ - display : flex		      —> block 처럼 동작
+ - display : inline-flex	—> inline 처럼 동작
+ - justify-content 		    —> 주축( main-axis )의 방향으로 컨텐츠를 정렬
+ - flex-direction		      —> 주축의 방향을 설정 (row, row-reverse, column, column-reverse) 		
+ - flex-wrap			        —> 자식을 감싸는 방식(nowrap, wrap, wrap-reverse(자식이 떨어지는 순서 방향을 반대로))
+
+#### # 컨텐츠와 관련된 속성들
+
+ - align-items 		—> 자식들의 정렬 (start, end, center)
+ - align-content  —> 자식들을 통합적으로 관리
+ - order          -> 자식들의 순서를 변경. 마크업 자체의 구조가 바뀌는 것이 아니기 때문에 웹 접근성 준수에도 좋습니다.
+ - flex-basis     -> 주축의 방향이 row일 경우 자식 컨텐츠의 넓이를, 주축의 방향이 column 일 경우 자식 컨텐츠의 높이를 조절하게 됩니다. width 속성과 비슷합니다.
+ - align-self     -> 개별 자식의 align을 조절하여 따로 따로 움직일 수록 할 수 있습니다.
+
 #### # Shorthand
 ```
 flex-flow : <flex-direction> <flex-wrap>;
-flex: <grow> <shrink> <basis>;
+flex: initial === flex: 0(flex-grow) 1(flex-shrink) auto(flex-basis);
 ```
 
-#### # Display Order
-- order는 기본값이 0, 같은 값이면 마크업 순서대로
-- 마크업 순서에 구애받지 않고 배치할 수 있기 때문에 접근성을 향상 시킬 수 있다.
 <br><br>
 
 `참고)`
