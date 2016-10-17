@@ -4,11 +4,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>CSS Layout</title>
+  <link rel="stylesheet" href="../../Modules/CSS/initialization/normalize.min.css">
   <style>
+    /* [배경 이미지 예]: 모던 웹 브라우저에서 적용 가능한 고/저해상도 이미지 분기 처리 방법 */
+    .bg-test {
+      height: 100vh;
+      background: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .detect-DPR,
+    .detect-DPRx2 {
+      width: 200px;
+      height: 100px;
+      margin-right: 50px;
+      background: url("images/board-girlx1.jpg") no-repeat;
+    }
+    /* CSS3 Media Query: Device Pixel Ratio */
+    @media
+      (-webkit-min-device-pixel-ratio: 2),
+      (min--moz-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx)
+    {
+      .detect-DPRx2 {
+        background-image: url("images/board-girlx2.jpg");
+        background-size: 400px 247px;
+      }
+    }
 
+
+    /*.detect-DPR.x2 {
+      width: 200px;
+      height: 200px;
+    }
+
+    .bg {
+      background: url("images/board-girlx1.jpg") no-repeat;
+      background-size: cover;
+    }
+    .bg.x2 {
+      background-image: url("images/board-girlx2.jpg");
+    }*/
   </style>
 </head>
 <body>
+
+  <div class="bg-test">
+    <div class="detect-DPR"></div>
+    <div class="detect-DPRx2"></div>
+  </div>
 
   <div>
     <img src="images/map.png" alt="Map">
@@ -22,11 +68,10 @@
       [콘텐츠 이미지 예]: 모던 웹 브라우저에서 적용 가능한 고/저해상도 이미지 분기 처리 방법
       http://caniuse.com/#search=srcset
       https://webkit.org/blog/2910/improved-support-for-high-resolution-displays-with-the-srcset-image-attribute/
-
     -->
     <img
       src="images/map.png"
-      srcset="images/map.png 1x, images/map@2x.png 2x"
+      srcset="images/map@2x.png 2x, images/map@3x.png 3x"
       alt="Map">
   </div>
 
