@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Layout</title>
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <div>
+    <img src="images/map.png" alt="Map">
+  </div>
+  <div>
+    <img src="images/map@2x.png" alt="Map" width="256" height="208">
+  </div>
+
+  <div>
+    <!-- [콘텐츠 이미지 예]: 모던 웹 브라우저에서 적용 가능한 고/저해상도 이미지 분기 처리 방법 -->
+    <img
+      src="images/map.png"
+      srcset="images/map.png 1x, images/map@2x.png 2x"
+      alt="Map">
+  </div>
+
+  <!-- [ png, jpg, gif, bmp ]
+    - content image
+      - <picture srcset="">
+      - <img src="" srcset="">
+      - <fiqure>
+    - background image -->
+
+</body>
+</html>
