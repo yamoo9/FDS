@@ -15,6 +15,7 @@
     }
     .app {
       min-height: 100vh;
+      padding: 2rem;
       background: url("http://alistapart.com/d/_made/d/misc-images/rwd-4_450_736_81.jpg") no-repeat center bottom;
       color: #323232;
     }
@@ -27,6 +28,12 @@
       margin-bottom: 20px;
     }
 
+    .app h1 {
+      line-height: 1;
+      position: relative;
+      top: 6px;
+    }
+
     @media only screen and (min-width: 768px) {
       .app {
         background-image: url("http://alistapart.com/d/_made/d/misc-images/rwd-3_1500_1078_81.jpg");
@@ -37,23 +44,23 @@
 </head>
 <body>
 
-  <div class="app container show-grid" lang="en">
+  <div class="app container" lang="en">
     <div class="row">
-      <div class="column m1-2 t2-8">
+      <div class="column m-full t3-8 d-full">
         <h1 lang="en">Mobile First</h1>
       </div>
-      <div class="column m1-2 t6-8">
+      <div class="column m1-2 t5-8 d3-12">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, sapiente! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam!</p>
       </div>
     </div>
-    <div class="row">
+   <!--  <div class="row">
       <div class="column m1-3">column m1-3</div>
       <div class="column m2-3">column m2-3</div>
     </div>
     <div class="row">
       <div class="column m1-4">column m1-4</div>
       <div class="column m3-4">column m3-4</div>
-    </div>
+    </div> -->
   </div>
 
 </body>
