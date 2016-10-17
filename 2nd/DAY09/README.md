@@ -315,12 +315,12 @@ container.setAttribute('class', removed-class.trim());
 ##### 위의 코드를 정리하면, #####
 ---
 ```js
-show-grid-button.onclick = function();{
+show-grid-button.onclick = function() {
 var pre-assigned-class = container.getAttribute('class');
 console.log(pre-assigned-class);
 container.setAttribute('class', pre-assigned-class + ' ' + 'show-grid')
 };
-hide-grid-button.onclick = function();{
+hide-grid-button.onclick = function() {
 var pre-assigned-class = container.getAttribute('class');
 var removed-class = pre-assigne-class.replace('show-grid',' ');
   container.setAttribute('class', removed-class.trim());
