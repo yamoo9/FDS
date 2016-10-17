@@ -7,8 +7,15 @@
  * 객체가 아닌 유형도 검증이 가능
  * ----------------------------- */
 
-/** @function isType */
+/**
+ *  @function isType        데이터 유형을 정확하게 감지하는 함수
+ *  @param    {everything}  data
+ *  @return   {string}      데이터 유형을 문자열로 반환
+ */
 function isType(data) {
-  // return 키워드는 함수 내에서 처리된 결과 값을 반환한다.
   return Object.prototype.toString.call(data).toLowerCase().slice(8, -1);
+}
+
+function isExist(node) {
+  return isType(node) !== 'null';
 }
