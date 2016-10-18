@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e8e8e8;
+}
+[class*="ui-button-"] {
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 0;
+  background-color: transparent;
+}
+[class*="ui-button-"]:focus {
+  outline: none;
+}
+[class*="ui-button-"]:active {
+  position: relative;
+  top: 2px;
+}
+.ui-button--toggle {
+  border-radius: 5px;
+  padding: 1em 1.2em;
+  font-size: 1.2rem;
+  background: #fff;
+  color: #aea28f;
+}
+.ui-button--toggle.pressed {
+  box-shadow: 0 0 10px hsla(0,0%,0%,.3) inset;
+}
