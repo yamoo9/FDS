@@ -2,124 +2,126 @@
 
 # DAY 14
 
-### 플렉시블 박스 Flexbox: CSS Layout Module
+## 1. javascript
+### 1.1 classList
 
-- 키노트(Keynote)
-- 데몬스트레이션(Demonstration)
+`classList`는 jQuery의 `hasClass()`,`addClass`,`removeClass`의 기능을 모티브로 javascript에서 동일한 기능을 구현할 수 있게 추가된 함수이다.
+기존에 javascript는 특정 클래스를 선택, 추가, 삭제 하거나 존재 여부를 알기위해선 복잡한 과정을 거처야 했다. 하지만 `classList`의 추가로 `hasClass()`,`addClass`,`removeClass`와 같이 쉽게 클래스에 접근할 수 있게 되었다.
 
-### Sass 프리프로세싱
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="classname"></div>
+</body>
+</html>
+~~~
 
-- 키노트(Keynote)
-- 데몬스트레이션(Demonstration)
+~~~js
+//기존 javascript 에서 classname 이라는 클래스를 가진 요소에서 addclass가 존재하는지 확인하고 없다면 추가하고 있다면 삭제하는 작업
+var node = document.querySelector(".classname");
+var class_node = node.getAttribute('class', 'classname');
+
+if(class_node.indexOF("addclass") == -1){
+  node.setAttribute('class', class_node + " " + 'addclass');
+} else {
+  class_node.replace("addclass", " ");
+}
+
+// classList 를 이용한 방법
+var node = document.querySelector(".classname");
+
+if(node.classList.concat('addclass')){
+  node.classList.remove('addclass');
+}else{
+  node.classList.add('addclass');
+}
+~~~
+
+위 코드에서 볼 수 있듯이 코드가 상당히 짧아졌다. 이렇듯 기본에 불편했던 부분을 jQuery의 유용한 기능을 참고한 유용한 기능들이 javascript에 추가되고있다.
+> 단, classList는 크로스 브라우징 분제가 심하다.
+IE10 이상부터 부분지원 하고 있기 때문에 아직은 범용적으로 사용하기 어려운 점이 있다.
+
+---
+### 1.2 요소 안에 텍스트 바꾸기
+이제까지 우리는 특정 요소 또는 클래스, 아이디 에 접근하는 방법을 다루어 봤다.
+그렇다면 특정 Tag안에 있는 텍스트에 접근하려면 어떻게 하면 될까?
+
+~~~html
+<p>수업 시작</p>
+~~~
+
+위 코드를 보면 `p` 태그 안에 '수업 시작'이라는 텍스트가 있다.
+`p`태그 안에 택스트를 선택하고 그 텍스트 값을 가져오는 법을 배워보자
+
+~~~js
+var element_node = document.getElementsByTagName(p);
+var text_node = element_node.firstchild.nodevalue;
+console.log("text_node", text_node);
+~~~
+
+위코드를 분석해보면
+`document.getElementsByTagName(p);` : document에 존재하는 `p` 태그를 찾는다.
+`firstchild` : 찾은 `p` 태그의 첫번째 자식요소를 찾는다.
+`nodevalue` : `p` 태그의 첫번째 자식 노드의 값을 가져온다.
+
+> HTML의 모든 요소는 node이다 `p`는 element node, `title` 은 attribute node `p`태그 안에 있는 택스트 역시 text node 이다. 때문에 `p`태그 안에 텍스트를 가져오기위해 nodevalue 라는 메소드를 사용한다.
 
 ---
 
-### 1. 유연한 그리드 시스템(Flexible Grid System)
+## 2. CSS
 
-#### 그리드 시스템 모듈
+### 2.1. 플렉시블 박스 Flexbox: CSS Layout Module
 
-- `container`
-- `row`(`grid`)
-- `col`(`cell`)
+#### 2.1.1. 유연한 그리드 시스템(Flexible Grid System)
+
+##### 2.1.1.1. gutters 일괄제어
 - `gutters` | `gutter-before` | `gutter-after`
 
-#### 컬럼 모듈
+grid system 을 사용하며 gutter 값의 유무를 일괄적으로 관리하기 위하여 위 클레스를 모듈화하여 사용한다.
 
-- `col-1of2`(`col--1-2`)
-- `col-1of3`(`col--1-3`)
-- `col-2of3`(`col--2-3`)
-- `col-1of4`(`col--1-4`)
-- `col-2of4`(`col--2-4`)
-- `col-3of4`(`col--3-4`)
+~~~
+거터 일괄(개별) 제어
+*/
 
-#### 유틸리티 모듈
-
-- `offset`(`prefix`|`suffix`)
-- `push`|`pull`
-- `isolate`
-
--
-
-### 2. 반응형 그리드 시스템(Responsive Grid System)
-
-#### 워크프로세스
-
-- __Mobile First__<br>
-Mobile → Tablet → Desktop
-- __Desktop First__<br>
-Desktop → Tablet → Mobile
-
-#### 중단점 모듈 프리픽스
-
-- `s` | `xs`(`mobile`)
-- `s` | `sm`(`mobile`)
-- `m` | `md`(`tablet`)
-- `l` | `lg`(`desktop`)
-- `l` | `xl`(`wide`)
-
-#### 컬럼 모듈
-
-- `{s}-1of2`(`{xs}--1-2`)
-- `{m}-1of3`(`{sm}--1-3`)
-- `{l}-2of3`(`{md}--2-3`)
-- `{s}-1of4`(`{lg}--1-4`)
-- `{m}-2of4`(`{xl}--2-4`)
-- `{l}-3of4`(`{xs}--3-4`)
-
-#### 유틸리티 모듈
-
-- `{xs}-hidden`
-
-```css
-/* 그리드 시스템 유틸리티 모듈 */
-.column[class*="-push-"],
-.column[class*="-pull-"] { position: relative; }
-
-@media only screen and (max-width: 767px) {
-  .m1-2,
-  .m2-4 { width: 50%; }
-  .m1-3 { width: 33.3333%; }
-  .m2-3 { width: 66.6666%; }
-  .m1-4 { width: 25%; }
-  .m3-4 { width: 75%; }
-
-  .m-full { width: 100%; }
-
-  .m-push--1-2,
-  .m-push--2-4 { left: 50%; }
-  .m-push--1-3 { left: 33.3333%; }
-  .m-push--2-3 { left: 66.6666%; }
-  .m-push--1-4 { left: 25%; }
-  .m-push--3-4 { left: 75%; }
-
-  .m-pull--1-2,
-  .m-pull--2-4 { right: 50%; }
-  .m-pull--1-3 { right: 33.3333%; }
-  .m-pull--2-3 { right: 66.6666%; }
-  .m-pull--1-4 { right: 25%; }
-  .m-pull--3-4 { right: 75%; }
-
-  .m-prefix--1-2,
-  .m-prefix--2-4 { margin-left: 50%; }
-  .m-prefix--1-3 { margin-left: 33.3333%; }
-  .m-prefix--2-3 { margin-left: 66.6666%; }
-  .m-prefix--1-4 { margin-left: 25%; }
-  .m-prefix--3-4 { margin-left: 75%; }
-
-  .m-suffix--1-2,
-  .m-suffix--2-4 { margin-left: -50%; }
-  .m-suffix--1-3 { margin-left: -33.3333%; }
-  .m-suffix--2-3 { margin-left: -66.6666%; }
-  .m-suffix--1-4 { margin-left: -25%; }
-  .m-suffix--3-4 { margin-left: -75%; }
-
-  .m-hide { display: none; }
+.row.gutters .column,
+.grid.gutters .column,
+.row .column.gutters {
+  padding-left: 1em;
+  padding-right: 1em;
+  /*background-clip: content-box;*/
 }
-```
 
--
+.row.gutter-before .column,
+.grid.gutter-before .column,
+.row .column.gutter-before {
+  padding-left: 2em;
+}
 
-### 3. 플렉스박스 모던 기술을 사용한 그리드 시스템(Flexbox Grid System)
+.row.gutter-before .column:first-child,
+.grid.gutter-before .column:first-child {
+  padding-left: 0;
+}
+
+.row.gutter-after .column,
+.grid.gutter-after .column,
+.row .column.gutter-after {
+  padding-right: 2em;
+}
+
+.row.gutter-after .column:last-child,
+.grid.gutter-after .column:last-child {
+  padding-right: 0;
+}
+~~~
+
+##### 2.1.1.2. 플렉스박스 모던 기술을 사용한 그리드 시스템(Flexbox Grid System)
 
 지금까지의 CSS 레이아웃은 `float` 또는 `position` 등을 사용하여 제작했습니다. 그러나 이러한 기술들은 요구되는 레이아웃을 구현하기에는 각각 취약점을 가지고 있습니다.
 
@@ -149,24 +151,107 @@ Flexbox는 이러한 문제를 모두 해결하는 모던 레이아웃 CSS 모�
 - 정렬(Alignment)
 - 감춤(Hide)
 
+---
 
+### 2.2. 반응형 그리드 시스템(Responsive Grid System)
 
--
+#### 워크프로세스
 
-### 참고 자료
+- __Mobile First__<br>
+Mobile → Tablet → Desktop
+- __Desktop First__<br>
+Desktop → Tablet → Mobile
 
-#### Inline Block
+> Desktop First방식을 사용할 경우 문제점
+> - CSS 를 불러올때 브라우저는 첫번재 줄부터 마지막 줄까지 순차적으로 코드를 읽는다.
+> 이때 Desktop First 방식을 사용할경우 모바일사용자는 Desktop 코드를 모두 읽고난 후에야 Mobile 코드를 읽어 화면에 출력하게 된다. 이럴경우 데이터를 사용하는 모바일 사용자는 데이터를 낭비하게 된다.
+> - hover기능은 마우스를 올렸을때 작동하는 기능인데 Mobile에서는 마우스를 올린다는 개념이 없기 때문에 hover의 효과를 어떻게 대처해야하는지를 다시한번 고려해야한다.
 
-`inline-block` 요소 사이 간격을 제거하는 방법
+그렇기 때문에 Mobile First 방식을 권장한다.
 
-- https://css-tricks.com/fighting-the-space-between-inline-block-elements/
-- https://davidwalsh.name/remove-whitespace-inline-block
+### 2.3. Sass 프리프로세싱
 
+#### 2.3.1 css preprocessor
 
-#### Flexbox
+css preprocessor는 css의 한계를 극복하기위해 개발된  Sass, less, stylus 들을 말한다.
+css는 쉽고 간단하지만 갈수록 요구사항과 스펙이 복잡해지고 있고 그에따라 유지보수도 힘들어 지고 있다.Sass등은 변수, 함수, 확장/상속 등의 기능을 추가해 이를 돕는다.
 
-- [The Flex Grid](http://jeroenoomsnl.github.io/the-flex-grid/)
-- [Core Flex Grid](https://splintercode.github.io/core-flex-grid/)
-- [Flex Grid](https://github.com/ptb/flexgrid)
-- [Flexbox Grid](http://flexboxgrid.com/)
-- [Better, Simpler Grid Systems](https://philipwalton.github.io/solved-by-flexbox/demos/grids/)
+#### 2.3.2 Ruby기반의 Sass
+
+Sass는 Ruby 기반의 언어이다. Sass를 사용하기 위해서는 Ruby를 깔아야 하지만 wondow의 경우 한글사용에 문제가 있어 nodejs 기반의 루비를 사용한다.
+
+#### 2.3.3 NodeJs 기반 Sass 설치 및 사용법
+
+1. nodejs
+
+Sass를 사용하기에 앞서 Sass를 컴파일해줄 NodeJs를 깔아보자.
+우선 cmd 창을 띄운다.
+nodejs 가 깔려있다면 깔필요가 없기 때문에 우선 내 컴퓨터에 nodejs가 있는지 확인한다.
+
+~~~
+node --version   // nodejs가 깔려있다면 버전이 무엇인지 물어보는 명령문
+node -v          // --version 을 전부 쓰기엔 좀 긴 느낌이 든다. -v 로 축약해서 사용할 수 잇다.
+~~~
+
+> cmd 명령어에서 -- 은 옵션값을 사용할때 사용된다.
+> '-' 를 두번쓰면 사용할 옵션의 풀네임을, 한번쓰면 축약된 명령어를 입력할수 있다.
+
+nodejs 버전이 출력된다면 이미 깔려있기 때문에 따로 설치하지 않아도 괜찮다.
+만약 설치가 되어있지 않다면.[NodJs 홈페이지](https://nodejs.org/ko/)에 가서 다운받아 설치한다.
+
+> 버전은 4버전과 6버전이 있다.
+> 4버전은 모든 페키지를 한번에 다운받아 사용한다. 용량은 크지만 별다른 설정없이 안정적으로 사용할 수 있다.
+> 6버전은 부분적인 페키지만 설치하여 사용한다. 필요에 맞게 설정해준다면 적은용량으로 사용가능하고 성능면에서 빠른 사용감을 준다.
+
+2. Sass 파일을 보관할 디렉토리 생성
+
+~~~
+mkdir sass-project  // sass-project 라는 폴더를 생성한다.
+
+cd sass-project     // sass-project 폴더로 이동한다.
+
+mkdir sass && touch sass/style.sass // sass 폴더를 생성하고 sass폴더 안에 style.sass파일을 만든다.
+~~~
+
+> touch 명령어는 파일을 만드는 명령어이다.
+> 단, window에서는 power_sell을 이용하여야 사용이 가능하다.
+
+3. node-sass 설치
+~~~
+npm i -g node-sass //노드기반의 sass 설치
+~~~
+> i는 install 를 줄여쓴것이다.
+> -g 는 --global 을 줄여쓴것이다.
+> 특정 프로그램 설치할때 global 옵션을 쓴다면 어떤 상황에서도 설치한 프로그램의 명령어를 사용할 수 있다.
+
+4. sass 파일을 css 파일로 변환
+~~~
+node-sass sass/style.sass > css/style.css // sass 파일을 css 파일로 변환
+~~~
+> sass 폴더 안에 있는 style.sass 파일을 css 폴더안에 style.css 파일로 변경한다.
+
+#### 2.3.4 특정 폴더를 서버로 사용하기
+http-server 를 설치하여 특정 폴더를 서버처럼 동작하게 할 수있다.
+1. http-server 설치
+~~~
+npm install --global http-server
+~~~
+2. 서버 시작
+~~~
+http-server
+~~~
+3. 서버종료
+~~~
+ctrl + c
+~~~
+4. 서버를 실행시 포트변경
+~~~
+http-server -o -a localhost -p 9090
+~~~
+> 외부에서 내가 개설한 서버에 들어오기 위해서는 주소와 들어올 입구가 필요하다.
+> 여기서 주소는 ip를 말하고 입구는 port를 말한다.
+> -o는 --open 을 줄인것이다.
+> -a는 -address 를 줄인것이다.
+> localhost는 자신의 아이피 (123.21.0.1)과 같은 주소를 바꿔 부르는것이다.
+> -p는 --port를 줄인것이다.
+> 기본 포트번호는 8080이며 9090과 같이 변경하여 쓸수잇다.  
