@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Grid System - Utility with Float</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../Modules/CSS/initialization/normalize.min.css">
+  <link rel="stylesheet" href="../../Modules/CSS/grid-system-mobile-first-fix-count.css">
+  <link rel="stylesheet" href="../../Modules/CSS/rwd.css">
+  <style>
+    .target {
+      background: #aea28f;
+    }
+    .target + * {
+       background: #3486b0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container show-grid">
+    <div class="row">
+      <div class="column target m1 t4 d-full">this is column 1.</div>
+      <div class="column m2 t4 d-full">this is column 2.</div>
+    </div>
+  </div>
+
+</body>
+</html>
