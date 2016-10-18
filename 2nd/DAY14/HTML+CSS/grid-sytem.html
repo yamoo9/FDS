@@ -8,12 +8,35 @@
   <link rel="stylesheet" href="../../Modules/CSS/initialization/normalize.min.css">
   <link rel="stylesheet" href="../../Modules/CSS/grid-system-mobile-first-fix-count.css">
   <link rel="stylesheet" href="../../Modules/CSS/rwd.css">
+  <style>
+    div {
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+      height: 25vh;
+    }
+    .column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container show-grid">
+  <div class="container adaptive">
     <div class="row gutters">
-
+      <div class="column m-full t-full d-full">Header</div>
+    </div>
+    <div class="row gutters">
+      <div class="column m-full t-full d-full">Navigation</div>
+    </div>
+    <div class="row gutters">
+      <div class="column m-full t-4 d-8 d-push-2">Main</div>
+      <div class="column m-full t-2 d-2 d-pull-8">Sidebar</div>
+      <div class="column m-full t-2 d-2">Sidebar</div>
+    </div>
+    <div class="row gutters">
+      <div class="column m-full t-full d-full">Footer</div>
     </div>
   </div>
 
