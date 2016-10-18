@@ -50,9 +50,19 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100vh;
+  height: 200vh;
   background: linear-gradient(90deg, hsla(357, 97%, 86%, 0.45) 50%, hsla(356, 95%, 68%, 0.45) 50%);
   background-size: 50% 1px;
+}
+.container.show-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+  background: linear-gradient(transparent 9px, #3b1519 9px);
+  background-size: 1px 10px;
 }
 
 .row::after,
