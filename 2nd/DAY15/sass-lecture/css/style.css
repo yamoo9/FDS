@@ -1,0 +1,40 @@
+/*
+  hi, there. this is sass syntax.
+  hehehehe
+  hehehehe
+  hehe */
+.box-black, .box-red, .box-green, .box-blue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-black, .box-red, .box-green, .box-blue {
+  width: 100px;
+  height: 100px;
+}
+
+.box-black {
+  background: #000;
+}
+
+.box-red {
+  background: #f00;
+}
+
+.box-green {
+  background: #0f0;
+}
+
+.box-blue {
+  background: #00f;
+}
+
+nav#gnb ul, main nav#lnb ul, .footer nav ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/*# sourceMappingURL=style.css.map */

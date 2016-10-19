@@ -1,0 +1,135 @@
+/*
+  hi, there. this is sass syntax.
+  hehehehe
+  hehehehe
+  hehe
+
+// body
+//   nav#gnb
+//     // 모바일
+//     @media screen and (max-width: 40em)
+//       display: flex
+//     // 데스크탑
+//     @media screen and (min-width: 75em)
+//       display: none
+//   // margin은 꼭 4rem 이상 써주세요. 주인 백
+//   margin: 4rem
+//   font: 14px "Helvetica Neue"
+
+// .demo
+//   nav#gnb
+//     // 모바일
+//     @media screen and (max-width: 40em)
+//       display: flex
+//     // 데스크탑
+//     @media screen and (min-width: 75em)
+//       display: none
+//   width: 70%
+//   margin:
+//     left: auto
+//     right: auto
+//   .wow
+//     color: rgba(#fe4940, 0.8)
+//     font-size: 3rem
+//     strong
+//       font-size: 120%
+//       letter-spacing: 0.5em
+
+// .row
+//   nav#gnb
+//     // 모바일
+//     @media screen and (max-width: 40em)
+//       display: flex
+//     // 데스크탑
+//     @media screen and (min-width: 75em)
+//       display: none
+//   margin-top: 20px
+//   clear: both
+//   .col-5
+//     width: 500px
+
+
+// // 중첩 규칙
+// // 부모 참조 선택자 &
+// nav#gnb
+//   // 모바일
+//   @media screen and (max-width: 40em)
+//     display: flex
+//   // 데스크탑
+//   @media screen and (min-width: 75em)
+//     display: none
+//   .show-grid &
+//     display: block
+//   ul
+//     flex:
+//       grow: 1
+//       shrink: 0
+//       basis: 200px
+//     margin:
+//       top: 0
+//       bottom: 0
+//     list-style-type: none
+//     padding-left: 0
+//   li
+//     float: left
+//     margin-right: 20px
+//     &.current
+//       background: #ff0
+//   a
+//     color: #333
+//     &:hover,
+//     &:focus
+//       color: #808080
+
+
+// 선택자 상속
+// 비공개 private module
+%flex-center-middle
+  display: flex
+  justify-content: center
+  align-items: center
+
+%box
+  @extend %flex-center-middle
+  width: 100px
+  height: 100px
+
+.box-black
+  @extend %box
+  // @extend .soho
+  background: #000
+
+.box-red
+  @extend %box
+  background: #f00
+
+.box-green
+  @extend %box
+  background: #0f0
+
+.box-blue
+  @extend %box
+  background: #00f
+
+
+%reset-list
+  margin:
+    top: 0
+    bottom: 0
+  padding-left: 0
+  list-style: none
+
+nav#gnb
+  ul
+    @extend %reset-list
+
+// ....
+
+main
+  nav#lnb ul
+    @extend %reset-list
+
+// ....
+
+.footer nav ul
+  @extend %reset-list
