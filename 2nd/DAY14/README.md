@@ -37,7 +37,7 @@ if(class_node.indexOF("addclass") == -1){
 // classList 를 이용한 방법
 var node = document.querySelector(".classname");
 
-if(node.classList.concat('addclass')){
+if(node.classList.contain('addclass')){
   node.classList.remove('addclass');
 }else{
   node.classList.add('addclass');
@@ -45,33 +45,35 @@ if(node.classList.concat('addclass')){
 ~~~
 
 위 코드에서 볼 수 있듯이 코드가 상당히 짧아졌다. 이렇듯 기본에 불편했던 부분을 jQuery의 유용한 기능을 참고한 유용한 기능들이 javascript에 추가되고있다.
-> 단, classList는 크로스 브라우징 분제가 심하다.
-IE10 이상부터 부분지원 하고 있기 때문에 아직은 범용적으로 사용하기 어려운 점이 있다.
+> 단, classList는 크로스 브라우징 이슈가 있다.<br>
+IE 10 이상부터 부분 지원 하고 있기 때문에 국내 실정 상 아직 범용적으로 사용하기 어려운 점이 있다.
 
 ---
 ### 1.2 요소 안에 텍스트 바꾸기
-이제까지 우리는 특정 요소 또는 클래스, 아이디 에 접근하는 방법을 다루어 봤다.
-그렇다면 특정 Tag안에 있는 텍스트에 접근하려면 어떻게 하면 될까?
+이제까지 우리는 특정 요소 또는 클래스, 아이디 속성에 접근하는 방법을 다루어 봤다.<br>
+그렇다면 특정 Tag 안에 있는 텍스트에 접근하려면 어떻게 하면 될까?
 
 ~~~html
 <p>수업 시작</p>
 ~~~
 
-위 코드를 보면 `p` 태그 안에 '수업 시작'이라는 텍스트가 있다.
-`p`태그 안에 택스트를 선택하고 그 텍스트 값을 가져오는 법을 배워보자
+위 코드를 보면 `p` 태그 안에 '수업 시작'이라는 텍스트가 있다.<br>
+`p`태그 안에 택스트를 선택하고 그 텍스트 값을 가져오는 법을 배워보자.
 
 ~~~js
-var element_node = document.getElementsByTagName(p);
+var element_node = document.getElementsByTagName(p)[0];
 var text_node = element_node.firstchild.nodevalue;
 console.log("text_node", text_node);
 ~~~
 
-위코드를 분석해보면
-`document.getElementsByTagName(p);` : document에 존재하는 `p` 태그를 찾는다.
-`firstchild` : 찾은 `p` 태그의 첫번째 자식요소를 찾는다.
-`nodevalue` : `p` 태그의 첫번째 자식 노드의 값을 가져온다.
+위 코드를 분석해보면<br>
+`document.getElementsByTagName(p)[0];` : document에 존재하는 첫번째 `p` 태그 요소를 찾는다.<br>
+`firstChild` : 찾은 `p` 태그의 첫번째 자식요소를 찾는다.<br>
+`nodeValue` : `p` 태그의 첫번째 자식 노드의 값을 가져온다.
 
-> HTML의 모든 요소는 node이다 `p`는 element node, `title` 은 attribute node `p`태그 안에 있는 택스트 역시 text node 이다. 때문에 `p`태그 안에 텍스트를 가져오기위해 nodevalue 라는 메소드를 사용한다.
+> HTML의 모든 요소는 node이다.<br>
+> `p`는 ELEMENT_NODE, `title` 은 ATTRIBUTE_NODE, `p`태그 안에 있는 택스트는 TEXT_NODE 이다.<br>
+> 때문에 `p`태그 안에 텍스트를 가져오기 위해 `nodeValue` 라는 속성을 사용한다.
 
 ---
 
@@ -86,16 +88,15 @@ console.log("text_node", text_node);
 
 grid system 을 사용하며 gutter 값의 유무를 일괄적으로 관리하기 위하여 위 클레스를 모듈화하여 사용한다.
 
-~~~
-거터 일괄(개별) 제어
-*/
+~~~css
+/* 거터 일괄(개별) 제어 */
 
 .row.gutters .column,
 .grid.gutters .column,
 .row .column.gutters {
   padding-left: 1em;
   padding-right: 1em;
-  /*background-clip: content-box;*/
+  /* background-clip: content-box; */
 }
 
 .row.gutter-before .column,
@@ -171,73 +172,74 @@ Desktop → Tablet → Mobile
 
 ### 2.3. Sass 프리프로세싱
 
-#### 2.3.1 css preprocessor
+#### 2.3.1 CSS Preprocessor
 
-css preprocessor는 css의 한계를 극복하기위해 개발된  Sass, less, stylus 들을 말한다.
-css는 쉽고 간단하지만 갈수록 요구사항과 스펙이 복잡해지고 있고 그에따라 유지보수도 힘들어 지고 있다.Sass등은 변수, 함수, 확장/상속 등의 기능을 추가해 이를 돕는다.
+CSS Preprocessor는 CSS의 한계를 극복하기위해 개발된  Sass, LESS, Stylus 들을 말한다.
+CSS는 쉽고 간단하지만 갈수록 요구사항과 스펙이 복잡해지고 있고 그에따라 유지보수도 힘들어 지고 있다. Sass등은 변수, 함수, 확장/상속 등의 기능을 추가해 이를 돕는다.
 
 #### 2.3.2 Ruby기반의 Sass
 
-Sass는 Ruby 기반의 언어이다. Sass를 사용하기 위해서는 Ruby를 깔아야 하지만 wondow의 경우 한글사용에 문제가 있어 nodejs 기반의 루비를 사용한다.
+Sass는 Ruby 기반의 언어이다. Sass를 사용하기 위해서는 Ruby를 깔아야 하지만, window의 경우 한글 사용에 있어 충돌 문제가 빈번하게 발생한다.
 
 #### 2.3.3 NodeJs 기반 Sass 설치 및 사용법
 
-1. nodejs
+1. NodeJS
 
-Sass를 사용하기에 앞서 Sass를 컴파일해줄 NodeJs를 깔아보자.
-우선 cmd 창을 띄운다.
-nodejs 가 깔려있다면 깔필요가 없기 때문에 우선 내 컴퓨터에 nodejs가 있는지 확인한다.
+Sass를 사용하기에 앞서 Sass를 컴파일해 줄 NodeJS를 깔아보자.
+우선 명령 프롬프트(`terminal`, `cmd` 등) 창을 띄운다.
+nodejs가 깔려있다면 깔 필요가 없기 때문에 우선 내 컴퓨터에 nodejs가 있는지 확인한다.
 
+~~~sh
+node --version   # nodejs가 깔려있다면 버전이 무엇인지 물어보는 명령문
+node -v          # --version 을 전부 쓰기엔 좀 긴 느낌이 든다. -v 로 축약해서 사용할 수 있다.
 ~~~
-node --version   // nodejs가 깔려있다면 버전이 무엇인지 물어보는 명령문
-node -v          // --version 을 전부 쓰기엔 좀 긴 느낌이 든다. -v 로 축약해서 사용할 수 잇다.
-~~~
 
-> cmd 명령어에서 -- 은 옵션값을 사용할때 사용된다.
-> '-' 를 두번쓰면 사용할 옵션의 풀네임을, 한번쓰면 축약된 명령어를 입력할수 있다.
+> cmd 명령어에서 `--` 은 옵션값을 사용할때 사용된다.
+> `-` 를 두 번 쓰면 사용할 옵션의 풀네임을, 한 번 쓰면 축약된 명령어를 입력할수 있다.
 
 nodejs 버전이 출력된다면 이미 깔려있기 때문에 따로 설치하지 않아도 괜찮다.
-만약 설치가 되어있지 않다면.[NodJs 홈페이지](https://nodejs.org/ko/)에 가서 다운받아 설치한다.
+만약 설치가 되어있지 않다면.[NodeJS 홈페이지](https://nodejs.org/ko/)에 가서 다운받아 설치한다.
 
 > 버전은 4버전과 6버전이 있다.
-> 4버전은 모든 페키지를 한번에 다운받아 사용한다. 용량은 크지만 별다른 설정없이 안정적으로 사용할 수 있다.
-> 6버전은 부분적인 페키지만 설치하여 사용한다. 필요에 맞게 설정해준다면 적은용량으로 사용가능하고 성능면에서 빠른 사용감을 준다.
+> 4버전은 모든 패키지를 한번에 다운받아 사용한다. 용량은 크지만 별다른 설정없이 안정적으로 사용할 수 있다.
+> 6버전은 부분적인 패키지만 설치하여 사용한다. 필요에 맞게 설정해준다면 적은 용량으로 사용가능하고 성능면에서 빠른 사용감을 준다.
+> 4버전과 달리 6버전은 ECMAScript 2015를 상당 부분 지원한다. [# 참고](http://node.green/)
 
 2. Sass 파일을 보관할 디렉토리 생성
 
+~~~sh
+mkdir sass-project  # sass-project 라는 폴더를 생성한다.
+
+cd sass-project     # sass-project 폴더로 이동한다.
+
+mkdir sass && touch sass/style.sass # sass 폴더를 생성하고 sass 폴더 안에 style.sass파일을 만든다.
 ~~~
-mkdir sass-project  // sass-project 라는 폴더를 생성한다.
 
-cd sass-project     // sass-project 폴더로 이동한다.
-
-mkdir sass && touch sass/style.sass // sass 폴더를 생성하고 sass폴더 안에 style.sass파일을 만든다.
-~~~
-
-> touch 명령어는 파일을 만드는 명령어이다.
-> 단, window에서는 power_sell을 이용하여야 사용이 가능하다.
+> `touch` 명령어는 파일을 만드는 명령어이다.
+> 단, windows에서는 powersell, git bash 같은 도구에서 사용이 가능하다.
 
 3. node-sass 설치
+~~~sh
+npm i -g node-sass // 노드 기반의 sass 설치
 ~~~
-npm i -g node-sass //노드기반의 sass 설치
-~~~
-> i는 install 를 줄여쓴것이다.
-> -g 는 --global 을 줄여쓴것이다.
+> i는 install 를 줄여쓴 것이다.<br>
+> -g 는 --global 을 줄여쓴 것이다.<br>
 > 특정 프로그램 설치할때 global 옵션을 쓴다면 어떤 상황에서도 설치한 프로그램의 명령어를 사용할 수 있다.
 
 4. sass 파일을 css 파일로 변환
 ~~~
 node-sass sass/style.sass > css/style.css // sass 파일을 css 파일로 변환
 ~~~
-> sass 폴더 안에 있는 style.sass 파일을 css 폴더안에 style.css 파일로 변경한다.
+> sass 폴더 안에 있는 `style.sass` 파일을 css 폴더안에 `style.css` 파일로 변경한다.
 
 #### 2.3.4 특정 폴더를 서버로 사용하기
-http-server 를 설치하여 특정 폴더를 서버처럼 동작하게 할 수있다.
+`http-server` 모듈을 설치하여 특정 폴더를 서버처럼 동작하게 할 수있다.
 1. http-server 설치
-~~~
+~~~sh
 npm install --global http-server
 ~~~
 2. 서버 시작
-~~~
+~~~sh
 http-server
 ~~~
 3. 서버종료
@@ -245,13 +247,13 @@ http-server
 ctrl + c
 ~~~
 4. 서버를 실행시 포트변경
-~~~
+~~~sh
 http-server -o -a localhost -p 9090
 ~~~
-> 외부에서 내가 개설한 서버에 들어오기 위해서는 주소와 들어올 입구가 필요하다.
-> 여기서 주소는 ip를 말하고 입구는 port를 말한다.
-> -o는 --open 을 줄인것이다.
-> -a는 -address 를 줄인것이다.
-> localhost는 자신의 아이피 (123.21.0.1)과 같은 주소를 바꿔 부르는것이다.
-> -p는 --port를 줄인것이다.
-> 기본 포트번호는 8080이며 9090과 같이 변경하여 쓸수잇다.  
+> 외부에서 내가 개설한 서버에 들어오기 위해서는 주소와 들어올 입구가 필요하다.<br>
+> 여기서 주소는 ip를 말하고 입구는 port를 말한다.<br>
+> -o는 --open 을 줄인 것이다.<br>
+> -a는 --address 를 줄인 것이다.<br>
+> localhost는 자신의 아이피 (123.21.0.1)과 같은 주소를 바꿔 부르는것이다.<br>
+> -p는 --port를 줄인 것이다.<br>
+> http-server 모듈의 기본 포트 번호는 8080이며 9090과 같이 변경하여 쓸 수 있다.
