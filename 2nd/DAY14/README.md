@@ -28,7 +28,7 @@
 var node = document.querySelector(".classname");
 var class_node = node.getAttribute('class', 'classname');
 
-if(class_node.indexOF("addclass") == -1){
+if(class_node.indexOf("addclass") == -1){
   node.setAttribute('class', class_node + " " + 'addclass');
 } else {
   class_node.replace("addclass", " ");
