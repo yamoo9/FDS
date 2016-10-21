@@ -1,0 +1,46 @@
+// @mixin {mixin name}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-sizing($origin) {
+  -webkit-box-sizing: $origin;
+  -moz-box-sizing: $origin;
+  -o-box-sizing: $origin;
+  -ms-box-sizing: $origin;
+  box-sizing: $origin;
+}
+
+@mixin transition($props: all 0.3s) {
+  -webkit-transition: $props;
+  -moz-transition: $props;
+  -o-transition: $props;
+  transition: $props;
+}
+
+@mixin reset-list {
+  margin: {
+    top: 0;
+    bottom: 0;
+  }
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin reset-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@mixin reset-box-model {
+  outline: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+@mixin remove-img-bottom-space {
+  vertical-align: top;
+}

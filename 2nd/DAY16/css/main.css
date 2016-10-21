@@ -471,36 +471,46 @@ template {
   .app .app-row .app-fix {
     flex: 0 0 25%; } }
 
-@media screen and (max-width: 640px) {
-  .app {
-    width: 80%; } }
-
-@media screen and (min-width: 641px) and (max-width: 1220px) {
-  .app {
-    width: 1400px; } }
-
-@media screen and (min-width: 1480px) {
-  .app {
-    width: 1480px; } }
-
-@media screen and (min-width: 640px) {
-  .app .app-row {
-    margin-top: 0; } }
-
-@media screen and (min-width: 1220px) {
-  .app .app-row {
-    margin-top: 10px; } }
-
-@media screen and (min-width: 1480px) {
-  .app .app-row {
-    margin-top: 20px; } }
-
-.app .app-row > div {
-  min-height: 60px;
-  background: #7045cf;
-  color: #fff; }
+.app {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media screen and (max-width: 640px) {
+    .app {
+      width: 80%; } }
+  @media screen and (min-width: 641px) and (max-width: 1220px) {
+    .app {
+      width: 1400px; } }
+  @media screen and (min-width: 1480px) {
+    .app {
+      width: 1480px; } }
+  @media screen and (min-width: 640px) {
+    .app .app-row {
+      margin-top: 0; } }
+  @media screen and (min-width: 1220px) {
+    .app .app-row {
+      margin-top: 10px; } }
+  @media screen and (min-width: 1480px) {
+    .app .app-row {
+      margin-top: 20px; } }
+  .app .app-row .app-fix:hover {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  .app .app-row > div {
+    min-height: 60px;
+    background: #7045cf;
+    color: #fff; }
 
 .center-box {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
   position: absolute;
   top: 0;
   left: 0;

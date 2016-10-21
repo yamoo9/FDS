@@ -12,8 +12,9 @@
 // 모듈이 많다면 아래와 같이
 // 개별적으로 로드하는 것이 관리하기 좋음.
 
-// 환경 설정 파일($변수)
+// 환경 설정 파일($변수, @믹스인)
 @import config/vars
+@import config/mixins
 // 초기화 모듈
 @import modules/normalize
 // 그리드 모듈
@@ -32,6 +33,7 @@ $app-width: 1000px !default
 .app
   // Mobile First: Small Screen
   @extend %grid-container
+  @include box-sizing(border-box)
   // width: 100%
   // Medium Screen
   @media screen and (max-width: $bp-md)
@@ -56,6 +58,8 @@ $app-width: 1000px !default
       @extend %cell-m-1-2
       @extend %cell-t-1-3
       @extend %cell-d-1-4
+      &:hover
+        @include transition()
 
     > div
       @extend %cell
@@ -67,6 +71,7 @@ $app-width: 1000px !default
 
 // 가운데 정렬 박스 모듈
 .center-box
+  @include box-sizing(content-box)
   position: absolute
   top: 0
   left: 0
