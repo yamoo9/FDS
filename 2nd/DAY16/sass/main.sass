@@ -6,9 +6,17 @@
 // css 폴더에 해당 파일이 생성된다.
 // 예) sass/modules/grid.scss -> css/modules/grid.css
 
+// 아래와 같은 방식은 불러 올 모듈이 많다면 권장하지 않음.
 // @import "modules/normalize", "modules/grid"
 
+// 모듈이 많다면 아래와 같이
+// 개별적으로 로드하는 것이 관리하기 좋음.
+
+// 환경 설정 파일($변수)
+@import config/vars
+// 초기화 모듈
 @import modules/normalize
+// 그리드 모듈
 // @import modules/grid
 @import modules/grid-hidden-module-name
 
@@ -16,9 +24,12 @@
  * --------------------------------
  * 사용자 정의 스타일링 코드 파트
  * --------------------------------
+
+$app-width: 1000px !default
+
 .app
   @extend %grid-container
-  width: 1000px
+  width: $app-width
 
   .app-row
     @extend %grid
@@ -33,6 +44,6 @@
     > div
       @extend %cell
       @extend %grid-cm
-      min-height: 60px
+      min-height: $app-min-height
       background: #7045cf
       color: #fff
