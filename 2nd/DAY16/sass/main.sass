@@ -28,13 +28,27 @@
 $app-width: 1000px !default
 
 .app
+  // Mobile First: Small Screen
   @extend %grid-container
-  width: $app-width
+  // width: 100%
+  // Medium Screen
+  @media screen and (min-width: $breakpoint-md)
+    width: 80%
+  @media screen and (min-width: $breakpoint-lg)
+    width: $app-width
+  @media screen and (min-width: $breakpoint-xl)
+    width: $app-width + 80
 
   .app-row
     @extend %grid
     @extend %grid-left
     @extend %grid-gutters
+    @media screen and (min-width: $breakpoint-md)
+      margin-top: 0
+    @media screen and (min-width: $breakpoint-lg)
+      margin-top: 10px
+    @media screen and (min-width: $breakpoint-xl)
+      margin-top: 20px
 
     .app-fix
       @extend %cell-m-1-2

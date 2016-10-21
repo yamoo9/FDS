@@ -4,3 +4,9 @@
 $app-width: 1400px;
 // 변수 이름의 _, - 모두 동일하게 처리된다.
 $app-min_height: 60px;
+
+// * --------------------------------
+// * 브레이크포인트(중단점) 설계
+$breakpoint-md: 760px;
+$breakpoint-lg: 1220px;
+$breakpoint-xl: 1480px;

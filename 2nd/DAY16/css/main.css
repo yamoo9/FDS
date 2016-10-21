@@ -179,7 +179,17 @@ template { display: none; }
   .app .app-row .app-fix { flex: 0 0 25%; }
   }
 
-.app { width: 1400px; }
+@media screen and (min-width: 760px) { .app { width: 80%; } }
+
+@media screen and (min-width: 1220px) { .app { width: 1400px; } }
+
+@media screen and (min-width: 1480px) { .app { width: 1480px; } }
+
+@media screen and (min-width: 760px) { .app .app-row { margin-top: 0; } }
+
+@media screen and (min-width: 1220px) { .app .app-row { margin-top: 10px; } }
+
+@media screen and (min-width: 1480px) { .app .app-row { margin-top: 20px; } }
 
 .app .app-row > div { min-height: 60px; background: #7045cf; color: #fff; }
 
