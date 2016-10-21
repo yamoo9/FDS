@@ -8,6 +8,19 @@ $app-min_height: 60px;
 // * --------------------------------
 // * 브레이크포인트(중단점) 설계
 $bp-prop: min-width;
-$bp-md: 760px;
+$bp-md: 640px;
 $bp-lg: 1220px;
 $bp-xl: 1480px;
+
+$medium-rwd-bp: "screen and (#{$bp-prop}: #{$bp-md + 1}) and (max-width: #{$bp-lg})";
+// 아래 방식이 정상적으로 동작할지라도.... 위와 같은 방식을 사용하자!
+// $medium-rwd-bp: "screen and ($bp-prop: $bp-md + 2) and (max-width: $bp-lg)";
+
+// 가운데 정렬 박스 설정
+$box-width: 400px;
+$box-height: 200px;
+
+// 구글 웹 폰트 이름
+// $google-webfont-name: "Open+Sans";
+$google-webfont-name: "Abhaya+Libre|Open+Sans|Roboto";
+// $google-webfont-name: "Abhaya+Libre";

@@ -20,6 +20,8 @@
 // @import modules/grid
 @import modules/grid-hidden-module-name
 
+@import url("https://fonts.googleapis.com/css?family=#{$google-webfont-name}")
+
 //
  * --------------------------------
  * 사용자 정의 스타일링 코드 파트
@@ -34,7 +36,7 @@ $app-width: 1000px !default
   // Medium Screen
   @media screen and (max-width: $bp-md)
     width: 80%
-  @media screen and ($bp-prop: $bp-md + 1) and (max-width: $bp-lg)
+  @media #{$medium-rwd-bp}
     width: $app-width
   @media screen and ($bp-prop: $bp-xl)
     width: $app-width + 80
@@ -61,3 +63,15 @@ $app-width: 1000px !default
       min-height: $app-min-height
       background: #7045cf
       color: #fff
+
+
+// 가운데 정렬 박스 모듈
+.center-box
+  position: absolute
+  top: 0
+  left: 0
+  width: $box-width
+  height: $box-height
+  margin:
+    left: $box-width / -2
+    top: $box-height / -2
