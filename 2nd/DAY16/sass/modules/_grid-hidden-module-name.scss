@@ -1,0 +1,98 @@
+/*! flex-grid-system.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * grid-container 모듈
+ * ----------------------------- */
+%grid-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * --------------------------------
+ * grid 모듈
+ * ----------------------------- */
+%grid {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+/* 목록일 경우 */
+ul%grid,
+ol%grid { list-style: none; }
+
+/* 거터 모듈 */
+%grid-gutters %cell { margin: 0 10px; }
+
+/* 수평 정렬 모듈 */
+%grid-left    { justify-content: flex-start;    }
+%grid-center  { justify-content: center;        }
+%grid-right   { justify-content: flex-end;      }
+%grid-between { justify-content: space-between; }
+%grid-around  { justify-content: space-around;  }
+
+/* 수직 정렬 모듈 */
+%grid-top     { align-items: flex-start; }
+%grid-middle  { align-items: center;     }
+%grid-bottom  { align-items: flex-end;   }
+%grid-stretch { align-items: stretch;    }
+
+%grid-reverse { flex-direction: row-reverse; }
+
+/* 정가운데 정렬 모듈 */
+%grid-center-middle,
+%grid-cm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * --------------------------------
+ * cell 모듈
+ * ----------------------------- */
+%cell {
+  box-sizing: border-box;
+  /* 1 1 auto */
+  flex: 1;
+}
+
+/* cell 크기 개별 적용 모듈 */
+%cell-m-1-2,
+%cell-m-2-4 { flex: 0 0 50%;      }
+%cell-m-1-3 { flex: 0 0 33.3333%; }
+%cell-m-2-3 { flex: 0 0 66.6666%; }
+%cell-m-1-4 { flex: 0 0 25%;      }
+%cell-m-3-4 { flex: 0 0 75%;      }
+
+/* cell 개별 정렬 모듈 */
+%cell-top      { align-self: flex-start; }
+%cell-center   { align-self: center;     }
+%cell-bottom   { align-self: flex-end;   }
+%cell-baseline { align-self: baseline;   }
+%cell-stretch  { align-self: stretch;    }
+
+/**
+ * --------------------------------
+ * 반응형 레이아웃
+ * ----------------------------- */
+@media only screen and (min-width: 50em) {
+  %cell-t-1-2,
+  %cell-t-2-4 { flex: 0 0 50%;      }
+  %cell-t-1-3 { flex: 0 0 33.3333%; }
+  %cell-t-2-3 { flex: 0 0 66.6666%; }
+  %cell-t-1-4 { flex: 0 0 25%;      }
+  %cell-t-3-4 { flex: 0 0 75%;      }
+}
+
+@media only screen and (min-width: 75em) {
+  %cell-d-1-2,
+  %cell-d-2-4 { flex: 0 0 50%;      }
+  %cell-d-1-3 { flex: 0 0 33.3333%; }
+  %cell-d-2-3 { flex: 0 0 66.6666%; }
+  %cell-d-1-4 { flex: 0 0 25%;      }
+  %cell-d-3-4 { flex: 0 0 75%;      }
+}
