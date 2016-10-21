@@ -179,9 +179,9 @@ template { display: none; }
   .app .app-row .app-fix { flex: 0 0 25%; }
   }
 
-@media screen and (min-width: 760px) { .app { width: 80%; } }
+@media screen and (max-width: 760px) { .app { width: 80%; } }
 
-@media screen and (min-width: 1220px) { .app { width: 1400px; } }
+@media screen and (min-width: 761px) and (max-width: 1220px) { .app { width: 1400px; } }
 
 @media screen and (min-width: 1480px) { .app { width: 1480px; } }
 

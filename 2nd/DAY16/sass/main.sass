@@ -32,22 +32,22 @@ $app-width: 1000px !default
   @extend %grid-container
   // width: 100%
   // Medium Screen
-  @media screen and (min-width: $breakpoint-md)
+  @media screen and (max-width: $bp-md)
     width: 80%
-  @media screen and (min-width: $breakpoint-lg)
+  @media screen and ($bp-prop: $bp-md + 1) and (max-width: $bp-lg)
     width: $app-width
-  @media screen and (min-width: $breakpoint-xl)
+  @media screen and ($bp-prop: $bp-xl)
     width: $app-width + 80
 
   .app-row
     @extend %grid
     @extend %grid-left
     @extend %grid-gutters
-    @media screen and (min-width: $breakpoint-md)
+    @media screen and ($bp-prop: $bp-md)
       margin-top: 0
-    @media screen and (min-width: $breakpoint-lg)
+    @media screen and ($bp-prop: $bp-lg)
       margin-top: 10px
-    @media screen and (min-width: $breakpoint-xl)
+    @media screen and ($bp-prop: $bp-xl)
       margin-top: 20px
 
     .app-fix

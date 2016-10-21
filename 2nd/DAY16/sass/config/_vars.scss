@@ -7,6 +7,7 @@ $app-min_height: 60px;
 
 // * --------------------------------
 // * 브레이크포인트(중단점) 설계
-$breakpoint-md: 760px;
-$breakpoint-lg: 1220px;
-$breakpoint-xl: 1480px;
+$bp-prop: min-width;
+$bp-md: 760px;
+$bp-lg: 1220px;
+$bp-xl: 1480px;
