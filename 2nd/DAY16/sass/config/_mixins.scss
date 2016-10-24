@@ -1,11 +1,11 @@
 // @mixin {mixin name}
-@mixin border-radius($radius) {
+@mixin border-radius($radius: 4px) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     border-radius: $radius;
 }
 
-@mixin box-sizing($origin) {
+@mixin box-sizing($origin: border-box) {
   -webkit-box-sizing: $origin;
   -moz-box-sizing: $origin;
   -o-box-sizing: $origin;
