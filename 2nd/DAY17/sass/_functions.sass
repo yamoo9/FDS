@@ -1,0 +1,35 @@
+// 원래 Sass의 내장 함수를 백업
+// @function _hsla($h, $s, $l, $a)
+//   // @debug $h
+//   // @debug $s
+//   // @debug $l
+//   // @debug $a
+//   @return hsla($h, $s, $l, $a)
+
+// 사용자 정의 Sass 함수
+@function _hsla($hex, $alpha: 1)
+  // 헥스 컬러 코드 분해
+  // hue, saturation, lightness
+  // GET 함수
+  $hue: hue($hex)
+  $saturation: saturation($hex)
+  $lightness: lightness($hex)
+  // @debug $hue
+  // @debug $saturation
+  // @debug $lightness
+  // @debug type-of(hsla)
+  $result: hsla($hue, $saturation, $lightness, $alpha)
+  @return $result
+  // @return null
+
+$column-base-width: 60px !default
+$colun-count: 12 !default
+$gutter-base-width: 10px !default
+$page-width: ($column-base-width + (2 * $gutter-base-width)) * $colun-count
+$fluid: false !default
+
+@function column($n: 1)
+  $result: ($n * $column-base-width) + (($n - 1) * ($gutter-base-width * 2))
+  @if $fluid
+    $result: percentage($result / $page-width)
+  @return $result

@@ -1,36 +1,19 @@
-// 플레이스홀더 셀렉터 %
-%clearfix
-  // .lt-ie8 &
-  //   zoom: 1
-  &::after
-    content: ''
-    display: block
-    clear: both
+@import placeholder
+@import functions
+@import mixins
 
-// 믹스인(코드 섞어 생성한 것을 붙일 수 있도록...)
-// @mixin       =
-// @include     +
-=transition($param: all 0.4s)
-  -webkit-transition: $param
-  -moz-transition: $param
-  -o-transition: $param
-  transition: $param
-
-=clearfix($support-ie: true)
-  @extend %clearfix
-  @if $support-ie
-    .lt-ie8 &
-      zoom: 1
-
+$fluid: true
 
 body
-  +transition(opacity 0.4s ease)
+  // +transition(opacity 0.4s ease)
+  +transition(opacity, 0.4s, ease, 0.3s)
+  background: _hsla(#f86067, 0.7)
 
 .special-area
   +clearfix(false)
   // @extend %clearfix
-  +transition(transform 200ms cubic-bezier(0.175, 0.885, 0.320, 1.275))
-
+  // +transition(transform 200ms cubic-bezier(0.175, 0.885, 0.320, 1.275))
+  +transition($easing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275))
 
 .row
   +clearfix(true)
@@ -38,3 +21,15 @@ body
 
 .container .wrapper
   +clearfix(true)
+  +multi-background-image(linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green))
+
+  .col-3
+    float: left
+    width: column(3)
+
+
+.round-1
+  +circle()
+
+.round-2
+  +circle(50px, red)

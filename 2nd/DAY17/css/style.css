@@ -4,21 +4,47 @@
   clear: both; }
 
 body {
-  -webkit-transition: opacity 0.4s ease;
-  -moz-transition: opacity 0.4s ease;
-  -o-transition: opacity 0.4s ease;
-  transition: opacity 0.4s ease; }
+  -webkit-transition: opacity 0.4s ease 0.3s;
+  -moz-transition: opacity 0.4s ease 0.3s;
+  -o-transition: opacity 0.4s ease 0.3s;
+  transition: opacity 0.4s ease 0.3s;
+  background: rgba(248, 96, 103, 0.7); }
 
 .special-area {
-  -webkit-transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -moz-transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -o-transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  -webkit-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .lt-ie8 .row {
   zoom: 1; }
 
-.lt-ie8 .container .wrapper {
-  zoom: 1; }
+.container .wrapper {
+  background-image: linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green), linear-gradient(90deg, red, green); }
+  .lt-ie8 .container .wrapper {
+    zoom: 1; }
+  .container .wrapper .col-3 {
+    float: left;
+    width: 22.91667%; }
 
-/*# sourceMappingURL=style.css.map */
+.round-1 {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box; }
+
+.round-2 {
+  width: 50px;
+  height: 50px;
+  background: red;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box; }
