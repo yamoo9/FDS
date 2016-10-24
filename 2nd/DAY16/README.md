@@ -168,7 +168,7 @@ $set-width: 1000px !default;
 - Map : 키:값 으로 구성된 그룹
 	   $map: (key1: value1, key2: value2) 
 
-sass Type-of($type) = 데이터 유형을 알려주는 함수
+sass type-of($type) = 데이터 유형을 알려주는 함수
 
 ---
 ###1.4 연산 (Operations)
@@ -181,9 +181,8 @@ $page-max-width: 1420px;
 
 // 컨테이너 클래스 설정
 .container {
- max-width: $page-max-width - $global-
+ max-width: $page-max-width - $global-padding * 2;
  //변수 치환 후 연산 과정이 연산 과정이 이루어집니다.
- padding * 2;
  padding: 0 $global-padding;
 }
 ~~~
@@ -224,10 +223,10 @@ $family: "Droid+Sans";
 //웹 폰트 CDN 사용시 보간법이 유용하게 활용
 ~~~
 
-HTML에서 | 사용시 오류가 생기기 때문에 %로 바꿔줘야 함.
+HTML에서 | 사용시 오류가 생기기 때문에 %7C로 바꿔줘야 함.
 
 ~~~html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre|7COpen+Sans%7CRoboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre|Open+Sans|Roboto">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre%7COpen+Sans%7CRoboto">
 ~~~
