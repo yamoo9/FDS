@@ -1,0 +1,40 @@
+// 플레이스홀더 셀렉터 %
+%clearfix
+  // .lt-ie8 &
+  //   zoom: 1
+  &::after
+    content: ''
+    display: block
+    clear: both
+
+// 믹스인(코드 섞어 생성한 것을 붙일 수 있도록...)
+// @mixin       =
+// @include     +
+=transition($param: all 0.4s)
+  -webkit-transition: $param
+  -moz-transition: $param
+  -o-transition: $param
+  transition: $param
+
+=clearfix($support-ie: true)
+  @extend %clearfix
+  @if $support-ie
+    .lt-ie8 &
+      zoom: 1
+
+
+body
+  +transition(opacity 0.4s ease)
+
+.special-area
+  +clearfix(false)
+  // @extend %clearfix
+  +transition(transform 200ms cubic-bezier(0.175, 0.885, 0.320, 1.275))
+
+
+.row
+  +clearfix(true)
+  // @extend %clearfix
+
+.container .wrapper
+  +clearfix(true)
