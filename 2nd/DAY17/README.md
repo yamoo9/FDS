@@ -46,7 +46,9 @@ body {
 #### 1.1.2. 키워드 전달 인자(Args, Keyword)
 
 - 특정 인자만 전달/수정하는 것이 가능하다.
-특정 키워드를 지정해 믹스인에 인자 값을 전달할 수 있어 수정이 용이하다.
+
+특정 키워드를 지정해 믹스인에 인자 값을 전달할 수 있어 수정이 용이하다.       
+전달인자의 순서를 기억하기 힘들기 때문에 사용한다.
  
 ```scss
 @mixin hover-link($padding-bottom: 2px, $border-bottom: 1px solid tomato) {
@@ -76,6 +78,8 @@ body {
 #### 1.1.4. 가변 전달 인자(Args, Variable)
 
 - 믹스인 호출시 전달 받을 인자 List를 ... 로 처리하면 복수의 인자를 처리하기 쉽다.
+
+$args... : 집합, list parameter
 
 ```scss
 @mixin multi-background-image($bgs...) {
@@ -121,10 +125,10 @@ body {
 
 ```sass
 .circle-1
-  +circle()
+  @include circle()
   
 .circle-2
-  +circle($bg-color: red)
+  @include circle($bg-color: red)
   // 특정 인자만 수정(키워드 전달인자)
 ```
 
@@ -167,6 +171,13 @@ $color: #3fb5c8;
 =my-btn($color) color: $color // @mixin
 +my-btn(red)                  // @include
 ```
+
+- 추가
+
+> placeholder selector(%)와 mixin 비교 
+> - placeholder selector(%): 코드가 정해져있다. 이 코드 모듈을 사용하는 선택자를 placeholder selector(%)의 위치로 끌어올린다.
+> - mixin: 인자에 따라 바뀔 수 있다. mixin을 사용하는 선택자에 mixin 코드들이 붙는다.
+
 
 ### 1.2. function(함수)
 
