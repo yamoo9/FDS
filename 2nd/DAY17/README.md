@@ -5,15 +5,15 @@
 ## 1. Sass
 ### 1.1. Mixins(믹스인)
 
-- @mixin 
-- @include  
+- @mixin
+- @include
 - =
 - +
 
 ----
 #### 1.1.1. 전달인자 기본 값 설정(Args, Default Value)
 
-- 믹스인 호출시 값을 전달하지 않아 오류가 발생하는 것을 방지하기 위해 특정 값을 기본으로 설정할 수 있다.  
+- 믹스인 호출시 값을 전달하지 않아 오류가 발생하는 것을 방지하기 위해 특정 값을 기본으로 설정할 수 있다.
 
 ```scss
 @mixin transition($매개변수: 초기값) {
@@ -47,9 +47,9 @@ body {
 
 - 특정 인자만 전달/수정하는 것이 가능하다.
 
-특정 키워드를 지정해 믹스인에 인자 값을 전달할 수 있어 수정이 용이하다.       
+특정 키워드를 지정해 믹스인에 인자 값을 전달할 수 있어 수정이 용이하다.
 전달인자의 순서를 기억하기 힘들기 때문에 사용한다.
- 
+
 ```scss
 @mixin hover-link($padding-bottom: 2px, $border-bottom: 1px solid tomato) {
   text-decoration: none;
@@ -89,7 +89,7 @@ $args... : 집합, list parameter
 }
 ```
 
-#### 1.1.5. Create Configurable  CSS3 Shapes with Mixins  
+#### 1.1.5. Create Configurable  CSS3 Shapes with Mixins
 
 - circle 믹스인 작성
 
@@ -126,7 +126,7 @@ $args... : 집합, list parameter
 ```sass
 .circle-1
   @include circle()
-  
+
 .circle-2
   @include circle($bg-color: red)
   // 특정 인자만 수정(키워드 전달인자)
@@ -137,7 +137,7 @@ $args... : 집합, list parameter
 - 변수 범위는 JS의 전역/지역 변수 개념과 유사하며, 콘텐츠 블록은 믹스인 호출 시 {} 코드문
 
 ```scss
-// 전역 변수 
+// 전역 변수
 $color: #3fb5c8;
 @mixin colors($color: darkred) {
   // 믹스인 내부에서 $color 값은 지역 변수인 '전달인자'
@@ -174,14 +174,14 @@ $color: #3fb5c8;
 
 - 추가
 
-> placeholder selector(%)와 mixin 비교 
+> placeholder selector(%)와 mixin 비교
 > - placeholder selector(%): 코드가 정해져있다. 이 코드 모듈을 사용하는 선택자를 placeholder selector(%)의 위치로 끌어올린다.
 > - mixin: 인자에 따라 바뀔 수 있다. mixin을 사용하는 선택자에 mixin 코드들이 붙는다.
 
 
 ### 1.2. function(함수)
 
-- @function 
+- @function
 - @return
 
 ---
@@ -191,13 +191,13 @@ $color: #3fb5c8;
 
 ```sass
 // SET 함수
-rgb($red, $green, $blue) 
-rgba($red, $green, $blue, $alpha) 
+rgb($red, $green, $blue)
+rgba($red, $green, $blue, $alpha)
 rgba($color, $alpha)
 
-// GET 함수 
-red($color) 
-green($color) 
+// GET 함수
+red($color)
+green($color)
 blue($color)
 
 // 혼색 함수
@@ -208,27 +208,27 @@ mix($color-1, $color-2, [$weight])
 
 ```sass
 // SET 함수
-hsl($hue, $saturation, $lightness) 
+hsl($hue, $saturation, $lightness)
 hsla($hue, $saturation, $lightness, $alpha)
 
-// GET 함수 
-hue($color) 
-saturation($color) 
+// GET 함수
+hue($color)
+saturation($color)
 lightness($color)
 ```
 
 ```sass
-// 컬러, 각도로 변경 함수 
+// 컬러, 각도로 변경 함수
 adjust-hue($color, $degrees)
 
-// 많이 사용되는 컬러 함수 
-lighten($color, $amount) 
-darken($color, $amount) 
-saturate($color, $amount) 
-desaturate($color, $amount) 
+// 많이 사용되는 컬러 함수
+lighten($color, $amount)
+darken($color, $amount)
+saturate($color, $amount)
+desaturate($color, $amount)
 grayscale($color)
 
-complement($color) // 보완색 
+complement($color) // 보완색
 invert($color) // 반전색
 ```
 
@@ -238,20 +238,20 @@ invert($color) // 반전색
 // GET 함수
 alpha($color) / opacity($color)
 
-// SET 함수 
+// SET 함수
 rgba($color, $alpha)
 
-// 불투명도하게 변경 함수, $amount 값은 0~1 사이 소수 
+// 불투명도하게 변경 함수, $amount 값은 0~1 사이 소수
 opacify($color, $amount) / fade-in($color, $amount)
 
-// 투명하게 변경 함수, $amount 값은 0~1 사이 소수 
+// 투명하게 변경 함수, $amount 값은 0~1 사이 소수
 transparentize($color, $amount) / fade-out($color, $amount)
 ```
 
 - Other Color 함수
 
 ```sass
-// 컬러 변경 함수 
+// 컬러 변경 함수
 adjust-color($color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness], [$alpha])
 
 scale-color($color, [$red], [$green], [$blue],
@@ -260,7 +260,7 @@ scale-color($color, [$red], [$green], [$blue],
 change-color($color, [$red], [$green], [$blue], [$hue],
 [$saturation], [$lightness], [$alpha])
 
-// IE 헥스 스트링(#rrggbbaa) 변경 함수   
+// IE 헥스 스트링(#rrggbbaa) 변경 함수
 ie-hex-str($color)
 ```
 
@@ -269,28 +269,28 @@ ie-hex-str($color)
 - Number 함수
 
 ```sass
-// 퍼센트 변경 함수 
+// 퍼센트 변경 함수
 percentage(13/25) // 52%
 
-// 반올림 함수 
+// 반올림 함수
 round(2.4) // 2
 
-// 올림 함수 
+// 올림 함수
 ceil(2.2) // 3
 
-// 내림 함수 
+// 내림 함수
 floor(2.6) // 2
 
-// 절대값 함수 
+// 절대값 함수
 abs(-24) // 24
 
-// 비교하여 작은것을 반환하는 함수 
+// 비교하여 작은것을 반환하는 함수
 min(10px/12px) // 10px
 
-// 비교하여 큰것을 반환하는 함수 
+// 비교하여 큰것을 반환하는 함수
 max(10px/12px) // 12px
 
-// 난수 함수 
+// 난수 함수
 random(1) // 0~1
 ```
 
@@ -313,7 +313,7 @@ random(1) // 0~1
   // @debug $lightness
   // @debug type-of(hsla)
   $result: hsla($hue, $saturation, $lightness, $alpha)
-  
+
   // 결과값 반환
   @return $result
 ```
@@ -367,12 +367,12 @@ $value: null;
 
 #condition {
   @if $value == false {
-    color: #eee; 
+    color: #eee;
   }
 }
 
 #demo {
-  @if $value == false { color: #434343; } 
+  @if $value == false { color: #434343; }
   @else { color: #8c8d8a; }
 }
 ```
@@ -389,9 +389,9 @@ $custom-dark:  #161515;
   @if $bg-color == $custom-red {
     color: invert($custom-red); }
   @else if $bg-color == $custom-green {
-    color: desaturate(fade-out($custom-green, 20%), 30%); } 
+    color: desaturate(fade-out($custom-green, 20%), 30%); }
   @else if $bg-color == $custom-blue {
-    color: lighten($custom-blue, 32%); } 
+    color: lighten($custom-blue, 32%); }
   @else {
     color: white; }
   }
@@ -404,19 +404,19 @@ $custom-dark:  #161515;
 ```scss
 @function text-contrast($bgcolor, $val: 70%) {
 	$value: null;
-	
+
 	// 전달인자 유효성 검사
 	@if type-of($bgcolor) != color {
 	@warn "전달받은 $bgcolor 인자 값이 올바르지 않습니다.";
-	@debug "$bgcolor의 값이 #{$bgcolor} 입니다."; } 
+	@debug "$bgcolor의 값이 #{$bgcolor} 입니다."; }
 
 	// 전달받은 배경색 인자의 명도 값이 50%보다 클 경우,
 	@if lightness($bgcolor) > 50% {
 	  $value: darken($bgcolor, $val); }
-	// 전달받은 배경색 인자의 명도 값이 50%보다 작을 경우, 
+	// 전달받은 배경색 인자의 명도 값이 50%보다 작을 경우,
 	@else {
-	$value: lighten($bgcolor, $val); } 
-	
+	$value: lighten($bgcolor, $val); }
+
 	// 결과 값 반환
     @return $value;
 }
@@ -528,10 +528,10 @@ $heading-map: (h1: 3rem, h2: 2.2rem, h3: 1.8rem, h4: 1.6rem)
 
 // SASS 리스트(Lists) 데이터 타입 선언
 // 소셜 아이콘 이름을 담은 리스트를 담을 변수 $icons
-$icons: (twitter, facebook, youtube, rss); 
+$icons: (twitter, facebook, youtube, rss);
 
 // SASS @each 문을 사용해 $icons 내부를 순환하여
-// 클래스 선언 (문자 보간법 및 플레이스홀더 선택자 활용) 
+// 클래스 선언 (문자 보간법 및 플레이스홀더 선택자 활용)
 @each $icon in $icons {
     .#{$icon} {
         @extend %ir;
