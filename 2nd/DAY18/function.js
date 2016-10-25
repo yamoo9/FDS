@@ -74,3 +74,35 @@ function createLocalScope() {
 // 함수 실행
 createLocalScope();
 console.log('함수 외부 scope_variable:', scope_variable); // ???
+
+// 전역에서 this, self, window는 모두 동일한 객체를 말합니다.
+// 아래와 같은 with(){} 구문은 사용하지 마세요!!
+with(console){
+  log('this:', this);
+  log('self:', self);
+  log('window:', window);
+}
+
+// 전역
+// 스코프 체이닝
+// 함수 내부에서 var 키워드를 사용해 변수를 선언해야 하는 이유
+var hadoom = '하둠';
+
+function localFn() {
+  // 지역
+  // hadoom = 'Hadoom';
+  var hadoom = 'Hadoom';
+
+  function inLocalFn() {
+    // 지역 내 지역
+    // window.hadoom = '하아둠';
+    var hadoom = '하아둠';
+  }
+
+  inLocalFn();
+
+}
+
+localFn();
+
+console.log('hadoom:', hadoom); // ????
