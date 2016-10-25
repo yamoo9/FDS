@@ -645,7 +645,9 @@ var like_nums = []; // 3, 5
 
 for ( var i=0, l=numbers.length; i<l; i++ ) {
   var num = numbers[i]; // 1, 2, 3, 4, 5
-  if ( num % 3 !== 0 || num % 5 !== 0 ) { continue; }
+  if ( num % 3 !== 0 || num % 5 !== 0 ) { 
+     continue; // 조건이 참일 경우 현재 반복을 건너 뛰고 다음 반복을 실행한다.
+  } 
   // if ( num === 3 || num === 5 ) {
   //   like_nums.push(num);
   // }
