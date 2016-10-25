@@ -96,6 +96,7 @@ function localFn() {
   function inLocalFn() {
     // 지역 내 지역
     // window.hadoom = '하아둠';
+    // hadoom = '하아둠';
     var hadoom = '하아둠';
   }
 
@@ -106,3 +107,126 @@ function localFn() {
 localFn();
 
 console.log('hadoom:', hadoom); // ????
+
+// 자바스크립트 호이스트(Hoist) 현상
+// 호이스팅 "영역(Scope)의 가장 상위에 끌어 올려지다"
+// 현상 1. function 선언문의 몸체(body)가 통째로 끌어 올려진다.
+// 현상 2. var 선언문에서 할당된 값이 아닌, 변수 이름만 끌어 올려진다.
+
+// function understandingHoist() {
+//   // 독립된 공간(영역, scope)
+//   goKingdom();
+//   var king = ‘왕’;
+//   var goKingdom = function() { ... };
+//   awayKingdom();
+//   function awayKingdom() { ... }
+// }
+
+// function understandingHoist() {
+//   // 독립된 공간(영역, scope)
+//   function awayKingdom() { ... }
+//   var king;      // undefined
+//   var goKingdom; // undefined
+
+//   // goKingdom(); // ERROR!!!
+
+//   king = ‘왕’;
+
+//   goKingdom = function() { ... };
+//   goKingdom(); // 정상 실행
+
+//   awayKingdom(); // 정상 실행
+// }
+
+// understandingHoist(); // 함수 실행
+
+// 호이스팅 문제
+// -- Scope ------------------------------
+function fn() {
+  var course; // undefined
+  if (course) {
+    course = 'develop';
+    console.log(course); // 수행되지 않음
+  }
+  console.log(course); // undefined
+}
+
+var course = 'design';
+
+fn();
+
+console.log(course); // 'design'
+// ---------------------------------------
+
+// 함수 선언, 함수 확장(매개변수 설정)
+// function showMessage() {
+//   console.log('이것은 메시지 입니다.');
+// }
+
+showMessage(); // 'default message'
+showMessage(); // 'default message'
+showMessage(); // 'default message'
+showMessage(); // 'default message'
+
+function showMessage(message) {
+  // message = 'this is message.';
+  // message = 'this is messanger.';
+  // message = 'this is cook.';
+  // 초기 값 설정
+  message = message || 'default message';
+  console.log(message);
+}
+
+showMessage('this is message.');
+showMessage('this is messanger.');
+showMessage('this is cook.');
+showMessage();
+
+/**
+ *  @function sum
+ *  @param    {number}  num1
+ *  @param    {number}  num2
+ *  @return   {number}  두 수의 합을 반환
+ */
+// function sum(num1, num2) {
+//   // 기대하는 데이터 유형을 감별하여 문제가 발생한 경우
+//   // 사용자에게 안내해줘야 한다. 유효성검사(Validation)
+//   if ( typeof num1 !== 'number' || typeof num2 !== 'number' ) {
+//      console.error('전달된 인자 값은 숫자 유형이 아닙니다. 숫자 유형을 넣어주세요.');
+//   }
+//   return num1 + num2;
+// }
+
+function sum(num1, num2) {
+   // 기대하는 데이터 유형을 감별하여 문제가 발생한 경우
+   // 사용자에게 안내해줘야 한다. 유효성검사(Validation)
+   if ( typeof num1 !== 'number' || typeof num2 !== 'number' ) {
+       // console.error('전달된 인자 값은 숫자 유형이 아닙니다. 숫자 유형을 넣어주세요.');
+       // 오류 발생시, 코드 중단
+       throw new Error('전달된 인자 값은 숫자 유형이 아닙니다. 숫자 유형을 넣어주세요.');
+   }
+   // return 키워드는 함수를 종료, 값을 반환
+   return num1 + num2;
+
+   // return 뒤의 구문은 실행되지 않는다.
+   // 함수가 종료되었기 때문....
+   var demo = '데모';
+   console.log(demo);
+}
+
+// 반환 값이 없는 함수
+// 목적(쓰임새)에 맞지 않는 함수 (X)
+function getWindowWidth() {
+  // 창 크기의 가로 폭 길이 (너비, width)
+  var _window_width = window.innerWidth;
+  console.log('창 크기의 가로 폭 길이 (너비, width):', _window_width);
+}
+
+// 반환 값이 있는 함수
+// 목적에 맞는 함수 (O)
+function getWindowWidth() {
+  // 창 크기의 가로 폭 길이 (너비, width)
+  // return window.innerWidth;
+  var _window_width = window.innerWidth;
+  return _window_width;
+}
