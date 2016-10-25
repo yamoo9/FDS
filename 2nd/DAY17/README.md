@@ -681,7 +681,18 @@ obj.getKey = function() {
 // obj 객체 안의 요소들을 하나씩 가져온다.
 for ( var prop in obj ) {
   var value = obj[prop];
+  // obj['name'], obj['age']의 형태로 가져온다.
   console.log('prop:', prop);
   console.log('value:', value);
 }
 ```
+
+- 추가
+
+> ```js
+> // 브라우저에서 flex를 지원하는지 확인
+> // body의 style 객체 안에 flex가 있는지 확인
+> 'flex' in document.body.style
+> ```
+
+
