@@ -230,3 +230,44 @@ function getWindowWidth() {
   var _window_width = window.innerWidth;
   return _window_width;
 }
+
+// 함수 내부에 전달되는 인자들의 집합
+
+// arguments: 유사 배열(like Array Object)
+// .length 속성을 가짐, .push(), .pop() 배열 메소드는 가지고 있지 않음.
+
+// 1부터 100까지 합을 구하시오.
+// 1 + 2 + 3 + 4 + 5 + , ... , + 100
+// for (var i=1, result=0; i<=100; i++) {
+//     result = result + i;
+// }
+
+// function sum(n1, n2, n3) {
+//   if (
+//     typeof n1 !== 'number' ||
+//     typeof n2 !== 'number' ||
+//     typeof n2 !== 'number'
+//   ) {
+//     throw new Error('전달인자는 모두 숫자 유형이어야 합니다.');
+//   }
+//   return n1 + n2 + n3;
+// }
+
+function sum() {
+  // arguments 객체(전달된 인자들의 집합)
+  // arguments 객체의 원소 개수: arguments.length
+  // length 속성 값을 알고 있다면 순환 처리(for, do ~ while, while)가 가능
+  // arguments[0] = ''; // 설정도 가능.
+  // console.log(arguments);
+  for( var sum=0, i=0, l=arguments.length; i < l; i++ ) {
+    // console.log(typeof arguments[i]);
+    if (typeof arguments[i] !== 'number') { throw new Error('전달된 인자 중 숫자가 아닌 값이 있습니다.') }
+    // sum = sum + arguments[i];
+    sum += arguments[i];
+  }
+  return sum;
+}
+
+sum(1, 2, 3);
+sum(10, 20, 30);
+sum(10, 20, 30, 40, 50, 60);
