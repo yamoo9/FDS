@@ -384,7 +384,9 @@ $custom-green: #3ce1cd;
 $custom-blue:  #4524dd;
 $custom-dark:  #161515;
 
-// 배경 컬러 설정 변수 $bg-color: $custom-red;
+// 배경 컬러 설정 변수 
+$bg-color: $custom-red;
+
 #page {
   @if $bg-color == $custom-red {
     color: invert($custom-red); }
@@ -428,7 +430,9 @@ $custom-dark:  #161515;
 - JS의 3항식 조건문과 유사하게 조건문을 처리할 수 있다.
 
 ```scss
-// 컬러 변수 $main-bg: #000;
+// 컬러 변수 
+$main-bg: #000;
+
 .main {
   // $main-bg 값이 black과 같다면,
   // #fff로 설정
