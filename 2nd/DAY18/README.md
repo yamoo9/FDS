@@ -59,11 +59,11 @@ for ( ; ; ) { ... }
 - 예제
 
 ```js
-// 1부터 100까지 숫자를 합한 값을 for문으로 구하시오.
-for ( var i = 0; i < 10; i++ ) {
-  console.log('i:', i); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+// 1부터 10까지 숫자를 합한 값을 for문으로 구하시오.
+for ( var i = 1; i < 11; i++ ) {
+  console.log('i:', i); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 }
-console.log('i:', i); // 10
+console.log('i:', i); // 11
 
 for ( var count = 0, condition = true; condition; ) {
   // 코드 블록 반복 수행
@@ -227,6 +227,24 @@ console.log('hadoom:', hadoom); // ????
 
 - 예제
 ```js
+//작성코드
+function fn() {
+  if (course) {
+    var course = 'develop';
+    console.log(course); //???
+  }
+  console.log(course); //???
+}
+
+var course = 'design';
+
+fn();
+
+console.log(course); //???
+```
+
+```js
+//위 코드는 실행 전 호이스트 되어 아래와 같이 바뀐다.
 function fn() {
   var course; // undefined
   if (course) {
