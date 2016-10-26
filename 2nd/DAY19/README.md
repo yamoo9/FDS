@@ -45,7 +45,7 @@ $ source /Users/$USER/.nvm/nvm.sh
 sudo chmod +w /etc/bashrc
 sudo vi /etc/bashrc
 ```
-수정 방법 : i 를 누르고 위 source..../nvm.sh 커맨드를 마지막 줄에 붙여넣고 esc 누르고 :wq! 입력
+수정 방법 : i 를 누르고 위 `source /Users/$USER/.nvm/nvm.sh` 구문을 마지막 줄에 붙여넣고 esc 누르고 :wq! 입력
 
 
 터미널이 오픈될 때마다, `nvm`이 골라준 `node`를 실행시킬 수 있음.
