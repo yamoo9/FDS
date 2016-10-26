@@ -60,3 +60,69 @@ var sum = returnFunction([ 10, 20 ]);
 console.log( typeof sum ); // 'function'
 
 console.log( sum() ); // 30
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
+// 자바스크립트 함수에서 함수를 반환하다.
+function createCountDown(count) {
+  // count 매개변수(Parameter) 값 초기 설정
+  // count = ( typeof count !== 'number' ? false : count ) || 10;
+  // 위 코드를 if 조건문으로 바꿨을 경우
+  if ( typeof count !== 'number' ) { count = 10; }
+
+  // 함수 createCountDown의 내부에 존재하는 함수
+  function _countDown() {
+    // Count Down하는 로직
+    return --count;
+  };
+
+  // 내부 함수인 _countDown()을 반환
+  return _countDown;
+}
+
+// --------------------------------------------------------------------------------
+
+// createCountDown('90'); // count => 10
+var countDown90 = createCountDown(90);   // count => 90
+
+// ※ 함수 실행 과정에서 기억해두기 위한 변수는 동일한 영역에 존재하지 않아야 한다.
+// 변수는 초기 선언과정에서 값이 할당되면 그 순간으로 더 이상 코드가 다시 실행되지 않아요.
+var count = 10;
+
+function countDown() {
+  // var count = 20;
+  // 전역에 선언된 count 변수에 복사된 값을 함수가 수행될 때 마다 변경합니다.
+  count = count - 1; // 이 코드의 연산 결과는 다음 라인에서 처리됩니다.
+  return count;
+}
+
+console.log(countDown()); // 10
+console.log(countDown()); // 9
+console.log(countDown()); // 8
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+console.log(countDown());
+
+// --------------------------------------------------------------------------------
+
+// 객체를 전달받는 함수, 객체를 반환하는 함수
+// 문서 객체에 스타일을 설정하는 함수
+function mixin(o) {
+  var mix_obj = {name: 'mix', age: 1};
+  // mix_obj와 o를 합치는 로직
+  for ( var prop in o ) {
+    // console.log(prop, o[prop]); // name, has_kids
+    mix_obj[prop] = o[prop];
+  }
+  return mix_obj; // 객체 반환
+}
+
+
+var fusion_obj = mixin( {name: 'no-mixin', has_kids: false, has_parents: true, married: false} );
+
+console.log(fusion_obj);
