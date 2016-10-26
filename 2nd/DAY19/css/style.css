@@ -30,10 +30,21 @@ body {
 
 #gnb a {
   color: #fe4940;
-  font-size: 1.45rem;
+  font-size: 1.8rem;
+  padding-top: 0.02rem;
   padding-bottom: 0.02rem; }
   #gnb a:hover, #gnb a:focus {
-    border-bottom: 1px solid currentColor; }
+    border-top: 2px solid #ffc2bf;
+    border-bottom: 2px solid #ffc2bf; }
+  #gnb a:focus {
+    outline: none;
+    background: #ffedec; }
+  #gnb a::before {
+    content: '[ ';
+    color: #fe8882; }
+  #gnb a::after {
+    content: ' ]';
+    color: #fe8882; }
 
 #print-area {
   margin-top: 3rem;

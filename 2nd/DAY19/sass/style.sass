@@ -22,12 +22,27 @@ body
       left: 1rem
       right: 1rem
   a
+    // 지역 변수
+    $pseudo-color: lighten($link-color, 13%)
     @extend %reset-link
     color: $link-color
-    font-size: 1.45rem
-    padding-bottom: 0.02rem
+    font-size: 1.8rem
+    padding:
+      top: 0.02rem
+      bottom: 0.02rem
     &:hover, &:focus
-      border-bottom: 1px solid currentColor
+      border:
+        top: 2px solid lighten($pseudo-color, 12%)
+        bottom: 2px solid lighten($pseudo-color, 12%)
+    &:focus
+      outline: none
+      background: lighten($pseudo-color, 21%)
+    &::before
+      content: '[ '
+      color: $pseudo-color
+    &::after
+      content: ' ]'
+      color: $pseudo-color
 
 #print-area
   margin-top: 3rem
