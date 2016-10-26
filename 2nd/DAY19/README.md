@@ -40,6 +40,14 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh |
 $ source /Users/$USER/.nvm/nvm.sh
 ```
 
+.bashrc 수정시 권한 문제
+```sh
+sudo chmod +w /etc/bashrc
+sudo vi /etc/bashrc
+```
+수정 방법 : i 를 누르고 위 source..../nvm.sh 커맨드를 마지막 줄에 붙여넣고 esc 누르고 :wq! 입력
+
+
 터미널이 오픈될 때마다, `nvm`이 골라준 `node`를 실행시킬 수 있음.
 
 #### nvm, 설치 가능한 Node 버전 탐색
