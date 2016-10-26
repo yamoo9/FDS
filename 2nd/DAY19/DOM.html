@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>문서객체모델(DOM: Document Object Model)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- nav#gnb>ul>li*4>a[href=#link-$@12]{link $$} -->
+  <nav id="gnb">
+    <ul>
+      <li><a data-print-message="selected link is one." href="#">one</a></li>
+      <li><a data-print-message="selected link is two." href="#">two</a></li>
+      <li><a data-print-message="selected link is three." href="#">three</a></li>
+      <li><a data-print-message="selected link is four." href="#">four</a></li>
+    </ul>
+  </nav>
+
+  <p id="print-area">
+    <!-- 사용자가 선택한 <a> 요소의 data-print-message 출력 -->
+    사용자가 선택한 <code>&lt;a&gt;</code> 요소의 <code>data-print-message</code> 속성 값 출력
+  </p>
+
+<script src="js/dom-study.js"></script>
+</body>
+</html>
