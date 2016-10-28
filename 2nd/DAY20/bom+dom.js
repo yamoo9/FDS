@@ -14,34 +14,41 @@
   // window 객체에 종속된 하위 객체들
   // window.screen {}
   // 사용자의 스크린에 관한 정보를 제공하는 객체
-  var console_style      = 'color: #7045cf; font-weight: bold';
-  var screen             = global.screen;
-  var screen_width       = screen.width;
-  var screen_height      = screen.height;
-  var screen_resolution  = screen_width +'x' + screen_height;
-
-  console.log('사용자의 스크린 해상도는 %c' + screen_resolution, console_style);
-
-  // 사용자의 가용(Avail)가능한 스크린 해상도 구하기
-  var screen_avail_width      = screen.availWidth;
-  var screen_avail_height     = screen.availHeight;
-  var screen_avail_resolution = screen_avail_width +'x' + screen_avail_height;
-
-  console.log('사용자의 가용 가능한 스크린 해상도는 %c' + screen_avail_resolution, console_style);
-
-  // 스크린 실제 사이즈와 가용 가능한 사이즈가 다르다면?
-  // 얼마만큼의 차이가 나는지 콘솔에 출력하시오.
-
-  // 조건 비교
-  // 결과 출력
-
-  // 실제 가용 가능한 기준이 되는 위치는?
-  console.log('screen.availTop:', screen.availTop);
-  console.log('screen.availLeft:', screen.availLeft);
+  var screen = global.screen;
 
   // 함수 갈무리
+  function screenInfo() {
 
-  // 객체 반환
+    var screen_info = {};
+
+    screen_info.width            = screen.width;
+    screen_info.height           = screen.height;
+    screen_info.avail_width      = screen.availWidth;
+    screen_info.avail_height     = screen.availHeight;
+    screen_info.avail_top        = screen.availTop;
+    screen_info.avail_left       = screen.availLeft;
+    screen_info.resolution       = screen_info.width +'x' + screen_info.height;
+    screen_info.avail_resolution = screen_info.avail_width +'x' + screen_info.avail_height;
+
+    // 스크린 Gap에 대한 정보를 가진 객체
+    screen_info.gap = {
+      'width': screen_info.width - screen_info.avail_width,
+      'height': screen_info.height - screen_info.avail_height
+    };
+
+    // 객체 반환
+    return screen_info;
+
+  }
+
+  // 모듈 내에서만 사용 가능
+  // 모듈 내부에 감춰진 함수
+  console.log( screenInfo );
+
+  // 외부에 해당 함수를 공개하고 싶다.
+  // 노출 패턴
+  // global.screenInfo = screenInfo(); // 함수를 실행한 결과 값(객체)을 screenInfo 에 참조
+  global.screenInfo = screenInfo;   // 함수 객체를 screenInfo 에 참조
 
 
   // window.location
