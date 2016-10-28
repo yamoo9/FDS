@@ -1,6 +1,7 @@
 /*! bom+dom.js © yamoo9.net, 2016 */
 
 // Module Pattern
+// BOM 공부
 (function(global){
   'use strict';
 
@@ -103,7 +104,7 @@
 }); // (this)
 
 
-
+// location.hash: <a>를 클릭했을 때, hash를 통해 목표 요소를 스타일링하는 응용 예제
 (function(global){
   'use strict';
 
@@ -124,6 +125,7 @@
     if ( hash ) {
       target_element = document.querySelector(hash);
     }
+    console.log(target_element);
     if ( target_element ) {
       // 스타일 추가
       target_element.style.background = bg_color;
@@ -143,7 +145,31 @@
 
   // window 객체의 load 이벤트가 발생하면
   // styleHashElement 함수를 실행하라.
-  global.onload = stylingHashElement;
+  // global.onload = stylingHashElement;
+  global.onload = assignAction;
 
+  function assignAction() {
+    var go_to_point = document.querySelector('#go-to-point');
+    var go_to_links = go_to_point.querySelectorAll('a');
+    for ( var i=0, l=go_to_links.length; i<l; i++ ) {
+      go_to_links[i].onclick = function() {
+        // this
+        setTimeout(stylingHashElement, 100);
+      };
+    }
+  }
+
+
+}); // (this)
+
+
+// navigator.userAgent: 사용자 에이전트의 식별자를 통해 기기 판별 응용
+(function(global){
+  'use strict';
+
+  var navigator = global.navigator;
+  var userAgent = navigator.userAgent; // 브라우저 식별자 (판별)
+
+  console.log('userAgent', userAgent);
 
 })(this);
