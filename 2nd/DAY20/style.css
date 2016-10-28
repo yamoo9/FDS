@@ -1,9 +1,14 @@
 body {
+  min-width: 57.5rem;
   margin: 2.5rem 6.25rem;
   font-size: 0.875rem;
   font-family: "YouandiModernTR";
   line-height: 1.4;
   letter-spacing: -0.02em; }
+  body > p {
+    margin-bottom: 1.875rem; }
+    body > p:last-of-type {
+      margin-bottom: 6.25rem; }
 
 #go-to-point {
   font-size: 0.75rem; }

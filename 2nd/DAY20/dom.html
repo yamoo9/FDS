@@ -4,7 +4,7 @@
 <!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" dir="ltr" lang="ko-KR"> <![endif]-->
 <!--[if IE 9]> <html class="no-js lt-ie10 ie9" dir="ltr" lang="ko-KR"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="ko-KR" class="no-js">
+<html lang="ko-KR" class="ie10">
 <!--<![endif]-->
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -12,12 +12,30 @@
   <title>문서객체모델</title>
   <link rel="stylesheet" href="../Resources/webfonts/you_and_i_modern/you_and_i_modern.css">
   <link rel="stylesheet" href="style.css">
-  <script src="bom+dom.js"></script>
+  <script src="bom.js"></script>
   <!--[if !IE]><!-->
   <script src="detectIE10+.js"></script>
   <!--<![endif]-->
 </head>
 <body>
+
+  <!-- 새롭게 정의된 속성 방식은 예전 방식으로는 가져올 수 없다. -->
+  <p
+    data-ng-click='showParas()'
+    aria-describedby="dom-test-first-desc"
+    id="dom-test-first"><strong>Hello</strong> How are you doing?</p>
+
+  <div id="dom-test-first-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, magnam eum atque veniam facilis, libero! Culpa vitae sapiente voluptas iusto.</div>
+
+  <p id="dom-test-second">
+    <!-- ha ha ha ㅠㅡㅠ -->
+    <strong>Hello</strong> How are you doing?
+  </p>
+
+  <p id="dom-test-last">
+    <strong>Hello</strong>
+    How are you doing?
+  </p>
 
   <nav id="go-to-point">
     <a href="#point-10">go to Point 10</a>
@@ -90,5 +108,6 @@
     </article>
   </main>
 
+<script src="dom.js"></script>
 </body>
 </html>

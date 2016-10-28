@@ -192,4 +192,4 @@
   // 모듈 공개
   global.checkDevices = checkDevices;
 
-})(this);
+}); // (this)
