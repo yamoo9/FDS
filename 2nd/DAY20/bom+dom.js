@@ -168,8 +168,28 @@
   'use strict';
 
   var navigator = global.navigator;
-  var userAgent = navigator.userAgent; // 브라우저 식별자 (판별)
+  var userAgent = navigator.userAgent.toLowerCase(); // 브라우저 식별자 (판별)
 
-  console.log('userAgent', userAgent);
+  function isDevice(device) {
+    if ( typeof device !== 'string' ) { throw new Error('전달인자는 문자열 요구됨'); }
+    return userAgent.indexOf(device) > -1;
+  }
+
+  function checkDevices(devices) {
+    // 배열 화
+    if ( typeof devices === 'string' ) {
+      devices = devices.split(' ');
+    }
+    if ( !(devices instanceof Array) ) {
+      throw new Error('전달인자는 배열 또는 문자유형이어야 합니다.');
+    }
+    // 기기의 식별자를 가진 배열을 순환
+    for ( var i=0, l=devices.length; i<l; i++ ) {
+      var device = devices[i];
+      if ( isDevice(device) ) { console.log(device); }
+    }
+  }
+  // 모듈 공개
+  global.checkDevices = checkDevices;
 
 })(this);
