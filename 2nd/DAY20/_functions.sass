@@ -1,0 +1,6 @@
+@function removeUnit($unit)
+  @return $unit/($unit * 0 + 1)
+
+@function px2rem($px)
+  $px: removeUnit($px)
+  @return unquote( ($px/16) + 'rem' )
