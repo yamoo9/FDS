@@ -29,6 +29,19 @@
 
   console.log('사용자의 가용 가능한 스크린 해상도는 %c' + screen_avail_resolution, console_style);
 
+  // 스크린 실제 사이즈와 가용 가능한 사이즈가 다르다면?
+  // 얼마만큼의 차이가 나는지 콘솔에 출력하시오.
+
+  // 조건 비교
+  // 결과 출력
+
+  // 실제 가용 가능한 기준이 되는 위치는?
+  console.log('screen.availTop:', screen.availTop);
+  console.log('screen.availLeft:', screen.availLeft);
+
+  // 함수 갈무리
+
+  // 객체 반환
 
 
   // window.location
