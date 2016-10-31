@@ -280,9 +280,9 @@
 }); // (this)
 
 
-//////////////////////////
-// DOM API: Insertion 1 //
-//////////////////////////
+/////////////////////////////////
+// DOM API: Insertion + remove //
+/////////////////////////////////
 (function(global){
   'use strict';
 
@@ -324,9 +324,19 @@
   var issues_count = issues.length;
 
   while ( (issue = issues[--issues_count]) ) {
+    if (issues_count === 0) { break; }
     divider = createEl('hr');
     issue.parentNode.insertBefore(divider, issue);
   }
 
+  var remove_divider_button = document.querySelector('.remove-divider-button');
+  remove_divider_button.onclick = function() {
+    var dividers = document.querySelectorAll('hr');
+    for ( var divider, i=0, l=dividers.length; i<l; i++ ) {
+      divider = dividers[i];
+      divider.parentNode.removeChild(divider);
+    }
+    this.setAttribute('disabled', 'disabled');
+  };
 
 })(this);
