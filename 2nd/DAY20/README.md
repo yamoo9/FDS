@@ -20,7 +20,7 @@
           html.className = is_mac ? 'mac' : 'win';
         ```
 > - window.navigator.__userAgent__
->   + 사용자 에이전트의 식별자를 통해 기기 판별 응용  
+>   + 사용자 에이전트의 식별자를 통해 기기 판별 응용
 >
       ```
         (function(global){
@@ -67,7 +67,7 @@
       ```
 
 - 1.1.2. window.__screen__
-> 사용자의 스크린에 관한 정보를 제공하는 객체  
+> 사용자의 스크린에 관한 정보를 제공하는 객체
 > console에 'window.screen' 을 찍어보면 관련 속성 정보가 나온다.
 > - window.screen.__width__ / window.screen.__height__
 >   + 전체 화면의 너비와 높이 값 제공
@@ -178,11 +178,11 @@
   + 연결망의 특정 지점
 
 ### 2.1. DOM Level 0
-> \- 초창기 문서객체 모델  
-> \- 자바스크립트를 통해 제작자가 웹 문서의 특정요소(하이퍼링크, 이미지, 폼 필드)에 접근  
-> \- 해당 요소의 속성을 교체할 수 있는 API 제공  
-> \- name 값을 사용  
-> \- 가능한 상호작용은 폼 유효성 검사, 이미지 마우스 오버 효과 버튼 제작이 전부.  
+> \- 초창기 문서객체 모델
+> \- 자바스크립트를 통해 제작자가 웹 문서의 특정요소(하이퍼링크, 이미지, 폼 필드)에 접근
+> \- 해당 요소의 속성을 교체할 수 있는 API 제공
+> \- name 값을 사용
+> \- 가능한 상호작용은 폼 유효성 검사, 이미지 마우스 오버 효과 버튼 제작이 전부.
 > - anchors[]
 > - links[]
 > - images[]
@@ -190,7 +190,7 @@
 > - elements[]
 
 ### 2.2. 중급 문서 객체 모델(Intermediate DOM)
-> \- 불완전한 CSS  
+> \- 불완전한 CSS
 > \- 브라우저 호환성 서로 호환되지 않게 고안
 
 ### 2.3. DOM Level 1
@@ -203,9 +203,9 @@
 > - 참고 사이트 2(html) : <https://www.w3.org/TR/DOM-Level-2-HTML/html.htm>
 
 ### 2.5. DOM Level 3
-> \- DOM Level 2 확장판  
-> \- 많은 브라우저에서 지원하지 못하나 주요 기능은 대부분 모든 브라우저에서 지원.  
-> \- 일부는 현재 DOM 스크립트의 핵심 담당        
+> \- DOM Level 2 확장판
+> \- 많은 브라우저에서 지원하지 못하나 주요 기능은 대부분 모든 브라우저에서 지원.
+> \- 일부는 현재 DOM 스크립트의 핵심 담당
 
 ### 2.6. W3C 문서 객체 모델
 - 2.6.1. 노드 인터페이스(Node Interface)
@@ -242,7 +242,7 @@
 > - 부모 노드 찾기
 >   + 노드.parentNode
 >      - 노드의 부모노드(요소)를 반환
->      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
+>      - parentNode가 모두 element이지는 않다. ->  document일 수 있다.
 >
 >
  __example :__
@@ -255,13 +255,13 @@
 >
 > \- p : 부모 요소
 >
-> \- strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
+> \- strong(:first-child), how are you doing?(:last-child) : p의 자식요소
 >
-> \- hello(:first-child) : strong의 자식노드 
+> \- hello(:first-child) : strong의 자식노드
 >
-> \- p, strong은 element node 
+> \- p, strong은 element node
 >
-> \- hello, how are you doing?은 text node    
+> \- hello, how are you doing?은 text node
 >
 >
 > \- __아래는 크로스 브라우징이 안됨(IE 9+)__

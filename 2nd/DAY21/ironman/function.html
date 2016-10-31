@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>자바스크립트 함수</title>
+  <!-- 웹 폰트 로드 -->
+  <link rel="stylesheet" href="fonts/you_and_i_modern/you_and_i_modern.css">
+  <!-- 아이언맨 로봇 스타일 -->
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      height: 100vh;
+      background: radial-gradient(circle, #d4792a, #731b20);
+    }
+    .ironman {
+      position: relative;
+    }
+    .ironman .message {
+      opacity: 0;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -120px;
+      left: 50%;
+      background: #000;
+      color: #fff;
+      width: 400px;
+      height: 100px;
+      margin: 0;
+      border-radius: 5px;
+      transform: translateX(-50%);
+      font-family: "YouandiModernTB";
+      animation: fade-in 1s forwards 0.4s;
+    }
+    .ironman .message::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      width: 0;
+      height: 0;
+      border-top: 20px solid #000;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      transform: translateX(-50%);
+    }
+
+    .ironman-print-button {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      transition: all 0.1s;
+    }
+    .ironman-print-button:focus {
+      outline: 0;
+      /*background: hsla(0, 0%, 0%, 0.1);
+      border-radius: 50%;*/
+    }
+    .ironman-print-button:active {
+      transform: scale(0.95);
+    }
+    .ironman-print-button:active::before {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(5);
+    }
+    .ironman-print-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(hsla(35, 99%, 53%, 1) 20%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .target {
+      cursor: pointer;
+      border: none;
+      padding: 0.54em 1em;
+      background: #7c2421;
+      color: #e1af65;
+      box-shadow: 0 3px 0 #2f0d0e;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .target:focus {
+      outline: none;
+    }
+    .target:active {
+      position: relative;
+      top: 2px;
+      box-shadow: none;
+    }
+
+    @keyframes fade-out {
+      0% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+    @keyframes fade-in {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ironman">
+    <p class="message">Function objects can be invoked later.</p>
+    <button type="button" class="ironman-print-button">
+      <img src="images/ironman.png" alt="ironman" width="256" height="256">
+    </button>
+  </div>
+
+  <button class="target">Drink a Milk.</button>
+
+  <script src="function.js"></script>
+  <!-- 아이언맨 스크립트 -->
+  <script src="print-ironman-message.js"></script>
+</body>
+</html>

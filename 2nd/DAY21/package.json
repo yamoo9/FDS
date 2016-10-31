@@ -1,0 +1,13 @@
+{
+  "name": "dom-script-project-using-sass",
+  "version": "1.0.0",
+  "description": "DOM Script Project Using Sass.",
+  "scripts": {
+    "test": "console.log('this is test message.')",
+    "sass": "node-sass -w -r sass -o css --source-map ./css --output-style compressed",
+    "serve": "http-server -o -a localhost -p 9090",
+    "start": "npm run serve && npm run sass"
+  },
+  "keywords": ["domscript", "sass"],
+  "author": "yamoo9"
+}
