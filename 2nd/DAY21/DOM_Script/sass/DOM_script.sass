@@ -4,3 +4,56 @@ body
     top: 80px
     left: auto
     right: auto
+
+
+// .dim
+.dim
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(#120d20, 0.43)
+
+// .modal-window
+.modal-window
+  position: fixed
+  top: 50%
+  left: 50%
+  max-width: 30rem
+  display: flex
+  flex-flow: column wrap
+  justify-content: center
+  align-items: center
+  border: 3px solid #fff
+  border-radius: 6px
+  padding: 1rem
+  background: #fff
+  transform: translate(-50%, -50%)
+  box-shadow: 0 0 20px 2px hsla(0,0%,0%,.45)
+  > *
+    margin: 0
+  .modal-headline
+    margin-bottom: 0.34em
+    color: #7045cf
+    font-size: 1.2rem
+  .modal-contents
+    flex: 0 0 30%
+    font-size: 0.8rem
+    color: #7e6e9f
+    text-align: center
+  .modal-close-button
+    cursor: pointer
+    position: absolute
+    top: -15px
+    right: -15px
+    width: 1.5em
+    height: 1.5em
+    border: 3px solid #927ac4
+    border-radius: 50%
+    background: #fff
+    line-height: 1
+    color: #7045cf
+    font-size: 1.34rem
+    font-family: Arial
+    box-shadow: 4px 0 4px hsla(0,0%,0%,.45)

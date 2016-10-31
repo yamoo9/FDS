@@ -170,7 +170,7 @@
 
   // 자식노드로 텍스트노드를 요소노드에 추가
   // Append Child
-  // ELEMENT_NODE.appendChild(NODE)
+  // PARENT_NODE.appendChild(CHILD_NODE)
   page_brand.appendChild(page_brand_text);
 
   var page_slogan = document.createElement('p');
@@ -185,7 +185,7 @@
   page_div.appendChild(page_brand);
   page_div.appendChild(page_slogan);
 
-  console.log(page_div);
+  // console.log(page_div);
 
   var body = document.querySelector('body');
 
