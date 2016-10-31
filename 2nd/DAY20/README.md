@@ -226,14 +226,14 @@
 >   + 요소는 값이 없으므로 null 반환
 > - 자식 노드 찾기
 >   + 노드.children
->      - 모든 자식 노드
+>      - 모든 자식요 노드(요.소.)
 >   + 노드.childNodes
 >      - 노드의 직계 자식노드들을 노드리스트(배열)로 반환
 >   + 노드.firstChild
 >      - 노드의 첫번째 자식노드를 반환
 >   + 노드.lastChild
 >      - 노드의 마지막 자식노드를 반환
->      - 노드.last[a.legnth - 1]
+>      - 노드.childNodes[node.childNodes.legnth - 1]
 > - 형제 노드 찾기
 >   + 노드.previousSibling
 >      - 노드의 이전 위치에 자리한 형제노드를 반환
@@ -307,7 +307,7 @@
 >   + title
 >      + 값 가져오기 및 설정 가능
 >   + nodeType
->   + nodeValue / data
+>   + nodeValue / data(비표)
 >   + hasChildNodes()
 >      + 자식의 유무를 boolean 값으로 반환
 >
