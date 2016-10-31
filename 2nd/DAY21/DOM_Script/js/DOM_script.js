@@ -229,6 +229,8 @@
     var dim_layer = document.createElement('div');
     dim_layer.setAttribute('class', 'dim');
     body.appendChild(dim_layer);
+    // 제거 이벤트 연결
+    dim_layer.onclick = removeDimModal;
   };
 
   // modal 레이어를 생성
@@ -279,7 +281,9 @@
   };
   // 딤, 모달 제거
   removeDimModal = function() {
-    var modal = this.parentNode;
+    // console.log(this);
+    // var modal = this.parentNode;
+    var modal = document.querySelector('.modal-window');
     var dim = document.querySelector('.dim');
     modal.parentNode.removeChild(modal);
     dim.parentNode.removeChild(dim);
