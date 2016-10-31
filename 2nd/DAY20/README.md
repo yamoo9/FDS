@@ -157,7 +157,7 @@
 >   + 이전 방문한 페이지로 이동
 > - window.history.__forward()__
 >   + 다음 방문한 페이지로 이동
-> - window.history.__go(_number_)
+> - window.history.__go(_number_)__
 >   + 특정 페이지로 (_number_가 -2이면 2단계 이전 페이지로 이동)
 
 - 1.1.5. window.__document__
@@ -168,10 +168,10 @@
 ## 2. DOM(Document Object Model) : 문서 객체 모델
 ![DOM](DOM.png)
 
-\-문서(document)
+\- 문서(document)
 - 노드의 집합
 
-\-노드 트리
+\- 노드 트리
 - 루트 노드 = html
   + 노드의 시작
 - 노드
