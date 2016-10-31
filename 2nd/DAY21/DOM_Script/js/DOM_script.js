@@ -236,10 +236,10 @@
     var headline  = createModalHeadline();
     var paragraph = createModalContent();
     var button    = createModalCloseButton();
-    console.log('container:', container);
-    console.log('headline:', headline);
-    console.log('paragraph:', paragraph);
-    console.log('button:', button);
+    container.appendChild(headline);
+    container.appendChild(paragraph);
+    container.appendChild(button);
+    body.appendChild(container);
   };
   // modal 윈도우 레이어 생성
   createModalLayer = function(){
