@@ -116,16 +116,47 @@
 <body>
 
   <div class="ironman">
-    <p class="message">Function objects can be invoked later.</p>
+    <p class="message">Function is....</p>
     <button type="button" class="ironman-print-button">
       <img src="images/ironman.png" alt="ironman" width="256" height="256">
     </button>
   </div>
 
-  <button class="target">Drink a Milk.</button>
+<script>
+(function(global){
+  'use strict';
+  // 아이언맨이 출력할 메시지 리스트(List, Array)
+  var ironman_messages = [];
+  var ironman_message_count = 0;
+  ironman_messages.push('함수는 일급객체(First Class Object)입니다.');
+  ironman_messages.push('함수는 호출 가능한 객체입니다.');
+  ironman_messages.push('함수는 전달인자를 통해 다양한 코드 처리가 가능합니다.');
+  ironman_messages.push('함수는 함수형 프로그래밍에서 매우 중요한 역할을 합니다.');
+  console.log( 'ironman_messages:', ironman_messages );
+  // 문서 객체 각각의 변수에 참조
+  var ironman         = document.querySelector('.ironman');
+  var ironman_message = ironman.querySelector('.message');
+  var ironman_button  = ironman.querySelector('.ironman-print-button');
+  // 문서 객체가 참조된 변수 확인
+  console.log('ironman:', ironman);
+  console.log('ironman_message:', ironman_message);
+  console.log('ironman_button:', ironman_button);
+  // 버튼 객체에 이벤트 연결 (핸들러 함수)
+  ironman_button.onclick = function() {
+    // message 영역의 텍스트를 변경
+    // console.log( 'ironman_message text:', ironman_message.firstChild.nodeValue );
 
-  <script src="function.js"></script>
-  <!-- 아이언맨 스크립트 -->
-  <script src="print-ironman-message.js"></script>
+    // 클릭할 때 마다 아이언맨의 메시지 리스트를 순서대로 출력
+    // ironman_message_count = ironman_message_count + 1;
+    var print_message = ironman_messages[ ironman_message_count++ % ironman_messages.length ];
+    // console.log(print_message);
+    // 방법 1. DOM API
+    ironman_message.firstChild.nodeValue = print_message;
+    // 방법 2. Standard API
+    ironman_message.textContent = print_message;
+    ironman_message.innerHTML = print_message;
+  };
+})(this);
+</script>
 </body>
 </html>
