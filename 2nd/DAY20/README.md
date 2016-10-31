@@ -220,7 +220,7 @@
 >   + __1 : 요소노드__(document.ELEMENT_NODE)
 >    + 2 : 속성노드(document.ATTRIBUTE_NODE)
 >    + __3 : 텍스트 노드__(document.TEXT_NODE)
->    + 8 : 주석 노드(document.COMMENT_NODE)
+>    + __8 : 주석 노드(document.COMMENT_NODE)
 > - 노드.nodeValue
 >   + 노드의 값을 반환
 >   + 요소는 값이 없으므로 null 반환
@@ -264,7 +264,7 @@
 > \- hello, how are you doing?은 text node    
 >
 >
-> - __아래는 크로스 브라우징이 안됨(IE 9+)
+> \- __아래는 크로스 브라우징이 안됨(IE 9+)__
 > - 노드.firstElementChild
 >   + 노드의 첫번째 자식 요소노드를 반환
 > - 노드.lastElementChild
@@ -310,9 +310,10 @@
 >   + nodeValue / data
 >   + hasChildNodes()
 >      + 자식의 유무를 boolean 값으로 반환
-> - xml과 DOM 방식의 차이점 __
+>
+> - __xml과 DOM 방식의 차이점__
 >   + input Element는 옛날 방식을 사용해서 가져와야 한다.
->   + 새로 추가(정의)된 속성(ARIA속성, data-속성)은 >  getAttribute를 사용해서 가져와야 한다.
+>   + 새로 추가(정의)된 속성(ARIA속성, data-속성)은 getAttribute를 사용해서 가져와야 한다.
 >
 
 
