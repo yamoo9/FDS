@@ -277,4 +277,56 @@
   // 버튼 요소 객체에 이벤트 연결
   create_modal_btn.onclick = createModalWindow;
 
+}); // (this)
+
+
+//////////////////////////
+// DOM API: Insertion 1 //
+//////////////////////////
+(function(global){
+  'use strict';
+
+  // DOM API Standard Method
+  // 어떤 노드를 목표가 노드 앞에 삽입한다.
+  // insertBefore()
+  // target_node.parentNode.insertBefore(insert_node, target_node);
+
+  // Helper(Utility) Function
+  function createEl(element_name) {
+    if ( typeof element_name !== 'string' ) { throw new Error('생성할 요소 이름은 문자열로!'); }
+    return document.createElement(element_name);
+  }
+
+  // var div  = createEl('div');
+  // var ul   = createEl('ul');
+  // var li   = createEl('li');
+  // var a    = createEl('a');
+  // var span = createEl('span');
+
+  // console.log('created element is `div`:', div);
+  // console.log('created element is `ul`:', ul);
+  // console.log('created element is `li`:', li);
+  // console.log('created element is `a`:', a);
+  // console.log('created element is `span`:', span);
+
+  var main        = document.querySelector('#main');
+  var main_parent = main.parentNode;
+  // var divider     = createEl('hr');
+
+  // main 요소노드 앞에 divider 요소노드를 삽입히자.
+  // main.parentNode.insertBefore(divider, main);
+  // main_parent.insertBefore(divider, main);
+
+  console.log('%c------------------------------', 'color: #3d9a21');
+
+  var issue, divider;
+  var issues       = document.querySelectorAll('.issue');
+  var issues_count = issues.length;
+
+  while ( (issue = issues[--issues_count]) ) {
+    divider = createEl('hr');
+    issue.parentNode.insertBefore(divider, issue);
+  }
+
+
 })(this);
