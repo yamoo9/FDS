@@ -135,9 +135,9 @@
 }); // (this)
 
 
-///////////////////////
-// DOM API: Creation //
-///////////////////////
+/////////////////////////
+// DOM API: Creation 1 //
+/////////////////////////
 (function(global){
   'use strict';
 
@@ -190,5 +190,45 @@
   var body = document.querySelector('body');
 
   body.appendChild(page_div);
+
+}); // (this)
+
+
+/////////////////////////
+// DOM API: Creation 2 //
+/////////////////////////
+
+(function(global){
+  'use strict';
+
+  // 모달 윈도우 생성
+  // 버튼 이벤트 핸들링
+
+  // .create-modal-button 요소 변수에 참조
+  var body = document.body,
+      create_modal_btn, createModalWindow, createDim, createModal;
+
+  create_modal_btn = document.querySelector('.create-modal-button');
+
+  /** @function createModalWindow */
+  createModalWindow = function() {
+    createDim();
+    createModal();
+  };
+
+  // dim 레이어를 생성
+  createDim = function() {
+    var dim_layer = document.createElement('div');
+    dim_layer.setAttribute('class', 'dim');
+    body.appendChild(dim_layer);
+  };
+
+  // modal 레이어를 생성
+  createModal = function() {
+
+  };
+
+  // 버튼 요소 객체에 이벤트 연결
+  create_modal_btn.onclick = createModalWindow;
 
 })(this);
