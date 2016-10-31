@@ -213,7 +213,8 @@
       createModalLayer,
       createModalHeadline,
       createModalContent,
-      createModalCloseButton;
+      createModalCloseButton,
+      removeDimModal;
 
   create_modal_btn = document.querySelector('.create-modal-button');
 
@@ -240,6 +241,9 @@
     container.appendChild(paragraph);
     container.appendChild(button);
     body.appendChild(container);
+
+    // button 요소에 dim, modal 제거 이벤트 연결
+    button.onclick = removeDimModal;
   };
   // modal 윈도우 레이어 생성
   createModalLayer = function(){
@@ -273,11 +277,18 @@
     button.appendChild(button_text);
     return button;
   };
+  // 딤, 모달 제거
+  removeDimModal = function() {
+    var modal = this.parentNode;
+    var dim = document.querySelector('.dim');
+    modal.parentNode.removeChild(modal);
+    dim.parentNode.removeChild(dim);
+  };
 
   // 버튼 요소 객체에 이벤트 연결
   create_modal_btn.onclick = createModalWindow;
 
-}); // (this)
+}(this)); //
 
 
 /////////////////////////////////
