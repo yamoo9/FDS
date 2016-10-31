@@ -206,7 +206,14 @@
 
   // .create-modal-button 요소 변수에 참조
   var body = document.body,
-      create_modal_btn, createModalWindow, createDim, createModal;
+      create_modal_btn,
+      createModalWindow,
+      createDim,
+      createModal,
+      createModalLayer,
+      createModalHeadline,
+      createModalContent,
+      createModalCloseButton;
 
   create_modal_btn = document.querySelector('.create-modal-button');
 
@@ -225,7 +232,46 @@
 
   // modal 레이어를 생성
   createModal = function() {
-
+    var container = createModalLayer();
+    var headline  = createModalHeadline();
+    var paragraph = createModalContent();
+    var button    = createModalCloseButton();
+    console.log('container:', container);
+    console.log('headline:', headline);
+    console.log('paragraph:', paragraph);
+    console.log('button:', button);
+  };
+  // modal 윈도우 레이어 생성
+  createModalLayer = function(){
+    var modal_layer = document.createElement('div');
+    modal_layer.setAttribute('class', 'modal-window');
+    return modal_layer;
+  };
+  // 모달 헤드라인 생성
+  createModalHeadline = function(){
+    var headline = document.createElement('h3');
+    headline.setAttribute('class', 'modal-headline');
+    var headline_text = document.createTextNode('Modal UI Component');
+    headline.appendChild(headline_text);
+    return headline;
+  };
+  // 모달 콘텐츠 생성
+  createModalContent = function(){
+    var paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'modal-contents');
+    var paragraph_text = document.createTextNode('Modal Window is Popular Component of Web Design. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error recusandae, mollitia doloribus.');
+    paragraph.appendChild(paragraph_text);
+    return paragraph;
+  };
+  // 모달 클로즈 버튼 생성
+  createModalCloseButton = function(){
+    var button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.setAttribute('class', 'modal-close-button');
+    button.setAttribute('aria-label', 'Close Modal Window');
+    var button_text = document.createTextNode('x');
+    button.appendChild(button_text);
+    return button;
   };
 
   // 버튼 요소 객체에 이벤트 연결
