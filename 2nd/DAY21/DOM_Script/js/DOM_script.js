@@ -1,7 +1,8 @@
+////////////
+// REVIEW //
+////////////
 (function(global){
   'use strict';
-  // Review
-
   // 문서객체모델 API
   // DOM Lv0, Lv1, Lv2, Lv3, Lv4
 
@@ -34,7 +35,15 @@
   // .getAttribute('aria-labelledby');
   // .getAttribute('data-ng-app');
 
-  // --------------------------------------------------------------------------------
+}); // (this)
+
+
+//////////////////////////
+// DOM API: Selection 1 //
+//////////////////////////
+
+(function(global){
+  'use strict';
 
   // 문서에서 id 속성으로 객체를 찾는(선택하는) 방법(Method)
   var page, main;
@@ -79,6 +88,11 @@
   console.log('all_in_issue:', all_in_issue);
 }); // (this)
 
+
+//////////////////////////
+// DOM API: Selection 2 //
+//////////////////////////
+
 (function(global){
   'use strict';
 
@@ -117,5 +131,64 @@
 
   console.log('issue_headlines:', issue_headlines);
   console.log('issue_contents:', issue_contents);
+
+}); // (this)
+
+
+///////////////////////
+// DOM API: Creation //
+///////////////////////
+(function(global){
+  'use strict';
+
+  // 동적으로 아래 HTML 구조화를 생성해본다.
+  // <div id="page"></div>
+
+  // 요소노드를 생성해보자.
+  // create Elemen tNode
+  // document.createElement()
+  var page_div = document.createElement('div');
+
+  // 생성된 요소노드에 속성을 추가해보자.
+  // Create Attribute
+  // var page_div_id = document.createAttribute('id');
+  // page_div_id.value = 'page';
+  // console.log(page_div_id);
+
+  // Add(Set) Attribute
+  // ELEMENT_NODE.setAttribute(key, value);
+  page_div.setAttribute('id', 'page');
+
+  // console.log(page_div);
+
+  var page_brand = document.createElement('h1');
+  page_brand.setAttribute('class', 'brand');
+
+  // create Text Node
+  // document.createTextNode()
+  var page_brand_text = document.createTextNode('JavaScript Future');
+
+  // 자식노드로 텍스트노드를 요소노드에 추가
+  // Append Child
+  // ELEMENT_NODE.appendChild(NODE)
+  page_brand.appendChild(page_brand_text);
+
+  var page_slogan = document.createElement('p');
+  page_slogan.setAttribute('class', 'slogan');
+  var page_slogan_text = document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, cupiditate?');
+
+  page_slogan.appendChild(page_slogan_text);
+
+  // console.log(page_brand);
+  // console.log(page_slogan);
+
+  page_div.appendChild(page_brand);
+  page_div.appendChild(page_slogan);
+
+  console.log(page_div);
+
+  var body = document.querySelector('body');
+
+  body.appendChild(page_div);
 
 })(this);
