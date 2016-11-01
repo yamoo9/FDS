@@ -46,13 +46,23 @@
   // console.log('gnb:', gnb);
   // console.log('target_p:', target_p);
 
-  var gnb_links = gnb.querySelectorAll('a');
+  function bindEvent(container_el, target_selector) {
+    if ( !container_el || container_el.nodeType !== 1 ) {
+      throw new Error('첫번째 인자는 요소노드를 전달해야합니다.');
+    }
+    target_selector = target_selector || 'a';
+    // start: 이벤트 연결 구문
+    var bind_els = container_el.querySelectorAll(target_selector);
 
-  for ( var i=0, l=gnb_links.length; i<l; i++ ) {
-    var gnb_link = gnb_links[i];
-    // gnb_link.onclick = replaceStrongElement;
-    gnb_link.onclick = changePositionStrongElement;
+    for ( var i=0, l=bind_els.length; i<l; i++ ) {
+      var el = bind_els[i];
+      // el.onclick = replaceStrongElement;
+      el.onclick = changePositionStrongElement;
+    }
+    // end: 이벤트 연결 구문
   }
+
+  bindEvent(gnb); // 초기화
 
   function changePositionStrongElement() {
     var parent = this.parentNode;
@@ -93,6 +103,8 @@
     var copy_gnb, deep_copy_gnb;
     deep_copy_gnb = gnb.cloneNode(true);
     copyzone.appendChild(deep_copy_gnb);
+
+    bindEvent(deep_copy_gnb); // 재사용
 
     console.log( gnb.cloneNode() );
     console.log( gnb.cloneNode(true) );
