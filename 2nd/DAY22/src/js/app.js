@@ -5,18 +5,16 @@
 (function(global, $){
   'use strict';
 
-  // var gnb = $.id('gnb');
-  var gnb = $.query('#gnb');
-  console.log('gnb:', gnb);
+  var gnb                  = $.query('#gnb');
+  var gnb_first            = $.first(gnb);
+  var gnb_first_first      = $.first(gnb_first);
+  var gnb_first_first_next = $.next(gnb_first_first);
+  var gnb_links            = $.queryAll('a', gnb);
+  var gnb_prev_el          = $.prev(gnb);
+  var gnb_next_p           = $.next(gnb);
+  var gnb_next_p_parent    = $.parent(gnb_links[2], 4);
 
-  var target_p = $.classes('target-paragraph');
-  console.log('target_p:', target_p);
-
-  // tag(tag_name[, context_obj]);
-  // var gnb_links = $.tag('a', gnb);
-  var gnb_links = $.queryAll('a', gnb);
-  console.log('gnb_links:', gnb_links);
-
+  console.log('gnb_first_first_next:', gnb_first_first_next);
 
 
 })(this, this.DOM_Helper);

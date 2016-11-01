@@ -31,9 +31,7 @@ this.DOM_Helper = (function(global){
   function isNodeList(nodelist) { return nodelist && _isDataType(nodelist) === 'nodelist'; }
 
   // 전달인자가 올바른지 유무를 파악하여 올바르지 않을 경우 코드 중지와 함께 오류메시지 출력하는 함수
-  function validate(condition, error_message) {
-    if ( condition ) { throw new Error(error_message); }
-  }
+  function validate(condition, error_message) { if ( condition ) { throw new Error(error_message); } }
 
   // 선택 ---------------------------------------------------------------------------------
   function id(id_name) {
@@ -43,7 +41,7 @@ this.DOM_Helper = (function(global){
 
   function tag(tag_name, context) {
     validate( !isString(tag_name), '전달인자는 문자열이어야 합니다.' );
-    validate( (context !== document) && (context && !isElementNode(context)), '두번째 전달인자는 요소노드여야 합니다.' );
+    validate( (context !== document) && (context && !isElementNode(context) ), '두번째 전달인자는 요소노드여야 합니다.' );
     return ( context || document ).getElementsByTagName(tag_name);
   }
 
@@ -63,9 +61,7 @@ this.DOM_Helper = (function(global){
       var class_reg = new RegExp('(^|\\s)+' + class_name + '(\\s+|$)');
       for( var i=0, l=all_els.length; i<l; i++ ) {
         el = all_els[i];
-        if ( class_reg.test(el.className) ) {
-          filtered_els.push(el);
-        }
+        if ( class_reg.test(el.className) ) { filtered_els.push(el); }
       }
       return filtered_els;
     };
@@ -77,18 +73,74 @@ this.DOM_Helper = (function(global){
     return ( context || document ).querySelectorAll(selector);
   }
 
+  // function query(selector, context) { return queryAll(selector, context)[0]; }
   function query(selector, context) {
-    return queryAll(selector, context)[0];
+    validate( !isString(selector), '전달인자는 문자열이어야 합니다.' );
+    validate( context && !isElementNode(context), '두번째 전달인자는 요소노드여야합니다.' );
+    return ( context || document ).querySelector(selector);
   }
-
-  // function query(selector, context) {
-  //   validate( !isString(selector), '전달인자는 문자열이어야 합니다.' );
-  //   validate( !isElementNode(context), '두번째 전달인자는 요소노드여야합니다.' );
-  //   return ( context || document ).querySelector(selector);
-  // }
 
 
   // 탐색 ---------------------------------------------------------------------------------
+  // parentNode
+  // parentEl( $.query('a') )
+  // parentEl( $.query('a') , 2)
+  function parent(el_node, count) {
+    validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+    count = count || 1;
+    do {
+      el_node = el_node.parentNode;
+    } while( el_node && --count );
+    return el_node;
+  }
+  var next;
+  // nextElementSibling
+  if ( 'nextElementSibling' in Element.prototype) {
+    next = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return el_node.nextElementSibling;
+    };
+  }
+  // nextSibling
+  // IE 6-8
+  else {
+    next = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      do {
+        el_node = el_node.nextSibling;
+      } while ( el_node && !isElementNode(el_node) );
+      return el_node;
+    };
+  }
+
+  var prev;
+  // previousElementSibling
+  if ( 'previousElementSibling' in Element.prototype) {
+    prev = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return el_node.previousElementSibling;
+    };
+  }
+  // previousSibling
+  else {
+    prev = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      do {
+        el_node = el_node.previousSibling;
+      } while ( el_node && !isElementNode(el_node) );
+      return el_node;
+    };
+  }
+  // firstChild
+  function first(el_node) {
+    validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+    return el_node.children[0];
+  }
+  // lastChild
+  function last(el_node) {
+    validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+    return el_node.children[el_node.children.length - 1];
+  }
 
   // 삽입 ---------------------------------------------------------------------------------
 
@@ -124,6 +176,13 @@ this.DOM_Helper = (function(global){
     'classes'       : classes,
     'queryAll'      : queryAll,
     'query'         : query,
+
+    // 문서객체 탐색
+    'parent'        : parent,
+    'next'          : next,
+    'prev'          : prev,
+    'first'         : first,
+    'last'          : last,
   };
 
 })(this);
