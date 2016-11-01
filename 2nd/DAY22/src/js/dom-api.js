@@ -85,4 +85,25 @@
 
   // 복사 ---------------------------------------------------------------------------------
 
+  var copy_btn = document.querySelector('.copy-gnb-button');
+  var copyzone = document.querySelector('.copyzone');
+
+  copy_btn.onclick = function() {
+
+    var copy_gnb, deep_copy_gnb;
+    deep_copy_gnb = gnb.cloneNode(true);
+    copyzone.appendChild(deep_copy_gnb);
+
+    console.log( gnb.cloneNode() );
+    console.log( gnb.cloneNode(true) );
+    console.log('%c--------------------------', 'color: #3d9a21');
+    console.log( gnb.cloneNode().hasChildNodes() );
+    console.log( gnb.cloneNode(true).hasChildNodes() );
+  };
+
+  // 복제하고자 하는 노드.cloneNode(<boolean>); // false 자기 자신만 복사
+
+  // 복제하고자 하는 노드.cloneNode(true); // 내부 자식노드까지 모두 복사
+
+
 })(this);
