@@ -88,11 +88,11 @@ this.DOM_Helper = (function(global){
   function parent(el_node, count) {
     validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
     count = count || 1;
-    do {
-      el_node = el_node.parentNode;
-    } while( el_node && --count );
+    do { el_node = el_node.parentNode; }
+    while( el_node && --count );
     return el_node;
   }
+
   var next;
   // nextElementSibling
   if ( 'nextElementSibling' in Element.prototype) {
@@ -102,13 +102,11 @@ this.DOM_Helper = (function(global){
     };
   }
   // nextSibling
-  // IE 6-8
   else {
     next = function (el_node) {
       validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
-      do {
-        el_node = el_node.nextSibling;
-      } while ( el_node && !isElementNode(el_node) );
+      do { el_node = el_node.nextSibling; }
+      while ( el_node && !isElementNode(el_node) );
       return el_node;
     };
   }
@@ -125,21 +123,42 @@ this.DOM_Helper = (function(global){
   else {
     prev = function (el_node) {
       validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
-      do {
-        el_node = el_node.previousSibling;
-      } while ( el_node && !isElementNode(el_node) );
+      do { el_node = el_node.previousSibling; }
+      while ( el_node && !isElementNode(el_node) );
       return el_node;
     };
   }
+
+  var first;
+  // firstElementChild
+  if ( 'firstElementChild' in Element.prototype ) {
+    first = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return el_node.firstElementChild;
+    };
+  }
   // firstChild
-  function first(el_node) {
-    validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
-    return el_node.children[0];
+  else {
+    first = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return next( el_node.firstChild );
+    };
+  }
+
+  var last;
+  // lastElementChild
+  if ( 'lastElementChild' in Element.prototype ) {
+    last = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return el_node.lastElementChild;
+    };
   }
   // lastChild
-  function last(el_node) {
-    validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
-    return el_node.children[el_node.children.length - 1];
+  else {
+    last = function (el_node) {
+      validate(!isElementNode(el_node), '전달인자는 요소노드여야 합니다.');
+      return next( el_node.lastChild );
+    };
   }
 
   // 삽입 ---------------------------------------------------------------------------------
