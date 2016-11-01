@@ -177,7 +177,7 @@ table_code +=         '<th scope="col">heading</th>';
 table_code +=         '<th scope="col">heading</th>';
 table_code +=      '</tr>';
 table_code +=   '</thead>';
-table_code += '</table>'
+table_code += '</table>';
 
 // 방법 2.
 // 코드를 배열로 만들어서 합친다.
