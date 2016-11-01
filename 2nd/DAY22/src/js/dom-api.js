@@ -234,11 +234,24 @@
 
   // ES6  -> BabelJS     -> ES5
   // Sass -> Sass Engine -> CSS
-  var table_code = "\n    <table border=\"1\" class=\"fds-table\">\n      <caption></caption>\n      <thead>\n        <tr>\n          <th scope=\"col\"></th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n      </tbody>\n    </table>\n  ";
+  // var table_code = "\n    <table border=\"1\" class=\"fds-table\">\n      <caption></caption>\n      <thead>\n        <tr>\n          <th scope=\"col\"></th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n      </tbody>\n    </table>\n  ";
 
 
-  console.log(table_code);
+  // console.log(table_code);
 
   // body.innerHTML = table_code + body.innerHTML;
+
+  var nav = document.querySelector('#gnb');
+
+  console.log(nav);
+
+  // nav 요소의 앞에 형제요소 <div>를 추가 하라.
+  nav.insertAdjacentHTML('beforebegin', '<div class="insert-div">beforebegin insert-div</div>');
+  // nav 요소의 첫번째 자식요소로 <div>를 추가 하라.
+  nav.insertAdjacentHTML('afterbegin', '<div class="insert-div">afterbegin insert-div</div>');
+  // nav 요소의 마지막 자식요소로 <div>를 추가 하라.
+  nav.insertAdjacentHTML('beforeend', '<div class="insert-div">beforeend insert-div</div>');
+  // nav 요소의 뒤에 형제요소로 <div>를 추가 하라.
+  nav.insertAdjacentHTML('afterend', '<div class="insert-div">afterend insert-div</div>');
 
 })(this);
