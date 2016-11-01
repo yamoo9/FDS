@@ -1,0 +1,14 @@
+{
+  "name": "dom-script-project-using-sass",
+  "version": "1.0.0",
+  "description": "DOM Script Project Using Sass.",
+  "scripts": {
+    "sass": "node-sass -w -r src/sass -o src/css --source-map ./src/css --output-style expanded",
+    "serve": "http-server -o -a localhost -p 9090 src/"
+  },
+  "keywords": [
+    "domscript",
+    "sass"
+  ],
+  "author": "yamoo9"
+}

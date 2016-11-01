@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "DOM Script Project Using Sass.",
   "scripts": {
-    "test": "console.log('this is test message.')",
     "sass": "node-sass -w -r DOM_Script/sass -o DOM_Script/css --source-map ./DOM_Script/css --output-style compressed",
     "serve": "http-server -o -a localhost -p 9090",
     "start": "npm run sass | npm run serve"

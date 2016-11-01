@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Hypenation</title>
+  <!--
+  하이프네이션(Hypenation)은
+  현재 Chrome, Opera, Android 에서
+  정식으로 지원하고 있지 않을 뿐더러
+  앞으로도 지원 예정이 없어 보입니다.
+  http://caniuse.com/#feat=css-hyphens
+
+  결국은 CSS가 아닌, JavaScript 라이브러리를 사용해야
+  브라우저 호환이 될 듯 한데요.
+  https://github.com/mnater/Hyphenator
+
+  첨부한 코드를 Chrome에서 실행하면 하이프네이션을 적용하고자 하는
+  텍스트를 인라인 요소로 감쌈으로서 하이프네이션 효과를 볼 수 있습니다.
+
+  다만, 하이프네이션을 적용하지 않을 경우에도 Chrome에서는
+  하이프네이션이 적용되네요. 참고해보세요.
+  -->
+  <style>
+    body {
+      background-color: #F5F5F5;
+      color: #555;
+      font-size: 1.1em;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      margin: 40px auto;
+      max-width: 440px;
+    }
+
+    .text {
+      padding: 1em;
+      background-color: #0099cc;
+      color: white;
+    }
+
+    .word-break {
+      /* 구형 IE */
+      -ms-word-break: break-all;
+      word-break: break-all;
+      /* 비표준: Webkit */
+      word-break: break-word;
+    }
+
+    .auto-hyphenation {
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .manual-hyphenation {
+      -moz-hyphens: manual;
+      -webkit-hyphens: manual;
+      -ms-hyphens: manual;
+      hyphens: manual;
+    }
+
+    .no-hyphenation {
+      -moz-hyphens: none;
+      -webkit-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+    strong {
+      background-color: #006699;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Hyphens: auto; Browser determines best break point inside a word. Manual breaks should take precedence</h2>
+    <div class="text auto-hyphenation word-break">
+      Lincoln's great career as the sixteenth President of the United States, from 1861 to 1865, is not to be entered upon in this outline of facts. His superhuman part in preserving the Union, his Proclamation of Emancipation in 1863, his second election in 1864, and his assassination at the close of the Civil War are among our great historical landmarks. It was on April 15, 1865, that death placed him beside Washington in the Pantheon of American history.
+
+      <strong>ItwasonApril15,1865,thatdeathplacedhimbesideWashingtoninthePantheonofAmericanhistory.</strong>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Hyphens: manual; Browser breaks words only where a suggested break is inserted manually in the markup</h2>
+    <div class="text manual-hyphenation word-break">
+      Lincoln's great career as the sixteenth President of the United States, from 1861 to 1865, is not to be entered upon in this <strong>out­line</strong> of facts. His <strong>super­human</strong> part in <strong>pre­serving</strong> the Union, his <strong>Pro­clamation</strong> of Emancipation in 1863, his second election in 1864, and his <strong>assassi­nation</strong> at the close of the Civil War are among our great historical <strong>land­marks</strong>. It was on April 15, 1865, that death placed him beside Washington in the Pantheon of American history.
+
+      <strong>ItwasonApril15,1865,thatdeathplacedhimbesideWashingtoninthePantheonofAmericanhistory.</strong>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Hyphens: none; No hyphenation is applied, even if characters exist in a word that suggest break possibilities</h2>
+    <div class="text no-hyphenation word-break">
+      Lincoln's great career as the sixteenth President of the United States, from 1861 to 1865, is not to be entered upon in this <strong>out­line</strong> of facts. His <strong>super­human</strong> part in <strong>pre­serving</strong> the Union, his <strong>Pro­clamation</strong> of Emancipation in 1863, his second election in 1864, and his <strong>assassi­nation</strong> at the close of the Civil War are among our great historical <strong>land­marks</strong>. It was on April 15, 1865, that death placed him beside Washington in the Pantheon of American history.
+
+      <strong>ItwasonApril15,1865,thatdeathplacedhimbesideWashingtoninthePantheonofAmericanhistory.</strong>
+    </div>
+  </div>
+
+</body>
+</html>
