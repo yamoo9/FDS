@@ -120,13 +120,125 @@
   // GET/SET
   // innerHTML
 
-  var html_code = '<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sunt cum, cupiditate, fuga ipsa sit sint consequatur sapiente. Optio, sint?</p></blockquote>';
+  // var html_code = '<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sunt cum, cupiditate, fuga ipsa sit sint consequatur sapiente. Optio, sint?</p></blockquote>';
 
   // console.log( '$.query(\'body\').innerHTML:', document.body.innerHTML );
 
+  // var body_first = document.body.firstElementChild;
+
+  // console.log('body_first.innerHTML:', body_first.innerHTML);
+
+  // body.innerHTML = html_code + body.innerHTML;
+
+  console.log('%c------------------------------', 'color: #3d9a21');
+
   var body = document.body;
 
-  body.innerHTML = html_code + body.innerHTML;
+  var table_caption = 'this is table caption';
 
+  // 방법 0.
+  // var table_code = '<table border="1" class="fds-table"><caption>'+ table_caption +'</caption><thead><tr><th scope="col">heading</th><th scope="col">heading</th><th scope="col">heading</th><th scope="col">heading</th></tr></thead><tbody><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr><tr><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td><td>'+ data +'</td></tr></tbody></table>';
+
+  // 방법 1.
+  // var table_code = '';
+  // table_code += '<table border="1" class="fds-table">';
+  // table_code +=   '<caption>' + table_caption + '</caption>';
+  // table_code +=   '<thead>';
+  // table_code +=      '<tr>';
+  // table_code +=         '<th scope="col">heading</th>';
+  // table_code +=         '<th scope="col">heading</th>';
+  // table_code +=         '<th scope="col">heading</th>';
+  // table_code +=         '<th scope="col">heading</th>';
+  // table_code +=      '</tr>';
+  // table_code +=   '</thead>';
+
+  // 방법 2.
+  // var table_code = [
+  //   '<table border="1" class="fds-table">',
+  //     '<caption>' + table_caption + '</caption>',
+  //     '<thead>',
+  //       '<tr>',
+  //         '<th scope="col">heading</th>',
+  //         '<th scope="col">heading</th>',
+  //         '<th scope="col">heading</th>',
+  //         '<th scope="col">heading</th>',
+  //       '</tr>',
+  //     '</thead>',
+  // ].join('');
+
+  // 방법 3.
+  // ECMAScript 2015
+  // var table_code = `
+  //   <table border="1" class="fds-table">
+  //     <caption>${table_caption}</caption>
+  //     <thead>
+  //       <tr>
+  //         <th scope="col">${table_heading_1}</th>
+  //         <th scope="col">${table_heading_2}</th>
+  //         <th scope="col">${table_heading_3}</th>
+  //         <th scope="col">${table_heading_4}</th>
+  //       </tr>
+  //     </thead>
+  //     <tbody>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //       <tr>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //         <td>data</td>
+  //       </tr>
+  //     </tbody>
+  //   </table>
+  // `;
+
+  // ES6  -> BabelJS     -> ES5
+  // Sass -> Sass Engine -> CSS
+  var table_code = "\n    <table border=\"1\" class=\"fds-table\">\n      <caption></caption>\n      <thead>\n        <tr>\n          <th scope=\"col\"></th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n        <tr>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n          <td>data</td>\n        </tr>\n      </tbody>\n    </table>\n  ";
+
+
+  console.log(table_code);
+
+  // body.innerHTML = table_code + body.innerHTML;
 
 })(this);
