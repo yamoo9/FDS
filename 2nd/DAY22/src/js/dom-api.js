@@ -117,5 +117,16 @@
 
   // 복제하고자 하는 노드.cloneNode(true); // 내부 자식노드까지 모두 복사
 
+  // GET/SET
+  // innerHTML
+
+  var html_code = '<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sunt cum, cupiditate, fuga ipsa sit sint consequatur sapiente. Optio, sint?</p></blockquote>';
+
+  // console.log( '$.query(\'body\').innerHTML:', document.body.innerHTML );
+
+  var body = document.body;
+
+  body.innerHTML = html_code + body.innerHTML;
+
 
 })(this);
