@@ -2,13 +2,15 @@
 
 // 모듈 패턴(Module Pattern)
 // 클라이언트 사이트 환경에서 사용하는 방법
-this.DOM_Helper = (function(){
+this.DOM_Helper = (function(global){
+  'use strict';
 
   // 라이브러리 정보
   var name    = 'DOM_Helper Library';
   var version = '0.0.1';
 
   // 자바스크립트 네이티브 객체/메소드 참조
+  var document = global.document;
   var toString = Object.prototype.toString;
 
   // 유틸리티 -------------------------------------------------------------------------------
@@ -41,12 +43,32 @@ this.DOM_Helper = (function(){
 
   function tag(tag_name, context) {
     validate( !isString(tag_name), '전달인자는 문자열이어야 합니다.' );
-    validate( !isElementNode(context), '두번째 전달인자는 요소노드여야 합니다.' );
+    validate( (context !== document) && (context && !isElementNode(context)), '두번째 전달인자는 요소노드여야 합니다.' );
     return ( context || document ).getElementsByTagName(tag_name);
   }
 
-  function classes() {
-
+  var classes;
+  if ( document.getElementsByClassName ) {
+    classes = function (class_name, context) {
+      validate( !isString(class_name), '전달인자는 문자열이어야 합니다.' );
+      validate( context && !isElementNode(context), '두번째 전달인자는 요소노드여야 합니다.' );
+      return (context || document).getElementsByClassName(class_name);
+    };
+  } else {
+    classes = function (class_name, context) {
+      validate( !isString(class_name), '전달인자는 문자열이어야 합니다.' );
+      validate( context && !isElementNode(context), '두번째 전달인자는 요소노드여야 합니다.' );
+      context = context || document;
+      var el, filtered_els = [], all_els = tag( '*', context );
+      var class_reg = new RegExp('(^|\\s)+' + class_name + '(\\s+|$)');
+      for( var i=0, l=all_els.length; i<l; i++ ) {
+        el = all_els[i];
+        if ( class_reg.test(el.className) ) {
+          filtered_els.push(el);
+        }
+      }
+      return filtered_els;
+    };
   }
 
   function queryAll(selector, context) {
@@ -99,6 +121,7 @@ this.DOM_Helper = (function(){
     // 문서객체 선택
     'id'            : id,
     'tag'           : tag,
+    'classes'       : classes,
     'queryAll'      : queryAll,
     'query'         : query,
   };

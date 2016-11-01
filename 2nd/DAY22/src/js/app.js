@@ -9,6 +9,9 @@
   var gnb = $.query('#gnb');
   console.log('gnb:', gnb);
 
+  var target_p = $.classes('target-paragraph');
+  console.log('target_p:', target_p);
+
   // tag(tag_name[, context_obj]);
   // var gnb_links = $.tag('a', gnb);
   var gnb_links = $.queryAll('a', gnb);
