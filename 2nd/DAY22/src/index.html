@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="en">
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
-  <title>test</title>
+  <title>JavaScript + DOM API</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- nav.gnb>ul[role=presentation]>li*4>a[href=# rel=external]{link-$$@-4} -->
+
+  <nav id="gnb">
+    <ul role="presentation">
+      <li><a href="#link-07" rel="external">link-07</a></li>
+      <li><a href="#link-06" rel="external">link-06</a></li>
+      <li><a href="#link-05" rel="external">link-05</a></li>
+      <li><a href="#link-04" rel="external">link-04</a></li>
+    </ul>
+  </nav>
+
+  <p class="target-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius voluptate ratione dignissimos corporis qui ad odit quas doloremque velit, temporibus, <strong>laborum</strong> commodi enim similique, earum perspiciatis harum aliquid recusandae blanditiis.
+  </p>
+
+<script src="js/dom-api.js"></script>
 </body>
 </html>
