@@ -5,14 +5,15 @@
 (function(global, $){
   'use strict';
 
-  // $ === DOM_Helper 라이브러리
-  // 라이브러리 정보 출력
-  // console.log('$.name:', $.name);
-  // console.log('$.version:', $.version);
+  // var gnb = $.id('gnb');
+  var gnb = $.query('#gnb');
+  console.log('gnb:', gnb);
 
-  var num = 0;
+  // tag(tag_name[, context_obj]);
+  // var gnb_links = $.tag('a', gnb);
+  var gnb_links = $.queryAll('a', gnb);
+  console.log('gnb_links:', gnb_links);
 
-  console.log( $.isNumber(num) );
-  console.log( $.isBoolean(num) );
+
 
 })(this, this.DOM_Helper);
