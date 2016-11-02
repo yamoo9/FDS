@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>JavaScript 이벤트(Events)</title>
+  <style>
+    body {
+      margin: 6rem 12rem;
+    }
+    button {
+      cursor: pointer;
+      margin-right: 1rem;
+      border: 0;
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+      font-size: 1.2rem;
+      background: #fff;
+      border-radius: 4px;
+      color: #909090;
+      box-shadow: 0 0 0 4px hsla(0,0%,0%,.1);
+    }
+    button:hover,
+    button:focus {
+      background: #eee;
+      color: #777;
+    }
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px hsla(190,60%,60%,.5);
+      color: hsla(190,60%,60%,.5);
+      background: #fff;
+    }
+  </style>
+  <script src="js-events.js"></script>
+  <script>
+    function clickButton(button) {
+      // if (this.nodeName === 'BUTTON' && typeof button === 'object') {
+      //   button = this;
+      // }
+      // console.log(button);
+      // return;
+      window.alert('clicked button element.');
+      if (button.firstChild.nodeValue==='click me') {
+        button.firstChild.nodeValue='this is button. clicked!';
+      } else {
+        button.firstChild.nodeValue='click me';
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <button type="button" class="look-at-button">Look</button>
+
+  <button
+    onclick="window.clickButton(this)"
+    lang="en-US"
+    type="button">click me</button>
+
+<script>
+(function(global){
+  'use strict';
+
+  var look_at_button = document.querySelector('.look-at-button');
+  // look_at_button.onclick = clickButton;
+  look_at_button.onclick = function(){
+    // this === look_at_button;
+    // 함수 지역 내에서 참조가 되지 않는 변수, 혹은 함수는
+    // 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~
+    // 결국은 전역까지 가서 전역 함수를 실행하게 됩니다.
+    // 성능 이슈, 디버깅 이슈
+    window.clickButton(this);
+  };
+
+})(this);
+</script>
+</body>
+</html>
