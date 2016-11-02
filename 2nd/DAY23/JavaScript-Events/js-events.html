@@ -128,8 +128,12 @@
     // initialization();
     // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
     // 주의 점! load 이벤트는 무척이나 느리다!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
-    window.onload = init;
-    window.onload = checkWindowResize;
+    // window.onload = init;
+    // window.onload = checkWindowResize;
+    window.onload = function() {
+      checkWindowResize();
+      init();
+    };
 
   })();
   </script>
