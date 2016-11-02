@@ -46,7 +46,7 @@
 
       // 패럴럭스 이벤트 제어 함수
       function circleParallaxScroll() {
-        var scroll_y = this.scrollY;
+        var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
         // circle 원을 각각 제어 한다.
         var circles = document.querySelectorAll('[class*="circle-"]');
         for ( var i=0, l=circles.length; i<l; i++ ) {
@@ -54,7 +54,6 @@
           var top = parseInt(circle.style.top, 10);
           var x = 0.5 * i;
           if ( i === 1 ) { x = -1 * x * (i+1); }
-          console.log(top, x);
           circle.style.top = top + (scroll_y/300 * x) + 'px';
         }
       }
