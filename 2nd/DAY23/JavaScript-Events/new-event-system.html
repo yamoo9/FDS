@@ -30,10 +30,20 @@
     color: #fff;
     text-align: center;
     transform: translateX(-50%);
+    border-radius: 10%/100%;
   }
   .grand-child {
     width: 200px;
     height: 100px;
+  }
+  .grand-child a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 900;
   }
   </style>
   <script src="new-event-system.js"></script>
@@ -43,7 +53,9 @@
   <div class="box grand-parent">
     <div class="box parent">
       <div class="box child">
-        <div class="box grand-child"></div>
+        <div class="box grand-child">
+          <a href="">link in grand child</a>
+        </div>
       </div>
     </div>
   </div>
