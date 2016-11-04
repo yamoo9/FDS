@@ -540,13 +540,13 @@
 
 - 자바스크립트의 이벤트는 두 단계에 걸쳐 실행!
 
-![bubble-capture](bubble-capture.png)
+![../../ASSETS/bubble-capture](bubble-capture.png)
 
  - **캡쳐(Capture)**
    - **부모에서 자식으로** 이벤트 전달
    - 클릭가능 유형이 겹칠때 이벤트가 전파됨
 
-![capture](capture.png)
+![../../ASSETS/capture](capture.png)
  - **버블(Bubble)**
    - **자식에서 부모로** 이벤트 전달
    - 구형은 Bubble (IE 6-8)만 지원
@@ -561,7 +561,7 @@
        - 이벤트가 흐르는 와중에 현재 누구를 가르키고있는지 알려줌
        - 헷갈리면 this를 사용
 
-![bubble](bubble.png)
+![../../ASSETS/bubble](bubble.png)
 
 - W3C vs MS
  - W3C
@@ -704,7 +704,7 @@
  - 자바스크립트의 이벤트 버블 취소
    - 이벤트 전파 차단
      - 이벤트 부모 요소로 더이상 전파되지 않도록 차단
-	![이벤트 전파 차단](spread.png)
+	![../../ASSETS/이벤트 전파 차단](spread.png)
    - W3C
      - **e.stopPropagation()**
      - 표준 방식
@@ -732,7 +732,7 @@
  - 자바스크립트의 브라우저 기본 동작을 멈추는 방법
    - 브라우저의 기본 동작 차단
      - 기본적으로 브라우저가 수행하는 동작을 멈춤
-    ![브라우저의 기본 동작 차단](stop_browserActive.png)
+    ![../../ASSETS/브라우저의 기본 동작 차단](stop_browserActive.png)
    - W3C
      - **e.preventDefault()**
      - 표준 방식
