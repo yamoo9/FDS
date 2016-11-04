@@ -163,6 +163,24 @@ this.DOM_Helper = (function(global){
 
   // 삽입 ---------------------------------------------------------------------------------
 
+  // 함수형 프로그래밍 (절차 지향)
+  function prependChild(parent_node, child_node) {
+    var first_child = parent_node.firstChild;
+    parent_node.insertBefore(child_node, first_child);
+  }
+
+  // 객체 지향 (극히 위험!!!!!!!!!!!!!!!)
+  Node.prototype.prependChild = function(child_node) {
+    this.insertBefore(child_node, this.firstChild);
+  };
+
+  // 아래는 아주 바람직한 객체 지향
+  function Hayoon() {}
+
+  Hayoon.prototype.prependChild = function(child_node) {
+    this.insertBefore(child_node, this.firstChild);
+  };
+
   // 제거 ---------------------------------------------------------------------------------
 
   // 대체 ---------------------------------------------------------------------------------

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>왜 그는 항상 마지막을 말하나?</title>
+</head>
+<body>
+
+  <ul class="target_ul">
+    <li><a href="">link 1</a></li>
+    <li><a href="">link 2</a></li>
+    <li><a href="">link 3</a></li>
+    <li><a href="">link 4</a></li>
+  </ul>
+
+<script>
+var forEach = Array.prototype.forEach;
+var target_ul = document.querySelector('.target_ul');
+var target_links = target_ul.querySelectorAll('a');
+
+for ( var i=0, l=target_links.length; i<l; i++ ) {
+  var link = target_links[i];
+  link.onclick = function(e) {
+    e.preventDefault();
+    // return false;
+    console.log(i);
+  };
+}
+
+// forEach.call(target_links, function(link, i){
+//   link.onclick = function() {
+//     console.log(i);
+//     return false;
+//   };
+// });
+
+
+</script>
+</body>
+</html>
