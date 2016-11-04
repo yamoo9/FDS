@@ -546,7 +546,7 @@
    - **부모에서 자식으로** 이벤트 전달
    - 클릭가능 유형이 겹칠때 이벤트가 전파됨
 
-![capture](http://take.ms/uYqzK)
+![capture](https://fcprogschool163q.slack.com/archives/D2XDT1XCJ/p1478074658000002)
  - **버블(Bubble)**
    - **자식에서 부모로** 이벤트 전달
    - 구형은 Bubble (IE 6-8)만 지원
