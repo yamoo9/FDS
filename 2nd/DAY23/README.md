@@ -546,7 +546,7 @@
    - **부모에서 자식으로** 이벤트 전달
    - 클릭가능 유형이 겹칠때 이벤트가 전파됨
 
-![capture](https://d1ro8r1rbfn3jf.cloudfront.net/ms_124679/43WLDeSXU8yUlse5i8jrxXcZUF55t3/Monosnap%2B2016-11-02%2B17-16-37.jpg?Expires=1478304929&Signature=An2HV75QJgvT5pw9do~na4gL6lzIhwvhGzdgVtWCdefjo4Ak~ESAAuL8q2qsjWoin9qA92THuHIvoFaBjZW7nNmMONJnrgUKyW~tc4IOzQ6DN0bHV1~-w-GRaAfmaBFoPPZV1RfONBa4RTdHyx8GDwncgbmhyckRp137bpUTnF1MGQ4vlkiq8IjE2wZdfj2ImklbDLbhb3TaeKatt5Qar3YNbnFCZsxBJQ~DpY~VYpMzUNeFpF7~wlZlw2VIA8MEHZa2SUJvwdwwXthaboGc71miuEXngTR95UL3agOtAw7CfLksAZOdsEzrR9zVL~ndlOESZw8Q-HWL43E9j7OvUA__&Key-Pair-Id=APKAJHEJJBIZWFB73RSA)
+![capture](capture.png)
  - **버블(Bubble)**
    - **자식에서 부모로** 이벤트 전달
    - 구형은 Bubble (IE 6-8)만 지원
