@@ -1,6 +1,6 @@
 ###### Front-End Develop SCHOOL
 
-# DAY 20
+# DAY 23
 ## 1. 이벤트(EVENTS)
 
 ### 1.1. 오래된 이벤트 모델(The Old Way, Event Model)
