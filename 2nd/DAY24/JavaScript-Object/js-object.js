@@ -54,7 +54,7 @@
 
 var maked_number_object = new Number(838372);
 
-console.dir(maked_number_object);
+// console.dir(maked_number_object);
 
 
 /////////////////////////////////
@@ -100,7 +100,7 @@ var num = 9,
 function Atom(name, n){
   // 엄격 모드를 사용하면 함수를 실행한 this가 더 이상 window가 아니게 된다.
   // 명시적으로 실행하지 않고 암묵적으로 실행했을 경우 e.g) window.Atom()이 아닌 경우
-  // 'use strict';
+  'use strict';
 
   // new를 강제화하는 패턴
   // if ( this.constructor !== Atom ) {
@@ -112,8 +112,77 @@ function Atom(name, n){
 }
 
 // 사용자 정의 객체를 생성 (new 생성자 함수)
-var atom_one = Atom('제롬', 10);
+// var atom_one = Atom('제롬', 10);
 var zero     = new Atom('제로', 100);
 
 // 객체 생성 방법 (리터럴)
 var omega = { 'name': '플레인 오브젝트' }; // new Object()
+
+
+/**
+ * --------------------------------
+ * 자바스크립트 네이티브(내장, 빌트인) 객체
+ * Number
+ * String ★★★
+ * Boolean
+ * Function ★★★
+ * Array ★★★★
+ * Object
+ * ----------------------------- */
+
+console.dir(Number);
+console.log('%c------------------------------', 'color: #3d9a21');
+console.dir(String);
+console.log('%c------------------------------', 'color: #3d9a21');
+console.dir(Boolean);
+console.log('%c------------------------------', 'color: #3d9a21');
+console.dir(Function);
+console.log('%c------------------------------', 'color: #3d9a21');
+console.dir(Array);
+console.log('%c------------------------------', 'color: #3d9a21');
+console.dir(Object);
+
+
+// Number 또한 별 거 좀 있어요.
+// Boolean 별 거 없어요.
+// String, Array 별 거 아주 많아요!!!
+
+// .substring(start, end-1) VS .substr(start, count)
+
+// [뒤에 삽입] .push() VS [앞에 삽입] .unshift()
+// [뒤에서 빼냄] .pop() VS [앞에서 빼냄] .shift()
+
+// Function 3가지만 유의하자!!
+
+
+/** @function clineArray()
+전달 받은 배열을 복제한 후, 복제된 배열을 반환하는 함수 */
+function cloneArray(arr) {
+  // 전달인자 유효성 검증
+  if ( !(arr instanceof Array) ) {
+    throw new Error('배열을 전달받아야 합니다.');
+  }
+  // 배열 복제
+  var _clone_arr = [];
+  for (var i=0, l=arr.length; i<l; i++) {
+    _clone_arr.push(arr[i]);
+  }
+  return _clone_arr;
+}
+
+// ----------------------------------------------------
+
+function cloneArraySimple(arr) {
+  // 전달인자 유효성 검증
+  if ( !(arr instanceof Array) ) {
+    throw new Error('배열을 전달받아야 합니다.');
+  }
+  return arr.slice(0);
+}
+
+// ----------------------------------------------------
+
+function makeArray(data) {
+  // return Array.prototype.slice.call(data, 0);
+  return [].slice.call(data, 0);
+}
