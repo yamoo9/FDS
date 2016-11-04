@@ -1,0 +1,39 @@
+/**
+ * --------------------------------
+ * 탭 컴포넌트 디자인
+ * 상태 디자인
+ * ----------------------------- */
+
+/*초기 디자인*/
+.tab-container {
+
+}
+
+.tab-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.tab {
+  text-decoration: none;
+  color: #fff;
+  background: #000;
+}
+
+.tab-panel-wrapper {
+
+}
+
+.tab-panel {
+
+}
+
+
+/*상태 디자인*/
+.tab.active {}
+
+.tab-panel.active {
+
+}
