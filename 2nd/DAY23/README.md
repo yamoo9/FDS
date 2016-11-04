@@ -1,6 +1,6 @@
 ###### Front-End Develop SCHOOL
 
-# DAY 23
+# DAY 20
 ## 1. 이벤트(EVENTS)
 
 ### 1.1. 오래된 이벤트 모델(The Old Way, Event Model)
@@ -69,7 +69,7 @@
       > \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
 
  - 스크립팅 분리 이벤트 추가
-  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
+  - **el.onclick = fnName; or el.onclick = function(e) {...};**
   - 전통 방식 (현재 사용 방식)
   - 예시 )
 
@@ -108,7 +108,6 @@
               Look
           </button>
       ```
-    > \- window = this /  look_at_button = argument
 
       ```javascript
           <script>
@@ -129,6 +128,7 @@
               })(this);
           </script>
       ```
+    > \- window = this /  look_at_button = argument
 
    **방법 2.**
 
@@ -159,9 +159,9 @@
           </script>
       ```
     > \- this = look_at_button
-    >
+    > 
     > \- 함수 지역 내에서 참조가 되지 않는 변수 or 함수는 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~ 결국은! 전역까지 가서 전역 함수를 실행하게 됨
-    >
+    > 
     > \- window를 명시적으로 쓰지 않을 경우, 성능 이슈, 디버깅 이슈가 있으므로 명시적으로 써주도록하자.
 
    **방법 3.**
@@ -225,8 +225,8 @@
         </script>
     ```
 
-
-
+   
+   
 
 #### 1.1.2. 인터페이스(Interface) 이벤트
 - 로드(Load)
@@ -329,8 +329,8 @@
   - *scrollY*
 
   - **parallax scroll native**
->
-    	```css
+~~~  
+    	[ css ]
 		<style media="screen">
 		    html {
 				overflow-x: hidden;
@@ -356,25 +356,23 @@
 				background: hsla(0, 0%, 95%, 0.6)
 		    }
 		</style>
-	```
->
->
-	```javascript
+	
+		[ javascript ]
 		<script>
 		    (function(){
 				'use strict';
->
+
 				/** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
 				function getRandomNumber(number) {
 				    return Math.floor(Math.random() * number);
 				}
->
+
 				// circle 객체 위치 임의 설정 함수
 				function randomCirclePosition() {
 				    // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
 				    var circles = document.querySelectorAll('[class*="circle-"]');
 				    // console.log('circles:', circles);
->
+
 				    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
 				    // 랜덤하게 화면의 곳곳에 배치(x, y)
 				    for ( var i=0, l=circles.length; i<l; i++ ) {
@@ -385,7 +383,7 @@
 						circle.style.opacity = 1;
 				    }
 				 }
->
+
 				// 패럴럭스 이벤트 제어 함수
 				function circleParallaxScroll() {
 				    var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
@@ -399,7 +397,7 @@
 						circle.style.top = top + (scroll_y/300 * x) + 'px';
 				    }
 				}
->
+
 				// 애플리케이션 초기화
 				function init() {
 				    // circle 객체의 위치를 임의로 설정함수실행
@@ -407,26 +405,25 @@
 				    // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
 				    window.onscroll = circleParallaxScroll;
 				}
->
+
 				// window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
 				window.onload = init;
 		     })(this);
 		</script>
-	```
->
-	```html
+	
+		[ html ]
 		<body>
 		    <div class="circle-50"></div>
 		    <div class="circle-100"></div>
 		    <div class="circle-1000"></div>
 		</body>
-	```
+~~~
 
 - 포커스(Focus)
  - **window.onfocus**
   - 요소가 포커스 되었을 때, 이벤트 감지
   - 예전에는 악용되어 사용되기도 함
-
+  
 - 블러(Blur)
  - **window.onblur**
  	- 요소가 블러 되었을 때, 이벤트 감지
@@ -523,30 +520,30 @@
    - 페이지가 로딩되기를 수시로 확인하다가 페이지가 로딩되면 일을 시작하는 방식
    - But.!
    - 자바스크립트 루프는 블로킹 방식이라 루프가 끝날 때까지 다른 일을 할 수 없다.
-
+   
  - **동기(Synchronous)**
   >- 함수가 호출된 후 끝날 때까지 다음 구문을 실행하지 않고 대기.
   >- 요청과 그 결과가 동시에 일어남
     >- 시간이 얼마가 걸리든 요청한 그 자리에서 결과를 주겠다!
-
+    
  - **비동기(Asynchronous)**
    >- 함수가 호출된 후 끝날 때까지 기다리지 않고 바로 다음 구문 실행.
      >- 동작하고 있을 때 다른 동작도 가능
     >- 요청과 그 결과가 동시에 일어나지 않음
       >- 이따가 결과 줄게.
-
+      
  - **비동기 콜백 방식**
    >- 사용자가 원하는 시점에 실행될 코드(함수)를 수시로 **1회 호출**
 
 - 자바스크립트의 이벤트는 두 단계에 걸쳐 실행!
 
-![bubble-capture](../../ASSETS/bubble-capture.png)
+![bubble-capture](bubble-capture.png)
 
  - **캡쳐(Capture)**
    - **부모에서 자식으로** 이벤트 전달
    - 클릭가능 유형이 겹칠때 이벤트가 전파됨
 
-![capture](../../ASSETS/capture.png)
+![capture](capture.png)
  - **버블(Bubble)**
    - **자식에서 부모로** 이벤트 전달
    - 구형은 Bubble (IE 6-8)만 지원
@@ -561,7 +558,7 @@
        - 이벤트가 흐르는 와중에 현재 누구를 가르키고있는지 알려줌
        - 헷갈리면 this를 사용
 
-![bubble](../../ASSETS/bubble.png)
+![bubble](bubble.png)
 
 - W3C vs MS
  - W3C
@@ -576,7 +573,7 @@
 				   boxs[i].addEventListener('click', function(event){
 				      console.log('this:', this);
 				      console.log('event.target:', event.target);
-
+		
 				      if ( event.target.className.indexOf('parent') > -1 ) { ... }
 				      console.log('event.currentTarget:', event.currentTarget);
 				      console.log('%c------------------------------', 'color: #3d9a21');
@@ -622,7 +619,7 @@
       - **window.event**
         - IE는 단 하나의 전역(window) 이벤트 객체(target)만 존재
         - 비표준 형식
-
+	
     - 크로스 브라우저 이벤트 객체 처리방법
       - 1.
 
@@ -704,7 +701,7 @@
  - 자바스크립트의 이벤트 버블 취소
    - 이벤트 전파 차단
      - 이벤트 부모 요소로 더이상 전파되지 않도록 차단
-	![이벤트 전파 차단](../../ASSETS/spread.png)
+	![이벤트 전파 차단](spread.png)
    - W3C
      - **e.stopPropagation()**
      - 표준 방식
@@ -713,7 +710,7 @@
      - **window.event.cancelBubble = true**
      - 비표준 형식
      - 버블을 취소
-
+     
   - 크로스 브라우저 이벤트 버블링 멈추는 방법
 
         ```javascript
@@ -732,7 +729,7 @@
  - 자바스크립트의 브라우저 기본 동작을 멈추는 방법
    - 브라우저의 기본 동작 차단
      - 기본적으로 브라우저가 수행하는 동작을 멈춤
-    ![브라우저의 기본 동작 차단](../../ASSETS/stop_browserActive.png)
+    ![브라우저의 기본 동작 차단](stop_browserActive.png)
    - W3C
      - **e.preventDefault()**
      - 표준 방식
@@ -741,7 +738,7 @@
      - **window.event.returnValue = false**
      - 비표준 방식
      - 결과값을 거짓이라고 전달
-
+     
  - 크로스 브라우저 이벤트 버블링 멈추는 방법
 
         ```javascript
