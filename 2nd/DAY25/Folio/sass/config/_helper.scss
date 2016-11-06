@@ -32,6 +32,9 @@ $font-properties: weight, style, variant, size, line-height, family;
       @if $property == size {
         @include rem(font-#{$property}, $value);
       }
+      @else if $property == line-height {
+        @include rem(#{$property}, $value);
+      }
       @else {
         font-#{$property}: $value;
       }
