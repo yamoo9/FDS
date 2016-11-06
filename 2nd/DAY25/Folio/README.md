@@ -2,15 +2,16 @@
 
 ## Folio News Twitter Section
 
-![Desktop View](https://d1ro8r1rbfn3jf.cloudfront.net/ms_124679/Eez40B1ySYj2OV6FgUe6jzOyngjF0X/News%252C%2BTwitter%2BSection%2B-%2BFolio%2B2016-11-07%2B00-14-15.jpg?Expires=1478531686&Signature=DidztzwqOGSXvFrjiDHuN1lWk~5hDrZe-b9X2Qll9bvYX2jt0aJVzJVGmX3MzB7voWo7FHq7mxFa~Y8fdshvAZ9RbQ3SZFp~3h1n7y0OYIDts6h3hRDmwI5~N66CWk~978BucaXFHdEYESWbLcqiARlV4ZkV28mryFZvW3MKFIULHn8aUyesjRxEvIa2Z-OTh7KK6r0rD2MGlfgYaag9kvK~hNKLwl0jFhCL~5EJderi8pp6TgoEGp3NRqPdCMvE3tfhUZMvDZpcLi3x14nWbw8C5YFI4PRK6rl66sjxb8wmEH1YsVxXKaTYFtoe4GAsT9r4Hiy5y83sc8XeBOWH6A__&Key-Pair-Id=APKAJHEJJBIZWFB73RSA)
+![RWD View](News,-Twitter-Section---Folio.jpg)
 
 ### 프로젝트 모듈 설치
 
 ```sh
+# NPM 모듈 전역 설치
 $ npm i -g node-sass group-css-media-queries csso
 ```
 
-##### 프로젝트에 요구되는 NPM 모듈
+##### 프로젝트에 사용된 NPM 모듈
 
 - [node-sass](https://www.npmjs.com/package/node-sass)
 - [group-css-media-queries](https://www.npmjs.com/package/group-css-media-queries)
@@ -22,11 +23,15 @@ $ npm i -g node-sass group-css-media-queries csso
 
 ##### 1. Sass
 
+`Sass` 파일을 저장할 때 마다 `Sass` → `CSS` 변환 과정을 수행합니다.
+
 ```sh
 $ npm run sass
 ```
 
 ##### 2. Group Css Media Queries
+
+`Sass`를 사용하면서 여기 저기에 생성된 미디어쿼리 구문을 각각 그룹으로 묶어줍니다.
 
 ```sh
 $ npm run mq-group
@@ -34,11 +39,15 @@ $ npm run mq-group
 
 ##### 3. CSS Optimization
 
+생성된 `CSS` 파일을 압축(최적화)합니다.
+
 ```sh
-$ npm run css-uglify
+$ npm run css-opt
 ```
 
-#### 4. Build
+##### 4. Build
+
+`2. Group Css Media Queries`, `3. CSS Optimization` 과정을 동시 수행합니다.
 
 ```sh
 $ npm run build
