@@ -1,0 +1,12 @@
+{
+  "name": "folio-news-twitter-section",
+  "version": "1.0.0",
+  "description": "Folio Website Footer Part",
+  "scripts": {
+    "sass": "node-sass -w sass -o css --output-style expanded",
+    "mq-group": "group-css-media-queries css/folio-news-twitter-section.css css/folio-news-twitter-section.css",
+    "css-uglify": "csso css/folio-news-twitter-section.css -o css/folio-news-twitter-section.css",
+    "build": "npm run mq-group | npm run css-uglify"
+  },
+  "author": "yamoo9"
+}

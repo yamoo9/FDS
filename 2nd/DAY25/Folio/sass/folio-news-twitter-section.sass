@@ -1,0 +1,118 @@
+/*! folio.css © yamoo9.net, 2016 */
+
+// Folio - footer.sass
+
+//
+ * --------------------------------
+ * CONFIG
+ * --------------------------------
+@import config/config
+
+//
+ * --------------------------------
+ * BASE
+ * --------------------------------
+body
+  +font(family $aileronR size 20px)
+  margin: 0
+  background: $folio-bg
+  color: $folio-fg
+
+// ----------------------------------------------------
+
+.container
+  +size( width percentage(545px/$bp-mobile) min-width 320px )
+  +margin(left auto right auto)
+  +tablet
+    width: percentage($t-container-width/$bp-tablet)
+  +desktop
+    width: percentage($d-container-width/$bp-desktop)
+
+.news, .twitter
+  +padding(top 78px bottom 14px)
+  border-bottom: 2px solid $folio-link
+  h3
+    float: left
+    +font(size 22px family $aileronB)
+    width: percentage(147/750)
+    margin:
+      top: 0
+    color: $folio-fg
+    +tablet
+      +font(size 18px)
+    +desktop
+      +font(size 18px)
+  ol
+    @extend %reset-list
+    overflow: hidden
+  li
+    float: left
+    margin-bottom: 58px
+  p
+    +margin(top 0 bottom 37px)
+    +font(size 32px)
+    line-height: 1.3
+    letter-spacing: -0.03em
+    +tablet
+      +font(size 26px)
+    +desktop
+      +font(size 26px)
+  a
+    color: $folio-link
+    text-decoration: none
+    word-break: break-all
+  time
+    +font(family $aileronB)
+    color: $folio-info
+    +tablet
+      +font(size 14px)
+    +desktop
+      +font(size 14px)
+
+.news
+  h3
+    +desktop
+      width: percentage($d-headline-width/$d-container-width)
+  .news-content
+    float: left
+    width: percentage(357px/430px)
+  li
+    +desktop
+      width: percentage(640px/($d-container-width - $d-headline-width))
+      margin-right: percentage(100px/($d-container-width - $d-headline-width))
+      &:last-child
+        margin-right: 0
+  .next-item-button
+    @extend %reset-button
+    +margin(top 42px)
+    float: right
+    cursor: pointer
+    opacity: 0.2
+    &:hover
+      opacity: 1
+    @media screen and (max-width: 540px)
+      float: left
+
+.twitter
+  border-bottom-color: rgba($folio-fg, 0.05)
+  h3
+    width: percentage($t-headline-width/$t-container-width)
+    +desktop
+      width: percentage($d-headline-width/$d-container-width)
+  li
+    +tablet
+      width: percentage(260px/($t-container-width - $t-headline-width))
+      margin-right: percentage(20px/($t-container-width - $t-headline-width))
+      &:first-child
+        margin-right: percentage(80px/($t-container-width - $t-headline-width))
+    +desktop
+      width: percentage(400px/($d-container-width - $d-headline-width))
+      margin-right: percentage(80px/($d-container-width - $d-headline-width))
+      &:last-child
+        margin-right: 0
+  p
+    +font(size 22px)
+    +tablet
+      +font(size 18px)
+    +desktop
+      +font(size 18px)
