@@ -9,7 +9,7 @@ $root-font-size: 16 !default
 // --------------------------------------------------------------------
 
 @function px2rem($px) {
-  @return (deUnit($px)/$root-font-size)+rem;
+  @return (deUnit($px)/deUnit($root-font-size))+rem;
 }
 
 @mixin rem($property, $px) {

@@ -5,7 +5,7 @@
   "scripts": {
     "sass": "node-sass -w sass -o css --output-style expanded",
     "mq-group": "group-css-media-queries css/folio-news-twitter-section.css css/folio-news-twitter-section.css",
-    "css-opt": "csso css/folio-news-twitter-section.css -o css/folio-news-twitter-section.css",
+    "css-opt": "csso css/folio-news-twitter-section.css -o css/folio-news-twitter-section.min.css",
     "build": "npm run mq-group | npm run css-opt"
   },
   "author": "yamoo9"
