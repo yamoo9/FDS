@@ -65,7 +65,7 @@
   'use strict';
 
   var boxes = document.querySelectorAll('.box');
-  var using_capture = !false; // capture or bubble
+  var using_capture = false; // capture or bubble
   var detectEventPropagation = function(ev) {
     console.log('this:', this);
     console.log('ev.target:', ev.target);
@@ -77,17 +77,32 @@
       // 브라우저의 기본 동작 차단
       ev.preventDefault();
     }
-    if ( ev.currentTarget.classList.contains('child') ) {
+    // if ( ev.currentTarget.classList.contains('child') ) {
       // console.log('this is child element');
       // 이벤트 전파 중지(stopPropagation)
-      ev.stopPropagation();
+      // ev.stopPropagation();
+    // }
+    if ( ev.target.classList.contains('grand-child') ) {
+      // 이벤트 전파 중지!!!
+      // Bubble: 자신이 아닌, 부모로 거슬러 올라가는 이벤트 전파 중지
+      // ev.stopPropagation();
+
+      // 이벤트 전파 즉시 중지!!!
+      // 자신에게 걸린 이벤트 까지도 모두 전파 중지!! (즉, 실행 안함)
+      ev.stopImmediatePropagation();
     }
     console.log('%c------------------------------', 'color: #3d9a21');
+  };
+  var anotherEventPropagation;
+
+  anotherEventPropagation = function(ev) {
+    console.log('another Event Propagation!!!!!!');
   };
 
   // boxes.forEach(function(box, idx) { // chrome web browser
   [].forEach.call(boxes, function(box, idx) { // modern web browser
     box.addEventListener('click', detectEventPropagation, using_capture);
+    box.addEventListener('click', anotherEventPropagation, using_capture);
   });
 
 })(this);
