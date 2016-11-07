@@ -1,0 +1,16 @@
+{
+  "name": "jQuery",
+  "version": "1.0.0",
+  "description": "jQuery Study",
+  "scripts": {
+    "install-jquery": "npm install --save jquery",
+    "serve": "http-server -o -a localhost -p 9090"
+  },
+  "keywords": [
+    "jQuery"
+  ],
+  "author": "yamoo9",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

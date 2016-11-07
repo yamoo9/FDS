@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 기초/기본기 다지기</title>
+
+  <!-- jQuery 로컬 파일 사용 -->
+  <!-- <script src="lib/jquery/jquery.js"></script> -->
+
+  <!-- jQuery CDN 사용 -->
+  <!-- <script src="https://code.jquery.com/jquery.min.js"></script> -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!--
+
+    jQuery v3.x.x : normal VS slim 버전의 차이점
+
+    Slim 버전: Ajax, Effects, Deprecated 제외
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Along with the regular version of jQuery that includes the ajax and effects modules, we’re releasing
+    a “slim” version that excludes these modules. All in all, it excludes ajax, effects, and currently
+    deprecated code.
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Looking at the code I found the following differences between jquery.js and jquery.slim.js:
+
+    In the jquery.slim.js, the following function of code are removed:
+
+    - `jquery.fn.load`
+    - `jquery.each` // Attach a bunch of functions for handling common AJAX events
+    - `jQuery.expr.filters.animated`
+    - ajax settings like
+      - `jQuery.ajaxSettings.xhr`
+      - `jQuery.ajaxPrefilter`
+      - `jQuery.ajaxSetup`
+      - `jQuery.ajaxPrefilter`
+      - `jQuery.ajaxTransport`
+      - `jQuery.ajaxSetup`
+    - xml parsing like `jQuery.parseXML`
+    - animation effects like
+      - `jQuery.easing`
+      - `jQuery.Animation`
+      - `jQuery.speed`
+  -->
+
+  <!--
+  기본적으로는 CDN 데이터를 사용하되, 네트워크 불안정으로 또는 CDN 서버가 폭파(그럴 일이 있으면 안되겠지만...)되었다면,
+  로컬 데이터를 사용하기 위한 조건 처리문
+  -->
+  <script>
+  // 방법 1.
+  // if ( !window.jQuery ) { document.write('<script src="lib/jquery/jquery.min.js"><\/script>'); }
+
+  // 방법 2.
+  // window.jQuery || document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
+
+  // 방법 3.
+  !window.jQuery && document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>
