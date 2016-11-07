@@ -73,7 +73,7 @@
 
   // jQuery 팩토리 함수 (자바스크립트의 팩토리 패턴을 사용하기에 붙여진 이름)
 
-    // 1. 전달인자로 DOM ElementNode를 설정한 경우, jQuery()
+    // 1. 전달인자로 DOM ElementNode를 설정한 경우, jQuery( DOM ElementNode )
     var $html = jQuery( document.documentElement );
     console.log( $html, $html.jquery );
 
@@ -97,9 +97,9 @@
     // 참고 URL 2: https://developer.mozilla.org/ko/docs/Web/API/Document/readyState
     window.addEventListener('DOMContentLoaded', init);
 
-    //////////////////
-    // jQuery Event //
-    //////////////////
+    ///////////////////////////
+    // jQuery Ready Function //
+    ///////////////////////////
     jQuery(document).ready(init);
 
     //////////////////
@@ -107,8 +107,24 @@
     //////////////////
     // DOMContentLoaded Event << jQuery Ready Event << Load Event
 
+  // cssQuery() 라이브러리: 자바스크립트 마술사, 딘 에드워드 (http://dean.edwards.name/my/cssQuery/)
+  // 참고 URL: http://d2.naver.com/helloworld/1009
+  // sizzle() 라이브러리: 다양한 기능과 많은 CSS3 선택자 지원, 확장
+  // 2. CSS 선택자를 사용한 경우, jQuery( 'css selector' )
+  console.time('Native DOM Control');
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('body').setAttribute('data-hasnt-child', 'no');
+      document.querySelector('.gnb li:last-child').classList.add('last-native-dom');
+    });
+  console.timeEnd('Native DOM Control');
+  // --------------------------------------------------------------------
+  console.time('jQuery DOM Control');
+    jQuery(document).ready(function() {
+      jQuery('body').attr('data-is-body', 'yes');
+      jQuery('.gnb li:last-child').addClass('last-jquery');
+    });
+  console.timeEnd('jQuery DOM Control');
 
-  // 2. ~ 경우, jQuery()
   // 3. ~ 경우, jQuery()
   // 4. ~ 경우, jQuery()
 
