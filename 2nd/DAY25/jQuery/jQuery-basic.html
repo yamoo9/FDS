@@ -90,7 +90,8 @@
 
 // var gnb = document.getElementById('gnb');
 
-// id 속성을 사용한 위(↑)의 경우 VS class 속성을 사용한 아래(↓)의 경우
+// id 속성을 사용한 위(↑)의 경우 VS
+// class 속성을 사용한 아래(↓)의 경우
 
 var all_els = document.body.getElementsByTagName('*');
 var gnb_class= 'gnb';
@@ -124,7 +125,7 @@ for ( var i=0, l=gnb_links.length; i<l; i++ ) {
 
 
 ////////////////////////
-// Case 1. DOM Script
+// Case 1. Modern DOM Script
 
 // var gnb = document.querySelector('.gnb');
 // var gnb_links = gnb.querySelectorAll('a');
@@ -142,7 +143,8 @@ for ( var i=0, l=gnb_links.length; i<l; i++ ) {
 
 // var $gnb = jQuery('.gnb');
 // var $gnb_links = jQuery('a', $gnb);
-// var $gnb_links = jQuery('.gnb a');
+
+// var $gnb_links = jQuery('.gnb a'); // <-- IE 9+ 성능 이슈 없음
 // var assignParentClassActive = function(event) {
 //   event.preventDefault();
 //   jQuery(event.target).parent().addClass('active');
