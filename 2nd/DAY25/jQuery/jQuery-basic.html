@@ -66,78 +66,103 @@
   // !window.jQuery && document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
   </script>
   <script>
-  // IIFE 패턴(즉시 실행 함수) 사용하지 않을 경우,
-  // $ 기호는 자바스크립트 라이브러리들이 즐겨 사용하는 단축 변수명이기에
-  // 여러 라이브러리를 다중 사용할 경우 충돌이 발생할 수 있다.
-  // 전역에서 jQuery를 사용할 경우 여러분들은 충돌에 주의가 요구된다.
+  (function(global){
+    'use strict';
+    // IIFE 패턴(즉시 실행 함수) 사용하지 않을 경우,
+    // $ 기호는 자바스크립트 라이브러리들이 즐겨 사용하는 단축 변수명이기에
+    // 여러 라이브러리를 다중 사용할 경우 충돌이 발생할 수 있다.
+    // 전역에서 jQuery를 사용할 경우 여러분들은 충돌에 주의가 요구된다.
 
-  // jQuery 팩토리 함수 (자바스크립트의 팩토리 패턴을 사용하기에 붙여진 이름)
+    // jQuery 팩토리 함수 (자바스크립트의 팩토리 패턴을 사용하기에 붙여진 이름)
 
-    // 1. 전달인자로 DOM ElementNode를 설정한 경우, jQuery( DOM ElementNode )
-    var $html = jQuery( document.documentElement );
-    console.log( $html, $html.jquery );
+      // 1. 전달인자로 DOM ElementNode를 설정한 경우, jQuery( DOM ElementNode )
+      var $html = jQuery( document.documentElement );
+      console.log( $html, $html.jquery );
 
-    function init(event) {
-      console.log(event.type);
-      var $body = jQuery( document.body );
-      console.log( $body, $body.jquery );
-    }
+      function init(event) {
+        console.log(event.type);
+        var $body = jQuery( document.body );
+        console.log( $body, $body.jquery );
+      }
 
-    ///////////////////////
-    // Native DOM Events //
-    ///////////////////////
+      ///////////////////////
+      // Native DOM Events //
+      ///////////////////////
 
-    // <head> 내부에서 jQuery 코드 수행 시, DOM Script와 마찬가지로
-    // 문서객체모델이 완성된 이후에 코드가 실행되어야 하기에 이벤트를 사용해야 한다.
-    window.addEventListener('load', init);
+      // <head> 내부에서 jQuery 코드 수행 시, DOM Script와 마찬가지로
+      // 문서객체모델이 완성된 이후에 코드가 실행되어야 하기에 이벤트를 사용해야 한다.
+      window.addEventListener('load', init);
 
-    // IE 9+ 지원
-    // DOMContentLoaded 이벤트가 load 이벤트 보다 빠르다!
-    // 참고 URL 1: https://developer.mozilla.org/ko/docs/Web/Events/DOMContentLoaded
-    // 참고 URL 2: https://developer.mozilla.org/ko/docs/Web/API/Document/readyState
-    window.addEventListener('DOMContentLoaded', init);
+      // IE 9+ 지원
+      // DOMContentLoaded 이벤트가 load 이벤트 보다 빠르다!
+      // 참고 URL 1: https://developer.mozilla.org/ko/docs/Web/Events/DOMContentLoaded
+      // 참고 URL 2: https://developer.mozilla.org/ko/docs/Web/API/Document/readyState
+      window.addEventListener('DOMContentLoaded', init);
 
-    ///////////////////////////
-    // jQuery Ready Function //
-    ///////////////////////////
-    jQuery(document).ready(init);
+      ///////////////////////////
+      // jQuery Ready Function //
+      ///////////////////////////
+      jQuery(document).ready(init);
 
-    //////////////////
-    // Speed Result //
-    //////////////////
-    // DOMContentLoaded Event << jQuery Ready Event << Load Event
+      //////////////////
+      // Speed Result //
+      //////////////////
+      // DOMContentLoaded Event << jQuery Ready Event << Load Event
 
-  // cssQuery() 라이브러리: 자바스크립트 마술사, 딘 에드워드 (http://dean.edwards.name/my/cssQuery/)
-  // 참고 URL: http://d2.naver.com/helloworld/1009
-  // sizzle() 라이브러리: 다양한 기능과 많은 CSS3 선택자 지원, 확장
-  // 2. CSS 선택자를 사용한 경우, jQuery( 'css selector' )
-  console.time('Native DOM Control');
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('body').setAttribute('data-hasnt-child', 'no');
-      document.querySelector('.gnb li:last-child').classList.add('last-native-dom');
-    });
-  console.timeEnd('Native DOM Control');
-  // --------------------------------------------------------------------
-  console.time('jQuery DOM Control');
+    // cssQuery() 라이브러리: 자바스크립트 마술사, 딘 에드워드 (http://dean.edwards.name/my/cssQuery/)
+    // 참고 URL: http://d2.naver.com/helloworld/1009
+    // sizzle() 라이브러리: 다양한 기능과 많은 CSS3 선택자 지원, 확장
+    // 2. CSS 선택자를 사용한 경우, jQuery( 'css selector' )
+    console.time('Native DOM Control');
+      window.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('body').setAttribute('data-hasnt-child', 'no');
+        document.querySelector('.gnb li:last-child').classList.add('last-native-dom');
+      });
+    console.timeEnd('Native DOM Control');
+    // --------------------------------------------------------------------
+    console.time('jQuery DOM Control');
+      jQuery(document).ready(function() {
+        jQuery('body').attr('data-is-body', 'yes');
+        jQuery('.gnb li:last-child').addClass('last-jquery');
+      });
+    console.timeEnd('jQuery DOM Control');
+
+    console.log('%c------------------------------', 'color: #3d9a21');
+
+    // 3. HTML 코드를 사용한 경우, jQuery('<html_code>')
+    var $fds = jQuery('<div id="fds" class="jquery-study">Front-End Develop SCHOOL</div>');
+    // console.log( 'jQuery 인스턴스 객체 $fds:', $fds );
     jQuery(document).ready(function() {
-      jQuery('body').attr('data-is-body', 'yes');
-      jQuery('.gnb li:last-child').addClass('last-jquery');
+      // .gnb 요소의 첫번째 자식 요소로 $fds에 참조된 jQuery {} 객체의 HTML 코드로 생성된 요소를 삽입하라.
+      $fds.prependTo('.gnb');
     });
-  console.timeEnd('jQuery DOM Control');
 
-  // 3. ~ 경우, jQuery()
-  // 4. ~ 경우, jQuery()
+    // 위 코드를 Native Code 로 변경
+    // window.addEventListener('DOMContentLoaded', function() {
+    //   var html_string = '<div id="fds" class="jquery-study">Front-End Develop SCHOOL</div>';
+    //   var gnb = document.querySelector('.gnb');
+    //   gnb.innerHTML = html_string + gnb.innerHTML;
+    // });
 
-  // jQuery() 팩토리 함수가 하는 일은 내부적으로 객체지향 자바스크립트 패턴(constrcutor, prototype)으로
-  // jQuery {} 인스턴스 객체를 생성한다. ※ 다시 말해 가급적 팩토리 함수를 사용하는 빈도를 줄여야 한다.
-  console.log( 'jQuery().constructor === jQuery:', jQuery().constructor === jQuery );
+    console.log('%c------------------------------', 'color: #3d9a21');
 
-  // 현재 페이지 또는 애플리케이션에서 사용 중인 jQuery의 버전을 체크하는 방법
-  console.log('jQuery.fn.jquery:', jQuery.fn.jquery);
-  console.log('jQuery.prototype.jquery:', jQuery.prototype.jquery);
-  // jQuery() 팩토리 함수의 결과 값은 jQuery {} 인스턴스 객체이기에
-  // jQuery.prototype의 속성을 사용하여 버전을 출력한다.
-  console.log('jQuery().jquery:', jQuery().jquery);
+    // 4. 전달인자로 함수를 전달 받은 경우, jQuery(function(){})
+    jQuery(function(){
+      jQuery('.gnb li:last-child a').html('전달 인자로 함수를 전달 받은 경우, <code>jQuery(function(){})</code>');
+    });
+
+
+    // jQuery() 팩토리 함수가 하는 일은 내부적으로 객체지향 자바스크립트 패턴(constrcutor, prototype)으로
+    // jQuery {} 인스턴스 객체를 생성한다. ※ 다시 말해 가급적 팩토리 함수를 사용하는 빈도를 줄여야 한다.
+    console.log( 'jQuery().constructor === jQuery:', jQuery().constructor === jQuery );
+
+    // 현재 페이지 또는 애플리케이션에서 사용 중인 jQuery의 버전을 체크하는 방법
+    console.log('jQuery.fn.jquery:', jQuery.fn.jquery);
+    console.log('jQuery.prototype.jquery:', jQuery.prototype.jquery);
+    // jQuery() 팩토리 함수의 결과 값은 jQuery {} 인스턴스 객체이기에
+    // jQuery.prototype의 속성을 사용하여 버전을 출력한다.
+    console.log('jQuery().jquery:', jQuery().jquery);
+  })(this);
   </script>
 </head>
 <body>
@@ -211,15 +236,15 @@
   ////////////////////////
   // Case 1. Modern DOM Script, IE 9+
 
-  // var gnb = document.querySelector('.gnb');
-  // var gnb_links = gnb.querySelectorAll('a');
-  // var assignParentClassActive = function(event) {
-  //   event.preventDefault();
-  //   event.target.parentNode.classList.add('active');
-  // };
-  // [].forEach.call(gnb_links, function(link) {
-  //   link.addEventListener('click', assignParentClassActive);
-  // });
+  var gnb = document.querySelector('.gnb');
+  var gnb_links = gnb.querySelectorAll('a');
+  var assignParentClassActive = function(event) {
+    event.preventDefault();
+    event.target.parentNode.classList.add('active');
+  };
+  [].forEach.call(gnb_links, function(link) {
+    link.addEventListener('click', assignParentClassActive);
+  });
 
 
   ////////////////////
@@ -243,7 +268,7 @@
     $(this).parent().addClass('active');
   });
 
-}); // (this)
+}(this));
 
 (function(global, $){
   'use strict';
@@ -253,19 +278,19 @@
   ///////////////////////
 
   // 표준 DOM API를 사용한 경우
-  console.time('표준 DOM API를 사용한 경우');
-  var c_zone    = document.querySelector('#created-zone');
-  var c_div     = document.createElement('div');
-  var c_div_txt = document.createTextNode('Created Element 1');
-  c_div.appendChild(c_div_txt);
-  c_div.setAttribute('class', 'created-element');
-  c_zone.appendChild(c_div);
-  console.timeEnd('표준 DOM API를 사용한 경우');
+  // console.time('표준 DOM API를 사용한 경우');
+  // var c_zone    = document.querySelector('#created-zone');
+  // var c_div     = document.createElement('div');
+  // var c_div_txt = document.createTextNode('Created Element 1');
+  // c_div.appendChild(c_div_txt);
+  // c_div.setAttribute('class', 'created-element');
+  // c_zone.appendChild(c_div);
+  // console.timeEnd('표준 DOM API를 사용한 경우');
 
-  // innerHTML 속성을 사용한 경우
-  console.time('innerHTML 속성을 사용한 경우');
-  document.querySelector('#created-zone').innerHTML += '<div class="created-element">Created Element 2</div>';
-  console.timeEnd('innerHTML 속성을 사용한 경우');
+  // // innerHTML 속성을 사용한 경우
+  // console.time('innerHTML 속성을 사용한 경우');
+  // document.querySelector('#created-zone').innerHTML += '<div class="created-element">Created Element 2</div>';
+  // console.timeEnd('innerHTML 속성을 사용한 경우');
 
   // --------------------------------------------------------------------------------
 
@@ -277,7 +302,7 @@
   $('<div class="created-element">').text('Created Element 3').appendTo('#created-zone');
   console.timeEnd('jQuery를 사용한 경우');
 
-}); // (this, this.jQuery)
+})(this, this.jQuery);
 </script>
 </body>
 </html>
