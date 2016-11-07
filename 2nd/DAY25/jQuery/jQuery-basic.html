@@ -65,6 +65,29 @@
   // 방법 3.
   // !window.jQuery && document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
   </script>
+  <script>
+  // IIFE 패턴(즉시 실행 함수) 사용하지 않을 경우,
+  // $ 기호는 자바스크립트 라이브러리들이 즐겨 사용하는 단축 변수명이기에
+  // 여러 라이브러리를 다중 사용할 경우 충돌이 발생할 수 있다.
+  // 전역에서 jQuery를 사용할 경우 여러분들은 충돌에 주의가 요구된다.
+
+  // jQuery 팩토리 함수 (자바스크립트의 팩토리 패턴을 사용하기에 붙여진 이름)
+  // 1. ~ 경우, jQuery()
+  // 2. ~ 경우, jQuery()
+  // 3. ~ 경우, jQuery()
+  // 4. ~ 경우, jQuery()
+
+  // jQuery() 팩토리 함수가 하는 일은 내부적으로 객체지향 자바스크립트 패턴(constrcutor, prototype)으로
+  // jQuery {} 인스턴스 객체를 생성한다. ※ 다시 말해 가급적 팩토리 함수를 사용하는 빈도를 줄여야 한다.
+  console.log( 'jQuery().constructor === jQuery:', jQuery().constructor === jQuery );
+
+  // 현재 페이지 또는 애플리케이션에서 사용 중인 jQuery의 버전을 체크하는 방법
+  console.log('jQuery.fn.jquery:', jQuery.fn.jquery);
+  console.log('jQuery.prototype.jquery:', jQuery.prototype.jquery);
+  // jQuery() 팩토리 함수의 결과 값은 jQuery {} 인스턴스 객체이기에
+  // jQuery.prototype의 속성을 사용하여 버전을 출력한다.
+  console.log('jQuery().jquery:', jQuery().jquery);
+  </script>
 </head>
 <body>
 
@@ -84,6 +107,8 @@
   <div id="created-zone">
     <!-- <div class="created-element">Created Element</div> -->
   </div>
+
+  <!-- //////////////////////////////////////////////////////////// -->
 
 <script>
 (function(glboal){
@@ -166,6 +191,7 @@
     e.preventDefault();
     $(this).parent().addClass('active');
   });
+
 }); // (this)
 
 (function(global, $){
@@ -200,8 +226,7 @@
   $('<div class="created-element">').text('Created Element 3').appendTo('#created-zone');
   console.timeEnd('jQuery를 사용한 경우');
 
-})(this, this.jQuery);
-
+}); // (this, this.jQuery)
 </script>
 </body>
 </html>
