@@ -10,11 +10,11 @@
   </style>
 
   <!-- jQuery 로컬 파일 사용 -->
-  <!-- <script src="lib/jquery/jquery.js"></script> -->
+  <script src="lib/jquery/jquery.min.js"></script>
 
   <!-- jQuery CDN 사용 -->
   <!-- <script src="https://code.jquery.com/jquery.min.js"></script> -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 
   <!--
 
@@ -63,7 +63,7 @@
   // window.jQuery || document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
 
   // 방법 3.
-  !window.jQuery && document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
+  // !window.jQuery && document.write('<script src="lib/jquery/jquery.min.js"><\/script>');
   </script>
 </head>
 <body>
@@ -79,79 +79,129 @@
     </ul>
   </nav>
 
+  <!-- //////////////////////////////////////////////////////////// -->
+
+  <div id="created-zone">
+    <!-- <div class="created-element">Created Element</div> -->
+  </div>
+
 <script>
-//////////////////////////
-// DOM Script VS jQuery //
-//////////////////////////
+(function(glboal){
+  'use strict';
+  //////////////////////////
+  // DOM Script VS jQuery //
+  //////////////////////////
 
 
-///////////////////////////////
-// Case 0. Legacy DOM Script
+  ///////////////////////////////
+  // Case 0. Legacy DOM Script
 
-// var gnb = document.getElementById('gnb');
+  // var gnb = document.getElementById('gnb');
 
-// id 속성을 사용한 위(↑)의 경우 VS
-// class 속성을 사용한 아래(↓)의 경우
+  // id 속성을 사용한 위(↑)의 경우 VS
+  // class 속성을 사용한 아래(↓)의 경우
 
-var all_els = document.body.getElementsByTagName('*');
-var gnb_class= 'gnb';
-var check_gnb_class = new RegExp('(^|\\s+)'+gnb_class+'(\\s+|$)');
-for ( var i=0, l=all_els.length; i<l; i++ ) {
-  var el = all_els[i];
-  if ( check_gnb_class.test(gnb_class) ) {
-    var gnb = el;
-    break;
-  }
-}
+  // var all_els = document.body.getElementsByTagName('*');
+  // var gnb_class= 'gnb';
+  // var check_gnb_class = new RegExp('(^|\\s+)'+gnb_class+'(\\s+|$)');
+  // for ( var i=0, l=all_els.length; i<l; i++ ) {
+  //   var el = all_els[i];
+  //   if ( check_gnb_class.test(gnb_class) ) {
+  //     var gnb = el;
+  //     break;
+  //   }
+  // }
 
-// --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
-var gnb_links = gnb.getElementsByTagName('a');
-var assignParentClassActive0 = function() {
-  var add_class_name = 'active';
-  var check_class_name = new RegExp('(^|\\s+)'+add_class_name+'(\\s+|$)');
-  var parent = this.parentNode;
-  var pre_class = parent.className;
-  if ( !check_class_name.test(pre_class) ) {
-    parent.className += ' ' + add_class_name;
-    parent.className = parent.className.replace(/^\s+/,'').replace(/\s+$/,'');
-  }
-  return false;
-};
-for ( var i=0, l=gnb_links.length; i<l; i++ ) {
-  var gnb_link = gnb_links.item(i);
-  gnb_link.onclick = assignParentClassActive0;
-}
-
-
-////////////////////////
-// Case 1. Modern DOM Script
-
-// var gnb = document.querySelector('.gnb');
-// var gnb_links = gnb.querySelectorAll('a');
-// var assignParentClassActive = function(event) {
-//   event.preventDefault();
-//   event.target.parentNode.classList.add('active');
-// };
-// [].forEach.call(gnb_links, function(link) {
-//   link.addEventListener('click', assignParentClassActive);
-// });
+  // var gnb_links = gnb.getElementsByTagName('a');
+  // var assignParentClassActive0 = function() {
+  //   var add_class_name = 'active';
+  //   var check_class_name = new RegExp('(^|\\s+)'+add_class_name+'(\\s+|$)');
+  //   var parent = this.parentNode;
+  //   var pre_class = parent.className;
+  //   if ( !check_class_name.test(pre_class) ) {
+  //     parent.className += ' ' + add_class_name;
+  //     parent.className = parent.className.replace(/^\s+/,'').replace(/\s+$/,'');
+  //   }
+  //   return false;
+  // };
+  // for ( var i=0, l=gnb_links.length; i<l; i++ ) {
+  //   var gnb_link = gnb_links.item(i);
+  //   gnb_link.onclick = assignParentClassActive0;
+  // }
 
 
-////////////////////
-// Case 2. jQuery
+  ////////////////////////
+  // Case 1. Modern DOM Script, IE 9+
 
-// var $gnb = jQuery('.gnb');
-// var $gnb_links = jQuery('a', $gnb);
+  // var gnb = document.querySelector('.gnb');
+  // var gnb_links = gnb.querySelectorAll('a');
+  // var assignParentClassActive = function(event) {
+  //   event.preventDefault();
+  //   event.target.parentNode.classList.add('active');
+  // };
+  // [].forEach.call(gnb_links, function(link) {
+  //   link.addEventListener('click', assignParentClassActive);
+  // });
 
-// var $gnb_links = jQuery('.gnb a'); // <-- IE 9+ 성능 이슈 없음
-// var assignParentClassActive = function(event) {
-//   event.preventDefault();
-//   jQuery(event.target).parent().addClass('active');
-// };
-// jQuery.each($gnb_links, function(idx, link) {
-//   jQuery(link).on('click', assignParentClassActive);
-// });
+
+  ////////////////////
+  // Case 2. jQuery
+
+  // var $gnb = jQuery('.gnb');
+  // var $gnb_links = jQuery('a', $gnb);
+
+  // var $gnb_links = jQuery('.gnb a'); // <-- IE 9+ 성능 이슈 없음
+  // var assignParentClassActive = function(event) {
+  //   event.preventDefault();
+  //   jQuery(event.target).parent().addClass('active');
+  // };
+  // jQuery.each($gnb_links, function(idx, link) {
+  //   jQuery(link).on('click', assignParentClassActive);
+  // });
+
+  // jQuery 함축해서 사용(많은 분들이 이리 사용 함)
+  $('.gnb a').click(function(e) {
+    e.preventDefault();
+    $(this).parent().addClass('active');
+  });
+}); // (this)
+
+(function(global, $){
+  'use strict';
+
+  ///////////////////////
+  // Modern DOM Script //
+  ///////////////////////
+
+  // 표준 DOM API를 사용한 경우
+  console.time('표준 DOM API를 사용한 경우');
+  var c_zone    = document.querySelector('#created-zone');
+  var c_div     = document.createElement('div');
+  var c_div_txt = document.createTextNode('Created Element 1');
+  c_div.appendChild(c_div_txt);
+  c_div.setAttribute('class', 'created-element');
+  c_zone.appendChild(c_div);
+  console.timeEnd('표준 DOM API를 사용한 경우');
+
+  // innerHTML 속성을 사용한 경우
+  console.time('innerHTML 속성을 사용한 경우');
+  document.querySelector('#created-zone').innerHTML += '<div class="created-element">Created Element 2</div>';
+  console.timeEnd('innerHTML 속성을 사용한 경우');
+
+  // --------------------------------------------------------------------------------
+
+  ////////////
+  // jQuery //
+  ////////////
+
+  console.time('jQuery를 사용한 경우');
+  $('<div class="created-element">').text('Created Element 3').appendTo('#created-zone');
+  console.timeEnd('jQuery를 사용한 경우');
+
+})(this, this.jQuery);
+
 </script>
 </body>
 </html>
