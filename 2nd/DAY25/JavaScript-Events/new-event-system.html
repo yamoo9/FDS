@@ -77,6 +77,11 @@
       // 브라우저의 기본 동작 차단
       ev.preventDefault();
     }
+    if ( ev.currentTarget.classList.contains('child') ) {
+      // console.log('this is child element');
+      // 이벤트 전파 중지(stopPropagation)
+      ev.stopPropagation();
+    }
     console.log('%c------------------------------', 'color: #3d9a21');
   };
 
