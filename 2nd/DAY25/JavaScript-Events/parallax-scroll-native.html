@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>패럴럭스 디자인</title>
+  <style>
+    html {
+      overflow-x: hidden;
+      height: 300vh;
+    }
+    [class*="circle"] {
+      opacity: 0;
+      background: hsla(0, 0%, 0%, 0.6);
+      border-radius: 50%;
+    }
+    .circle-50 {width: 50px; height: 50px; background: hsla(0, 100%, 50%, 0.6);}
+    .circle-100 {width: 100px; height: 100px; }
+    .circle-1000 {width: 1000px; height: 1000px; background: hsla(0, 0%, 95%, 0.6); }
+  </style>
+  <script>
+    (function(global){
+      'use strict';
+
+      /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
+      function getRandomNumber(number) {
+        return Math.floor( Math.random() * number );
+      }
+
+      // circle 객체 위치 임의 설정 함수
+      function randomCirclePosition() {
+        // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
+        var circles = document.querySelectorAll('[class*="circle-"]');
+        // console.log('circles:', circles);
+
+        // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정한다.
+        // 그리고 랜덤하게 화면의 곳곳에 배치(x, y)한다.
+        for ( var i=0, l=circles.length; i<l; i++ ) {
+          var circle = circles[i];
+          circle.style.position = 'absolute';
+          circle.style.top      = getRandomNumber( window.innerHeight ) + 'px';
+          circle.style.left     = getRandomNumber( window.innerWidth ) + 'px';
+          circle.style.opacity  = 1;
+        }
+      }
+
+      // 패럴럭스 이벤트 제어 함수
+      function circleParallaxScroll() {
+        var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
+        // circle 원을 각각 제어 한다.
+        var circles = document.querySelectorAll('[class*="circle-"]');
+        for ( var i=0, l=circles.length; i<l; i++ ) {
+          var circle = circles[i];
+          var top = parseInt(circle.style.top, 10);
+          var x = 0.5 * i;
+          if ( i === 1 ) { x = -1 * x * (i+1); }
+          circle.style.top = top + (scroll_y/300 * x) + 'px';
+        }
+      }
+
+      // 애플리케이션 초기화
+      function init() {
+        // circle 객체의 위치를 임의로 설정한다.
+        randomCirclePosition();
+        // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정한다.
+        window.onscroll = circleParallaxScroll;
+      }
+
+      // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
+      window.onload = init;
+
+    })(this);
+  </script>
+</head>
+<body>
+
+  <div class="circle-50"></div>
+  <div class="circle-100"></div>
+  <div class="circle-1000"></div>
+
+</body>
+</html>

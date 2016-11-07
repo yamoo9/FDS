@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>진보 이벤트 모델: W3C 표준 vs MS 비표준</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      position: relative;
+      border: 2px solid #333;
+      padding: 3rem;
+      background: hsla(24, 19%, 57%, 0.3);
+      border-radius: 10px;
+    }
+    .box::before {
+      content: attr(class);
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      width: 160px;
+      padding: 0.2em 1em;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      transform: translateX(-50%);
+      border-radius: 10%/100%;
+    }
+    .grand-child {
+      width: 200px;
+      height: 100px;
+    }
+    .grand-child a {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 900;
+    }
+  </style>
+  <!-- <script src="new-event-system.js"></script> -->
+</head>
+<body>
+
+  <div class="box grand-parent">
+    <div class="box parent">
+      <div class="box child">
+        <div class="box grand-child">
+          <a href="#click-link">link in grand child</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(global){
+  'use strict';
+
+  var boxes = document.querySelectorAll('.box');
+  var using_capture = !false; // capture or bubble
+  var detectEventPropagation = function(ev) {
+    console.log('this:', this);
+    console.log('ev.target:', ev.target);
+    console.log('ev.currentTarget:', ev.currentTarget);
+    // 각 참조 변수(this, ev.target, ev.currentTarget) 값 비교
+    // if ( this.firstElementChild.localName === 'a' ) {
+    // if ( ev.target.firstElementChild.localName === 'a' ) {
+    if ( ev.currentTarget.firstElementChild.localName === 'a' ) {
+      // 브라우저의 기본 동작 차단
+      ev.preventDefault();
+    }
+    console.log('%c------------------------------', 'color: #3d9a21');
+  };
+
+  // boxes.forEach(function(box, idx) { // chrome web browser
+  [].forEach.call(boxes, function(box, idx) { // modern web browser
+    box.addEventListener('click', detectEventPropagation, using_capture);
+  });
+
+})(this);
+</script>
+</body>
+</html>

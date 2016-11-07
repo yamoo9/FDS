@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>JavaScript 이벤트(Events)</title>
+  <style>
+    body {
+      margin: 6rem 12rem;
+    }
+    button {
+      cursor: pointer;
+      margin-right: 1rem;
+      border: 0;
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+      font-size: 1.2rem;
+      background: #fff;
+      border-radius: 4px;
+      color: #909090;
+      box-shadow: 0 0 0 4px hsla(0,0%,0%,.1);
+    }
+    button:hover,
+    button:focus {
+      background: #eee;
+      color: #777;
+    }
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px hsla(190,60%,60%,.5);
+      color: hsla(190,60%,60%,.5);
+      background: #fff;
+    }
+  </style>
+  <script src="js-events.js"></script>
+  <script>
+    function clickButton(button) {
+      console.log('this:', this);
+      console.log('button:', button);
+      // return;
+      // this -> window
+      // button -> .look-at-button
+
+      // 방법 2.
+      // this???? .look-at-button
+      // if (
+      //     (this.nodeName.toLowerCase() === 'button') &&
+      //     (typeof button === 'object')
+      // ) {
+      //   button = this;
+      // }
+      // console.log(button);
+      // return;
+      window.alert('clicked button element.');
+      if (button.firstChild.nodeValue==='click me') {
+        button.firstChild.nodeValue='this is button. clicked!';
+      } else {
+        button.firstChild.nodeValue='click me';
+      }
+    }
+  </script>
+  <script>
+  (function(){
+    'use strict';
+
+    /** @function init(): 애플리케이션 초기화 함수 */
+    function init() {
+      // var global = window;
+      var look_at_button = document.querySelector('.look-at-button');
+
+      // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
+      // 버튼을 클릭한 횟수를 기억할 변수
+      var click_count = 0;
+
+      // [이벤트 연결] 이벤트 속성에 함수 값 연결
+      look_at_button.onclick = function() {
+        console.log('clicked:', this.onclick);
+        if ( ++click_count === 2 ) {
+          // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
+          // this.setAttribute('disabled', 'disabled');
+
+          // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결된 함수를 끊음
+          this.onclick = null; // 참조한 함수를 끊고 null 대입
+          console.log('finished:', this.onclick);
+        }
+        // window.alert('button click');
+      };
+
+      // ES 5
+      // 방법 3.
+      // look_at_button.onclick = clickButton.bind(window, look_at_button);
+
+      // ES 3
+      // 방법 0.
+      // look_at_button.onclick = clickButton;
+
+      // 방법 1.
+      // look_at_button.onclick = function(){
+      //   // this === look_at_button;
+      //   // 함수 지역 내에서 참조가 되지 않는 변수, 혹은 함수는
+      //   // 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~
+      //   // 결국은 전역까지 가서 전역 함수를 실행하게 됩니다.
+      //   // 성능 이슈, 디버깅 이슈
+      //   window.clickButton(this);
+      // };
+
+      // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+      window.onresize = checkWindowResize;
+    }
+
+    function getWindowWidth() {
+      return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    }
+
+    /** @function checkWindowResize 창 크기 조정 시, 처리되는 함수 */
+    function checkWindowResize() {
+      var device_width = getWindowWidth();
+      if ( device_width > 1200 ) {
+        console.log('device is desktop');
+      } else if ( device_width <=1200 && device_width > 768 ) {
+        console.log('device is tablet');
+      } else {
+        console.log('device is mobile');
+      }
+      // console.log('창(window)의 너비:', this.innerWidth);
+    }
+
+    // initialization();
+    // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+    // 주의 점! load 이벤트는 무척이나 느리다!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
+    // window.onload = init;
+    // window.onload = checkWindowResize;
+    window.onload = function() {
+      checkWindowResize();
+      init();
+    };
+
+  })();
+  </script>
+</head>
+<body>
+
+  <button type="button" class="look-at-button">Look</button>
+
+  <button
+    onclick="window.clickButton(this)"
+    lang="en-US"
+    type="button">click me</button>
+
+</body>
+</html>
