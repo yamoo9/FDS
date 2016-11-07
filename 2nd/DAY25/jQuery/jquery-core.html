@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 코어 - 팩토리 함수</title>
+  <style>
+    body {
+      margin: 10rem 15rem;
+    }
+  </style>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script>
+    // 함수 내부이기 때문에
+    // 안정적으로 $를 jQuery로 사용할 수 있다.
+    jQuery(function($){
+
+      var changeColor = function(e) {
+        // 브라우저 기본 동작 차단
+        e.preventDefault();
+        // jQuery 메소드 내부에 전달되는 함수 내부의 this는
+        // jQuery 객체가 아닌 벗겨진 DOM 객체를 가리킨다.
+        var $span = $('span', this).css('color', '#fe4940');
+      };
+
+      var chageSpanTextUpper = function(e) {
+        // 기존의 텍스트 설정 값을 가져와 대문자로 변환한 후
+        // 변수에 변환된 텍스트 값을 복사
+        var $span = $('span', this);
+        var span_changed_text = $span.text().toUpperCase();
+        // 복사된 값의 변수를 다시 $span jQuery {}의 메소드 .text()를 사용해
+        // 내용 값을 변경
+        $span.text(span_changed_text);
+      };
+
+      $('a.foo').click(changeColor);
+      $('a.foo').click(chageSpanTextUpper);
+    });
+  </script>
+</head>
+<body>
+
+  <a href="http://jquery.com/" target="_blank" class="foo">
+    <span>f</span>oo
+  </a>
+
+<script>
+// (function(global, $){
+//   'use strict';
+
+// })(this, this.jQuery);
+</script>
+</body>
+</html>
