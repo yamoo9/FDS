@@ -72,7 +72,40 @@
   // 전역에서 jQuery를 사용할 경우 여러분들은 충돌에 주의가 요구된다.
 
   // jQuery 팩토리 함수 (자바스크립트의 팩토리 패턴을 사용하기에 붙여진 이름)
-  // 1. ~ 경우, jQuery()
+
+    // 1. 전달인자로 DOM ElementNode를 설정한 경우, jQuery()
+    var $html = jQuery( document.documentElement );
+    console.log( $html, $html.jquery );
+
+    function init(event) {
+      console.log(event.type);
+      var $body = jQuery( document.body );
+      console.log( $body, $body.jquery );
+    }
+
+    ///////////////////////
+    // Native DOM Events //
+    ///////////////////////
+
+    // <head> 내부에서 jQuery 코드 수행 시, DOM Script와 마찬가지로
+    // 문서객체모델이 완성된 이후에 코드가 실행되어야 하기에 이벤트를 사용해야 한다.
+    window.addEventListener('load', init);
+
+    // IE 9+ 지원
+    // DOMContentLoaded 이벤트가 load 이벤트 보다 빠르다!
+    window.addEventListener('DOMContentLoaded', init);
+
+    //////////////////
+    // jQuery Event //
+    //////////////////
+    jQuery(document).ready(init);
+
+    //////////////////
+    // Speed Result //
+    //////////////////
+    // DOMContentLoaded Event << jQuery Ready Event << Load Event
+
+
   // 2. ~ 경우, jQuery()
   // 3. ~ 경우, jQuery()
   // 4. ~ 경우, jQuery()
