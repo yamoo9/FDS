@@ -2,16 +2,23 @@
 'use strict';
 
 // Native
-function getStyle(el, property) {
+var getStyle = (function(){
+  var _getStyle;
   // W3C
   if (window.getComputedStyle) {
-    return window.getComputedStyle(el,null)[property];
+    _getStyle = function (el, property, pseudo) {
+      pseudo = pseudo || null;
+      return window.getComputedStyle(el,pseudo)[property];
+    };
   }
   // MS
   else {
-    n_bfs = el.currentStyle[property];
+    _getStyle = function (el, property) {
+      return el.currentStyle[property];
+    };
   }
-}
+  return _getStyle;
+})();
 
 // SET
 var brand = document.querySelector('.brand');
