@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 코어</title>
+
+  <script>
+    // 다른 JS 라이브러리
+    var $ = function(selector) {
+      return document.querySelector(selector);
+    };
+    var $$ = function(selector) {
+      return document.querySelectorAll(selector);
+    };
+    console.log('$:', $);
+    console.log('%c------------------------------', 'color: #3d9a21');
+    window.addEventListener('DOMContentLoaded', function() {
+      var body = $('body');
+      console.log(body);
+      body.classList.add('body-element');
+    });
+  </script>
+  <!-- jQuery 라이브러리 호출 -->
+  <script src="lib/jquery.min.js"></script>
+  <script src="js/jquery-excute-in-head.js"></script>
+</head>
+<body>
+
+<script src="js/jquery-core.js"></script>
+</body>
+</html>
