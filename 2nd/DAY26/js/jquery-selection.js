@@ -74,12 +74,23 @@ var fds = (function(global, jQuery){
   // :target
   $target = $(':target');
 
-  $target = $('article h2:first-child');
+  // $target = $('article h2:first-child');
 
   // 선택된 집합(요소)에 클래스 속성 설정
   $target.addClass('selected');
 
 
+  ////////////////////
+  // jQuery Filters //
+  ////////////////////
+
+  // :first
+  // :last
+  // :eq()
+  // :lt()
+  // :gt()
+  // :header
+  // :contains
 
 
   return {
