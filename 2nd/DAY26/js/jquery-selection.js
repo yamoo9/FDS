@@ -86,12 +86,25 @@ var fds = (function(global, jQuery){
 
   // :first
   // :last
-  // :eq()
-  // :lt()
-  // :gt()
+  // :eq(number)
+  // :lt(number)
+  // :gt(number)
   // :header
-  // :contains
+  // :contains(text)
+  // :not(selector)
+  // :has(selector)
+  // :parent
+  // :empty
 
+  // jQuery.fn === jQuery.prototype
+  // jQuery 플러그인 제작
+  $.fn.gt = function(n) {
+    return this.slice(n+1);
+  };
+
+  // :hidden
+  // :visible
+  // :animated
 
   return {
     $: jQuery // 비공개 멤버인 jQuery에 접근 가능한 유일한 방법: 특권 부여
