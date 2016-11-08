@@ -4,33 +4,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>jQuery를 사용한 문서 객체 선택</title>
+  <style>
+    body {
+      margin-top: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 880px;
+      line-height: 1.5;
+    }
+
+    .selected {
+      margin: 20px 0;
+      outline-offset: 5px;
+      border-radius: 3px;
+      box-shadow: 0 0 0 5px currentColor;
+      padding: 0.2em 0.4em;
+      color: hsla(263, 100%, 47%, 0.6);
+    }
+
+    :target {
+      background: #ff0;
+    }
+  </style>
   <script src="lib/jquery.min.js"></script>
 </head>
 <body>
 
   <div id="page">
     <header>
-      <h1 class="brand">brand</h1>
+      <h1 id="BRAND" class="brand" lang="en-GB">brand</h1>
       <p class="slogan">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, commodi.</p>
       <main>
         <article class="post-01">
-          <h2 title="article headline 01">Article 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae obcaecati consequatur minima reprehenderit illum nobis, at atque officia aut quas, similique libero rerum voluptate. A quia, modi, nesciunt possimus qui iure, suscipit distinctio officia dolor aperiam corporis perferendis quo aspernatur iusto impedit dolorum aliquam ducimus non hic voluptatibus ea. Eveniet quos, voluptatem fuga aliquam atque reiciendis facilis accusamus! Quaerat quisquam inventore beatae, quas accusantium, maiores quod ipsam ducimus minima molestiae id optio. Repudiandae labore doloribus illo obcaecati vitae nihil aliquam cumque, porro repellat. Praesentium laborum totam, consectetur dolor voluptas pariatur.</p>
-          <ul class="reset-list">
+          <!-- <blockquote>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 실수조차도 사명으로 않고 가슴을, 쉬지 꽃보다 빛나는 아름답다, 하고 흐르는 세상을 피어나는 청춘의 장엄한 청춘, 하루를 땀 씩씩하게 쿵쿵대는 티셔츠. 청춘의 숨소리가 하루를 고동소리 꽃처럼 젊음의!</blockquote> -->
+          <h2 title="article headline-01">Article 1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae obcaecati consequatur minima reprehenderit illum nobis, at atque officia aut quas, similique libero rerum voluptate. A quia, modi, nesciunt possimus qui iure, suscipit distinctio <a href="#its-me">officia dolor</a> aperiam corporis perferendis quo aspernatur iusto impedit dolorum aliquam ducimus non hic voluptatibus ea. Eveniet quos, voluptatem fuga aliquam atque reiciendis facilis accusamus! Quaerat quisquam inventore beatae, quas accusantium, maiores quod ipsam ducimus minima molestiae id optio. Repudiandae labore doloribus illo obcaecati vitae nihil aliquam cumque, porro repellat. Praesentium laborum totam, consectetur dolor voluptas pariatur.</p>
+          <ul class="reset-list clearfix" lang="en">
             <li>list</li>
             <li>list</li>
             <li>list</li>
             <li>list</li>
             <li>list</li>
           </ul>
-          <p>Iste praesentium aut qui iusto, ad labore illum saepe nostrum numquam nam corporis est repellat ut accusamus minus, tempora id quod nihil aliquid corrupti esse. Nostrum distinctio, provident itaque laudantium. Quis officiis veniam totam, ducimus ad rerum quidem magni. Eveniet esse, ipsa, excepturi numquam vitae, voluptatem unde aperiam tempora laudantium sequi tenetur harum. Recusandae alias itaque veritatis vitae. Architecto magni libero quos illum totam, tempore. Esse accusamus officiis cumque ipsa, ullam voluptate deserunt nobis asperiores laborum omnis dolore eum debitis, quam explicabo corporis? Non tempore culpa, excepturi, expedita cupiditate laborum!</p>
+          <p>Iste praesentium aut qui iusto, ad labore illum saepe nostrum numquam nam corporis est repellat ut accusamus minus, tempora id quod nihil aliquid corrupti esse. Nostrum distinctio, provident itaque laudantium. Quis officiis veniam totam, ducimus ad rerum quidem magni. Eveniet esse, ipsa, excepturi numquam vitae, voluptatem unde aperiam tempora laudantium sequi tenetur harum. Recusandae</p>
+          <p>alias itaque veritatis vitae. Architecto magni libero quos illum totam, tempore. Esse accusamus officiis cumque ipsa, ullam voluptate deserunt nobis asperiores laborum omnis dolore eum debitis, quam explicabo corporis? Non tempore culpa, excepturi, expedita cupiditate laborum!</p>
           <img src="http://placehold.it/400x200/000/fff/?text=1" alt="">
           <p>Libero, beatae omnis deleniti, minima, tempora repellat suscipit autem incidunt voluptatem tempore magni quod architecto est nisi possimus vitae dolorem laudantium sequi laborum minus atque accusantium sapiente. Ab dolore ea expedita debitis officia sequi, consectetur enim, voluptates voluptas, dolorum beatae tempora molestias! Id dolorem voluptatum reprehenderit iure minus earum amet, laboriosam velit totam quam perspiciatis architecto laudantium, itaque accusamus dignissimos suscipit reiciendis ullam quo. Mollitia, ut laboriosam facere libero consequuntur, aut hic harum ullam quo illo itaque, nihil, repellat dolores. Nemo aperiam quibusdam inventore! Porro, explicabo harum non inventore nostrum.</p>
         </article>
         <article class="post-02">
-          <h2 title="article headline 02">Article 2</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas error iste eos voluptates cumque sed obcaecati laboriosam esse. Nemo adipisci ipsa, ad odit vel omnis cupiditate illo dicta, doloremque quasi culpa! Rerum beatae, atque necessitatibus error illum, temporibus animi maiores ducimus placeat saepe odio, sequi, facere facilis. Provident, iste! Consectetur unde sunt numquam consequatur vel tenetur facilis ducimus iusto voluptatum inventore error cumque reiciendis adipisci tempora, maiores ipsam accusantium, voluptas eligendi repellat possimus in illo! Asperiores, illum esse dolore laudantium fuga dolorem ullam distinctio obcaecati, nam, tempora atque a quas!</p>
-          <img src="http://placehold.it/400x200/000/fff/?text=1" alt="">
+          <h2 title="article- headline-02">Article 2</h2>
+          <p lang="en-US">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas error iste eos voluptates cumque sed obcaecati laboriosam esse. Nemo adipisci ipsa, ad odit vel omnis cupiditate illo dicta, doloremque quasi culpa! Rerum beatae, atque necessitatibus error illum, temporibus animi maiores ducimus placeat saepe odio, sequi, facere facilis. Provident, iste! Consectetur unde sunt numquam consequatur vel tenetur facilis ducimus iusto voluptatum inventore error cumque reiciendis adipisci tempora, maiores ipsam accusantium, voluptas eligendi repellat possimus in illo! Asperiores, illum esse dolore laudantium fuga dolorem ullam distinctio obcaecati, nam, tempora atque a quas!</p>
+          <img src="http://placehold.it/400x200/000/fff/?text=1" alt="one">
           <p>Eligendi voluptatibus deserunt nostrum soluta iste commodi, beatae ex harum officiis. Aliquam reiciendis officia reprehenderit. Delectus neque illum commodi, modi, obcaecati quaerat necessitatibus doloremque, magnam unde alias magni? Illo, consequatur, odio. Vitae assumenda delectus impedit porro, placeat est amet repellendus aliquid sed, sapiente fugiat non. Eligendi, numquam expedita? At beatae officiis reiciendis, voluptatum dicta cumque, tempore, accusamus quod enim obcaecati totam? Mollitia, ullam. Ullam dignissimos, perspiciatis harum voluptatem? Laborum, eos, veritatis! Rem, libero nihil? Amet earum sequi doloremque laudantium, vero recusandae voluptatum rerum. Officia accusamus rem repudiandae fuga inventore animi!</p>
           <ol class="reset-list">
             <li>list</li>
@@ -39,10 +63,11 @@
             <li>list</li>
             <li>list</li>
           </ol>
+          <div id="its-me">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Дороге они, рукопись даль снова там? Маленький заманивший подпоясал, всеми рекламных мир! Свой то маленький семь своих, встретил мир на берегу ему большого, продолжил запятой сих бросил журчит что проектах! Выйти залетают оксмокс мир толку от всех если диких, но ручеек щеке безопасную, ее великий жизни грустный парадигматическая наш имени проектах решила города единственное, букв первую пустился назад скатился своих реторический? Текста текстами заглавных текст последний страна несколько толку не гор вопрос продолжил буквоград букв, вопроса подзаголовок предупредила запятых языком свое о всемогущая, приставка текстов своего. Деревни жизни коварный предложения одна ручеек всеми семь необходимыми текста его вопроса скатился коварных языкового, ведущими свою всемогущая наш образ оксмокс, своих семантика толку. Текста большой парадигматическая необходимыми своих грустный домах переулка своего которое. Переулка заглавных продолжил эта наш оксмокс моей своих, все заголовок текстов языком власти страну однажды гор, жизни одна пустился рукопись свой по всей. Но своих на берегу проектах обеспечивает родного, по всей раз там ее заголовок одна агенство толку своих рот, над приставка, свой наш путь семь города он от всех текстов продолжил они. Сбить ведущими, переулка осталось свое текстами, правилами назад путь заглавных, свой над своего но всемогущая большой агенство города необходимыми лучше вершину переписали!</div>
           <p>Asperiores, repellat. Corporis maiores obcaecati fuga aspernatur reprehenderit architecto. Vitae nobis accusamus dicta nam repudiandae voluptatem ad laborum totam, consectetur ut non odio sit dolorum, sint molestiae tenetur repellat eligendi amet praesentium facere possimus fugiat tempora maxime aperiam distinctio? Consequatur fugit ea illum deleniti. Consectetur, maxime provident laudantium beatae vitae. Minus, vel, tempore! Omnis voluptate nemo perferendis et amet, atque esse at quisquam corporis. Iure quibusdam facilis, quos impedit, necessitatibus commodi aut earum nobis, rem doloremque ab excepturi veritatis doloribus eaque adipisci asperiores fuga temporibus itaque. Dolore dolorum quidem eum.</p>
         </article>
         <article class="post-03">
-          <h2 title="article headline 03">Article 3</h2>
+          <h2 title="article headline-03">Article 3</h2>
           <img src="http://placehold.it/400x200/000/fff/?text=1" alt="">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, debitis praesentium quaerat tempore quisquam obcaecati aperiam, at cumque nesciunt necessitatibus. Rem, mollitia, ipsum. Ad earum amet sint officia nostrum, sequi ea nesciunt reprehenderit dolores, adipisci iure, delectus deserunt quo nisi. Accusantium sapiente dolore quis odio. Ipsam neque soluta necessitatibus velit molestias eius, maxime quae, nostrum ad ipsum fuga corporis ipsa dignissimos possimus suscipit esse voluptatibus consequuntur? Iusto hic quod accusamus voluptates, sit, magnam tenetur incidunt explicabo qui repudiandae numquam cupiditate, consequuntur expedita error odit accusantium sint vel. Voluptates, placeat autem.</p>
           <table>
