@@ -130,7 +130,7 @@ window.jQuery || document.write('<script src="./lib/jquery/jquery.min.js"><\/scr
 
 - ***jQuery*** : 속도가 DOM Script보다는 느리지만 사용이 간편하다
 
-- *** `</body>` 앞에 <script> 선언*** : 가장 속도가 빠르다
+- *** `</body>` 앞에 `<script>` 선언*** : 가장 속도가 빠르다
 
 
 **- Case 0. Legacy DOM Script**
