@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <title>jQuery CSS 스타일링</title>
   <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
     .demo {
       font-size: 2rem;
       letter-spacing: 0.03em;
@@ -15,6 +22,9 @@
       border: 3px solid currentColor;
       margin: 1em;
       border-radius: 0.3125rem;
+    }
+    .brand {
+      transition: all .3s ease;
     }
   </style>
   <script src="lib/jquery.min.js"></script>
