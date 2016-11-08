@@ -3,17 +3,17 @@ jQuery.noConflict();
 
 // $ 전역 변수를 포기하는 대신 다른 별칭(Alias) 변수에 jQuery를 참조하여
 // 사용할 수 있다.
-var $j = jQuery.noConflict();
-console.log('$j:', $j().constructor === jQuery);
+// var $j = jQuery.noConflict();
+// console.log('$j:', $j().constructor === jQuery);
 
 // 아래와 같이 코드를 입력하면 $, jQuery 전역 변수를 모두 포기!
-console.log('jQuery is:', jQuery);
-jQuery.noConflict(true);
-console.log('after noConflict - jQuery is:und', jQuery);
+// console.log('jQuery is:', jQuery);
+// jQuery.noConflict(true);
+// console.log('after noConflict - jQuery is:und', jQuery);
 
 // <head> 내에서 호출할 경우 사용하는 패턴
-jQuery.noConflict(true)(function($) {
-// jQuery(function($) {
+// jQuery.noConflict(true)(function($) {
+jQuery(function($) {
   'use strict';
   // $ === jQuery
 

@@ -17,8 +17,10 @@
     console.log('%c------------------------------', 'color: #3d9a21');
     window.addEventListener('DOMContentLoaded', function() {
       var body = $('body');
-      console.log(body);
+      var headline = $('#headline');
+      // console.log(body);
       body.classList.add('body-element');
+      headline.style.display = 'none';
     });
   </script>
   <!-- jQuery 라이브러리 호출 -->
@@ -26,6 +28,8 @@
   <script src="js/jquery-excute-in-head.js"></script>
 </head>
 <body>
+
+  <div id="headline">headline</div>
 
 <script src="js/jquery-core.js"></script>
 </body>
