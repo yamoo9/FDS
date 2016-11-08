@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 버전 공유</title>
+  <!-- jQuery 라이브러리 호출 -->
+  <!-- jQuery v1 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <!-- jQuery v3 -->
+  <script src="lib/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+
+// jQuery v3
+(function($){
+  'use strict';
+  console.log('jQuery version:', $().jquery);
+})(jQuery.noConflict(true));
+
+
+
+// jQuery v1
+(function($){
+  'use strict';
+  console.log('jQuery version:', $().jquery);
+})(jQuery);
+</script>
+</body>
+</html>
