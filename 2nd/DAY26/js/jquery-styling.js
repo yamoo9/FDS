@@ -69,6 +69,35 @@ var $brand = $('.brand');
     'border-radius':  '0.3125rem'
   });
 
+  // jQuery 이벤트 설정
+  $brand.on('click', function(){
+    // console.log(this); // <h1 class="brand">
+    // var $brand = $(this).css({
+    // // $brand.css({
+    //   'width': function(idx, current_width){
+    //     var changed_width = global.parseFloat(current_width, 10) + 100 + 'px';
+    //     // console.log(current_width, changed_width);
+    //     return changed_width;
+    //   },
+    //   'height': function(idx, current_height){
+    //     var changed_height = global.parseFloat(current_height, 10) + 50 + 'px';
+    //     // console.log(current_height, changed_height);
+    //     return changed_height;
+    //   }
+    // });
+
+    var props = $brand.css(['font-size', 'width', 'word-spacing']);
+    var html_string = ['<h3>brand properties</h3>'];
+
+    for ( var prop in props ) {
+      // html_string.push(`<p><code>${prop}: ${props[prop]}</code></p>`);
+      html_string.push("<p><code>" + prop + ": " + props[prop] + "</code></p>");
+    }
+
+    $('.you').html(html_string.join(''));
+
+  });
+
 // GET
 // console.log( $brand.css('font-size') );
 // var brand_font_size = $brand.css('font-size');
@@ -78,20 +107,20 @@ var $brand = $('.brand');
 // jQuery를 사용하여 1초 마다 글자 크기가 3단계까지 변신하는 제목을 구현하시오. //
 //////////////////////////////////////////////////////////////////
 
-var count        = 0;
-var delay        = 1000;
-var max_count    = 5;
-var change_value = 20;
+// var count        = 0;
+// var delay        = 1000;
+// var max_count    = 5;
+// var change_value = 20;
 
-// 초기 변수 값을 조건에 맞게 변화
-// 총 max_count에 맞도록 설정
-while( count++ < max_count ) {
-  window.setTimeout(function() {
-    var current_font_size = parseInt($brand.css('font-size'),10);
-    current_font_size += change_value;
-    $brand.css('font-size', current_font_size + 'px');
-  }, delay * count);
-}
+// // 초기 변수 값을 조건에 맞게 변화
+// // 총 max_count에 맞도록 설정
+// while( count++ < max_count ) {
+//   window.setTimeout(function() {
+//     var current_font_size = parseInt($brand.css('font-size'),10);
+//     current_font_size += change_value;
+//     $brand.css('font-size', current_font_size + 'px');
+//   }, delay * count);
+// }
 
 
 })(this, this.jQuery);
