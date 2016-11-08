@@ -77,7 +77,7 @@ var boxes = document.querySelectorAll('.box');
 ---
 **CDN사용**
 
-- **jquery.js** :  nomal 버전
+- **jquery.js** :  normal 버전
 
 - **jquery.slim.js** :  Ajax, Effects, Deprecated(현재 사용이 권장되지 않는 코드) 제외
 
