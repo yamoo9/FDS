@@ -43,4 +43,27 @@
     box_width -= 10;
   });
 
+}); // (jQuery)
+
+(function($){
+  'use strict';
+
+  $('.box').on('click', function(e){
+    e.stopPropagation();
+    $(this)
+      .width(function(i, v) {
+        return v += (v + v)/10;
+      })
+      .height(function(i, v) {
+        return v += (v + v)/10;
+      })
+      .offset(function(i, v) {
+        var c_half_h = $(this).height()/40;
+        return {
+          'top': v.top - c_half_h,
+          'left': v.left + 10
+        }
+      });
+  });
+
 })(jQuery);

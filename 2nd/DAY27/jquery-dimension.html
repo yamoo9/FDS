@@ -5,11 +5,18 @@
   <meta charset="UTF-8">
   <title>jQuery Box One Click</title>
   <style>
-    body {
+    body.demo-box {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+    }
+    .box-out-wrapper {
+      position: relative;
+    }
+    .box-wrapper {
+      position: static;
+      border: 10px solid;
     }
     .box {
       box-sizing: border-box;
@@ -38,12 +45,16 @@
 </head>
 <body>
 
-<div class="box">Box</div>
-<div class="box">Box</div>
-<div class="box">Box</div>
-<div class="box">Box</div>
-<div class="box">Box</div>
-<div class="box">Box</div>
+<div class="box-out-wrapper">
+  <div class="box-wrapper">
+    <div class="box">Box</div>
+    <div class="box">Box</div>
+    <div class="box">Box</div>
+    <div class="box">Box</div>
+    <div class="box">Box</div>
+    <div class="box">Box</div>
+  </div>
+</div>
 
 <script src="js/jquery-dimension.js"></script>
 </body>
