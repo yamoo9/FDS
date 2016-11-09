@@ -2,6 +2,9 @@
 (function(global, $){
   'use strict';
 
+  var emp = new Audio();
+  emp.src = 'media/Eton-Messy-Presents.mp3';
+
   // jQuery 인스턴스 메소드 === jQuery.fn의 메소드
   // jQuery {} 인스턴스 객체를 만들어야 사용 가능한 메소드
   // 인라인 스타일을 설정하는 jQuery 인스턴스 메소드 .css()
@@ -60,13 +63,14 @@
   function playDisk() {
     is_click = !is_click;
     $(this).find('.album-disk').addClass('play').removeClass('move');
+    emp.play();
   }
 
   function stopDisk() {
     if (is_click === true) {
       $(this).find('.album-disk').removeClass('play').addClass('stop');
+      emp.pause();
     }
   }
-
 
 })(this, this.jQuery);
