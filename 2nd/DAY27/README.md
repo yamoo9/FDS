@@ -44,6 +44,7 @@
   - 객체스타일로 .css에 전달
   - 함수에 인자를 두개받도록 하면 속성제목의 **현재속성값** 이 두번째 인자에 들어간다.
   - 단위가 필요할경우 함수내에서 텍스트 처리해 10px 등으로 리턴해야 한다.
+
 ---
 ### 1-2. 요소에 클래스 추가/제거 : jQueryObj.`addClass()` .`removeClass()`
 - http://api.jquery.com/category/manipulation/class-attribute/
@@ -135,6 +136,7 @@ JS 클래스추가 함수부
 #### 이벤트 할당함수 jQueryObj.on( `'어떤이벤트?' , 실행할함수` );
   - 실행결과가 jQueryObj(자기자신)을 반환하기 때문에 메소드 체이닝 가능
   - 객체리터럴 가능 {'이벤트속성':함수이름, '이벤트속성':함수이름, ...}
+  
 ---
 ### 1-3. 요소가 클래스를 가졌나? : jQueryObj.`hasClass()`
 - http://api.jquery.com/hasClass/
@@ -151,6 +153,7 @@ JS 클래스추가 함수부
   - return : boolean
   - 주 사용처는 조건문
   - Native : .classList.contains('클래스명')
+  
 ---
 ### 1-4. 스위치로 사용하는 클래스를 편하게 추가/제거 :   - jQueryObj.`toggle()`
 - http://api.jquery.com/toggleClass/
@@ -175,6 +178,7 @@ JS 클래스추가 함수부
   - if + remove + add 함수를 합친 기능
   - 변수로 넣어준 클래스가 있으면 빼주고, 없으면 넣어준다
   - Native : .classList.toggle('클래스명')
+  
 ---
 ### 1-5. 박스사이즈 content-box only : jQueryObj.`width()` .`height()`
 - http://api.jquery.com/width/ , http://api.jquery.com/height/
@@ -219,17 +223,19 @@ JS 클래스추가 함수부
 #### 현재사이즈를 함수로 받아 처리
   - jQueryObj.width( `function(index,size)` )
   - 두번째 변수로 현재 사이즈를 숫자로 받을 수 있다.
+  
 ---
 ### 1-6. 박스사이즈 content+padding  : jQueryObj.`innerWidth()` .`innerHeight()`
   - http://api.jquery.com/innerHeight/ , http://api.jquery.com/innerWidth/
 
-  #### 값 가져오기
+#### 값 가져오기
     - () 안에 변수 안넣으면 get으로 동작
 
-  #### 값 설정하기
+#### 값 설정하기
     - 숫자,문자,함수를 넣으면 set으로 동작
     - 값 설정시 padding은 유지되고 content의 길이를 줄여 지정값으로 크기맞춤.
     - 함수는 두번째 변수가 현재값을 받음
+    
 ---
 ### 1-7. 박스사이즈 content+padding+border+(margin) : jQueryObj.`outerWidth()` .`outerHeight()`
   - http://api.jquery.com/outerHeight/ , http://api.jquery.com/outerWidth/
@@ -245,6 +251,7 @@ JS 클래스추가 함수부
 #### 값 설정하기
     - 숫자,문자,함수를 넣으면 set으로 동작
     - 함수는 두번째 변수가 현재값을 받음
+    
 ---
 ### 1-8. 객체의 document 기준 offset : jQueryObj.`offset()`
   - http://api.jquery.com/offset/
@@ -262,6 +269,7 @@ JS 클래스추가 함수부
 
 #### 함수로 값 설정하기
     - 두번째 변수가 객체형으로 `{top:값, left:값}` 현재값을 받으므로 함수내에서도 `변수명.top` 등으로 접근해야 함.
+    
 ---
 ### 1-9. 객체의 offset-parent 기준 offset : jQueryObj.`position()`
   - http://api.jquery.com/position/
@@ -275,10 +283,12 @@ JS 클래스추가 함수부
 
 #### 값 설정하는 기능이 없다
     - 따라서 chaining 도 불가능하다.
+    
 ---
 ### 1-10. 객체의 offset parent 찾기 : jQueryObj.`offsetParent()`
   - http://api.jquery.com/offsetParent/
 #### return : parent jQuery객체
+
 ---
 ### 1-11. 스크롤바의 현재위치  : jQueryObj.`scrollTop()` .`scrollLeft()`
   - http://api.jquery.com/scrollLeft/ , http://api.jquery.com/scrollTop/
@@ -297,14 +307,12 @@ JS 클래스추가 함수부
       - 요소에 ID달고 `a href="#hash"` 로 이동시키기
       - 감싼박스를 relative하고 요소.position() 값을 scroll함수에 넘겨주기 : 부모의 margin/padding 이슈 있음.
       - 스크롤이 페이지 첫부분부터 시작이면 offset() : 부모의 margin/padding 이슈 있음.
+        - f.jonghoon  
 
 #### 즉시이동이 아니라 애니메이션처럼 이동하기
-    - jQuery의 animate 함수 안에서 스크롤 위치를 지정한다.
-      - http://api.jquery.com/animate/
-      - .animate( `{속성제목:바꿀값} , 실행시간ms`, '움직임패턴' )
-      - 추가 움직임패턴 갤러리(.js 추가 로드 필요) : http://easings.net/ko
-      - 필요한 확장 easing js라이브러리 : http://gsgd.co.uk/sandbox/jquery/easing/
+    - jQuery의 animate 함수 안에서 스크롤 위치를 지정한다. (1-12 에서 더 설명.)
     - 또는 CSS활용 animate를 직접 작성.
+    
 ---
 ### 1-12. 쉬운 애니메이션 : jQueryObj.`animate()`
   - http://api.jquery.com/animate/
