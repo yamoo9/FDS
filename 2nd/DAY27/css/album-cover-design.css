@@ -29,7 +29,7 @@ body {
   left: 80px;
 }
 .album-disk.move {
-  animation: moveDisk 1s ease-out 1.2s forwards;
+  animation: moveDisk 1s ease-out forwards;
 }
 .album-disk.stop {
   opacity: 1;
@@ -49,6 +49,7 @@ body {
     left: 220px;
   }
 }
+
 @keyframes moveDisk {
   0% {
     opacity: 1;
@@ -59,6 +60,7 @@ body {
     left: 80px;
   }
 }
+
 @keyframes playDisk {
   0% {
     transform: rotate(0deg);
@@ -67,12 +69,13 @@ body {
     transform: rotate(360deg);
   }
 }
+
 @keyframes stopDisk {
   0% {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
   90% {
-    transform: rotate(20deg);
+    transform: rotate(-20deg);
   }
   100% {
     transform: rotate(0deg);

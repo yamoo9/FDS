@@ -46,22 +46,20 @@
 
   // 객체 리터럴 활용
   $album.on({
-    'click'     : moveDisk,
-    'mouseenter': playDisk,
-    'mouseleave': stopDisk
+    'mouseenter': moveDisk,
+    'click'     : playDisk,
+    'dblclick'  : stopDisk
   });
 
   var is_click = false;
 
   function moveDisk() {
-    is_click = !is_click;
     $(this).find('.album-disk').addClass('move');
   }
 
   function playDisk() {
-    if (is_click === true) {
-      $(this).find('.album-disk').addClass('play').removeClass('move');
-    }
+    is_click = !is_click;
+    $(this).find('.album-disk').addClass('play').removeClass('move');
   }
 
   function stopDisk() {
