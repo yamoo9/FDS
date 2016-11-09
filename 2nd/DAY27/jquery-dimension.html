@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery Box One Click</title>
+  <style>
+    body {
+      display: flex;
+    }
+    .box {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background: #333;
+      color: #fff;
+    }
+    .clicked {
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: default;
+      background: #aaa;
+      color: #6c6c6c;
+    }
+  </style>
+  <script src="../Modules/JS/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="box clicked">Box</div>
+<div class="box">Box</div>
+<div class="box">Box</div>
+<div class="box">Box</div>
+<div class="box">Box</div>
+<div class="box">Box</div>
+
+<script src="js/jquery-dimension.js"></script>
+</body>
+</html>
