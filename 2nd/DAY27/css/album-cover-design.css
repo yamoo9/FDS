@@ -25,8 +25,22 @@ body {
   animation: moveVinyl 1s ease-out 0.3s forwards;
 }
 .album-disk {
-  animation: moveDisk 1s ease-out 1.2s forwards, rotation 2.2s linear infinite;
+  opacity: 0;
+  left: 80px;
 }
+.album-disk.move {
+  animation: moveDisk 1s ease-out 1.2s forwards;
+}
+.album-disk.stop {
+  opacity: 1;
+  animation: stopDisk 0.45s ease-out forwards;
+}
+.album-disk.play {
+  opacity: 1;
+  left: 80px;
+  animation: playDisk 2.2s linear infinite;
+}
+
 @keyframes moveVinyl {
   0% {
     left: 0;
@@ -37,17 +51,30 @@ body {
 }
 @keyframes moveDisk {
   0% {
+    opacity: 1;
     left: 0;
   }
   100% {
+    opacity: 1;
     left: 80px;
   }
 }
-@keyframes rotation {
+@keyframes playDisk {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes stopDisk {
+  0% {
+    transform: rotate(360deg);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
