@@ -73,4 +73,97 @@
     }
   }
 
-})(this, this.jQuery);
+}); // (this, this.jQuery)
+
+
+(function(global, $){
+  'use strict';
+
+  ////////////////////////////////////
+  // jQuery class attirbute Methods //
+  ////////////////////////////////////
+  // .addClass()
+  // .removeClass()
+  // .hasClass()
+  // .toggleClass()
+
+  $('.album img')
+    .addClass('its-image')
+    .addClass(function(index, current_class) {
+      // 0, 1, 2
+      if ( index % 2 ) {
+        return current_class += ' 2nd';
+      }
+    })
+    // .removeAttr('class');          // 속성 제거
+    // .removeClass();                // 값만 모두 제거
+    // .removeClass('2nd its-image'); // 제거할 클래스 이름 설정
+    .removeClass(function(index, current_class) {
+      var remove_class_name = '2nd';
+      var reg               = new RegExp(remove_class_name);
+      if ( reg.test(current_class) ) {
+        return remove_class_name;
+      }
+    });
+
+    // --------------------------------------------------------------------------------
+    // .removeClass(function(){})
+
+    // $( "li:last" ).removeClass(function() {
+    //   return $( this ).prev().attr( "class" );
+    // });
+
+    // var $li = $('li');
+    // var $li_last = $li.last();
+    // var $li_last_2nd = $li.eq($li.length - 2);
+    // $li_last.removeClass( $li_last_2nd.attr('class') );
+
+    // --------------------------------------------------------------------------------
+    // .hasClass()
+
+    $('.demo-container *').addClass(function(index, current_class) {
+      // console.log(this); // DOM Object
+
+      // console.time('native');
+      // Native
+      // if ( this.classList.contains('album-cover') ) {
+      //   return 'source-cover-stream';
+      // }
+      // console.timeEnd('native');
+
+      // console.time('jQuery');
+      // jQuery
+      if ( $(this).hasClass('album-vinyl') ) {
+        return 'source-vinyl-stream';
+      }
+      // console.timeEnd('jQuery');
+    });
+
+    // --------------------------------------------------------------------------------
+    // .toggleClass()
+
+    $('.album').on('click', function() {
+      // Native
+      var vinyl = this.querySelector('.album-vinyl');
+      vinyl.classList.toggle('toggle');
+      // ---------------------------------------------
+      // if ( vinyl.classList.contains('toggle') ) {
+      //   vinyl.classList.remove('toggle');
+      // } else {
+      //   vinyl.classList.add('toggle');
+      // }
+
+      // jQuery
+      var $vinyl = $(this).find('.album-vinyl');
+      $vinyl.toggleClass('toggle');
+      // ---------------------------------------------
+      // if ( $vinyl.hasClass('toggle') ) {
+      //   $vinyl.removeClass('toggle');
+      // } else {
+      //   $vinyl.addClass('toggle');
+      // }
+
+    });
+
+
+}); // (this, this.jQuery)

@@ -24,6 +24,11 @@ body {
   z-index: 10;
   animation: moveVinyl 1s ease-out 0.3s forwards;
 }
+.album-vinyl.toggle {
+  left: 212px;
+  animation: initial;
+}
+
 .album-disk {
   opacity: 0;
   left: 80px;
@@ -40,7 +45,6 @@ body {
   left: 80px;
   animation: playDisk 2.2s linear infinite;
 }
-
 @keyframes moveVinyl {
   0% {
     left: 0;
@@ -49,7 +53,6 @@ body {
     left: 220px;
   }
 }
-
 @keyframes moveDisk {
   0% {
     opacity: 1;
@@ -60,7 +63,6 @@ body {
     left: 80px;
   }
 }
-
 @keyframes playDisk {
   0% {
     transform: rotate(0deg);
@@ -69,13 +71,9 @@ body {
     transform: rotate(360deg);
   }
 }
-
 @keyframes stopDisk {
   0% {
-    transform: rotate(-360deg);
-  }
-  90% {
-    transform: rotate(-20deg);
+    transform: rotate(-65deg);
   }
   100% {
     transform: rotate(0deg);
