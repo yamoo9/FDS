@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS Album Cover Design</title>
+  <style>
+  body {margin: 0;}
+  .demo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #7e7e7e, #363636);
+  }
+
+  .album {
+    position: relative;
+    height: 244px;
+    width: 320px;
+  }
+  .album * {
+    position: absolute;
+  }
+  .album-cover {
+    z-index: 100;
+    box-shadow: 0 0 10px hsla(0,0%,0%,.85);
+  }
+  .album-vinyl {
+    z-index: 10;
+    animation: moveVinyl 1s ease-out 0.3s forwards;
+  }
+  .album-disk {
+    animation: moveDisk 1s ease-out 1.2s forwards, rotation 2.2s linear infinite;
+  }
+
+  @keyframes moveVinyl {
+    0% { left: 0; }
+    100% { left: 220px; }
+  }
+  @keyframes moveDisk {
+    0% { left: 0; }
+    100% { left: 80px; }
+  }
+  @keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="demo-container">
+    <div class="album">
+      <img
+        class="album-cover"
+        src="images/Cover.jpg"
+        srcset="images/Cover@2x.jpg 2x"
+        alt="cover"
+        width="244"
+        height="244">
+      <img
+        class="album-vinyl"
+        src="images/vinyl.png"
+        srcset="images/vinyl@2x.png"
+        alt="disk"
+        width="42"
+        height="245">
+      <img
+        class="album-disk"
+        src="images/disk.png"
+        srcset="images/disk@2x.png"
+        alt="disk"
+        width="243"
+        height="243">
+    </div>
+  </div>
+
+</body>
+</html>
