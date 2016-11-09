@@ -1,5 +1,5 @@
 ###### Front-End Develop SCHOOL
 
-# DAY 26
+# DAY 27
 
 - __jQuery__: Basic
