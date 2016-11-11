@@ -164,10 +164,11 @@ body {
 
 .ui-carousel-tabpanel {
   position: absolute;
-  z-index: 10;
   top: 0;
   left: 0;
   opacity: 0; }
+  .ui-carousel-tabpanel.trans {
+    transition: all 0.6s; }
   .ui-carousel-tabpanel.active {
     z-index: 100;
     opacity: 1; }
