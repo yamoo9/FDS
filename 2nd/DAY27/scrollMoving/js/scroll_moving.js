@@ -20,7 +20,30 @@ jQuery(function($) {
     // http://easings.net/ko
     $doc.animate({
       'scrollTop': $target.offset().top - scroll_menu_ul_height
-    }, 1500, 'easeOutElastic');
+    }, 400, 'easeInOutCirc');
   });
 
 });
+
+// .css()
+// .addClass()
+// .removeClass()
+// .hasClass()
+// .toggleClass()
+// .width()
+// .height()
+// .innerWidth()
+// .innerHeight()
+// .outerWidth()
+// .outerHeight()
+// .outerWidth(true)
+// .outerHeight(true)
+// .offset()
+// .offsetParent()
+// .position()
+// .scrollTop()
+// .scrollLeft()
+// .animate()
+// ※ jQuery Eading Plugin <- 의존 모듈 관리
+// $ npm i jquery-easing
+// cp node_modules/jquery-easing/jquery.easing.1.3.js js/jquery.easing.js

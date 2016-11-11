@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>`jQuery.prototype.radioClass` Method</title>
+  <script src="../../UI Carousel/lib/jquery.min.js"></script>
+  <!-- <script src="./jquery.radioClass.js"></script> -->
+  <script>
+    (function(global){
+      'use strict';
+      // ----------------------
+      // Native JavaScript
+      // ----------------------
+      // hasClass(el, class_name)
+      function hasClass(el, class_name) {
+        // @el {element_node}
+        // @class_name {string}
+        var el_classes = el.className.split(' ');
+        for ( var i=0, l=el_classes.length; i<l; i++ ) {
+          var _class = el_classes[i];
+          if( _class === class_name) {
+            return true;
+          }
+        }
+        return false;
+      }
+      // addClass(el, class_name)
+      function addClass(el, class_name) {
+        if ( !hasClass(el, class_name) ) {
+          el.className += ' ' + class_name;
+        }
+      }
+      // removeClass(el[, class_name]
+      function removeClass(el, class_name) {
+        class_name = class_name || '*';
+        if ( class_name === '*' ) {
+          // 모든 클래스 속성 제거
+          el.className = '';
+        }
+        else {
+          if ( hasClass(el, class_name) ) {
+            // 해당 클래스 속성이 있다면 제거
+            var el_classes = el.className.split(' ');
+            var filter_classes = [];
+            for ( var i=0, l=el_classes.length; i<l; i++ ) {
+              var _class = el_classes[i];
+              if( _class !== class_name) {
+                filter_classes.push(_class);
+              }
+            }
+            el.className = filter_classes.join(' ');
+          }
+        }
+      }
+      // toggleClass(el, class_name)
+      function toggleClass(el, class_name) {
+        // 클래스 속성 유무를 조건 검증, hasClass()
+        if ( hasClass(el, class_name) ) {
+          // 클래스 속성이 있으면 제거, removeClass()
+          removeClass(el, class_name);
+        } else {
+          // 클래스 속성이 없으면 추가, addClass()
+          addClass(el, class_name);
+        }
+      }
+      // radioClass(el, class_name)
+
+      global.hasClass    = hasClass;
+      global.addClass    = addClass;
+      global.removeClass = removeClass;
+      global.toggleClass = toggleClass;
+
+    })(this);
+  </script>
+</head>
+<body>
+
+  <nav class="navigation indicator footer-navi">
+    <ul>
+      <li><a href="">one</a></li>
+      <li><a href="">two</a></li>
+      <li><a href="">three</a></li>
+      <li><a href="">four</a></li>
+    </ul>
+  </nav>
+
+<script>
+(function(global, $){
+  'use strict';
+
+  // Native
+  var indicator = document.querySelector('nav');
+  var has_class_indicator = hasClass(indicator, 'indicator');
+  // console.log(has_class_indicator);
+
+  addClass(indicator, 'fds');
+  addClass(indicator, 'fds');
+  addClass(indicator, 'fds');
+
+  document.addEventListener('click', function() {
+    // if ( indicator.className !== '' ) {
+    //   removeClass(indicator);
+    // }
+    toggleClass(indicator, 'jquery');
+  });
+
+  // jQuery
+
+})(this, this.jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<people>
+  <person>
+    <name>Hop Aguilar</name>
+    <tel>03424 685907</tel>
+    <mail>vestibulum.Mauris.magna@Cras.org</mail>
+  </person>
+  <person>
+    <name>Hedley Carlson</name>
+    <tel>00508 366442</tel>
+    <mail>eros@accumsan.com</mail>
+  </person>
+  <person>
+    <name>Oleg Heath</name>
+    <tel>07643 049450</tel>
+    <mail>sed@ipsum.net</mail>
+  </person>
+  <person>
+    <name>Knox Shelton</name>
+    <tel>07791 030362</tel>
+    <mail>a@aliquetsemut.edu</mail>
+  </person>
+  <person>
+    <name>Hashim Oneill</name>
+    <tel>06850 809083</tel>
+    <mail>morbi@porttitor.org</mail>
+  </person>
+</people>

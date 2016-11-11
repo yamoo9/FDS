@@ -73,7 +73,7 @@
     }
   }
 
-}); // (this, this.jQuery)
+}(this, this.jQuery));
 
 
 (function(global, $){
