@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>`jQuery.prototype.radioClass` Method</title>
   <script src="../../UI Carousel/lib/jquery.min.js"></script>
-  <!-- <script src="./jquery.radioClass.js"></script> -->
+  <script src="./jquery.radioClass.js"></script>
   <script>
     (function(global){
       'use strict';
@@ -103,6 +103,10 @@
         // pre_el = el;
       }
 
+      /**
+       * --------------------------------
+       * global 속성으로 외부에 공개
+       * ----------------------------- */
       global.hasClass    = hasClass;
       global.addClass    = addClass;
       global.removeClass = removeClass;
@@ -112,7 +116,7 @@
       /**
        * --------------------------------
        * Element.prototype 확장 (객체 확장)
-       * 메소드 체이닝 (return ?)
+       * 메소드 체이닝 (return this)
        * ----------------------------- */
       Element.prototype.hasClass = function(class_name) {
         return hasClass(this, class_name);
@@ -152,29 +156,46 @@
 (function(global, $){
   'use strict';
 
+  // ------------------------------------------------------------
   // Native
-  var indicator = document.querySelector('nav');
-  var has_class_indicator = indicator.hasClass('indicator');
-  // console.log(has_class_indicator);
+  // var indicator = document.querySelector('nav');
+  // var has_class_indicator = indicator.hasClass('indicator');
+  // // console.log(has_class_indicator);
 
-  indicator.addClass('fds');
-  indicator.addClass('fds');
-  indicator.addClass('fds');
+  // indicator.addClass('fds');
+  // indicator.addClass('fds');
+  // indicator.addClass('fds');
 
-  document.addEventListener('click', function() {
-    indicator.toggleClass('jquery');
-  });
+  // document.addEventListener('click', function() {
+  //   indicator.toggleClass('jquery');
+  // });
 
-  var indicator_links = indicator.querySelectorAll('a');
-  var radioActiveClass = function(ev) {
-    ev.preventDefault();
-    radioClass(ev.target, 'radio');
-  };
-  indicator_links.forEach(function(link) {
-    link.addEventListener('click', radioActiveClass);
-  });
+  // var indicator_links = indicator.querySelectorAll('a');
+  // var radioActiveClass = function(ev) {
+  //   ev.preventDefault();
+  //   radioClass(ev.target, 'radio');
+  // };
+  // indicator_links.forEach(function(link) {
+  //   link.addEventListener('click', radioActiveClass);
+  // });
 
+  // ------------------------------------------------------------
   // jQuery
+  // BAD
+  $('nav a').on('click', function(e) {
+    e.preventDefault();
+    $(this).radioClass('active');
+  });
+  // GOOD
+  var $nav_links = $('nav a');
+  var radioActiveClass4jQuery = function(e) {
+    e.preventDefault();
+    this.radioClass('active');
+  };
+  $.each($nav_links, function(index) {
+    var $link = $nav_links.eq(index);
+    $link.on('click', $.proxy($link, radioActiveClass4jQuery));
+  });
 
 })(this, this.jQuery);
 </script>
