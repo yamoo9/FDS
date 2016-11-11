@@ -21,6 +21,8 @@
     this.$carousel_headline = null;
     this.$carousel_tablist  = null;
     this.$carousel_tabs     = null;
+    this.$button_group      = null;
+    this.$carousel_tabpanel_contents = null;
 
     // this는 생성된 ui_Carousel 객체 인스턴스
     this.init(selector);
@@ -34,8 +36,27 @@
     this.$carousel_tablist  = this.$carousel.children('ul').wrap('<div/>').parent();
     this.$carousel_tabs     = this.$carousel_tablist.find('a');
     // 역할별 스타일링 되는 클래스 설정
+    this.createPrevNextButtons();
+    this.createTabpanelWrapper();
     this.settingClass();
     // this.settingAria();
+  };
+
+  ui_Carousel.prototype.createPrevNextButtons = function() {
+    var button_group = ['<div>',
+      '<button type="button"></button>',
+      '<button type="button"></button>',
+    '</div>'].join('');
+    this.$button_group = $(button_group).insertAfter( this.$carousel_tablist );
+  };
+
+  ui_Carousel.prototype.createTabpanelWrapper = function() {
+    var widget = this;
+    widget.$carousel_tabpanel_contents = widget.$carousel.children().last().children();
+    $.each(widget.$carousel_tabpanel_contents, function(index) {
+      var $tabpanel_content = widget.$carousel_tabpanel_contents.eq(index);
+      $tabpanel_content.wrap('<figure/>');
+    });
   };
 
   ui_Carousel.prototype.settingClass = function() {
@@ -43,6 +64,11 @@
     this.$carousel_headline.addClass('ui-carousel-headline');
     this.$carousel_tablist.addClass('ui-carousel-tablist');
     this.$carousel_tabs.addClass('ui-carousel-tab');
+    this.$button_group.addClass('ui-carousel-button-group');
+    this.$button_group.children().first().addClass('ui-carousel-prev-button');
+    this.$button_group.children().last().addClass('ui-carousel-next-button');
+    this.$carousel_tabpanel_contents.parent().addClass('ui-carousel-tabpanel');
+    this.$carousel_tabpanel_contents.closest('div').addClass('ui-carousel-tabpanel-wrapper');
   };
 
   ui_Carousel.prototype.events = function() {
@@ -58,8 +84,10 @@
   ui_Carousel.prototype.viewTabpanel = function(index, e) {
     // index에 해당되는 탭패널 활성화
     // 인디케이터 라디오클래스 활성화
-    e.preventDefault();
-    console.log(this, index);
+    if ( this.jquery && this.hasClass('ui-carousel-tab') ) {
+      e.preventDefault();
+    }
+    console.log(index);
   };
 
   global.ui_Carousel = ui_Carousel;
