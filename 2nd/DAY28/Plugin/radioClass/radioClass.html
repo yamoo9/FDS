@@ -12,7 +12,8 @@
       // ----------------------------------
       // Native JavaScript
       // ----------------------------------
-      // classList 지원 유무에 따른 조건 분기
+      // 1. classList 지원 유무에 따른 조건 분기 (함수형)
+      // 2. Element.prototype 확장 (네이티브 객체 확장, 권장 X)
       // ----------------------------------
       var hasClass, addClass, removeClass, toggleClass;
 
@@ -25,7 +26,9 @@
           el.classList.add(class_name);
         };
         removeClass = function(el, class_name) {
-          el.classList.remove(class_name);
+          class_name = class_name || '*';
+          if ( class_name === '*' ) { el.className = ''; }
+          else { el.classList.remove(class_name); }
         };
         toggleClass = function(el, class_name) {
           el.classList.toggle(class_name);
@@ -89,10 +92,31 @@
 
       // radioClass(el, class_name)
 
-      global.hasClass    = hasClass;
-      global.addClass    = addClass;
-      global.removeClass = removeClass;
-      global.toggleClass = toggleClass;
+      // global.hasClass    = hasClass;
+      // global.addClass    = addClass;
+      // global.removeClass = removeClass;
+      // global.toggleClass = toggleClass;
+
+      /**
+       * --------------------------------
+       * Element.prototype 확장 (객체 확장)
+       * 메소드 체이닝 (return ?)
+       * ----------------------------- */
+      Element.prototype.hasClass = function(class_name) {
+        return hasClass(this, class_name);
+      };
+      Element.prototype.addClass = function(class_name) {
+        addClass(this, class_name);
+        return this;
+      };
+      Element.prototype.removeClass = function(class_name) {
+        removeClass(this, class_name);
+        return this;
+      };
+      Element.prototype.toggleClass = function(class_name) {
+        toggleClass(this, class_name);
+        return this;
+      };
 
     })(this);
   </script>
@@ -114,18 +138,15 @@
 
   // Native
   var indicator = document.querySelector('nav');
-  var has_class_indicator = hasClass(indicator, 'indicator');
+  var has_class_indicator = indicator.hasClass('indicator');
   // console.log(has_class_indicator);
 
-  addClass(indicator, 'fds');
-  addClass(indicator, 'fds');
-  addClass(indicator, 'fds');
+  indicator.addClass('fds');
+  indicator.addClass('fds');
+  indicator.addClass('fds');
 
   document.addEventListener('click', function() {
-    // if ( indicator.className !== '' ) {
-    //   removeClass(indicator);
-    // }
-    toggleClass(indicator, 'jquery');
+    indicator.toggleClass('jquery');
   });
 
   // jQuery
