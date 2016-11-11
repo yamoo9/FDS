@@ -30,12 +30,13 @@
   // ui_Carousel 생성자 함수 정의
   function ui_Carousel(selector) {
     // 초기 생성자 함수의 역할
-    this.$active_index               = 0;
+    this.carousel_radio              = 700 / 1200;
+    this.active_index                = 0;
     this.$carousel                   = null;
     this.$carousel_headline          = null;
     this.$carousel_tablist           = null;
     this.$carousel_tabs              = null;
-    this.$button_group               = null;
+    this.$carousel_button_group      = null;
     this.$carousel_tabpanel_contents = null;
 
     // this는 생성된 ui_Carousel 객체 인스턴스
@@ -57,7 +58,7 @@
     this.createPrevNextButtons();
     this.createTabpanelWrapper();
     this.settingClass();
-    // this.settingAria();
+    this.settingAria();
   };
 
   ui_Carousel.fn.createPrevNextButtons = function() {
@@ -65,7 +66,7 @@
       '<button type="button"></button>',
       '<button type="button"></button>',
     '</div>'].join('');
-    this.$button_group = $(button_group).insertAfter( this.$carousel_tablist );
+    this.$carousel_button_group = $(button_group).insertAfter( this.$carousel_tablist );
   };
 
   ui_Carousel.fn.createTabpanelWrapper = function() {
@@ -82,19 +83,41 @@
     this.$carousel_headline.addClass('ui-carousel-headline');
     this.$carousel_tablist.addClass('ui-carousel-tablist');
     this.$carousel_tabs.addClass('ui-carousel-tab');
-    this.$button_group.addClass('ui-carousel-button-group');
-    this.$button_group.children().first().addClass('ui-carousel-prev-button');
-    this.$button_group.children().last().addClass('ui-carousel-next-button');
+    this.$carousel_button_group.addClass('ui-carousel-button-group');
+    this.$carousel_button_group.children().first().addClass('ui-carousel-prev-button');
+    this.$carousel_button_group.children().last().addClass('ui-carousel-next-button');
     this.$carousel_tabpanel_contents.parent().addClass('ui-carousel-tabpanel');
     this.$carousel_tabpanel_contents.closest('div').addClass('ui-carousel-tabpanel-wrapper');
   };
 
+  ui_Carousel.fn.settingAria = function() {
+    console.log('setting finished WAI-ARIA.');
+  };
+
   ui_Carousel.fn.events = function() {
     var widget = this;
+    var $carousel = widget.$carousel;
     var $tabs = widget.$carousel_tabs;
+    var $buttons = widget.$carousel_button_group.children();
+
+    // buttons event
+    $buttons.on('click', function() {
+      if ( this.className === 'ui-carousel-prev-button' ) {
+        widget.viewTabpanel(widget.active_index - 1);
+      } else {
+        widget.viewTabpanel(widget.active_index + 1);
+      }
+    });
+
+    // tabs event
     $.each($tabs, function(index) {
       var $tab = $tabs.eq(index);
       $tab.on('click', $.proxy(widget.viewTabpanel, widget, index));
+    });
+
+    // resize event
+    $(global).on('resize', function() {
+      $carousel.height( $carousel.width() * widget.carousel_radio );
     });
   };
 
@@ -103,11 +126,18 @@
     // 조건 확인을 통해 브라우저의 기본 동작 차단
     if (e) { e.preventDefault(); }
     // 활성화된 인덱스를 사용자가 클릭한 인덱스로 변경
-    this.$active_index = index;
+    this.active_index = index;
+    if ( this.active_index < 0 ) {
+      this.active_index = this.$carousel_tabs.length - 1;
+    }
+    if ( this.active_index > this.$carousel_tabs.length - 1 ) {
+      this.active_index = 0;
+    }
+    console.log(this.active_index);
     // 인디케이터 라디오클래스 활성화
-    this.$carousel_tabs.eq(this.$active_index).parent().radioClass('active');
+    this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
     // index에 해당되는 탭패널 활성화
-    this.$carousel_tabpanel_contents.eq(this.$active_index).parent().radioClass('active');
+    this.$carousel_tabpanel_contents.eq(this.active_index).parent().radioClass('active');
   };
 
   // 모듈 외부에 공개
