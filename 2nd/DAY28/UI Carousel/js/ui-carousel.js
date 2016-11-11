@@ -46,12 +46,20 @@
   };
 
   ui_Carousel.prototype.events = function() {
-    this.$carousel_tabs.on('click', this.viewTabpanel);
+    var widget = this;
+    var $tabs = widget.$carousel_tabs;
+
+    $.each($tabs, function(index) {
+      var $tab = $tabs.eq(index);
+      $tab.on('click', $.proxy(widget.viewTabpanel, $tab, index));
+    });
   };
 
-  ui_Carousel.prototype.viewTabpanel = function(index) {
+  ui_Carousel.prototype.viewTabpanel = function(index, e) {
     // index에 해당되는 탭패널 활성화
     // 인디케이터 라디오클래스 활성화
+    e.preventDefault();
+    console.log(this, index);
   };
 
   global.ui_Carousel = ui_Carousel;
