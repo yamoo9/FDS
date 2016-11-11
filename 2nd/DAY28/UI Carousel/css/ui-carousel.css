@@ -1,2 +1,18 @@
 @charset "UTF-8";
 /*! ui-carousel.css © yamoo9.net, 2016 */
+.readable-hidden, .ui-carousel-headline {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0; }
+  .readable-hidden.focusable:focus, .focusable.ui-carousel-headline:focus {
+    overflow: visible;
+    position: static;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0; }
