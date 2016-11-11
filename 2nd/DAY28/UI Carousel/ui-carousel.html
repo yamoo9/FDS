@@ -20,10 +20,10 @@
     <h1 class="ui-carousel-headline">Beats Solo3 Wireless On-Ear Headphones – Rose Gold</h1>
     <div role="tablist" class="ui-carousel-tablist">
       <ul role="presentation">
-        <li><a class="ui-carousel-tab active" class="ui-carousel-tab" href role="tab" aria-label="Headphone View Front"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View Front"></a></li>
         <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 1"></a></li>
         <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 2"></a></li>
-        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 3"></a></li>
+        <li><a class="ui-carousel-tab active" href role="tab" aria-label="Headphone View 3"></a></li>
         <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 4"></a></li>
         <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 5"></a></li>
         <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 6"></a></li>
@@ -66,5 +66,24 @@
     </div>
   </article>
 
+  <article id="bs2-headphone">
+    <h3>bs3 headline</h3>
+    <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </article>
+
+<script>
+(function(global, $){
+  'use strict';
+
+  var bs2 = new ui_Carousel('#bs2-headphone');
+
+  console.log('bs2.constructor === ui_Carousel', bs2.constructor === ui_Carousel);
+
+})(this, this.jQuery);
+</script>
 </body>
 </html>
