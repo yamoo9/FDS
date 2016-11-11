@@ -90,12 +90,24 @@
         };
       }
 
+      var pre_el = null;
       // radioClass(el, class_name)
+      function radioClass(el, class_name) {
+        // 설정될 클래스 이름이 유니크해야 한다.
+        // 기존에 설정된 클래스 이름을 제거해야 한다.
+        if (pre_el) {
+          removeClass(pre_el, class_name);
+        }
+        // el 요소에는 class_name 추가
+        addClass( (pre_el = el), class_name);
+        // pre_el = el;
+      }
 
-      // global.hasClass    = hasClass;
-      // global.addClass    = addClass;
-      // global.removeClass = removeClass;
-      // global.toggleClass = toggleClass;
+      global.hasClass    = hasClass;
+      global.addClass    = addClass;
+      global.removeClass = removeClass;
+      global.toggleClass = toggleClass;
+      global.radioClass  = radioClass;
 
       /**
        * --------------------------------
@@ -115,6 +127,10 @@
       };
       Element.prototype.toggleClass = function(class_name) {
         toggleClass(this, class_name);
+        return this;
+      };
+      Element.prototype.radioClass = function(class_name) {
+        radioClass(this, class_name);
         return this;
       };
 
@@ -147,6 +163,15 @@
 
   document.addEventListener('click', function() {
     indicator.toggleClass('jquery');
+  });
+
+  var indicator_links = indicator.querySelectorAll('a');
+  var radioActiveClass = function(ev) {
+    ev.preventDefault();
+    radioClass(ev.target, 'radio');
+  };
+  indicator_links.forEach(function(link) {
+    link.addEventListener('click', radioActiveClass);
   });
 
   // jQuery
