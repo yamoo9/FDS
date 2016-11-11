@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="en">
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>Carousel UI Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/ui-carousel.css">
   <script src="lib/jquery.min.js"></script>
   <script src="lib/jquery.easing.min.js"></script>
@@ -11,16 +12,58 @@
 </head>
 <body>
 
-  <article class="ui-carousel">
-    <h1 class="ui-carousel-headline">Carousel Component</h1>
-    <nav role="tablist" class="tab-list">
+  <p class="readable-hidden" id="bs3-headphone-desc">
+    This is Carousel Component "Beats Solo3 Wireless On-Ear Headphones – Rose Gold" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus molestiae tenetur dolores, aliquam debitis blanditiis asperiores consequatur vitae voluptate repellendus.
+  </p>
+
+  <article id="bs3-headphone" class="ui-carousel" aria-describedby="bs3-headphone-desc">
+    <h1 class="ui-carousel-headline">Beats Solo3 Wireless On-Ear Headphones – Rose Gold</h1>
+    <div role="tablist" class="ui-carousel-tablist">
       <ul role="presentation">
-        <li><a href role="tab" aria-label="indicator-01-desc.">indicator</a></li>
-        <li><a href role="tab" aria-label="indicator-02-desc.">indicator</a></li>
-        <li><a href role="tab" aria-label="indicator-03-desc.">indicator</a></li>
-        <li><a href role="tab" aria-label="indicator-04-desc.">indicator</a></li>
+        <li><a class="ui-carousel-tab active" class="ui-carousel-tab" href role="tab" aria-label="Headphone View Front"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 1"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 2"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 3"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 4"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 5"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 6"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 7"></a></li>
+        <li><a class="ui-carousel-tab" href role="tab" aria-label="Headphone View 8"></a></li>
       </ul>
-    </nav>
+    </div>
+    <div class="ui-carousel-button-group" role="group">
+      <button type="button" class="ui-carousel-prev-button" aria-label="previous content"></button>
+      <button type="button" class="ui-carousel-next-button" aria-label="next content"></button>
+    </div>
+    <div role="group" class="ui-carousel-tabpanel-wrapper">
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2.jpeg" alt="MNET2">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV1.jpeg" alt="MNET2_AV1">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV1.jpeg" alt="MNET2_AV1">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV2.jpeg" alt="MNET2_AV2">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV3.jpeg" alt="MNET2_AV3">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV4.jpeg" alt="MNET2_AV4">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV5.jpeg" alt="MNET2_AV5">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV6.jpeg" alt="MNET2_AV6">
+      </figure>
+      <figure class="ui-carousel-tabpanel" role="tabpanel">
+        <img src="images/MNET2_AV7.jpeg" alt="MNET2_AV7">
+      </figure>
+    </div>
   </article>
 
 </body>
