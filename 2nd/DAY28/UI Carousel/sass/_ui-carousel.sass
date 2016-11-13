@@ -79,7 +79,7 @@ body
 // ----------------------------------------------------
 // ui-carousel
 .ui-carousel
-  overflow: hidden
+  // overflow: hidden
   position: relative
   flex: 0 1 1200px
   // width: 1200px
@@ -177,24 +177,23 @@ body
   overflow: hidden
   position: absolute
   top: 0
-  left: 0
-  width: 100%
+  left: 50%
+  transform: translateX(-50%)
+  width: 90%
   height: 100%
   text-align: center
+  figure
+    margin: 0
   img
-    margin-top: 30px
-    width: 50%
+    width: 60%
     height: auto
 
 .ui-carousel-tabpanel
-  margin: 0
-  float: left
-  // height: 100%
-  width: 100%
-  // position: absolute
-  // top: 0
-  // left: 0
-  // opacity: 0
-  // &.active
-  //   z-index: 100
-  //   opacity: 1
+  position: absolute
+  top: 0
+  left: 0
+  opacity: 0
+  transition: all 0.6s
+  &.active
+    z-index: 100
+    opacity: 1

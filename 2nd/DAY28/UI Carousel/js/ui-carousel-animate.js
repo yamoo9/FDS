@@ -93,12 +93,19 @@
     this.$carousel_button_group.addClass('ui-carousel-button-group');
     this.$carousel_button_group.children().first().addClass('ui-carousel-prev-button');
     this.$carousel_button_group.children().last().addClass('ui-carousel-next-button');
-    this.$carousel_tabpanel_contents.parent().addClass('ui-carousel-tabpanel trans');
+    this.$carousel_tabpanel_contents.parent().addClass('ui-carousel-tabpanel');
     this.$carousel_tabpanel_contents.closest('div').addClass('ui-carousel-tabpanel-wrapper');
   };
 
   ui_Carousel.fn.settingSliding = function() {
-    this.carousel_mask_width = this.$carousel.find('.ui-carousel-tabpanel-wrapper').width();
+    this.$carousel.height( this.$carousel.width() * this.carousel_radio );
+    var $tabpanel = this.$carousel.find('.ui-carousel-tabpanel');
+    var $tabpanel_wrapper = $tabpanel.parent();
+    $tabpanel
+      .width( $tabpanel_wrapper.width() )
+      .height( $tabpanel_wrapper.width() * this.carousel_radio );
+    this.carousel_mask_width = $tabpanel.width();
+    $tabpanel_wrapper.width(this.carousel_mask_width * $tabpanel.length);
   };
 
   ui_Carousel.fn.settingAria = function() {
@@ -114,9 +121,9 @@
     // buttons event
     $buttons.on('click', function() {
       if ( this.className === 'ui-carousel-prev-button' ) {
-        widget.nextPanel();
-      } else {
         widget.prevPanel();
+      } else {
+        widget.nextPanel();
       }
     });
 
@@ -124,12 +131,6 @@
     $.each($tabs, function(index) {
       var $tab = $tabs.eq(index);
       $tab.on('click', $.proxy(widget.viewTabpanel, widget, index));
-    });
-
-    // resize event
-    $(global).on('resize', function() {
-      widget.settingSliding();
-      $carousel.height( $carousel.width() * widget.carousel_radio );
     });
   };
 
@@ -155,6 +156,9 @@
     if ( this.active_index > carousel_tabs_max ) {
       this.active_index = 0;
     }
+    this.$carousel_tabpanel_contents.eq(this.active_index).parent().parent().stop().animate({
+      'left': this.active_index * -this.carousel_mask_width
+    }, 600, 'easeOutExpo');
     // index에 해당되는 탭패널 활성화
     this.$carousel_tabpanel_contents.eq(this.active_index).parent().radioClass('active');
     // 인디케이터 라디오클래스 활성화
