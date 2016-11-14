@@ -2,6 +2,28 @@
 (function(global, Ajax){
   'use strict';
 
+  global.addEventListener('DOMContentLoaded', parsePageLoad);
+
+  function parsePageLoad() {
+    var page = this.location.hash.replace(/#!/, '');
+    var button;
+    switch(page){
+      case 'txt':
+        button = buttons[0];
+      break;
+      case 'html':
+        button = buttons[1];
+      break;
+      case 'xml':
+        button = buttons[2];
+      break;
+      case 'json':
+        button = buttons[3];
+      break;
+    }
+    AjaxCalling.call(button);
+  }
+
   var buttons  = document.querySelectorAll('.call-ajax-data');
   var print_el = document.querySelector('.ajax-data-result');
 
