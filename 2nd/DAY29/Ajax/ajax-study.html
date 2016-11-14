@@ -11,7 +11,33 @@
       padding: 3em;
       height: 100vh;
     }
-    .call-ajax-data { padding: 1em; border: 0; background: #3a0099; color: #fff; border-radius: 4px; }
+    .call-ajax-data {
+      cursor: pointer;
+      padding: 1em;
+      border: 0;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .call-ajax-data:focus {
+      outline: none;
+      box-shadow: 0 3px 0 hsla(45,100%,50%,.75);
+    }
+    .call-ajax-data:active {
+      position: relative;
+      top: 2px;
+    }
+    .call-ajax-data.data-txt {
+      background: #3a0099;
+    }
+    .call-ajax-data.data-html {
+      background: #3800b7;
+    }
+    .call-ajax-data.data-xml {
+      background: #4f12c9;
+    }
+    .call-ajax-data.data-json {
+      background: #7c4cda;
+    }
     .ajax-data-result {
       border: 8px solid currentColor;
       padding: 2em;
@@ -25,12 +51,32 @@
 </head>
 <body>
 
-  <button type="button" class="call-ajax-data">Call Ajax Data</button>
+  <button
+    type="button"
+    class="call-ajax-data data-txt">
+    call <strong>TXT</strong>
+  </button>
+  <button
+    type="button"
+    class="call-ajax-data data-html">
+    call <strong>HTML</strong>
+  </button>
+  <button
+    type="button"
+    class="call-ajax-data data-xml">
+    call <strong>XML</strong>
+  </button>
+  <button
+    type="button"
+    class="call-ajax-data data-json">
+    call <strong>JSON</strong>
+  </button>
 
   <p class="ajax-data-result">
     버튼을 클릭하면 여기에 불러와진 데이터가 출력됩니다.
   </p>
 
-  <script src="ajax.study.js"></script>
+  <!-- <script src="ajax.study.js"></script> -->
+  <script src="ajax-data-type-calling.js"></script>
 </body>
 </html>
