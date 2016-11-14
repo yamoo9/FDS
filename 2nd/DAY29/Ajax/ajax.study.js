@@ -5,16 +5,16 @@
 
   var createXHR;
 
-  if ( this.XMLHttpRequest ) {
+  if ( global.XMLHttpRequest ) {
     // IE 7+, Modern Web Browsera
     createXHR = function() {
-      return this.XMLHttpRequest();
+      return new global.XMLHttpRequest();
     };
   }
   else {
     // IE 6
     createXHR = function() {
-      return ActiveXObject('Microsoft.XMLHTTP');
+      return new ActiveXObject('Microsoft.XMLHTTP');
     };
   }
 
@@ -22,11 +22,14 @@
 
 })(this);
 
-
 (function(global, Ajax){
   'use strict';
 
-  var xhr = new Ajax();
+  // XMLHttpRequest() 생성자 함수를 바로 사용할 때
+  // var xhr = new Ajax();
+
+  // createXHR() 헬퍼 함수를 사용했을 때
+  var xhr = Ajax();
 
   // 동기(Sync) 방식으로 통신
   // 전달인자 1. `통신 방법`
@@ -78,4 +81,4 @@
   // }, 2000);
 
 
-})(this, this.XMLHttpRequest);
+})(this, this.createXHR);
