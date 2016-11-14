@@ -12,7 +12,7 @@
   function AjaxCalling() {
     var data_type = this.classList.item(1);
     // Ajax 설정
-    var xhr       = new XMLHttpRequest(),
+    var xhr       = new Ajax(),
         method    = 'GET',
         url       = ('./data/' + data_type).replace(/-/, '.');
     xhr.open(method, url);
@@ -34,15 +34,27 @@
           // print_el.innerHTML = 'print xml data type';
           var xml_doc = this.responseXML;
           var people = xml_doc.getElementsByTagName('person');
+          var html_template = '';
+          var random_face = [
+            'a13200acf57530e5b390fab35d176fc765ce7dfe_full.jpg',
+            'a139201eecad23108dc4a2b1453ffa74a9e51387_full.jpg',
+            'a140c48360e863efeedd9214bfbbf2f242733a5e_full.jpg',
+            'a1588ac83bdfa073f368694378a91e8b2ab49260_full.jpg',
+            'a171aafc8b7c861795b17483293c26e36cf4215c_full.jpg'
+          ];
           for ( var i=0, l=people.length; i<l; i++ ) {
             var person = people[i];
-            var person_name = person.getElementsByTagName('name')[0].firstChild.nodeValue;
-            var person_tel  = person.getElementsByTagName('tel')[0].firstChild.nodeValue;
-            var person_mail = person.getElementsByTagName('mail')[0].firstChild.nodeValue;
-            console.log(person_name);
-            console.log(person_tel);
-            console.log(person_mail);
+            var person_name = person.querySelector('name').textContent;
+            var person_tel  = person.querySelector('tel').textContent;
+            var person_mail = person.querySelector('mail').textContent;
+            html_template += '<ul class="xml-list">';
+            html_template +=    '<li><img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a1/'+ random_face[i] +'" alt="avatar" width="92" height="92" /></li>';
+            html_template +=    '<li>'+ person_name +'</li>';
+            html_template +=    '<li>'+ person_tel +'</li>';
+            html_template +=    '<li>'+ person_mail +'</li>';
+            html_template += '</ul>';
           }
+          print_el.innerHTML = html_template;
         break;
         case 'json':
           print_el.innerHTML = 'print json data type';
