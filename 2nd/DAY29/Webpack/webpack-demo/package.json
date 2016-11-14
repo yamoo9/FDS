@@ -1,0 +1,13 @@
+{
+  "name": "webpack-study",
+  "version": "1.0.0",
+  "description": "About Webpack Module Bundler",
+  "scripts": {
+    "start": "http-server -p 9090 -o -a localhost"
+  },
+  "author": "yamoo9",
+  "devDependencies": {
+    "jquery": "^3.1.1",
+    "webpack": "^1.13.3"
+  }
+}
