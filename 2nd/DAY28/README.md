@@ -72,7 +72,7 @@ addClass = function(el, class_name) {
 #### removeClass( `el, class_name` )
 - `el`에 `class_name`이 있으면 삭제, 기존class는 유지
 - `el`에 `class_name`이 없으면 무효
-- `class_name`에 ***** 문자를 주거나 공백일 경우 모든 클래스를 삭제 : **||** 사용해 기본값으로 설정.
+- `class_name`에 * 문자를 주거나 공백일 경우 모든 클래스를 삭제 : **||** 사용해 기본값으로 설정.
 ```js
 //modern 브라우저
 removeClass = function(el, class_name) {
@@ -141,6 +141,7 @@ radioClass = function(class_name) {
   return this;
 }
 ```
+---
 ### 1-2 구형 브라우저 고려
 브라우저가 **classList** 를 지원하는 경우/아닌경우를 나눠 조건분기하는 예제.
 ```js
@@ -157,6 +158,7 @@ else{
   toggleClass = function(...){...}  
 }
 ```
+---
 ### 1-3 객체.prototype 확장형 작성방법 (=플러그인 코드라고도 부름)
 - element.prototype 에 추가하면 `dom객체.hasclass(class_name)` 으로 사용
 - this 를 이용
@@ -311,51 +313,150 @@ HTML에는 최소내용만 받고 감싸는 div나 class, aria 등은 JS에서 �
   </div>
 </article>
 ```
-#### 약속대로 적고 JS모듈에 ID를 넘기면 blueprint처럼 만들어주게.
+#### 약속대로 적고 JS모듈에 ID를 넘기면 blueprint처럼 만들게.
 ```js
 var bs3 = new ui_Carousel('#bs3-headphone');
 bs3.viewTabpanel(3);
 ```
 #### JS모듈 동작순서 (객체형)
-- 초기화 : 요소찾기 + 객체화
+- 포토슬라이드화 할 요소를 HTML에서 찾아오기
+- 객체화 (new ~)
 - 감싸는요소, class추가
-- 접근성을 위한 aria추가
-- 화면넘김 동작구현
-  - 네비게이터 버튼 클릭이동
-  - 뒤로/앞으로 버튼 클릭이동
-  - 키보드 좌우 입력이동
+- 접근성 추가 (aria)
+- 동작구현
+  - 네비게이터 버튼 클릭-화면이동
+  - 현재 페이지위치를 네비게이터 버튼에 표시
+  - 뒤로/앞으로 버튼 클릭-화면이동
+  - 키보드 좌우 입력-화면이동
 - 애니메이션
-```js
-function ui_Carousel(){}
-function ui_Carousel.prototype.init(){}
-```
+
 ---
-#### 요소와 클래스 추가
+### 2-4 요약한 객체구조
+메인객체의 프로토타입에 요소추가, 클래스추가, 이벤트추가 기능을넣고 초기변수를 설정.
+- `임의로 상세내용을 생략하고 구조만 남겼으니 꼭 원본 소스를 참고하세요`
 
-#### aria 속성 추가
-- active 요소에 aria-active="true" ?
+#### 포토슬라이드 메인객체
+```js
+function ui_Carousel(selector) {
+  this.carousel_radio  = 700 / 1200;  // 공유할 초기변수들 설정
+  (...기타변수목록 생략...)
+  this.init(selector);                // 요소+class+접근성 추가 메소드
+  this.events();                      // 동작+애니메이션 추가 메소드
+}
+```
 
-#### next/priv 버튼
-- active된 페이지번호에 +1, -1 하는식으로 제어
+#### 메인객체 > init() 설계
+요소, class, aria속성을 자동으로 추가해주는 기능.
+```js
+ui_Carousel.prototype.init = function(selector) {
+  // jQuery로 요소를 찾아 변수에 넣어두고 아래 함수에서 사용.
+  this.$carousel = $(selector);
+
+  // 최소로만 입력받는 바람에 없는요소들 추가
+  this.createPrevNextButtons();
+  this.createTabpanelWrapper();
+
+  // 요소마다 클래스 설정
+  this.settingClass();
+  this.settingSliding();
+
+  // WAI-ARIA 속성 설정 : active 요소에 aria-active="true" 등 접근성 준수
+  this.settingAria();
+}
+```
+- addClass, wrap, setAttribute, insertAfter 등 메소드를 이용.
+- 메소드를 carousel에 직접 추가하지 않고 prototype에다 넣음.
+
+#### 메인객체 > event() 설계
+이전, 다음 버튼과 탭목록 버튼을 눌렀을 때 다른화면을 보여주는 기능.
+```js
+ui_Carousel.prototype.events = function() {
+  var widget    = this;
+  var $carousel = widget.$carousel;
+  (...좌우버튼, 탭버튼 찾아와 변수에 할당중, 생략...)
+
+  // buttons event : 좌우버튼 클릭
+  $buttons.on('click', function() {...});
+
+  // tabs event : 탭버튼 클릭. 실제로는 each로 모든버튼에 on을 건다.
+  $tab.on('click', $.proxy(widget.viewTabpanel, widget, index));
+};
+```
+- proxy(a,b,c) : proxy(함수,this범위,변수) 를 지정하는 jQuery의 bind메소드.
+
+#### 메인객체 > event() > viewTabpanel() 설계
+몇번째 화면을 보여줄 것인가? 핵심 기능임.
+```js
+ui_Carousel.fn.viewTabpanel = function(index, e) {
+  // 사용자가 클릭을 하는 행위가 발생하면 이벤트 객체를 받기 때문에
+  // 조건 확인을 통해 브라우저의 기본 동작 차단
+  if (e) { e.preventDefault(); }
+  // 활성화된 인덱스를 사용자가 클릭한 인덱스로 변경
+  this.active_index = index;
+  var carousel_tabs_max = this.$carousel_tabs.length - 1;
+  // 처음 또는 마지막 인덱스에 해당할 경우 마지막 또는 처음으로 변경하는 조건 처리
+  if ( this.active_index < 0 ) {
+    this.active_index = carousel_tabs_max;
+  }
+  if ( this.active_index > carousel_tabs_max ) {
+    this.active_index = 0;
+  }
+  // index에 해당되는 탭패널 활성화
+  this.$carousel_tabpanel_contents.eq(this.active_index).parent().radioClass('active');
+  // 인디케이터 라디오클래스 활성화
+  this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
+};
+```
+- view 할 페이지의 index를 radioClass('active') 처리해 Class붙임.
+```sass
+.ui-carousel-tabpanel
+  position: absolute
+  top: 0
+  left: 0
+  opacity: 0
+  transition: all 0.6s
+  &.active
+    z-index: 100
+    opacity: 1
+```
+- 위처럼 .active 에 opacity 설정해두면 클래스에 따라 보이게됨.
+
+#### 메인객체 > event() > next/privPanel() 설계
+```js
+  ui_Carousel.fn.nextPanel = function() {
+    this.viewTabpanel(this.active_index + 1);
+  };
+
+  ui_Carousel.fn.prevPanel = function() {
+    this.viewTabpanel(this.active_index - 1);
+  };
+```
+- active된 페이지번호 변수에 +1, -1 하는식으로 제어
 - 무한스크롤 : index 감지해서 마지막인데 다음버튼 누르면 처음값 넣기
-#### 트렌드
-- 미리 다 컴포넌트 만들어뒀다가 붙이는 방식. (react 등)
-- 지금처럼 DOM제어해서 일일이 만드는 방식은 최신은 아님.
 
-### 2-4 전환효과
+### 2-5 전환효과 애니메이션
 #### fade 방식
 - pos abs + opacity : fadein, out 애니메이팅 가능
 - z-index 나 display:none 은 동작하긴 하나 부드러운 애니메이팅 불가.
 - 겹쳐놓고 opacity 조절
+
 #### 밀어주기
 - 옆으로 쌓아놓고 밀어주는 방식 : 애니메이팅 가능
 - 버튼누를시 다음이미지를 출발위치로 이동시킨후 슬라이드한다.
 - 이미지 밀기 방식도 여러방법있고 설계하기 나름.
+
 #### CSS로 애니메이팅
 - CSS 애니메이트 함수는 크로스브라우징 이슈 있음.
 - 빠름
 - JS를 통해 CLASS 주고 빼는 방식으로 사용
+
 #### JS로 애니메이팅
 - jQuery 의 animate 사용
-- 느리지만 호환성 있음
+- (상대적으로)느리지만 사용하기 간편하고 호환성 있음
 - Class를 넣고 빼는 방식을 사용하지 않아도 됨.
+- 야무님 예제에서 사용됨
+```js
+this.$carousel_tabpanel_contents.eq(this.active_index).parent().parent().stop().animate({
+  'left': this.active_index * -this.carousel_mask_width
+}, 600, 'easeOutExpo');
+```
