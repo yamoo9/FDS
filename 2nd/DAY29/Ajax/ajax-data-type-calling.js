@@ -85,11 +85,11 @@
               </ul>
             `);
           });
-
           print_el.innerHTML = json_html_template.join('');
         break;
       }
     }
+    global.location.hash = '!' + type; // '!' hashbang
   }
 
 })(this, this.XMLHttpRequest);
