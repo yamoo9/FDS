@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Ajax - 비동기 통신</title>
+  <style>
+    body {
+      width: 80%;
+      margin: 0 auto;
+      padding: 3em;
+      height: 100vh;
+    }
+    .call-ajax-data { padding: 1em; border: 0; background: #3a0099; color: #fff; border-radius: 4px; }
+    .ajax-data-result {
+      border: 8px solid currentColor;
+      padding: 2em;
+      font-size: 20px;
+      color: #3a0099;
+    }
+    .ajax-data-result.error {
+      color: #a60007;
+    }
+  </style>
+</head>
+<body>
+
+  <button type="button" class="call-ajax-data">Call Ajax Data</button>
+
+  <p class="ajax-data-result">
+    버튼을 클릭하면 여기에 불러와진 데이터가 출력됩니다.
+  </p>
+
+  <script src="ajax.study.js"></script>
+</body>
+</html>

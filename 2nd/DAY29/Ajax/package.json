@@ -1,0 +1,9 @@
+{
+  "name": "Ajax",
+  "version": "1.0.0",
+  "description": "Ajax Study",
+  "scripts": {
+    "start": "http-server -o -a localhost -p 9090"
+  },
+  "author": "yamoo9"
+}
