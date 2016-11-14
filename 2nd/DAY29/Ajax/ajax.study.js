@@ -1,4 +1,28 @@
 /*! ajax.study.js © yamoo9.net, 2016 */
+// IE 6를 고려한 크로스 브라우징 헬퍼 함수 createXHR
+(function(global){
+  'use strict';
+
+  var createXHR;
+
+  if ( this.XMLHttpRequest ) {
+    // IE 7+, Modern Web Browsera
+    createXHR = function() {
+      return this.XMLHttpRequest();
+    };
+  }
+  else {
+    // IE 6
+    createXHR = function() {
+      return ActiveXObject('Microsoft.XMLHTTP');
+    };
+  }
+
+  global.createXHR = createXHR;
+
+})(this);
+
+
 (function(global, Ajax){
   'use strict';
 
