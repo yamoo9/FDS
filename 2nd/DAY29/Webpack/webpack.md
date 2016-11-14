@@ -578,16 +578,43 @@ module.exports = {
 
 -
 
-### 14. jQuery
+### 14. jQuery 라이브러리 모듈
 
 ```sh
 $ npm i -D jquery
 ```
 
 ```js
-// CommonJS
+// CommonJS 모듈 로드 방법
 // var $ = require('jquery');
 
-// ES2015 Module
+// ES2015 모듈 로드 방법
 import $ from 'jquery';
+```
+
+-
+
+### 15. 페이지 별, 번들 (멀티)
+
+```js
+var webpack = require('webpack');
+
+module.exports = {
+
+  entry: {
+    'about'   : './about_page.js',   // <--
+    'home'    : './home_page.js',    // <--
+    'contact' : './contact_page.js'  // <--
+  },
+  output: {
+    path: path.resolve('build/js/'),
+    publicPath: '/public/assets/js/',
+    filename: "[name].js" // <--
+  }
+
+  'plugins': [
+    new webpack.optimize.CommonsChunkPlugin('shared.js')  // <--
+  ]
+
+};
 ```
