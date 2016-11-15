@@ -12,7 +12,7 @@ require('./styles.sass');
 
 // jQuery 의존 모듈 파일 제작
 // CommonJS 방식의 모듈 로드(읽기)
-var result = require('./jquery.ajax.run');
+// var result = require('./jquery.ajax.run');
 
 // 일부러 낸 오류
 // 소스맵을 만들었을 때

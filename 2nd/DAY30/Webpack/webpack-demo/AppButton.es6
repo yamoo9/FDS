@@ -14,7 +14,7 @@ console.log(i); // 'global `i`'
 class AppButton extends HTMLButtonElement {
   constructor(selector) {
     super();
-    selector = selector;
+    this.selector = selector;
   }
   press() {
 

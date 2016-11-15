@@ -1,5 +1,7 @@
 'use strict';
 
+var webpack = require('webpack');
+
 module.exports = {
 
   'entry': ['./entry.js', './app.js'],
@@ -16,6 +18,15 @@ module.exports = {
   // 'devtool': 'source-map',
 
   'module': {
+
+    'preLoaders': [
+      {
+        'test': /\.(js|es6)$/,
+        'exclude': /node_modules/,
+        'loader': 'eslint-loader'
+      }
+    ],
+
     'loaders': [
 
       // babel-loader
@@ -44,6 +55,14 @@ module.exports = {
       }
     ]
   },
+
+  'plugins': [
+    new webpack.optimize.UglifyJsPlugin({
+      'compress': {
+        'warnings': false
+      }
+    })
+  ],
 
   'resolve': {
     'extensions': ['', '.js', '.es6']
