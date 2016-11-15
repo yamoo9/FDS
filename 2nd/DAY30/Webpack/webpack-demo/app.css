@@ -1,5 +1,3 @@
-@import "./grid.css";
-
 html {
   overflow-y: visible;
   -webkit-font-smoothing: antialiased;
@@ -8,6 +6,7 @@ html {
 }
 body {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.6em;
 }
 
+@import "./grid.css";

@@ -1,14 +1,37 @@
 'use strict';
 
-// console.log('__dirname:', __dirname);
-
 module.exports = {
-  // webpack이 번들링을 수행하고자하는 진입 파일
+
   'entry': './entry.js',
-  // 번들링된 출력 파일
+
   'output': {
-    // 'path': __dirname,
-    'path': __dirname + '/js/',
+    'path': __dirname,
     'filename': 'bundle.js'
+  },
+
+  // 관찰 모드
+  // 'watch': true,
+
+  // 디버깅 모드
+  // 'devtool': 'source-map',
+
+  'module': {
+    'loaders': [
+      // style-loader + css-loader
+      {
+        'test': /\.css$/,
+        'exclude': /node_modules/,
+        // 'loader': 'style-loader!css-loader'
+        'loader': 'style!css'
+      },
+
+      // sass-loader
+      {
+        'test': /\.(sass|scss)$/,
+        'exclude': /node_modules/,
+        'loader': 'style!css!sass'
+      }
+    ]
   }
+
 };
