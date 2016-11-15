@@ -618,3 +618,41 @@ module.exports = {
 
 };
 ```
+
+-
+
+### 16. 이미지/폰트 로더
+
+이미지 파일, 폰트 파일을 모두 패키징.
+
+- [url-loader](https://github.com/webpack/url-loader)
+- [file-loader](https://github.com/webpack/file-loader)
+
+```sh
+$ npm i -D url-loader
+```
+
+`webpack.config.js`
+
+```js
+module.exports = {
+
+  'module': {
+    'loaders': [
+      {
+        'test': /\.(png|jpg|woff|eot)/,
+        'exclude': /node_modules/,
+        'loader': 'url-loader?limit=100000'
+      }
+    ]
+  }
+
+}.
+```
+
+`entry.js`
+
+```js
+require('../images/webpack_logo.png');
+```
+
