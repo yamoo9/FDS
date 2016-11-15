@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  'entry': './entry.js',
+  'entry': ['./entry.js', './app.js'],
 
   'output': {
     'path': __dirname,
@@ -17,6 +17,17 @@ module.exports = {
 
   'module': {
     'loaders': [
+
+      // babel-loader
+      {
+        'test': /\.es6$/,
+        'exclude': /node_modules/,
+        'loader': 'babel-loader',
+        'query': {
+          'presets': ['es2015']
+        }
+      },
+
       // style-loader + css-loader
       {
         'test': /\.css$/,
@@ -32,6 +43,10 @@ module.exports = {
         'loader': 'style!css!sass'
       }
     ]
+  },
+
+  'resolve': {
+    'extensions': ['', '.js', '.es6']
   }
 
 };

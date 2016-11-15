@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "About Webpack Module Bundler",
   "scripts": {
-    "start": "http-server -p 9090 -o -a localhost"
+    "start": "webpack-dev-server --open --port 9999"
   },
   "author": "yamoo9",
   "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
     "css-loader": "^0.25.0",
     "jquery": "^3.1.1",
     "node-sass": "^3.12.5",

@@ -44,21 +44,38 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(1);
+	module.exports = __webpack_require__(11);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	// CSS 파일 로드 (번들링: 묶음 용도)
 	// require('!style-loader!css-loader!./app.css');
 	// require('!style!css!./app.css');
-	__webpack_require__(1);
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	__webpack_require__(2);
 	
 	// Sass 파일 로드
 	// require('!style-loader!css-loader!sass-loader!./styles.sass');
 	// require('!style!css!sass!./styles.sass');
-	__webpack_require__(6);
+	__webpack_require__(7);
 	
 	// jQuery 의존 모듈 파일 제작
 	// CommonJS 방식의 모듈 로드(읽기)
-	var result = __webpack_require__(8);
+	var result = __webpack_require__(9);
 	
 	// 일부러 낸 오류
 	// 소스맵을 만들었을 때
@@ -70,18 +87,55 @@
 	
 	// 소스맵 만들기
 	// webpack entry.js bundle.js -d
+	
+	/**
+	 * --------------------------------
+	 * webpack-dev-server
+	 * ----------------------------- */
+	console.log('start webpack-dev-server :D');
+	
+	var i = 'global `i`';
+	var $ = __webpack_require__(10);
+	
+	var $all = $('body *');
+	
+	for (var _i = 0, l = $all.length; _i < l; _i++) {
+	  console.log('in for statement:', _i);
+	}
+	
+	console.log(i); // 'global `i`'
+	
+	var AppButton = function (_HTMLButtonElement) {
+	  _inherits(AppButton, _HTMLButtonElement);
+	
+	  function AppButton(selector) {
+	    _classCallCheck(this, AppButton);
+	
+	    var _this = _possibleConstructorReturn(this, (AppButton.__proto__ || Object.getPrototypeOf(AppButton)).call(this));
+	
+	    selector = selector;
+	    return _this;
+	  }
+	
+	  _createClass(AppButton, [{
+	    key: 'press',
+	    value: function press() {}
+	  }]);
+	
+	  return AppButton;
+	}(HTMLButtonElement);
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(2);
+	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(6)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -98,12 +152,12 @@
 	}
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
-	exports.i(__webpack_require__(4), "");
+	exports.i(__webpack_require__(5), "");
 	
 	// module
 	exports.push([module.id, "html {\n  overflow-y: visible;\n  -webkit-font-smoothing: antialiased;\n  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);\n  font-size: 10px;\n}\nbody {\n  margin: 0;\n  font-size: 1.6em;\n}", ""]);
@@ -112,7 +166,7 @@
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	/*
@@ -168,10 +222,10 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 	
 	
@@ -182,7 +236,7 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -434,16 +488,16 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(7);
+	var content = __webpack_require__(8);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(6)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -460,27 +514,27 @@
 	}
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\n  box-sizing: border-box; }\n  body * {\n    box-sizing: inherit; }\n  body *::before,\n  body *::after {\n    content: '';\n    box-sizing: inherit; }\n\nbody {\n  width: 90%;\n  margin-left: auto;\n  margin-right: auto; }\n", ""]);
+	exports.push([module.id, "body {\n  box-sizing: border-box; }\n  body * {\n    box-sizing: inherit; }\n  body *::before,\n  body *::after {\n    content: '';\n    box-sizing: inherit; }\n\nbody {\n  width: 90%;\n  margin-left: auto;\n  margin-right: auto;\n  background: #ff0; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*! jquery.ajax.run.js © yamoo9.net, 2016 */
 	'use strict';
 	
-	var $      = __webpack_require__(9);
+	var $ = __webpack_require__(10);
 	var people = {};
 	
 	// Ajax using jQuery Library
@@ -488,10 +542,9 @@
 	// Static Methods
 	// Class Methods
 	$.ajax({
-	  url      : 'https://randomuser.me/api/?results=10&gender=female',
-	  dataType : 'json'
-	})
-	.done(function(data) {
+	  url: 'https://randomuser.me/api/?results=10&gender=female',
+	  dataType: 'json'
+	}).done(function (data) {
 	  people.results = data.results; // array
 	});
 	
@@ -499,7 +552,7 @@
 	module.exports = people;
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10723,6 +10776,14 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	console.log('this is app javascript file.');
 
 /***/ }
 /******/ ]);
