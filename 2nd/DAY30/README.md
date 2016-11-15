@@ -7,12 +7,12 @@
 
 ## 1. Webpack복습
 - `touch entry.js` : entry.js형성
-- `cat package.json`: json파일을 커맨드라인에서 볼수 있는 명령어
-- `npm install` : webpack 을 인스톨 하면 node-module생성
+- `cat package.json`: package.json 파일을 커맨드라인에서 볼수 있는 명령어
+- `npm install` : package.json 에 의존성을 체크해서 없는 node-module을 설치
 
 
 ## 2. JQuery의존 모듈 파일 제작 
-#### Commen JS방식의 로드 
+#### Common JS방식의 로드 
 - var $ = require('jquery');
   - node-modues 폴더안에 jquery파일을 불러온다
   - 프론트 환경에서는 쓸수없는 명령어(서버사이드 명령어)
