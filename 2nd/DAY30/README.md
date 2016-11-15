@@ -6,30 +6,30 @@
 - __AngularJS v1.x__: SPA Framework
 
 ## 1. Webpack복습
-- `touch entry.js` : entry.js형성
+- `touch entry.js` : entry.js 생성
 - `cat package.json`: package.json 파일을 커맨드라인에서 볼수 있는 명령어
 - `npm install` : package.json 에 의존성을 체크해서 없는 node-module을 설치
 
 
 ## 2. JQuery의존 모듈 파일 제작 
-#### Common JS방식의 로드 
+#### CommonJS방식의 로드 
 - var $ = require('jquery');
-  - node-modues 폴더안에 jquery파일을 불러온다
+  - node-modules 폴더안에 jquery 파일을 불러온다
   - 프론트 환경에서는 쓸수없는 명령어(서버사이드 명령어)
-  - Webpack을 이용해서 프론트 환경에서도 쓸수있도록 만들어줘야함
+  - Webpack을 이용해서 프론트 환경에서도 쓸수있도록 스크립트 파일 생성
     - webpack entry.js bundle.js (entry.js를 bundle화) 
       -> 프론트에서 사용 가능
     - webpack entry.js bundle.js -p : 압축해서 전달(오래걸리므로 배포할때만 사용하는 것이 좋다)
     - webpack entry.js bundle.js -d : bundle파일을 만들때 디버그를 할수 있는 bundle.js.map 생성
-  - webpack -w entry.js bundle.js :  수정사항이 있어야지만 bundling 을 한다.
+  - webpack -w entry.js bundle.js : 파일을 저장하면 bundling 을 한다.
 ```js
   var $ = require('jquery');
   // 프론트단에서 잘 되는지 확인 : jquery버전 출력
   console.log('$.fn.jquery:',$.fn.jquery);
 ``` 
 
-## 3. Ajax using jQuery Library : 인스턴스를 생성하지 않고 사용하는 메서드
-  (Utility Method,  Static Methods, Class Methods)
+## 3. Ajax using jQuery Library
+- 인스턴스를 생성하지 않고 사용하는 메서드(Utility Method,  Static Methods, Class Methods)
 - jQuery.getScript() : 비동기적으로 스크립트 파일을 불러오는데 다 불러져 오면 실행하겠다.
   * jqueryapi참고 : [링크(ajax)](http://api.jquery.com/category/ajax/low-level-interface/)
   
@@ -109,7 +109,7 @@ body{
 ```js
 // sass 파일 로드 (번들링: 묶음 용도)
 //require('!style-loader!css-loader!sass-loader!./style.css');
-require('!style!css!sass!./style.css');
+require('!style!css!sass!./style.sass');
    ```
 ## 6. Webpack 환경설정(Config)
 - [야무님 Webpack 환경설정(Config)](https://github.com/yamoo9/FDS/blob/master/2nd/DAY30/Webpack/webpack.md#4-webpack-환경설정config)
@@ -156,7 +156,7 @@ module.exports ={
 ##7. Webpack Dev Server 설치
 - [야무님 Webpack Dev Server 설치](https://github.com/yamoo9/FDS/blob/master/2nd/DAY30/Webpack/webpack.md#5-webpack-dev-server-설치)
 - webpack-dev-server
-   : config.js를 사용해서 개발환경을 자동세팅해준다. 자동 bundling (새로고침이 필요없음. 편하다)
+   : webpack.config.js를 사용해서 개발환경을 자동세팅해준다. 자동 bundling (새로고침이 필요없음. 편하다)
 - webpack-dev-server명령어가 아니라 npm start로 구동하고 싶을때 
 
 `packaga.json파일 수정`
@@ -183,7 +183,7 @@ module.exports ={
       //bable-loader
       {
         'test': /\.js$/,
-        'exclude':/nome-modules/,
+        'exclude':/node-modules/,
         'loader':'babel-loader',
         'query': {
           'presets': ['es2015']
@@ -233,7 +233,7 @@ class AppButton extends HTMLButtonElement {
   press() {
 
   }
-  }
+}
 ```
 
 ##9. Webpack + ESLint 프리로더(Pre Loader)
