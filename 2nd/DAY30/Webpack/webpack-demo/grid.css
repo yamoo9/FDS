@@ -1,0 +1,17 @@
+.container {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row::after {
+  content: '';
+  display: block;
+  clera: both;
+}
+
+.column {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
