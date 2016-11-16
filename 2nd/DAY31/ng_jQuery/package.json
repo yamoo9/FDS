@@ -1,0 +1,12 @@
+{
+  "name": "ng_jquery",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "sass": "node-sass -w -r --source-map ./map sass -o css --output-style compressed"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery": "^3.1.1"
+  }
+}
