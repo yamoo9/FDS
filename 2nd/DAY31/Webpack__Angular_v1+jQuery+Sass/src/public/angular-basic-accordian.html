@@ -11,21 +11,30 @@
   <link rel="stylesheet" href="./assets/app.css">
 </head>
 <body data-ng-init="
-
+  accordian_tab_01_show = true;
+  accordian_tab_02_show = false;
+  accordian_tab_03_show = false;
 ">
 
   <a href="/">back</a>
 
-  <h1>angular accordian tab menu</h1>
+  <h1>Angular Accordian Tab Menu</h1>
 
   <div class="ui-accordian">
-    <h3 class="ui-accordian-tab"><a href="">tab 1</a></h3>
-    <div class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
-    <h3 class="ui-accordian-tab"><a href="">tab 2</a></h3>
-    <div class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
-    <h3 class="ui-accordian-tab"><a href="">tab 3</a></h3>
-    <div class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <h3 class="ui-accordian-tab">
+      <a href="" data-ng-click="accordian_tab_01_show = !accordian_tab_01_show">tab 1</a>
+    </h3>
+    <div data-ng-show="accordian_tab_01_show" class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <h3 class="ui-accordian-tab">
+      <a href="" data-ng-click="accordian_tab_02_show = !accordian_tab_02_show">tab 2</a>
+    </h3>
+    <div data-ng-show="accordian_tab_02_show" class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <h3 class="ui-accordian-tab">
+      <a href="" data-ng-click="accordian_tab_03_show = !accordian_tab_03_show">tab 3</a>
+    </h3>
+    <div data-ng-show="accordian_tab_03_show" class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
   </div>
 
+<script src="./assets/app.js"></script>
 </body>
 </html>
