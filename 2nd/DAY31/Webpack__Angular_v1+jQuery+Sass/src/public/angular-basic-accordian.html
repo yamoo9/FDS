@@ -9,30 +9,43 @@
   <title>Angular V1 아코디언 탭 컴포넌트</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./assets/app.css">
+  <style>
+    body { background: {{app_background_color}} }
+  </style>
 </head>
-<body data-ng-init="
-  accordian_tab_01_show = true;
-  accordian_tab_02_show = false;
-  accordian_tab_03_show = false;
+<body
+  data-ng-init="
+  app_version = '1.0.1';
+  app_background_color = '#fff';
+  accordian_tabs = {
+    'one': true,
+    'two': false,
+    'three': false
+  };
 ">
 
   <a href="/">back</a>
 
   <h1>Angular Accordian Tab Menu</h1>
 
+  <button
+    type="button"
+    data-ng-click="app_background_color = '#feccce';"
+    class="chage-body-bg-color">change body element background color.</button>
+
   <div class="ui-accordian">
     <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tab_01_show = !accordian_tab_01_show">tab 1</a>
+      <a href="" data-ng-click="accordian_tabs.one = !accordian_tabs.one">tab 1</a>
     </h3>
-    <div data-ng-show="accordian_tab_01_show" class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <div data-ng-show="accordian_tabs.one" class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
     <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tab_02_show = !accordian_tab_02_show">tab 2</a>
+      <a href="" data-ng-click="accordian_tabs.two = !accordian_tabs.two">tab 2</a>
     </h3>
-    <div data-ng-show="accordian_tab_02_show" class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <div data-ng-show="accordian_tabs.two" class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
     <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tab_03_show = !accordian_tab_03_show">tab 3</a>
+      <a href="" data-ng-click="accordian_tabs.three = !accordian_tabs.three">tab 3</a>
     </h3>
-    <div data-ng-show="accordian_tab_03_show" class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    <div data-ng-show="accordian_tabs.three" class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
   </div>
 
 <script src="./assets/app.js"></script>
