@@ -3,7 +3,6 @@
 # DAY 30
 
 - __Webpack__: Module Bundler
-- __AngularJS v1.x__: SPA Framework
 
 ## 1. Webpack복습
 - `touch entry.js` : entry.js 생성
@@ -11,13 +10,13 @@
 - `npm install` : package.json 에 의존성을 체크해서 없는 node-module을 설치
 
 
-## 2. JQuery의존 모듈 파일 제작 
-#### CommonJS방식의 로드 
+## 2. JQuery의존 모듈 파일 제작
+#### CommonJS방식의 로드
 - var $ = require('jquery');
   - node-modules 폴더안에 jquery 파일을 불러온다
   - 프론트 환경에서는 쓸수없는 명령어(서버사이드 명령어)
   - Webpack을 이용해서 프론트 환경에서도 쓸수있도록 스크립트 파일 생성
-    - webpack entry.js bundle.js (entry.js를 bundle화) 
+    - webpack entry.js bundle.js (entry.js를 bundle화)
       -> 프론트에서 사용 가능
     - webpack entry.js bundle.js -p : 압축해서 전달(오래걸리므로 배포할때만 사용하는 것이 좋다)
     - webpack entry.js bundle.js -d : bundle파일을 만들때 디버그를 할수 있는 bundle.js.map 생성
@@ -26,13 +25,13 @@
   var $ = require('jquery');
   // 프론트단에서 잘 되는지 확인 : jquery버전 출력
   console.log('$.fn.jquery:',$.fn.jquery);
-``` 
+```
 
 ## 3. Ajax using jQuery Library
 - 인스턴스를 생성하지 않고 사용하는 메서드(Utility Method,  Static Methods, Class Methods)
 - jQuery.getScript() : 비동기적으로 스크립트 파일을 불러오는데 다 불러져 오면 실행하겠다.
   * jqueryapi참고 : [링크(ajax)](http://api.jquery.com/category/ajax/low-level-interface/)
-  
+
 ###entry.js만 사용
 `entry.js`
 ```js
@@ -52,7 +51,7 @@ $.ajax({
   }
 });
 ```
-###entry.js / jquery.ajax.run.js 사용 
+###entry.js / jquery.ajax.run.js 사용
 `jquery.ajax.run.js`
  ```js
 var $ = require('jquery');
@@ -72,7 +71,7 @@ exports.people = people;
 `entry.js`
 ```js
 var result = require('./jquery.ajax.run');
-// 위 코드에서 받아오는 값 
+// 위 코드에서 받아오는 값
 //var result = {
 //  'people': people;
 // }
@@ -83,8 +82,8 @@ window.result = result;
 ## 4. Webpack CSS 패키징 로더
  - [야무님 Webpack CSS](https://github.com/yamoo9/FDS/blob/master/2nd/DAY30/Webpack/webpack.md#3-webpack--css-로더)
  - 자바스크립트안에있는 css파일을 불러올 수 있다 ->  internal방식으로 생성
- - CSS에 import한 스타일이 먼저불러오고 그 후에 호출 
- 
+ - CSS에 import한 스타일이 먼저불러오고 그 후에 호출
+
 `entry.js`
 ```js
 // css 파일 로드 (번들링: 묶음 용도)
@@ -157,7 +156,7 @@ module.exports ={
 - [야무님 Webpack Dev Server 설치](https://github.com/yamoo9/FDS/blob/master/2nd/DAY30/Webpack/webpack.md#5-webpack-dev-server-설치)
 - webpack-dev-server
    : webpack.config.js를 사용해서 개발환경을 자동세팅해준다. 자동 bundling (새로고침이 필요없음. 편하다)
-- webpack-dev-server명령어가 아니라 npm start로 구동하고 싶을때 
+- webpack-dev-server명령어가 아니라 npm start로 구동하고 싶을때
 
 `packaga.json파일 수정`
 ```js
@@ -165,11 +164,11 @@ module.exports ={
     "start": "webpack-dev-server --open --port 9999"
   },
 ```
-- 멀티 entry파일도 사용가능 
+- 멀티 entry파일도 사용가능
 
 `webpack.config.js`
 ```js
-  'entry' : ['./entry.js','./app.js'], 
+  'entry' : ['./entry.js','./app.js'],
 ```
 
 ##8. Webpack + Babel (ECMAScript 2015)
@@ -194,7 +193,7 @@ module.exports ={
 ```js
 'module':{
     'loaders': [
-    
+
           // babel-loader
           {
             'test': /\.es6$/,
@@ -207,7 +206,7 @@ module.exports ={
     'resolve': {
     'extensions': ['', '.js', '.es6']
   }
-  
+
 };
 ```
 
