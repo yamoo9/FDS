@@ -59,9 +59,11 @@
       text-shadow: 0 0 3px hsla(0, 0%, 32%, 0.4);
     }
   </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
-<body data-ng-init="bg_color='#5549a6'; is_hidden=!true">
+<body data-ng-cloak data-ng-init="
+  bg_color='#5549a6';
+  is_hidden=!true;
+">
 
   <!--
     Directives & Expressions

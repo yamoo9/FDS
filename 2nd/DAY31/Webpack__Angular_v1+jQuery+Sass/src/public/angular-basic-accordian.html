@@ -17,7 +17,10 @@
   data-ng-init="
   app_version = '1.0.1';
   app_background_color = '#fff';
+  pressed_change_bg_button = false;
   accordian_tabs = {
+    'switch_on': 'three',
+    'app_headline': 'accordian-tabs-headline',
     'one': true,
     'two': false,
     'three': false
@@ -26,28 +29,43 @@
 
   <a href="/">back</a>
 
-  <h1>Angular Accordian Tab Menu</h1>
+  <h1 data-ng-class="accordian_tabs.app_headline">Angular Accordian Tab Menu</h1>
 
   <button
     type="button"
-    data-ng-click="app_background_color = '#feccce';"
-    class="chage-body-bg-color">change body element background color.</button>
+    data-ng-click="app_background_color = '#feccce'; pressed_change_bg_button = !pressed_change_bg_button;"
+    class="chage-body-bg-color"
+    data-ng-class="{
+      'pressed': pressed_change_bg_button,
+      'un-pressed': !pressed_change_bg_button
+    }">
+      <span data-ng-show="!pressed_change_bg_button">change body element background color.</span>
+      <span data-ng-show="pressed_change_bg_button">changed body element background color!</span>
+    </button>
 
-  <div class="ui-accordian">
-    <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tabs.one = !accordian_tabs.one">tab 1</a>
-    </h3>
-    <div data-ng-show="accordian_tabs.one" class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
-    <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tabs.two = !accordian_tabs.two">tab 2</a>
-    </h3>
-    <div data-ng-show="accordian_tabs.two" class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
-    <h3 class="ui-accordian-tab">
-      <a href="" data-ng-click="accordian_tabs.three = !accordian_tabs.three">tab 3</a>
-    </h3>
-    <div data-ng-show="accordian_tabs.three" class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+  <div class="ui-accordian" data-ng-switch="accordian_tabs.switch_on">
+    <div data-ng-switch-when="one">
+      <h3 class="ui-accordian-tab">
+        <a href="" data-ng-click="accordian_tabs.one = !accordian_tabs.one">tab 1</a>
+      </h3>
+      <div data-ng-show="accordian_tabs.one" class="ui-accordian-tabpanel">Molestiae debitis ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    </div>
+    <div data-ng-switch-when="two">
+      <h3 class="ui-accordian-tab">
+        <a href="" data-ng-click="accordian_tabs.two = !accordian_tabs.two">tab 2</a>
+      </h3>
+      <div data-ng-show="accordian_tabs.two" class="ui-accordian-tabpanel">ab maxime voluptatum sit. Nesciunt laborum temporibus recusandae earum iste, tempora. Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    </div>
+    <div data-ng-switch-when="three">
+      <h3 class="ui-accordian-tab">
+        <a href="" data-ng-click="accordian_tabs.three = !accordian_tabs.three">tab 3</a>
+      </h3>
+      <div data-ng-show="accordian_tabs.three" class="ui-accordian-tabpanel">Illo nam sed harum voluptatum rerum, incidunt sapiente iure, nostrum aliquid aliquam molestiae quaerat provident magnam maiores, non corporis facilis repellendus voluptas nisi est. Repudiandae, aliquid temporibus corporis nihil iusto eum, velit nisi cumque incidunt nam provident dicta illum minus dolorem, accusantium labore obcaecati.</div>
+    </div>
   </div>
 
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/angular/angular.js"></script>
 <script src="./assets/app.js"></script>
 </body>
 </html>
