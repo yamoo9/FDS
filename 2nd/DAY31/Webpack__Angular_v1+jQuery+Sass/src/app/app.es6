@@ -9,7 +9,7 @@ require('./sass/app.sass');
 /** JS 파일 로드 ------------------------------------------------------ */
 
 // Node.js 모듈 로드 방법
-// const $       = require('jquery');
+const $       = require('jquery');
 const angular = require('angular');
 
 // ES2015 모듈 로드 방법
@@ -18,3 +18,17 @@ const angular = require('angular');
 
 // console.log($().jquery);
 console.log(angular.version.full);
+
+// ES2015, let keyword Variable
+let $twb = $('#twb');
+let $twb_binding = $('#twb-binding');
+
+// ES2015, Arrow Function
+let twoWayDataBinding = (e)=> {
+  let data = e.target.value;
+  $twb_binding.text(data);
+};
+
+$twb.on('keyup', twoWayDataBinding);
+$twb.trigger('keyup');
+

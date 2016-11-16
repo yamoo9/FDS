@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Webpack + Angular_v1 + Sass + ES2105(Babel) 프로젝트",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "server": "webpack-dev-server",
-    "server-i": "webpack-dev-server --inline",
+    "start": "webpack-dev-server --open --port 9999",
+    "server": "webpack-dev-server --port 9999",
+    "server-i": "webpack-dev-server --inline --port 9999",
     "build-server": "webpack-dev-server --config webpack-build.config.js",
     "build": "webpack --config webpack-build.config.js -p",
     "clear": "rm -rf dist"

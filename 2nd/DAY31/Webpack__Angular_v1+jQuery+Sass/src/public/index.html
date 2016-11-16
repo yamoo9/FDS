@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if !IE]><!-->
-<html lang="ko-KR" dir="ltr">
+<html lang="ko-KR" dir="ltr" data-ng-app>
 <!--<![endif]-->
 <!--[if IE 9]> <html class="no-js lt-ie10 ie9" dir="ltr" lang="ko-KR"> <![endif]-->
 <head>
@@ -10,7 +10,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./assets/app.css">
 </head>
-<body>
+<body data-ng-init="app_name='angularJS V1.5.8'">
+
+  <h1>Angular Version</h1>
+
+  <input type="text" data-ng-model="app_name">
+
+  <!-- Angular Expression -->
+  <h2>AnguarJS의 애플리케이션 이름: {{app_name}}</h2>
+
+  <!-- Angular Directive -->
+  <p data-ng-bind="app_name"></p>
+
+  <hr>
+
+  <h1>jQuery Version</h1>
+
+  <!-- jQuery Version: Two Way Data Binding -->
+  <input type="text" id="twb" value="jQuery Verison Two Way Data Binding">
+  <p id="twb-binding"></p>
 
 <script src="./assets/app.js"></script>
 </body>

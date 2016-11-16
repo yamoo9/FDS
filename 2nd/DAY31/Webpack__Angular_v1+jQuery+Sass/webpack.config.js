@@ -44,7 +44,8 @@ module.exports = {
   // 출력파일 설정
   'output': {
     // webpack-dev-server 에서 사용되는 라이브 번들 출력 경로
-    'publicPath' : path.resolve( CONFIG.ASSETS_DIR ),
+    // 'publicPath' : path.resolve( CONFIG.ASSETS_DIR ),
+    'publicPath' : CONFIG.ASSETS_DIR,
     // 출력파일 경로 설정
     'path'       : path.resolve( `${CONFIG.DIST_DIR+CONFIG.ASSETS_DIR}` ),
     // 번들 1개 파일 설정
