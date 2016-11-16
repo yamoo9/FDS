@@ -8,7 +8,8 @@
     "server-i": "webpack-dev-server --inline --port 9999",
     "build-server": "webpack-dev-server --config webpack-build.config.js",
     "build": "webpack --config webpack-build.config.js -p",
-    "clear": "rm -rf dist"
+    "clear": "rm -rf dist",
+    "jquery-custom-build": "jquery-builder -m -e ajax,deprecated,effects,event-alias > src/jquery.custom.min.js"
   },
   "keywords": ["Angular v1", "jQuery", "Sass", "Webpack", "ECMAScript 2015", "Babel"],
   "author": "yamoo9 <yamoo9@naver.com>",

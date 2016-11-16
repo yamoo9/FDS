@@ -10,11 +10,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./assets/app.css">
 </head>
-<body data-ng-init="app_name='angularJS V1.5.8'">
+<body data-ng-init="
+  app_name = 'angularJS V1.5.8';
+  is_show = false;
+">
 
-  <h1>Angular Version</h1>
+  <h1>Angular Version {{is_show}}</h1>
 
-  <input type="text" data-ng-model="app_name">
+  <button type="button" data-ng-click="is_show=!is_show">toggle Show</button>
+
+  <input type="text" data-ng-show="is_show" data-ng-model="app_name">
 
   <!-- Angular Expression -->
   <h2>AnguarJS의 애플리케이션 이름: {{app_name}}</h2>
@@ -27,7 +32,11 @@
   <h1>jQuery Version</h1>
 
   <!-- jQuery Version: Two Way Data Binding -->
-  <input type="text" id="twb" value="jQuery Verison Two Way Data Binding">
+  <input
+    type="text"
+    id="twb"
+    value="jQuery Verison Two Way Data Binding">
+
   <p id="twb-binding"></p>
 
 <script src="./assets/app.js"></script>
