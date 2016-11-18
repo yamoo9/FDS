@@ -30,7 +30,8 @@ require('angular-route');
 // Angular 모듈을 정의할 때는 반드시 두번째 전달인자 값을 배열로 전달
 // DI: Dependencies Injection
 angular.module('FDS_Utils_Module', []);
-angular.module('FDS_App', ['FDS_Utils_Module']);
+angular.module('FDS_App', ['FDS_Utils_Module', 'ngRoute']);
+
 // angular 컨트롤러 모듈 로드
 require('./controllers/testController');
 // angular 필터 모듈 로드
