@@ -6,12 +6,12 @@
 - npm module로 설치된 jquery와 angular를 매번 bundling 하면서 느려짐.
 - 3가지 방법 [참고](http://webpack.github.io/docs/library-and-externals.html)
 - externals 이용 방법 : webpack.config.js 파일에서 externals 속성을 이용하여 jquery와 angular를 전역변수로부터 받음. script tag에 src를 등록하면 전역변수로 접근이 가능함.
-  ```shell
-  'externals': {
-    'jquery': 'jQuery',
-    'angular': 'angular',
-  },
-  ```
+```shell
+'externals': {
+  'jquery': 'jQuery',
+  'angular': 'angular',
+},
+```
 
 ## 2. angular
 ### Directives
@@ -26,17 +26,17 @@
     `{{ Expression | json:4 }}` : 4는 공백 개수(indent) 값. json 형식으로 값을 확인할 때 사용.
     `{{ Expression | limitTo:3 }}` : 3은 표현하려는 갯수 값.
     `{{ Expression | filter:model }}` : model은 필터시킬 모델. 특정 속성에만 filter를 적용하려면 filter 기준 모델을 model.property와 같이 명시.
-  - custom Filter를 만들 수 있음.
-    ```javascript
-      angular.module('FDS_Utils_Module').filter('capitalize', function() {
-        return function(input, seperator) {
-          seperator = seperator || ' ';
-          return input.split(seperator).map(function(s){
-            return s.replace(/./, function($1){ return $1.toUpperCase(); });
-          }).join(' ');
-        };
-      });
-    ```
+  - custom Filter를 만들 수 있음.<br>
+```js
+  angular.module('FDS_Utils_Module').filter('capitalize', function() {
+    return function(input, seperator) {
+      seperator = seperator || ' ';
+      return input.split(seperator).map(function(s){
+        return s.replace(/./, function($1){ return $1.toUpperCase(); });
+      }).join(' ');
+    };
+  });
+```
 
 ### Scope
   - $root scope 는 app에 종속됨.
