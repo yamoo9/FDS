@@ -33,3 +33,6 @@ angular.module('FDS_Utils_Module', []);
 angular.module('FDS_App', ['FDS_Utils_Module']);
 // angular 컨트롤러 모듈 로드
 require('./controllers/testController');
+// angular 필터 모듈 로드
+require('./filters/capitalizeFilter');
+require('./filters/camelCaseFilter');

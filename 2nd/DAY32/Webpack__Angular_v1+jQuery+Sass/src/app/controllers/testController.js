@@ -78,7 +78,7 @@ function testController($scope) {
     },
   ];
 
-  $scope.app_name     = 'ng1';
+  $scope.app_name     = 'angular js application no1';
   $scope.current_date = '2016-11-18';
   $scope.money        = 243500 + 302010;
   $scope.filtering      = '';
