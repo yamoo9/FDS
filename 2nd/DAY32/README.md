@@ -13,7 +13,7 @@
 },
 ```
 
-## 2. angular
+## 2. Angular
 ### Directives
   - ng-cloak : 로딩 중 {{ }} 를 숨김.
   - ng-repeat : 데이터를 템플릿 요소와 함께 반복 순환함.
