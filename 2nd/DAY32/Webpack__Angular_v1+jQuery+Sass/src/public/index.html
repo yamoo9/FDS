@@ -30,8 +30,10 @@
 ">
 
 <!-- <div class="ng-app"> -->
+<!-- cloak 은폐 : 로딩 중에 {{}}가 노출되지 않는다. -->
 <div class="ng-app" data-ng-cloak>
-  <h1>{{app_name}}</h1>
+  <!-- 대문자(uppercase), 소문자(lowercase) 화 필터 -->
+  <h1>{{ app_name | uppercase | lowercase }}</h1>
   <!-- Angular Filter `Date` -->
   <time datetime="{{current_date}}"> {{ current_date | date: 'yyyy년 MM월 dd일' }} </time>
   <p>
@@ -40,13 +42,23 @@
   <p>
     <span class="number"><strong>number</strong>: {{ money | number }}원</span>
   </p>
-  <input type="text" data-ng-model="order_category">
-  <button
-    data-ng-click="order_reverse = !order_reverse"
-    type="button"
-    class="toggle-reverse-order">Toggle Order</button>
+  <div class="control">
+    <p>
+      <input type="search" data-ng-model="filtering" placeholder="원하는 데이터를 검색하세요.">
+    </p>
+    <p>
+      <input type="text" data-ng-model="order_category" placeholder="정렬하고픈 데이터 이름을 작성하세요.">
+    </p>
+    <p>
+      <button
+        data-ng-click="order_reverse = !order_reverse"
+        type="button"
+        class="toggle-reverse-order">토글 {{ !order_reverse ? '내림차순': '올림차순' }}</button>
+    </p>
+  </div>
   <ul class="people-list">
-    <li data-ng-repeat="person in people | orderBy:order_category:order_reverse">
+    <!-- limitTo, orderBy 필터 -->
+    <li data-ng-repeat="person in people | filter: filtering | orderBy:order_category:order_reverse">
       <div class="person">
         <h3 class="person-name">{{person.name}}</h3>
         <p class="person-age">{{person.age}}</p>
@@ -54,6 +66,9 @@
       </div>
     </li>
   </ul>
+
+  <!-- json 필터: 간격(spacing) -->
+  <pre>{{people | json:4}}</pre>
 </div>
 
 <script src="./assets/app.js"></script>
