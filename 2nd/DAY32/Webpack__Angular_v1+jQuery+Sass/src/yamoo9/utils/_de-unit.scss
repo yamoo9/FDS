@@ -1,0 +1,6 @@
+// --------------------------------
+// de-unit() 함수
+
+@function de-unit($unit) {
+	@return $unit / ($unit * 0 + 1);
+}

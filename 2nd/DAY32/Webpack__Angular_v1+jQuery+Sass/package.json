@@ -1,0 +1,37 @@
+{
+  "name": "webpack-angular-v1-sass-babel-project-kit",
+  "version": "1.0.1",
+  "description": "Webpack + Angular_v1 + Sass + ES2105(Babel) 프로젝트",
+  "scripts": {
+    "start": "webpack-dev-server --open -d",
+    "server": "webpack-dev-server -d",
+    "server-i": "webpack-dev-server --inline -d",
+    "build-server": "webpack-dev-server --config webpack-build.config.js",
+    "build": "webpack --config webpack-build.config.js -p",
+    "clear": "rm -rf dist libs/*",
+    "custom-jquery": "jquery-builder -v 2.1.1 -m -e ajax,deprecated,effects,event-alias > ./libs/jquery.custom.min.js"
+  },
+  "keywords": ["Angular v1", "jQuery", "Sass", "Webpack", "ECMAScript 2015", "Babel"],
+  "author": "yamoo9 <yamoo9@naver.com>",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.10.1",
+    "eslint-loader": "^1.6.1",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "imports-loader": "^0.6.5",
+    "jquery": "^3.1.1",
+    "node-sass": "^3.12.5",
+    "sass-loader": "^4.0.2",
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "angular": "^1.5.8",
+    "lodash": "^4.17.1"
+  }
+}

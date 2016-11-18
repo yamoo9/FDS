@@ -1,0 +1,37 @@
+// --------------------------------
+// position 믹스인
+// --------------------------------
+
+@mixin position($position, $args) {
+	position: $position;
+
+	@if $args != null {
+		@each $dir in top, left, bottom, right, z-index {
+			$i: index($args, $dir);
+
+			@if $i {
+				#{$dir}: nth($args, $i + 1);
+			}
+		}
+	}
+}
+
+// --------------------------------
+// 단축 믹스인
+// --------------------------------
+
+@mixin static {
+	@include position(static, null);
+}
+
+@mixin absolute($args: null) {
+	@include position(absolute, $args);
+}
+
+@mixin relative($args: null) {
+	@include position(relative, $args);
+}
+
+@mixin fixed($args: null) {
+	@include position(fixed, $args);
+}

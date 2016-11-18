@@ -1,0 +1,40 @@
+$navigation-direction: horizontal !default;
+
+// --------------------------------
+// 글로벌 내비게이션 모듈
+
+%nav, %navigation {
+	ul {
+		@include margin(top 0 bottom 0);
+
+		padding-left: 0;
+
+		@extend %cf;
+
+		li {
+			list-style: none;
+			white-space: nowrap;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+%fl {
+	float: left;
+}
+
+// --------------------------------
+// navigation 믹스인
+
+@mixin navigation($direction: horizontal) {
+	@extend %nav;
+
+	li {
+		@if $direction == horizontal {
+			@extend %fl;
+		}
+	}
+}
