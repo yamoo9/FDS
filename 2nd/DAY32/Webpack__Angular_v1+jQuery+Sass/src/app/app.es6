@@ -4,6 +4,15 @@
 /** Sass 파일 로드 -------------------------------------------------------------- */
 require('./sass/app.sass');
 
+(function(global){
+  'use strict';
+
+  var camelCase = function(str) {
+    // return ...
+  };
+
+})(this);
+
 
 /** JS 파일 로드 ---------------------------------------------------------------- */
 // ※ jQuery, Angular를 포함하여 번들하다 보니 Webpack 처리 속도가 5~10초 단위로 걸림

@@ -26,11 +26,31 @@
     {'name': '지성', 'age': 39, 'job': '배우'},
   ];
   order_category = 'name';
-  order_reverse = false;
+  order_reverse  = false;
+  order_obj = [
+    {
+      'category': 'name',
+      'reverse': false
+    },
+    {
+      'category': 'age',
+      'reverse': false
+    },
+    {
+      'category': 'job',
+      'reverse': false
+    },
+  ];
+
 ">
 
 <!-- <div class="ng-app"> -->
 <!-- cloak 은폐 : 로딩 중에 {{}}가 노출되지 않는다. -->
+
+<!-- <pre>
+{{ order_obj | json }}
+</pre> -->
+
 <div class="ng-app" data-ng-cloak>
   <!-- 대문자(uppercase), 소문자(lowercase) 화 필터 -->
   <h1>{{ app_name | uppercase | lowercase }}</h1>
@@ -51,14 +71,32 @@
     </p>
     <p>
       <button
+        data-ng-click="
+          order_category = order_obj[0].category;
+          order_reverse = order_obj[0].reverse = !order_obj[0].reverse;"
+        type="button"
+        class="name_sort">이름 정렬 {{ order_obj[0].reverse ? '내림차순': '올림차순' }}</button>
+      <button
+        data-ng-click="
+          order_category = order_obj[1].category;
+          order_reverse = order_obj[1].reverse = !order_obj[1].reverse;"
+        type="button"
+        class="age_sort">나이 정렬 {{ order_obj[1].reverse ? '내림차순': '올림차순' }}</button>
+      <button
+        data-ng-click="
+          order_category = order_obj[2].category;
+          order_reverse = order_obj[2].reverse = !order_obj[2].reverse;"
+        type="button"
+        class="job_sort">직업 정렬 {{ order_obj[2].reverse ? '내림차순': '올림차순' }}</button>
+      <!-- <button
         data-ng-click="order_reverse = !order_reverse"
         type="button"
-        class="toggle-reverse-order">토글 {{ !order_reverse ? '내림차순': '올림차순' }}</button>
+        class="toggle-reverse-order">토글 {{ !order_reverse ? '내림차순': '올림차순' }}</button> -->
     </p>
   </div>
   <ul class="people-list">
     <!-- limitTo, orderBy 필터 -->
-    <li data-ng-repeat="person in people | filter: filtering | orderBy:order_category:order_reverse">
+    <li data-ng-repeat="person in people | filter:filtering | orderBy:order_category:order_reverse">
       <div class="person">
         <h3 class="person-name">{{person.name}}</h3>
         <p class="person-age">{{person.age}}</p>
@@ -68,7 +106,15 @@
   </ul>
 
   <!-- json 필터: 간격(spacing) -->
-  <pre>{{people | json:4}}</pre>
+  <!-- <pre>{{people | json:4}}</pre> -->
+
+<!-- <pre>(function(global){
+  'use strict';
+
+  var camelCase = function(str) {
+    // return ...
+  };
+})(this);</pre> -->
 </div>
 
 <script src="./assets/app.js"></script>
