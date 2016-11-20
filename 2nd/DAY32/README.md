@@ -21,11 +21,11 @@
 ### Filter & Pipe | Formatting Data
   - Pipe를 통해 데이터를 Filtering, Formatting, Sorting.
   - Pipe는 메서드 체이닝처럼 연속으로 실행 가능
-  - 예문
-    `{{ Expression | orderBy:'key':true }}` : 'key'는 기준이 되는 property명, true/false로 reverse 적용.
-    `{{ Expression | json:4 }}` : 4는 공백 개수(indent) 값. json 형식으로 값을 확인할 때 사용.
-    `{{ Expression | limitTo:3 }}` : 3은 표현하려는 갯수 값.
-    `{{ Expression | filter:model }}` : model은 필터시킬 모델. 특정 속성에만 filter를 적용하려면 filter 기준 모델을 model.property와 같이 명시.
+  - 예문<br>
+    `{{ Expression | orderBy:'key':true }}` : 'key'는 기준이 되는 property명, true/false로 reverse 적용.<br>
+    `{{ Expression | json:4 }}` : 4는 공백 개수(indent) 값. json 형식으로 값을 확인할 때 사용.<br>
+    `{{ Expression | limitTo:3 }}` : 3은 표현하려는 갯수 값.<br>
+    `{{ Expression | filter:model }}` : model은 필터시킬 모델. 특정 속성에만 filter를 적용하려면 filter 기준 모델을 model.property와 같이 명시.<br>
   - custom Filter를 만들 수 있음.<br>
 ```js
   angular.module('FDS_Utils_Module').filter('capitalize', function() {
