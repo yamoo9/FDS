@@ -9,15 +9,15 @@
 - [x] __Task Runner__ ː `Gulp`
 - [x] __Server__ ː `BrowserSync`
 - [x] __JavaScript Bundler__ ː `Webpack`
-- [x] __Transpiler(Compiler)__ ː `Babel or TypeScript`
+- [x] __Transpiler(Compiler)__ ː `Babel`
 - [x] __CSS Pre Processor__ ː `Sass & Sourcemaps`
 - [x] __CSS Autoprefixer__ ː `CSS Browsers Prefix`
 - [x] __HTML Optimizer__ ː `HTML Minification`
 - [x] __Images Optimizer__ ː `Image Optimization`
-- [x] __Sprite Images__ ː `Generate Sprite Images
-- [x] __Icon Fonts__ ː `Generate Icon Fonts
-- [x] __Framework__ ː `Angular v1.x`
-- [x] __Library__ ː `jQuery v3.x`
+- [x] __Sprite Images__ ː `Generate Sprite Images`
+- [x] __Icon Fonts__ ː `Generate Icon Fonts`
+- [ ] __Framework__ ː `Angular v1.x`
+- [ ] __Library__ ː `jQuery v3.x`
 
 -
 
@@ -58,7 +58,7 @@ $ gulp build
 
 ##### 제거 업무
 
-제거 업무가 수행되면 생성된 디렉토리/파일 모두를 제거합니다. 추가로 제거해야 할 디렉토리/파일이 생길 경우, [`config.js`](ProjectKit/config.js) 파일에서 `remove_list`를 찾아 경로를 문자열로 추가합니다.
+제거 업무가 수행되면 생성된 디렉토리/파일 모두를 제거합니다. 추가로 제거해야 할 디렉토리/파일이 생길 경우, [`config.js`](ProjectKit/config.js) 파일에서 [`remove_list`](ProjectKit/config.js#L180)를 찾아 경로를 문자열로 추가합니다.
 
 ```sh
 $ gulp clean
@@ -136,3 +136,9 @@ __사용자 정의 스프라이트시트 SCSS 템플릿 설정__
 }
 {{/each}}
 ```
+
+---
+
+### ECMAScript 2015(ES6)
+
+ES6를 공부하기 쉽게 제작된 [ES6 Cheatsheet](./ECMAScript_2015.md)를 살펴보면서 공부합니다.
