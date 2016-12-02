@@ -2,22 +2,22 @@
 
 # 특강(Special Lecture)
 
-### 프로젝트-킷(ProjectKit) 제작
+### 프로젝트-킷(ProjectKit) 제작 과정 설명 및 사용법
 
-※ 사전에 제작된 프로젝트-킷을 제공하고, 내용을 설명하면서 공부합니다.
+※ 사전에 제작된 프로젝트-킷을 제공하고, 내용을 설명하면서 공부합니다. 프로젝트-킷을 제작하는 과정을 진행하기에는 시간이 너무~ 부족합니다. 그래서 어떻게 구성했으며, 어떤 일을 수행하는지, 어떻게 업무를 추가하는지에 대해 이야기 해봅니다.
 
 - [x] __Task Runner__ ː `Gulp`
 - [x] __Server__ ː `BrowserSync`
 - [x] __JavaScript Bundler__ ː `Webpack`
 - [x] __Transpiler(Compiler)__ ː `Babel`
 - [x] __CSS Pre Processor__ ː `Sass & Sourcemaps`
-- [x] __CSS Autoprefixer__ ː `CSS Browsers Prefix`
+- [x] __CSS Autoprefixer__ ː `Add CSS Browsers Prefix`
 - [x] __HTML Optimizer__ ː `HTML Minification`
 - [x] __Images Optimizer__ ː `Image Optimization`
 - [x] __Sprite Images__ ː `Generate Sprite Images`
 - [x] __Icon Fonts__ ː `Generate Icon Fonts`
-- [ ] __Framework__ ː `Angular v1.x`
-- [ ] __Library__ ː `jQuery v3.x`
+- [x] __Framework__ ː `Angular v1.x`
+- [x] __Library__ ː `jQuery v3.x`
 
 -
 
