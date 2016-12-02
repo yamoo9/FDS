@@ -32,7 +32,7 @@ module.exports = {
 
   // 진입파일 설정
   // 파일 1개 묶음(번들) 설정
-  'entry': './app',
+  // 'entry': './app',
   // 파일 2개 이상 묶음(번들) 설정
   // 'entry': ['./app', './other'],
   // 페이지 별, 번들 (멀티) ******
@@ -175,6 +175,6 @@ module.exports = {
 
   // 디버깅 모드
   // 'source-map', 'inline-source-map'
-  // 'devtool': 'source-map',
+  // 'devtool': 'inline-source-map',
 
 };
