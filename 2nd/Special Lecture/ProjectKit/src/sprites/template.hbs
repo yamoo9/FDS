@@ -1,0 +1,26 @@
+// 사용자 정의 스프라이트시트 SCSS 템플릿
+
+.{{{spritesheet_info.name}}} {
+  background-image: url({{{spritesheet.escaped_image}}});
+}
+
+{{#if retina_spritesheet}}
+@media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .{{{spritesheet_info.name}}} {
+    background-image: url({{{retina_spritesheet.escaped_image}}});
+    background-size: {{spritesheet.px.width}} {{spritesheet.px.height}};
+  }
+}
+{{/if}}
+
+{{#each sprites}}
+.{{{../spritesheet_info.name}}}__{{{name}}}{{pseudo_class}} {
+  background-position: {{px.offset_x}} {{px.offset_y}};
+  width: {{px.width}};
+  height: {{px.height}};
+}
+{{/each}}
