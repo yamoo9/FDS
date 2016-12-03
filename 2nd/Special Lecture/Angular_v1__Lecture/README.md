@@ -17,10 +17,10 @@ Angular 버전 1 사용법을 다시금 상기 시켜주기 위한 실습.<br>
 
 ```sh
 # 랜덤 유저 JSON 데이터를 20개 생성하여 출력
-$ curl http://api.randomuser.me/?results=20
+$ curl https://randomuser.me/api/?results=20
 
 # 랜덤 유저(여성) JSON 데이터를 10개 생성한 후, random-femle.json 파일 생성
-$ curl http://api.randomuser.me/?results=10&gender=female > random-femle.json
+$ curl https://randomuser.me/api/?results=10&gender=female > random-femle.json
 ```
 
 2. [jQuery](https://randomuser.me/documentation#howto)
@@ -29,7 +29,7 @@ $ curl http://api.randomuser.me/?results=10&gender=female > random-femle.json
 // jQuery AJAX 메소드 활용
 // http://api.jquery.com/jQuery.ajax/
 jQuery.ajax({
-  'url'       : 'http://randomuser.me/api/',
+  'url'       : 'https://randomuser.me/api/?results=40',
   'dataType'  : 'json', // 'jsonp'
   // 'async'  : true,
   // 'method' : 'POST',
@@ -49,7 +49,7 @@ angular
     // $http 서비스 활용
     $http({
       'method': 'GET',
-      'url': 'http://randomuser.me/api/'
+      'url': 'https://randomuser.me/api/?results=40'
     })
     .then(function(response){
       console.log(response); // JSON 데이터
