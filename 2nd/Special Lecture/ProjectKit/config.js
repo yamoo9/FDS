@@ -172,7 +172,7 @@ let config = {
   'watch': {
     'html' : `${PATHS.src}/**/*.html`,
     'sass' : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
-    'js'   : `${PATHS.src}/${PATHS.js}/**/*.js`,
+    'js'   : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
   },
 
   /////////////////////

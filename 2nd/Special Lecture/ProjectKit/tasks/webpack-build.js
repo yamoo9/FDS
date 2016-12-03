@@ -7,11 +7,10 @@
 let gulp    = require('gulp');
 let webpack = require('gulp-webpack');
 // 환경설정
-let config         = require('../config');
-let webpack_config = require('../webpack.config');
+let config  = require('../config');
 
-gulp.task('webpack', ()=> {
+gulp.task('webpack-build', ()=> {
   return gulp.src(`${config.paths.js}/main.js`)
-             .pipe( webpack(webpack_config) )
-             .pipe(gulp.dest( `${config.paths.dist}/js` ));
+             .pipe( webpack(require('../webpack.build.config')) )
+             .pipe(gulp.dest( `${config.paths.build}/js` ));
 });

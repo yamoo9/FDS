@@ -8,7 +8,7 @@ let config  = require('./config');
 module.exports = {
 
   // 컨텍스트 설정
-  // 'context': '',
+  // 'context': [],
 
   // 진입 설정
   'entry'   : {
@@ -21,6 +21,16 @@ module.exports = {
     'filename': '[name].bundle.js'
   },
 
+  // 관찰 모드
+  // 'watch': true,
+
+  // 캐시 설정
+  'cache': true,
+
+  // 소스맵 설정
+  'debug': true,
+  'devtool': 'eval-source-map',
+
   // webpack 모듈
   'module': {
     'loaders': [
@@ -29,38 +39,28 @@ module.exports = {
         'loader': 'babel-loader',
         'exclude': /node_modules/,
         'query': {
-          'cacheDirectory': true,
+          // 'cacheDirectory': true,
           'presets': ['es2015']
         }
       }
     ]
   },
 
-  // 관찰 모드
-  // 'watch': true,
-
-  // 소스맵 설정
-  'devtool': 'eval-source-map',
-
   // webpack 플러그인 설정
-  // 'plugins': [
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     'compress': {
-  //       'warnings': false
-  //     }
-  //   })
-  // ],
+  'plugins': [
+    new webpack.NoErrorsPlugin()
+  ],
 
   // 모듈을 글로벌 변수 사용 (외부 파일 의존)
   // http://webpack.github.io/docs/library-and-externals.html
-  // 'externals': {
-  //   'jquery': 'jQuery',
-  //   'angular': 'angular',
-  // },
+  'externals': {
+    'jquery': 'jQuery',
+    'angular': 'angular',
+  },
 
   // webpack 결정사항 설정
   'resolve': {
-    'extensions': ['', '.js', '.json', '.es6', '.ts'],
+    'extensions': ['', '.js', '.json', '.es6'],
     // 'root': [
       // path.resolve('./bower_components')
     // ],

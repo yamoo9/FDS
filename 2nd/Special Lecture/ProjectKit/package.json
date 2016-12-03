@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Project Kit",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp clean && gulp"
   },
   "keywords": [
     "Gulp",
@@ -39,7 +39,6 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "strip-loader": "^0.1.2",
-    "webpack": "^1.13.3",
-    "webpack-merge": "^1.0.2"
+    "webpack": "^1.13.3"
   }
 }

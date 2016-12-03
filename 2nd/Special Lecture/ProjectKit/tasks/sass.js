@@ -17,6 +17,6 @@ gulp.task('sass', ()=>{
              .pipe( gulp_if( !global.y9_build, sourcemaps.init() ) )
              .pipe(sass( config.options.sass ).on('error', sass.logError))
              .pipe(autoprefixer( config.options.autoprefixer ))
-             .pipe( gulp_if( !global.y9_build, sourcemaps.write('./maps') ) )
+             .pipe( gulp_if( !global.y9_build, sourcemaps.write('../maps') ) )
              .pipe(gulp.dest(global.y9_build ? `${config.paths.build}/css` : `${config.paths.dist}/css`));
 });

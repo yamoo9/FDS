@@ -12,9 +12,9 @@ gulp.task('build', ()=>{
   runSequence(
     ['clean'],
     ['iconfonts', 'sprites'],
-    ['move-fonts', 'html', 'sass', 'webpack', 'images']
+    ['move-fonts', 'html', 'sass', 'webpack-build', 'images']
   );
   log.Y('[[ 빌드 완료 ------------- ]]');
   // 빌드 설정 초기화
-  // global.y9_build = false;
+  global.y9_build = false;
 });
