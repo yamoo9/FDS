@@ -1,0 +1,90 @@
+// -------------------------------------
+// float 믹스인
+//
+// [String] left, right, none
+// [Number] px em %
+// [String] inside, after, before, split
+// [String] first last
+// -------------------------------------
+
+@mixin float($args) {
+	// 초기값 설정
+	$_float: left;
+	$_gutter: after;
+	$_gutter_value: null;
+	$_edge: null;
+
+	// 유효성 검사
+	$_type: type-of($args);
+
+	@if $_type != "list" and $_type != "number" and $_type != "string" {
+		@error "float() 믹스인 전달인자는 리스트 또는 문자, 숫자만 사용해야 합니다";
+	}
+
+	// 조건이 리스트일 때
+	@if $_type == "list" {
+		$l: length($args);
+
+		@for $i from 1 through $l {
+			$item: nth($args, $i);
+
+			@if $item == left or $item == right or $item == none {
+				$_float: $item;
+			}
+
+			@if $item == inside or $item == after or $item == before or $item == split {
+				$_gutter: $item;
+			}
+
+			@if $item == first or $item == last {
+				$_edge: $item;
+			}
+
+			@if type-of($item) == "number" {
+				$_gutter_value: $item;
+			}
+		}
+	}
+
+	// 조건이 문자일 때
+	@if $_type == "string" {
+		@if $args == left or $args == right or $args == none {
+			$_float: $args;
+		}
+
+		@if $args == inside or $args == after or $args == before or $args == split {
+			$_gutter: $args;
+		}
+
+		@if $args == first or $args == last {
+			$_edge: $args;
+		}
+	}
+
+	// 조건이 숫자일 때
+	@if $_type == "number" {
+		$_gutter_value: $args;
+	}
+
+	// 설정
+	float: $_float;
+
+	@if $_gutter == after {
+		margin-right: if($_edge == last, 0, $_gutter_value);
+	}
+	@else if $_gutter == before {
+		margin-left: if($_edge == first, 0, $_gutter_value);
+	}
+	@else if $_gutter == split {
+		margin: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+	@else if $_gutter == inside {
+		padding: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+}

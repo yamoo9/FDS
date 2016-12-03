@@ -1,0 +1,107 @@
+// 사용자 정의 스프라이트시트 SCSS 템플릿
+
+.y9-sprites {
+  background-image: url(../images/sprites/icons.png);
+}
+
+@media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .y9-sprites {
+    background-image: url(../images/sprites/icons@2x.png);
+    background-size: 108px 92px;
+  }
+}
+
+.y9-sprites__AmericanExpress {
+  background-position: -39px 0px;
+  width: 52px;
+  height: 16px;
+}
+.y9-sprites__Arrow {
+  background-position: -39px -16px;
+  width: 4px;
+  height: 7px;
+}
+.y9-sprites__Behance {
+  background-position: 0px -23px;
+  width: 26px;
+  height: 26px;
+}
+.y9-sprites__Dribbble {
+  background-position: -26px -23px;
+  width: 26px;
+  height: 26px;
+}
+.y9-sprites__Facebook {
+  background-position: -52px -23px;
+  width: 26px;
+  height: 26px;
+}
+.y9-sprites__Instagram {
+  background-position: 0px -49px;
+  width: 26px;
+  height: 26px;
+}
+.y9-sprites__MasterCard {
+  background-position: 0px 0px;
+  width: 39px;
+  height: 23px;
+}
+.y9-sprites__PayPal {
+  background-position: -52px -62px;
+  width: 36px;
+  height: 10px;
+}
+.y9-sprites__Twitter {
+  background-position: -26px -49px;
+  width: 26px;
+  height: 26px;
+}
+.y9-sprites__Visa {
+  background-position: -52px -49px;
+  width: 39px;
+  height: 13px;
+}
+.y9-sprites__cart {
+  background-position: -91px -18px;
+  width: 15px;
+  height: 20px;
+}
+.y9-sprites__clock {
+  background-position: -91px -38px;
+  width: 17px;
+  height: 17px;
+}
+.y9-sprites__comments {
+  background-position: -91px -55px;
+  width: 16px;
+  height: 17px;
+}
+.y9-sprites__face {
+  background-position: -78px -23px;
+  width: 12px;
+  height: 16px;
+}
+.y9-sprites__headset {
+  background-position: 0px -75px;
+  width: 16px;
+  height: 17px;
+}
+.y9-sprites__lock {
+  background-position: -16px -75px;
+  width: 12px;
+  height: 16px;
+}
+.y9-sprites__select {
+  background-position: -43px -16px;
+  width: 7px;
+  height: 4px;
+}
+.y9-sprites__wishlist {
+  background-position: -91px 0px;
+  width: 17px;
+  height: 18px;
+}

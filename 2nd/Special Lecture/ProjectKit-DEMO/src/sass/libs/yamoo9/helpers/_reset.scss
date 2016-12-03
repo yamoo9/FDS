@@ -1,0 +1,42 @@
+%reset-body {
+	margin: 0;
+}
+
+%reset-box-model {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+%reset-outline {
+	outline: none;
+}
+
+%reset-link {
+	text-decoration: none;
+}
+
+%reset-a-img {
+	border: none;
+}
+
+%reset-list {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+%reset-table {
+	margin: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	caption {
+		@extend %a11y-hidden;
+	}
+
+	th {
+		align: left;
+	}
+}

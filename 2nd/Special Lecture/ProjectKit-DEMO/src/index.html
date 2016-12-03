@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html class="no-js" dir="ltr" lang="ko-KR" data-ng-app="BipanListApp"><!--<![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" dir="ltr" lang="ko-KR" data-ng-app="BipanListApp"> <![endif]-->
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Bipan ListApp using Angular v1.x</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Bootswatch Theme: [flatly, slate, lumen, sandstone, spacelab] -->
+  <link rel="stylesheet" href="http://bootswatch.com/slate/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bipan Movie List</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div
+      class="row"
+      data-ng-cloak
+      data-ng-controller="ListController"
+      >
+      <div class="col-md-8">
+        <div
+          class="bipan-table-container">
+          <table class="bipan-table table table-striped">
+            <caption>Bipan Movie List</caption>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Poster</th>
+              <th scope="col">Category</th>
+              <th scope="col">English Title</th>
+              <th scope="col">Director</th>
+            </tr>
+            <tr
+              data-ng-repeat="movie in movies"
+              data-ng-class="{'warning': $index === selected_index ? '#807a85' : ''}"
+              data-ng-click="selectMovie(movie, $index)"
+              >
+              <td>{{$index + 1 | readingZero}}</td>
+              <td>
+                <img
+                  src="//findicons.com/files/icons/1072/face_avatars/300/a04.png"
+                  data-ng-src="{{movie.image}}"
+                  alt="{{movie.title}}"
+                  title="{{movie.title}}">
+              </td>
+              <td>{{movie.category}}</td>
+              <td>{{movie.english_title}}</td>
+              <td>{{movie.director}}</td>
+            </tr>
+          </table>
+          <!-- <pre>{{movies | json}}</pre> -->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bipan-detail-panel panel panel-default">
+          <div class="panel-heading">Movie Detail View</div>
+          <div class="panel-body">
+            <dl>
+              <dt>CATEGORY</dt>
+              <dd>{{selected_movie.category}}</dd>
+              <dt>TITLE</dt>
+              <dd>{{selected_movie.title}}</dd>
+              <dt>ENGLISH TITLE</dt>
+              <dd>{{selected_movie.english_title}}</dd>
+              <dt>DIRECTOR</dt>
+              <dd>{{selected_movie.director}}</dd>
+              <dt>YEAR</dt>
+              <dd>{{selected_movie.year}}</dd>
+              <dt>DURATION</dt>
+              <dd>{{selected_movie.duration}}</dd>
+              <dt>NATION</dt>
+              <dd>{{selected_movie.nation}}</dd>
+              <dt>IMAGE</dt>
+              <dd>
+                <img src="{{selected_movie.image}}" alt="{{selected_movie.title}}">
+              </dd>
+            </dl>
+          </div>
+          <!-- <pre>{{ selected_movie | json }}</pre> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="js/main.bundle.js"></script>
+</body>
+</html>

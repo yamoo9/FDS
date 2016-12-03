@@ -1,0 +1,46 @@
+{
+  "name": "project-kit",
+  "version": "1.0.0",
+  "description": "Project Kit",
+  "scripts": {
+    "start": "gulp clean && gulp"
+  },
+  "keywords": [
+    "Gulp",
+    "Webpack",
+    "Sass",
+    "Babel",
+    "Angular",
+    "jQuery"
+  ],
+  "author": "yamoo9 <yamoo9@naver.com>",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "angular": "^1.5.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.18.2",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webpack": "^1.5.0",
+    "gulp.spritesmith-multi": "^3.1.0",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "strip-loader": "^0.1.2",
+    "webpack": "^1.13.3"
+  }
+}

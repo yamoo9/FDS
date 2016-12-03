@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "icons";
+  src: url('../fonts/icons.eot');
+  src: url('../fonts/icons.eot?#iefix') format('eot'),
+    url('../fonts/icons.woff2') format('woff2'),
+    url('../fonts/icons.woff') format('woff'),
+    url('../fonts/icons.ttf') format('truetype'),
+    url('../fonts/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+  font-family: "icons";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // 보안 유니 코드(Private Unicode) 범위를 사용하지 않는 경우에만 필요합니다 (firstGlyph 옵션).
+  // speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
+
+%icon {
+  @include icon-styles;
+}
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == behance {
+    $char: "\E001";
+  }
+  @if $filename == dribbble {
+    $char: "\E002";
+  }
+  @if $filename == facebook {
+    $char: "\E003";
+  }
+  @if $filename == instagram {
+    $char: "\E004";
+  }
+  @if $filename == twitter {
+    $char: "\E005";
+  }
+
+  @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+  &:#{$insert} {
+    @if $extend {
+      @extend %icon;
+    } @else {
+      @include icon-styles;
+    }
+    content: icon-char($filename);
+  }
+}
+
+.icon-behance {
+  @include icon(behance);
+}
+.icon-dribbble {
+  @include icon(dribbble);
+}
+.icon-facebook {
+  @include icon(facebook);
+}
+.icon-instagram {
+  @include icon(instagram);
+}
+.icon-twitter {
+  @include icon(twitter);
+}
