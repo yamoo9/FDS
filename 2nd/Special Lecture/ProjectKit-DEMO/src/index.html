@@ -32,7 +32,7 @@
             <span class="glyphicon glyphicon-search" aria-label="Search"></span>
             <label for="search-everything">Everything</label>
             <input
-              data-ng-model="search.$"
+              data-ng-model="search"
               type="text"
               class="input-sm form-control"
               id="search-everything"
@@ -54,6 +54,18 @@
               id="search-category"
               placeholder="Category">
           </div> -->
+          <div class="form-group">
+            <select class="input-sm form-control" data-ng-model="order">
+              <option value="title">Title (ASC)</option>
+              <option value="-title">Title (DESC)</option>
+              <option value="category">Category (ASC)</option>
+              <option value="-category">Category (DESC)</option>
+              <option value="year">Year (ASC)</option>
+              <option value="-year">Year (DESC)</option>
+              <option value="director">Director (ASC)</option>
+              <option value="-director">Director (DESC)</option>
+            </select>
+          </div>
         </form>
       </div>
     </nav>
@@ -65,16 +77,66 @@
             class="bipan-table-container">
             <table class="bipan-table table table-striped">
               <caption>Bipan Movie List</caption>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
               <tr>
                 <th scope="col">No.</th>
                 <th scope="col">Poster</th>
-                <th scope="col">Category</th>
-                <th scope="col">Title</th>
-                <th scope="col">Year</th>
-                <th scope="col">Director</th>
+                <th scope="col">Category
+                  <div role="group" class="sort-category btn-group btn-group-xs">
+                    <button
+                      data-ng-click="order='category'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Category"></button>
+                    <button
+                      data-ng-click="order='-category'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Category"></button>
+                  </div>
+                </th>
+                <th scope="col">Title
+                  <div role="group" class="sort-title btn-group btn-group-xs">
+                    <button
+                      data-ng-click="order='title'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Title"></button>
+                    <button
+                      data-ng-click="order='-title'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Title"></button>
+                  </div>
+                </th>
+                <th scope="col">Year
+                  <div role="group" class="sort-year btn-group btn-group-xs">
+                    <button
+                      data-ng-click="order='year'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Year"></button>
+                    <button
+                      data-ng-click="order='-year'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Year"></button>
+                  </div>
+                </th>
+                <th scope="col">Director
+                  <div role="group" class="sort-director btn-group btn-group-xs">
+                    <button
+                      data-ng-click="order='director'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Director"></button>
+                    <button
+                      data-ng-click="order='-director'"
+                      type="button"
+                      class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Director"></button>
+                  </div>
+                </th>
               </tr>
               <tr
-                data-ng-repeat="movie in movies | filter:search"
+                data-ng-repeat="movie in movies | filter:sensitiveSearch | orderBy:order"
                 data-ng-class="{'warning': movie.title === selected_movie.title ? '#807a85' : ''}"
                 data-ng-click="selectMovie(movie)"
                 >

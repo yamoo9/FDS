@@ -17,6 +17,8 @@ html
 .bipan-table-container,
 .bipan-detail-panel
   margin-top: 60px
+  [class*="sort-"]
+    margin-left: 10px
 
 //
  * --------------------------------
@@ -35,9 +37,22 @@ html
 .bipan-table
   caption
     @extend %a11y-hidden
+  col:nth-child(1)
+    width: 5%
+  col:nth-child(2)
+    width: 10%
+  col:nth-child(3)
+    width: 15%
+  col:nth-child(4)
+    width: 30%
+  col:nth-child(5)
+    width: 20%
+  col:nth-child(6)
+    width: 20%
   img
     width: 80px
     height: auto
+
 
 //
  * --------------------------------
