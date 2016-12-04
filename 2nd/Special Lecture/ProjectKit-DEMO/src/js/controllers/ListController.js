@@ -192,12 +192,11 @@ angular
     ];
 
     // 컨트롤러 $scope 객체의 속성
-    $scope.selected_index = null;
+    $scope.search = {};
     $scope.selected_movie = null;
 
     // 컨트롤러 $scope 객체의 메소드
-    $scope.selectMovie = function(movie, index) {
-      $scope.selected_index = index;
+    $scope.selectMovie = function(movie) {
       $scope.selected_movie = movie;
     };
 

@@ -153,6 +153,12 @@
   content: "";
 }
 
+.bipan-detail-panel img {
+  height: auto;
+  max-width: 100%;
+}
+
+.bipan-search label,
 .bipan-table caption {
   overflow: hidden;
   position: absolute;
@@ -165,14 +171,37 @@
   padding: 0;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .bipan-table-container,
 .bipan-detail-panel {
   margin-top: 60px;
 }
 
+.bipan-search .form-group {
+  margin: 10px;
+}
+
+.bipan-search [aria-label="Search"] {
+  margin-right: 15px;
+}
+
 .bipan-table img {
   width: 80px;
   height: auto;
+}
+
+.bipan-detail-panel dd {
+  border-bottom: 1px solid #3d3d3d;
+  color: #fff;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.bipan-detail-panel img {
+  width: 100%;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {

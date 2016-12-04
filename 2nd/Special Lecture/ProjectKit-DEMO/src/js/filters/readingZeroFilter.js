@@ -1,7 +1,7 @@
 /*! readingZeroFilter.js © yamoo9.net, 2016 */
 'use strict';
 
-// let angular = require('angular');
+let angular = require('angular');
 
 angular
   .module('BipanListApp')

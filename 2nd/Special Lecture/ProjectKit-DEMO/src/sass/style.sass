@@ -7,10 +7,31 @@
 // 라이브러리 파일 로드
 @import "libs/yamoo9/yamoo9"
 
+html
+  overflow-y: scroll
+
+/**
+ * --------------------------------
+ * Bipan Style
+ */
 .bipan-table-container,
 .bipan-detail-panel
   margin-top: 60px
 
+//
+ * --------------------------------
+ * bipan-search
+.bipan-search
+  .form-group
+    margin: 10px
+  [aria-label="Search"]
+    margin-right: 15px
+  label
+    @extend %a11y-hidden
+
+//
+ * --------------------------------
+ * bipan-table
 .bipan-table
   caption
     @extend %a11y-hidden
@@ -18,3 +39,15 @@
     width: 80px
     height: auto
 
+//
+ * --------------------------------
+ * bipan-detail-panel
+.bipan-detail-panel
+  dd
+    border-bottom: 1px solid #3d3d3d
+    color: #fff
+    padding:
+      top: 0.2em
+      bottom: 0.2em
+  img
+    +rwd-image
