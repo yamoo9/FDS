@@ -5,7 +5,7 @@ let angular = require('angular');
 
 angular
   .module('BipanListApp')
-  .service('ListDataShareService', ['$http', function($http){
+  .service('ListDataShareService', ['$http', ($http)=>{
 
     $http({
       'method': 'GET',

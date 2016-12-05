@@ -6,6 +6,6 @@ let angular = require('angular');
 angular
   .module('BipanListApp')
   .controller('DetailController',
-    ['$scope', 'ListDataShareService', function($scope, ListDataShareService){
+    ['$scope', 'ListDataShareService', ($scope, ListDataShareService)=>{
       $scope.share_data = ListDataShareService;
   }]);
