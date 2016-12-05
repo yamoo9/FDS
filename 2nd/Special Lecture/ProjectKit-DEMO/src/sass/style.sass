@@ -11,9 +11,13 @@ html
   overflow-y: scroll
 
 /**
- * --------------------------------
+ * ----------------------------------------------------------------
  * Bipan Style
  */
+
+//
+ * --------------------------------
+ * bipan-search, bipan-detail-panel
 .bipan-search,
 .bipan-detail-panel
   margin-top: 60px
@@ -47,9 +51,9 @@ html
   col:nth-child(2)
     width: 10%
   col:nth-child(3)
-    width: 15%
+    width: 20%
   col:nth-child(4)
-    width: 30%
+    width: 20%
   col:nth-child(5)
     width: 20%
   col:nth-child(6)
@@ -64,10 +68,8 @@ html
  * bipan-detail-panel
 .bipan-detail-panel
   dd
+    +padding(top 0.2em bottom 0.2em)
     border-bottom: 1px solid #3d3d3d
     color: #fff
-    padding:
-      top: 0.2em
-      bottom: 0.2em
   img
     +rwd-image

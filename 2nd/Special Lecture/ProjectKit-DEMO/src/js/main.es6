@@ -4,8 +4,21 @@
 // 빌드 시에 아래 주석을 해제한 후, 빌드
 // ------------------------------------
 // require('jquery');
+
+// Angular 로드
 let angular = require('angular');
-let bipan   = angular.module('BipanListApp', []);
+// 의존 모듈 주입
+require('angular-resource');
+
+// 모듈 정의
+let bipan = angular.module('BipanListApp', ['ngResource']);
+
+// 모듈 환경 설정
+bipan.config(['$httpProvider', '$resourceProvider',($httpProvider, $resourceProvider)=> {
+  let token = 'Token dab1748ebaceb34ed6796bc3b7dc84741b77af54';
+  $httpProvider.defaults.headers.common['Authorization'] = token;
+  $resourceProvider.defaults.stripTrailingSlashes = false;
+}]);
 
 // Controllers
 require('./controllers/ListController');

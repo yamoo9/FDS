@@ -15,7 +15,8 @@ gulp.task('default', ()=>{
   runSequence(
     ['clean'],
     ['iconfonts', 'sprites'],
-    ['move-fonts', 'html', 'sass', 'webpack', 'images'],
+    ['move-fonts', 'move-data'],
+    ['html', 'sass', 'webpack', 'images'],
     ['watch', 'browser-sync']
   );
   // 프로젝트 시작 메시지 출력

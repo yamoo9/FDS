@@ -5,19 +5,28 @@ let angular = require('angular');
 
 angular
   .module('BipanListApp')
-  .service('ListDataShareService', ['$http', ($http)=>{
-
-    $http({
-      'method': 'GET',
-      'url': 'data/bipan/bipan-list.json'
-    }).then(function(response) {
-      _service.movies = response.data;
-    });
+  .factory('Contact', ['$resource', function($resource){
+    let url = 'https://codecraftpro.com/api/samples/v1/contact/:id/';
+    return $resource(url);
+  }])
+  .service('ListDataShareService', ['Contact', (Contact)=>{
 
     var _service = {
-      'selected_movie': null,
-      'movies': []
+      'selected_person': null,
+      'people': [],
+      'page': 1,
+      'has_more': true,
+      'is_loading': false,
+      'loadContacts': ()=> {
+        Contact.get((data)=>{
+          angular.forEach(data.results, (person)=>{
+            _service.people.push( new Contact(person) );
+          });
+        });
+      }
     };
+
+    _service.loadContacts();
 
     return _service;
 

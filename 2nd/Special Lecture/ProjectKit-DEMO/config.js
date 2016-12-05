@@ -19,6 +19,7 @@ const PATHS = {
   'js'        : 'js',
   'images'    : 'images',
   'fonts'     : 'fonts',
+  'data'      : 'data',
   'iconfonts' : 'iconfonts',
   'sprites'   : 'sprites',
 };
@@ -37,6 +38,10 @@ let config = {
     'fonts' : {
       'source' : `${PATHS.src}/${PATHS.fonts}/**/*.{eot,woff,woff2,ttf}`,
       'output' : `${PATHS.dist}/${PATHS.fonts}`
+    },
+    'data' : {
+      'source' : `${PATHS.src}/${PATHS.data}/**/*`,
+      'output' : `${PATHS.dist}/${PATHS.data}`
     },
     // 이미지 소스/출력 설정
     'images': {

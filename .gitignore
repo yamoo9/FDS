@@ -2,6 +2,7 @@
 __1st__
 reference.md
 Angular_v1+Webpack
+2nd/Special Lecture/ProjectKit-DEMO/dist/
 *.mp4
 
 ###OSX###
@@ -73,5 +74,3 @@ $RECYCLE.BIN/
 
 # sftp configuration file
 sftp-config.json
-
-2nd/Special Lecture/Angular_v1__Lecture/GUIDE.md
