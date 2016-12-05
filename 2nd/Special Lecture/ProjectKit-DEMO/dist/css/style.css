@@ -175,14 +175,9 @@ html {
   overflow-y: scroll;
 }
 
-.bipan-table-container,
+.bipan-search,
 .bipan-detail-panel {
   margin-top: 60px;
-}
-
-.bipan-table-container [class*="sort-"],
-.bipan-detail-panel [class*="sort-"] {
-  margin-left: 10px;
 }
 
 .bipan-search .form-group {
@@ -191,6 +186,10 @@ html {
 
 .bipan-search [aria-label="Search"] {
   margin-right: 15px;
+}
+
+.bipan-table-container [class*="sort-"] {
+  margin-left: 10px;
 }
 
 .bipan-table col:nth-child(1) {

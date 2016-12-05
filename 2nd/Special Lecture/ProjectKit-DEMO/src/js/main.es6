@@ -9,5 +9,8 @@ let bipan   = angular.module('BipanListApp', []);
 
 // Controllers
 require('./controllers/ListController');
+require('./controllers/DetailController');
+// Services
+require('./services/ListDataShareService');
 // Filters
 require('./filters/readingZeroFilter');
