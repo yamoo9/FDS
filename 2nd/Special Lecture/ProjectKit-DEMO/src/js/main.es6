@@ -7,11 +7,13 @@
 
 // Angular 로드
 let angular = require('angular');
-// 의존 모듈 주입
-require('angular-resource');
 
-// 모듈 정의
-let bipan = angular.module('BipanListApp', ['ngResource']);
+// 의존 모듈 로드
+require('angular-resource');
+require('ng-infinite-scroll');
+
+// App 모듈 정의 (의존 모듈 주입)
+let bipan = angular.module('BipanListApp', ['ngResource', 'infinite-scroll']);
 
 // 모듈 환경 설정
 bipan.config(['$httpProvider', '$resourceProvider',($httpProvider, $resourceProvider)=> {
