@@ -61,7 +61,7 @@
             class="bipan-table-container">
             <table
               data-infinite-scroll="loadMore()"
-              data-infinite-scroll-distance="0"
+              data-infinite-scroll-distance="1"
               class="bipan-table table table-striped">
               <caption>Bipan People List</caption>
               <col>
@@ -122,8 +122,15 @@
                   </div>
                 </th>
               </tr>
-              <tr
+              <!-- 클라이언트 사이드 검색/정렬 -->
+              <!-- <tr
                 data-ng-repeat="person in filteredPeople=(share_data.people | filter:search | orderBy:order)"
+                data-ng-class="{'warning': person.city === share_data.selected_person.city}"
+                data-ng-click="selectPerson(person)"
+                > -->
+              <!-- 서버 사이드 검색/정렬 -->
+              <tr
+                data-ng-repeat="person in share_data.people"
                 data-ng-class="{'warning': person.city === share_data.selected_person.city}"
                 data-ng-click="selectPerson(person)"
                 >
@@ -140,7 +147,10 @@
                 <td>{{person.birthdate | date:'longDate'}}</td>
                 <td>{{person.city}}</td>
               </tr>
-              <tr data-ng-show="filteredPeople.length === 0">
+              <!-- 클라이언트 사이드 검색/정렬 -->
+              <!-- <tr data-ng-show="filteredPeople.length === 0"> -->
+              <!-- 서버 사이드 검색/정렬 -->
+              <tr data-ng-show="share_data.people.length === 0 && !share_data.is_loading">
                 <td colspan="6">
                   <div class="alert alert-warning" role="alert">
                     <p class="text-center">'{{search}}'와 일치하는 사람 정보를 찾을 수 없습니다.</p>
@@ -148,6 +158,10 @@
                 </td>
               </tr>
             </table>
+            <div class="spinner" data-ng-show="share_data.is_loading">
+              <span data-us-spinner data-spinner-theme="white-spinner"></span>
+              <p>Loading....</p>
+            </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4" data-ng-controller="DetailController">

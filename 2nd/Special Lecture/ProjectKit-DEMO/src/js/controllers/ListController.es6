@@ -26,6 +26,16 @@ angular
       $scope.share_data.loadMore();
     };
 
+    // 사용자가 입력하는 값을 관찰(Watch)
+    $scope.$watch('search', (newValue)=> {
+      // 사용자 입력한 새로운 값: newValue
+      // 사용자 입력한 이전 값: oldValue
+      $scope.share_data.doSearch(newValue);
+    });
+    $scope.$watch('order', (newValue)=> {
+      $scope.share_data.doOrder(newValue);
+    });
+
     // 엄격하게 일치하는 검색 기능
     // $scope.sensitiveSearch = function(person) {
     //   var search = $scope.search;

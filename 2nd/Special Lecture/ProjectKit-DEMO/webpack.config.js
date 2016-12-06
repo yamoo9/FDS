@@ -64,9 +64,10 @@ module.exports = {
     // 'root': [
       // path.resolve('./bower_components')
     // ],
-    // 'alias': {
+    'alias': {
+      'spin': 'spin.js',
       // 'jquery': 'jquery/dist/jquery.min.js'
-    // }
+    }
   }
 
 };
