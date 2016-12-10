@@ -168,26 +168,110 @@
           <div class="bipan-detail-panel panel panel-default">
             <div class="panel-heading">Person Detail View</div>
             <div class="panel-body">
-              <dl>
-                <dt>COUNTRY</dt>
-                <dd>{{share_data.selected_person.country}}</dd>
-                <dt>NAME</dt>
-                <dd>{{share_data.selected_person.name}}</dd>
-                <dt>ADDRESS</dt>
-                <dd>{{share_data.selected_person.address}}</dd>
-                <dt>CITY</dt>
-                <dd>{{share_data.selected_person.city}}</dd>
-                <dt>BIRTHDATE</dt>
-                <dd>{{share_data.selected_person.birthdate}}</dd>
-                <dt>EMAIL</dt>
-                <dd>{{share_data.selected_person.email}}</dd>
-                <dt>SEX</dt>
-                <dd>{{share_data.selected_person.sex}}</dd>
-                <dt>PHOTO</dt>
-                <dd>
-                  <img src="//yamoo9.net/blank1x1.gif" data-ng-src="{{share_data.selected_person.photo}}" alt="{{share_data.selected_person.name}}">
-                </dd>
-              </dl>
+              <form
+                class="form-horizontal"
+                novalidate
+                data-ng-submit="save()">
+                <div class="form-group">
+                  <label for="name" class="col-sm-3 control-label">NAME</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      class="form-control"
+                      placeholder="User Name"
+                      data-ng-model="share_data.selected_person.name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-sm-3 control-label">EMAIL</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="user_id@domail.com"
+                      data-ng-model="share_data.selected_person.email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sex" class="col-sm-3 control-label">SEX</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="sex"
+                      id="sex"
+                      class="form-control"
+                      placeholder="M or F"
+                      data-ng-model="share_data.selected_person.sex">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="photo" class="col-sm-3 control-label">PHOTO</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="photo"
+                      id="photo"
+                      class="form-control"
+                      placeholder="user photo image path"
+                      data-ng-model="share_data.selected_person.photo">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="birthdate" class="col-sm-3 control-label">BIRTHDATE</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="birthdate"
+                      id="birthdate"
+                      class="form-control"
+                      placeholder="male or female"
+                      data-ng-model="share_data.selected_person.birthdate">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="address" class="col-sm-3 control-label">ADDRESS</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="address"
+                      id="address"
+                      class="form-control"
+                      placeholder="User Address"
+                      data-ng-model="share_data.selected_person.address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="city" class="col-sm-3 control-label">CITY</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      class="form-control"
+                      placeholder="User City"
+                      data-ng-model="share_data.selected_person.city">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="col-sm-3 control-label">COUNTRY</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      name="country"
+                      id="country"
+                      class="form-control"
+                      placeholder="User Country"
+                      data-ng-model="share_data.selected_person.country">
+                  </div>
+                </div>
+                <div class="buttons">
+                  <button type="submit" class="btn btn-primary btn-block">Save</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

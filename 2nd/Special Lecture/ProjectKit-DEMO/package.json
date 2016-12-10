@@ -19,6 +19,8 @@
     "angular": "^1.5.9"
   },
   "devDependencies": {
+    "angular-auto-validate": "^1.19.0",
+    "angular-ladda": "^0.4.3",
     "angular-resource": "^1.5.9",
     "angular-spinner": "^0.8.1",
     "babel-core": "^6.18.2",
