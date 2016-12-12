@@ -166,7 +166,13 @@
         </div>
         <div class="col-sm-6 col-md-4" data-ng-controller="DetailController">
           <div class="bipan-detail-panel panel panel-default">
-            <div class="panel-heading">Person Detail View</div>
+            <div class="panel-heading">
+              Person Detail View
+              <button
+                data-ladda="share_data.is_deleting"
+                data-ng-click="remove()"
+                class="btn btn-sm btn-default pull-right">delete</button>
+            </div>
             <div class="panel-body">
               <form
                 class="form-horizontal"

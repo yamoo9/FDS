@@ -11,7 +11,10 @@ angular
     let actions = {
       'update':{
         'method': 'PUT'
-      }
+      },
+      'remove': {
+        'method': 'DELETE'
+      },
     };
     return $resource(url, params, actions);
   }])
@@ -34,6 +37,7 @@ angular
       'has_more'   : true,
       'is_loading' : false,
       'is_saving'  : false,
+      'is_deleting': false,
       // doSearch Method
       'doSearch': (search)=> {
         _service.search = search;
@@ -85,6 +89,16 @@ angular
         _service.is_saving = true;
         person.$update().then(()=> {
           _service.is_saving = false;
+        });
+      },
+      'removeContact': (person)=> {
+        _service.is_deleting = true;
+        person.$remove().then(()=> {
+          let index = _service.people.indexOf(person);
+          // 사용자가 선택한 인덱스의 사람을 목록에서 제거
+          _service.people.splice(index, 1);
+          _service.selected_person = null;
+          _service.is_deleting = false;
         });
       }
     };
