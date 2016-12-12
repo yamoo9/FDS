@@ -138,7 +138,7 @@
                 <td>
                   <img
                     src="//yamoo9.net/blank1x1.gif"
-                    data-ng-src="{{person.photo}}"
+                    data-ng-src="{{person.photo | defaultImage:'https://s-media-cache-ak0.pinimg.com/564x/e5/df/26/e5df26d102b8b275dfee459286e43d2f.jpg'}}"
                     alt="{{person.name}}"
                     title="{{person.name}}">
                 </td>
@@ -171,7 +171,7 @@
               <button
                 data-ladda="share_data.is_deleting"
                 data-ng-click="remove()"
-                class="btn btn-sm btn-default pull-right">delete</button>
+                class="btn btn-sm btn-default pull-right">Delete</button>
             </div>
             <div class="panel-body">
               <form
@@ -236,7 +236,7 @@
                       name="birthdate"
                       id="birthdate"
                       class="form-control"
-                      placeholder="male or female"
+                      placeholder="1975-11-23"
                       data-ng-model="share_data.selected_person.birthdate">
                   </div>
                 </div>
@@ -276,11 +276,20 @@
                       data-ng-model="share_data.selected_person.country">
                   </div>
                 </div>
-                <div class="buttons">
-                  <button
-                    type="submit"
-                    data-ladda="share_data.is_saving"
-                    class="btn btn-primary btn-block">Save</button>
+                <div class="btn-group btn-group-justified" role="group">
+                  <div class="btn-group" role="group">
+                    <button
+                      type="button"
+                      data-ladda="share_data.is_creating"
+                      data-ng-click="create()"
+                      class="btn btn-primary">Create</button>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <button
+                      type="submit"
+                      data-ladda="share_data.is_saving"
+                      class="btn btn-primary">Save</button>
+                  </div>
                 </div>
               </form>
             </div>

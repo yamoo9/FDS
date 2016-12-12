@@ -15,6 +15,9 @@ angular
       'remove': {
         'method': 'DELETE'
       },
+      'create': {
+        'method': 'POST'
+      }
     };
     return $resource(url, params, actions);
   }])
@@ -38,6 +41,7 @@ angular
       'is_loading' : false,
       'is_saving'  : false,
       'is_deleting': false,
+      'is_creating': false,
       // doSearch Method
       'doSearch': (search)=> {
         _service.search = search;
@@ -87,6 +91,7 @@ angular
       },
       'updateContact': (person)=> {
         _service.is_saving = true;
+        console.log(person);
         person.$update().then(()=> {
           _service.is_saving = false;
         });
@@ -100,7 +105,16 @@ angular
           _service.selected_person = null;
           _service.is_deleting = false;
         });
-      }
+      },
+      'createContact': (person)=> {
+        _service.is_creating = true;
+        // Contact.save(person).$promise.then(()=> {
+        (new Contact(person)).$create().then(()=> {
+          initServiceSetting();
+          _service.loadContacts();
+          _service.is_creating = false;
+        });
+      },
     };
 
     _service.loadContacts(); // 초기 실행 page = 1

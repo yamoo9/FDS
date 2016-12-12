@@ -12,8 +12,13 @@ angular
       $scope.save = ()=>{
         $scope.share_data.updateContact($scope.share_data.selected_person);
       };
+
       $scope.remove = ()=>{
         $scope.share_data.removeContact($scope.share_data.selected_person);
+      };
+
+      $scope.create = ()=> {
+        $scope.share_data.createContact($scope.share_data.selected_person);
       };
 
   }]);

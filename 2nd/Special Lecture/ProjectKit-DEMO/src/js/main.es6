@@ -65,3 +65,4 @@ require('./controllers/DetailController');
 require('./services/ListDataShareService');
 // Filters
 require('./filters/readingZeroFilter');
+require('./filters/defaultImageFilter');
