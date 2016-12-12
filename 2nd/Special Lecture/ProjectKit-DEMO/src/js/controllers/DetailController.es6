@@ -6,7 +6,10 @@ let angular = require('angular');
 angular
   .module('BipanListApp')
   .controller('DetailController',
-    ['$scope', 'ListDataShareService', ($scope, ListDataShareService)=>{
+    ['$scope', 'ListDataShareService', '$stateParams', ($scope, ListDataShareService, $stateParams)=>{
+
+      console.log($stateParams);
+
       $scope.share_data = ListDataShareService;
 
       $scope.save = ()=>{

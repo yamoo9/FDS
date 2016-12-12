@@ -15,7 +15,7 @@ gulp.task('default', ()=>{
   runSequence(
     ['clean'],
     ['iconfonts', 'sprites'],
-    ['move-fonts', 'move-data'],
+    ['move-fonts', 'move-views'],
     ['html', 'sass', 'webpack', 'images'],
     ['watch', 'browser-sync']
   );

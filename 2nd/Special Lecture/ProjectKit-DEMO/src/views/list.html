@@ -1,0 +1,145 @@
+<div class="col-md-12">
+  <form class="bipan-search form-inline">
+    <div class="form-group">
+      <span class="glyphicon glyphicon-search" aria-label="Search"></span>
+      <label for="search-everything">Everything</label>
+      <input
+        data-ng-model="search"
+        type="text"
+        class="input-sm form-control"
+        id="search-everything"
+        placeholder="Search Person Info.">
+    </div>
+    <div class="form-group">
+      <select class="input-sm form-control" data-ng-model="order">
+        <option value="name">Name (ASC)</option>
+        <option value="-name">Name (DESC)</option>
+        <option value="country">Country (ASC)</option>
+        <option value="-country">Country (DESC)</option>
+        <option value="birthdate">Birthdate (ASC)</option>
+        <option value="-birthdate">Birthdate (DESC)</option>
+        <option value="city">City (ASC)</option>
+        <option value="-city">City (DESC)</option>
+      </select>
+    </div>
+  </form>
+  <div
+    class="bipan-table-container">
+    <table
+      data-infinite-scroll="loadMore()"
+      data-infinite-scroll-distance="1"
+      class="bipan-table table table-striped">
+      <caption>Bipan People List</caption>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Name
+          <div role="group" class="sort-title btn-group btn-group-xs">
+            <button
+              data-ng-click="order='name'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Name"></button>
+            <button
+              data-ng-click="order='-name'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Name"></button>
+          </div>
+        </th>
+        <th scope="col">Email
+          <div role="group" class="sort-category btn-group btn-group-xs">
+            <button
+              data-ng-click="order='email'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Email"></button>
+            <button
+              data-ng-click="order='-email'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Email"></button>
+          </div>
+        </th>
+        <th scope="col">Country
+          <div role="group" class="sort-category btn-group btn-group-xs">
+            <button
+              data-ng-click="order='country'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Country"></button>
+            <button
+              data-ng-click="order='-country'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Country"></button>
+          </div>
+        </th>
+        <th scope="col">Birthdate
+          <div role="group" class="sort-year btn-group btn-group-xs">
+            <button
+              data-ng-click="order='birthdate'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Birthdate"></button>
+            <button
+              data-ng-click="order='-birthdate'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending Birthdate"></button>
+          </div>
+        </th>
+        <th scope="col">City
+          <div role="group" class="sort-director btn-group btn-group-xs">
+            <button
+              data-ng-click="order='city'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending City"></button>
+            <button
+              data-ng-click="order='-city'"
+              type="button"
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet-alt" aria-label="Descending City"></button>
+          </div>
+        </th>
+      </tr>
+      <!-- 클라이언트 사이드 검색/정렬 -->
+      <!-- <tr
+        data-ng-repeat="person in filteredPeople=(share_data.people | filter:search | orderBy:order)"
+        data-ng-class="{'warning': person.city === share_data.selected_person.city}"
+        data-ng-click="selectPerson(person)"
+        > -->
+      <!-- 서버 사이드 검색/정렬 -->
+      <tr
+        data-ng-repeat="person in share_data.people"
+        data-ng-class="{'warning': person.email === share_data.selected_person.email}"
+        data-ng-click="selectPerson(person)"
+        >
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{$index + 1 | readingZero}}</a></td>
+        <td>
+          <a href data-ng-href="/#/edit/{{person.email}}"><img
+            src="//yamoo9.net/blank1x1.gif"
+            data-ng-src="{{person.photo | defaultImage:'https://s-media-cache-ak0.pinimg.com/564x/e5/df/26/e5df26d102b8b275dfee459286e43d2f.jpg'}}"
+            alt="{{person.name}}"
+            title="{{person.name}}"></a>
+        </td>
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.name}}</a></td>
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.email}}</a></td>
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.country}}</a></td>
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.birthdate | date:'longDate'}}</a></td>
+        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.city}}</a></td>
+      </tr>
+      <!-- 클라이언트 사이드 검색/정렬 -->
+      <!-- <tr data-ng-show="filteredPeople.length === 0"> -->
+      <!-- 서버 사이드 검색/정렬 -->
+      <tr data-ng-show="share_data.people.length === 0 && !share_data.is_loading">
+        <td colspan="6">
+          <div class="alert alert-warning" role="alert">
+            <p class="text-center">'{{search}}'와 일치하는 사람 정보를 찾을 수 없습니다.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="spinner" data-ng-show="share_data.is_loading">
+      <span data-us-spinner data-spinner-theme="white-spinner"></span>
+      <p>Loading....</p>
+    </div>
+  </div>
+</div>

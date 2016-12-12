@@ -9,6 +9,7 @@ gulp.task('watch', ()=> {
 
   let watcher = {
     'html'    : gulp.watch(`${config.watch.html}`, ['html']),
+    'views'   : gulp.watch(`${config.watch.views}`, ['move-views']),
     'sass'    : gulp.watch(`${config.watch.sass}`, ['sass']),
     'webpack' : gulp.watch(`${config.watch.js}`, ['webpack']),
   };

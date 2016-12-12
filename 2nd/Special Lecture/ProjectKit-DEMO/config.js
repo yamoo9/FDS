@@ -20,6 +20,7 @@ const PATHS = {
   'images'    : 'images',
   'fonts'     : 'fonts',
   'data'      : 'data',
+  'views'     : 'views',
   'iconfonts' : 'iconfonts',
   'sprites'   : 'sprites',
 };
@@ -42,6 +43,10 @@ let config = {
     'data' : {
       'source' : `${PATHS.src}/${PATHS.data}/**/*`,
       'output' : `${PATHS.dist}/${PATHS.data}`
+    },
+    'views' : {
+      'source' : `${PATHS.src}/${PATHS.views}/**/*.html`,
+      'output' : `${PATHS.dist}/${PATHS.views}`
     },
     // 이미지 소스/출력 설정
     'images': {
@@ -175,9 +180,10 @@ let config = {
   /////////////////
   // 관찰 파일 경로 설정
   'watch': {
-    'html' : `${PATHS.src}/**/*.html`,
-    'sass' : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
-    'js'   : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
+    'html'  : `${PATHS.src}/**/*.html`,
+    'views' : `${PATHS.src}/${PATHS.views}/**/*.html`,
+    'sass'  : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
+    'js'    : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
   },
 
   /////////////////////

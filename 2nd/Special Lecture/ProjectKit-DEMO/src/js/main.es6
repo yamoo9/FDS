@@ -18,6 +18,7 @@ require('angular-spinner');
 require('angular-auto-validate');
 require('ladda');
 require('angular-ladda');
+require('angular-ui-router');
 
 // App 모듈 정의 (의존 모듈 주입)
 let bipan = angular.module('BipanListApp', [
@@ -26,6 +27,7 @@ let bipan = angular.module('BipanListApp', [
   'angularSpinner',
   'jcs-autoValidate',
   'angular-ladda',
+  'ui.router',
 ]);
 
 // 모듈 환경 설정
@@ -34,7 +36,31 @@ bipan.config([
   '$resourceProvider',
   'usSpinnerConfigProvider',
   'laddaProvider',
-  ($httpProvider, $resourceProvider, usSpinnerConfigProvider, laddaProvider)=> {
+  '$stateProvider',
+  '$urlRouterProvider',
+  (
+    $httpProvider,
+    $resourceProvider,
+    usSpinnerConfigProvider,
+    laddaProvider,
+    $stateProvider,
+    $urlRouterProvider
+  )=> {
+
+    // $stateProvider
+    $stateProvider
+      .state('list', {
+        'url'         : '/',
+        'templateUrl' : 'views/list.html',
+        'controller'  : 'ListController'
+      })
+      .state('edit', {
+        'url'         : '/edit/:email',
+        'templateUrl' : 'views/edit.html',
+        'controller'  : 'DetailController'
+      });
+
+    $urlRouterProvider.otherwise('/');
 
     // ngResource
     let token = 'Token dab1748ebaceb34ed6796bc3b7dc84741b77af54';
