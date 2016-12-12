@@ -8,4 +8,9 @@ angular
   .controller('DetailController',
     ['$scope', 'ListDataShareService', ($scope, ListDataShareService)=>{
       $scope.share_data = ListDataShareService;
+
+      $scope.save = ()=>{
+        $scope.share_data.updateContact($scope.share_data.selected_person);
+      };
+
   }]);

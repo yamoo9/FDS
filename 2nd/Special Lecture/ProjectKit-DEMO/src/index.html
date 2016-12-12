@@ -199,13 +199,15 @@
                 <div class="form-group">
                   <label for="sex" class="col-sm-3 control-label">SEX</label>
                   <div class="col-sm-9">
-                    <input
-                      type="text"
+                    <select
                       name="sex"
                       id="sex"
                       class="form-control"
-                      placeholder="M or F"
                       data-ng-model="share_data.selected_person.sex">
+                      <option value="" disabled selected>Your Sex</option>
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -269,7 +271,10 @@
                   </div>
                 </div>
                 <div class="buttons">
-                  <button type="submit" class="btn btn-primary btn-block">Save</button>
+                  <button
+                    type="submit"
+                    data-ladda="share_data.is_saving"
+                    class="btn btn-primary btn-block">Save</button>
                 </div>
               </form>
             </div>

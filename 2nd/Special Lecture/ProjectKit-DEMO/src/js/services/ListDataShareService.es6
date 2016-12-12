@@ -7,7 +7,13 @@ angular
   .module('BipanListApp')
   .factory('Contact', ['$resource', function($resource){
     let url = 'https://codecraftpro.com/api/samples/v1/contact/:id/';
-    return $resource(url);
+    let params = {'id': '@id'};
+    let actions = {
+      'update':{
+        'method': 'PUT'
+      }
+    };
+    return $resource(url, params, actions);
   }])
   .service('ListDataShareService', ['Contact', (Contact)=>{
 
@@ -27,6 +33,7 @@ angular
       'page'       : 1,
       'has_more'   : true,
       'is_loading' : false,
+      'is_saving'  : false,
       // doSearch Method
       'doSearch': (search)=> {
         _service.search = search;
@@ -73,6 +80,12 @@ angular
           // 콘텐츠 로드 처리 실행
           _service.loadContacts(); // page = 2, 3, ...
         }
+      },
+      'updateContact': (person)=> {
+        _service.is_saving = true;
+        person.$update().then(()=> {
+          _service.is_saving = false;
+        });
       }
     };
 

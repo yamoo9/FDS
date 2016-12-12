@@ -2,6 +2,8 @@
 
 // ------------------------------------
 // 빌드 시에 아래 주석을 해제한 후, 빌드
+// Recording 09: 디테일 패널 폼 변경 설정 및 angular-auto-validate, angular-ladda 모듈 설치/설정
+// https://youtu.be/Y26VgUbKWSA
 // ------------------------------------
 // require('jquery');
 
