@@ -99,30 +99,31 @@ angular
           _service.loadContacts(); // page = 2, 3, ...
         }
       },
-      'updateContact': (person)=> {
+      'updateContact': (person, gotoListPage)=> {
         _service.is_saving = true;
-        console.log(person);
         person.$update().then(()=> {
           _service.is_saving = false;
+          gotoListPage();
         });
       },
-      'removeContact': (person)=> {
+      'removeContact': (person, gotoListPage)=> {
         _service.is_deleting = true;
         person.$remove().then(()=> {
           let index = _service.people.indexOf(person);
           // 사용자가 선택한 인덱스의 사람을 목록에서 제거
           _service.people.splice(index, 1);
-          _service.selected_person = null;
           _service.is_deleting = false;
+          gotoListPage();
         });
       },
-      'createContact': (person)=> {
+      'createContact': (person, gotoListPage)=> {
         _service.is_creating = true;
         // Contact.save(person).$promise.then(()=> {
         (new Contact(person)).$create().then(()=> {
           initServiceSetting();
           _service.loadContacts();
           _service.is_creating = false;
+          gotoListPage();
         });
       },
     };
