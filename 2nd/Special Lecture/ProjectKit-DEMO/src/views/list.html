@@ -110,21 +110,21 @@
       <tr
         data-ng-repeat="person in share_data.people"
         data-ng-class="{'warning': person.email === share_data.selected_person.email}"
-        data-ng-click="selectPerson(person)"
+        data-ui-sref="edit({'email': person.email})"
         >
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{$index + 1 | readingZero}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{$index + 1 | readingZero}}</a></td>
         <td>
-          <a href data-ng-href="/#/edit/{{person.email}}"><img
+          <a href data-ui-sref="edit({'email': person.email})"><img
             src="//yamoo9.net/blank1x1.gif"
             data-ng-src="{{person.photo | defaultImage:'https://s-media-cache-ak0.pinimg.com/564x/e5/df/26/e5df26d102b8b275dfee459286e43d2f.jpg'}}"
             alt="{{person.name}}"
             title="{{person.name}}"></a>
         </td>
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.name}}</a></td>
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.email}}</a></td>
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.country}}</a></td>
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.birthdate | date:'longDate'}}</a></td>
-        <td><a href data-ng-href="/#/edit/{{person.email}}">{{person.city}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{person.name}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{person.email}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{person.country}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{person.birthdate | date:'longDate'}}</a></td>
+        <td><a href data-ui-sref="edit({'email': person.email})">{{person.city}}</a></td>
       </tr>
       <!-- 클라이언트 사이드 검색/정렬 -->
       <!-- <tr data-ng-show="filteredPeople.length === 0"> -->

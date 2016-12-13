@@ -8,9 +8,9 @@ angular
   .controller('DetailController',
     ['$scope', 'ListDataShareService', '$stateParams', ($scope, ListDataShareService, $stateParams)=>{
 
-      console.log($stateParams);
-
       $scope.share_data = ListDataShareService;
+
+      $scope.share_data.selectPerson($stateParams.email);
 
       $scope.save = ()=>{
         $scope.share_data.updateContact($scope.share_data.selected_person);

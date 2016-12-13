@@ -54,6 +54,16 @@ angular
         initServiceSetting();
         _service.loadContacts();
       },
+      // selectPerson Method
+      'selectPerson': (email)=> {
+        for ( let i=0, l=_service.people.length; i<l; i++ ) {
+          let person = _service.people[i];
+          if (person.email === email) {
+            _service.selected_person = person;
+            // return person;
+          }
+        }
+      },
       // loadContacts Method
       'loadContacts': ()=> {
         if ( _service.has_more && !_service.is_loading ) {
