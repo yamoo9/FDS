@@ -1,32 +1,5 @@
 <div class="col-md-12">
-  <form class="bipan-search form-inline">
-    <div class="form-group">
-      <span class="glyphicon glyphicon-search" aria-label="Search"></span>
-      <label for="search-everything">Everything</label>
-      <input
-        data-ng-model="search"
-        type="text"
-        class="input-sm form-control"
-        id="search-everything"
-        placeholder="Search Person Info.">
-    </div>
-    <div class="form-group">
-      <select class="input-sm form-control" data-ng-model="order">
-        <option value="name">Name (ASC)</option>
-        <option value="-name">Name (DESC)</option>
-        <option value="email">Email (ASC)</option>
-        <option value="-email">Email (DESC)</option>
-        <option value="country">Country (ASC)</option>
-        <option value="-country">Country (DESC)</option>
-        <option value="birthdate">Birthdate (ASC)</option>
-        <option value="-birthdate">Birthdate (DESC)</option>
-        <option value="city">City (ASC)</option>
-        <option value="-city">City (DESC)</option>
-      </select>
-    </div>
-  </form>
-  <div
-    class="bipan-table-container">
+  <div class="bipan-table-container">
     <table
       data-infinite-scroll="loadMore()"
       data-infinite-scroll-distance="1"

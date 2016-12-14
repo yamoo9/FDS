@@ -59,18 +59,34 @@ bipan.config([
     $stateProvider
       .state('list', {
         'url'         : '/',
-        'templateUrl' : 'views/list.html',
-        'controller'  : 'ListController'
+        'views': {
+          'main': {
+            'templateUrl' : 'views/list.html',
+            'controller'  : 'ListController'
+          },
+          'search': {
+            'templateUrl' : 'views/searchform.html',
+            'controller'  : 'ListController'
+          }
+        }
       })
       .state('edit', {
         'url'         : '/edit/:email',
-        'templateUrl' : 'views/edit.html',
-        'controller'  : 'DetailController'
+        'views': {
+          'main': {
+            'templateUrl' : 'views/edit.html',
+            'controller'  : 'DetailController'
+          }
+        }
       })
       .state('create', {
         'url'         : '/create',
-        'templateUrl' : 'views/edit.html',
-        'controller'  : 'CreateController'
+        'views': {
+          'main': {
+            'templateUrl' : 'views/edit.html',
+            'controller'  : 'CreateController'
+          }
+        }
       });
 
     // $urlRouterProvider 설정

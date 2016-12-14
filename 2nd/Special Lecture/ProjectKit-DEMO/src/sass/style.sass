@@ -29,11 +29,13 @@ html
 //
  * --------------------------------
  * bipan-search
-.navbar-form
+.bipan-search
   .form-group
-    margin-top: 4px
-  [aria-label="Search"]
-    margin-right: 15px
+    margin:
+      top: 4px
+      right: 10px
+  // [aria-label="Search"]
+  //   margin-right: 15px
   label
     @extend %a11y-hidden
 
@@ -41,6 +43,7 @@ html
  * --------------------------------
  * bipan-table-contaier
 .bipan-table-container
+  margin-top: 70px
   [class*="sort-"]
     margin-left: 10px
 
@@ -48,7 +51,6 @@ html
  * --------------------------------
  * bipan-table
 .bipan-table
-  margin-top: 80px
   caption
     @extend %a11y-hidden
   col:nth-child(1)
