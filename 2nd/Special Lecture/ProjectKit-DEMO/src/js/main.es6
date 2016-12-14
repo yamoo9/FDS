@@ -1,16 +1,11 @@
 /*! main.js © yamoo9.net, 2016 */
 
-// ------------------------------------
-// 빌드 시에 아래 주석을 해제한 후, 빌드
-// Recording 09: 디테일 패널 폼 변경 설정 및 angular-auto-validate, angular-ladda 모듈 설치/설정
-// https://youtu.be/Y26VgUbKWSA
-// ------------------------------------
-// require('jquery');
-
+// jQuery 로드
+require('jquery');
 // Angular 로드
 let angular = require('angular');
 
-// 의존 모듈 로드
+// Angular 의존 모듈 로드
 require('angular-resource');
 require('ng-infinite-scroll');
 require('spin');
@@ -20,7 +15,12 @@ require('ladda');
 require('angular-ladda');
 require('angular-ui-router');
 
-// App 모듈 정의 (의존 모듈 주입)
+
+/**
+ * ----------------------------------------------------------
+ * App 모듈 정의 (의존 모듈 주입)
+ * ---------------------------------------------------------- */
+
 let bipan = angular.module('BipanListApp', [
   'ngResource',
   'infinite-scroll',
@@ -30,7 +30,10 @@ let bipan = angular.module('BipanListApp', [
   'ui.router',
 ]);
 
-// 모듈 환경 설정
+/**
+ * ----------------------------------------------------------
+ * App 모듈 환경 설정
+ * ---------------------------------------------------------- */
 bipan.config([
   '$httpProvider',
   '$resourceProvider',
@@ -47,7 +50,12 @@ bipan.config([
     $urlRouterProvider
   )=> {
 
-    // $stateProvider
+    /**
+     * ----------------------------------------------------------------
+     * 라우트(Route) 설정
+     */
+
+    // $stateProvider 설정
     $stateProvider
       .state('list', {
         'url'         : '/',
@@ -58,14 +66,30 @@ bipan.config([
         'url'         : '/edit/:email',
         'templateUrl' : 'views/edit.html',
         'controller'  : 'DetailController'
+      })
+      .state('create', {
+        'url'         : '/create',
+        'templateUrl' : 'views/edit.html',
+        'controller'  : 'CreateController'
       });
 
+    // $urlRouterProvider 설정
     $urlRouterProvider.otherwise('/');
 
-    // ngResource
+    /**
+     * ----------------------------------------------------------------
+     * 서버 통신(RESTfull API) 설정
+     */
+
+    // ngResource 모듈 설정
     let token = 'Token dab1748ebaceb34ed6796bc3b7dc84741b77af54';
     $httpProvider.defaults.headers.common['Authorization'] = token;
     $resourceProvider.defaults.stripTrailingSlashes = false;
+
+    /**
+     * ----------------------------------------------------------------
+     * 스피너(Spinner), 라다(Ladda) 설정
+     */
 
     // usSpinnerConfigProvider
     usSpinnerConfigProvider.setTheme('white-spinner', {
@@ -84,11 +108,19 @@ bipan.config([
 
 }]);
 
-// Controllers
+/**
+ * ----------------------------------------------------------------
+ * 컨트롤러/서비스/필터 모듈 로드
+ * ---------------------------------------------------------------- */
+
+// Controllers 모듈
 require('./controllers/ListController');
 require('./controllers/DetailController');
-// Services
+require('./controllers/CreateController');
+
+// Services 모듈
 require('./services/ListDataShareService');
-// Filters
+
+// Filters 모듈
 require('./filters/readingZeroFilter');
 require('./filters/defaultImageFilter');

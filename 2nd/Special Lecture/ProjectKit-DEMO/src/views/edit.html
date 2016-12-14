@@ -1,8 +1,9 @@
 <div class="col-md-8 col-md-offset-2">
   <div class="bipan-detail-panel panel panel-default">
     <div class="panel-heading">
-      Person Detail View
+      {{mode}}
       <button
+        data-ng-hide="mode === 'Create'"
         data-ladda="share_data.is_deleting"
         data-ng-click="remove()"
         class="btn btn-sm btn-default pull-right">Delete</button>
@@ -110,7 +111,7 @@
               data-ng-model="share_data.selected_person.country">
           </div>
         </div>
-        <div class="btn-group btn-group-justified" role="group">
+        <!-- <div class="btn-group btn-group-justified" role="group">
           <div class="btn-group" role="group">
             <button
               type="button"
@@ -118,12 +119,12 @@
               data-ng-click="create()"
               class="btn btn-primary">Create</button>
           </div>
-          <div class="btn-group" role="group">
+          <div class="btn-group" role="group"> -->
             <button
               type="submit"
-              data-ladda="share_data.is_saving"
-              class="btn btn-primary">Save</button>
-          </div>
+              data-ladda="mode === 'Edit' ? share_data.is_saving : share_data.is_creating"
+              class="btn btn-default btn-block">Save</button>
+          <!-- </div> -->
         </div>
       </form>
     </div>

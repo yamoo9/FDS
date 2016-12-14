@@ -14,6 +14,8 @@
       <select class="input-sm form-control" data-ng-model="order">
         <option value="name">Name (ASC)</option>
         <option value="-name">Name (DESC)</option>
+        <option value="email">Email (ASC)</option>
+        <option value="-email">Email (DESC)</option>
         <option value="country">Country (ASC)</option>
         <option value="-country">Country (DESC)</option>
         <option value="birthdate">Birthdate (ASC)</option>
@@ -30,6 +32,7 @@
       data-infinite-scroll-distance="1"
       class="bipan-table table table-striped">
       <caption>Bipan People List</caption>
+      <col>
       <col>
       <col>
       <col>
@@ -109,7 +112,7 @@
       <!-- 서버 사이드 검색/정렬 -->
       <tr
         data-ng-repeat="person in share_data.people"
-        data-ng-class="{'warning': person.email === share_data.selected_person.email}"
+        data-ng-class="{'info': person.email === share_data.selected_person.email}"
         data-ui-sref="edit({'email': person.email})"
         >
         <td><a href data-ui-sref="edit({'email': person.email})">{{$index + 1 | readingZero}}</a></td>

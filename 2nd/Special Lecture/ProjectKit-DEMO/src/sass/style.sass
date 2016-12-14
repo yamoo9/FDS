@@ -17,13 +17,21 @@ html
  * Bipan Style
  */
 
+.navbar-brand
+  position: relative
+  top: -5px
+  > img
+    display: inline-block
+    margin-right: 10px
+    width: 32px
+    height: 32px
+
 //
  * --------------------------------
  * bipan-search
-.bipan-search
-  margin-top: 60px
+.navbar-form
   .form-group
-    margin: 10px
+    margin-top: 4px
   [aria-label="Search"]
     margin-right: 15px
   label
@@ -40,6 +48,7 @@ html
  * --------------------------------
  * bipan-table
 .bipan-table
+  margin-top: 80px
   caption
     @extend %a11y-hidden
   col:nth-child(1)
@@ -47,13 +56,15 @@ html
   col:nth-child(2)
     width: 10%
   col:nth-child(3)
-    width: 20%
+    width: 15%
   col:nth-child(4)
-    width: 20%
+    width: 15%
   col:nth-child(5)
-    width: 20%
+    width: 15%
   col:nth-child(6)
-    width: 20%
+    width: 15%
+  col:nth-child(7)
+    width: 15%
   img
     width: 80px
     height: auto

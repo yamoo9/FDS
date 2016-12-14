@@ -5,8 +5,10 @@ let angular = require('angular');
 
 angular
   .module('BipanListApp')
+  // 팩토리 모듈 설정
   .factory('Contact', ['$resource', function($resource){
-    let url = 'https://codecraftpro.com/api/samples/v1/contact/:id/';
+    // Back-End API
+    let url = 'https://api.codecraft.tv/samples/v1/contact/:id/';
     let params = {'id': '@id'};
     let actions = {
       'update':{
@@ -14,13 +16,11 @@ angular
       },
       'remove': {
         'method': 'DELETE'
-      },
-      'create': {
-        'method': 'POST'
       }
     };
     return $resource(url, params, actions);
   }])
+  // 서비스 모듈 설정
   .service('ListDataShareService', ['Contact', (Contact)=>{
 
     // 서비스 객체 초기화 함수(비공개)
@@ -118,8 +118,7 @@ angular
       },
       'createContact': (person, gotoListPage)=> {
         _service.is_creating = true;
-        // Contact.save(person).$promise.then(()=> {
-        (new Contact(person)).$create().then(()=> {
+        (new Contact(person)).$save().then(()=> {
           initServiceSetting();
           _service.loadContacts();
           _service.is_creating = false;
