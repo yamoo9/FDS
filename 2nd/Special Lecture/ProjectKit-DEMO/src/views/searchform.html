@@ -4,6 +4,7 @@
     <label for="search-everything">Everything</label>
     <input
       data-ng-model="search"
+      data-ng-model-options="{'debounce':300}"
       type="text"
       class="input-sm form-control"
       id="search-everything"

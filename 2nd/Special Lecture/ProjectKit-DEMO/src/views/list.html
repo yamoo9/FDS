@@ -2,6 +2,7 @@
   <div class="bipan-table-container">
     <table
       data-infinite-scroll="loadMore()"
+      data-infinite-scroll-immediate-check="false"
       data-infinite-scroll-distance="1"
       class="bipan-table table table-striped">
       <caption>Bipan People List</caption>
@@ -20,7 +21,8 @@
             <button
               data-ng-click="order='name'"
               type="button"
-              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Name"></button>
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet"
+              aria-label="Ascending Name"></button>
             <button
               data-ng-click="order='-name'"
               type="button"
@@ -32,7 +34,8 @@
             <button
               data-ng-click="order='email'"
               type="button"
-              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Email"></button>
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet"
+              aria-label="Ascending Email"></button>
             <button
               data-ng-click="order='-email'"
               type="button"
@@ -44,7 +47,8 @@
             <button
               data-ng-click="order='country'"
               type="button"
-              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Country"></button>
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet"
+              aria-label="Ascending Country"></button>
             <button
               data-ng-click="order='-country'"
               type="button"
@@ -56,7 +60,8 @@
             <button
               data-ng-click="order='birthdate'"
               type="button"
-              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending Birthdate"></button>
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet"
+              aria-label="Ascending Birthdate"></button>
             <button
               data-ng-click="order='-birthdate'"
               type="button"
@@ -68,7 +73,8 @@
             <button
               data-ng-click="order='city'"
               type="button"
-              class="btn btn-default glyphicon glyphicon-sort-by-alphabet" aria-label="Ascending City"></button>
+              class="btn btn-default glyphicon glyphicon-sort-by-alphabet"
+              aria-label="Ascending City"></button>
             <button
               data-ng-click="order='-city'"
               type="button"
@@ -90,11 +96,13 @@
         >
         <td><a href data-ui-sref="edit({'email': person.email})">{{$index + 1 | readingZero}}</a></td>
         <td>
-          <a href data-ui-sref="edit({'email': person.email})"><img
-            src="//yamoo9.net/blank1x1.gif"
-            data-ng-src="{{person.photo | defaultImage:'https://s-media-cache-ak0.pinimg.com/564x/e5/df/26/e5df26d102b8b275dfee459286e43d2f.jpg'}}"
-            alt="{{person.name}}"
-            title="{{person.name}}"></a>
+          <a href data-ui-sref="edit({'email': person.email})">
+            <img
+              src="//yamoo9.net/blank1x1.gif"
+              data-ng-src="{{person.photo | defaultImage}}"
+              alt="{{person.name}}"
+              title="{{person.name}}">
+          </a>
         </td>
         <td><a href data-ui-sref="edit({'email': person.email})">{{person.name}}</a></td>
         <td><a href data-ui-sref="edit({'email': person.email})">{{person.email}}</a></td>
@@ -113,9 +121,20 @@
         </td>
       </tr>
     </table>
-    <div class="spinner" data-ng-show="share_data.is_loading">
-      <span data-us-spinner data-spinner-theme="white-spinner"></span>
-      <p>Loading....</p>
+
+    <!-- Element Type -->
+    <!-- <data-y-spinner></data-y-spinner> -->
+
+    <!-- Attribute Type -->
+    <div
+      data-y-spinner
+      data-is-loading="share_data.is_loading"
+      data-message="Loading....">
+      <!-- <span>로딩 중....</span> -->
     </div>
+
+    <!-- Class Attribute Type -->
+    <!-- <div class="y-spinner"></div> -->
+
   </div>
 </div>

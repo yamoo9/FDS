@@ -129,6 +129,9 @@ bipan.config([
  * 컨트롤러/서비스/필터 모듈 로드
  * ---------------------------------------------------------------- */
 
+// Directives 모듈
+require('./directives/ySpinnerDirective');
+
 // Controllers 모듈
 require('./controllers/ListController');
 require('./controllers/DetailController');

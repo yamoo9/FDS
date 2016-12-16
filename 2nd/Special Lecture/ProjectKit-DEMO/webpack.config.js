@@ -48,15 +48,20 @@ module.exports = {
 
   // webpack 플러그인 설정
   'plugins': [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    // http://stackoverflow.com/questions/28969861/managing-jquery-plugin-dependency-in-webpack
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    }),
   ],
 
   // 모듈을 글로벌 변수 사용 (외부 파일 의존)
   // http://webpack.github.io/docs/library-and-externals.html
-  'externals': {
-    'jquery': 'jQuery',
-    'angular': 'angular',
-  },
+  // 'externals': {
+  //   'jquery': 'jQuery',
+  //   'angular': 'angular',
+  // },
 
   // webpack 결정사항 설정
   'resolve': {
