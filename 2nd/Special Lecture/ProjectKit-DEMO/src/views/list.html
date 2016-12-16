@@ -1,6 +1,17 @@
 <div class="col-md-12">
   <div class="bipan-table-container">
-    <table
+    <div
+      class="row"
+      data-infinite-scroll="loadMore()"
+      data-infinite-scroll-immediate-check="false"
+      data-infinite-scroll-distance="1"
+    >
+      <div
+        data-y-card
+        data-ng-repeat="person in share_data.people"
+        data-user="person"></div>
+    </div>
+    <!-- <table
       data-infinite-scroll="loadMore()"
       data-infinite-scroll-immediate-check="false"
       data-infinite-scroll-distance="1"
@@ -82,13 +93,6 @@
           </div>
         </th>
       </tr>
-      <!-- 클라이언트 사이드 검색/정렬 -->
-      <!-- <tr
-        data-ng-repeat="person in filteredPeople=(share_data.people | filter:search | orderBy:order)"
-        data-ng-class="{'warning': person.city === share_data.selected_person.city}"
-        data-ng-click="selectPerson(person)"
-        > -->
-      <!-- 서버 사이드 검색/정렬 -->
       <tr
         data-ng-repeat="person in share_data.people"
         data-ng-class="{'info': person.email === share_data.selected_person.email}"
@@ -110,9 +114,6 @@
         <td><a href data-ui-sref="edit({'email': person.email})">{{person.birthdate | date:'longDate'}}</a></td>
         <td><a href data-ui-sref="edit({'email': person.email})">{{person.city}}</a></td>
       </tr>
-      <!-- 클라이언트 사이드 검색/정렬 -->
-      <!-- <tr data-ng-show="filteredPeople.length === 0"> -->
-      <!-- 서버 사이드 검색/정렬 -->
       <tr data-ng-show="share_data.people.length === 0 && !share_data.is_loading">
         <td colspan="6">
           <div class="alert alert-warning" role="alert">
@@ -120,7 +121,7 @@
           </div>
         </td>
       </tr>
-    </table>
+    </table> -->
 
     <!-- Element Type -->
     <!-- <data-y-spinner></data-y-spinner> -->

@@ -131,6 +131,7 @@ bipan.config([
 
 // Directives 모듈
 require('./directives/ySpinnerDirective');
+require('./directives/yCardDirective');
 
 // Controllers 모듈
 require('./controllers/ListController');

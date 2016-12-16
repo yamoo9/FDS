@@ -1,0 +1,52 @@
+<div class="col-md-4">
+  <div class="well well-sm">
+    <!-- <a href data-ui-sref="edit({'email': user.email})"> -->
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="//yamoo9.net/blank1x1.gif"
+            data-ng-src="{{user.photo | defaultImage:'https://randomuser.me/api/portraits/men/12.jpg'}}"
+            alt="{{user.name}}"
+            class="img-rounded img-responsive"
+            width="120"
+            height="120">
+        </div>
+        <div class="col-md-8">
+          <h4>
+            {{user.name}}
+            <span
+              class="fa"
+              data-ng-class="{'fa-female': user.sex === 'F', 'fa-male': user.sex === 'M'}"
+              aria-hidden="true"></span>
+          </h4>
+          <small>
+            {{user.city}}, {{user.country}}
+            <span aria-hidden="true" class="fa fa-map-marker"></span>
+          </small>
+          <p>
+            <span aria-hidden="true" class="fa fa-envelope-o"></span>
+            {{user.email}}
+            <br>
+            <span aria-hidden="true" class="fa fa-gift"></span>
+            {{user.birthdate | date:'longDate'}}
+          </p>
+        </div>
+        <button
+          type="button"
+          class="btn btn-default btn-sm"
+          data-ui-sref="edit({'email': user.email})"
+        >
+          <span class="fa fa-pencil" aria-hidden="true"></span> Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning btn-sm"
+          data-ng-click="deleteUser()"
+          data-ladda="is_deleting"
+        >
+          <span class="fa fa-trash" aria-hidden="true"></span> Delete
+        </button>
+      </div>
+    <!-- </a> -->
+  </div>
+</div>
