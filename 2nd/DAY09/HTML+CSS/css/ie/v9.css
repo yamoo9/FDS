@@ -1,8 +1,0 @@
-body {
-  background: #6b00ff;
-  color: #fff;
-}
-
-body:before {
-  content: 'IE 9';
-}
