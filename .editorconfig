@@ -1,0 +1,34 @@
+# EditorConfig: http://EditorConfig.org
+
+# 지원 속성
+# root
+# indent_style
+# indent_size
+# end_of_line
+# charset
+# trim_trailing_whitespace
+# insert_final_newline
+
+root = true
+
+[*.{html,css,js}]
+charset = utf-8
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = true
+
+[*.{html,css}]
+indent_style = space
+indent_size = 2
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
