@@ -2,7 +2,7 @@
 
 # 미니 프로젝트 ─ "지난 2주간 학습한 내용을 정리하다."
 
-[와이어프레임 디자인](../../ASSETS/Pages__wireframe.zip) 파일을 다운로드 받아 2주간 공부한 것을 토대로 뷰(View) 페이지를 구현 해봅니다.<br>
+[와이어프레임 디자인](../ASSETS/Pages__wireframe.zip) 파일을 다운로드 받아 2주간 공부한 것을 토대로 뷰(View) 페이지를 구현 해봅니다.<br>
 해당 와이어프레임 페이지 디자인은 웹폰트 [Poppins](https://fonts.google.com/specimen/Poppins)를 사용합니다.
 
 ![Pages__wireframe](../ASSETS/Pages__wireframe.png)
