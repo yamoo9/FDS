@@ -1,0 +1,16 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 14px;
+  color: #fff;
+  background: #000;
+}
+
+body *,
+body *::before,
+body *::after {
+  content: '';
+  box-sizing: border-box;
+}
