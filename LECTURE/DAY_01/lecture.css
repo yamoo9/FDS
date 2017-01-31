@@ -8,9 +8,13 @@ body {
   background: #000;
 }
 
-body *,
-body *::before,
-body *::after {
-  content: '';
+html *,
+html *::before,
+html *::after {
   box-sizing: border-box;
+}
+
+html *::before,
+html *::after {
+  content: '';
 }
