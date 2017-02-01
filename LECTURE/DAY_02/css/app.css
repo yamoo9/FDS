@@ -1,3 +1,28 @@
+@charset "UTF-8";
+abbr[title] {
+  cursor: help;
+}
+
+a {
+  text-decoration: none;
+  color: #3fb5c8;
+}
+
+a:hover {
+  padding-bottom: 0.03em;
+  border-bottom: 1px dashed currentColor;
+}
+
+a:focus {
+  outline: none;
+  color: #24717d;
+}
+
+a img {
+  border: 0;
+}
+
+/* app 클래스 모듈 */
 .app {
   width: 1100px;
   margin: 0 auto;
@@ -19,3 +44,16 @@
 .lt-ie8 .row {
   zoom: 1;
 }
+
+/*! print © yamoo9.net, 2017 */
+@media print {
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+  a[href^="http"]::after,
+  a[href^="https://"]::after {
+    content: ' (' attr(href) ')';
+  }
+}
+
+/*# sourceMappingURL=../map/app.css.map */

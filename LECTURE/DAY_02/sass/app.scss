@@ -1,6 +1,18 @@
+// @import url("");
+@import "./module";
+
+// body {
+//   &::before {
+//     // Attribute (속성, 특성)
+//     content: attr(속성이름);
+//   }
+// }
+
+/* app 클래스 모듈 */
 .app {
   width: 1100px;
   margin: 0 auto;
+  // 대제목은 app 모듈 내부에 반드시 존재해야 함!
   h1 {
     margin-top: 0;
     font-size: 2rem;
@@ -19,3 +31,6 @@
     zoom: 1;
   }
 }
+
+// 프린트 스타일
+@import "print";
