@@ -1,0 +1,21 @@
+.app {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.app h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #fe4940;
+  letter-spacing: -0.03em;
+}
+
+.row::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.lt-ie8 .row {
+  zoom: 1;
+}
