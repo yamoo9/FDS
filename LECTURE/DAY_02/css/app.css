@@ -22,6 +22,54 @@ a img {
   border: 0;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  border: none;
+  padding: 0.63em 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.021em;
+  font-size: 14px;
+}
+
+.button.button-default {
+  border: 1px solid #cecece;
+  color: #323232;
+  background: #fff;
+}
+
+.button:not(.button-default) {
+  color: #fff;
+}
+
+.button.button-primary {
+  background: #4b96d0;
+}
+
+.button.button-success {
+  background: #67c067;
+}
+
+.button.button-info {
+  background: #66c7e2;
+}
+
+.button.button-warn {
+  background: #f2b658;
+}
+
+.button.button-danger {
+  background: #de5e59;
+}
+
+.button.button-round {
+  border-radius: 4px;
+}
+
 /* app 클래스 모듈 */
 .app {
   width: 1100px;
@@ -31,6 +79,9 @@ a img {
 .app h1 {
   margin-top: 0;
   font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  font-variant: small-caps;
   color: #fe4940;
   letter-spacing: -0.03em;
 }
@@ -48,11 +99,23 @@ a img {
 /*! print © yamoo9.net, 2017 */
 @media print {
   abbr[title]::after {
-    content: ' (' attr(title) ')';
+    content: " (" attr(title) ")";
   }
-  a[href^="http"]::after,
+  a[href^="http://"]::after,
   a[href^="https://"]::after {
-    content: ' (' attr(href) ')';
+    content: " (" attr(href) ")";
+  }
+}
+
+aside {
+  float: left;
+  width: 25%;
+}
+
+@media screen and (max-width: 480px) {
+  aside {
+    float: none;
+    width: 100%;
   }
 }
 

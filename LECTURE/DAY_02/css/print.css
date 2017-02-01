@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*! print © yamoo9.net, 2017 */
+@media print {
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="http://"]::after,
+  a[href^="https://"]::after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/*# sourceMappingURL=../map/print.css.map */

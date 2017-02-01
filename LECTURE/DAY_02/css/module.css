@@ -21,4 +21,9 @@ a img {
   border: 0;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*# sourceMappingURL=../map/module.css.map */

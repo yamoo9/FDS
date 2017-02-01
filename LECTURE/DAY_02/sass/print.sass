@@ -1,5 +1,10 @@
 /*! print © yamoo9.net, 2017
 
 @media print
-  body
-    background: #ff0
+
+  abbr[title]::after
+    content: ' (' attr(title) ')'
+
+  a[href^="http://"]::after,
+  a[href^="https://"]::after
+    content: ' (' attr(href) ')'

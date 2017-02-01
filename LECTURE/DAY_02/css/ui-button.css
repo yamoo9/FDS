@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  padding: 0.63em 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.021em;
+  font-size: 14px;
+}
+
+.button.button-default {
+  border: 1px solid #cecece;
+  color: #323232;
+  background: #fff;
+}
+
+.button:not(.button-default) {
+  color: #fff;
+}
+
+.button.button-primary {
+  background: #4b96d0;
+}
+
+.button.button-success {
+  background: #67c067;
+}
+
+.button.button-info {
+  background: #66c7e2;
+}
+
+.button.button-warn {
+  background: #f2b658;
+}
+
+.button.button-danger {
+  background: #de5e59;
+}
+
+.button.button-round {
+  border-radius: 4px;
+}
+
+/*# sourceMappingURL=../map/ui-button.css.map */
