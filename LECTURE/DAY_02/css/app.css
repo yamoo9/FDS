@@ -27,6 +27,15 @@ a img {
   margin-right: auto;
 }
 
+.cf::before, .cf::after {
+  content: '';
+  display: table;
+}
+
+.cf::after {
+  clear: both;
+}
+
 .button {
   border: none;
   padding: 0.63em 1.2em;
@@ -70,6 +79,10 @@ a img {
   border-radius: 4px;
 }
 
+.button-big, .button, .button.button-default, .button.button-primary, .button.button-success, .button.button-info, .button.button-warn, .button.button-danger, .button.button-round {
+  font-size: 22px;
+}
+
 /* app 클래스 모듈 */
 .app {
   width: 1100px;
@@ -78,10 +91,8 @@ a img {
 
 .app h1 {
   margin-top: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  font-style: italic;
-  font-variant: small-caps;
+  font-size: 1.6rem;
+  font-weight: 300;
   color: #fe4940;
   letter-spacing: -0.03em;
 }
@@ -118,5 +129,24 @@ aside {
     width: 100%;
   }
 }
+
+.cf::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.mcf::before,
+.mcf::after {
+  content: '';
+  display: table;
+}
+.mcf::after {
+  clear: both;
+}
+
+
+
+
 
 /*# sourceMappingURL=../map/app.css.map */

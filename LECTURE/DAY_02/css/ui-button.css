@@ -41,4 +41,8 @@
   border-radius: 4px;
 }
 
+.button-big, .button, .button.button-default, .button.button-primary, .button.button-success, .button.button-info, .button.button-warn, .button.button-danger, .button.button-round {
+  font-size: 22px;
+}
+
 /*# sourceMappingURL=../map/ui-button.css.map */

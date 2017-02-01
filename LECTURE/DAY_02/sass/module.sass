@@ -26,3 +26,12 @@ a
   margin:
     left: auto
     right: auto
+
+// Micro Clearfix
+.cf
+  &::before,
+  &::after
+    content: ''
+    display: table
+  &::after
+    clear: both

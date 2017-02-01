@@ -26,4 +26,13 @@ a img {
   margin-right: auto;
 }
 
+.cf::before, .cf::after {
+  content: '';
+  display: table;
+}
+
+.cf::after {
+  clear: both;
+}
+
 /*# sourceMappingURL=../map/module.css.map */
