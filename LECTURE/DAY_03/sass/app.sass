@@ -1,0 +1,36 @@
+@import common-modules
+
+//
+ * --------------------------------
+ * Sass
+ * --------------------------------
+ * 중첩(규칙, 속성)
+ * @import 구문 (파일 병합)
+ * 부모 참조 선택자 &
+ * 선택자 상속 @extend
+ * 숨겨진 모듈 개발
+ * --------------------------------
+
+// gnb
+.gnb
+  @extend %set-nav
+  width: 50vw
+  li
+    float: left
+    margin-right: 1rem
+  a
+    padding: 0.6em 1.2em
+    background: #434343
+    color: #e3e3e3
+
+// footer-navigation
+.footer--navigation
+  @extend %set-nav
+  width: 50vw
+  li
+    float: left
+    margin-right: 3px
+  a
+    padding: 0.6em 1.2em
+    background: #343434
+    color: #e3e3e3
