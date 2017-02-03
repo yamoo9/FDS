@@ -11,6 +11,9 @@
  * 숨겨진 모듈 개발
  * --------------------------------
 
+body, .brand
+  @extend %reset-margin !optional
+
 // gnb
 .gnb
   @extend %set-nav
@@ -34,3 +37,8 @@
     padding: 0.6em 1.2em
     background: #343434
     color: #e3e3e3
+
+
+// Namespace <- Module 종속(Indipendency)
+.main-post
+  @import carousel-indicator

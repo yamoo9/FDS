@@ -7,6 +7,9 @@
   list-style: none
   padding-left: 0
 
+%reset-margin
+  margin: 0
+
 %set-nav-link
   display: block
   vertical-align: top
@@ -18,3 +21,15 @@
     @extend %reset-list
   a
     @extend %set-nav-link
+
+%reset-link
+  text-decoration: none
+  display: inline-block
+
+%reset-button
+  border: none
+  padding: 0.34em
+  background: transparent
+  color: #343232
+
+
