@@ -1,0 +1,14 @@
+//
+ * ------------------------------------------------
+ * BEM Mixins
+ * ------------------------------------------------
+
+// e(), el(), elem(), element()
+=element($element)
+  &__#{$element}
+    @content
+
+// m(), mod(), modifier()
+=modifier($modifier)
+  &--#{$modifier}
+    @content

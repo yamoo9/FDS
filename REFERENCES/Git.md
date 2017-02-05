@@ -507,10 +507,14 @@ $ git log --decorate --graph --all
 ### 12. Git 참고 자료
 
 - [Git 간편 안내서](https://rogerdudler.github.io/git-guide/index.ko.html)
+- [쉬운 Git 사용법](http://programmerchoo.tistory.com/m/category/programmer/Git%20%EC%82%AC%EC%9A%A9%EB%B2%95)
 - [누구나 쉽게 이해할 수 있는 Git 입문](https://backlogtool.com/git-guide/kr/)
 - Pro Git(번역) [ [온라인 버전](https://git-scm.com/book/ko/v2) | [다운로드 버전](../PDF/progit-ko.pdf) ]
+- [Git 브랜치 배우기](http://learnbranch.urigit.com/)
 - [git-flow cheatsheet(번역)](http://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html)
 - [Git 치트시트 (프린트용)](../PDF/git-cheatsheet-print.pdf)
 - [좋은 커밋 메시지 작성하기](http://www.haruair.com/blog/2738)
 - [SVN 능력자를 위한 GIT](http://www.slideshare.net/einsub/svn-git-17386752)
 - [Git 문서](https://git-scm.com/docs)
+- [Learn Git, CodeCademy](https://www.codecademy.com/learn/learn-git)
+- [ADD GIT BRANCH NAME TO TERMINAL PROMPT (MAC)](http://mfitzp.io/article/add-git-branch-name-to-terminal-prompt-mac/)

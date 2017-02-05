@@ -231,3 +231,11 @@ $ vi {파일 이름}
 [platformio-ide-terminal](https://atom.io/packages/platformio-ide-terminal)
 
 <img src="../ASSETS/atom-terminal.gif" alt="아톰 터미널" width="504" height="400">
+
+-
+
+### 참고 자료
+
+- [Learn The CommandLine, CodeCademy](https://www.codecademy.com/learn/learn-the-command-line)
+- [Mac OS X tree 명령어 설치, 실행](http://eunguru.tistory.com/150)
+- [windows 환경 atom 에디터에서 git-bash 사용하기!](https://github.com/juhwan1004/TIL/blob/master/git/atom-with-gitbash.md)
