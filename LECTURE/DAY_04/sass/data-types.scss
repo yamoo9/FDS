@@ -157,3 +157,126 @@ $page-width: 1280px;
   font: #{$font-size}/#{$line-height} $font-family;
 }
 
+// * ----------------------------------------------
+// * Sass 변수를 접합할 때 사용하는 인터폴레이션(보간법, #{})
+// * ----------------------------------------------
+$namespace: 'nhn';
+$props: ('button', 'gallery', 'carousel', 'tab');
+
+.#{$namespace}-component-#{index($props, 'button')} {
+  content: '─#{nth($props, 1)}─';
+}
+
+.#{$namespace}-component-#{index($props, 'gallery')} {
+  content: '─#{nth($props, 2)}─';
+}
+
+.#{$namespace}-component-#{index($props, 'carousel')} {
+  content: '─#{nth($props, 3)}─';
+}
+
+.#{$namespace}-component-#{index($props, 'tab')} {
+  content: '─#{nth($props, 4)}─';
+}
+
+// ---------------------------------------------------
+// 보간법 + 웹폰트
+
+$g-font: 'Open'; // 'Open', 'Noto'
+
+@import url('https://fonts.googleapis.com/css?family=#{$g-font}+Sans');
+
+body {
+  font-family: "#{$g-font} Sans", Sans-Serif;
+}
+
+// ---------------------------------------------------
+// box-sizing을 오늘날(모던) 스타일에 기본 값으로 처리하는 방법
+*,
+*::before,
+*::after {
+  box-sizing: inherit; // 부모의 박스 사이징 설정을 상속
+}
+
+html {
+  box-sizing: border-box;
+}
+
+// ---------------------------------------------------
+// 믹스인
+
+// Define Mixin
+// Mixin Directive @mixin
+@mixin box-sizing() {
+  box-sizing: border-box;
+}
+
+@mixin grid() {
+  -ms-display: grid;
+  display: grid;
+}
+
+@mixin columns-2() {
+  -webkit-columns: 2 auto;
+  -moz-columns: 2 auto;
+  columns: 2 auto;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+}
+
+@mixin columns($count, $width, $gap) {
+  -webkit-columns: $count $width;
+  -moz-columns: $count $width;
+  columns: $count $width;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+}
+
+.login-form {
+  @include columns(2, auto, 10px);
+  &__button {
+    // call Defined Mixin
+    // @include Directive
+    @include box-sizing();
+    @include grid();
+  }
+}
+
+main p {
+  @include box-sizing();
+  @include columns(4, 220px, 20px);
+}
+
+.header__logo {
+  @include box-sizing();
+  @include columns(3, 33vw, 0);
+}
+
+// HTML5 새롭게 추가된 요소
+// section, article, aside, nav
+// header, footer
+// figure, figcaption
+
+$html5-new-elements: (
+  section,
+  article,
+  aside,
+  nav,
+  header,
+  footer,
+  figure,
+  figcaption
+);
+$need-reset-margin: (
+  h1, h2, h3, h4, h5, h6,
+  p, blogquote, ul, ol, dl
+);
+
+#{$html5-new-elements} {
+  display: block;
+  & #{$need-reset-margin} {
+    margin-top: 0;
+  }
+}
