@@ -1,0 +1,52 @@
+// * --------------------------------
+// * Sass Data Types
+// * --------------------------------
+// * 1. Number 숫자형
+// * 2. String 문자형
+// * 3. Colors 컬러 유형
+// * 4. Boolean 논리형 (참/거짓)
+// * 5. Null 비어 있다 (Empty, 아무런 값이 설정되어 있지 않았다)
+// * 6. List 리스트(집합, 배열, Array)
+// * 7. Map 맵(객체, Object)
+// * --------------------------------
+
+// 숫자형, Number
+$num: 1.7;
+$num-plus-plus: $num + 1 + 1;
+
+:root {
+  content: $num-plus-plus;
+}
+
+// ----------------------------------------------------
+// 문자형, String
+$str: 'Pseudo Content';
+
+.app::after {
+  content: $str;
+}
+
+// ---------------------------------------------------
+// 논리형, Boolean
+:root {
+  content: true;
+}
+
+// ----------------------------------------------------
+// null
+
+// 전역 변수
+$letter-gap: null;
+
+body {
+  $letter-gap: 0.034em; // 지역 변수
+  font: 1rem/1.65 Verdana, sans-serif;
+  word-spacing: 0.023em;
+  letter-spacing: $letter-gap;
+}
+
+.memo {
+  font-size: 1.1rem;
+  letter-spacing: $letter-gap;
+}
+
