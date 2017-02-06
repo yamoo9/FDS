@@ -50,3 +50,110 @@ body {
   letter-spacing: $letter-gap;
 }
 
+// ---------------------------------------------------
+// color
+$keyword: hotpink;
+$hex: #1c8afb;
+$rgb: rgb(0, 0, 0);
+$hsl: hsl(180, 100%, 50%);
+
+a {
+  color: $keyword;
+  &:hover {
+    color: $hex;
+  }
+  &:focus {
+    outline: none;
+    color: $hsl;
+  }
+  &:active {
+    background: $rgb;
+  }
+}
+
+// ----------------------------------------------------
+// List 집합(값의 나열)
+
+// Seperator: Space
+$base-border-style: 1px solid #323232;
+
+// Seperator: Comma
+$base-font-stack: "Times New Roman", Times, Serif;
+
+.tabpanel {
+  border: $base-border-style;
+  font: 1.24rem/1.4 $base-font-stack;
+}
+
+// ----------------------------------------------------
+// 맵 (키:값 쌍으로 구성된 데이터 덩어리)
+$heading-map: (
+  h1: 3rem,
+  h2: 2rem,
+  h3: 1.8rem,
+  h4: 1.5rem,
+  h5: 1.25rem,
+  h6: 1rem
+);
+
+h1, .h1 { font-size: map-get($heading-map, h1); }
+h2, .h2 { font-size: map-get($heading-map, h2); }
+h3, .h3 { font-size: map-get($heading-map, h3); }
+h4, .h4 { font-size: map-get($heading-map, h4); }
+h5, .h5 { font-size: map-get($heading-map, h5); }
+h6, .h6 { font-size: map-get($heading-map, h6); }
+
+// ---------------------------------------------------
+// 연산(Operations)
+// +, -, *, /, %
+
+$base-padding-gap: 10px;
+$base-margin-gap: 0 !default;
+$page-width: 1280px;
+
+%container {
+  width: $page-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+.container {
+  @extend %container;
+}
+
+%flex-vh-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  @extend %flex-vh-center;
+  width: $page-width - ($base-padding-gap * 2);
+  margin-top: $base-padding-gap/2;
+  margin-bottom: $base-padding-gap*1.5;
+}
+
+.flex-vh-center {
+  @extend %flex-vh-center;
+}
+
+// ---------------------------------------------------
+// 산술 연산 과정에서 나눗셈은 주의가 요구!!!
+// ※ 특히 font 속기형 작성 시에
+
+.page-footer {
+  // 문자열 접합(용접, 붙이다)
+  $cursor-direction: 'w';
+  $cursor-style: 'resize';
+  cursor: '#{$cursor-direction}-#{$cursor-style}';
+  // cursor: $cursor-direction + '-' + $cursor-style;
+  $font-size: 14px;
+  $line-height: 1.5;
+  $font-family: Dotum !global;
+  // Sass 변수를 문장 내에서 처리해주는 보간법(Interpolation) 방식
+  font: #{$font-size}/#{$line-height} $font-family;
+}
+
