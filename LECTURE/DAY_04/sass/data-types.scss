@@ -225,7 +225,11 @@ html {
   column-gap: 10px;
 }
 
-@mixin columns($count, $width, $gap) {
+@mixin columns(
+  $count,
+  $width,
+  $gap
+) {
   -webkit-columns: $count $width;
   -moz-columns: $count $width;
   columns: $count $width;
@@ -278,5 +282,27 @@ $need-reset-margin: (
   display: block;
   & #{$need-reset-margin} {
     margin-top: 0;
+  }
+}
+
+// ----------------------------------------------------
+// @content 디렉티브 사용
+
+$query: max-width; // 전역 변수
+
+@mixin mq($scope, $query: min-width) {
+  @media screen and ($query: $scope) {
+    @content;
+    content: $query;
+  }
+}
+
+.form {
+  $form-width: 640px;
+  width: $form-width;
+  @include mq($form-width - 10) {
+    p::before {
+      content: $query;
+    }
   }
 }

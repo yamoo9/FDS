@@ -1,0 +1,281 @@
+// * --------------------------------
+// * Sass Data Types
+// * --------------------------------
+// * 1. Number 숫자형
+// * 2. String 문자형
+// * 3. Colors 컬러 유형
+// * 4. Boolean 논리형 (참/거짓)
+// * 5. Null 비어 있다 (Empty, 아무런 값이 설정되어 있지 않았다)
+// * 6. List 리스트(집합, 배열, Array)
+// * 7. Map 맵(객체, Object)
+// * --------------------------------
+
+// 숫자형, Number
+$num: 1.7
+$num-plus-plus: $num + 1 + 1
+
+\:root
+  content: $num-plus-plus
+
+// ----------------------------------------------------
+// 문자형, String
+$str: "Pseudo Content"
+
+.app::after
+  content: $str
+
+// ---------------------------------------------------
+// 논리형, Boolean
+\:root
+  content: true
+
+// ----------------------------------------------------
+// null
+
+// 전역 변수
+$letter-gap: null
+
+body
+  $letter-gap: 0.034em
+
+  // 지역 변수
+  font: 1rem/1.65 Verdana, sans-serif
+  word-spacing: 0.023em
+  letter-spacing: $letter-gap
+
+.memo
+  font-size: 1.1rem
+  letter-spacing: $letter-gap
+
+// ---------------------------------------------------
+// color
+$keyword: hotpink
+$hex: #1c8afb
+$rgb: rgb(0, 0, 0)
+$hsl: hsl(180, 100%, 50%)
+
+a
+  color: $keyword
+
+  &:hover
+    color: $hex
+
+  &:focus
+    outline: none
+    color: $hsl
+
+  &:active
+    background: $rgb
+
+// ----------------------------------------------------
+// List 집합(값의 나열)
+
+// Seperator: Space
+$base-border-style: 1px solid #323232
+
+// Seperator: Comma
+$base-font-stack: "Times New Roman", Times, Serif
+
+.tabpanel
+  border: $base-border-style
+  font: 1.24rem / 1.4 $base-font-stack
+
+// ----------------------------------------------------
+// 맵 (키:값 쌍으로 구성된 데이터 덩어리)
+$heading-map: (h1: 3rem, h2: 2rem, h3: 1.8rem, h4: 1.5rem, h5: 1.25rem, h6: 1rem)
+
+h1, .h1
+  font-size: map-get($heading-map, h1)
+
+h2, .h2
+  font-size: map-get($heading-map, h2)
+
+h3, .h3
+  font-size: map-get($heading-map, h3)
+
+h4, .h4
+  font-size: map-get($heading-map, h4)
+
+h5, .h5
+  font-size: map-get($heading-map, h5)
+
+h6, .h6
+  font-size: map-get($heading-map, h6)
+
+// ---------------------------------------------------
+// 연산(Operations)
+// +, -, *, /, %
+
+$base-padding-gap: 10px
+$base-margin-gap: 0 !default
+$page-width: 1280px
+
+%container
+  width: $page-width
+  margin:
+    left: auto
+    right: auto
+
+.container
+  @extend %container
+
+%flex-vh-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+.wrapper
+  @extend %flex-vh-center
+
+  width: $page-width - $base-padding-gap * 2
+  margin-top: $base-padding-gap / 2
+  margin-bottom: $base-padding-gap * 1.5
+
+.flex-vh-center
+  @extend %flex-vh-center
+
+// ---------------------------------------------------
+// 산술 연산 과정에서 나눗셈은 주의가 요구!!!
+// ※ 특히 font 속기형 작성 시에
+
+.page-footer
+  // 문자열 접합(용접, 붙이다)
+  $cursor-direction: "w"
+  $cursor-style: "resize"
+
+  cursor: "#{$cursor-direction}-#{$cursor-style}"
+
+  // cursor: $cursor-direction + '-' + $cursor-style;
+  $font-size: 14px
+  $line-height: 1.5
+  $font-family: Dotum !global
+
+  // Sass 변수를 문장 내에서 처리해주는 보간법(Interpolation) 방식
+  font: #{$font-size}/#{$line-height} $font-family
+
+// * ----------------------------------------------
+// * Sass 변수를 접합할 때 사용하는 인터폴레이션(보간법, #{})
+// * ----------------------------------------------
+$namespace: "nhn"
+$props: "button", "gallery", "carousel", "tab"
+
+.#{$namespace}-component-#{index($props, "button")}
+  content: "─#{nth($props, 1)}─"
+
+.#{$namespace}-component-#{index($props, "gallery")}
+  content: "─#{nth($props, 2)}─"
+
+.#{$namespace}-component-#{index($props, "carousel")}
+  content: "─#{nth($props, 3)}─"
+
+.#{$namespace}-component-#{index($props, "tab")}
+  content: "─#{nth($props, 4)}─"
+
+// ---------------------------------------------------
+// 보간법 + 웹폰트
+
+$g-font: "Open"
+
+// 'Open', 'Noto'
+
+@import url("https://fonts.googleapis.com/css?family=#{$g-font}+Sans")
+
+body
+  font-family: "#{$g-font} Sans", Sans-Serif
+
+// ---------------------------------------------------
+// box-sizing을 오늘날(모던) 스타일에 기본 값으로 처리하는 방법
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+  // 부모의 박스 사이징 설정을 상속
+
+html
+  box-sizing: border-box
+
+// ---------------------------------------------------
+// 믹스인
+
+// Define Mixin
+// Mixin Directive @mixin
+=box-sizing
+  box-sizing: border-box
+
+=grid
+  -ms-display: grid
+  display: grid
+
+=columns-2
+  -webkit-columns: 2 auto
+  -moz-columns: 2 auto
+  columns: 2 auto
+  -webkit-column-gap: 10px
+  -moz-column-gap: 10px
+  column-gap: 10px
+
+=columns($count, $width, $gap)
+  -webkit-columns: $count $width
+  -moz-columns: $count $width
+  columns: $count $width
+  -webkit-column-gap: $gap
+  -moz-column-gap: $gap
+  column-gap: $gap
+
+.login-form
+  +columns(2, auto, 10px)
+
+  &__button
+    // call Defined Mixin
+    // @include Directive
+    +box-sizing
+
+    +grid
+
+main p
+  +box-sizing
+
+  +columns(4, 220px, 20px)
+
+.header__logo
+  +box-sizing
+
+  +columns(3, 33vw, 0)
+
+// HTML5 새롭게 추가된 요소
+// section, article, aside, nav
+// header, footer
+// figure, figcaption
+
+$html5-new-elements: section, article, aside, nav, header, footer, figure, figcaption
+
+$need-reset-margin: h1, h2, h3, h4, h5, h6, p, blogquote, ul, ol, dl
+
+#{$html5-new-elements}
+  display: block
+
+  & #{$need-reset-margin}
+    margin-top: 0
+
+// ----------------------------------------------------
+// @content 디렉티브 사용
+
+$query: max-width
+
+// 전역 변수
+
+=mq($scope, $query: min-width)
+  @media screen and ($query: $scope)
+    @content
+
+    content: $query
+
+.form
+  $form-width: 640px
+
+  width: $form-width
+
+  +mq($form-width - 10)
+    p::before
+      content: $query
