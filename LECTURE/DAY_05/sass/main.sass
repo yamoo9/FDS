@@ -5,8 +5,20 @@
 +font('../fonts/Youandi_Modern_TextBold', 'YouandiModernTB')
 +font('../fonts/Youandi_Modern_HeadExtraBold', 'YouandiModernHEB')
 
+$columns: 16
+$page-width: 1280px
+
 .app
-  background: tint(red, 50%)
+  font-size: em(24)
+  // @debug grid(6)
+  width: em(grid(13))
+  width: grid(13)
+  font-family: 'YouandiModernTR'
+  // background: tint(red, 40%)
+  &-brand
+    font-family: 'YouandiModernHEB'
+  &-slogan
+    font-family: 'YouandiModernTB'
   .box
     +size(100px)
     background: #333

@@ -5,3 +5,21 @@
 // shade(): mix($color, black, $amount)
 @function shade($color, $amount)
   @return mix($color, #000, $amount)
+
+// 초기 변수
+$columns: 12 !default
+$page-width: 960px !default
+
+@function grid($column-width: 1)
+  @return $page-width * ( $column-width / $columns )
+
+@function de-unit($unit)
+  @return $unit/($unit*0+1)
+
+@function em($px, $base: 16)
+  @return de-unit($px)/$base * 1em
+
+$root-font-size: 10px !default
+
+@function rem($px)
+  @return de-unit($px)/$root-font-size
