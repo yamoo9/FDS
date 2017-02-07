@@ -1,0 +1,14 @@
+@import 'mixins', 'functions'
+
+// using mixin `font()`
++font('../fonts/Youandi_Modern_TextRegular', 'YouandiModernTR')
++font('../fonts/Youandi_Modern_TextBold', 'YouandiModernTB')
++font('../fonts/Youandi_Modern_HeadExtraBold', 'YouandiModernHEB')
+
+.app
+  background: tint(red, 50%)
+  .box
+    +size(100px)
+    background: #333
+    &--oblong
+      +size(100px, 60px)
