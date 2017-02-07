@@ -1,0 +1,7 @@
+// Color 조정 유틸리티(헬퍼) 함수
+// tint() : mix($color, white, $amount)
+@function tint($color, $amount)
+  @return mix($color, #fff, $amount)
+// shade(): mix($color, black, $amount)
+@function shade($color, $amount)
+  @return mix($color, #000, $amount)

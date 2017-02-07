@@ -1,0 +1,15 @@
+@mixin font($font-path, $font-name, $font-options: normal normal) {
+  @font-face {
+    font-family: $font-name;
+    font-weight: nth($font-options, 1);
+    font-style: nth($font-options, 2);
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-path}.woff') format('woff')
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
