@@ -39,6 +39,9 @@ $color-map: (
 // 한 행에 그려질 아이콘 세트 아이템 컬럼의 개수
 $item-colums: 4;
 
+// 아이콘 프리픽스
+$icon-prefix: '.icon-set__item--';
+
 // 아이콘 이름 집합(List)
 $icon-list: (
   'avocado',
@@ -54,11 +57,11 @@ $icon-list: (
   'fish',
   'fruits',
   'honey',
-  'hot-dog',
-  'ice-cream',
+  'hotdog',
+  'icecream',
   'milk',
   'pizza',
-  'pop-corn',
+  'popcorn',
   'proteins',
   'salad',
   'sandwich',
