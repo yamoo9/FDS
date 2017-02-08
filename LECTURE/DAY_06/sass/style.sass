@@ -4,6 +4,9 @@
 @import 'lib/functions'
 @import 'lib/mixins'
 
+// 스프라이트 이미지
+@import 'sprite-icons'
+
 // Base
 body
   margin: 0
@@ -14,9 +17,9 @@ body
 
 // BEM 개발 방법론 사용
 .icon-set
-  // $font-size: 14px
   display: flex
   flex-flow: row wrap
+
   +element('item')
     @each $index, $bg-color in $color-map
       &:nth-child(#{$index})
@@ -24,12 +27,17 @@ body
     height: rem(170px)
     flex: 0 0 (100%/$item-colums)
     @extend %flex-center
+
     > *
       +size(120px)
       display: block
-      background: no-repeat center
-    @for $i from 1 through length($icon-list)
-      $icon-name: nth($icon-list, $i)
-      +modifier( $icon-name )
-        background-image: url('../images/icon-#{$icon-name}.png')
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 250%
+
+    // 개별 이미지 사례
+    // @for $i from 1 through length($icon-list)
+      // $icon-name: nth($icon-list, $i)
+      // +modifier( $icon-name )
+        // background-image: url('../images/icon-#{$icon-name}.png')
 
