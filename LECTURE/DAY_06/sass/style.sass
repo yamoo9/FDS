@@ -1,0 +1,35 @@
+// 환경 설정 로드
+@import 'config'
+// 라이브러리(유틸리티) 로드
+@import 'lib/functions'
+@import 'lib/mixins'
+
+// Base
+body
+  margin: 0
+  box-sizing: border-box
+  & *::before,
+  & *::after
+    box-sizing: inherit
+
+// BEM 개발 방법론 사용
+.icon-set
+  // $font-size: 14px
+  display: flex
+  flex-flow: row wrap
+  +element('item')
+    @each $index, $bg-color in $color-map
+      &:nth-child(#{$index})
+        background-color: $bg-color
+    height: rem(170px)
+    flex: 0 0 (100%/$item-colums)
+    @extend %flex-center
+    > *
+      +size(120px)
+      display: block
+      background: no-repeat center
+    @for $i from 1 through length($icon-list)
+      $icon-name: nth($icon-list, $i)
+      +modifier( $icon-name )
+        background-image: url('../images/icon-#{$icon-name}.png')
+

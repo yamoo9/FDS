@@ -1,0 +1,108 @@
+//
+ * ====================================================
+ * 공통 스타일 모듈
+ * 프로젝트에 매우 빈번하게 사용되는 모듈 모음
+ * ====================================================
+
+// 클리어픽스(Clearfix) 모듈
+%clearfix
+  &::after
+    content: ''
+    display: block
+    clear: both
+  .lt-ie8 &
+    zoom: 1
+
+// ----------------------------------------------------
+// * 초기화 모듈
+
+// 공간 초기화
+%reset-space
+  outline: 0
+  margin: 0
+  border: 0
+  padding: 0
+
+// 목록 초기화
+%reset-list
+  list-style: none
+  padding-left: 0
+
+// 하이퍼링크 초기화
+%reset-link
+  text-decoration: none
+  color: inherit
+
+// 버튼 초기화
+%reset-button
+  border: none
+  background: transparent
+
+// ----------------------------------------------------
+// * 설정 모듈
+
+// 내비게이션 요소 설정 [ e.g) nav, .nav ]
+%set-nav
+  ul
+    @extend %clearfix
+    @extend %reset-list
+  a
+    @extend %set-nav__link
+
+// 내비게이션 링크 설정
+%set-nav__link
+  display: block
+  text-decoration: none
+
+// ----------------------------------------------------
+// BEM
+
+@import mixins
+
+/// placeholder selector 모듈 정의 ///
+// [Block]
+%list
+  @extend %reset-list
+  // [Element]
+  +element('item')
+    float: left
+    margin-right: 10px
+    // [Modifier]
+    +modifier('end') // --last, --omega
+      margin-right: 0
+
+%list-v
+  @extend %reset-list
+  +element('item')
+    margin-bottom: 4px
+    +modifier('end')
+      margin-bottom: 0
+
+%inline-list            // Block
+  @extend %reset-list
+  +element('item')      // Element
+    display: inline-block
+  +modifier('bordered') // Modifier
+    border: 1px solid
+
+// ------------------------------------------------
+
+/// class 속성 확장 ///
+.list
+  @extend %list
+  &__item
+    @extend %list-item
+    &--end
+      @extend %list__item--end
+.list-v
+  @extend %list-v
+  &__item
+    @extend %list-v__item
+    &--end
+      @extend %list-v__item--end
+.inline-list
+  @extend %inline-list
+  &__item
+    @extend %inline-list__item
+  &--bordered
+    @extend %inline-list--bordered
