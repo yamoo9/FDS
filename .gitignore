@@ -2,6 +2,7 @@
 .idea
 .idea/codeStyleSettings.xml
 .idea/vcs.xml
+node_modules/
 
 __BACKUP__
 __PDF__
