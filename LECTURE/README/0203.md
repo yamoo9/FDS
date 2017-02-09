@@ -1,0 +1,537 @@
+# DAY13  
+
+## Index  
+
+1. [Review](#review)  
+   * [git 사용법](#git-사용법)  
+2. [node-sass 명령어](#node-sass-명령어)  
+3. [node-sass 명령어 등록](#node-sass-명령어-등록)  
+4. [CSS style Guide](#css-style-guide)  
+5. [파일 분리와 재사용](#파일-분리와-재사용)  
+6. [!optional](#optional)  
+7. [대체 선택자: % (placeholder selector)](#대체-선택자-placeholder-selector)  
+8. [`@import`](#import)  
+9. [호출 제어](#호출-제어)  
+10. [중첩 `@import` (Nested Import)](#중첩-import-nested-import)  
+11. [SASS Script](#sass-script)  
+    * [변수](#변수)  
+12. [참고 문서](#참고-문서)  
+
+---
+
+## Review  
+
+### git 사용법  
+
+#### git 저장소 초기화  
+
+현재 디렉토리를 git 저장소로 설정하는 명령어.  
+명령어를 실행하면 감춰진 .git 디렉토리가 생성됨.  
+
+```sh  
+$ git init
+```  
+
+#### git 저장소 현재 상태 확인  
+
+저장소의 현재 상태를 확인하는 명령어.  
+추가, 변경, 삭제 관련 정보를 보여줌.  
+
+```sh  
+$ git status
+```  
+
+#### git 관리할 파일 추가  
+
+Working Directory에 있는 파일을 Staging Area로 추가하는 명령어.  
+
+```sh  
+$ git add <파일> 또는 . (전체)
+```  
+
+#### git commit  
+
+Staging에 있는 파일 Repository로 추가하는 명령어.  
+
+```sh  
+$ git commit
+$ git commit -v (수정내용 입력시 변경사항 함께 보여줌)
+$ git commit -m "수정내용 입력"
+```  
+
+#### git 원격 저장소 등록  
+
+로컬 저장소에 원격 저장소 등록하는 명령어  
+
+```sh  
+$ git remote add <별칭(alias)> <github 저장소 주소(url)>
+```    
+
+#### git 원격 저장소에 업로드  
+
+로컬 저장소 자료를 원격 저장소로 업로드하는 명령어  
+
+```sh  
+$ git push <별칭(alias)> <브랜치 이름>
+```  
+
+#### git page 만들기  
+
+github 페이지에서 새로운 Repository 생성할 때, 이름을 자신의 아이디를 포함하여 **"계정.github.io"** 생성하면 웹 서비스 페이지를 이용할 수 있음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## node-sass 명령어  
+
+### `embed`  
+
+`--source-map-embed` : 출력되는 css파일내에 source-map 정보를 내제함.  
+
+```sh  
+$ node-sass -w -r sass/ -o css/ --output-style expanded --source-map-embed
+```  
+
+### `init`  
+
+해당 디렉토리내에 `package.json` 파일 생성을 도와 주는 명령어  
+
+```sh  
+$ npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg> --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+```  
+
+interactive mode로 필요한 정보를 입력  
+
+```sh  
+name: (day_03-1)          : 디렉토리명 기본값
+version: (1.0.0 )         : 애플리케이션의 버전
+description:              : 프로젝트 설명
+entry point: (index.js)   : 메인으로 사용하는 js파일
+test command:             : 명령어 등록
+git repository:           : git repository 설정     
+keywords:                 : 키워드
+author:                   : 작성자
+license: (ISC)
+About to write to C:\Users\kbw94\Desktop\frontend\yamoo\day_03-1\package.json:
+```  
+
+> 각 항목에 값을 입력하지 않고 엔터를 치면 기본값으로 설정됨.  
+
+```sh  
+{
+  "name": "day_03-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+  Is this ok? (yes) yes
+```  
+
+> yes입력 후 enter를 치면 프로젝트 폴더 하위에 `package.json` 파일이 생성됨.  
+
+### `init -y`  
+
+각 항목 입력없이 기본 값으만 설정하여 `package.json` 파일 바로 생성됨.  
+에디터에서 해당디렉토리 내 `package.json` 파일을 열어 수정처리함.  
+
+[ [Index로 바로가기](#index) ]  
+
+---  
+
+## node-sass 명령어 등록  
+
+`package.json` 파일 내 scripts 항목에 `sass` 명령어 등록
+> 단, 해당명령어는 해당 디렉토리 내에서만 실행됨.  
+
+```javascript  
+"scripts": {
+  "sass": "node-sass -w -r sass/ -o css/ --output-style expanded --source-map-embed",
+  "sass-build": "node-sass -r sass/ -o css/ --output-style compressed"
+}
+```  
+
+### 등록한 node-sass 명령어 실행  
+
+`npm run` 사용해 등록한 명령어 실행.  
+
+```sh  
+$ npm run (등록한 명령어)
+```  
+
+```sh  
+$ npm run sass
+> sass-basic-study@0.0.1 sass C:\Users\kbw94\Desktop\frontend\yamoo\day_03
+> node-sass -w -r sass/ -o css/ --output-style expanded --source-map-embed
+
+=> changed: C:\Users\kbw94\Desktop\frontend\yamoo\day_03\sass\sass-scripts.sass
+Rendering Complete, saving .css file...
+Wrote CSS to C:\Users\kbw94\Desktop\frontend\yamoo\day_03\css\sass-scripts.css
+```  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## CSS style Guide  
+
+### BEM   
+
+**Block Element Modifier** 약자.  
+`.header__navigation--secondary`과 같은 클래스 사용.  
+
+1. Block  
+문단 전체에 적용된 element 또는 element를 담고 있는 컨테이너를 말함.  
+ex) logo / login form / menu / search form  
+
+2. Element  
+block 안에서 특정 기능을 수행하는 컴포넌트이며 상황에 따라 달라짐.  
+각 element는 두 개의 밑줄표시로 연결하여 block 다음에 작성함.  
+
+```css  
+.header__logo {};
+.header__menu {};
+```  
+
+3. Modifier  
+block 또는 element의 속성이며 이 속성은 block 또는 element의 외관이나 상태를 변화시킴.  
+클래스명은 `-`를 추가하여 Modifier 추가.
+
+```css  
+.block--modifier {};
+.block__element--modifier {};
+```  
+
+> BEM 외에 OOCSS, SMACSS 등이 있음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## 파일 분리와 재사용  
+
+### 모듈 파일 생성하기  
+
+sass directory에 새로운 파일 생성(가져다 쓰기 위한 모듈 파일)  
+
+`_common-module.sass`  
+
+```sass  
+%clearfix::after
+  content: ''
+  display: block
+  clear: both
+
+%reset-list
+  list-style: none
+  padding-left: 0
+
+%set-nav-link
+  display: block
+  vertical-align: top
+  text-decoration: none
+
+%set-nav
+  ul
+    @extend %clearfix
+    @extend %reset-list
+  a
+    @extend %set-nav-link
+```  
+
+> 동일하게 사용하는 `<ul>`요소와 `<a>`요소에 대한 설정.  
+
+### 모듈 import & 사용  
+
+모듈을 사용할 파일에서 필요한 모듈 import 후 원하는 모듈 사용  
+
+`app.sass`  
+
+```sass
+@import common-module
+.gnb
+  @extend %set-nav
+  width: 50vw
+  li
+    float: left
+    margin-right: 1rem
+  a
+    padding: 0.6em 1.2em
+    background: #434343
+    color: #e3e3e3
+
+.footer-navigation
+  @extend %set-nav
+  width: 50vw
+  li
+    float: left
+    margin-right: 3px
+  a
+    padding: 0.6em 1.2em
+    background: #343434
+    color: #e3e3e3
+```  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## !optional  
+
+해당 모듈 클래스가 없어도 에러가 발생하지 않도록하는 플래그. 공동작업 시 용이.  
+
+```sass  
+body, .brand
+  @extend %reset-margin
+```  
+
+> 위의 경우 `%reset-margin` 클래스가 존재하지 않으면 `css`변환할 때 에러 발생.  
+
+```sass  
+body, .brand
+  @extend %reset-margin !optional
+```  
+
+> %reset-margin을 미리 선언해 두지 않았어도 !optional 플래그 설정하면 에러 발생하지 않음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## 대체 선택자: % (placeholder selector)  
+
+`css` 파일로 변경 시 `sass` 파일에서 안 쓴 코드 또는 외부에 노출시키고 싶지 않은 코드를 출력되지 않게 하는 선택자. 불필요한 코드를 재거해 효율성을 높여줌.  
+
+```sass  
+%reset-margin
+  margin: 0
+
+body, .brand
+  @extend %reset-margin
+```
+
+```css
+body, .brand {
+  margin: 0;
+}
+```
+
+> `css`파일에는 `%reset-margin` 클래스가 출력되지 않음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## `@import`  
+
+호출, 파일의 병합할 때 사용.  
+
+* `sass` & `scss`  
+
+```sass  
+@import "common-modules"
+```  
+
+> 확장자 생략 가능.  
+
+ * `css`  
+
+```sass  
+@import "common-modules.css"
+```  
+
+> `css` 파일을 `sass` 파일로 가져올 수 있지만 `css`와 마찬가지로 직렬적으로(`css`파일 모두 가져온 후에 다음 작업 이루어짐) 작업이 이루어지기 때문에,  
+> `CSS` 파일은 `<link>` 방식으로 붙이고 `sass` 모듈들만 `@import` 함.  
+> 단, 사용할 경우 `css`파일 `import`할 경우 반드시 확장자 `.css` 포함해야 함.  
+
+ * 여러 파일 호출
+
+```sass  
+@import "foo1", "foo2"
+```  
+
+> 위와 같이 사용 가능하지만, 관리상의 문제 등으로 각각 호출하는 방법 사용함.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## 호출 제어  
+
+`css`파일로 변경되지 않게 하는 방법은 파일 명 앞에 `_`을 붙여주면 됨.  
+`_common-modules.sass`  
+
+> 스타일 모듈 관리에 용이.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## 중첩 `@import` (Nested Import)  
+
+보통 루트 영역에서 쓰는 `@import`를 선택자 안에서 사용하는 것. (css에서 사용할 수 없는 것)  
+별도로 분리된 파일에서 코드를 불러와 선택자 뒤에 불러온 모듈 선택자가 추가됨.  
+
+```sass  
+#main
+  @import “example”
+```  
+
+```css  
+#main .example {
+  color: red;
+}
+```  
+
+>위와 같은 경우,`#main`이 상위 요소가 되고 `.example`이 하위 요소가 됨.  
+> `@extend`와 달리 선택자 그룹 덩어리가 들어와 버려서 안쪽에 종속된 컴포넌트를 쓸 수 있음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+## SASS Script  
+
+### 변수  
+
+**변수** 란 변하는 수를 말하며, 한순간에 하나의 데이터 값을 가질 수 있고 이 값은 다른 값으로 변경이 가능.  
+
+#### 변수 선언  
+
+`$`를 사용해서 변수 선언.  
+
+```sass  
+$base-font-size: 16px
+$base-line-height: 1.4
+$type-scale: 1.618
+```  
+
+> `SASS`에서는 변수에 포함된 `-`과 `_`를 동일하게 처리함.  
+
+```sass  
+$base-font-size: 16px
+
+body
+  font-size: $base_font_size
+```  
+
+> 위와 같이 사용해도 오류 발생하지 않고 `font-size` 속성에 값이 설정됨.  
+
+```css
+body {
+  font-size: 16px;
+}
+```
+
+#### 전역 변수 & 지역 변수  
+
+**전역 변수** : 어디서도 접근 가능한 변수를 의미.  
+**지역 변수** : 한정된 지역에서만 사용 가능한 변수를 의미.  
+
+```sass  
+$base-font-size: 16px
+
+body
+  $font-color: #fff
+```  
+
+> 위에서 `$base-font-size` 변수는 어디서도 접근 가능한 **전역 변수** 이고  
+> `$font-color` 변수는 `body` 영역에서만 사용가능한 **지역 변수**.  
+
+```sass  
+$base-font-size: 16px
+
+body
+  $font-color: #fff
+  font-size: $base-font-size
+  color: $font-color
+
+header
+  font-size: $base-font-size
+  color: $font-color
+
+```  
+
+> 위와 같이 작성하면 에러가 발생함.  
+> `body`와 `header`에서 사용한 `$base-font-size`는 **전역 변수** 이기 때문에 두 영역 모두 사용 가능 하지만,  
+> `body`에서 선언한 변수인 `$font-color`는 `body` 영역에서만 사용 가능한 **지역 변수** 이기 때문에,  
+> `header`에서는 `$font-color` 변수가 존재하지 않기 때문에 에러.  
+
+#### `!global`  
+
+지역 내에 선언한 변수를 전역적으로 사용하고 싶을 때 사용하는 플래그.  
+
+```sass  
+$base-font-size: 16px
+
+body
+  $font-color: #fff !global
+  font-size: $base-font-size
+  color: $font-color
+
+header
+  font-size: $base-font-size
+  color: $font-color
+```  
+
+> 위와 같이 `!global` 값을 주게되면 **전역 변수** 로 변경되기 때문에 에러가 발생하지 않음.  
+
+```css  
+body {
+  font-size: 16px;
+  color: #fff;
+}
+
+header {
+  font-size: 16px;
+  color: #fff;
+}
+```  
+
+#### `!default`  
+
+기본 값으로 설정하는 플래그.  
+우선순위가 제일 마지막으로 설정되어 있기 때문에, 변수의 값이 변경 될 경우 변경된 값이 적용됨.  
+
+```sass  
+$base-font-size: 16px !default
+$base-font-size: 14px
+
+body
+  font-size: $base-font-size
+```  
+
+```css  
+body {
+  font-size: 14px;
+}
+```  
+
+> 참고 : `null`은 우선순위가 존재하지 않음.  
+
+[ [Index로 바로가기](#index) ]  
+
+---
+
+### 참고 문서  
+
+* 야무 강사님 수업 자료  
+* [[CSS방법론] SMACSS, BEM, OOCSS](http://wit.nts-corp.com/2015/04/16/3538)  

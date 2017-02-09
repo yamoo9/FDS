@@ -1,0 +1,50 @@
+// Sass Advanced Part. Scripts
+
+// 환경설정(Configuration) 로드
+@import config
+
+// 본문 설계(Body Text Design)
+body
+  font:
+    size: $base-font-size
+    family: $nanum-gothic
+  line-height: $base-line-height
+
+// 제목 설계(Headings Design)
+h6
+  font-size: $base-font-size * $type-scale
+h5
+  font-size: $base-font-size * $type-scale * $type-scale
+h4
+  font-size: $base-font-size * $type-scale * $type-scale * $type-scale
+h3
+  font-size: $base-font-size * $type-scale * $type-scale * $type-scale * $type-scale
+h2
+  font-size: $base-font-size * $type-scale * $type-scale * $type-scale * $type-scale * $type-scale
+h1
+  font-size: $base-font-size * $type-scale * $type-scale * $type-scale * $type-scale * $type-scale * $type-scale
+
+
+//
+ * --------------------------------
+ * 전역 변수 VS 지역 변수
+
+// $w: 920px // Global Variable 전역 변수
+
+// $md: 920px
+
+.main-section
+  $w: 100% !global
+  width: $w
+  @media screen and (min-width: $md) and (max-width: $lg - 1)
+    width: $w / 2
+  @media screen and ($mq-query: $lg)
+    width: $w / 4
+
+.side-section
+  $md: 960px
+  max-width: $w
+  @media screen and ($mq-query: $md)
+    max-width: $w / 3
+  @media screen and ($mq-query: $lg)
+    max-width: $w / 6

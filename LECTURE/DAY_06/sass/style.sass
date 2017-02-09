@@ -1,0 +1,51 @@
+//
+ * ----------------------------------------------------------------
+ * 모듈 로드
+ * ----------------------------------------------------------------
+// 환경 설정
+@import 'config'
+// 베이스
+@import 'lib/base'
+// 유틸리티
+@import 'lib/common'
+@import 'lib/functions'
+@import 'lib/mixins'
+
+
+//
+ * ----------------------------------------------------------------
+ * BEM 개발 방법론 활용
+ * ----------------------------------------------------------------
++block('icon-set')
+  display: flex
+  flex-flow: row wrap
+
+  +element('item')
+    flex: 0 0 (100%/$item-colums)
+    height: rem(200px)
+    @extend %flex-center
+    @each $index, $bg-color in $color-map
+      &:nth-child(#{$index})
+        background-color: $bg-color
+
+    > *
+      +size(120px)
+      display: block
+      background:
+        position: center
+        size: 250%
+
+    // 개별 이미지 사례
+    // @for $i from 1 through length($icon-list)
+      // $icon-name: nth($icon-list, $i)
+      // +modifier( $icon-name )
+
+      // +modifier( $icon-name )
+        // background-image: url('../images/icon-#{$icon-name}.png')
+
+
+//
+ * ----------------------------------------------------------------
+ * Sprite 이미지 로드
+ * ----------------------------------------------------------------
+@import 'sprite-icons'

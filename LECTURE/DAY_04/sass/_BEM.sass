@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////
+/// Block    : 블록(구역, 컴포넌트)
+/// Element  : 엘리먼트(요소, 객체)
+/// Modifier : 모디파이어(변경자, 수식어)
+////////////////////////////////////////////////////
+
+%reset-list
+  margin: 0
+  padding-left: 0
+  list-style: none
+
+// ------------------------------------------------
+
+/// placeholder selector 모듈 정의 ///
+// [Block]
+%list
+  @extend %reset-list
+  // [Element]
+  &__item
+    float: left
+    margin-right: 10px
+    // [Modifier]
+    &--end // --last, --omega
+      margin-right: 0
+
+%list-v
+  @extend %reset-list
+    &__item
+      margin-bottom: 4px
+      &--end
+        margin-bottom: 0
+
+%inline-list  // Block
+  @extend %reset-list
+  &__item     // Element
+    display: inline-block
+  &--bordered // Modifier
+    border: 1px solid
+
+// ------------------------------------------------
+
+/// class 속성 확장 ///
+.list
+  @extend %list
+  &__item
+    @extend %list-item
+    &--end
+      @extend %list__item--end
+.list-v
+  @extend %list-v
+  &__item
+    @extend %list-v__item
+    &--end
+      @extend %list-v__item--end
+.inline-list
+  @extend %inline-list
+  &__item
+    @extend %inline-list__item
+  &--bordered
+    @extend %inline-list--bordered
+
+// ---------------------------------------------------
+// 믹스인
+
+=elem($element) // e(), el(), elem(), element()
+  &__#{$element}
+    @content
+
+=mod($modifier) // m(), mod(), modifier()
+  &--#{$modifier}
+    @content

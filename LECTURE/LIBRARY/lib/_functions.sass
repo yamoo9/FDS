@@ -1,0 +1,33 @@
+//
+ * ------------------------------------------
+ * Color 조정 함수
+ * ------------------------------------------
+@function tint($color, $amount)
+  @return mix($color, #fff, $amount)
+
+@function shade($color, $amount)
+  @return mix($color, #000, $amount)
+
+//
+ * ------------------------------------------
+ * 단위 제거 함수
+ * ------------------------------------------
+@function de-unit($unit)
+  @return $unit/($unit*0+1)
+
+//
+ * ------------------------------------------
+ * em 단위 변경 함수
+ * ------------------------------------------
+@function em($px, $base: 16px)
+  @return (de-unit($px)/de-unit($base)) * 1em
+
+
+//
+ * ------------------------------------------
+ * rem 단위 변경 함수
+ * ------------------------------------------
+$root-font-size: 16px !default
+
+@function rem($px)
+  @return (de-unit($px)/de-unit($root-font-size)) * 1rem

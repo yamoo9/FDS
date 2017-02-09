@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "YouandiModernTR";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Youandi_Modern_TextRegular.eot");
+  src: url("../fonts/Youandi_Modern_TextRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/Youandi_Modern_TextRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "YouandiModernTB";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Youandi_Modern_TextBold.eot");
+  src: url("../fonts/Youandi_Modern_TextBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Youandi_Modern_TextBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "YouandiModernHEB";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Youandi_Modern_HeadExtraBold.eot");
+  src: url("../fonts/Youandi_Modern_HeadExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Youandi_Modern_HeadExtraBold.woff") format("woff");
+}
+
+.app {
+  font-size: 1.5em;
+  width: 65em;
+  width: 1040px;
+  font-family: 'YouandiModernTR';
+}
+
+.app-brand {
+  font-family: 'YouandiModernHEB';
+}
+
+.app-slogan {
+  font-family: 'YouandiModernTB';
+}
+
+.app .box {
+  width: 100px;
+  height: 100px;
+  background: #333;
+}
+
+.app .box--oblong {
+  width: 100px;
+  height: 60px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiY3NzL21haW4uY3NzIiwKCSJzb3VyY2VzIjogWwoJCSJzYXNzL21haW4uc2FzcyIsCgkJInNhc3MvX21peGlucy5zY3NzIiwKCQkic2Fzcy9fZnVuY3Rpb25zLnNhc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiQUNDRSxVQUFVO0VBQ1IsV0FBVyxFRENzQyxpQkFBaUI7RUNBbEUsV0FBVyxFQUhvQyxNQUFNO0VBSXJELFVBQVUsRUFKNEMsTUFBTTtFQUs1RCxHQUFHLEVBQUUsOENBQXdCO0VBQzdCLEdBQUcsRUFBRSxxREFBK0IsQ0FBQywyQkFBMkIsRUFDM0QsK0NBQXlCLENBQUMsY0FBYzs7O0FBTi9DLFVBQVU7RUFDUixXQUFXLEVERW1DLGlCQUFpQjtFQ0QvRCxXQUFXLEVBSG9DLE1BQU07RUFJckQsVUFBVSxFQUo0QyxNQUFNO0VBSzVELEdBQUcsRUFBRSwyQ0FBd0I7RUFDN0IsR0FBRyxFQUFFLGtEQUErQixDQUFDLDJCQUEyQixFQUMzRCw0Q0FBeUIsQ0FBQyxjQUFjOzs7QUFOL0MsVUFBVTtFQUNSLFdBQVcsRURHd0Msa0JBQWtCO0VDRnJFLFdBQVcsRUFIb0MsTUFBTTtFQUlyRCxVQUFVLEVBSjRDLE1BQU07RUFLNUQsR0FBRyxFQUFFLGdEQUF3QjtFQUM3QixHQUFHLEVBQUUsdURBQStCLENBQUMsMkJBQTJCLEVBQzNELGlEQUF5QixDQUFDLGNBQWM7OztBREdqRCxBQUFBLElBQUksQ0FBQztFQUNILFNBQVMsRUVRRCxLQUF3QjtFRk5oQyxLQUFLLEVFTUcsSUFBd0I7RUZMaEMsS0FBSyxFRURHLE1BQTBDO0VGRWxELFdBQVcsRUFBRSxpQkFBaUI7Q0FVTzs7QUFSckMsQUFBQSxVQUFPLENBQUM7RUFDTixXQUFXLEVBQUUsa0JBQWtCO0NBQUk7O0FBQ3JDLEFBQUEsV0FBUSxDQUFDO0VBQ1AsV0FBVyxFQUFFLGlCQUFpQjtDQUFJOztBQVZ0QyxBQVdFLElBWEUsQ0FXRixJQUFJLENBQUM7RUNUTCxLQUFLLEVEVVcsS0FBSztFQ1RyQixNQUFNLEVEU1UsS0FBSztFQUNuQixVQUFVLEVBQUUsSUFBSTtDQUVpQjs7QUFmckMsQUFXRSxJQVhFLENBY0EsWUFBUyxDQUFDO0VDWlosS0FBSyxFRGFhLEtBQUs7RUNadkIsTUFBTSxFRFltQixJQUFJO0NBQUkiCn0= */

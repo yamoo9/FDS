@@ -1,6 +1,12 @@
 ###사용자 정의###
-__*
-reference.md
+.idea
+.idea/codeStyleSettings.xml
+.idea/vcs.xml
+node_modules/
+
+__BACKUP__
+__PDF__
+__REFERENCES__
 
 ###OSX###
 
