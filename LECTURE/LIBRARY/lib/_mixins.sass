@@ -24,6 +24,11 @@
  * BEM Mixins
  * ------------------------------------------------
 
+// b(), bl(), block()
+=block($block)
+  .#{$block}
+    @content
+
 // e(), el(), elem(), element()
 =element($element)
   &__#{$element}
@@ -33,3 +38,39 @@
 =modifier($modifier)
   &--#{$modifier}
     @content
+
+
+//
+ * --------------------------------
+ * Flexbox Alignment
+ * --------------------------------
+=flex-align($justify-content, $align-items: $justify-content)
+  display: flex
+  justify-content: $justify-content
+  align-items: $align-items
+
+%flex-center
+  +flex-align(center)
+
+
+//
+ * --------------------------------
+ * Grid Mixins
+ * --------------------------------
+=grid()
+  display: grid
+
+=grid-cols($cols)
+  grid-template-columns: $cols
+
+=grid-rows($rows)
+  grid-template-rows: $rows
+
+// =grid-gap($gap)
+//   grid-gap: $gap
+
+=grid-areas($areas)
+  grid-template-areas: $areas
+
+// =grid-area($area)
+//   grid-area: $area

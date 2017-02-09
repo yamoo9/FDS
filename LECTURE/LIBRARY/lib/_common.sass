@@ -56,7 +56,7 @@
 
 // ----------------------------------------------------
 // BEM
-
+// ----------------------------------------------------
 @import mixins
 
 /// placeholder selector 모듈 정의 ///
@@ -88,21 +88,5 @@
 // ------------------------------------------------
 
 /// class 속성 확장 ///
-.list
-  @extend %list
-  &__item
-    @extend %list-item
-    &--end
-      @extend %list__item--end
-.list-v
-  @extend %list-v
-  &__item
-    @extend %list-v__item
-    &--end
-      @extend %list-v__item--end
-.inline-list
-  @extend %inline-list
-  &__item
-    @extend %inline-list__item
-  &--bordered
-    @extend %inline-list--bordered
+.clearfix
+  @extend %clearfix
