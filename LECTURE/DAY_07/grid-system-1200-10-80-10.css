@@ -1,0 +1,31 @@
+/**
+ * --------------------------------
+ * Grid System
+ * page-width: 1200px;
+ * column-width: 80px;
+ * gutter-style: split;
+ * gutter-width: 10px;
+ * ----------------------------- */
+
+/* Container 모듈 */
+.container {
+  width: 1200px;
+  marign: 0 auto;
+}
+/* row 모듈 */
+.row::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* column 모듈 */
+[class*="col-"] {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.col-1 { width: 80px; }
+.col-2 { width: 180px; }
+.col-3 { width: 80px; }
+/* push/pull 모듈 */
+/* prefix/suffix 모듈 */
