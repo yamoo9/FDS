@@ -10,7 +10,7 @@
 /* Container 모듈 */
 .container {
   width: 1200px;
-  marign: 0 auto;
+  margin: 0 auto;
 }
 /* row 모듈 */
 .row::after {
@@ -26,6 +26,16 @@
 }
 .col-1 { width: 80px; }
 .col-2 { width: 180px; }
-.col-3 { width: 80px; }
+.col-3 { width: 280px; }
+.col-4 { width: 380px; }
+.col-5 { width: 480px; }
+.col-6 { width: 580px; }
+.col-7 { width: 680px; }
+.col-8 { width: 780px; }
+.col-9 { width: 880px; }
+.col-10 { width: 980px; }
+.col-11 { width: 1080px; }
+.col-12 { width: 1180px; }
 /* push/pull 모듈 */
+
 /* prefix/suffix 모듈 */
