@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>CSS 그리드 시스템(Grid System) 1200px</title>
+  <!-- Spoqa Han Sans 웹폰트 로드 -->
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <!-- 그리드 시스템 모듈 로드 -->
+  <link rel="stylesheet" href="grid-system-1200-10-80-10.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Spoqa Han Sans";
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.5;
+      color: #4f4b4b;
+    }
+    .hello {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <h1 class="col-3 hello">Hello,</h1>
+      <div class="col-2 push-7">9</div>
+    </div>
+  </div>
+
+</body>
+</html>
