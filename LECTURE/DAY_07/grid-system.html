@@ -9,31 +9,38 @@
   <!-- 그리드 시스템 모듈 로드 -->
   <link rel="stylesheet" href="grid-system-1200-10-80-10.css">
   <style>
-    body {
-      margin: 0;
-      font-family: "Spoqa Han Sans";
-      font-size: 16px;
-      letter-spacing: -0.01em;
-      line-height: 1.5;
-      color: #4f4b4b;
+    .box {
+      float: left;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      margin-right: -100%;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
     }
-    .hello {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 100px;
-      font-weight: 700;
-      letter-spacing: -0.045em;
+    .box:nth-child(1) {
+      background: #333;
+      margin-left: 300px;
+    }
+    .box:nth-child(2) {
+      background: #777;
+      margin-left: 200px;
+    }
+    .box:nth-child(3) {
+      background: #999;
+    }
+    .box:nth-child(4) {
+      background: #ddd;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <h1 class="col-3 hello">Hello,</h1>
-      <div class="col-2 push-7">9</div>
-    </div>
-  </div>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
 
 </body>
 </html>
