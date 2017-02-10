@@ -16,12 +16,36 @@
       background: url('images/hello-vasilyev.jpg') no-repeat;
       background-size: cover;
     }
+
+    .rwd-iframe {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+    }
+
+    .rwd-iframe iframe,
+    .rwd-iframe object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
 
   <div class="wrapper">
     <div class="cat"></div>
+  </div>
+
+  <div class="rwd-iframe">
+    <iframe
+      width="640"
+      height="360"
+      src="https://www.youtube.com/embed/ePkrEjuyL0I?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen></iframe>
   </div>
 
 </body>
