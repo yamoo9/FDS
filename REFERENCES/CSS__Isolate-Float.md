@@ -12,11 +12,11 @@ width: 25%;
 
 ##### Opera vs Safari vs IE vs Firefox, Windows 2008
 
-![](../Assets/sub-pixel-bug.gif)
+![](../ASSETS/sub-pixel-bug.gif)
 
 ##### Chrome vs Firefox, Safari, MacOS 2016
 
-![](../Assets/sub-pixel-2016-mac.jpg)
+![](../ASSETS/sub-pixel-2016-mac.jpg)
 
 ```css
 .container {

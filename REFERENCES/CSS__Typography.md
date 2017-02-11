@@ -61,7 +61,7 @@
 
 수업 과정에서 만들어 본 Typography System 결과물
 
-![typography-system](../../Assets/vertical-rhythm.gif)
+![typography-system](../Assets/vertical-rhythm.gif)
 
 -
 
