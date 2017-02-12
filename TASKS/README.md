@@ -1,6 +1,6 @@
 ###### Front-End Develop SCHOOL
 
-<img src="../../ASSETS/table-of-contents.png" alt="" align="right" width="134" height="160">
+<img src="../ASSETS/table-of-contents.png" alt="" align="right" width="134" height="160">
 
 # 과업 목차
 
