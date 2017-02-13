@@ -23,4 +23,5 @@
 
 ### 참고
 
-[demo.yamoo9.net/hyundaicard-table](http://demo.yamoo9.net/hyundaicard-table/)
+- [demo.yamoo9.net/hyundaicard-table](http://demo.yamoo9.net/hyundaicard-table/)
+- [w3.org/WAI/tutorials/tables](https://www.w3.org/WAI/tutorials/tables/)
