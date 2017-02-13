@@ -18,3 +18,9 @@
 - [스타일 모듈] CSS 스타일 디자인(설계)는 효율적으로 작성되었는가?
 - [코드 최적화] 불 필요한 `<div>` 또는 `<span>` 요소의 남용 및 무의미하게 중복되는 스타일 코드는 없었는가?
 - [코드 리팩토링] 코드는 읽기 쉽고, 간결한가?
+
+-
+
+### 참고
+
+[demo.yamoo9.net/hyundaicard-table](http://demo.yamoo9.net/hyundaicard-table/)
