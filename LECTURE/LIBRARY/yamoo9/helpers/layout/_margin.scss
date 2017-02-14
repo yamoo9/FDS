@@ -1,0 +1,74 @@
+@mixin margin($args: 0) {
+
+	$use-null: false;
+
+	@if type-of($args) == "list" {
+		@if type-of(nth($args, 1)) == "string" {
+			@each $dir in top, left, bottom, right {
+				$i: index($args, $dir);
+
+				@if $i {
+					margin-#{$dir}: nth($args, $i + 1);
+				}
+			}
+		}
+		@else {
+			$l: length($args);
+
+			@for $i from 1 through $l {
+				@if nth($args, $i) == null {
+					$use-null: true;
+				}
+			}
+
+			@if not $use-null {
+				@if $l == 2 {
+					$t-b: nth($args, 1);
+					$r-l: nth($args, 2);
+
+					margin: $t-b $r-l;
+				}
+				@else if $l == 3 {
+					$t: nth($args, 1);
+					$r-l: nth($args, 2);
+					$b: nth($args, 3);
+
+					margin: $t $r-l $b;
+				}
+				@else {
+					$t: nth($args, 1);
+					$r: nth($args, 2);
+					$b: nth($args, 3);
+					$l: nth($args, 4);
+
+					margin: $t $r $b $l;
+				}
+			}
+
+			@else {
+				@if $l == 2 {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 1);
+					margin-left: nth($args, 2);
+				}
+				@else if $l == 3 {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 3);
+					margin-left: nth($args, 2);
+				}
+				@else {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 3);
+					margin-left: nth($args, 4);
+				}
+			}
+
+		}
+	}
+	@else {
+		margin: $args;
+	}
+}
