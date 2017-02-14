@@ -1,0 +1,11 @@
+@mixin size($dimension: null null) {
+	@if length($dimension) == 2 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 2);
+	}
+
+	@if length($dimension) == 1 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 1);
+	}
+}

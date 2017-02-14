@@ -1,0 +1,73 @@
+// --------------------------------
+// 초기 변수
+
+$base-alpha: 1 !default;
+$using-hsla: false !default;
+
+// --------------------------------
+// _rgba() 함수
+
+@function _rgba($hex, $alpha) {
+	$red: red($hex);
+	$green: green($hex);
+	$blue: blue($hex);
+
+	@if $alpha == 1 {
+		@return unquote("rgb(#{$red},#{$green},#{$blue})");
+	}
+	@else {
+		@return unquote("rgba(#{$red},#{$green},#{$blue},#{$alpha})");
+	}
+}
+
+// --------------------------------
+// _hsla() 함수
+
+@function _hsla($hex, $alpha) {
+	$hue: floor(de-unit(hue($hex)));
+	$saturation: floor(saturation($hex));
+	$lightness: floor(lightness($hex));
+
+	@if $alpha == 1 {
+		@return unquote("hsl(#{$hue},#{$saturation},#{$lightness})");
+	}
+	@else {
+		@return unquote("hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})");
+	}
+}
+
+// --------------------------------
+// color() 함수
+
+@function color($hex, $alpha) {
+	@if $using-hsla == false {
+		@return _rgba($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+	@else {
+		@return _hsla($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+}
+
+// --------------------------------
+// color() 믹스인
+
+@mixin color($hex, $alpha: null) {
+	@if $polyfill == true {
+		color: $hex;
+	}
+
+	color: color($hex, $alpha);
+}
+
+// --------------------------------
+// color() 믹스인
+
+@mixin bg-color($hex, $alpha: null) {
+	@if $polyfill == true {
+		background-color: $hex;
+	}
+
+	@if $alpha != null {
+		background-color: color($hex, $alpha);
+	}
+}

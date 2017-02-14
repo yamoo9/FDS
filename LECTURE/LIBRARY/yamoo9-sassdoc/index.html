@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SassDoc</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="SassDoc - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="Release the docs!"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">SassDoc</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="layout"><a href="#layout">layout</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="layout-mixin"><a href="#layout-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="layout" data-name="float" data-type="mixin"><a href="#layout-mixin-float">float</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="utility"><a href="#utility">utility</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="utility-function"><a href="#utility-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="utility" data-name="de-unit" data-type="function"><a href="#utility-function-de-unit">de-unit</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="layout"><div class="container">layout</div></h1><section class="main__sub-section" id="layout-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="layout-mixin-float"><h3 class="item__heading"><a class="item__name" href="#mixin-float">float</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin float($args) { 
+	// 초기값 설정
+	$_float: left;
+	$_gutter: after;
+	$_gutter_value: null;
+	$_edge: null;
+
+	// 유효성 검사
+	$_type: type-of($args);
+
+	@if $_type != &quot;list&quot; and $_type != &quot;number&quot; and $_type != &quot;string&quot; {
+		@error &quot;float() 믹스인 전달인자는 리스트 또는 문자, 숫자만 사용해야 합니다&quot;;
+	}
+
+	// 조건이 리스트일 때
+	@if $_type == &quot;list&quot; {
+		$l: length($args);
+
+		@for $i from 1 through $l {
+			$item: nth($args, $i);
+
+			@if $item == left or $item == right or $item == none {
+				$_float: $item;
+			}
+
+			@if $item == inside or $item == after or $item == before or $item == split {
+				$_gutter: $item;
+			}
+
+			@if $item == first or $item == last {
+				$_edge: $item;
+			}
+
+			@if type-of($item) == &quot;number&quot; {
+				$_gutter_value: $item;
+			}
+		}
+	}
+
+	// 조건이 문자일 때
+	@if $_type == &quot;string&quot; {
+		@if $args == left or $args == right or $args == none {
+			$_float: $args;
+		}
+
+		@if $args == inside or $args == after or $args == before or $args == split {
+			$_gutter: $args;
+		}
+
+		@if $args == first or $args == last {
+			$_edge: $args;
+		}
+	}
+
+	// 조건이 숫자일 때
+	@if $_type == &quot;number&quot; {
+		$_gutter_value: $args;
+	}
+
+	// 설정
+	float: $_float;
+
+	@if $_gutter == after {
+		margin-right: if($_edge == last, 0, $_gutter_value);
+	}
+	@else if $_gutter == before {
+		margin-left: if($_edge == first, 0, $_gutter_value);
+	}
+	@else if $_gutter == split {
+		margin: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+	@else if $_gutter == inside {
+		padding: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+ }" data-collapsed="@mixin float($args) { ... }"><code>@mixin float($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>float 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>float 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code> or <code>Number</code> or <code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>float(right 10px)
+float(14px split)</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>float() 믹스인 전달인자는 리스트 또는 문자, 숫자만 사용해야 합니다</p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="utility"><div class="container">utility</div></h1><section class="main__sub-section" id="utility-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="utility-function-de-unit"><h3 class="item__heading"><a class="item__name" href="#function-de-unit">de-unit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function de-unit($unit) { 
+	@return $unit / ($unit * 0 + 1);
+ }" data-collapsed="@function de-unit($unit) { ... }"><code>@function de-unit($unit) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>단위 제거 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>단위가 제거된 숫자 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>de-unit(19px) // 19</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <span class="project-info__name">SassDoc</span><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

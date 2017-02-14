@@ -1,0 +1,47 @@
+// * --------------------------------
+// * 초기 변수
+$polyfill: true !default;
+$base-font-size: 16px !default;
+
+// * --------------------------------
+// * px-rem() 믹스인
+// * 의존 함수: utils/de-unit
+
+@mixin px-rem($property, $values) {
+	$max: length($values);
+
+	// $values 개수
+	$pxValues: "";
+	$remValues: "";
+
+	$base-font: de-unit($base-font-size);
+
+	@for $i from 1 through $max {
+		$value: nth($values, $i);
+
+		// 단위 제거한 $values 리스트의 개별 아이템
+		@if $value != auto and $value != inherit and $value != 0 {
+			$value: de-unit($value);
+		}
+
+		@if $value == auto or $value == inherit or $value == 0 {
+			$pxValues: #{$pxValues + $value};
+			$remValues: #{$remValues + $value};
+		}
+		@else {
+			$pxValues: #{$pxValues + $value}px;
+			$remValues: #{$remValues + $value / $base-font}rem;
+		}
+
+		@if $i < $max {
+			$pxValues: #{$pxValues + " "};
+			$remValues: #{$remValues + " "};
+		}
+	}
+
+	@if $polyfill == true {
+		#{$property}: $pxValues;
+	}
+
+	#{$property}: $remValues;
+}

@@ -1,0 +1,10 @@
+$ie_6_8_support: false !default;
+
+@mixin opacity($opacity) {
+	@if $ie_6_8_support {
+		filter: alpha(opacity=#{$opacity * 100});
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
+	}
+
+	opacity: $opacity;
+}
