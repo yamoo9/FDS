@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>도전 과제! 간단한 이벤트 제어 프로그래밍</title>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/challenge-work.css">
+</head>
+<body>
+
+  <nav class="menu-colorlist" aria-label="select color list">
+    <ul>
+      <li>
+        <a href
+           class="menu-colorlist__item--tan"
+           role="button"
+           title="light tan"
+           aria-label="light tan"></a>
+      </li>
+      <li>
+        <a href
+           class="menu-colorlist__item--khaki"
+           role="button"
+           title="light khaki"
+           aria-label="light khaki"></a>
+      </li>
+      <li>
+        <a href
+           class="menu-colorlist__item--beige"
+           role="button"
+           title="beige"
+           aria-label="beige"></a>
+      </li>
+      <li>
+        <a href
+           class="menu-colorlist__item--pale"
+           role="button"
+           title="pale grey"
+           aria-label="pale grey"></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="view-circle">
+    <span class="view-circle__content">★</span>
+  </div>
+
+
+<script>
+/**
+ * --------------------------------
+ * TODO LIST
+ * ----------------------------- */
+
+/**
+ * --------------------------------
+ * 1. 컬러리스트 버튼 수집
+ */
+// DOM API, CSS 선택자 중에 클래스 선택자로 대상을 선택
+var color_list       = document.getElementsByClassName('menu-colorlist')[0];
+var view_circle      = document.getElementsByClassName('view-circle')[0];
+var color_list_items = color_list.getElementsByTagName('a');
+
+/**
+ * --------------------------------
+ * 2. 버튼 클릭 이벤트 프로그래밍
+ */
+// 화면에 보여지는 뷰써클 영역의 배경 색상 변경
+color_list_items[0].onclick = function() {
+  // 버튼 배경 색상 가져오기
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  // 뷰 써클 배경 색상에 가져온 버튼 색상 설정하기
+  view_circle.style.backgroundColor = my_color;
+  // 브라우저 기본 동작 차단
+  return false;
+};
+// ※ 아래 코드는 버튼의 개수만큼 반복되는 코드이다.
+color_list_items[1].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+color_list_items[2].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+color_list_items[3].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+</script>
+</body>
+</html>
