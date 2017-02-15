@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>클라이언트 환경에서 이벤트에 따라 컨트롤되는 프로그래밍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .panel {
+      display: none;
+      padding: 1em;
+      border: 1px solid;
+    }
+    /*.panel.is-hidden {
+      display: none;
+    }*/
+  </style>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <header class="page-header">
+    <button type="button" class="page-header__one-click-btn">show menu</button>
+    <div id="unique-panel" class="panel">
+      <h1 class="panel-headline">Menu Panel</h1>
+      <ul>
+        <li>Lorem.</li>
+        <li>Nihil.</li>
+        <li>Tempore?</li>
+        <li>Explicabo.</li>
+      </ul>
+    </div>
+  </header>
+
+  <script>
+    // 버튼 찾고, 메뉴 패널 찾고
+    var btn   = document.getElementsByTagName('button').item(0);
+    var panel = document.getElementById('unique-panel');
+    console.log(panel);
+    // 버튼 클릭하면
+    btn.onclick = function() {
+      // 메뉴 패널 보여주고
+      panel.style.display = 'block';
+    };
+  </script>
+
+</body>
+</html>
