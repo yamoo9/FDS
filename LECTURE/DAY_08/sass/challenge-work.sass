@@ -1,0 +1,93 @@
+//
+ * --------------------------------
+ * 색상 변수
+ * --------------------------------
+$view-circle-bg:          #212121
+$view-circle__content_fg: #f7f7f7
+$menu-colorlist-bg:       #fff
+
+$tan:                     #fae4c5
+$khaki:                   #f5bf92
+$beige:                   #f7dcd5
+$pale-gray:               #dc8fd7
+
+//
+ * --------------------------------
+ * UI 디자인
+ * --------------------------------
+body
+  margin: 0
+  min-height: 100vh
+  background: $view-circle__content_fg
+
+.menu-colorlist
+  cursor: pointer
+  display: inline-flex
+  position: relative
+  top: 50px
+  padding: 0.3em 1em 0.3em 0.3em
+  background: $menu-colorlist-bg
+  border-radius: 0 6px 6px 0
+  box-shadow: 0px 0.5px 2px hsla(0, 0%, 0%, 0.25)
+  transform: translateX(-90%)
+  transition: all 0.3s ease-out
+  &:hover
+    transform: translateX(0)
+  &::after
+    position: absolute
+    top: 50%
+    right: 4px
+    content: '▶'
+    color: #e7e7e7
+    transform: translateY(-50%)
+
+  ul
+    display: flex
+    list-style: none
+    padding-left: 0
+    margin-top: 0
+    margin-bottom: 0
+    &::after
+      content: ''
+      display: block
+      clear: both
+  li
+    margin:
+      left: 10px
+      right: 10px
+
+[class*="menu-colorlist__item"]
+  display: block
+  width: 30px
+  height: 30px
+  border-radius: 50%
+
+.menu-colorlist__item--
+  &tan
+    background: $tan
+  &khaki
+    background: $khaki
+  &beige
+    background: $beige
+  &pale
+    background: $pale-gray
+
+.view-circle
+  position: fixed
+  top: 50%
+  left: 50%
+  width: 600px
+  height: 600px
+  border-radius: 50%
+  background: $view-circle-bg
+  transform: translate(-50%, -50%)
+
+.view-circle__content
+  user-select: none
+  position: absolute
+  top: 50%
+  left: 50%
+  color: $view-circle__content_fg
+  font-size: 320px
+  font-family: "Spoqa Han Sans"
+  transform: translate(-50%, -50%)

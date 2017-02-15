@@ -24,7 +24,8 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-.col-1 { width: percentage($column-width*$i/$page-width); }
+/*.col-1 { width: percentage($column-width*$i/$page-width); }*/
+.col-1 { width: 80px; }
 .col-2 { width: 180px; }
 .col-3 { width: 280px; }
 .col-4 { width: 380px; }
