@@ -36,25 +36,29 @@ body
   // ----------------------------------------
   // .flip-card 지역 변수
   $flip-card-fg:     #fff
-  $flip-card-bg:     #3fb5c8
+  $flip-card-bg:     #5d55d5
   $flip-card-with:   200px
   $flip-card-height: 300px
   $flip-card-radius: 6px
   $flip-card-border: 1px solid $flip-card-bg
   $flip-perspective: 450px
+  $flip-card-origin: center right
   // ----------------------------------------
   position: relative
-  width: $flip-card-with
+  // width: $flip-card-with
+  flex: 0 0 $flip-card-with
   height: $flip-card-height
+  margin: 0
   border: $flip-card-border
   border-radius: $flip-card-radius
   color: $flip-card-bg
   transition: transform 0.85s cubic-bezier(0.82, -0.01, 0.28, 1.37)
   transform-style: preserve-3d
-  transform-origin: center right
+  transform-origin: $flip-card-origin
   transform: perspective($flip-perspective) rotateY(0deg)
-  &.flipped
-    transform: rotateY(180deg) translateX(100%)
+  // &.flipped
+  // &:hover
+    // transform: rotateY(180deg) translateX(100%)
   > [class*="flip-"]
     @extend %flex-center
     cursor: pointer

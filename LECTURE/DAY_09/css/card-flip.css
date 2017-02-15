@@ -28,17 +28,16 @@ body {
 
 .flip-card {
   position: relative;
-  width: 200px;
+  flex: 0 0 200px;
   height: 300px;
-  border: 1px solid #3fb5c8;
+  margin: 0;
+  border: 1px solid #5d55d5;
   border-radius: 6px;
-  color: #3fb5c8;
+  color: #5d55d5;
   transition: transform 0.85s cubic-bezier(0.82, -0.01, 0.28, 1.37);
   transform-style: preserve-3d;
   transform-origin: center right;
   transform: perspective(450px) rotateY(0deg); }
-  .flip-card.flipped {
-    transform: rotateY(180deg) translateX(100%); }
   .flip-card > [class*="flip-"] {
     cursor: pointer;
     user-select: none;
@@ -50,6 +49,6 @@ body {
   .flip-card__front {
     background: #fff; }
   .flip-card__back {
-    background: #3fb5c8;
+    background: #5d55d5;
     color: #fff;
     transform: rotateY(180deg); }
