@@ -1,0 +1,42 @@
+=flex-align ($j: null, $a: null)
+  display: flex
+  justify-content: $j
+  align-items: $a
+
+%flex-align-center
+  +flex-align(center, center)
+
+// -----------------------------------
+
+$dimention-w: 300px
+$dimention-h: 300px
+$rect-bg:     #474cc5
+$circle-bg:   #de368d
+
+%dimention
+  // width: $dimention-w
+  flex: 0 0 $dimention-w
+  height: $dimention-h
+
+// -----------------------------------
+
+body
+  @extend %flex-align-center
+  min-height: 100vh
+  margin: 0
+  perspective: 800px
+
+.rect
+  @extend %flex-align-center
+  @extend %dimention
+  background: $rect-bg
+  color: #fff
+  font-size: 2rem
+
+.circle
+  @extend %flex-align-center
+  @extend %dimention
+  background: $circle-bg
+  color: #fff
+  font-size: 2rem
+  border-radius: 50%

@@ -1,0 +1,24 @@
+body, .rect, .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.rect, .circle {
+  flex: 0 0 300px;
+  height: 300px; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  perspective: 800px; }
+
+.rect {
+  background: #474cc5;
+  color: #fff;
+  font-size: 2rem; }
+
+.circle {
+  background: #de368d;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%; }
