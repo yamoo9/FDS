@@ -36,7 +36,8 @@ for (var i=0; i < flip_card.length; i=i+1) {
   var card_front = card.children[0];
   var card_back  = card.children[card.children.length - 1];
   card_front.onclick = function(e) {
-    this.parentNode.style.cssText = 'transform: rotateY(180deg) translateX(100%)';
+    // this.parentNode.style.cssText = 'transform: rotateY(180deg) translateX(100%)';
+    this.parentNode.style.cssText = 'transform: rotateY(180deg)';
   };
   card_back.onclick = function(e) {
     this.parentNode.style.cssText = '';
