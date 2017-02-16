@@ -7,16 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/card-flip.css">
   <style>
+    body {
+      perspective: 2000px;
+    }
     .flip-card {
       margin: 0 20px;
+      flex-basis: 258px;
+      height: 401px;
+    }
+    .spades-hearts {
+      border: none;
+      border-radius: 0;
+    }
+    .spades-hearts .flip-card__back {
+      background: transparent;
     }
   </style>
 </head>
 <body>
 
-  <figure class="flip-card">
-    <div class="flip-card__front">Front Face</div>
-    <div class="flip-card__back">Back Face</div>
+  <figure class="flip-card spades-hearts">
+    <div class="flip-card__front">
+      <img src="../images/hearts.png" alt="hearts" width="258" height="401">
+    </div>
+    <div class="flip-card__back">
+      <img src="../images/spades.png" alt="Spades" width="258" height="401">
+    </div>
   </figure>
 
   <figure class="flip-card">
