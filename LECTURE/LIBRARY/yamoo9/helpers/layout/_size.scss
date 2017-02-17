@@ -1,3 +1,11 @@
+/// width, height 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List, Number} $dimension - width, height(옵션) 순으로 추가
+/// @example
+/// +size(230px)
+/// +size(230px, 420px)
 @mixin size($dimension: null null) {
 	@if length($dimension) == 2 {
 		width: nth($dimension, 1);
