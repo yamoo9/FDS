@@ -34,10 +34,10 @@ body {
   border: 1px solid #5d55d5;
   border-radius: 6px;
   color: #5d55d5;
-  transition: transform 0.85s cubic-bezier(0.82, -0.01, 0.28, 1.37);
+  transition: transform 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
-  transform-origin: center right;
-  transform: perspective(450px) rotateY(0deg); }
+  transform-origin: center center;
+  transform: rotateY(0deg); }
   .flip-card > [class*="flip-"] {
     cursor: pointer;
     user-select: none;

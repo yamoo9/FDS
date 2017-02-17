@@ -4,8 +4,8 @@
 /// @group   Layout
 /// @param   {List | Number | String} $args - float 속성 이름 & 값을 나열
 /// @example
-/// float(right 10px)
-/// float(14px split)
+/// +float(right 10px)
+/// +float(14px split)
 @mixin float($args) {
 	// 초기값 설정
 	$_float: left;
