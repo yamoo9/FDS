@@ -1,0 +1,44 @@
+body
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+
+button
+  cursor: pointer
+  -webkit-appearance: none
+  appearance: none
+  background: transparent
+  border: none
+  &:focus
+    outline: none
+  &:active
+    position: relative
+    top: 1px
+
+.modal-window
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 50%
+  left: 50%
+  width: 60vw
+  height: 30vw
+  border-radius: 8px
+  border: 1px solid rgba(#3fcce4, 0.7)
+  background: linear-gradient(-60deg, mix(#3fcce4, #fff, 5%), rgba(#3fcce4, 0.24), rgba(#3fcce4, 0.54), mix(#3fcce4, #fff, 20%))
+  transform: translate(-50%, -50%)
+  &__headline
+    margin-top: 0
+    font-weight: 100
+    font-size: 4rem
+    color: #1e616e
+  &__close-button
+    padding: 1rem 1.6rem
+    border: 1px solid
+    border-radius: 50%
+    font-size: 2rem
+    font-weight: 100
+    color: #1e616e
