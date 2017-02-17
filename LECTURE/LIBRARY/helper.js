@@ -4,12 +4,19 @@
  *  querySelector 헬퍼 함수
  *  @author   yamoo9
  *  @version  1.0.0
- *  @param    {Strong}  selector_str
- *  @return   {ElementMNode}  문서 요소노드 반환
+ *  @param    {String}  selector_str
+ *  @return   {ElementNode}  문서 요소노드 반환
  */
-function q(selector_str) {
+function query(selector_str) {
   return document.querySelector(selector_str);
 }
-function qa(selector_str) {
+/**
+ *  querySelectorAll 헬퍼 함수
+ *  @author   yamoo9
+ *  @version  1.0.0
+ *  @param    {String}  selector_str
+ *  @return   {Nodelist}  문서 요소노드 집합 반환
+ */
+function queryAll(selector_str) {
   return document.querySelectorAll(selector_str);
 }
