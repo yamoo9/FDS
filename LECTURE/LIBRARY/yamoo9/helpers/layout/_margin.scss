@@ -1,3 +1,10 @@
+/// margin 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - margin 속성 이름 & 값을 나열
+/// @example
+/// +margin(left auto right auto)
 @mixin margin($args: 0) {
 
 	$use-null: false;

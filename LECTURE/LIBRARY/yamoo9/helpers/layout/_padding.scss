@@ -1,3 +1,10 @@
+/// padding 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - padding 속성 이름 & 값을 나열
+/// @example
+/// +padding(left auto right auto)
 @mixin padding($args: 0) {
 
 	$use-null: false;
