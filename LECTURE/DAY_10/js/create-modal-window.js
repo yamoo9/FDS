@@ -5,6 +5,19 @@ var body      = document.body;
 var modal_btn = document.querySelector('.button__create-modal');
 // 사용자가 버튼을 클릭하면
 modal_btn.onclick = createModalWindow;
+// modal_btn.onclick = createDim;
+
+// modal_btn.onclick = function() {
+//   createModalWindow();
+//   createDim();
+// };
+
+// 함수 craeteDim() 정의
+function createDim() {
+  var dim = document.createElement('div');
+  dim.setAttribute('class', 'modal-dim');
+  body.appendChild(dim);
+}
 // 함수 createModalWindow() 정의
 function createModalWindow() {
   // 동적으로 모달 윈도우를 생성하여 화면에 표시한다.
@@ -29,4 +42,6 @@ function createModalWindow() {
   modal.appendChild(modal_btn);
   // #5
   body.appendChild(modal);
+
+  createDim();
 }
