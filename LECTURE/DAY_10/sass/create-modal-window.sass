@@ -3,18 +3,25 @@ body
   justify-content: center
   align-items: center
   min-height: 100vh
+  margin: 0
+  background: radial-gradient(circle, rgba(#2fa287, 0.2), rgba(#1bb8b4, 0.7))
 
 button
   cursor: pointer
   -webkit-appearance: none
   appearance: none
-  background: transparent
   border: none
+  padding: 0
+  background: transparent
   &:focus
     outline: none
   &:active
     position: relative
     top: 1px
+
+.button__create-modal
+  box-shadow: 0 2px 14px 3px rgba(#219292, 0.46)
+  border-radius: 18px
 
 .modal-window
   display: flex
@@ -27,8 +34,9 @@ button
   width: 60vw
   height: 30vw
   border-radius: 8px
+  box-shadow: 1px 1px rgba(#fff, 0.4), -1px -1px rgba(#fff, 0.4)
   border: 1px solid rgba(#3fcce4, 0.7)
-  background: linear-gradient(-60deg, mix(#3fcce4, #fff, 5%), rgba(#3fcce4, 0.24), rgba(#3fcce4, 0.54), mix(#3fcce4, #fff, 20%))
+  background: linear-gradient(-60deg, rgba(mix(#3fcce4, #fff, 5%), 0.4), rgba(#3fcce4, 0.24), rgba(#3fcce4, 0.14), rgba(mix(#3fcce4, #fff, 20%), 0.4))
   transform: translate(-50%, -50%)
   &__headline
     margin-top: 0
