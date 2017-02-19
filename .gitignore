@@ -2,18 +2,19 @@
 .idea
 .idea/codeStyleSettings.xml
 .idea/vcs.xml
+
 node_modules/
 
 __BACKUP__
 __PDF__
 __REFERENCES__
 __RESOURCES__
+__UnUpdated_Resources__
 
 ### PSD ###
 21 Cover.psd
 
 ###OSX###
-
 .DS_Store
 .AppleDouble
 .LSOverride
