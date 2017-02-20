@@ -4,11 +4,14 @@
 //  - before, after 버튼의 경우 (.tester *:last-child)
 
 // 1) 버튼 수집, 각 버트에 이벤트 연결, 확인
-var prepend_btn, append_btn, before_btn, after_btn;
+var prepend_btn, append_btn, before_btn, after_btn, remove_btn;
+
 prepend_btn = query('.prepend-button');
 append_btn  = query('.append-button');
 before_btn  = query('.before-button');
 after_btn   = query('.after-button');
+remove_btn  = query('.remove-button');
+replace_btn = query('.replace-button');
 
 // 2) .tester, .repo 찾기
 // .tester 영역
@@ -65,3 +68,49 @@ after_btn.onclick = function() {
   }
   after(tester_target, repo.children[0]);
 };
+
+var assignWillRemoveClass = function() {
+  this.setAttribute('class', 'will-remove');
+};
+
+for (var i=0; i<repo.children.length; i=i+1) {
+  repo.children[i].onclick = assignWillRemoveClass;
+}
+// repo.children[0].onclick = assignWillRemoveClass;
+// repo.children[1].onclick = assignWillRemoveClass;
+// repo.children[2].onclick = assignWillRemoveClass;
+// repo.children[3].onclick = assignWillRemoveClass;
+// repo.children[4].onclick = assignWillRemoveClass;
+// repo.children[5].onclick = assignWillRemoveClass;
+
+remove_btn.onclick = function() {
+  // console.log(this);
+  // .reposity 내부에서 .will-remove 요소를 찾아
+  // 부모노드로부터 .will-remove 요소노드를 제거한다.
+  // var remove_els = repo.querySelectorAll('.will-remove');
+  var remove_els = queryAll('.will-remove', repo);
+  if ( remove_els.length === 0) {
+    window.alert('오른쪽에 위치한 repository 아이템 중 하나를 반드시 클릭하셔서 제거할 대상을 선택해주셔야 합니다.');
+    return;
+  }
+  for ( var i=0; i<remove_els.length; i=i+1 ) {
+    remove(remove_els[i]);
+  }
+  // remove_el.parentNode.removeChild(remove_el);
+  // remove(remove_el);
+};
+
+replace_btn.onclick = function() {
+  // console.log(this.getAttribute('data-replace-code').split('|')[1]);
+  var el_content_arr = this.getAttribute('data-replace-code').split('|');
+  // console.log('el_content_arr:', el_content_arr);
+  var el_str         = el_content_arr[0];
+  var el = document.createElement(el_str);
+  // console.log('el_str:', el_str);
+  var content_str    = el_content_arr[1];
+  // console.log('content_str:', content_str);
+  var content = document.createTextNode(content_str);
+  var new_el = append(el, content);
+  var target = query('.replaced-element');
+  target.parentNode.replaceChild(new_el, target);
+}
