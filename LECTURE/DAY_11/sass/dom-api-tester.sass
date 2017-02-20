@@ -1,0 +1,39 @@
+body
+  margin: 0
+
+.button-set
+  // min-height: 40px
+  border-bottom: 3px solid #0697c3
+  padding: 2rem 3rem
+
+  button
+    $button-color: #5cb1cb
+    cursor: pointer
+    margin-right: 10px
+    border: 0
+    border-radius: 3px
+    padding: 0.42em 0.84em 0.64em
+    background: $button-color
+    line-height: 1
+    color: lighten($button-color, 35%)
+
+.wrapper
+  display: flex
+  flex-flow: row wrap
+  > *
+    flex: 0 0 50%
+    box-sizing: border-box
+    margin:
+      top: 0
+      bottom: 0
+    border: 3px solid #e0e0e0
+    padding: 1.5em 2em
+  li
+    padding:
+      top: 0.6em
+      bottom: 0.6em
+    &.activation
+      outline: 3px solid #8471cb
+    &.will-remove
+      background: #dedede
+      color: #787878
