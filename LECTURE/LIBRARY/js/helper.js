@@ -22,7 +22,7 @@ function queryAll(selector_str) {
  *  @param    {HTMLElement}  parent_node 부모노드
  *  @param    {HTMLElement}  child_node  자식노드
  */
-function appendChild(parent_node, child_node) {
+function append(parent_node, child_node) {
   parent_node.appendChild(child_node);
   return child_node;
 }
@@ -31,8 +31,36 @@ function appendChild(parent_node, child_node) {
  *  @param    {HTMLElement}  parent_node 부모노드
  *  @param    {HTMLElement}  child_node  자식노드
  */
-function prependChild(parent_node, child_node) {
+function prepend(parent_node, child_node) {
   var first = parent_node.children[0];
   parent_node.insertBefore(child_node, first);
   return child_node;
+}
+
+/**
+ *  insertNode를 targetNode 앞에 삽입하는 헬퍼 함수 (형제로서 삽입)
+ *  @param    {HTMLElement}  insert_node 삽입 요소 노드
+ *  @param    {HTMLElement}  target_node 목표 요소 노드
+ *  @return   {HTMLElement}  삽입 요소 노드를 반환
+ */
+function before(insert_node, target_node) {
+  target_node.parentNode.insertBefore(insert_node, target_node);
+  return insert_node;
+}
+/**
+ *  insertNode를 targetNode 뒤에 삽입하는 헬퍼 함수 (형제로서 삽입)
+ *  @param    {HTMLElement}  target_node 목표 요소 노드
+ *  @param    {HTMLElement}  insert_node 삽입 요소 노드
+ *  @return   {HTMLElement}  삽입 요소 노드를 반환
+ */
+function after(target_node, insert_node) {
+  var next = target_node.nextElementSibling;
+  // 조건 1. target_node 뒤에 형제 노드가 없다면?
+  if ( next === null ) {
+    append(target_node.parentNode, insert_node);
+  }
+  // 조건 2. target_node 뒤에 형제 노드가 있다면?
+  else {
+    before(insert_node, next);
+  }
 }
