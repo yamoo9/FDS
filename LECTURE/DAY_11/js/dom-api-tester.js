@@ -11,7 +11,6 @@ append_btn  = query('.append-button');
 before_btn  = query('.before-button');
 after_btn   = query('.after-button');
 remove_btn  = query('.remove-button');
-replace_btn = query('.replace-button');
 
 // 2) .tester, .repo 찾기
 // .tester 영역
@@ -100,17 +99,22 @@ remove_btn.onclick = function() {
   // remove(remove_el);
 };
 
+
+// --------------------------------------------------------------------------------
+// replaceChild() 실습
+// <h1 class="alternate-h1">DOM API 완전 정복 했다! :-)</h1>
+// 1) .replace-button 찾기
+var replace_btn = query('.replace-button');
+var replaced_h1 = query('.replaced-h1');
+var alt_h1 = document.createElement('h1');
+alt_h1.setAttribute('class', 'alternate-h1');
+var alt_h1_content = document.createTextNode('DOM API 완전 정복 했다! :-)');
+append(alt_h1, alt_h1_content);
+// console.log('alt_h1:', alt_h1);
+// 2) .replace-button 요소노드 클릭 이벤트 설정(연결)
 replace_btn.onclick = function() {
-  // console.log(this.getAttribute('data-replace-code').split('|')[1]);
-  var el_content_arr = this.getAttribute('data-replace-code').split('|');
-  // console.log('el_content_arr:', el_content_arr);
-  var el_str         = el_content_arr[0];
-  var el = document.createElement(el_str);
-  // console.log('el_str:', el_str);
-  var content_str    = el_content_arr[1];
-  // console.log('content_str:', content_str);
-  var content = document.createTextNode(content_str);
-  var new_el = append(el, content);
-  var target = query('.replaced-element');
-  target.parentNode.replaceChild(new_el, target);
-}
+  // console.log(this);
+  replaced_h1.parentNode.replaceChild(alt_h1, replaced_h1);
+};
+// 3) .replaced-h1 대신 직접 생성한 요소노드를 대체하기 (헬퍼함수 replace() 만들어 보기)
+
