@@ -22,9 +22,9 @@ button.onclick = function() {
   // 경우 2. target의 부모를 모를 때
   // target.parentNode.insertBefore(insert, target);
 
-  // 경우 3-1. 헬퍼함수 prependChild()를 활용한 예
-  prependChild(target.parentNode, insert);
+  // 경우 3-1. 헬퍼함수 prepend()를 활용한 예
+  prepend(target.parentNode, insert);
 
-  // 경우 3-2. 헬퍼함수 appendChild() 사용
-  // appendChild(target.parentNode, insert);
+  // 경우 3-2. 헬퍼함수 append() 사용
+  // append(target.parentNode, insert);
 };
