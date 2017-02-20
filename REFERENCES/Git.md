@@ -502,7 +502,19 @@ $ git log --decorate --graph --all
 #       add sum.js
 ```
 
--
+### xcrun: error 오류 발생 시 대처 방법
+
+```sh
+$ git version
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+```
+
+아래 명령 실행하면 문제 해결.
+
+```sh
+$ xcode-select --install
+```
+---
 
 ### 12. Git 참고 자료
 
