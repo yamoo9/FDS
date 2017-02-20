@@ -5,16 +5,28 @@
  *  @param    {String}      selector_str
  *  @return   {HTMLElement} 문서 요소노드 반환
  */
-function query(selector_str) {
-  return document.querySelector(selector_str);
+function query(selector_str, context) {
+  var parent = null;
+  if ( context !== undefined ) {
+    parent = context;
+  } else {
+    parent = document;
+  }
+  return parent.querySelector(selector_str);
 }
 /**
  *  querySelectorAll 헬퍼 함수
  *  @param    {String}   selector_str
  *  @return   {Nodelist} 문서 요소노드 집합 반환
  */
-function queryAll(selector_str) {
-  return document.querySelectorAll(selector_str);
+function queryAll(selector_str, context) {
+  var parent = null;
+  if ( context !== undefined ) {
+    parent = context;
+  } else {
+    parent = document;
+  }
+  return parent.querySelectorAll(selector_str);
 }
 
 /**
@@ -24,7 +36,8 @@ function queryAll(selector_str) {
  */
 function append(parent_node, child_node) {
   parent_node.appendChild(child_node);
-  return child_node;
+  return parent_node;
+  // return child_node;
 }
 /**
  *  부모 노드 내부에 첫번째 자식노드로 요소를 추가하는 헬퍼 함수
@@ -63,4 +76,14 @@ function after(target_node, insert_node) {
   else {
     before(insert_node, next);
   }
+  return insert_node;
+}
+/**
+ *  전달된 요소노드를 부모노드로부터 제거하는 헬퍼 함수
+ *  @param    {HTMLElement}  element_node 제거할 요소노드
+ *  @return   {HTMLElement}  제거된 요소노드 반환
+ */
+function remove(element_node) {
+  element_node.parentNode.removeChild(element_node);
+  return element_node;
 }
