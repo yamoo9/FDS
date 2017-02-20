@@ -33,9 +33,35 @@ prepend_btn.onclick = function() {
   prepend(tester, repo.children[0]);
 };
 
+var tester_target = null;
+
+var oneClickActivation = function() {
+  // console.log(this);
+  tester_target = this;
+  this.setAttribute('class', 'activation');
+  tester.children[0].onclick = null;
+  tester.children[1].onclick = null;
+};
+
+tester.children[0].onclick = oneClickActivation;
+tester.children[1].onclick = oneClickActivation;
+
 before_btn.onclick = function() {
-  console.log('clicked before_btn');
+  // 검증 tester_target이 null 이라면?
+  // 사용자에게 정보를 제공하자.
+  // console.log('tester_target:', tester_target);
+  if ( tester_target === null ) {
+    window.alert('왼쪽에 위치한 tester 목록 아이템 중 하나를 선택하세요.');
+    return;
+  }
+  before(repo.children[0], tester_target);
+  // console.log('clicked before_btn');
 };
 after_btn.onclick = function() {
-  console.log('clicked after_btn');
+  // console.log('clicked after_btn');
+  if ( tester_target === null ) {
+    window.alert('왼쪽에 위치한 tester 목록 아이템 중 하나를 선택하세요.');
+    return;
+  }
+  after(tester_target, repo.children[0]);
 };
