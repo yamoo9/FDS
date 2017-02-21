@@ -56,13 +56,30 @@ var detectActivateState = function(child_node) {
     // console.log('B');
     cross_actived = query('.active', section_a);
   }
-  console.log('cross_actived:', cross_actived);
+  return cross_actived;
 };
 
 var switchNode = function() {
-  // console.log('switchNode:', this);
-  detectActivateState(this.parentNode);
-  assignActiveClass(this);
+  // 교체되어 사라질 운명의 요소를 기억해두기 위한 메모리 공간(변수)
+  var memory_actived = null;
+  // 교체 될 예정 노드
+  var our_actived = this;
+  // 교체 대상 노드
+  var cross_actived = detectActivateState(this.parentNode);
+
+  // console.log('our_actived:', our_actived);
+  // console.log('cross_actived:', cross_actived);
+
+  if ( cross_actived !== null ) {
+    // console.log('반대편에 활성화된 리스트가 있다.');
+    // 양쪽에 활성화된 노드를 교체한다.
+    memory_actived = replace(our_actived, cross_actived);
+    // memory_actived 변수 값과 cross_actived 변수 값은 동일한가?
+    console.log( cross_actived.isEqualNode(memory_actived) );
+  } else {
+    // console.log('반대편에 활성화된 리스트가 없다.');
+    assignActiveClass(this);
+  }
 }
 
 // 반복문을 사용하여 수집된 li 요소노드에 일괄적으로 이벤트를 연결
