@@ -104,6 +104,21 @@ function replace(replace_node, replaced_node) {
  *  @return   {HTMLElement}  [description]  대체될 노드 반환
  */
 function change(replace_node, replaced_node) {
+  var sibling = replace_node.nextElementSibling;
+  var parent = replace_node.parentNode;
 
+  replace(replace_node, replaced_node);
+
+  if ( sibling !== null ) {
+    // 형제
+    // before(삽입, 목표)
+    before(replaced_node, sibling);
+  } else {
+    // 부모
+    // append(부모, 자식)
+    append(parent, replaced_node);
+  }
 }
+
+
 function clone() {}
