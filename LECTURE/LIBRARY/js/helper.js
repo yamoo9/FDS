@@ -87,3 +87,23 @@ function remove(element_node) {
   element_node.parentNode.removeChild(element_node);
   return element_node;
 }
+/**
+ *  새로운 노드로 이전 노드를 대체하는 헬퍼 함수
+ *  @param    {HTMLElement}  replace_node   대체할 노드
+ *  @param    {HTMLElement}  replaced_node  대체될 노드
+ *  @return   {HTMLElement}  [description]  대체될 노드 반환
+ */
+function replace(replace_node, replaced_node) {
+  replaced_node.parentNode.replaceChild(replace_node, replaced_node);
+  return replaced_node;
+}
+/**
+ *  노드 A와 노드 B의 위치를 교체하는 헬퍼 함수
+ *  @param    {HTMLElement}  replace_node   대체할 노드
+ *  @param    {HTMLElement}  replaced_node  대체될 노드
+ *  @return   {HTMLElement}  [description]  대체될 노드 반환
+ */
+function change(replace_node, replaced_node) {
+
+}
+function clone() {}

@@ -1,0 +1,32 @@
+$section-A-color: #8471cb
+$section-B-color: #e3c93b
+
+// ----------------------------------------------------
+
+body
+  display: flex
+  margin: 0
+
+[class*="section-"]
+  flex-basis: 50%
+  padding-left: 2rem
+  min-height: 100vh
+
+  h1
+    border-bottom: 1px solid
+    padding-bottom: 0.3em
+
+  li
+    padding-bottom: 0.4em
+
+.section-A
+  background: $section-A-color
+  color: lighten($section-A-color, 32%)
+  h1
+    border-bottom-color: lighten($section-A-color, 32%)
+.section-B
+  background: $section-B-color
+  color: darken($section-B-color, 38%)
+  h1
+    border-bottom-color: darken($section-B-color, 38%)
+
