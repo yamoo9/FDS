@@ -60,16 +60,34 @@ var detectActivateState = function(child_node) {
 };
 
 var switchNode = function() {
-  var our_actived = this;
-  var cross_actived = detectActivateState(our_actived.parentNode);
+  // 교체 될 예정 노드
+  var our_actived  = this;
+  var memory_point = null;
+
+  memory_point = our_actived.nextElementSibling;
+  if ( memory_point === null ) {
+    memory_point = our_actived.parentNode;
+    // console.log(memory_point);
+  }
+  // 교체 대상 노드
+  var cross_actived = detectActivateState(this.parentNode);
+
   if ( cross_actived !== null ) {
-    // change(교체할노드, 교체될노드);
-    change(our_actived, cross_actived);
-    // 활성화 아이템을 비활성화
-    cross_actived.removeAttribute('class');
+    replace(our_actived, cross_actived);
+    // 양쪽에 활성화된 노드를 교체한다.
+    // our_actived의 다음 형제노드를 찾는다.
+    // 만약 our_actived.nextElementSibling가 존재하지 않는다면
+    if ( memory_point.localName === 'ul' || memory_point.localName === 'ol' ) {
+      // append
+      append(memory_point, cross_actived);
+    }
+    // 만약 our_actived.nextElementSibling가 존재한다면
+    else {
+      // before
+      before(cross_actived, memory_point);
+    }
   } else {
-    // 사용자가 클릭한 대상을 활성화
-    assignActiveClass(our_actived);
+    assignActiveClass(this);
   }
 }
 
@@ -82,7 +100,3 @@ for ( var i=0; i<section_b_lis.length; i=i+1 ) {
   var section_b_li = section_b_lis.item(i);
   section_b_li.onclick = switchNode;
 }
-
-
-// --------------------------------------------------------------------------------
-
