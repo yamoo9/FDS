@@ -60,24 +60,33 @@ var detectActivateState = function(child_node) {
 };
 
 var switchNode = function() {
-  // 교체되어 사라질 운명의 요소를 기억해두기 위한 메모리 공간(변수)
-  var memory_actived = null;
   // 교체 될 예정 노드
-  var our_actived = this;
+  var our_actived  = this;
+  var memory_point = null;
+
+  memory_point = our_actived.nextElementSibling;
+  if ( memory_point === null ) {
+    memory_point = our_actived.parentNode;
+    // console.log(memory_point);
+  }
   // 교체 대상 노드
   var cross_actived = detectActivateState(this.parentNode);
 
-  // console.log('our_actived:', our_actived);
-  // console.log('cross_actived:', cross_actived);
-
   if ( cross_actived !== null ) {
-    // console.log('반대편에 활성화된 리스트가 있다.');
+    replace(our_actived, cross_actived);
     // 양쪽에 활성화된 노드를 교체한다.
-    memory_actived = replace(our_actived, cross_actived);
-    // memory_actived 변수 값과 cross_actived 변수 값은 동일한가?
-    console.log( cross_actived.isEqualNode(memory_actived) );
+    // our_actived의 다음 형제노드를 찾는다.
+    // 만약 our_actived.nextElementSibling가 존재하지 않는다면
+    if ( memory_point.localName === 'ul' || memory_point.localName === 'ol' ) {
+      // append
+      append(memory_point, cross_actived);
+    }
+    // 만약 our_actived.nextElementSibling가 존재한다면
+    else {
+      // before
+      before(cross_actived, memory_point);
+    }
   } else {
-    // console.log('반대편에 활성화된 리스트가 없다.');
     assignActiveClass(this);
   }
 }
