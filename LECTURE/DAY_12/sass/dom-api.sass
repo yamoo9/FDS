@@ -16,17 +16,31 @@ body
     border-bottom: 1px solid
     padding-bottom: 0.3em
 
+  // ul, ol
+  //   width: 50%
+
   li
-    padding-bottom: 0.4em
+    padding:
+      top: 0.4em
+      bottom: 0.4em
+      left: 0.4em
 
 .section-A
   background: $section-A-color
   color: lighten($section-A-color, 32%)
   h1
     border-bottom-color: lighten($section-A-color, 32%)
+  li
+    &.active
+      background: lighten($section-A-color, 10%)
+      border-right: 10px solid lighten($section-A-color, 40%)
 .section-B
   background: $section-B-color
   color: darken($section-B-color, 38%)
   h1
     border-bottom-color: darken($section-B-color, 38%)
+  li
+    &.active
+      background: darken($section-B-color, 10%)
+      border-right: 10px solid darken($section-B-color, 42%)
 
