@@ -105,7 +105,7 @@ function replace(replace_node, replaced_node) {
  */
 function change(replace_node, replaced_node) {
   var sibling = replace_node.nextElementSibling;
-  var parent = replace_node.parentNode;
+  var parent  = replace_node.parentNode;
 
   replace(replace_node, replaced_node);
 
