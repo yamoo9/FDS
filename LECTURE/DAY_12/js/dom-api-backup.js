@@ -60,28 +60,34 @@ var detectActivateState = function(child_node) {
 };
 
 var switchNode = function() {
-  var our_actived = this;
-  var cross_actived = detectActivateState(our_actived.parentNode);
-  var memory_point = our_actived.nextElementSibling;
-  // our_actived 뒤 형제가 존재하지 않는다면
+  // 교체 될 예정 노드
+  var our_actived  = this;
+  var memory_point = null;
+
+  memory_point = our_actived.nextElementSibling;
   if ( memory_point === null ) {
     memory_point = our_actived.parentNode;
+    // console.log(memory_point);
   }
+  // 교체 대상 노드
+  var cross_actived = detectActivateState(this.parentNode);
+
   if ( cross_actived !== null ) {
     replace(our_actived, cross_actived);
-    // 교체
-    if (memory_point.nodeName === 'LI') {
-      // 형제 요소노드가 있다
-      // before(삽입, 목표)
-      before(cross_actived, memory_point);
-    } else {
-      // 형제 요소노드가 없다
-      // append(부모, 자식)
+    // 양쪽에 활성화된 노드를 교체한다.
+    // our_actived의 다음 형제노드를 찾는다.
+    // 만약 our_actived.nextElementSibling가 존재하지 않는다면
+    if ( memory_point.localName === 'ul' || memory_point.localName === 'ol' ) {
+      // append
       append(memory_point, cross_actived);
     }
+    // 만약 our_actived.nextElementSibling가 존재한다면
+    else {
+      // before
+      before(cross_actived, memory_point);
+    }
   } else {
-    // 사용자가 클릭한 대상을 활성화
-    assignActiveClass(our_actived);
+    assignActiveClass(this);
   }
 }
 
