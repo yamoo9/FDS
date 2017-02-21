@@ -76,6 +76,7 @@ function after(target_node, insert_node) {
   else {
     before(insert_node, next);
   }
+  return insert_node;
 }
 /**
  *  전달된 요소노드를 부모노드로부터 제거하는 헬퍼 함수
