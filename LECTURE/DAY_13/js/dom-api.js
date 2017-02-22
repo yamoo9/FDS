@@ -122,7 +122,7 @@ for (var m=0; m<demo_matches_children.length; m+=1) {
 console.log( demo_matches.contains( query('a', demo_matches) ) );
 
 // --------------------------------------------------------------------------------
-// .demo-insertAdjacentHTML
+// .demo-insertAdjacentHTML 예제
 
 var demo_insert_ad = query('.demo-insertAdjacentHTML');
 
@@ -135,3 +135,19 @@ demo_insert_ad.insertAdjacentHTML('beforebegin', prev_sibling);
 demo_insert_ad.insertAdjacentHTML('afterbegin', first_child);
 demo_insert_ad.insertAdjacentHTML('beforeend', last_child);
 demo_insert_ad.insertAdjacentHTML('afterend', next_sibling);
+
+// insertAdjacentElement() 예제
+var demo_element = query('.demo-insertAdjacentElement');
+
+// <h1>Insert Adjacent Element</h1>
+var h1 = document.createElement('h1');
+h1.innerText = 'Insert Adjacent Element';
+// <p>Lorem ipsum dolor sit amet.</p>
+var p = document.createElement('p');
+p.innerText = 'Lorem ipsum dolor sit amet.';
+
+demo_element.insertAdjacentElement('beforebegin', document.createElement('figure'));
+demo_element.insertAdjacentElement('afterbegin', h1);
+demo_element.insertAdjacentElement('beforeend', p);
+demo_element.insertAdjacentElement('afterend',  document.createElement('span'));
+

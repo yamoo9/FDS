@@ -1,5 +1,28 @@
 /*! helper.js © yamoo9.net, 2017 */
 
+function createElement(el_name) {
+  return document.createElement(el_name);
+}
+
+function createText(content) {
+  return document.createTextNode(content);
+}
+
+function makeEl(el_name, html_str, context, method) {
+  // 초기 값 설정
+  method  = method || 'append';
+  // 전달인자로 요소 노드와 HTML Code 생성
+  var el = createElement(el_name);
+  el.innerHTML = html_str;
+
+  if ( !context ) {
+    return el;
+  } else {
+    // window.before(context, el);
+    return window[method](context, el);
+  }
+}
+
 /**
  *  querySelector 헬퍼 함수
  *  @param    {String}      selector_str  CSS 선택자
