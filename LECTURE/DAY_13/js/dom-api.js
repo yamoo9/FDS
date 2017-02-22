@@ -90,3 +90,31 @@ query('.add-HTML-btn').onclick = function() {
   <button type="button" class="add-HTML-btn">add HTML using Template.</button>
 </div>
 */
+
+
+// ----------------------------------------------------
+// DOM API - HTMLElement.matches('css selector')
+
+var demo_matches          = query('.demo-matches');
+var demo_matches_children = demo_matches.children;
+// var demo_matches_target = query('.demo-matches-target', demo_matches);
+
+// 질문!!! demo_matches_target 참조 변수의
+// 문서 요소객체는 부모 demo_matches의 몇번째 자식일까요?
+for (var m=0; m<demo_matches_children.length; m+=1) {
+  var item = demo_matches_children.item(m);
+  var matching = null;
+  if ( item.matches ) {
+    matching = item.matches('.demo-matches-target');
+  } else {
+    // MS IE, Edge
+    matching = item.msMatchSelector('.demo-matches-target');
+  }
+  // console.log('matching:', matching);
+  if ( matching === true ) {
+    item.setAttribute('style', 'font-weight: 900; letter-spacing: 0.34em;');
+  }
+  // if ( demo_matches.children.item(m) === demo_matches_target ) {
+  //   console.log(m + 1, '번째 자식' );
+  // }
+}
