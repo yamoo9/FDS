@@ -91,7 +91,7 @@ function remove(element_node) {
  *  새로운 노드로 이전 노드를 대체하는 헬퍼 함수
  *  @param    {HTMLElement}  replace_node   대체할 노드
  *  @param    {HTMLElement}  replaced_node  대체될 노드
- *  @return   {HTMLElement}  [description]  대체될 노드 반환
+ *  @return   {HTMLElement}  대체될 노드 반환
  */
 function replace(replace_node, replaced_node) {
   replaced_node.parentNode.replaceChild(replace_node, replaced_node);
@@ -101,11 +101,11 @@ function replace(replace_node, replaced_node) {
  *  노드 A와 노드 B의 위치를 교체하는 헬퍼 함수
  *  @param    {HTMLElement}  replace_node   대체할 노드
  *  @param    {HTMLElement}  replaced_node  대체될 노드
- *  @return   {HTMLElement}  [description]  대체될 노드 반환
+ *  @return   {HTMLElement}  대체될 노드 반환
  */
 function change(replace_node, replaced_node) {
   var sibling = replace_node.nextElementSibling;
-  var parent = replace_node.parentNode;
+  var parent  = replace_node.parentNode;
 
   replace(replace_node, replaced_node);
 
@@ -120,5 +120,15 @@ function change(replace_node, replaced_node) {
   }
 }
 
-
-function clone() {}
+/**
+ *  노드를 가볍게 또는 깊게(자손, 인라인 스크립트 이벤트 까지) 복제하는 헬퍼 함수
+ *  @param    {HTMLElement}  node   복사할 노드
+ *  @param    {Boolean}      deep   깊은 복사 설정
+ *  @return   {HTMLElement}  복제된 노드 반환
+ */
+function clone(node, deep) {
+  if ( deep === undefined ) {
+    deep = false;
+  }
+  return node.cloneNode(deep);
+}

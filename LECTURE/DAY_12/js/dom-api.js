@@ -82,3 +82,7 @@ for ( var i=0; i<section_b_lis.length; i=i+1 ) {
   var section_b_li = section_b_lis.item(i);
   section_b_li.onclick = switchNode;
 }
+
+
+// --------------------------------------------------------------------------------
+
