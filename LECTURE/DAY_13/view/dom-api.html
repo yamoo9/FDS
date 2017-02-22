@@ -79,15 +79,33 @@
     <p>Lorem ipsum dolor sit amet.</p>
   </div>
 
+  <!-- before : beforebegin -->
+  <!-- begin --> <div class="demo-insertAdjacentElement">
+  <!-- after : afterbegin -->
 
-  <div class="demo-insertAdjacentElement">
-
-  </div>
+  <!-- before: beforeend -->
+  <!-- end --> </div>
+  <!-- after : afterend -->
 
   <div class="demo-makeEl">
     <figure>figure</figure>
   </div>
 
 <script src="../js/dom-api.js"></script>
+<script>
+  var maked_el = makeEl('div', '<strong class="important">매우 매우 강조!</strong> 하하하!');
+  console.log('maked_el:', maked_el);
+
+  var created_el;
+  created_el = makeEl('article', 'Article Section', query('.demo-makeEl'), 'prepend');
+  // 요소 동적 생성 후, 속성 설정 및 이벤트 연결
+  created_el.setAttribute('class', 'article-section');
+  created_el.onmouseenter = function() {
+    this.style.cssText = 'font-weight: 800;';
+  };
+  created_el.onmouseleave = function() {
+    this.style.cssText = '';
+  };
+</script>
 </body>
 </html>
