@@ -103,7 +103,7 @@ var demo_matches_children = demo_matches.children;
 // 문서 요소객체는 부모 demo_matches의 몇번째 자식일까요?
 for (var m=0; m<demo_matches_children.length; m+=1) {
   var item = demo_matches_children.item(m);
-  var matching = null;
+  var matching = null; // undefined, null
   if ( item.matches ) {
     matching = item.matches('.demo-matches-target');
   } else {
@@ -118,3 +118,20 @@ for (var m=0; m<demo_matches_children.length; m+=1) {
   //   console.log(m + 1, '번째 자식' );
   // }
 }
+
+console.log( demo_matches.contains( query('a', demo_matches) ) );
+
+// --------------------------------------------------------------------------------
+// .demo-insertAdjacentHTML
+
+var demo_insert_ad = query('.demo-insertAdjacentHTML');
+
+var prev_sibling = '<section class="before-demo-insertAdjacentHTML">이전 형제</section>';
+var next_sibling = '<section class="after-demo-insertAdjacentHTML">다음 형제</section>';
+var first_child  = '<article class="first-child">첫번째 자식</article>';
+var last_child   = '<article class="last-child">마지막 자식</article>';
+
+demo_insert_ad.insertAdjacentHTML('beforebegin', prev_sibling);
+demo_insert_ad.insertAdjacentHTML('afterbegin', first_child);
+demo_insert_ad.insertAdjacentHTML('beforeend', last_child);
+demo_insert_ad.insertAdjacentHTML('afterend', next_sibling);

@@ -22,11 +22,17 @@
 
   <hr>
 
+  <form action="/">
+    <label><input type="checkbox" checked> checkbox content</label>
+  </form>
+
   <div class="component"></div>
 
   <div class="demo-innerHTML"></div>
 
+  <!-- beforebegin -->
   <ul class="demo-matches">
+    <!-- beforeend -->
     <li>list-item 07</li>
     <li>list-item 04</li>
     <li>list-item 06</li>
@@ -46,7 +52,7 @@
     <li>list-item 07</li>
     <li>list-item 04</li>
     <li>list-item 06</li>
-    <li class="demo-matches-target target-a">list-item 05</li>
+    <li class="demo-matches-target target-a"><a href="">list-item 05</a></li>
     <li>list-item 07</li>
     <li>list-item 04</li>
     <li>list-item 06</li>
@@ -63,7 +69,15 @@
     <li class="item-beta demo-matches-target item-gamma">list-item 04</li>
     <li>list-item 06</li>
     <li>list-item 05</li>
+    <!-- afterbegin -->
   </ul>
+  <!-- afterend -->
+
+
+  <div class="demo-insertAdjacentHTML">
+    <h1>Insert Adjacent HTML</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
 
 <script src="../js/dom-api.js"></script>
 </body>
