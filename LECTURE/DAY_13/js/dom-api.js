@@ -128,8 +128,8 @@ var demo_insert_ad = query('.demo-insertAdjacentHTML');
 
 var prev_sibling = '<section class="before-demo-insertAdjacentHTML">이전 형제</section>';
 var next_sibling = '<section class="after-demo-insertAdjacentHTML">다음 형제</section>';
-var first_child  = '<article class="first-child">첫번째 자식</article>';
-var last_child   = '<article class="last-child">마지막 자식</article>';
+var first_child  = '<article class="first-child-demo-insertAdjacentHTML">첫번째 자식</article>';
+var last_child   = '<article class="last-child-demo-insertAdjacentHTML">마지막 자식</article>';
 
 demo_insert_ad.insertAdjacentHTML('beforebegin', prev_sibling);
 demo_insert_ad.insertAdjacentHTML('afterbegin', first_child);
