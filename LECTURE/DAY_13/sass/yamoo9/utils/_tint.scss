@@ -1,0 +1,3 @@
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}

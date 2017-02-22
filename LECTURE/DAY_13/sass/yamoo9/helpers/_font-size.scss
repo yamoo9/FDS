@@ -1,0 +1,30 @@
+// --------------------------------
+// 초기 변수
+
+$polyfill: true !default;
+$base-font-size: 16px !default;
+
+// --------------------------------
+// rem 함수
+
+@function rem($size, $base: null) {
+	$rem-size: $size / if($base != null, $base, $base-font-size);
+
+	@return $rem-size * 1rem;
+}
+
+// --------------------------------
+// font-size() 믹스인
+
+@mixin font-size($size, $base: null) {
+	@if mixin-exists(px-rem) {
+		@include px-rem(font-size, $size);
+	}
+	@else {
+		@if $polyfill == true {
+			font-size: $size;
+		}
+
+		font-size: rem($size, $base);
+	}
+}
