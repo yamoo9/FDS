@@ -139,6 +139,13 @@ CSSOM View Module 사양의 대부분 속성은 라이브 상태로 접근 시�
 - clientWidth (content-box + padding-box)
 - clientHeight (content-box + padding-box)
 
+#### 테두리(Border), 내부 공간(Padding)을 제외한 박스 크기
+
+테두리, 내부 공간을 제외한 박스 크기를 구할 경우 아래 속성을 사용할 수 있다.
+
+- width (content-box)
+- height (content-box)
+
 -
 
 ### 스크롤링 측정
