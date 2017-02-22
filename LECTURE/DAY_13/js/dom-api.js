@@ -1,5 +1,53 @@
 /*! dom-api.js © yamoo9.net, 2017 */
 
+// .component 요소를 찾아 이 내부에 위의 HTML 코드를 동적으로 추가해보자.
+var comp = query('.component');
+
+var comp_input_heading             = '섹션 제목';
+var comp_input_heading_placeholder = '아름다운 우리 강산';
+var comp_input_language            = '작성된 언어(스크린리더가 사용할 음성엔진 언어)';
+var comp_input_language_placehoder = 'ko';
+var comp_button_content            = '문서객체 생성';
+
+// HTML TEMPLATE CODE
+
+// Markup 하듯이 하는 방법 1
+// var comp_complete_html_str = '';
+
+// comp_complete_html_str += '<div class="input-field" role="group" lang="en">';
+// comp_complete_html_str +=   '<div role="group">';
+// comp_complete_html_str +=     '<label for="input-heading">'+ comp_input_heading +'</label>';
+// comp_complete_html_str +=     '<input type="text" id="input-heading" placeholder="'+ comp_input_heading_placeholder +'">';
+// comp_complete_html_str +=   '</div>';
+// comp_complete_html_str +=   '<div role="group">';
+// comp_complete_html_str +=     '<label for="input-language">'+ comp_input_language +'</label>';
+// comp_complete_html_str +=     '<input type="text" id="input-language" placeholder="'+ comp_input_language_placehoder +'">';
+// comp_complete_html_str +=   '</div>';
+// comp_complete_html_str +=   '<button type="button" class="add-HTML-btn">'+ comp_button_content +'</button>';
+// comp_complete_html_str += '</div>';
+
+// --------------------------------------------------------------
+// Markup 하듯이 하는 방법 2 - using Array Object
+
+var comp_complete_html_str = [
+  '<div class="input-field" role="group" lang="en">',
+    '<div role="group">',
+      '<label for="input-heading">'+ comp_input_heading +'</label>',
+      '<input type="text" id="input-heading" placeholder="'+ comp_input_heading_placeholder +'">',
+    '</div>',
+    '<div role="group">',
+      '<label for="input-language">'+ comp_input_language +'</label>',
+      '<input type="text" id="input-language" placeholder="'+ comp_input_language_placehoder +'">',
+    '</div>',
+    '<button type="button" class="add-HTML-btn">'+ comp_button_content +'</button>',
+  '</div>'
+].join('');
+
+comp.innerHTML = comp_complete_html_str;
+
+// --------------------------------------------------------------------------------
+
+
 // 문서에서 .demo-innerHTML 대상 찾기
 var demo = query('.demo-innerHTML');
 // 문서에 동적으로 생성할 HTML 코드 문자 유형 데이터(자료)
@@ -24,3 +72,21 @@ query('.add-HTML-btn').onclick = function() {
   demo.innerHTML = template;
 
 };
+
+
+// --------------------------------------------------------------------------------
+
+// innerHTML을 사용하여 동적으로 문서가 로드됨과 동시에 코드가 생성되도록 해보자.
+/*
+<div class="input-field" role="group" lang="en">
+  <div role="group">
+    <label for="input-heading">Heading:</label>
+    <input type="text" id="input-heading" placeholder="DOM Script">
+  </div>
+  <div role="group">
+    <label for="input-language">Language:</label>
+    <input type="text" id="input-language" placeholder="ko">
+  </div>
+  <button type="button" class="add-HTML-btn">add HTML using Template.</button>
+</div>
+*/
