@@ -1,0 +1,40 @@
+// --------------------------------
+// 초기 변수
+
+// --------------------------------
+// headings 함수
+
+@function headings($start: all, $end: null) {
+	@if $start == all {
+		@return "h1, h2, h3, h4, h5, h6";
+	}
+	@else {
+		@if type-of($start) != number {
+			@error "첫번째 인자 값으로 all 또는 숫자만 적용가능합니다.";
+		}
+
+		$heading-list: "";
+
+		@if $end == null {
+			@for $i from 1 through $start {
+				$heading-list: $heading-list + "h#{$i}, ";
+			}
+		}
+		@else {
+			@for $i from $start through $end {
+				$heading-list: $heading-list + "h#{$i}, ";
+			}
+		}
+
+		@return $heading-list;
+	}
+}
+
+// --------------------------------
+// setHeadings 믹스인
+
+@mixin headings($start: all, $end: null, $color: null) {
+	#{headings($start, $end)} {
+		@content;
+	}
+}
