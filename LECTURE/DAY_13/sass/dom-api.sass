@@ -1,0 +1,36 @@
+/*! dom-api.css © yamoo9.net, 2017 */
+
+@import 'base/normalize'
+@import 'yamoo9/yamoo9'
+
+// ----------------------------------------------------
+
+// $base-font-size: 10px
+
+// html
+//   font-size: $base-font-size
+
+.input-field
+  +fixed( top rem(20px) right rem(20px) )
+  width: rem(200px)
+  padding: rem(10px)
+  border: rem(4px) solid #eee
+  border-radius: rem(8px)
+  background: #fff
+
+  [role=group]
+    +padding(top rem(10px) bottom rem(10px))
+
+  label
+    display: inline-block
+    margin-bottom: rem(5px)
+  input
+    width: 96%
+    margin-bottom: rem(10px)
+  button
+    +padding(top rem(10px) bottom rem(10px))
+    width: 100%
+    border: none
+    border-radius: rem(5px)
+    background: #434343
+    color: #ececec

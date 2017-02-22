@@ -1,0 +1,16 @@
+// * --------------------------------
+// * retina-image() 믹스인
+@mixin retina-image($file, $dimension: null null, $ratio: 2, $suffix: "@", $extension: png) {
+	background-image: url($file + "." + $extension);
+	width: nth($dimension, 1);
+	height: nth($dimension, 2);
+
+	@for $i from 2 through $ratio {
+		@include hidpi($i) {
+			& {
+				background-image: url($file + "#{$suffix}#{$i}x." + $extension);
+				background-size: nth($dimension, 1) nth($dimension, 2);
+			}
+		}
+	}
+}
