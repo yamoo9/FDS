@@ -107,9 +107,37 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
 - 기본적으로 노드는 문서에 구조화된 트리(Tree) 순서에 따라 정렬된다. 요컨데 순서대로 수집된다.
 - `length` 속성을 사용하여 집합 내 노드의 개수를 알 수 있다.
 
+-
+
+### HTML*Element 스타일
+
+- style
+  - `-` 표기 대신 camelCase 사용
+  - `float`는 이미 JavaScript에 있으므로 `cssFloat` 사용
+  - 인라인 스타일(`style=""`) 속성 값만 가져올 수 있음
+  - `cssText`를 사용하거나, `getAttribute('style')`, `setAttribute()`, `removeAttribute()`를 사용하여 조작 가능.
+- getComputedStyle() (IE 9+)
+  - 최종 계산된 스타일 설정 값을 가져올 수 있음
+
+-
+
+### TextNode 속성/메서드
+
+- data | nodeValue
+- textContent
+- appendData()
+- insertData()
+- deleteData()
+- replaceData()
+- substringData()
+- splitText()
+- normalize()
+
 ---
 
 ## [CSSOM](https://developer.mozilla.org/ko/docs/Web/API/CSS_Object_Model), [View Module](https://www.w3.org/TR/cssom-view-1/)
+
+CSSOM은 CSS Object Model을 말한다.
 
 CSSOM View Module 사양의 대부분 속성은 라이브 상태로 접근 시마다 매번 계산되며, 읽기 전용 속성이다.
 <br>(`scrollLeft`, `scrollTop` 제외)
