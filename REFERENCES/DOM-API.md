@@ -11,7 +11,7 @@
 - querySelector() (IE 8+ CSS2 선택자로 제한, IE 9+)
 - querySelectorAll()
 - [matches()](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) (IE 9+ `ms` 프리픽스 필요)
-- msMatcheSelector()
+  - msMatcheSelector()
 
 #### 특징(주의 할 점!)
 
