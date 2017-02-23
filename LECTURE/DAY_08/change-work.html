@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>도전 과제! 간단한 이벤트 제어 프로그래밍</title>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <style>
+    /**
+     * $light-tan   : #fae4c5
+     * $light-khaki : #f5bf92
+     * $beige       : #f7dcd5
+     * $pale-grey   : #dc8fd7
+     */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f7f7f7;
+    }
+    .menu-colorlist {
+      cursor: pointer;
+      position: relative;
+      top: 50px;
+      display: inline-flex;
+      padding: 0.3em 1em 0.3em 0.3em;
+      background: #fff;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0px 0.5px 2px hsla(0,0%,0%,.25);
+      transform: translateX(-90%);
+      transition: all 0.3s ease-out;
+    }
+    .menu-colorlist:hover {
+      transform: translateX(0);
+    }
+    .menu-colorlist::after {
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      content: '▶';
+      color: #e7e7e7;
+      transform: translateY(-50%);
+    }
+    .menu-colorlist ul {
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .menu-colorlist ul::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .menu-colorlist li {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    [class*="menu-colorlist__item"] {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+    .menu-colorlist__item--tan { background: #fae4c5; }
+    .menu-colorlist__item--khaki { background: #f5bf92; }
+    .menu-colorlist__item--beige { background: #f7dcd5; }
+    .menu-colorlist__item--pale { background: #dc8fd7; }
+
+    .view-circle {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: #212121;
+      transform: translate(-50%, -50%);
+    }
+    .view-circle__content {
+      -webkit-user-select: none;
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #f7f7f7;
+      font-size: 320px;
+      font-family: "Spoqa Han Sans";
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="menu-colorlist" aria-label="select color list">
+    <ul>
+      <li><a
+        href
+        class="menu-colorlist__item--tan"
+        role="button"
+        title="light tan"
+        aria-label="light tan"></a></li>
+      <li><a
+        href
+        class="menu-colorlist__item--khaki"
+        role="button"
+        title="light khaki"
+        aria-label="light khaki"></a></li>
+      <li><a
+        href
+        class="menu-colorlist__item--beige"
+        role="button"
+        title="beige"
+        aria-label="beige"></a></li>
+      <li><a
+        href
+        class="menu-colorlist__item--pale"
+        role="button"
+        title="pale grey"
+        aria-label="pale grey"></a></li>
+    </ul>
+  </nav>
+
+  <div class="view-circle">
+    <span class="view-circle__content">★</span>
+  </div>
+
+
+
+<script>
+/**
+ * --------------------------------
+ * TODOLIST
+ * ----------------------------- */
+// 컬러리스트 버튼 수집
+// DOM API, CSS 선택자 중에 클래스 선택자로 대상을 선택
+var color_list       = document.getElementsByClassName('menu-colorlist')[0];
+var view_circle      = document.getElementsByClassName('view-circle')[0];
+var color_list_items = color_list.getElementsByTagName('a');
+
+// 버튼 클릭
+// 화면에 보여지는 뷰써클 영역의 배경 색상 변경
+color_list_items[0].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+color_list_items[1].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+color_list_items[2].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+color_list_items[3].onclick = function() {
+  var my_color = window.getComputedStyle(this,null).backgroundColor;
+  view_circle.style.backgroundColor = my_color;
+  return false;
+};
+</script>
+</body>
+</html>
