@@ -16,7 +16,6 @@ function createElement(el_name) {
 function createText(content) {
   return document.createTextNode(content);
 }
-
 /**
  *  요소노드를 생성(콘텐츠[HTML 유형 가능] 포함)하거나, 특정 부모노드에 자식노드로 삽입하는 헬퍼 함수
  *  @param   {String}        el_name  생성할 노드 이름
@@ -42,7 +41,6 @@ function makeEl(el_name, html_str, context, method) {
   // 생성된 요소노드 반환
   return el;
 }
-
 /**
  *  querySelector 헬퍼 함수
  *  @param    {String}      selector_str  CSS 선택자
@@ -61,7 +59,6 @@ function query(selector_str, context) {
 function queryAll(selector_str, context) {
   return (context || document).querySelectorAll(selector_str);
 }
-
 /**
  *  부모 노드 내부에 마지막 자식노드로 요소를 추가하는 헬퍼 함수
  *  @param    {HTMLElement|Selector}  parent 부모노드 또는 선택자(문자열)
@@ -95,7 +92,6 @@ function prepend(parent, child) {
   // return child;
   return parent.insertAdjacentElement('afterbegin', child);
 }
-
 /**
  *  insertNode를 targetNode 앞에 삽입하는 헬퍼 함수 (형제로서 삽입)
  *  @param    {HTMLElement}  insert_node 삽입 요소 노드
@@ -164,7 +160,6 @@ function change(replace_node, replaced_node) {
     append(parent, replaced_node);
   }
 }
-
 /**
  *  노드를 가볍게 또는 깊게(자손, 인라인 스크립트 이벤트 까지) 복제하는 헬퍼 함수
  *  @param    {HTMLElement}  node   복사할 노드
