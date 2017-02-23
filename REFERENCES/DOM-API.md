@@ -11,7 +11,7 @@
 - querySelector() (IE 8+ CSS2 선택자로 제한, IE 9+)
 - querySelectorAll()
 - [matches()](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) (IE 9+ `ms` 프리픽스 필요)
-  - msMatcheSelector()
+- msMatcheSelector()
 
 #### 특징(주의 할 점!)
 
@@ -116,7 +116,7 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
   - `float`는 이미 JavaScript에 있으므로 `cssFloat` 사용
   - 인라인 스타일(`style=""`) 속성 값만 가져올 수 있음
   - `cssText`를 사용하거나, `getAttribute('style')`, `setAttribute()`, `removeAttribute()`를 사용하여 조작 가능.
-- getComputedStyle() (IE 9+)
+- getComputedStyle(요소노드[, 가상요소]) (IE 9+)
   - 최종 계산된 스타일 설정 값을 가져올 수 있음
 
 -
@@ -125,13 +125,71 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
 
 - data | nodeValue
 - textContent
-- appendData()
-- insertData()
-- deleteData()
-- replaceData()
-- substringData()
-- splitText()
+- appendData(뒤에 삽입할 텍스트)
+- insertData(삽입할 인덱스, 삽입할 텍스트)
+- deleteData(제거할 첫글자 인덱스, 제거할 글자 개수)
+- replaceData(대체할 인덱스, 대체할 텍스트 개수, 대체할 텍스트)
+- substringData(추출할 텍스트 인덱스, 추출할 텍스트 개수)
+- splitText(분리 추출할 텍스트 인덱스)
 - normalize()
+
+-
+
+### DocumentFragment 노드
+
+DocumentFragment 노드는 라이브 DOM 트리 외부에 경량화된 문서 DOM을 생성한다.
+즉, 라이브 DOM 트리처럼 작동하되 메모리 상에서만 존재하는 빈 문서 템플릿이다.
+
+DocumentFragment 자식노드를 메모리 상에서 손쉽게 조작한 후, 라이브 DOM에 추가하는 것도 가능하다.
+DocumentFragment를 사용하여 메모리 상 노드 구조를 만든 후 이를 라이브 노드 구조에 삽입하면 성능 향상을 꾀할 수 있다.
+
+```js
+// Document Fragment: 문서 파편(조각)
+var doc_frag = document.createDocumentFragment();
+```
+
+#### DocumentFragment 특징
+
+- DocumentFragment는 `<html>`, `<body>` 등을 제외한 모든 노드를 생성할 수 있다.
+- DocumentFragment를 DOM에 추가하더라도 DocumentFragment 자체는 추가되지 않고 내부의 노드만 추가된다.
+- DocumentFragment에 직접적으로 innerHTML과 같은 메서드를 사용할 수 없으나, 요소노드를 생성한 후에는 가능하다.
+- DocumentFragment를 DOM에 추가한 후에는 생성한 메모리 상에서 소멸된다. 소멸될 데이터를 메모리 하려면 `cloneNode(true)`를 사용한다.
+
+⏣ DOMParser를 활용하여 문서 객체를 생성할 수도 있다.
+
+```js
+// W3C 사양: https://www.w3.org/TR/DOM-Parsing
+var created_dom_objecs = new DOMParser('HTML Code', 'MIME Type');
+
+// 크로스 브라우징을 목적으로 하는 대체 수단: https://gist.github.com/eligrey/1129031
+// Node.js 서버 사이드 환경에서 사용 가능한 라이브러리: https://github.com/component/domify
+```
+
+-
+
+### CSS 스타일시트/규칙
+
+styleSheets 노드리스트는 다른 노드리스트와 마찬가지로 라이브 상태를 유지한다.
+
+```js
+document.styleSheets;
+document.styleSheets.length;
+```
+
+- CSSStylesheets 객체: 스타일시트 `.sheet`
+  - `cssText`
+  - `selectorText`
+  - `style`
+  - `disabled`
+- CSSStyleRules 객체: 스타일 규칙 `.cssRules`
+  - `insertRule(CSS 코드, 삽입 인덱스)`
+  - `deleteRule(제거 인덱스)`
+
+
+```js
+document.querySelector('link').sheet;              // CSSStylesheet
+document.querySelector('style').sheet.cssRules[0]; // CSSStyleRules
+```
 
 ---
 
