@@ -3,11 +3,11 @@
 // .component 요소를 찾아 이 내부에 위의 HTML 코드를 동적으로 추가해보자.
 var comp = query('.component');
 
-var comp_input_heading             = '섹션 제목';
-var comp_input_heading_placeholder = '아름다운 우리 강산';
-var comp_input_language            = '작성된 언어(스크린리더가 사용할 음성엔진 언어)';
-var comp_input_language_placehoder = 'ko';
-var comp_button_content            = '문서객체 생성';
+var comp_input_heading              = '섹션 제목';
+var comp_input_heading_placeholder  = '아름다운 우리 강산';
+var comp_input_language             = '작성된 언어(스크린리더가 사용할 음성엔진 언어)';
+var comp_input_language_placeholder = 'ko';
+var comp_button_content             = '문서객체 생성';
 
 // HTML TEMPLATE CODE
 
@@ -21,7 +21,7 @@ var comp_button_content            = '문서객체 생성';
 // comp_complete_html_str +=   '</div>';
 // comp_complete_html_str +=   '<div role="group">';
 // comp_complete_html_str +=     '<label for="input-language">'+ comp_input_language +'</label>';
-// comp_complete_html_str +=     '<input type="text" id="input-language" placeholder="'+ comp_input_language_placehoder +'">';
+// comp_complete_html_str +=     '<input type="text" id="input-language" placeholder="'+ comp_input_language_placeholder +'">';
 // comp_complete_html_str +=   '</div>';
 // comp_complete_html_str +=   '<button type="button" class="add-HTML-btn">'+ comp_button_content +'</button>';
 // comp_complete_html_str += '</div>';
@@ -37,7 +37,7 @@ var comp_complete_html_str = [
     '</div>',
     '<div role="group">',
       '<label for="input-language">'+ comp_input_language +'</label>',
-      '<input type="text" id="input-language" placeholder="'+ comp_input_language_placehoder +'">',
+      '<input type="text" id="input-language" placeholder="'+ comp_input_language_placeholder +'">',
     '</div>',
     '<button type="button" class="add-HTML-btn">'+ comp_button_content +'</button>',
   '</div>'
