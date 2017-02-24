@@ -174,12 +174,40 @@ function clone(node, deep) {
 }
 
 /**
+ * 요소노드에 전달된 class 속성 이름 값이 일치하는 것이 있는지 유무 파악 헬퍼 함수
+ * @param {HTMLElement} el_node    - class 속성 값을 포함하는지 확인하고자 하는 요소노드
+ * @param {String}      class_name - 일치 유무를 파악하고자 하는 문자형 데이터
+ * @returns {boolean}                일치 유무 파악 후 결과 반환
+ */
+function hasClass(el_node, class_name) {
+  // el_node의 class 속성 값에 전달된 class_name 이 존재한다면? true 반환
+
+  // el_node 요소노드에서 class 속성 값을 가져온다.
+  var old_classes = el_node.getAttribute('class') || '';
+  //if ( typeof old_classes !== 'string' ) {
+  //  old_classes = '';
+  //}
+  // 가져온 속성 값을 .split()로 쪼개서 집합(배열)을 만든다.
+  old_classes = old_classes.split(' ');
+  // 반복문을 사용해서 class_name 값과 일치하는 원소(아이템)가 있는지 확인한다.
+  for ( var i=0; i<old_classes.length; i++ ) {
+    var class_item = old_classes[i];
+    if ( class_item === class_name ) {
+      // 만약 일치하는 원소가 있다면 true를 반환한다.
+      return true;
+    }
+  }
+  // 아니라면 false를 반환한다.
+  return false;
+}
+
+/**
  *  요소노드에 class 속성을 추가하는 헬퍼 함수
  *  @param  {HTMLElement}  el_node - class 속성을 추가할 HTML 요소노드
  *  @param  {String}  class_name   - 적용할 class 속성 값 이름
  */
 function addClass(el_node, class_name) {
-  // 전달인자 검증(Arguments Valication)
+  // 전달인자 검증(Arguments Validation)
   if ( el_node.nodeType !== 1 ) {
     // 문제가 발생하면, 오류 발생
     throw new Error('첫번째 전달 인자의 유형은 요소노드여야 합니다.');
@@ -188,7 +216,9 @@ function addClass(el_node, class_name) {
     throw new Error('두번째 전달 인자의 유형은 문자형 이어야 합니다.');
   }
   // HTML DOM 방식
-  el_node.className = class_name;
   // Core DOM 방식
-  // el_node.setAttribute('class', class_name);
+  if ( !hasClass(el_node, class_name) ) {
+    el_node.className += ' ' + class_name;
+    //el_node.setAttribute('class', class_name);
+  }
 }

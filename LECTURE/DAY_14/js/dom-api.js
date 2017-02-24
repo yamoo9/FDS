@@ -30,4 +30,4 @@ var demo_button = query('button');
 
 // 헬퍼 함수
 // addClass(el_node, class_name)
-addClass(demo_button, 'demo-button');
+ addClass(demo_button, 'demo-button');
