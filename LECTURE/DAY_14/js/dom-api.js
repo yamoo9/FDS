@@ -30,4 +30,53 @@ var demo_button = query('button');
 
 // 헬퍼 함수
 // addClass(el_node, class_name)
- addClass(demo_button, 'demo-button');
+// addClass(demo_button, 'demo-button');
+
+// classList API 활용
+demo_button.classList.add('demo-button');
+
+demo_button.onclick = function () {
+  if ( this.classList.contains('on') ) {
+    this.classList.remove('on');
+  } else {
+    this.classList.add('on');
+  }
+  // VS
+  this.classList.toggle('on');
+};
+
+// DocumentFragment 객체 생성
+var doc_frag = document.createDocumentFragment();
+
+//console.log('doc_frag 1:', doc_frag); // #document-fragment
+
+// 첫번째 자식 생성한 후 doc_frag에 삽입
+var _div = createElement('div');
+
+doc_frag.appendChild(_div);
+
+console.log('_div:', _div );
+
+//console.log('doc_frag 2:', doc_frag);  // #document-fragment > div
+
+_div = createElement('span');
+
+console.log('_div:', _div );
+
+doc_frag.appendChild(_div);
+
+//console.log('doc_frag 3:', doc_frag);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

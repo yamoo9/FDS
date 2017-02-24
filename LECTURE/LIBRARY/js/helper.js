@@ -203,8 +203,8 @@ function hasClass(el_node, class_name) {
 
 /**
  *  요소노드에 class 속성을 추가하는 헬퍼 함수
- *  @param  {HTMLElement}  el_node - class 속성을 추가할 HTML 요소노드
- *  @param  {String}  class_name   - 적용할 class 속성 값 이름
+ *  @param  {HTMLElement}  el_node    - class 속성을 추가할 HTML 요소노드
+ *  @param  {String}       class_name - 적용할 class 속성 값 이름
  */
 function addClass(el_node, class_name) {
   // 전달인자 검증(Arguments Validation)
@@ -215,10 +215,45 @@ function addClass(el_node, class_name) {
   if ( typeof class_name !== 'string' ) {
     throw new Error('두번째 전달 인자의 유형은 문자형 이어야 합니다.');
   }
-  // HTML DOM 방식
-  // Core DOM 방식
   if ( !hasClass(el_node, class_name) ) {
-    el_node.className += ' ' + class_name;
-    //el_node.setAttribute('class', class_name);
+    // HTML DOM 방식
+    //el_node.className += ' ' + class_name;
+
+    // Core DOM 방식
+    var old_class = el_node.getAttribute('class') || '';
+    el_node.setAttribute('class', old_class + ' ' + class_name);
   }
 }
+
+/**
+ *  요소노드에 class 속성을 제거하는 헬퍼 함수
+ *  @param  {HTMLElement}  el_node    - class 속성을 제거할 HTML 요소노드
+ *  @param  {String}       class_name - 제거할 class 속성 값 이름
+ */
+function removeClass(el_node, class_name) {
+  // [옵션] class_name 값을 사용자가 전달하지 않았을 경우
+  if ( !class_name ) {
+    //el_node.removeAttribute('class');
+    el_node.setAttribute('class', '');
+  }
+  // 해당 클래스 속성 이름이 존재하면 제거
+  if ( hasClass(el_node, class_name) ) {
+    var old_classes = el_node.getAttribute('class').split(' ');
+    for ( var i=0; i<old_classes.length; i++ ) {
+      var class_item = old_classes[i];
+      if ( class_item === class_name ) {
+        old_classes.splice(i, 1);
+      }
+    }
+    el_node.setAttribute('class', old_classes.join(' '));
+  }
+}
+
+
+
+
+
+
+
+
+
