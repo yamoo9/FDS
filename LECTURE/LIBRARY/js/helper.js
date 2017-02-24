@@ -172,3 +172,23 @@ function clone(node, deep) {
   }
   return node.cloneNode(deep);
 }
+
+/**
+ *  요소노드에 class 속성을 추가하는 헬퍼 함수
+ *  @param  {HTMLElement}  el_node - class 속성을 추가할 HTML 요소노드
+ *  @param  {String}  class_name   - 적용할 class 속성 값 이름
+ */
+function addClass(el_node, class_name) {
+  // 전달인자 검증(Arguments Valication)
+  if ( el_node.nodeType !== 1 ) {
+    // 문제가 발생하면, 오류 발생
+    throw new Error('첫번째 전달 인자의 유형은 요소노드여야 합니다.');
+  }
+  if ( typeof class_name !== 'string' ) {
+    throw new Error('두번째 전달 인자의 유형은 문자형 이어야 합니다.');
+  }
+  // HTML DOM 방식
+  el_node.className = class_name;
+  // Core DOM 방식
+  // el_node.setAttribute('class', class_name);
+}
