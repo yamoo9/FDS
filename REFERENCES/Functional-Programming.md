@@ -121,3 +121,11 @@ var newRooms = rooms.map(function (rm) {
 newRooms; // ["H1", "H2", "H4"]
 rooms;    // ["H1", "H2", "H3"]
 ```
+
+-
+
+### JavaScript Library
+
+- [lodash](https://lodash.com/)
+- [underscoreJS](http://underscorejs.org/)
+- [ramdaJS](http://ramdajs.com/)
