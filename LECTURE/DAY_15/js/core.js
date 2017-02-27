@@ -139,10 +139,16 @@ updateCount(count);
 
 // 버튼 이벤트 바인딩
 ui_spin_dec_btn.onclick = function() {
+  // 반대편 버튼 비활성 상태 체크
+  // 비활성 상태라면 활성 상태로 변경
+  var is_disabled_another_btn = ui_spin_inc_btn.getAttribute('disabled');
+  if ( is_disabled_another_btn ) {
+    ui_spin_inc_btn.removeAttribute('disabled');
+  }
   // 조건: 최솟값보다 작아지면 이벤트 처리 금지
-  console.log(count, count_min);
+  // console.log(count, count_min);
   if ( count <= count_min ) {
-    console.log('count 값이 count_min 보다 작아졌다');
+    // console.log('count 값이 count_min 보다 작아졌다');
     // 감소 버튼 비활성화
     this.setAttribute('disabled', true);
     // 함수 종료
@@ -154,13 +160,27 @@ ui_spin_dec_btn.onclick = function() {
   updateCount(--count);
 };
 ui_spin_inc_btn.onclick = function() {
-  // 업데이트: count 증가
-  count++;
-  // input 에 업데이트 된 값을 처리
-  updateCount(count);
-  console.log(count);
+  // 반대편 버튼 비활성 상태 체크
+  // 비활성 상태라면 활성 상태로 변경
+  var is_disabled_another_btn = ui_spin_dec_btn.getAttribute('disabled');
+  // console.log('is_disabled_another_btn:', is_disabled_another_btn);
+  if ( is_disabled_another_btn ) {
+    ui_spin_dec_btn.removeAttribute('disabled');
+  }
   // 조건: 최대값보다 커지면 이벤트 처리 금지
-      // 증가 버튼 비활성화
+  // 증가 버튼 비활성화
+  if ( count >= count_max ) {
+    // console.log('count 값이 count_min 보다 작아졌다');
+    // 감소 버튼 비활성화
+    this.setAttribute('disabled', true);
+    // 함수 종료
+    return;
+  }
+  // 업데이트: count 증가
+  // count++;
+  // input 에 업데이트 된 값을 처리
+  updateCount(++count);
+  // console.log(count);
 };
 
 
