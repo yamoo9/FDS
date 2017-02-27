@@ -96,23 +96,74 @@ var count = 0;
 // 함수 값을 객체의 속성(변수)에 참조
 // 이벤트 속성이기에 이벤트가 감지되면 함수가 실행
 // 이벤트 기반 프로그래밍
-button.onclick = function() {
-  //console.log('clicked button');
-  count += 1;
-  //console.log('count:', count); // 1, 2, 3, 4, 5
-  if ( count > 5 ) {
-    this.onclick = null;
-    this.setAttribute('disabled', true);
-  } else {
-    print_area.textContent = count;
-  }
-
-};
+//button.onclick = function() {
+//  //console.log('clicked button');
+//  count += 1;
+//  //console.log('count:', count); // 1, 2, 3, 4, 5
+//  if ( count > 5 ) {
+//    this.onclick = null;
+//    this.setAttribute('disabled', true);
+//  } else {
+//    print_area.textContent = count;
+//  }
+//
+//};
 
 
 // 버튼을 사용자 클릭하면 카운트 값을 +1 증가시킨다. (Change Model)
 // 변경된 카운트 값이 프린트 영역에 표시되어 업데이트 된다. (Update View)
 // 단, 카운트 값이 5보다 커지면 연결된 클릭 이벤트는 해제되어야 한다.
+
+
+// UI 컴포넌트 대상 찾기
+var ui_spinner;
+ui_spinner = document.querySelector('.ui-spinner');
+
+var ui_spin_inc_btn, ui_spin_dec_btn;
+ui_spin_dec_btn = ui_spinner.querySelector(':first-child');
+ui_spin_inc_btn = ui_spinner.querySelector(':last-child');
+
+var ui_spin_input;
+ui_spin_input = ui_spinner.querySelector('input');
+
+// 기억해야 할 데이터
+var count_min = 0;
+var count_max = 10;
+var count = count_min;
+
+// 컴포넌트 초기화
+function updateCount(number) {
+  ui_spin_input.setAttribute('value', number);
+}
+updateCount(count);
+
+// 버튼 이벤트 바인딩
+ui_spin_dec_btn.onclick = function() {
+  // 조건: 최솟값보다 작아지면 이벤트 처리 금지
+  console.log(count, count_min);
+  if ( count <= count_min ) {
+    console.log('count 값이 count_min 보다 작아졌다');
+    // 감소 버튼 비활성화
+    this.setAttribute('disabled', true);
+    // 함수 종료
+    return;
+  }
+  // 업데이트: count 감소
+  //count--;
+  // input 에 업데이트 된 값을 처리
+  updateCount(--count);
+};
+ui_spin_inc_btn.onclick = function() {
+  // 업데이트: count 증가
+  count++;
+  // input 에 업데이트 된 값을 처리
+  updateCount(count);
+  console.log(count);
+  // 조건: 최대값보다 커지면 이벤트 처리 금지
+      // 증가 버튼 비활성화
+};
+
+
 
 
 

@@ -3,13 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>JavaScript Core Syntax</title>
-  <script defer src="js/core.js"></script>
+  <script defer
+          src="js/core.js"></script>
 </head>
 <body>
 
-  <button type="button" class="increase-count-button">Count +</button>
+<div class="ui-spinner"
+     role="group">
+  <button type="button"
+          class="ui-spinner__button--dec"
+          aria-label="Decrease Count">-
+  </button>
+  <input type="text"
+         class="ui-spinner__input">
+  <button type="button"
+          class="ui-spinner__button--inc"
+          aria-label="Increase Count">+
+  </button>
+</div>
 
-  <p class="print-count">print count value</p>
 
 </body>
 </html>
