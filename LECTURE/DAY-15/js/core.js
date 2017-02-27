@@ -72,17 +72,47 @@ getSomeCoffee(); // undefined
 
 // null의 경우
 // 문서 객체의 이벤트 속성의 초기 설정 값은 null 이다.
-var body = document.querySelector('body');
+//var body = document.querySelector('body');
 // 사용자에 의해 이벤트가 설정되지 않았다면 이벤트 속성 초기 값은 null
-console.log(body.onclick); // null
+//console.log(body.onclick); // null
 
 // 문서에서 대상 객체를 찾으려 했으나, 존재하지 않는다면
 // DOM API 메서드는 null을 반환한다.
-var happy = document.querySelector('.happy'); // null
+//var happy = document.querySelector('.happy'); // null
 
 
+///// ------------------------------------------------------------
+
+// 문서에서 아래 요소노드를 찾는다.
+// .increase-count-button
+// .print-count
+
+var button     = document.querySelector('.increase-count-button');
+var print_area = document.querySelector('.print-count');
+var count = 0;
+
+// button.onclick // null
+
+// 함수 값을 객체의 속성(변수)에 참조
+// 이벤트 속성이기에 이벤트가 감지되면 함수가 실행
+// 이벤트 기반 프로그래밍
+button.onclick = function() {
+  //console.log('clicked button');
+  count += 1;
+  //console.log('count:', count); // 1, 2, 3, 4, 5
+  if ( count > 5 ) {
+    this.onclick = null;
+    this.setAttribute('disabled', true);
+  } else {
+    print_area.textContent = count;
+  }
+
+};
 
 
+// 버튼을 사용자 클릭하면 카운트 값을 +1 증가시킨다. (Change Model)
+// 변경된 카운트 값이 프린트 영역에 표시되어 업데이트 된다. (Update View)
+// 단, 카운트 값이 5보다 커지면 연결된 클릭 이벤트는 해제되어야 한다.
 
 
 
