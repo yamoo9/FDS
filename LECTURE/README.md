@@ -28,7 +28,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0217](README/0217.md)__ │ DOM Dynamic Node Manipulation
 > - __[0220](README/0220.md)__ │ DOM 제어, helper 함수 작성
 > - __[0221](README/0221.md)__ │ Replace, Chnage 헬퍼함수 작성 및 실습
-> - __[0222](README/0222.md)__ │ innerHTML,matches,insertAdjacentHTML,helper함수 
+> - __[0222](README/0222.md)__ │ innerHTML,matches,insertAdjacentHTML,helper함수
 > - __[0223](README/0223.md)__ │ 네트워크 및 암호학
 > - __[0224](README/0224.md)__ │ Jsdoc, ClassList
-
+> - __[0227](README/0227.md)__ │ JavaScript Core (변수, 연산자, 형변환)
