@@ -56,7 +56,7 @@ var add_html_string = '<header class="container-header"><h1 class="site-brand" l
 // demo.innerHTML = add_html_string;
 
 // 문서에서 .add-HTML-btn 버튼을 찾아 이벤트를 연결해보자.
-query('.add-HTML-btn').onclick = function() {
+var usingTemplate = function() {
   // demo.innerHTML = add_html_string;
 
   // 사용자가 입력한 데이터(Model) -----------------
@@ -72,6 +72,7 @@ query('.add-HTML-btn').onclick = function() {
   demo.innerHTML = template;
 
 };
+query('.add-HTML-btn').onclick = usingTemplate;
 
 
 // --------------------------------------------------------------------------------
