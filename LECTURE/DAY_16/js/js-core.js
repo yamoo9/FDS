@@ -115,6 +115,8 @@ console.log('people.group_gender:', people.group_gender);
 // string
 // boolean
 
+// ----------------------------------------------------
+// 객체 생성
 
 // 마우스.크기
 // 마우스.색상
@@ -126,13 +128,13 @@ console.log('people.group_gender:', people.group_gender);
 // 마우스.휠('아래');
 
 var magic_mouse = {
-  'dimension': {
-    'width': '5cm',
+  dimension: {
+    'this-is-prop': '5cm',
     'height': '11cm'
   },
-  'color': 'white',
-  'price': '110,000원',
-  'maker': 'Apple',
+  color: 'white',
+  price: '110,000원',
+  maker: 'Apple',
   'click': function(direction) {
     if ( direction === 'left' ) {} else {}
   },
@@ -140,3 +142,12 @@ var magic_mouse = {
     if ( direction === 'up' ) {} else {}
   }
 };
+
+// ----------------------------------------------------
+// 전역 변수, 전역 함수는 메모리 상에서 실행 중에 제거할 수 없다.
+// 반면, 객체의 속성은 메모리 상에서 제거가 가능하다.
+// 전역 변수 또는 함수를 제거할 수는 없어도, 값을 비울 수는 있다.
+
+// typeof는 [ 함수 ] 가 아니다.
+// typeof는 어떤 데이터 유형을 체크할 때 문제가 발생하나? null, array
+
