@@ -4,6 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>test</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
 
@@ -26,6 +33,36 @@ console.log('fnc:', !!fnc);
 console.log('arr:', !!arr);
 console.log('obj:', !!obj);
 
+// ----------------------------------------------------
+
+// 함수 값(리터럴)을 참조한 변수는 변수에 실행 연산자 ()를 붙임으로
+// 참조된 함수를 실행할 수 있다.
+
+function callMe() {
+  console.log('call me:', this);
+}
+
+var fn = callMe;
+
+var fnc = fn; // fn이 참조한 함수 객체를 fnc 변수 또한 참조
+
+var fun = fnc; // fnc가 참조한 함수 객체를 fun 변수 또한 참조
+
+// fn(), fnc(), fun()
+// 각 변수는 동일한 동일한 함수 객체 참조하였기에 실행 시 동일한 함수가 실행된다.
+
+// 객체의 속성(변수)에도 함수 값을 할당(참조)
+var body = document.body;
+
+body.onmousedown = fun; // fun이 참조한 함수가 객체의 속성에 참조
+
+var mouseOverAction = function() {
+  console.log('mouse over on body');
+  // return undefined;
+};
+
+// body.onmouseover = mouseOverAction;
+body.onmouseover = mouseOverAction(); // 함수 참조가 아닌, 실행의 형태를 사용하면 안되는 이유
 
 </script>
 </body>
