@@ -1,6 +1,74 @@
 /*! helper.js © yamoo9.net, 2017 */
 
 /**
+ *  JavaScript 데이터 유형을 정확히 체크해주는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {String}           체크된 데이터 유형을 문자열로 반환
+ */
+function ckeckType(data) {
+  return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+/**
+ *  JavaScript 숫자 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 숫자 유형인지 참/거짓 반환
+ */
+function isNumber(data) {
+  return checkType(data) === 'number';
+}
+/**
+ *  JavaScript 문자 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 문자 유형인지 참/거짓 반환
+ */
+function isString(data) {
+  return checkType(data) === 'string';
+}
+/**
+ *  JavaScript 불리언 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 불리언 유형인지 참/거짓 반환
+ */
+function isBoolean(data) {
+  return checkType(data) === 'boolean';
+}
+/**
+ *  JavaScript 함수 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 함수 유형인지 참/거짓 반환
+ */
+function isFunction(data) {
+  return checkType(data) === 'function';
+}
+/**
+ *  JavaScript 배열 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 배열 유형인지 참/거짓 반환
+ */
+function isArray(data) {
+  return checkType(data) === 'array';
+}
+/**
+ *  JavaScript 객체 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {everything}  data JavaScript 데이터 유형
+ *  @return {Boolean}          체크된 데이터 유형이 객체 유형인지 참/거짓 반환
+ */
+function isObject(data) {
+  return checkType(data) === 'object';
+}
+/**
+ *  요소노드 데이터 유형인지 감지하는 헬퍼 함수
+ *  @param  {Node}    node  노드 유형
+ *  @return {Boolean}       체크된 데이터 유형이 요소노드 유형인지 참/거짓 반환
+ */
+function isElementNode(node) {
+  return node && node.nodeType === 1;
+}
+
+
+// ----------------------------------------------------
+
+/**
  *  요소 노드를 생성하는 헬퍼 함수
  *  @param   {String}  el_name   생성하고자 하는 노드 이름
  *  @return  {HTMLElement}       생성된 요소 노드 반환
