@@ -33,3 +33,17 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0224](README/0224.md)__ │ Jsdoc, ClassList
 > - __[0227](README/0227.md)__ │ JavaScript Core (변수, 연산자, 형변환)
 > - __[0228](README/0228.md)__ │ JavaScript Core (형변환, 함수형, 배열형, 객체형, 정보분석(Type check))
+
+-
+
+### FDS 3기 남은 교육 진행 일정
+
+일자 | 진행 내용 | 비고
+--- | ------- | ---
+3.[3,6] | JavaScript Core |
+3.[7,8,10] | jQuery Library |
+3.[13,14,15] | Babel / ECMAScript 2015 / Webpack |
+3.[17,20,21,22,24] | Vue JS Framework + SPA |
+4.[3,4,5,7] | Team Coaching |
+4.[10,11,12,14] | Team Coaching |
+
