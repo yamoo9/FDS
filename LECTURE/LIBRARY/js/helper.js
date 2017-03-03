@@ -343,7 +343,68 @@ function removeClass(el_node, class_name) {
   }
 }
 
+/**
+ *  부모노드를 찾아 반환하는 헬퍼 함수 (옵션: 몇 번째 부모 설정)
+ *  @param  {Node}    node        - 노드
+ *  @param  {Number}  above_depth - 몇 단계 위인지 설정
+ *  @return {Node}                - 부모 노드 반환
+ */
+function parent(node, above_depth) {
+  // 초기 값 설정: 사용자가 전달하지 않아도 기본 값을 1로 설정
+  above_depth = above_depth || 1;
+  while ( above_depth-- ) {
+    // node의 부모노드를 찾는다.
+    node = node.parentNode;
+  }
+  return node;
+}
 
+// 첫번째 자식 요소노드를 반환하는 헬퍼 함수
+function first(node) {
+  // 전달인자 유효성 검사
+  if ( !isElementNode(node) ) {
+    throw new Error('사용된 함수는 요소노드를 전달해야 합니다.');
+  }
+  // 인자가 요구하는 조건을 통과하면
+  return node.children[0];
+}
+
+// 마지막 자식 요소노드를 반환하는 헬퍼 함수
+function last(node) {
+  if ( !isElementNode(node) ) {
+    throw new Error('사용된 함수는 요소노드를 전달해야 합니다.');
+  }
+  var childs = node.children;
+  return childs[ childs.length - 1 ];
+}
+
+// 다음 형제 요소노드를 반환하는 헬퍼 함수
+function next(el_node) {
+  // 검증
+  if ( !isElementNode(el_node) ) {
+    throw new Error('사용된 함수는 요소노드를 전달해야 합니다.');
+  }
+  // el_node의 다음에 인접한 형제 노드는 요소노드인가? [반복]
+  do {
+    el_node = el_node.nextSibling;
+  } while( !isElementNode(el_node) );
+  // 반복하다가 요소노드가 나오면 반복을 중지하고, 요소노드를 반환
+  return el_node;
+}
+
+// 이전 형제 요소노드를 반환하는 헬퍼 함수
+function prev(el_node) {
+  // 검증
+  if ( !isElementNode(el_node) ) {
+    throw new Error('사용된 함수는 요소노드를 전달해야 합니다.');
+  }
+  // el_node의 다음에 인접한 형제 노드는 요소노드인가? [반복]
+  do {
+    el_node = el_node.previousSibling;
+  } while( !isElementNode(el_node) );
+  // 반복하다가 요소노드가 나오면 반복을 중지하고, 요소노드를 반환
+  return el_node;
+}
 
 
 

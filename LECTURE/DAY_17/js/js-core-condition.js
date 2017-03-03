@@ -67,3 +67,23 @@ switch( members[2] ) {
     console.log('members[0]는 "히어로|히로|히|로"이다.');
 }
 
+// --------------------------
+// Modern JavaScript Develop
+// Toolset
+// Package Manager
+//  - npm, yarn
+// DOM Manipulation/Animation
+//  - jQuery, Greensock
+// Bundling
+//  - Webpack, Browserify
+// Task Runner
+//  - Gulp, Grunt, Brocolli, ....
+// UI Framework & State Management
+//  - Angular v2, React & Redux, VueJS v2 + Vuex
+// Transpiler
+//  - ES6(Babel), TypeScript, CoffeeScript
+
+// Condition
+// if, else, else if
+// ? : , &&, ||
+// switch case break default
