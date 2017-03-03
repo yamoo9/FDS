@@ -5,7 +5,7 @@
  *  @param  {everything}  data JavaScript 데이터 유형
  *  @return {String}           체크된 데이터 유형을 문자열로 반환
  */
-function ckeckType(data) {
+function checkType(data) {
   return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
 }
 /**
@@ -88,23 +88,49 @@ function createText(content) {
  *  요소노드를 생성(콘텐츠[HTML 유형 가능] 포함)하거나, 특정 부모노드에 자식노드로 삽입하는 헬퍼 함수
  *  @param   {String}        el_name  생성할 노드 이름
  *  @param   {String}        html_str 생성된 노드 내부에 삽입될 HTML 코드
- *  @param   {HTMLElement}   context  생성된 노드의 부모 요소노드
- *  @param   {String}        method   삽입될 위치 [append, prepend]
+ *  @param   {HTMLElement}   target   생성된 노드의 부모 요소노드
+ *  @param   {String}        method   삽입될 위치 [append, prepend, before, after]
  *  @return  {HTMLElement}   생성된 요소노드 반환
  */
-function makeEl(el_name, html_str, context, method) {
+function makeEl(el_name, html_str, target, method) {
   // 초기 값 설정
-  method  = method || 'append';
+  // method  = method || 'append';
   // 전달인자로 요소 노드와 HTML Code 생성
   var el = createElement(el_name);
-  el.innerHTML = html_str;
-  // 만약 context 가 존재한다면?
-  if ( context ) {
-    if ( method === 'append' ) {
-      context.insertAdjacentElement('beforeend', el);
-    } else {
-      context.insertAdjacentElement('afterbegin', el);
+
+  // 3항식
+  // 변수 = 조건 ? 참인 경우 값 : 거짓인 경우 값;
+  el.innerHTML = (!html_str || !isString(html_str)) ? '' : html_str;
+  // if ( !html_str || !isString(html_str) ) {
+  //   el.innerHTML = '';
+  // } else {
+  //   el.innerHTML = html_str;
+  // }
+  // 만약 target 가 존재한다면?
+  if ( target && isElementNode(target) && target.parentNode ) {
+    // switch ~ case 구문 사용
+    switch( method ) {
+      default:
+      case 'append':
+        target.insertAdjacentElement('beforeend', el);
+      break;
+      case 'prepend':
+        target.insertAdjacentElement('afterbegin', el);
+      break;
+      case 'before':
+        target.insertAdjacentElement('beforebegin', el);
+      break;
+      case 'after':
+        target.insertAdjacentElement('afterend', el);
+      break;
     }
+
+    // ------------------------------------------------
+    // if ( method === 'append' ) {
+    //   target.insertAdjacentElement('beforeend', el);
+    // } else {
+    //   target.insertAdjacentElement('afterbegin', el);
+    // }
   }
   // 생성된 요소노드 반환
   return el;
