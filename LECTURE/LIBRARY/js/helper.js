@@ -387,7 +387,7 @@ function next(el_node) {
   // el_node의 다음에 인접한 형제 노드는 요소노드인가? [반복]
   do {
     el_node = el_node.nextSibling;
-  } while( !isElementNode(el_node) );
+  } while( el_node && !isElementNode(el_node) );
   // 반복하다가 요소노드가 나오면 반복을 중지하고, 요소노드를 반환
   return el_node;
 }
@@ -401,14 +401,7 @@ function prev(el_node) {
   // el_node의 다음에 인접한 형제 노드는 요소노드인가? [반복]
   do {
     el_node = el_node.previousSibling;
-  } while( !isElementNode(el_node) );
+  } while( el_node && !isElementNode(el_node) );
   // 반복하다가 요소노드가 나오면 반복을 중지하고, 요소노드를 반환
   return el_node;
 }
-
-
-
-
-
-
-

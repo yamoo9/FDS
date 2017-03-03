@@ -4,8 +4,8 @@
  * --------------------------------
  * while() {}
  * do {} ~ while()
- * for() {}
- * for( in ) {}
+ * for() {}     // Array, Like Array Object
+ * for( in ) {} // length???, Object
  * forEach()
  * ----------------------------- */
 
@@ -52,3 +52,63 @@ while(false) {
 do {
   console.log('this is thisis. :-)');
 } while(false);
+
+// --------------------------
+// for(변수선언;조건확인;변수값변화) {}
+
+var i = 0; // 반복자
+while( i < 10 ) {
+  console.log('i:', i);
+  i++;
+}
+
+for(var i=0; i < 10; i++) {
+  console.log('i:', i);
+}
+
+var lis = queryAll('ul li');
+
+for (var m=0; m<lis.length; m++) {
+  var li = lis.item(m);
+  console.log(li);
+}
+
+var m=0;
+
+for (; m<lis.length;) {
+    var li = lis.item(m);
+    console.log(li);
+    m++;
+}
+
+for (var m=0, l=lis.length; m<l; m++) {
+    var li = lis.item(m);
+    console.log(li);
+}
+
+for (var m=lis.length-1; m>=0; m--) {
+    var li = lis.item(m);
+    console.log(li);
+}
+
+var obj = {
+  a: 1,
+  b: true,
+  c: []
+};
+
+for( var prop in obj ) {
+    console.log(prop);
+}
+
+// if ( !kkey ) {
+  function kkeys(obj) {
+    var props = [];
+    for( var prop in obj ){
+      props.push(prop);
+    }
+    return props;
+  }
+// }
+
+
