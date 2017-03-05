@@ -39,7 +39,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 
 ### FDS 3기 남은 교육 진행 일정
 
-| 일자                 | 진행 내용                             | 비고   |
+| 일자                | 진행 내용                           | 비고   |
 | ------------------ | --------------------------------- | ---- |
 | 3.[3,6]            | JavaScript Core                   |      |
 | 3.[7,8,10]         | jQuery Library                    |      |
@@ -47,3 +47,73 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 | 3.[17,20,21,22,24] | Vue JS Framework + SPA            |      |
 | 4.[3,4,5,7]        | Team Coaching                     |      |
 | 4.[10,11,12,14]    | Team Coaching                     |      |
+
+-
+
+### 3월 수강생 피드백/대책 마련
+
+#### 피드백 1:
+
+시간이 부족하다는 점에 불안함을 느끼고, 진도가 빠르게 나가야 해서 배워야 할 내용을 배우지 못하게 될 것에 대해 걱정이 된다.
+
+###### 대책:
+- 최대한 주어진 수업 일정 속에서 공부할 수 있는 정보를 제공한다.
+- 진도에 쫓겨 급하게 수업을 마무리 하는 방향이 되지 않도록 노력한다.
+- 수업에서 반드시 이야기 해야 하는 부분에만 초점을 두고 집중하여 수업한다.<br>수강생 피드백에서 거론된 불필요한 농담은 최대한 배제한다.
+- 쉬는 시간은 10분을 넘기지 않으며, 이를 지키기 위해<br>수강생은 질문을 슬랙 DM 또는 QnA 채널을 이용한다.
+
+-
+
+#### 피드백 2:
+
+기초적인 문법이나 기본적인 jQuery 사용법을 배우는 것보다, 자바스크립트 고급 문법(호이스트, 클로저 등)을 배우고 싶다.
+
+###### 대책:
+
+- 수강생 스스로 생각하고, 찾아서 공부할 수 있는 부분(예습)은 자료를 사전에 제공함으로 공부해올 수 있도록 한다.<br>시범적으로 아래 내용은 직접 찾아서 공부해보길 시도해본 후 피드백을 주셨으면 한다. <br>찾아서 공부하는 것만으로도 충분하다면 아래 내용은 별도로 수업에서 거론하지 않을 예정이다.
+  - [JS Core PDF](https://github.com/yamoo9/FDS/tree/3rd_FDS/PDF/DOM%2BJavaScript)
+  - [Block](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/block)
+  - [break, contibue](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/label)
+  - [Strict Mode](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
+  - [jQuery Library](http://api.jquery.com/)
+  - [Webpack](https://webpack.github.io/)
+  - [Gulp](http://gulpjs.com/)
+  - [Babel](http://babeljs.io/)
+- 수업 시간에는 수강생이 이해하기 어려운 부분을 쉽게 이해할 수 있도록 짚어준다.
+  - [Hoisting](https://developer.mozilla.org/ko/docs/Glossary/Hoisting)
+  - [Closure](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
+  - [Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
+  - [Object Prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+  - [Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
+  - [OOJS](https://developer.mozilla.org/ko/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
+  - [Ajax](https://developer.mozilla.org/ko/docs/AJAX)
+  - [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+  - ECMAScript 2016 (ES 6)
+    - [let keyword](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let)
+    - [const keyword](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const)
+    - [Template literals](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)
+    - [for ~ of](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of)
+    - [Arrow Function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
+    - [Class](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/constructor)
+    - [constructor](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/constructor)
+    - [super keyword](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/super)
+    - [static keyword](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static)
+    - [extends keyword](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/extends)
+    - [Promise](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+    - [Generator](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/Legacy_generator_function)
+    - [yield](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield)
+    - [Import Module](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/import)
+    - [Export Module](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)
+  - [Framework Vue.js](https://vuejs.org)
+
+-
+
+#### 피드백 3:
+
+반응형 웹 인강을 올려주셨으면 좋겠다.
+
+> RWD 영상 강의는 전에 촬영을 시도했으나 3시간이 넘어가면서 촬영 분이 시스템 충돌로 소실되어 제공하지 못하였다. ㅠㅡㅠ
+
+###### 대책:
+- 본 수업이 종료되는 24일 이후, 27일 일요일 촬영하여 28일 제공하는 방향으로 노력하겠다.
+- 참고로 1주일 중 유일하게 쉴 수 있는 일요일에만 촬영이 가능하며, 강의 녹화/편집/인코딩/업로드에는<br>상당한 시간이 요구된다는 점을 이해해주시길 바라며 본 수업 기간에는 수업에 집중하고 싶음을 이야기 드리고 싶다.
