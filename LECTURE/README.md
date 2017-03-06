@@ -76,6 +76,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
   - [Block](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/block)
   - [break, contibue](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/label)
   - [Strict Mode](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
+  - [메모리 관리(가비지 콜렉터)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
   - [jQuery Library](http://api.jquery.com/)
   - [Webpack](https://webpack.github.io/)
   - [Gulp](http://gulpjs.com/)

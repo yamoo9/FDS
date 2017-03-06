@@ -169,3 +169,123 @@ function sum() {
 var numbers = sum(3, 20, 11, -91, 2, 3, 20, 11, -91, 2, 3, 20, 11, -91, 2);
 
 console.log('numbers:', numbers);
+
+// this -> context reference
+// 함수 내의 this는 함수를 실행시킨 컨텍스트를 가리킨다.
+
+// 전역 함수: 전역 컨텍스트에 정의(선언)된 함수
+function log(message) {
+  console.log(message + '를 기록하다.');
+  console.log('this:', this); // 나(함수)를 누가 실행시켰나?
+}
+
+// 전역 함수는? 전역 객체의 멤버(속성)?
+// 웹 브라우저 환경에서의 특징
+// 전역 함수는 곧 전역 객체의 속성이 된다.
+// log === window.log
+console.log('log === window.log:', log === window.log); // true
+
+window.log(); // 컨텍스트 객체가 명시적 실행
+log(); // 컨텍스트 객체가 암시적 실행
+
+// var message_obj = {'message': 'this is Object.'};
+// message_obj.log = window.log; // log 함수(window 전역 객체의 속성) 객체 참조
+
+var message_obj = {
+  'message' : 'this is Object.',
+  'log'     : log,      // 암시적 할당
+  // 'log': window.log, // 명시적 할당
+};
+
+console.log('message_obj.log():', message_obj.log()); // this === Object{}
+
+document.onclick = function() {
+  console.log(this); // this === document
+};
+
+document.body.onclick = function() {
+  console.log(this); // this === document.body
+};
+
+
+// 느슨한 JavaScript 코드 실행 영역
+var temp = '임시 정부';
+
+
+// 별도의 영역(함수) 생성
+function myScope() {
+  // 엄격한 JavaScript 코드 실행 영역
+  'use strict';
+  console.log(this);
+  // 엄격한 모드에서 변수 선언 시에 var 키워드를 사용하지 않으면 오류!
+}
+
+myScope(); // this === undefined
+
+// 엄격한 모드에서 this는 함수를 실행하는
+// 컨텍스트 객체가 암시적일 때 undefined를 반환한다.
+window.myScope(); // this === window {}
+
+/**
+ * --------------------------------
+ * JavaScript 클로저(Closure)
+ */
+
+// JavaScript 함수는 일급 객체(함수)이다.
+// 일급 객체의 특징은 함수 내부에 함수를 인자로 전달할 수 있다.
+// 함수 밖으로 함수를 반환할 수 있다.
+
+function displayFunctionCode(fn) {
+  // 다양한 업무 시행
+  // .
+  // .
+  // Time Control
+  window.setTimeout(function(){
+    console.log('2초가 지났습니다.');
+    // 2초가 지난 후에 전달된 인자(함수) 값을 실행한다.
+    if ( typeof fn === 'function' ) {
+      fn();
+    }
+  }, 2000);
+  // .
+  // .
+  // 2초가 지난 후에 전달된 인자(함수) 값을 실행한다.
+  // if ( typeof fn === 'function' ) {
+  //   fn();
+  // }
+}
+
+displayFunctionCode(function() {
+  console.log('displayFunctionCode 내부에 전달되어 실행되었다.');
+});
+
+
+// 데모: .fade-to-50p
+// var fade = document.querySelector('.fade-to-50p');
+// console.log('fade:', fade);
+
+// console.log('fade.ontransitionend:', fade.ontransitionend);
+
+// fade.ontransitionend = function() {
+//   this.classList.add('fade-finished');
+// };
+
+// 함수 안에서 함수를 밖으로 내보내다.
+function outerFn() {
+  var _friend = '최군';
+  function innerFn() {
+    console.log('innerFn 실행');
+  }
+  return innerFn;
+}
+
+console.log(_friend);
+
+var action = outerFn();
+
+console.log(typeof action); // 'function'
+
+
+innerFn();
+
+// action();
