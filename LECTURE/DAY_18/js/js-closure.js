@@ -54,7 +54,7 @@ countDown(); // 3
 // 함수가 아닌, 객체를 내보내는 함수
 function countMaker( init_count ) {
   // 초기 값 설정
-  var _count = init_count || 0;
+  var _count = (init_count = init_count || 0);
   // 감춰진 멤버(보안 처리, 은폐)
   var increase = function(step) {
     _count += (step || 1);
