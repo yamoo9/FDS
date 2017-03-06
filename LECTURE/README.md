@@ -79,7 +79,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
   - [Strict Mode](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
   - [메모리 관리(가비지 콜렉터)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
   - [jQuery Library](http://api.jquery.com/)
-  - [Webpack](https://webpack.github.io/)
+  - [Webpack](https://webpack.js.org/)
   - [Gulp](http://gulpjs.com/)
   - [Babel](http://babeljs.io/)
 - 수업 시간에는 수강생이 이해하기 어려운 부분을 쉽게 이해할 수 있도록 짚어준다.

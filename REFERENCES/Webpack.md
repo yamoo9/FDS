@@ -2,19 +2,28 @@
 
 # Webpack Module Bundler
 
-![Webpack](../ASSETS/Webpack.png)
+[![Webpack](../ASSETS/Webpack.png)](https://webpack.js.org/)
+
+모던 웹 개발에 있어서 [Webpack](https://webpack.js.org/)은 매우 중요한 도구 중 하나로 자리 잡았습니다. 주로 자바스크립트를 위한 모듈 번들러이지만, HTML, CSS 뿐만 아니라 이미지 같은 프론트엔드 Assets을 변환시켜 줄 수 있습니다. 애플리케이션 HTTP 요청 갯수를 컨트롤 할 수 있게 만들 수 있으며, 다른 종류의 Assets(Pug, Sass, ES2015 등)를 사용 할 수 있게 도와줍니다.
 
 -
 
-### 1. Webpack 설치
+### 1. Webpack v2 설치
 
 `npm` 모듈 `webpack` 전역 설치
 
 ```sh
+# 전역 설치: npm i -g webpack
 $ npm install --global webpack
 
+# 지역 설치: npm i -D webpack
+$ npm install --save-dev webpack
+
 # Webpack 버전 확인
-$ npm show webpack@* version # 2.x 버전 확인 시: npm s webpack@2.* version
+$ npm show webpack@* version # 2.x 버전 확인 시: npm show webpack@2.* version
+
+# Webpack v2.2.1 설치 예시
+$ npm i -D webpack@2.2.1
 ```
 
 -
@@ -61,7 +70,7 @@ $ webpack entry.js bundle.js -w
 > ※ [Webpack Loader List](http://webpack.github.io/docs/list-of-loaders.html)
 
 ```sh
-# npm install --save style-loader css-loader
+# npm install --save-dev style-loader css-loader
 $ npm i -D style-loader css-loader
 ```
 
@@ -96,32 +105,66 @@ require('!style!css!sass!../sass/style.sass');
 
 -
 
-### 4. Webpack [환경설정(Config)](http://webpack.github.io/docs/configuration.html)
+### 4. Webpack 환경설정(Config) [@1.x](http://webpack.github.io/docs/configuration.html)/[@2.x](https://webpack.js.org/concepts/)
 
 `webpack.config.js` 파일 생성
 
+의존 모듈 [`webpack`, `path`] 로드
+
+```js
+const webpack = require('webpack');
+const path    = require('path');
+```
+
+webpack 설정 모듈 정의
+
 ```js
 module.exports = {};
+
+// 또는
+
+const config = {};
+medule.exports = config;
 ```
 
 #### 4-1. webpack 엔트리/아웃풋 파일 경로 설정
 
-- `entry`: 진입 파일 경로 설정
-- `output`: 출력 파일 경로 설정
-  - `path`: 출력 파일 폴더 설정
+- [`entry`](https://webpack.js.org/concepts/entry-points/): 진입 파일 경로 설정
+- [`output`](https://webpack.js.org/concepts/output/): 출력 파일 경로 설정
+  - `path`: 출력 파일 폴더 설정 (절대 경로, 필수)
   - `filename`: 출력 파일 이름 설정
+  - `publicPath`: 배포할 때, HTML, CSS 파일 내부의 Assets 경로를 업데이트 하기 위한 설정 (예: CDN 등)
 
 `webpack.config.js`
 
 ```js
 module.exports = {
-  'entry': './js/entry.js',
+
+  // 컨텍스트 설정
+  'context': path.resolve(__dirname, 'src'),
+
+  // 입력 파일 경로
+  'entry': './app.js', // './src/app.js'
+
+  // 출력 설정
   'output': {
-    'path': __dirname + '/js',
-    'filename': 'bundle.js'
+    // 반드시 절대 경로 설정!
+    'path': path.resolve(__dirname, 'dist'),
+    // 출력 파일 이름
+    'filename': 'bundle.js',
+    // 배포 시, 경로 업데이트 설정
+    // 'publicPath': 'http://user-server-domain.com/'
   }
+
 };
 ```
+
+###### publicPath 설정
+
+예를 들어, CSS 파일에 경로가 설정되어 있는데 로컬 테스트 환경에서는 `./test.png`를 로드 할 수 있는 URL이 있을 수 있다. 하지만 배포 시에는 `test.png`는 CDN 이나 다른 지정된 경로로 실행 중 일 수 있다. 이런 경우 수동으로 `./test.png`의 url을 일일이 수정 해주어야 배포 모드에서 올바른 위치에 파일에 접근 할 수 있다. (불편) 이를 수동으로 수정하지 않고 Webpack `publicPath`를 사용하면 수많은 플러그인과 다수의 CSS, HTML파일 안에 URL들을 자동으로 업데이트 해준다. (필요할 경우 설정)
+
+<img src="../ASSETS/webpack-publicPath.png" alt="">
+
 
 #### 4-2. webpack 모듈 설정
 
@@ -129,6 +172,8 @@ module.exports = {
   - `loaders`: webpack 로더 설정
     - `test`: 파일 경로를 __정규 표현식__으로 설정
     - `loader`: 번들링에 사용되는 모듈 설정
+
+`loaders` 설정은 CSS, JS, Images 등 다양한 타입의 파일을 `load` 또는 `import` 하게 도와주는 추가 node modules이다.
 
 `webpack.config.js`
 
@@ -141,7 +186,8 @@ module.exports = {
       // Sass 모듈 로더 설정
       {
         'test': /\.(sass|scss)$/,
-        'loader': 'style-loader!css-loader!sass-loader' // 'style!css!sass' 가능
+        // 여러 모듈을 연결하여 사용하는 체이닝 설정은 ! 로 구분하고, 오른쪽에서 왼쪽 방향으로 작업을 수행한다.
+        'loader': 'style-loader!css-loader!sass-loader' // 'style!css!sass' 가능.
       }
     ]
   }
@@ -181,6 +227,9 @@ module.exports = {
 
 ### 5. Webpack Dev Server 설치
 
+`8080` 포트로 실행되는 **Express(node.js)서버**. 서버는 내부적으로 Webpack을 호출.<br>
+브라우저 리로딩(실시간 로딩), **Hot Module Replacement** 추가적인 기능 활용 가능.
+
 `npm` 모듈 `webpack-dev-server` 전역 설치
 
 ```sh
@@ -192,12 +241,14 @@ $ npm i -g webpack-dev-server
 Webpack Dev Server 명령: 실행
 
 ```sh
+# 페이지를 로딩하지 않는다.
 $ webpack-dev-server
 ```
 
 Webpack Dev Server 명령: 기본 브라우저로 바로 열림
 
 ```sh
+# 기본 브라우저를 바로 연다.
 $ webpack-dev-server --open
 ```
 
@@ -205,20 +256,67 @@ Webpack Dev Server 명령: 인라인 실행
 > Inline the webpack-dev-server logic into the bundle.
 
 ```sh
+# 전체 페이지를 로딩한다.
 $ webpack-dev-server --inline
 ```
+
+Webpack Dev Server 명령: 인라인 + 핫 모듈 리플레이스먼트 실행
+
+> --inline, --hot 옵션은 webpack-dev-server 에서만 활용 가능.
+> 반면 hide-modules 옵션은 CLI 환경에서만 사용 가능.
+
+```sh
+# 부분 또는 전체 페이지를 로딩한다.
+$ webpack-dev-server --inline --hot
+```
+
+- `inline`: 전체 페이지에 대한 실시간 리로딩(“Live Reloading”) 옵션
+- `hot`: 컴포넌트가 수정 될 경우 그 수정된 부분만 리로드 해주는 부분 모듈 리로딩(“Hot Module Reloading”) 옵션
+
+두 개 옵션을 모두 지정할 경우 “Hot Module Reloading”이 발생하고, “Hot Module Reloading”이 안되면 전체 페이지를 로딩을 한다.
 
 -
 
 ### 6. 멀티 파일 번들링
 
-`require()` 함수를 사용하여 여러 파일을 번들링 할 수 있지만, entry 파일을 복수(`Array`)로 설정하여 번들링 할 수 있음.
+`'entry'`는 root 모듈 또는 시작 지점이 무엇인지 Webpack에게 알려준다. ( String | Array | Object 로 설정 가능 )
 
-`webpack.config.js`
+이미 살펴본 것처럼 1개 파일을 입력 설정할 경우는 String을 사용하고, 복수 파일일 경우 Array 또는 Object 중 하나를 사용한다.
+
+서로 의존성이 없는 파일들을 입력 설정하고 싶다면 Array를 사용한다.
 
 ```js
 module.exports = {
+  // Array를 사용하여 복수 파일들을 입력 설정
   'entry': ['./js/entry.js', './js/another-entry.js']
+};
+```
+
+반면 SPA(Single Page Application)이 아닌, MPA(Multi Page Application)를 개발하고자 한다면 Object 유형을 사용하여 다수의 번들 파일을 내보낼 수 있다.
+아래 설정은 `index.js`와 `portfolio.js` 파일을 각각 만들어 낸다. 해당 파일은 `index.html`, `portfolio.html` 각 파일에서 호출 사용될 수 있다.
+
+```js
+module.exports = {
+  'context': './src/js',
+  // 'entry' key 설정이 번들링되는 파일 이름이 된다.
+  'entry': {
+    'index': './index.js',
+    'portfolio': './portfolio.js'
+  }
+};
+```
+
+뿐만 아니라, Object 유형의 'entry' 설정 내부에 Array 타입 설정도 가능하다. 아래 설정을 사용하면 총 3개의 파일이 생성된다.
+'vender' 설정은 jquery, lodash, axios 등 3개의 라이브러리 파일들을 `vender.js` 파일로 번들링하여 내보낸다.
+
+```js
+module.exports = {
+  'context': './src/js',
+  'entry': {
+    'vender': ['jquery', 'lodash', 'axios'],
+    'index': './index.js',
+    'portfolio': './portfolio.js'
+  }
 };
 ```
 
@@ -228,12 +326,12 @@ module.exports = {
 
 ECMASCript 2015를 지원하지 않는 클라이언트 환경에서 ES2015를 사용하려면, [Babel](http://babeljs.io) 컴파일러를 사용하여 변환해야 한다. 이를 Webpack에서 사용하려면 다음의 모듈이 필요하다.
 
-- [babel-loader](https://github.com/babel/babel-loader)
 - [babel-core](https://github.com/babel/babel/tree/master/packages/babel-core)
+- [babel-loader](https://github.com/babel/babel-loader)
 - [babel-preset-es2015](https://github.com/babel/babel/tree/master/packages/babel-preset-es2015)
 
 ```sh
-$ npm i -D babel-core babel-preset-es2015 babel-loader
+$ npm i -D babel-core babel-loader babel-preset-es2015
 ```
 
 `webpack.config.js`
@@ -254,7 +352,9 @@ module.exports = {
         'exclude': /node_modules/,
         'query': {
           'cacheDirectory': true,
-          'presets': ['es2015']
+          // {'modules': false} 설정: [Tree Shaking](https://webpack.js.org/guides/tree-shaking/) 사용,
+          //                         bundle로 부터 나온 사용하지 않는 것들을 삭제 파일 크기를 줄이는 옵션
+          'presets': ['es2015', {'modules': false}]
         }
       }
     ]
@@ -269,6 +369,9 @@ module.exports = {
 
 - `resolve`: 결정 사항 설정
   - `extensions`: 파일 확장자 설정
+
+Webpack 설정 파일은 아래와 같이 빈 문자열을 포함한 resolve extensions 속성을 가지고 있다.
+빈 문자열은 `require('./myFile')`과 같은 빈 확장자를 import 하게 도와주는 역할이다.
 
 `webpack.config.js`
 
@@ -512,6 +615,12 @@ module.exports = {
 
 ### 12. CSS 번들파일 별도 분리
 
+Plugins는 보통 결과물(bundle)에 작동하는 추가적인 node_modules 이다.
+
+extract-text-webpack-plugin은 내부적으로 `css-loader`, `style-loader`를 사용하여
+한 곳에 CSS 파일을 수집하고 외부 `style.css` 파일로 결과를 추출한다.
+
+
 ```sh
 $ npm i -D extract-text-webpack-plugin
 ```
@@ -637,6 +746,9 @@ module.exports = {
 $ npm i -D url-loader
 ```
 
+1024bytes 보다 큰 이미지는 URL을 사용하고, 1024bytes 보다 작은 이미지는 DataURLs을 사용 하기 위한 `url-loader` 설정을 할 수 있다.
+"limit"매개 변수를 전달하는 방법은 다음 두 가지가 있다.
+
 `webpack.config.js`
 
 ```js
@@ -645,9 +757,20 @@ module.exports = {
   'module': {
     'loaders': [
       {
-        'test': /\.(png|jpg|woff|eot)/,
+        'test': /\.(png|jpg|eot|woff)/,
         'exclude': /node_modules/,
-        'loader': 'url-loader?limit=100000'
+        'loader': 'url-loader?limit=1024'
+      },
+
+      // 또는
+
+      {
+        'test': /\.(png|jpg|eot|woff)*/,
+        'exclude': /node_modules/,
+        'loader': 'url-loader',
+        'query': {
+          'limit': 1024
+        }
       }
     ]
   }
@@ -666,3 +789,6 @@ require('../images/webpack_logo.png');
 - [Front End Center — Webpack from First Principles](https://www.youtube.com/watch?v=WQue1AN93YU)
 - [Webpack 2 - A Full Tutorial](https://www.youtube.com/watch?v=eWmkBNBTbMM)
 - [What's new in webpack 2](https://gist.github.com/sokra/27b24881210b56bbaff7)
+- [Webpack의 혼란스런 사항들](https://github.com/FEDevelopers/tech.description/wiki/Webpack%EC%9D%98-%ED%98%BC%EB%9E%80%EC%8A%A4%EB%9F%B0-%EC%82%AC%ED%95%AD%EB%93%A4)
+- [Webpack2와 모듈번들링을 위한 초보자 가이드](https://github.com/FEDevelopers/tech.description/wiki/Webpack2%EC%99%80-%EB%AA%A8%EB%93%88%EB%B2%88%EB%93%A4%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%B4%88%EB%B3%B4%EC%9E%90-%EA%B0%80%EC%9D%B4%EB%93%9C)
+
