@@ -58,11 +58,9 @@ function countMaker( init_count ) {
   // 감춰진 멤버(보안 처리, 은폐)
   var increase = function(step) {
     _count += (step || 1);
-    return _count;
   };
   var decrease = function(step) {
     _count -= (step || 1);
-    return _count;
   };
   var getCount = function() {
     return _count;
