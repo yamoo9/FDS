@@ -42,9 +42,9 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 
 | 일자                | 진행 내용                           | 비고   |
 | ------------------ | --------------------------------- | ---- |
-| 3.[3,6]            | JavaScript Core                   |      |
-| 3.[7,8,10]         | <s>jQuery Library</s> Scope, Hoisting, Closure, Design Pattern, OOJS                  |      |
-| 3.[13,14,15]       | <s>Babel</s> / <s>Webpack</s> / ECMAScript 2015 |      |
+| 3.[<s>3</s>,<s>6</s>] | <s>JavaScript Core - Fundamental</s> | |
+| 3.[7,8,10] | <s>jQuery Library</s> <s>Scope</s>, <s>Hoisting</s>, <s>Closure</s>, Design Pattern, OOJS | |
+| 3.[13,14,15]       | <s>Babel</s> / <s>Webpack</s> / ECMAScript 2015 | |
 | 3.[17,20,21,22,24] | Vue JS Framework + SPA            |      |
 | 4.[3,4,5,7]        | Team Coaching                     |      |
 | 4.[10,11,12,14]    | Team Coaching                     |      |
