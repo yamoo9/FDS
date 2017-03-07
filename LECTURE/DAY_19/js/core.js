@@ -52,11 +52,12 @@ var module = moduleMaker();
 var dom = (function(global) {
   'use strict';
 
-  var document = global.document,
-      toString = Object.prototype.toString;
+  var document, toString, query, queryAll, checkType, isString;
+
+  document = global.document;
+  toString = Object.prototype.toString;
 
   // [Private] 외부에서 접근할 수 없는 코드
-  var query, queryAll, checkType, isString;
   checkType = function(data) {
     return toString.call(data).slice(8,-1).toLowerCase();
   };
@@ -69,7 +70,7 @@ var dom = (function(global) {
   };
   query = function(selector) {
     return queryAll(selector)[0];
-  }
+  };
 
   // [Public] 명시적으로 노출하고 싶은 것들만 공개
   return {
@@ -78,6 +79,64 @@ var dom = (function(global) {
   };
 
 }(window));
+
+
+// 메서드 빌려쓰기 패턴
+// this 컨텍스트 변경
+
+// .call(), .apply() => this 컨텍스트 교체 후 바로 실행
+// .call()은 전달인자를 콤마(,)로 구분하여 전달
+// .apply()은 전달인자를 배열 집합으로 전달
+// [ES 3] Function.prototype.call(this 컨텍스트 객체[, arg1, arg2, arg3])
+// [ES 3] Function.prototype.apply(this 컨텍스트 객체[, [arg1, arg2, arg3] ])
+
+function assignArgs() {
+  console.log('this:', this);
+  console.log('arguments:', arguments);
+  console.log('arguments.forEach:', arguments.forEach);
+  // Array 객체의 메서드 빌려쓰기 패턴 활용
+  Array.prototype.forEach.call(arguments, function(arg, i) {
+  // [].forEach.call(arguments, function(arg, i) {
+    console.log('i:', i);
+    console.log('arg:', arg);
+  });
+}
+
+// .call() 예시
+window.assignArgs.call(document.body, 1, 3, 6);
+// .apply() 예시
+window.assignArgs.apply(document.body, [1, 3, 6]);
+
+// .bind() => this 컨텍스트 교체 후 바로 실행 X
+// [ES 5] Function.prototype.bind(this 컨텍스트 객체[,])
+
+// .bind() 예시
+window.assignArgs.bind(document.body, 1, 3, 6);
+
+// 객체.능력 -> 다른 객체 빌려쓴다.
+// 새.날다() -> 사람.날다()
+
+var bird  = {
+  'type': 'small bird',
+  'fly': function() { console.log(this.type + ' 날다.'); }
+};
+
+var human = {
+  'type': 'Giant',
+  'walk': function() { console.log(this.type + ' 걷다.');}
+};
+
+// bird 객체의 능력(메서드)을 human이 빌려썼다.
+bird.fly.call(human); // 'Giant 날다.'
+
+
+
+
+// Array.prototype.forEach 능력
+// 다른 객체(집합)가 빌려쓸 수 있다.
+
+// arguments
+// NodeList <- 노드의 집합
 
 
 // Hoisting, Closure 정리
