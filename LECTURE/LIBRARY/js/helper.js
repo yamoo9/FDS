@@ -92,7 +92,7 @@ function createText(content) {
  *  @param   {String}        method   삽입될 위치 [append, prepend, before, after]
  *  @return  {HTMLElement}   생성된 요소노드 반환
  */
-function makeEl(el_name, html_str, target, method) {
+function makeEl(el_name, html_str, target, method, callback) {
   // 초기 값 설정
   // method  = method || 'append';
   // 전달인자로 요소 노드와 HTML Code 생성
@@ -131,6 +131,11 @@ function makeEl(el_name, html_str, target, method) {
     // } else {
     //   target.insertAdjacentElement('afterbegin', el);
     // }
+  }
+  // callback 이 존재하고, callback 매개변수에 전달된 데이터 유형이 함수라면?
+  // callback 실행하라.
+  if ( callback && typeof callback === 'function' ) {
+    callback();
   }
   // 생성된 요소노드 반환
   return el;
