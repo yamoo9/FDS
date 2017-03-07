@@ -8,29 +8,56 @@
 </head>
 <body>
 
-  <a href="">anchor element</a>
+  <section>
+    <h1 class="a11y-hidden">section title</h1>
+    <div>
+      <a class="target_link" href="">anchor element</a>
+    </div>
+  </section>
+
+
+<script>
+  var target_link = document.querySelector('.target_link');
+
+  var assignStyles = function(styles) {
+    for ( var i in styles ) {
+      if ( styles.hasOwnProperty(i) ) {
+        this.style[i] = styles[i];
+      }
+    }
+  };
+
+  target_link.onclick = function(e) {
+    e.preventDefault();
+    assignStyles.call(this, {
+      'color': 'lime',
+      'font-size': '22px'
+    });
+  };
+</script>
 
 <!-- <script src="js/core.js"></script> -->
 <script src="js/y9.forEach.js"></script>
+<script src="js/y9.map.js"></script>
 
 <script>
 
-console.log(y9);
+  console.log(y9);
 
-y9.forEach([1, 2, 3], function(item){
-   console.log(item);
-});
+  y9.forEach([1, 2, 3], function(item){
+     console.log(item);
+  });
 
-var todoList = [
-   '일어나기',
-   '씻기',
-   '밥먹기',
-   '스쿨 가기'
-];
+  var todoList = [
+     '일어나기',
+     '씻기',
+     '밥먹기',
+     '스쿨 가기'
+  ];
 
-y9.forEach(todoList, function(item, index) {
-  console.log(item);
-});
+  y9.forEach(todoList, function(item, index) {
+    console.log(item);
+  });
 
 </script>
 </body>

@@ -15,15 +15,3 @@
   };
 
 })(this, (this.y9 = this.y9 || {}) );
-
-
-// 내장 객체를 사용자 확장
-// 위험하다! 공부 목적
-if ( !Array.prototype.each ) {
-    Array.prototype.each = function(callback) {
-    if (!callback || typeof callback !== 'function' ) {}
-    for ( var i=0, l=this.length; i<l; i++ ) {
-      callback.call(this, this[i], i, this);
-    }
-  };
-}

@@ -57,6 +57,14 @@ var dom = (function(global) {
   document = global.document;
   toString = Object.prototype.toString;
 
+  Function.prototype
+
+  {
+    'call': function(){},
+    'apply': function(){},
+    'bind': function(){},
+  }
+
   // [Private] 외부에서 접근할 수 없는 코드
   checkType = function(data) {
     return toString.call(data).slice(8,-1).toLowerCase();
@@ -137,6 +145,24 @@ bird.fly.call(human); // 'Giant 날다.'
 
 // arguments
 // NodeList <- 노드의 집합
+
+// NodeList
+if ( !NodeList.prototype.forEach ) {
+  NodeList.prototype.forEach = function() {
+
+  };
+}
+
+// 내장 객체를 사용자 확장
+// 위험하다! 공부 목적
+if ( !Array.prototype.each ) {
+    Array.prototype.each = function(callback) {
+    if (!callback || typeof callback !== 'function' ) {}
+    for ( var i=0, l=this.length; i<l; i++ ) {
+      callback.call(this, this[i], i, this);
+    }
+  };
+}
 
 
 // Hoisting, Closure 정리
