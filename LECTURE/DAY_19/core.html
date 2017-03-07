@@ -10,6 +10,28 @@
 
   <a href="">anchor element</a>
 
-<script src="js/core.js"></script>
+<!-- <script src="js/core.js"></script> -->
+<script src="js/y9.forEach.js"></script>
+
+<script>
+
+console.log(y9);
+
+y9.forEach([1, 2, 3], function(item){
+   console.log(item);
+});
+
+var todoList = [
+   '일어나기',
+   '씻기',
+   '밥먹기',
+   '스쿨 가기'
+];
+
+y9.forEach(todoList, function(item, index) {
+  console.log(item);
+});
+
+</script>
 </body>
 </html>
