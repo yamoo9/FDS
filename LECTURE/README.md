@@ -36,6 +36,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0302](README/0302.md)__ | 웹서비스, 프로그래밍 패러다임(객체지향 / 함수형) , 디자인 패턴
 > - __[0303](README/0303.md)__ | JavaScript Core (반복문, detectCSSFeature 헬퍼 함수)
 > - __[0306](README/0306.md)__ | JavaScript Core (Scope, closure, hoisting, 전달인자 매개변수)
+> - __[0307](README/0307.md)__ | JavaScript Functions, Prototype, call(), apply(), bind()
 
 -
 
