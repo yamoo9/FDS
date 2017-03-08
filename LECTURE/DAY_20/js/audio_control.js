@@ -103,7 +103,13 @@
   // 오디오 재생시간 표기 처리 함수
   // 'mm:ss'
   function readableDuration(seconds){
-
+    var min, sec;
+    seconds = Math.floor( seconds );
+    min = Math.floor( seconds / 60 );
+    min = min >= 10 ? min : '0' + min;
+    sec = Math.floor( seconds % 60 );
+    sec = sec >= 10 ? sec : '0' + sec;
+    return min + ':' + sec;
   }
 
   // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
@@ -113,13 +119,16 @@
     // console.log('audio.currentTime:', audio.currentTime);
     // .duration
     // console.log('audio.duration:', audio.duration);
+    audio_time_total.innerHTML = readableDuration(audio.duration);
   };
   // 오디오 객체 재생 중인 상태를 감지하는 이벤트
   // ontimeupdate
   // console.log('audio.ontimeupdate:', audio.ontimeupdate);
 
   // 시크바 프로세스 문서 객체 참조
-  var seekbar_progress = document.querySelector('.audio-seekbar-progress');
+  var seekbar_progress   = document.querySelector('.audio-seekbar-progress');
+  var audio_time_current = document.querySelector('.audio-time-current');
+  var audio_time_total   = document.querySelector('.audio-time-total');
 
   // 오디오 객체 재생 중, 시간 업데이트 이벤트 핸들링
   audio.ontimeupdate = function() {
@@ -130,6 +139,7 @@
     // seekbar_progress.style.width = current;
 
     seekbar_progress.style.width = this.getProgress(3) + '%';
+    audio_time_current.innerHTML = readableDuration(this.currentTime);
 
     // var current = this.currentTime;
     // var total = this.duration;

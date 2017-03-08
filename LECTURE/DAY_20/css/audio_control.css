@@ -21,6 +21,13 @@
   background: #34c0ff;
 }
 
+.audio-cover {
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #afd2df;
+}
+
 .audio-time {
   margin-top: 5px;
   color: #888;
