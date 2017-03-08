@@ -68,7 +68,24 @@
 
   // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
   audio.oncanplay = function() {
-    // this.play();
+    // 현재 시간 / 완료 시간
+    // .currentTime
+    // console.log('audio.currentTime:', audio.currentTime);
+    // .duration
+    // console.log('audio.duration:', audio.duration);
+  };
+  // 오디오 객체 재생 중인 상태를 감지하는 이벤트
+  // ontimeupdate
+  // console.log('audio.ontimeupdate:', audio.ontimeupdate);
+  audio.ontimeupdate = function() {
+    // console.log('this.currentTime:', this.currentTime);
+
+    var current = this.currentTime;
+    var total   = this.duration;
+    var percent = Math.floor(current/total*100);
+
+    console.log('percent:', percent + '%');
+
   };
 
   // 0.3초가 지나면, 재생 중인 오디오를 일시정지(.pause()) 하라.
@@ -76,8 +93,6 @@
   //   // audio.pause();
   //   audio.stop(); // 미지원 API
   // }, 1000);
-
-  // play, pause 버튼 클릭 시 이벤트 핸들링
 
 
   // 외부에서 접근 가능하도록 공개
