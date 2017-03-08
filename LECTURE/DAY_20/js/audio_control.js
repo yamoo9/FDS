@@ -72,21 +72,6 @@
     audio.stop();
   }
 
-  // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
-  audio.oncanplay = function() {
-    // 현재 시간 / 완료 시간
-    // .currentTime
-    // console.log('audio.currentTime:', audio.currentTime);
-    // .duration
-    // console.log('audio.duration:', audio.duration);
-  };
-  // 오디오 객체 재생 중인 상태를 감지하는 이벤트
-  // ontimeupdate
-  // console.log('audio.ontimeupdate:', audio.ontimeupdate);
-
-  // 시크바 프로세스 문서 객체 참조
-  var seekbar_progress = document.querySelector('.seekbar-progress');
-
   // 메모이제이션 패턴
   // 오디오 객체 재생 상태 % 반환 함수
   function statePercent(audio_type) {
@@ -115,6 +100,26 @@
     };
   })();
 
+  // 오디오 재생시간 표기 처리 함수
+  // 'mm:ss'
+  function readableDuration(seconds){
+
+  }
+
+  // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
+  audio.oncanplay = function() {
+    // 현재 시간 / 완료 시간
+    // .currentTime
+    // console.log('audio.currentTime:', audio.currentTime);
+    // .duration
+    // console.log('audio.duration:', audio.duration);
+  };
+  // 오디오 객체 재생 중인 상태를 감지하는 이벤트
+  // ontimeupdate
+  // console.log('audio.ontimeupdate:', audio.ontimeupdate);
+
+  // 시크바 프로세스 문서 객체 참조
+  var seekbar_progress = document.querySelector('.audio-seekbar-progress');
 
   // 오디오 객체 재생 중, 시간 업데이트 이벤트 핸들링
   audio.ontimeupdate = function() {
@@ -139,7 +144,7 @@
   // }, 1000);
 
   // 외부에서 접근 가능하도록 공개
-  global.audio = audio;
+  global.audio     = audio;
   global.stopMusic = stopMusic;
   global.playMusic = playMusic;
 

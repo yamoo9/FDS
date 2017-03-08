@@ -12,14 +12,18 @@
 
   <div class="container">
     <div class="columns">
-      <div class="audio-controls column">
-        <div class="seekbar">
-          <div class="seekbar-progress"></div>
+      <div class="audio-controls column is-4 is-offset-4">
+        <div class="audio-seekbar">
+          <div class="audio-seekbar-progress"></div>
         </div>
-        <div>
+        <div class="button-set">
           <button type="button" class="audio-control__play button is-primary">play</button>
           <button type="button" class="audio-control__pause button">pause</button>
           <button type="button" class="audio-control__stop button is-danger">stop</button>
+        </div>
+        <div class="audio-time">
+          <span class="audio-time-current">00:00</span> <span class="audio-time-divider">|</span>
+          <span class="audio-time-total">00:00</span>
         </div>
       </div>
     </div>
