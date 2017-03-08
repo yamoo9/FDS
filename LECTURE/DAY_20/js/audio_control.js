@@ -1,12 +1,26 @@
 /*! audio_control.js © yamoo9.net, 2017 */
 
+// HTMLAudioElement.prototype 객체 확장
+;(function(Audio){
+  'use strict';
+
+  if ( !Audio.prototype.stop ) {
+    Audio.prototype.stop = function() {
+      this.pause();
+      this.currentTime = 0;
+      // return this;
+    };
+  }
+
+})(HTMLAudioElement);
+
 // 모듈 패턴 (비공개|공개 설정)
 ;(function(global){
   'use strict';
 
   // 오디오 객체 생성/속성 설정
   // IE 9+ / [HTML5 Audio, MP3 Format] http://caniuse.com/#search=mp3
-  var audio = document.createElement('audio');
+  var audio     = document.createElement('audio');
   var audio_src = 'media/source/001.EdSheeran-ShapeOfYou.mp3';
   audio.setAttribute('src', audio_src);
 
@@ -45,10 +59,11 @@
   function stopMusic(audio) {
     validate(!isAudioObject(audio), '오디오 객체가 전달되지 않았습니다.');
     // 오디오 객체 일시정지
-    audio.pause();
+    // audio.pause();
     // 현재 재생 시간 콘솔에 기록
     // console.log('현재 재생 시간:', audio.currentTime);
-    audio.currentTime = 0;
+    // audio.currentTime = 0;
+    audio.stop();
   }
 
   // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
@@ -72,16 +87,34 @@
 
 })(window);
 
-// HTMLAudioElement.prototype 객체 확장
-;(function(Audio){
+(function(global){
   'use strict';
 
-  if ( !Audio.prototype.stop ) {
-    Audio.prototype.stop = function() {
-      this.pause();
-      this.currentTime = 0;
-      // return this;
-    };
-  }
+  // readableDuration() 함수 정의
 
-})(HTMLAudioElement);
+})(window);
+
+
+// 오디오 컨트롤 제어
+(function(global, audio){
+  'use strict';
+
+  if (!audio) { return; }
+
+  var btn_play, btn_stop, btn_pause;
+
+  btn_play  = document.querySelector('.audio-control__play');
+  btn_pause = document.querySelector('.audio-control__pause');
+  btn_stop  = document.querySelector('.audio-control__stop');
+
+  btn_play.onclick = function() {
+    audio.play();
+  };
+  btn_pause.onclick = function() {
+    audio.pause();
+  };
+  btn_stop.onclick = function() {
+    audio.stop();
+  };
+
+})(window, window.audio);
