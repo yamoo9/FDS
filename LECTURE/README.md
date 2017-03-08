@@ -37,19 +37,20 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0303](README/0303.md)__ | JavaScript Core (반복문, detectCSSFeature 헬퍼 함수)
 > - __[0306](README/0306.md)__ | JavaScript Core (Scope, closure, hoisting, 전달인자 매개변수)
 > - __[0307](README/0307.md)__ | JavaScript Functions, Prototype, call(), apply(), bind()
+> - __[0308](README/0308.md)__ | music play component 만들기
 
 -
 
 ### FDS 3기 남은 교육 진행 일정
 
-| 일자                | 진행 내용                           | 비고   |
-| ------------------ | --------------------------------- | ---- |
-| 3.[<s>3</s>,<s>6</s>] | <s>JavaScript Core - Fundamental</s> | |
-| 3.[7,8,10] | <s>Scope</s>, <s>Hoisting</s>, <s>Closure</s>, Design Pattern, OOJS, jQuery Library | |
-| 3.[13,14,15]       | Babel / Webpack / ECMAScript 2015 | |
-| 3.[17,20,21,22,24] | Vue JS Framework + SPA            |      |
-| 4.[3,4,5,7]        | Team Coaching                     |      |
-| 4.[10,11,12,14]    | Team Coaching                     |      |
+| 일자                    | 진행 내용                                    | 비고   |
+| --------------------- | ---------------------------------------- | ---- |
+| 3.[<s>3</s>,<s>6</s>] | <s>JavaScript Core - Fundamental</s>     |      |
+| 3.[7,8,10]            | <s>Scope</s>, <s>Hoisting</s>, <s>Closure</s>, Design Pattern, OOJS, jQuery Library |      |
+| 3.[13,14,15]          | Babel / Webpack / ECMAScript 2015        |      |
+| 3.[17,20,21,22,24]    | Vue JS Framework + SPA                   |      |
+| 4.[3,4,5,7]           | Team Coaching                            |      |
+| 4.[10,11,12,14]       | Team Coaching                            |      |
 
 -
 
