@@ -78,6 +78,11 @@
   // ontimeupdate
   // console.log('audio.ontimeupdate:', audio.ontimeupdate);
 
+  // 시크바 프로세스 문서 객체 참조
+  var seekbar_progress = seekbar_progress = document.querySelector('.seekbar-progress');
+
+  // 메모이제이션 패턴
+  // 오디오 객체 재생 상태 % 반환 함수
   function statePercent(audio_type) {
     validate(!isAudioObject(audio_type), '오디오 객체를 전달해야 합니다.');
     if ( !statePercent.total ) {
@@ -85,15 +90,32 @@
     }
     return Math.floor( audio_type.currentTime / statePercent.total * 100 ) + '%';
   }
-  // 메모이제이션 패턴
   // 함수객체.속성
   statePercent.total = null;
 
+  // ⬇︎
+
+  // 클로저 함수 패턴
+  var statePercentage = (function(){
+    // 클로저 영역의 지역 변수
+    var total = 0;
+    // 클로저 함수 반환
+    return function(audio_type) {
+      validate(!isAudioObject(audio_type), '오디오 객체를 전달해야 합니다.');
+      if ( !total ) {
+        total = audio_type.duration;
+      }
+      return Math.floor( audio_type.currentTime / total * 100 ) + '%';
+    };
+  })();
+
+  // 오디오 객체 재생 중, 시간 업데이트 이벤트 핸들링
   audio.ontimeupdate = function() {
-    var current = statePercent(this);
+    // var current = statePercent(this); // 메모이제이션 패턴
+    var current = statePercentage(this); // 클로저 함수 패턴
     // console.log('current:', current);
 
-    document.querySelector('.seekbar-progress').style.width = current;
+    seekbar_progress.style.width = current;
 
     // var current = this.currentTime;
     // var total = this.duration;
