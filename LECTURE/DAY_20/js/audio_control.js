@@ -77,15 +77,28 @@
   // 오디오 객체 재생 중인 상태를 감지하는 이벤트
   // ontimeupdate
   // console.log('audio.ontimeupdate:', audio.ontimeupdate);
+
+  function statePercent(audio_type) {
+    validate(!isAudioObject(audio_type), '오디오 객체를 전달해야 합니다.');
+    if ( !statePercent.total ) {
+      statePercent.total = audio_type.duration;
+    }
+    return Math.floor( audio_type.currentTime / statePercent.total * 100 ) + '%';
+  }
+  // 메모이제이션 패턴
+  // 함수객체.속성
+  statePercent.total = null;
+
   audio.ontimeupdate = function() {
-    // console.log('this.currentTime:', this.currentTime);
+    var current = statePercent(this);
+    // console.log('current:', current);
 
-    var current = this.currentTime;
-    var total   = this.duration;
-    var percent = Math.floor(current/total*100);
+    document.querySelector('.seekbar-progress').style.width = current;
 
-    console.log('percent:', percent + '%');
-
+    // var current = this.currentTime;
+    // var total = this.duration;
+    // var percent = Math.floor(current/total * 100) + '%';
+    // console.log(percent);
   };
 
   // 0.3초가 지나면, 재생 중인 오디오를 일시정지(.pause()) 하라.
@@ -93,7 +106,6 @@
   //   // audio.pause();
   //   audio.stop(); // 미지원 API
   // }, 1000);
-
 
   // 외부에서 접근 가능하도록 공개
   global.audio = audio;
@@ -122,14 +134,19 @@
   btn_pause = document.querySelector('.audio-control__pause');
   btn_stop  = document.querySelector('.audio-control__stop');
 
-  btn_play.onclick = function() {
-    audio.play();
-  };
-  btn_pause.onclick = function() {
-    audio.pause();
-  };
-  btn_stop.onclick = function() {
-    audio.stop();
-  };
+  // Function.prototype.bind 메서드 빌려쓰기 패턴 활용
+  btn_play.onclick  = audio.play.bind(audio);
+  btn_pause.onclick = audio.pause.bind(audio);
+  btn_stop.onclick  = audio.stop.bind(audio);
+
+  // btn_play.onclick = function() {
+    // audio.play();
+  // };
+  // btn_pause.onclick = function() {
+  //   audio.pause();
+  // };
+  // btn_stop.onclick = function() {
+  //   audio.stop();
+  // };
 
 })(window, window.audio);
