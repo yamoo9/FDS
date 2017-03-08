@@ -2,3 +2,18 @@
 .audio-controls {
   margin-top: 3rem;
 }
+
+.seekbar {
+  position: relative;
+  width: 173px;
+  height: 1px;
+  background: #e4e4e4;
+  margin-bottom: 10px;
+}
+
+.seekbar-progress {
+  position: absolute;
+  height: inherit;
+  width: 10%;
+  background: #34c0ff;
+}
