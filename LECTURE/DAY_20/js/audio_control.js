@@ -1,11 +1,10 @@
 /*! audio_control.js © yamoo9.net, 2017 */
 
-// 오디오 객체 생성
-// var audio = document.createElement('audio');
-// IE 9+ / [HTML5 Audio, MP3 Format] http://caniuse.com/#search=mp3
+
 
 // 오디오 객체 생성/속성 설정
-var audio = new Audio();
+// IE 9+ / [HTML5 Audio, MP3 Format] http://caniuse.com/#search=mp3
+var audio = document.createElement('audio');
 var audio_src = 'media/source/001.EdSheeran-ShapeOfYou.mp3';
 audio.setAttribute('src', audio_src);
 
@@ -18,17 +17,48 @@ alt_audio_link.innerHTML = 'Ed Sheeran - Shape Of You';
 audio.appendChild(alt_audio_link);
 
 // 오디오 객체 확인
-console.log(audio);
+// console.log(audio);
+
+// 오디오객체 생성자 함수 확인
+// 생성자 함수: HTMLAudioElement
+// console.log(audio.constructor);
+// 프로토타입 객체: HTMLAudioElement.prototype
+// console.log(audio.constructor.prototype);
+// console.log(audio.__proto__);
+
+// 오류 감지 시, 오류 처리하는 헬퍼 함수
+function validate(condition, error_message) {
+  if ( condition ) { throw new Error(error_message); }
+}
+// 오디오 객체인지 체크하는 헬퍼 함수
+function isAudioObject(data) {
+  return data && data.constructor === HTMLAudioElement;
+}
+// 오디오 객체를 재생(play)하는 함수
+function playMusic(audio) {
+  validate(!isAudioObject(audio), '오디오 객체가 전달되지 않았습니다.');
+  audio.play();
+}
+// 재생 중인 오디오 객체를 정지(stop)하는 함수
+function stopMusic(audio) {
+  validate(!isAudioObject(audio), '오디오 객체가 전달되지 않았습니다.');
+  // 오디오 객체 일시정지
+  audio.pause();
+  // 현재 재생 시간 콘솔에 기록
+  console.log('현재 재생 시간:', audio.currentTime);
+}
 
 // 오디오 객체 재생 가능한 시점(oncanplay)이 되면 재생(.play())
 audio.oncanplay = function() {
-  this.play();
+  // this.play();
 };
 
 // 0.3초가 지나면, 재생 중인 오디오를 일시정지(.pause()) 하라.
-window.setTimeout(function() {
-  // audio.pause();
-  audio.stop(); // 미지원 API
-}, 1000);
+// window.setTimeout(function() {
+//   // audio.pause();
+//   audio.stop(); // 미지원 API
+// }, 1000);
+
+
 
 // play, pause 버튼 클릭 시 이벤트 핸들링
