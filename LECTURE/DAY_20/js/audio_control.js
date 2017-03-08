@@ -8,8 +8,14 @@
     Audio.prototype.stop = function() {
       this.pause();
       this.currentTime = 0;
-      // return this;
     };
+  }
+
+  if ( !Audio.prototype.getProgress ) {
+    Audio.prototype.getProgress = function(preciusion) {
+      var percent = this.currentTime / this.duration * 100;
+      return percent.toFixed( preciusion || 0 );
+    }
   }
 
 })(HTMLAudioElement);
@@ -79,7 +85,7 @@
   // console.log('audio.ontimeupdate:', audio.ontimeupdate);
 
   // 시크바 프로세스 문서 객체 참조
-  var seekbar_progress = seekbar_progress = document.querySelector('.seekbar-progress');
+  var seekbar_progress = document.querySelector('.seekbar-progress');
 
   // 메모이제이션 패턴
   // 오디오 객체 재생 상태 % 반환 함수
@@ -109,13 +115,16 @@
     };
   })();
 
+
   // 오디오 객체 재생 중, 시간 업데이트 이벤트 핸들링
   audio.ontimeupdate = function() {
     // var current = statePercent(this); // 메모이제이션 패턴
-    var current = statePercentage(this); // 클로저 함수 패턴
+    // var current = statePercentage(this); // 클로저 함수 패턴
     // console.log('current:', current);
 
-    seekbar_progress.style.width = current;
+    // seekbar_progress.style.width = current;
+
+    seekbar_progress.style.width = this.getProgress(3) + '%';
 
     // var current = this.currentTime;
     // var total = this.duration;
