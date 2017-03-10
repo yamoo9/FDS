@@ -92,3 +92,4 @@ nested   : 중첩
   - [Sass 개발 환경/버전 호환성 검사](http://sass-compatibility.github.io/)
   - Sass 가이드라인 [ [en](https://sass-guidelin.es/) / [ko](https://sass-guidelin.es/ko/) ]
   - Sass 플레이 그라운드 [ [sassmeister.com](http://www.sassmeister.com/) / [sass.js.org](http://sass.js.org/) ]
+  - [Airbnb CSS / Sass 스타일 가이드(번역)](https://github.com/CodeMakeBros/css-style-guide)

@@ -58,6 +58,16 @@ $ webpack entry.js bundle.js -d
 $ webpack entry.js bundle.js -w
 ```
 
+NPM 스크립트(Scirpt)
+
+```json
+"scripts": {
+  "build": "webpack entry.js bundle.js",
+  // NPM Script 사용자 정의 전달인자 설정: https://docs.npmjs.com/cli/run-script
+  "watch": "npm run build -- --watch"
+},
+```
+
 -
 
 ### 3. Webpack + CSS 로더

@@ -16,6 +16,7 @@ ES6는 모든 웹 브라우저 환경에서 지원되는 것이 아니기 때문
 - [es6-tools](https://github.com/addyosmani/es6-tools)
 - [voice-memos App(ES6를 활용한 앱 프로젝트)](https://github.com/GoogleChrome/voice-memos)
 - [Interactive ES6 Feature Examples](https://codetower.github.io/es6-features/)
+- [Airbnb JavaScript 스타일 가이드(번역)](https://github.com/tipjs/javascript-style-guide)
 
 
 ## 목차
