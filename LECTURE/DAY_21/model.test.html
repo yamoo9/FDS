@@ -27,9 +27,6 @@
   </div>
 
 <script>
-// Model 생성자 함수 활용하여 Model {} 인스턴스 생성
-var music_playlist = new Model();
-
 // console.log('music_playlist.constructor:', music_playlist.constructor);
 var data = [
   {
@@ -74,26 +71,36 @@ var data = [
   }
 ];
 
+// Model 인스턴스 객체를 통해 서버로부터 전달 받은 data 관리
+// Model 생성자 함수 활용하여 Model {} 인스턴스 생성
+var music_playlist = new Model(data);
+
 // View 구현
 var coverlist = document.querySelector('.coverlist');
 // console.log('coverlist:', coverlist);
 
+
+/**
+ * --------------------------------
+ * for 예시
+ */
+
 // data(JSON String -> Object) 순환 처리
 // console.time('insertAdjacentHTML'); // 0.7ms
 // console.time('appendChild'); // 0.6ms
-console.time('insertAdjacentElement'); // 0.6ms
-for ( var i=0, l=data.length; i<l; ++i ) {
-  var cover, alt;
-  cover = data[i].cover; // cover/EdSheeran-ShapeOfYou.jpg
-  alt = cover.split('/')[1].replace('.jpg', '');
+// console.time('insertAdjacentElement'); // 0.6ms
+// for ( var i=0, l=data.length; i<l; ++i ) {
+  // var cover, alt;
+  // cover = data[i].cover; // cover/EdSheeran-ShapeOfYou.jpg
+  // alt = cover.split('/')[1].replace('.jpg', '');
 
   // insertAdjacentHTML 사용 예
   // coverlist.insertAdjacentHTML('beforeend', '<img src="media/'+ cover +'" alt="'+ alt +'">');
 
   // createElement() 사용 예
-  var img = document.createElement('img');
-  img.setAttribute('src', 'media/' + cover);
-  img.setAttribute('alt', alt);
+  // var img = document.createElement('img');
+  // img.setAttribute('src', 'media/' + cover);
+  // img.setAttribute('alt', alt);
 
   // console.log(img);
 
@@ -101,10 +108,22 @@ for ( var i=0, l=data.length; i<l; ++i ) {
   // coverlist.appendChild(img);
 
   // insertAdjacentElement() 사용 예
-  coverlist.insertAdjacentElement('beforeend', img);
+  // coverlist.insertAdjacentElement('beforeend', img);
 
-}
-console.timeEnd('insertAdjacentElement');
+// }
+// console.timeEnd('insertAdjacentElement');
+
+
+/**
+ * --------------------------------
+ * forEach 예시 [ES 5]
+ */
+data.forEach(function(item) {
+  var cover, alt;
+  cover = item.cover;
+  alt   = cover.split('/')[1].replace('.jpg', '');
+  coverlist.insertAdjacentHTML('beforeend', '<img src="media/'+ cover +'" alt="'+ alt +'">');
+});
 
 </script>
 </body>
