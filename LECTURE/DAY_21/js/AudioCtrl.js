@@ -56,6 +56,10 @@ AudioCtrl.validate = function (condition, error_message) {
 AudioCtrl.isAudioObject = function (data) {
   return data && data.constructor === HTMLAudioElement;
 };
+// 기호를 포함하는지 체크하는 헬퍼 함수
+AudioCtrl.hasSign = function(word, sign) {
+  return word.indexOf(sign) > -1;
+};
 
 // 인스턴스 멤버(속성/메서드)
 // Instance Properties/Methods
@@ -86,3 +90,53 @@ AudioCtrl.fn.getCurrentTime = function() {
 AudioCtrl.fn.getTotalTime = function() {
   return AudioCtrl.getReadableTime( this.media.duration );
 };
+
+// my_audio.volume() // 0.3 값 가져오기
+// my_audio.volume(0.45) // 0.45 설정
+// my_audio.volume('+0.2') // 현재 볼륨 값 + 0.2
+// my_audio.volume('-0.2') // 현재 볼륨 값 - 0.2
+
+AudioCtrl.fn.volume = (function(){
+  'use strict';
+
+var volumeUp = function(value) {
+  if ( this.media.volume >= 1 ) { return; }
+  var vol = this.media.volume + (value || 0.1);
+  this.media.volume = vol > 1 ? 1 : vol;
+  return this.media.volume;
+};
+var volumeDown = function(value) {
+  if ( this.media.volume <= 0 ) { return; }
+  var vol = this.media.volume - (value || 0.1);
+  this.media.volume = vol < 0 ? 0 : vol;
+  return this.media.volume;
+};
+
+  return function(value) {
+    // 상황 1. value가 전달되지 않았을 경우 (GET)
+    if ( !value ) {
+      return this.media.volume;
+    }
+    // 상황 2. value가 전달된 경우 (SET)
+    else {
+      // 숫자 값 [0,1] 전달된 경우
+      if ( typeof value === 'number' ) {
+        if( value >= 0 && value <= 1 ) {
+          this.media.volume = value;
+        }
+      }
+      // 문자 값이 전달된 경우
+      // +
+      if ( AudioCtrl.hasSign(value, '+') ) {
+        value = this.media.volume + Number(value.replace(/+/, ''));
+        this.media.volume += value >= 1 ? 1 : value;
+      }
+      // -
+      else if ( AudioCtrl.hasSign(value, '-') ) {
+        value = this.media.volume - Number(value.replace(/-/, ''));
+        this.media.volume += value <= 0 ? 0 : value;
+      }
+    }
+  };
+
+})();
