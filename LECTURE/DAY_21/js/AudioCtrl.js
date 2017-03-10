@@ -13,17 +13,21 @@ function AudioCtrl(source) {
   // Audio 객체 생성
   // IE 9+ / [HTML5 Audio, MP3 Format] http://caniuse.com/#search=mp3
   var audio = document.createElement('audio');
-  // 전달인자 유효성 검사
+
+  // 소스 전달인자 유효성 검사
   AudioCtrl.validate(
     typeof source !== 'string' || !source.trim()
   , '전달된 인자는 문자열이 아니거나, 공백 문자입니다.');
+
+  // 오디오 소스 설정
   audio.setAttribute('src', source);
 
-  // this는 생성된 오디오컨트롤 객체를 말한다.
+  // this는 생성된 오디오컨트롤( AudioCtrl {} ) 객체를 말한다.
   // audio 는 함수 내부에서만 접근 가능한 지역 변수이므로
   // this 객체의 속성에 할당하여 인스턴스 메서드가 접근할 수 있도록 설정
   this.media = audio;
-  // 암시적으로 this를 반환
+
+  // 암시적으로 this ( 오디오컨트롤( AudioCtrl {} ) 객체 )를 반환
   // return this;
 }
 
@@ -55,17 +59,30 @@ AudioCtrl.isAudioObject = function (data) {
 
 // 인스턴스 멤버(속성/메서드)
 // Instance Properties/Methods
-// JavaScript 프로토타입 객체 활용
+// JavaScript 프로토타입(fn 별칭(Alias) 사용) 객체 활용
 // 생성된 객체가 사용하는 공통 메서드
-AudioCtrl.prototype.play = function() {
+
+// 프로토타입 객체 별칭
+AudioCtrl.fn = AudioCtrl.prototype;
+
+AudioCtrl.fn.play = function() {
   // this === AudioCtrl {}
   // this.media === HTMLAudioElement {}
   this.media.play();
 };
-AudioCtrl.prototype.pause = function() {
+AudioCtrl.fn.pause = function() {
   this.media.pause();
 };
-AudioCtrl.prototype.stop = function() {
+AudioCtrl.fn.stop = function() {
   this.media.pause();
   this.media.currentTime = 0;
+};
+AudioCtrl.fn.mute = function() {
+  this.media.volume = 0;
+};
+AudioCtrl.fn.getCurrentTime = function() {
+  return AudioCtrl.getReadableTime( this.media.currentTime );
+};
+AudioCtrl.fn.getTotalTime = function() {
+  return AudioCtrl.getReadableTime( this.media.duration );
 };
