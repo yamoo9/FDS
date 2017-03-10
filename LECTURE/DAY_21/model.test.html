@@ -4,9 +4,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>Model 객체 테스트</title>
+  <style>
+    body {margin: 0;}
+    .coverlist {
+      width: 80vw;
+      margin: 10vh auto;
+    }
+    .coverlist img {
+      float: left;
+      width: 20vw;
+      height: auto;
+    }
+  </style>
   <script src="js/Model.js"></script>
 </head>
 <body>
+
+  <div class="coverlist">
+    <!-- <img
+      src="media/cover/001.EdSheeran-ShapeOfYou.jpg"
+      alt="EdSheeran - Shape Of You"> -->
+  </div>
 
 <script>
 // Model 생성자 함수 활용하여 Model {} 인스턴스 생성
@@ -15,46 +33,78 @@ var music_playlist = new Model();
 // console.log('music_playlist.constructor:', music_playlist.constructor);
 var data = [
   {
-    cover  : 'cover/EdSheeran-ShapeOfYou.jpg',
-    source : 'source/EdSheeran-ShapeOfYou.mp3'
+    "cover"  : "cover/001.EdSheeran-ShapeOfYou.jpg",
+    "source" : "source/001.EdSheeran-ShapeOfYou.mp3"
   },
   {
-    cover  : 'cover/TheChainsmokers&Halsey-Closer.jpg',
-    source : 'source/TheChainsmokers&Halsey-Closer.mp3'
+    "cover"  : "cover/002.TheChainsmokers&Halsey-Closer.jpg",
+    "source" : "source/002.TheChainsmokers&Halsey-Closer.mp3"
   },
   {
-    cover  : 'Zayn&TaylorSwift-IDon\'tWannaLiveForever(Fifcover/tySsource/hadesDarker).jpg',
-    source : 'Zayn&TaylorSwift-IDon\'tWannaLiveForever(FiftyShadesDarker).mp3'
+    "cover"  : "cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
+    "source" : "source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3"
   },
   {
-    cover  : 'cover/KatyPerry&SkipMarley-ChainedToTheRhythm.jpg',
-    source : 'source/KatyPerry&SkipMarley-ChainedToTheRhythm.mp3'
+    "cover"  : "cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
+    "source" : "source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3"
   },
   {
-    cover  : 'cover/Migos&LilUziVert-BadAndBoujee.jpg',
-    source : 'source/Migos&LilUziVert-BadAndBoujee.mp3'
+    "cover"  : "cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
+    "source" : "source/005.Migos&LilUziVert-BadAndBoujee.mp3"
   },
   {
-    cover  : 'cover/TheChainsmokers-Paris.jpg',
-    source : 'source/TheChainsmokers-Paris.mp3'
+    "cover"  : "cover/006.TheChainsmokers-Paris.jpg",
+    "source" : "source/006.TheChainsmokers-Paris.mp3"
   },
   {
-    cover  : 'cover/Rihanna-LoveOnTheBrain.jpg',
-    source : 'source/Rihanna-LoveOnTheBrain.mp3'
+    "cover"  : "cover/007.Rihanna-LoveOnTheBrain.jpg",
+    "source" : "source/007.Rihanna-LoveOnTheBrain.mp3"
   },
   {
-    cover  : 'cover/BrunoMars-That\'sWhatILike.jpg',
-    source : 'source/BrunoMars-That\'sWhatILike.mp3'
+    "cover"  : "cover/008.BrunoMars-That'sWhatILike.jpg",
+    "source" : "source/008.BrunoMars-That'sWhatILike.mp3"
   },
   {
-    cover  : 'cover/BigSean-BounceBack.jpg',
-    source : 'source/BigSean-BounceBack.mp3'
+    "cover"  : "cover/009.BigSean-BounceBack.jpg",
+    "source" : "source/009.BigSean-BounceBack.mp3"
   },
   {
-    cover  : 'cover/MachineGunKelly&CamilaCabello-BadThings.jpg',
-    source : 'source/MachineGunKelly&CamilaCabello-BadThings.mp3'
+    "cover"  : "cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
+    "source" : "source/010.MachineGunKelly&CamilaCabello-BadThings.mp3"
   }
 ];
+
+// View 구현
+var coverlist = document.querySelector('.coverlist');
+// console.log('coverlist:', coverlist);
+
+// data(JSON String -> Object) 순환 처리
+// console.time('insertAdjacentHTML'); // 0.7ms
+// console.time('appendChild'); // 0.6ms
+console.time('insertAdjacentElement'); // 0.6ms
+for ( var i=0, l=data.length; i<l; ++i ) {
+  var cover, alt;
+  cover = data[i].cover; // cover/EdSheeran-ShapeOfYou.jpg
+  alt = cover.split('/')[1].replace('.jpg', '');
+
+  // insertAdjacentHTML 사용 예
+  // coverlist.insertAdjacentHTML('beforeend', '<img src="media/'+ cover +'" alt="'+ alt +'">');
+
+  // createElement() 사용 예
+  var img = document.createElement('img');
+  img.setAttribute('src', 'media/' + cover);
+  img.setAttribute('alt', alt);
+
+  // console.log(img);
+
+  // appendChild() 사용 예
+  // coverlist.appendChild(img);
+
+  // insertAdjacentElement() 사용 예
+  coverlist.insertAdjacentElement('beforeend', img);
+
+}
+console.timeEnd('insertAdjacentElement');
 
 </script>
 </body>
