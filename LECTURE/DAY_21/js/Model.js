@@ -15,6 +15,7 @@ var Model = (function(global){
     }
     // 데이터 (배열)
     data_list = data || [];
+    // this.data = data || [];
     // 암시적 this 객체 반환
     // return this;
   }
@@ -42,8 +43,10 @@ var Model = (function(global){
       }
     },
     'update' : function(index, callback) {
+      var instance = this;
+      var original_item = instance.read(index);
       // 존재하는 모델 데이터 아이템을 수정한다.
-      data_list.splice(index, 1, callback.call(this, data_list[index]));
+      data_list.splice(index, 1, callback.call(instance, original_item));
     },
     'delete' : function(index) {
       // 존재하는 모델 데이터 아이템을 제거한다.
