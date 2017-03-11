@@ -38,6 +38,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0306](README/0306.md)__ | JavaScript Core (Scope, closure, hoisting, 전달인자 매개변수)
 > - __[0307](README/0307.md)__ | JavaScript Functions, Prototype, call(), apply(), bind()
 > - __[0308](README/0308.md)__ | music play component 만들기
+> - __[0310](README/0310.md)__ | AudioCtrl 함수 제작, localStorage, Model관리를 위한 생성자 함수 추가
 
 -
 
