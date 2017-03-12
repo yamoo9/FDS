@@ -1,0 +1,38 @@
+
+.audio-controls {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.audio-seekbar {
+  position: relative;
+  left: 50%;
+  width: 173px;
+  height: 1px;
+  background: #e4e4e4;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.audio-seekbar-progress {
+  position: absolute;
+  height: inherit;
+  /*width: 10%;*/
+  background: #34c0ff;
+}
+
+.audio-cover {
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #afd2df;
+}
+
+.audio-time {
+  margin-top: 5px;
+  color: #888;
+}
+
+.audio-time-divider {
+  color: #52c88c;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>로컬 스토리지에 쓰기/읽기</title>
+  <style>
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      border-radius: 50%;
+    }
+  </style>
+  <script>
+    (function(global){
+      'use strict';
+      var storage = global.localStorage,
+          JSON    = global.JSON;
+
+      var data = [
+        {
+          "cover"  : "cover/001.EdSheeran-ShapeOfYou.jpg",
+          "source" : "source/001.EdSheeran-ShapeOfYou.mp3"
+        },
+        {
+          "cover"  : "cover/002.TheChainsmokers&Halsey-Closer.jpg",
+          "source" : "source/002.TheChainsmokers&Halsey-Closer.mp3"
+        },
+        {
+          "cover"  : "cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
+          "source" : "source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3"
+        },
+        {
+          "cover"  : "cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
+          "source" : "source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3"
+        },
+        {
+          "cover"  : "cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
+          "source" : "source/005.Migos&LilUziVert-BadAndBoujee.mp3"
+        },
+        {
+          "cover"  : "cover/006.TheChainsmokers-Paris.jpg",
+          "source" : "source/006.TheChainsmokers-Paris.mp3"
+        },
+        {
+          "cover"  : "cover/007.Rihanna-LoveOnTheBrain.jpg",
+          "source" : "source/007.Rihanna-LoveOnTheBrain.mp3"
+        },
+        {
+          "cover"  : "cover/008.BrunoMars-That'sWhatILike.jpg",
+          "source" : "source/008.BrunoMars-That'sWhatILike.mp3"
+        },
+        {
+          "cover"  : "cover/009.BigSean-BounceBack.jpg",
+          "source" : "source/009.BigSean-BounceBack.mp3"
+        },
+        {
+          "cover"  : "cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
+          "source" : "source/010.MachineGunKelly&CamilaCabello-BadThings.mp3"
+        }
+      ];
+
+      // console.log('before:', storage.getItem('music_list'));
+
+      if ( !storage.getItem('music_list') ) {
+        storage.setItem('music_list', JSON.stringify(data));
+      }
+
+      // console.log('after:', storage.getItem('music_list'));
+
+      // 공개
+      global.storage = storage;
+
+    })(window);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
