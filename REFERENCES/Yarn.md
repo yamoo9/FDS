@@ -133,3 +133,40 @@ console.log('yellow_hexa: ', yellow_hexa); // yellow_hexa: #FFFF00 출력
 ```sh
 $ yarn remove color
 ```
+
+-
+
+### 5. CLI 명령어
+
+[Yarn CLI Introduction](https://yarnpkg.com/en/docs/cli/)을 참고하여 명령어를 공부할 수 있습니다.
+
+- [yarn add](https://yarnpkg.com/en/docs/cli/add)
+- [yarn bin](https://yarnpkg.com/en/docs/cli/bin)
+- [yarn cache](https://yarnpkg.com/en/docs/cli/cache)
+- [yarn check](https://yarnpkg.com/en/docs/cli/check)
+- [yarn clean](https://yarnpkg.com/en/docs/cli/clean)
+- [yarn config](https://yarnpkg.com/en/docs/cli/config)
+- [yarn generate-lock-entry](https://yarnpkg.com/en/docs/cli/generate-lock-entry)
+- [yarn global](https://yarnpkg.com/en/docs/cli/global)
+- [yarn info](https://yarnpkg.com/en/docs/cli/info)
+- [yarn init](https://yarnpkg.com/en/docs/cli/init)
+- [yarn install](https://yarnpkg.com/en/docs/cli/install)
+- [yarn licenses](https://yarnpkg.com/en/docs/cli/licenses)
+- [yarn link](https://yarnpkg.com/en/docs/cli/link)
+- [yarn login](https://yarnpkg.com/en/docs/cli/login)
+- [yarn logout](https://yarnpkg.com/en/docs/cli/logout)
+- [yarn list](https://yarnpkg.com/en/docs/cli/list)
+- [yarn outdated](https://yarnpkg.com/en/docs/cli/outdated)
+- [yarn owner](https://yarnpkg.com/en/docs/cli/owner)
+- [yarn pack](https://yarnpkg.com/en/docs/cli/pack)
+- [yarn publish](https://yarnpkg.com/en/docs/cli/publish)
+- [yarn remove](https://yarnpkg.com/en/docs/cli/remove)
+- [yarn run](https://yarnpkg.com/en/docs/cli/run)
+- [yarn self-update](https://yarnpkg.com/en/docs/cli/self-update)
+- [yarn tag](https://yarnpkg.com/en/docs/cli/tag)
+- [yarn team](https://yarnpkg.com/en/docs/cli/team)
+- [yarn test](https://yarnpkg.com/en/docs/cli/test)
+- [yarn unlink](https://yarnpkg.com/en/docs/cli/unlink)
+- [yarn upgrade](https://yarnpkg.com/en/docs/cli/upgrade)
+- [yarn version](https://yarnpkg.com/en/docs/cli/version)
+- [yarn why](https://yarnpkg.com/en/docs/cli/why)
