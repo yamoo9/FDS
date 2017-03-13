@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Ajax 비동기 통신 스터디</title>
+</head>
+<body>
+
+  <button
+    type="button"
+    class="call-ajax-data"
+    onclick="sendRequest()">Call Data</button>
+
+  <p class="print-callback-data"></p>
+
+  <script>
+    (function(global){
+      'use strict';
+
+      // 생성자 함수로부터 비동기 통신 객체 생성
+      var xhr = new XMLHttpRequest();
+
+      // XHR 객체를 통해 open() 메서드를 사용하여 서버에 통신할 준비
+      // 1. HTTP 메서드(GET, POST, PUT, DELETE)를 설정
+      // 2. 통신할 파일의 경로를 설정
+      // 3. 비동기(async: true), 동기(sync: false, deprecated) 통신 설정
+      // xhr.open('GET', './data/db.txt', true);
+
+      // 동기 통신 설정
+      xhr.open('GET', './data/db.txt', false);
+      // 비동기 통신 설정
+      // xhr.open('GET', './data/db.txt');
+
+      // 서버에 요청
+      // 명시적으로 아무것도 보내지 않음.
+      // xhr.send( null );
+
+      // 동기 방식(기다림....)
+      // 데이터가 도착하면 성공했는지? 실패했는지? 파악하여 처리
+      // 조건 분기
+      // if ( xhr.status === 200 ) {
+      //   console.log('통신 성공!! :-)');
+      // } else {
+      //   console.log('통신 실패!! :-(');
+      // }
+
+      var print_callback_data = document.querySelector('.print-callback-data');
+
+      // sendRequest 함수
+      global.sendRequest = function () {
+        // console.log('call data');
+        xhr.send( null );
+        if ( xhr.status === 200 ) {
+          console.log('통신 성공!! :-)');
+          print_callback_data.innerText = xhr.responseText;
+        } else {
+          console.log('통신 실패!! :-(');
+        }
+
+      };
+
+      // 외부 접근이 가능하게 공개
+      global.xhr = xhr;
+
+    })(window);
+  </script>
+</body>
+</html>
