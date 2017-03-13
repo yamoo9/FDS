@@ -1,42 +1,52 @@
 [
   {
-    "cover"  : "cover/001.EdSheeran-ShapeOfYou.jpg",
-    "source" : "source/001.EdSheeran-ShapeOfYou.mp3"
+    "cover"  : "media/cover/001.EdSheeran-ShapeOfYou.jpg",
+    "source" : "media/source/001.EdSheeran-ShapeOfYou.mp3",
+    "alt"    : "EdSheeran - Shape Of You"
   },
   {
-    "cover"  : "cover/002.TheChainsmokers&Halsey-Closer.jpg",
-    "source" : "source/002.TheChainsmokers&Halsey-Closer.mp3"
+    "cover"  : "media/cover/002.TheChainsmokers&Halsey-Closer.jpg",
+    "source" : "media/source/002.TheChainsmokers&Halsey-Closer.mp3",
+    "alt"    : "The Chainsmokers & Halsey - Closer"
   },
   {
-    "cover"  : "cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
-    "source" : "source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3"
+    "cover"  : "media/cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
+    "source" : "media/source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3",
+    "alt"    : "Zayn & TaylorSwift - IDon't Wanna Live Forever (Fifty Shades Darker)"
   },
   {
-    "cover"  : "cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
-    "source" : "source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3"
+    "cover"  : "media/cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
+    "source" : "media/source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3",
+    "alt"    : "Katy Perry & Skip Marley - ChainedToTheRhythm"
   },
   {
-    "cover"  : "cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
-    "source" : "source/005.Migos&LilUziVert-BadAndBoujee.mp3"
+    "cover"  : "media/cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
+    "source" : "media/source/005.Migos&LilUziVert-BadAndBoujee.mp3",
+    "alt"    : "Migos & LilUziVert - Bad And Boujee"
   },
   {
-    "cover"  : "cover/006.TheChainsmokers-Paris.jpg",
-    "source" : "source/006.TheChainsmokers-Paris.mp3"
+    "cover"  : "media/cover/006.TheChainsmokers-Paris.jpg",
+    "source" : "media/source/006.TheChainsmokers-Paris.mp3",
+    "alt"    : "The Chainsmokers - Paris"
   },
   {
-    "cover"  : "cover/007.Rihanna-LoveOnTheBrain.jpg",
-    "source" : "source/007.Rihanna-LoveOnTheBrain.mp3"
+    "cover"  : "media/cover/007.Rihanna-LoveOnTheBrain.jpg",
+    "source" : "media/source/007.Rihanna-LoveOnTheBrain.mp3",
+    "alt"    : "Rihanna - Love On The Brain"
   },
   {
-    "cover"  : "cover/008.BrunoMars-That'sWhatILike.jpg",
-    "source" : "source/008.BrunoMars-That'sWhatILike.mp3"
+    "cover"  : "media/cover/008.BrunoMars-That'sWhatILike.jpg",
+    "source" : "media/source/008.BrunoMars-That'sWhatILike.mp3",
+    "alt"    : "Bruno Mars - That's What I Like"
   },
   {
-    "cover"  : "cover/009.BigSean-BounceBack.jpg",
-    "source" : "source/009.BigSean-BounceBack.mp3"
+    "cover"  : "media/cover/009.BigSean-BounceBack.jpg",
+    "source" : "media/source/009.BigSean-BounceBack.mp3",
+    "alt"    : "Big Sean - Bounce Back"
   },
   {
-    "cover"  : "cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
-    "source" : "source/010.MachineGunKelly&CamilaCabello-BadThings.mp3"
+    "cover"  : "media/cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
+    "source" : "media/source/010.MachineGunKelly&CamilaCabello-BadThings.mp3",
+    "alt"    : "Machine Gun Kelly & Camila Cabello - Bad Things"
   }
 ]

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript 오디오 컨트롤</title>
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/audio_control.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="columns">
+      <div class="audio-controls column is-4 is-offset-4">
+        <img class="cover" src="http://placehold.it/125x125" alt="" width="125" height="125">
+        <div class="seekbar">
+          <div class="seekbar-progress"></div>
+        </div>
+        <button type="button" class="audio-control__play button is-primary">play</button>
+        <button type="button" class="audio-control__pause button">pause</button>
+        <button type="button" class="audio-control__stop button is-danger">stop</button>
+
+        <div class="audio-time">
+          <span class="audio-time-current">00:00</span>
+          <span class="audio-time-divider">|</span>
+          <span class="audio-time-total">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="./js/lib/AudioCtrl.js"></script>
+<script src="./js/lib/Model.js"></script>
+<script src="js/audio_control_demo.js"></script>
+</body>
+</html>
