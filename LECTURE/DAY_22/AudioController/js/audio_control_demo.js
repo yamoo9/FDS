@@ -34,6 +34,15 @@
     }
   ]);
 
+<<<<<<< HEAD
+=======
+  playList.create({
+    "cover": "JavaScriptSong.jpg",
+    "source": "JavaScriptSong.mp3",
+    "alt": "JavaScript Song"
+  });
+
+>>>>>>> 6174842da151df2889bb6ff62ecc2435edbe461e
   // 오디오 플레이리스트 목록 확인
   // console.log(playList.read());
 
@@ -72,7 +81,11 @@
     update: function() {
       // 재생 시간 화면에 업데이트
       audio_time_current.innerHTML = this.getCurrentTime();
+<<<<<<< HEAD
       seekbar_progress.style.width = this.getProgress(2);
+=======
+      seekbar_progress.style.width = this.getProgress(3);
+>>>>>>> 6174842da151df2889bb6ff62ecc2435edbe461e
     },
     ////////////
     // 재생된 시점
