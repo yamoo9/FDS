@@ -25,17 +25,26 @@
       // HTML 파일 요청
       xhr.open('GET', './data/people.json');
 
+      print_callback_data.appendChild( document.createElement('ul') );
+
+      var ul = print_callback_data.querySelector('ul');
+
       xhr.onreadystatechange = function() {
         if ( this.status === 200 ) {
           if ( this.readyState === 4 ) {
             console.log('통신 성공!! :-)');
-            // console.log('this.response:', this.response);
-            // console.log('this.responseText:', this.responseText);
-            global.list = JSON.parse(this.response);
-            // print_callback_data.innerHTML = xhr.responseText;
+            var list = JSON.parse(this.response);
+            list.results.forEach(function(results) {
+              var title = results.name.title;
+              var first = results.name.first;
+              var last  = results.name.last;
+              title = title.replace(/^./, function($1) { return $1.toUpperCase(); })
+              var name = title + '. ' + first + ' ' + last;
+              ul.insertAdjacentHTML('beforeend', '<li>'+name+'</li>');
+            });
           } else {
             console.log('데이터 로드 중....');
-            print_callback_data.innerText = '데이터 로드 중....';
+            // print_callback_data.innerText = '데이터 로드 중....';
           }
         } else {
           console.error('데이터 로드에 실패했습니다.');
