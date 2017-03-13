@@ -34,7 +34,10 @@
   AudioCtrl.getCurrentRotation = function( el ) {
     AudioCtrl.validate(el.nodeType !== 1, '요소노드를 전달해야 합니다.');
     var transform_style = global.getComputedStyle(el).transform;
+<<<<<<< HEAD
+=======
     console.log(transform_style);
+>>>>>>> 6174842da151df2889bb6ff62ecc2435edbe461e
     var values, a, b, c, d, radians, angle;
     if ( transform_style && transform_style !== 'none' ) {
       values = transform_style.split('(')[1];
