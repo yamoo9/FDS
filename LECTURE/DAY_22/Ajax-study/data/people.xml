@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>roope</first>
+      <last>maunu</last>
+    </name>
+    <location>
+      <street>7476 fredrikinkatu</street>
+      <city>tampere</city>
+      <state>central ostrobothnia</state>
+      <postcode>72319</postcode>
+    </location>
+    <email>roope.maunu@example.com</email>
+    <login>
+      <username>blueswan981</username>
+      <password>horn</password>
+      <salt>Lh4Z8JDo</salt>
+      <md5>490452a1d431d1e9e5ae65b34e2ea8cf</md5>
+      <sha1>fbd9f7b032e2ddb98d9fff62ba0c7f899ca1083b</sha1>
+      <sha256>b7e324637d27f8c25fa6e8376b74b98bfb72f8863081bb8872354782317effed</sha256>
+    </login>
+    <dob>1958-12-06 17:01:34</dob>
+    <registered>2008-06-14 20:58:05</registered>
+    <phone>07-323-634</phone>
+    <cell>042-508-13-73</cell>
+    <id>
+      <name>HETU</name>
+      <value>1758-491H</value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/3.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/3.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/3.jpg</thumbnail>
+    </picture>
+    <nat>FI</nat>
+  </results>
+  <results>
+    <gender>female</gender>
+    <name>
+      <title>ms</title>
+      <first>esma</first>
+      <last>tüzün</last>
+    </name>
+    <location>
+      <street>1174 filistin cd</street>
+      <city>aydın</city>
+      <state>ardahan</state>
+      <postcode>77977</postcode>
+    </location>
+    <email>esma.tüzün@example.com</email>
+    <login>
+      <username>goldenelephant715</username>
+      <password>allegro</password>
+      <salt>QnHItZcS</salt>
+      <md5>888d169fad08e715b62a4b8f6241595a</md5>
+      <sha1>b5851c03e199e2845c31e6994a779985856bac06</sha1>
+      <sha256>f94f46274da4c57c5d4445050d7fe0505a2333b1e189a6ac64c0a4933f336411</sha256>
+    </login>
+    <dob>1962-01-04 18:25:12</dob>
+    <registered>2015-05-08 12:31:36</registered>
+    <phone>(114)-074-4656</phone>
+    <cell>(036)-910-4128</cell>
+    <id>
+      <name></name>
+      <value></value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/women/31.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/women/31.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/women/31.jpg</thumbnail>
+    </picture>
+    <nat>TR</nat>
+  </results>
+  <results>
+    <gender>female</gender>
+    <name>
+      <title>miss</title>
+      <first>madhavi</first>
+      <last>daniels</last>
+    </name>
+    <location>
+      <street>7259 plompetorenbrug</street>
+      <city>heerhugowaard</city>
+      <state>friesland</state>
+      <postcode>34830</postcode>
+    </location>
+    <email>madhavi.daniels@example.com</email>
+    <login>
+      <username>bigsnake313</username>
+      <password>warrior1</password>
+      <salt>dr9qaI00</salt>
+      <md5>7c96c907fe113cedbf58f7d1f280bb0d</md5>
+      <sha1>3a65ddf58146f196d90e19021b4d9a4cb99c4c39</sha1>
+      <sha256>7d029bfad19e0e839c0f0fc81a8ea146d5372d42ae2feccee56ea0b49845cf63</sha256>
+    </login>
+    <dob>1960-12-13 07:17:43</dob>
+    <registered>2006-03-31 17:13:28</registered>
+    <phone>(494)-670-4348</phone>
+    <cell>(706)-110-7226</cell>
+    <id>
+      <name>BSN</name>
+      <value>04368611</value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/women/18.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/women/18.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/women/18.jpg</thumbnail>
+    </picture>
+    <nat>NL</nat>
+  </results>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>philip</first>
+      <last>jean-baptiste</last>
+    </name>
+    <location>
+      <street>7037 king st</street>
+      <city>inverness</city>
+      <state>new brunswick</state>
+      <postcode>61836</postcode>
+    </location>
+    <email>philip.jean-baptiste@example.com</email>
+    <login>
+      <username>heavyswan333</username>
+      <password>roger</password>
+      <salt>KNfO3Em0</salt>
+      <md5>fadd08548caabae72c59bd79d5de1104</md5>
+      <sha1>85fe1e137993916d36ef80eedbf81ac279c4a2bf</sha1>
+      <sha256>510b6757a2e65574d96d500294a3b202d15ee2a2ad8d52597904996484532de2</sha256>
+    </login>
+    <dob>1948-06-26 23:38:09</dob>
+    <registered>2006-06-18 19:52:59</registered>
+    <phone>294-633-4780</phone>
+    <cell>824-467-1113</cell>
+    <id>
+      <name></name>
+      <value></value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/54.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/54.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/54.jpg</thumbnail>
+    </picture>
+    <nat>CA</nat>
+  </results>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>isidoro</first>
+      <last>rodrigues</last>
+    </name>
+    <location>
+      <street>6210 rua são josé </street>
+      <city>nilópolis</city>
+      <state>rio grande do sul</state>
+      <postcode>27630</postcode>
+    </location>
+    <email>isidoro.rodrigues@example.com</email>
+    <login>
+      <username>tinymeercat481</username>
+      <password>heineken</password>
+      <salt>0g7xRaX0</salt>
+      <md5>4c050091bee66f0fd0c8be2964731913</md5>
+      <sha1>0ce4e740f26ffd832e1f68d96021ced429b00b56</sha1>
+      <sha256>fffde9380a3d2e222315e171170846981da5a493f6c4a46f508b2efa39cb2333</sha256>
+    </login>
+    <dob>1947-10-15 18:36:45</dob>
+    <registered>2004-03-19 06:44:01</registered>
+    <phone>(83) 9284-7090</phone>
+    <cell>(77) 6933-7747</cell>
+    <id>
+      <name></name>
+      <value></value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/72.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/72.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/72.jpg</thumbnail>
+    </picture>
+    <nat>BR</nat>
+  </results>
+  <results>
+    <gender>female</gender>
+    <name>
+      <title>miss</title>
+      <first>cristina</first>
+      <last>martin</last>
+    </name>
+    <location>
+      <street>7240 calle de arturo soria</street>
+      <city>guadalajara</city>
+      <state>país vasco</state>
+      <postcode>89344</postcode>
+    </location>
+    <email>cristina.martin@example.com</email>
+    <login>
+      <username>heavypanda952</username>
+      <password>technics</password>
+      <salt>xXscxw6l</salt>
+      <md5>4c240f45c612ba7edd28f3d74291117a</md5>
+      <sha1>72ff170224949e185ab50e5fb70685e2574b9714</sha1>
+      <sha256>385c0b108efb2e84cee5a6cb249b6490d02efdcd9a055ab0c25c6b9e83ebb85d</sha256>
+    </login>
+    <dob>1964-02-15 12:22:15</dob>
+    <registered>2005-02-08 21:00:02</registered>
+    <phone>900-013-171</phone>
+    <cell>645-303-633</cell>
+    <id>
+      <name>DNI</name>
+      <value>70196105-M</value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/women/48.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/women/48.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/women/48.jpg</thumbnail>
+    </picture>
+    <nat>ES</nat>
+  </results>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>philip</first>
+      <last>li</last>
+    </name>
+    <location>
+      <street>3630 9th st</street>
+      <city>fauquier</city>
+      <state>newfoundland and labrador</state>
+      <postcode>90635</postcode>
+    </location>
+    <email>philip.li@example.com</email>
+    <login>
+      <username>tinyduck245</username>
+      <password>peace</password>
+      <salt>WA3NRpnb</salt>
+      <md5>b28ff4dcbeb3da441f12afb321c27ca4</md5>
+      <sha1>170d866e195fc02f05e34322b592bd2a9a054b4f</sha1>
+      <sha256>bf073eded9d3d86051dbd9fff3a3ba069f5d4461eb170b4ee8987c7f9f7a2abd</sha256>
+    </login>
+    <dob>1978-12-01 02:22:25</dob>
+    <registered>2007-05-27 07:41:17</registered>
+    <phone>696-862-0394</phone>
+    <cell>640-003-9688</cell>
+    <id>
+      <name></name>
+      <value></value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/93.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/93.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/93.jpg</thumbnail>
+    </picture>
+    <nat>CA</nat>
+  </results>
+  <results>
+    <gender>female</gender>
+    <name>
+      <title>mrs</title>
+      <first>maia</first>
+      <last>jones</last>
+    </name>
+    <location>
+      <street>7257 ward street</street>
+      <city>palmerston north</city>
+      <state>taranaki</state>
+      <postcode>60828</postcode>
+    </location>
+    <email>maia.jones@example.com</email>
+    <login>
+      <username>yellowdog345</username>
+      <password>timber</password>
+      <salt>A9OnuT4M</salt>
+      <md5>5e991edd43bcb40e5fc0cea41a186652</md5>
+      <sha1>59b1a3e9235b161dc36cc280fcf1c8fd91e5e720</sha1>
+      <sha256>75576104560d14fc83781f7f44afbbbc074d61bca3ab20f1c8392c1308886057</sha256>
+    </login>
+    <dob>1965-04-03 11:11:36</dob>
+    <registered>2005-04-12 12:44:12</registered>
+    <phone>(317)-157-3998</phone>
+    <cell>(784)-735-3298</cell>
+    <id>
+      <name></name>
+      <value></value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/women/18.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/women/18.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/women/18.jpg</thumbnail>
+    </picture>
+    <nat>NZ</nat>
+  </results>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>jonathan</first>
+      <last>christensen</last>
+    </name>
+    <location>
+      <street>8639 nøddelunden</street>
+      <city>øster assels</city>
+      <state>nordjylland</state>
+      <postcode>49212</postcode>
+    </location>
+    <email>jonathan.christensen@example.com</email>
+    <login>
+      <username>heavygorilla295</username>
+      <password>100000</password>
+      <salt>aqrC71El</salt>
+      <md5>308c69f5a1ebca3b99f7573c8abcafb2</md5>
+      <sha1>26a0c41e71493cb36ad142becb286bd6584baf91</sha1>
+      <sha256>27c759b4e1805629ea145333655d2e8ad58181e672fd89f240c6ea19146d1348</sha256>
+    </login>
+    <dob>1978-09-26 15:05:37</dob>
+    <registered>2012-09-22 15:54:57</registered>
+    <phone>37606561</phone>
+    <cell>11198192</cell>
+    <id>
+      <name>CPR</name>
+      <value>356706-4744</value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/39.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/39.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/39.jpg</thumbnail>
+    </picture>
+    <nat>DK</nat>
+  </results>
+  <results>
+    <gender>male</gender>
+    <name>
+      <title>mr</title>
+      <first>jordi</first>
+      <last>gomez</last>
+    </name>
+    <location>
+      <street>9372 avenida del planetario</street>
+      <city>burgos</city>
+      <state>país vasco</state>
+      <postcode>18171</postcode>
+    </location>
+    <email>jordi.gomez@example.com</email>
+    <login>
+      <username>orangeduck291</username>
+      <password>bacchus</password>
+      <salt>ecFJJDD5</salt>
+      <md5>2d95394d9be4814688f04e546325e69a</md5>
+      <sha1>732db0479b2ad4f9b6602c94f44dcf5b55563c25</sha1>
+      <sha256>ef9b4e786b3195f1ddc2f8c1391f299fcf23e347b34c96fba42f7714ad8a1ecd</sha256>
+    </login>
+    <dob>1979-12-28 15:20:26</dob>
+    <registered>2003-09-16 00:31:38</registered>
+    <phone>957-261-730</phone>
+    <cell>686-986-323</cell>
+    <id>
+      <name>DNI</name>
+      <value>04772179-H</value>
+    </id>
+    <picture>
+      <large>https://randomuser.me/api/portraits/men/64.jpg</large>
+      <medium>https://randomuser.me/api/portraits/med/men/64.jpg</medium>
+      <thumbnail>https://randomuser.me/api/portraits/thumb/men/64.jpg</thumbnail>
+    </picture>
+    <nat>ES</nat>
+  </results>
+  <info>
+    <seed>43b3a876373c8fe1</seed>
+    <results>10</results>
+    <page>1</page>
+    <version>1.1</version>
+  </info>
+</user>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Ajax 비동기 통신 스터디 - HTML</title>
+</head>
+<body>
+
+  <button
+    type="button"
+    class="call-ajax-data"
+    onclick="sendRequest()">Call Data</button>
+
+  <div class="print-callback-data"></div>
+
+  <script>
+    (function(global){
+      'use strict';
+
+      var print_callback_data = document.querySelector('.print-callback-data');
+
+      var xhr = global.xhr = new XMLHttpRequest();
+
+      // HTML 파일 요청
+      xhr.open('GET', './data/header.html');
+
+      xhr.onreadystatechange = function() {
+        if ( this.status === 200 ) {
+          if ( this.readyState === 4 ) {
+            console.log('통신 성공!! :-)');
+            // console.log('this.response:', this.response);
+            // console.log('this.responseText:', this.responseText);
+            print_callback_data.innerHTML = xhr.responseText;
+          } else {
+            console.log('데이터 로드 중....');
+            print_callback_data.innerText = '데이터 로드 중....';
+          }
+        } else {
+          console.error('데이터 로드에 실패했습니다.');
+        }
+      };
+
+      global.sendRequest = function () {
+        xhr.send( null );
+      };
+
+    })(window);
+  </script>
+</body>
+</html>
