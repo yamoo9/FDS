@@ -1,0 +1,53 @@
+.container {
+
+}
+
+.audio-controls {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.seekbar {
+  position: relative;
+  left: 50%;
+  width: 173px;
+  height: 1px;
+  background: #e4e4e4;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.seekbar-progress {
+  position: absolute;
+  height: inherit;
+  background: #34c0ff;
+}
+
+.cover {
+  width: 125px;
+  height: 125px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #afd2df;
+  transition: all 0.4s linear, box-shadow 0.3s ease 0.2s;
+}
+.cover.is-rotation {
+  border-radius: 50%;
+  animation: coverlist-ani 120s infinite;
+  box-shadow: 0 0 20px hsla(188, 82%, 65%, 0.9), 0 0 40px hsla(28, 82%, 65%, 0.6);
+}
+
+.audio-time {
+  margin-top: 5px;
+  color: #888;
+}
+
+.audio-time-divider {
+  color: #52c88c;
+}
+
+@keyframes coverlist-ani {
+  0%   {}
+  100% {transform: rotate(1440deg);}
+}
