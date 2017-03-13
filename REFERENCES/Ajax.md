@@ -18,8 +18,8 @@
 - POST
 - PUT
 - DELETE
-- PATCH
-- OPTIONS
+<!-- - PATCH -->
+<!-- - OPTIONS -->
 
 #### XMLHttpRequest 생성자 함수
 
@@ -62,14 +62,14 @@ xhr.onreadystatechange = function() {
   // 2: loaded
   // 3: interactive
   // 4: complete
-  if ( this.readyState === 400 && this.status === 200 ) {
+  if ( this.readyState === 4 && this.status === 200 ) {
     // window.location.href.indexOf("http") === -1
     // 통신 성공 시, 처리
     console.log('statusText:', this.statusText);
     console.log('responseText:', this.responseText);
     console.log('responseXML:', this.responseXML);
-    console.log('getResponseHeader("Content-Type"):', getResponseHeader('Content-Type'));
-    console.log('getAllResponseHeaders():', getAllResponseHeaders());
+    console.log('getResponseHeader("Content-Type"):', this.getResponseHeader('Content-Type'));
+    console.log('getAllResponseHeaders():', this.getAllResponseHeaders());
   } else {
     // 통신 오류 시, 처리
   }
