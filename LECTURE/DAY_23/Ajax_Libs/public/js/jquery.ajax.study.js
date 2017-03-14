@@ -14,12 +14,27 @@
   // GET //
   /////////
 
+  var employees = document.querySelector('.employees');
+  var btn       = document.querySelector('.add-employee');
+
   // 단축 ajax 메서드: $.get()
-  // $.get('/employees/19', function(data, textStatus, jqXHR){
+  // $.get('/employees', function(data, textStatus, jqXHR){
   // $.get('/employees', {id: 7}, function(data, textStatus, jqXHR){
-  //   console.log( jqXHR.status + ' ' + jqXHR.statusText );
-  //   console.log(data);
+    // console.log( jqXHR.status + ' ' + jqXHR.statusText );
+    // console.log(data.length); // 20
+    // data.forEach(function(item) {
+      // console.log(item.name);
+      // employees.insertAdjacentHTML('beforeend', '<li>'+ item.name +'</li>');
+    // });
   // }, 'json');
+
+  $.get('/employees')
+   .done(function(data, textStatus, jqXHR){
+     data.forEach(function(item) {
+       employees.insertAdjacentHTML('beforeend', '<li>'+ item.name +'</li>');
+     });
+   });
+
 
   // row-level .ajax() 메서드
   // $.ajax({
@@ -40,6 +55,37 @@
   //   email: faker.internet.email(),
   //   company: faker.company.companyName()
   // };
+
+  // btn.onclick = function() {
+  //   $.post('/employees', new_employee, function(data, textStatus, jqXHR) {
+  //     $.get('/employees', function(data, textStatus, jqXHR){
+  //       employees.innerHTML = '';
+  //       data.forEach(function(item) {
+  //         // console.log(item.name);
+  //         employees.insertAdjacentHTML('beforeend', '<li>'+ item.name +'</li>');
+  //       });
+  //     });
+  //   });
+  // };
+
+  btn.onclick = function() {
+    var new_employee = {
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      company: faker.company.companyName()
+    };
+    $.post('/employees', new_employee)
+     .done(function(data, textStatus, jqXHR) {
+       $.get('/employees')
+        .done(function(data, textStatus, jqXHR) {
+          employees.innerHTML = '';
+          data.forEach(function(item) {
+            // console.log(item.name);
+            employees.insertAdjacentHTML('beforeend', '<li>'+ item.name +'</li>');
+          });
+        });
+     });
+  };
 
   // $.post('/employees', new_employee, function(data, textStatus, jqXHR) {
   //   console.log( jqXHR.status + ' ' + jqXHR.statusText );
@@ -72,6 +118,12 @@
   //   "company": "Tottenham Hotspur"
   // };
 
+  // 사용자 정의 jQuery 유틸리티 메서드 $.put()
+  // $.put('/employees/7', modified_employee, function(data, status, xhr) {
+  //   console.log(status);
+  //   console.log(data);
+  // });
+
   // $.ajax({
   //   type: 'PUT',
   //   url: '/employees/21',
@@ -92,13 +144,17 @@
   ////////////
   // DELETE //
   ////////////
-  $.ajax({
-    type: 'DELETE',
-    url: '/employees/21',
-    dataType: 'json'
-  }).done(function(data, textStatus, jqXHR) {
-    console.log(textStatus);
-    console.log(data); // {}
-  });
+  // $.ajax({
+  //   type: 'DELETE',
+  //   url: '/employees/21',
+  //   dataType: 'json'
+  // }).done(function(data, textStatus, jqXHR) {
+  //   console.log(textStatus);
+  //   console.log(data); // {}
+  // });
+
+  // $.delete('/employees/1', function(data, status) {
+  //   console.log(status);
+  // });
 
 })(window, window.jQuery);
