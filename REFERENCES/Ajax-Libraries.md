@@ -103,7 +103,13 @@ $ npm run dev -- DB/generateEmployees.js -w
       if (err) {
         console.log(err);
       } else {
-        res.render("index", { todos: todos });
+        // req.xhr : 비동기 통신 감지
+        if ( req.xhr ) {
+          // 응답을 JSON 데이터 포멧으로 todos 데이터 전달
+          res.json(todos);
+        } else {
+          res.render("index", { todos: todos });
+        }
       }
     })
   });
