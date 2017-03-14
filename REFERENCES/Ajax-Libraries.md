@@ -70,7 +70,7 @@ $ npm run dev -- DB/generateEmployees.js -w
 ```
 
 <details>
-  <summary>[참고] Node.js 서버 사이드 코드: Express.js + MonogoDB</summary>
+  <summary>[참고] Node.js 서버 사이드 코드: Express.js + MongoDB</summary>
   ```js
   var express          = require("express"),
       app              = express(),
