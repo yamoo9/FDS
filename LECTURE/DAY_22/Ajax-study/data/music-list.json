@@ -1,0 +1,78 @@
+{
+  "music-list": [
+    {
+      "id": 1,
+      "cover": "media/cover/001.EdSheeran-ShapeOfYou.jpg",
+      "source": "media/source/001.EdSheeran-ShapeOfYou.mp3",
+      "artist": "Ed Sheeran",
+      "alt": "Ed Sheeran - Shape Of You"
+    },
+    {
+      "id": 2,
+      "cover": "media/cover/002.TheChainsmokers&Halsey-Closer.jpg",
+      "source": "media/source/002.TheChainsmokers&Halsey-Closer.mp3",
+      "artist": "The Chainsmokers & Halsey",
+      "alt": "The Chainsmokers & Halsey - Closer"
+    },
+    {
+      "id": 3,
+      "cover": "media/cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
+      "source": "media/source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3",
+      "artist": "Zayn & TaylorSwift",
+      "alt": "Zayn & TaylorSwift - I Don't Wanna Live Forever (Fifty Shades Darker)"
+    },
+    {
+      "id": 4,
+      "cover": "media/cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
+      "source": "media/source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3",
+      "artist": "Katy Perry & Skip Marley",
+      "alt": "Katy Perry & Skip Marley - ChainedToTheRhythm"
+    },
+    {
+      "id": 5,
+      "cover": "media/cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
+      "source": "media/source/005.Migos&LilUziVert-BadAndBoujee.mp3",
+      "artist": "Migos & Lil Uzi Vert",
+      "alt": "Migos & Lil Uzi Vert - Bad And Boujee"
+    },
+    {
+      "id": 6,
+      "cover": "media/cover/006.TheChainsmokers-Paris.jpg",
+      "source": "media/source/006.TheChainsmokers-Paris.mp3",
+      "artist": "The Chainsmokers",
+      "alt": "The Chainsmokers - Paris"
+    },
+    {
+      "id": 7,
+      "cover": "media/cover/007.Rihanna-LoveOnTheBrain.jpg",
+      "source": "media/source/007.Rihanna-LoveOnTheBrain.mp3",
+      "artist": "Rihanna",
+      "alt": "Rihanna - Love On The Brain"
+    },
+    {
+      "id": 8,
+      "cover": "media/cover/008.BrunoMars-That'sWhatILike.jpg",
+      "source": "media/source/008.BrunoMars-That'sWhatILike.mp3",
+      "artist": "Bruno Mars",
+      "alt": "Bruno Mars - That's What I Like"
+    },
+    {
+      "id": 9,
+      "cover": "media/cover/009.BigSean-BounceBack.jpg",
+      "source": "media/source/009.BigSean-BounceBack.mp3",
+      "artist": "Big Sean",
+      "alt": "Big Sean - Bounce Back"
+    },
+    {
+      "id": 10,
+      "cover": "media/cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
+      "source": "media/source/010.MachineGunKelly&CamilaCabello-BadThings.mp3",
+      "artist": "Machine Gun Kelly & Camila Cabello",
+      "alt": "Machine Gun Kelly & Camila Cabello - Bad Things"
+    }
+  ],
+  "info": {
+    "version": "0.0.1",
+    "author": "yamoo9@naver.com"
+  }
+}
