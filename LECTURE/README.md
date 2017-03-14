@@ -40,6 +40,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0308](README/0308.md)__ | music play component 만들기
 > - __[0310](README/0310.md)__ | AudioCtrl 함수 제작, localStorage, Model관리를 위한 생성자 함수 추가
 > - __[0313](README/0313.md)__ | AJAX 활용 실습(HTML, XML, JASON 방식)
+> - __[0314](README/0313.md)__ | AJAX 활용 실습2(json-server, faker, axios, babeljs )
 
 -
 
