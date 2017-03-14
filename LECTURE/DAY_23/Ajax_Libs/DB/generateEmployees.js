@@ -16,7 +16,7 @@ var faker = require('faker');
 // 랜덤 데이터를 통해 JSON 포멧을 만들어
 // json-server 에 제공한다.
 
-var total = 0;
+var total = 10;
 var employees = [];
 
 // 모듈 정의
