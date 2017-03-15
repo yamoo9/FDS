@@ -29,7 +29,8 @@
     return data && data.constructor === HTMLAudioElement;
   };
   AudioCtrl.hasSign = function(word, sign) {
-    return word.indexOf(sign) > -1;
+    // return word.indexOf(sign) > -1;
+    return word.includes(sign);
   };
   AudioCtrl.getCurrentRotation = function( el ) {
     AudioCtrl.validate(el.nodeType !== 1, '요소노드를 전달해야 합니다.');
@@ -99,7 +100,9 @@
     audio.setAttribute('src', source);
     // 생성/재생 가능 이후 시점
     audio.oncanplay = function() {
-      if( typeof options.created === 'function' ) { options.created.call(_this, audio); }
+      if( typeof options.created === 'function' ) {
+        options.created.call(_this, audio);
+      }
     }
     // audio 객체 반환
     return audio;

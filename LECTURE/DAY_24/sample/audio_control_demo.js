@@ -28,9 +28,9 @@
       'alt'    : 'Closer'
     },
     {
-      'cover'  : '003.Zayn&TaylorSwift-IDon\'tWannaLiveForever(FiftyShadesDarker).jpg',
-      'source' : '003.Zayn&TaylorSwift-IDon\'tWannaLiveForever(FiftyShadesDarker).mp3',
-      'alt'    : 'I Don\'t Wanna Live Forever (Fifty Shades Darker)'
+      'cover'  : `003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg`,
+      'source' : `003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3`,
+      'alt'    : `I Don't Wanna Live Forever (Fifty Shades Darker)`
     }
   ]);
 

@@ -46,22 +46,35 @@
 // console.log(o.f);
 
 // 기존 ES5 코드 환경에서는 var 키워드를 남겨두는 것이 좋다.
+// 하위 호환 유지
 // ECMAScript2015+ 환경에서는 var 보다는 let, const 키워드 사용을 권장한다.
 // https://github.com/tipjs/javascript-style-guide#2.1
 
 // 강제적으로 변하지 않게(Force Immutability) 하고자 할 경우, Object.freeze()를 사용한다.
 
-
+const shy = ['부끄 부끄'];
 
 
 ////////////////////////
 // String Additions   //
 ////////////////////////
-// string.includes()  //
-// string.startWith() //
-// string.endWith()   //
-// string.repeat()    //
+// string.includes()   //
+// string.startsWith() //
+// string.endsWith()   //
+// string.repeat()     //
 ////////////////////////
+
+// if (!String.prototype.includes) {
+//   String.prototype.includes = (value)=> {
+//     return this.indexOf(value) > -1;
+//   };
+// }
+
+// String { includes, startsWith, endsWith, repeat }
+
+'hi, there. coffee is smell good'.startsWith('hi, there');  // true
+'hi, there. coffee is smell good'.startsWith('coffee');     // false
+'hi, there. coffee is smell good'.startsWith('coffee', 11); // true
 
 // < e.g) 1: AudioCtrl.hasSign() >
 
@@ -91,10 +104,35 @@
 
 // 이스케이프(Escape) 문자열 처리 해결
 // < e.g) audio_control_demo.js >
+let unknown = `${unknown}t`;
+
+let o = {
+  'cover'  : `003.Zayn&TaylorSwift-${unknown}tWannaLiveForever(FiftyShadesDarker).jpg`,
+  'source' : `003.Zayn&TaylorSwift-${unknown}tWannaLiveForever(FiftyShadesDarker).mp3`,
+  'alt'    : `I Don't Wanna Live Forever (Fifty Shades Darker)`
+};
 
 // 보간법(Interpolation) 활용 가능 (Like Sass)
+
+let ooo = {
+  'cover'  : `003.Zayn&TaylorSwift-${unknown}WannaLiveForever(FiftyShadesDarker).jpg`,
+  'source' : `003.Zayn&TaylorSwift-${unknown}tWannaLiveForever(FiftyShadesDarker).mp3`,
+  'alt'    : `I Don't Wanna Live Forever (Fifty Shades Darker)`
+};
 // HTML 템플릿(Template) 작성에 탁월!
 // Vue JS 프레임워크에서 유용하게 활용하게 됨.
+// new Vue({
+//   'el': '.element',
+//   'template': `
+//     <ul class="js-libraries">
+//       <li class="active"><a href="#!jquery">jQuery</a></li>
+//       <li><a href="#!dojo">Dojo</a></li>
+//       <li><a href="#!mootools">Mootools</a></li>
+//       <li><a href="#!yui">YUI</a></li>
+//       <li><a href="#!axios">axios</a></li>
+//     </ul>
+//   `
+// })
 
 
 
@@ -107,7 +145,19 @@
 // 이로 인해 의도치 않은 실수가 발생할 수 있는데 화살표 함수를 사용하면 this 참조가
 // 문맥으로 유지되기 때문에 실수를 미연에 방지할 수 있다.
 
-
+// AudioCtrl.prototype.create = function() {
+//   var audio = document.createElement('audio');
+//   var options = this.options;
+//   var source = options.src;
+//   AudioCtrl.validate(typeof source !== 'string' || !source.trim(), '전달된 음원 경로는 문자열이 아니거나, 공백 문자입니다.');
+//   audio.setAttribute('src', source);
+//   audio.oncanplay = ()=> {
+//     if( typeof options.created === 'function' ) {
+//       options.created.call(this, audio);
+//     }
+//   }
+//   return audio;
+// };
 
 
 ////////////////////////
@@ -115,9 +165,21 @@
 ////////////////////////
 
 // 함수 매개변수 초기 값을 설정할 수 있다. (Like Sass)
+function assigDiscount(cost, discount=0.4) {
+  return cost - (cost * discount);
+}
+
+assigDiscount(1000);    // 19
+assigDiscount(10, 0.3); // 12
+
 // 함수 매개변수 값을 외부의 함수 결과 값으로 처리할 수도 있다.
 // < e.g) defaultDiscount() >
-
+function defaultDiscount() {
+  return 0.45;
+}
+function assigDiscount2(cost, discount=defaultDiscount()) {
+  return cost - (cost * discount);
+}
 
 
 
@@ -130,6 +192,21 @@
 
 // < e.g) sum() >
 
+// function sum() {
+//   var result = 0;
+//   for ( var i=0, l=arguments.length; i<l; i++ ) {
+//     result += arguments[i];
+//   }
+//   return result;
+// }
+
+function sum(...numbers) {
+  return numbers.reduce((pv,cv)=>pv+cv);
+}
+
+sum(2, 3); // 5
+sum(2, 3, 2, 3, 2, 3); // 5
+
 // Array.prototype.reduce
 // [].reduce(function(이전값,현재값){},초기값);
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
@@ -141,6 +218,15 @@
 // 배열 ➤ 개별 값 변경 처리
 // []  ➤ ...numbers
 
+function process(...steps) { // steps -> REST PARAMETER
+  console.log(steps[0]);
+  console.log(steps[1]);
+}
+
+var lectures = ['study css', 'study es6'];
+
+// process( lectures[0], lectures[1] );
+process(...lectures);  // lectures -> SPREAD PARAMETER
 
 
 
@@ -149,28 +235,26 @@
 /////////////////////////
 
 // < e.g) 1 >
-function getPerson() {
+let getPerson = ()=> {
   let name = 'Hoon';
   let job  = 'Instructor';
   return {
-    name: name,
-    job: job,
-    greeting: function(you) {
-      let message = 'Hello, ' + you + '.';
-      message += ' My Name is ' + this.name + ' and My Job is ' + this.job;
+    name,
+    job,
+    greeting(you) {
+      let message = `Hello, ${you}.`;
+      message += `My Name is ${this.name} and My Job is ${this.job}`;
       return message;
     }
   };
 }
 
-// console.log( getPerson().name );
-// console.log( getPerson().greeting('Hey Min') );
-
-
+console.log( getPerson().name );
+console.log( getPerson().greeting('Hey Min') );
 
 
 ///////////////////////////
-// Classes & Inheritance //
+// Class & Inheritance //
 ///////////////////////////
 
 // < e.g) 1: 생성자 함수 ➤ 클래스 문법 활용 >
@@ -178,23 +262,56 @@ function getPerson() {
 // class
 // constructor
 // static
-// get
-// set
+// get (getter)
+// set (setter)
 // extends
 // super
 
-function User(name, email) {
-  this.name = name;
-  this.email = email;
+// new WeakMap()
+
+// 생성자 함수(class)
+// function User(name, email) {
+//   this.name = name;
+//   this.email = email;
+// }
+
+// // static methods (class methods)
+// User.register = function(name, email) {
+//   return new User(name, email);
+// };
+
+// // instance methods
+// User.prototype.changeEmail = function(new_mail) {
+//   this.email = new_mail;
+// };
+
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  static register(...params) {
+    return new User(...params);
+  }
+  changeEmail(new_mail) {
+    this.email = new_mail;
+  }
 }
 
-User.register = function(name, email) {
-  return new User(name, email);
-};
 
-User.prototype.changeEmail = function(new_mail) {
-  this.email = new_mail;
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // < e.g) 2: AudioCtrl 생성자 함수 ➤ 클래스 문법 활용 >
 
