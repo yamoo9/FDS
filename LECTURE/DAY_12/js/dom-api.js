@@ -71,7 +71,7 @@ var switchNode = function() {
     // 사용자가 클릭한 대상을 활성화
     assignActiveClass(our_actived);
   }
-}
+};
 
 // 반복문을 사용하여 수집된 li 요소노드에 일괄적으로 이벤트를 연결
 for ( var i=0; i<section_a_lis.length; i=i+1 ) {

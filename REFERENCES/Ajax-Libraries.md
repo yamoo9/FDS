@@ -70,7 +70,7 @@ $ npm run dev -- DB/generateEmployees.js -w
 ```
 
 <details>
-  <summary>[참고] Node.js 서버 사이드 코드: Express.js + MonogoDB</summary>
+  <summary>[참고] Node.js 서버 사이드 코드: Express.js + MongoDB</summary>
   ```js
   var express          = require("express"),
       app              = express(),
@@ -103,7 +103,13 @@ $ npm run dev -- DB/generateEmployees.js -w
       if (err) {
         console.log(err);
       } else {
-        res.render("index", { todos: todos });
+        // req.xhr : 비동기 통신 감지
+        if ( req.xhr ) {
+          // 응답을 JSON 데이터 포멧으로 todos 데이터 전달
+          res.json(todos);
+        } else {
+          res.render("index", { todos: todos });
+        }
       }
     })
   });
