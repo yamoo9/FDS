@@ -50,8 +50,8 @@ class AudioClass {
   }
   static getCurrentRotation(el) {
     AudioClass.validate(el.nodeType !== 1, '요소노드를 전달해야 합니다.');
-    let transform_style = window.getComputedStyle(el).transform,
-        values, a, b, c, d, radians, angle;
+    let values, a, b, c, d, radians, angle,
+        transform_style = window.getComputedStyle(el).transform;
     if ( transform_style && transform_style !== 'none' ) {
       values = transform_style.split('(')[1];
       values = values.split(')')[0];
@@ -73,16 +73,16 @@ class AudioClass {
 
   // instance methods
   init(options) {
-    // 옵션 덮어쓰기
-    var options = this.options = Object.assign( _defaults.get(this) , options);
-    // 생성 이전 시점
-    if( typeof options.beforeCreate === 'function' ) { options.beforeCreate.call(this); }
-    // 음원 생성
-    this.media = this.create();
-    // 업데이트 시점
-    if( typeof options.update === 'function' ) { this.update(options.update); }
-    // AudioClass {} 객체 반환
-    return this;
+  //   // 옵션 덮어쓰기
+  //   var options = this.options = Object.assign( _defaults.get(this) , options);
+  //   // 생성 이전 시점
+  //   if( typeof options.beforeCreate === 'function' ) { options.beforeCreate.call(this); }
+  //   // 음원 생성
+  //   this.media = this.create();
+  //   // 업데이트 시점
+  //   if( typeof options.update === 'function' ) { this.update(options.update); }
+  //   // AudioClass {} 객체 반환
+  //   return this;
   }
 
 }
