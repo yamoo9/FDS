@@ -42,7 +42,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0313](README/0313.md)__ | AJAX 활용 실습 Part.1 (HTML, XML, JASON 방식)
 > - __[0314](README/0314.md)__ | AJAX 활용 실습 Part.2 (json-server, faker, axios, babeljs )
 
--
+---
 
 ### FDS 3기 남은 교육 진행 일정
 
@@ -50,13 +50,13 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 | --------------------- | ---------------------------------------- | ---- |
 | 3.[<s>3</s>,<s>6</s>] | <s>JavaScript Core - Fundamental</s>     |      |
 | 3.[<s>7</s>,<s>8</s>,<s>10</s>]            | <s>Scope</s>, <s>Hoisting</s>, <s>Closure</s>, <s>Design Pattern</s>, <s>OOJS</s> |      |
-| 3.[<s>13</s>,14,15]          | <s>Ajax</s> / jQuery Library / Babel / Webpack / ECMAScript 2015        |      |
+| 3.[<s>13</s>,<s>14</s>,15]          | <s>Ajax</s> / jQuery Library / <s>Babel</s> / Webpack / <s>ECMAScript 2015(ES6)</s>        |      |
 | 3.[17,20,21,22,24]    | Vue JS Framework + SPA                   |      |
 | 4.[3,4,5,7]           | Team Coaching                            |      |
 | 4.[10,11,12,14]       | Team Coaching                            |      |
 
 
--
+---
 
 
 ### 3월 수강생 피드백/대책 마련
@@ -72,7 +72,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 - 쉬는 시간은 10분을 넘기지 않으며, 이를 지키기 위해<br>수강생은 질문을 슬랙 DM 또는 QnA 채널을 이용한다.
 
 
--
+---
 
 
 #### 피드백 2:
@@ -119,7 +119,7 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
   - [Framework Vue.js](https://vuejs.org)
 
 
--
+---
 
 
 #### 피드백 3:
