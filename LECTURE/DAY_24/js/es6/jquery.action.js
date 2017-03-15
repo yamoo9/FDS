@@ -6,7 +6,7 @@
 ($=> {
   'use strict';
 
-  $.capitalize = words=>$.map(words.split(' '),word=>word.replace(/^./, $1 => $1.toUpperCase())).join(' ');
+  $.capitalize=(words,divider)=>$.map(words.split(divider),word=>word.replace(/^./,$1=>$1.toUpperCase())).join(' ');
 
 })(window.jQuery);
 
@@ -42,7 +42,7 @@
     'css': {
       'type': 'framework',
       'resources': [
-        'bootstrap', 'bulma', 'foundation'
+        'twitter bootstrap', 'bulma', 'zurb foundation'
       ]
     },
     'js': {
@@ -54,13 +54,18 @@
   global.web_techniques = web_techniques;
 
   // 동적으로 요소를 추가해서 Wrapper_header 내부에 코드 삽입
-  var html_template = [
-    '<ul class="'+ Object.keys(web_techniques)[0] +'-' + web_techniques.css.type + '">',
-      `<li><a href="#!${web_techniques.css.resources[0]}">${web_techniques.css.resources[0]}</a></li>`,
-      '<li class="active"><a href="#!bulma">Bulma</a></li>',
-      '<li><a href="#!foundation">Foundation</a></li>',
+  let lang = Object.keys(web_techniques)[0];
+  var lang_type = web_techniques.css.type;
+  var lang_resources = web_techniques.css.resources;
+  let html_template = [
+    '<ul class="'+ lang +'-' + lang_type + '">',
+      `<li><a href="#!${lang_resources[0]}">${$.capitalize(lang_resources[0])}</a></li>`,
+      `<li><a href="#!${lang_resources[1]}">${$.capitalize(lang_resources[1])}</a></li>`,
+      `<li><a href="#!${lang_resources[2]}">${$.capitalize(lang_resources[2])}</a></li>`,
     '</ul>'
-  ].join('');
+  ].join('\t');
+
+  console.log(html_template);
 
 
   $(`<ul class="css-framworks">

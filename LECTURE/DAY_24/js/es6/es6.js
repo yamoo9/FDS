@@ -12,8 +12,38 @@
 ////////////////
 
 // let, const 키워드로 선언된 변수,상수는 블록 스코프(Block Scope)를 가진다.
+// {
+//   let is_block_var = true;
+//   console.log('block scope:', is_block_var);
+// }
+// console.log('global scope:', is_block_var);
 // let, const 키워드로 선언된 변수,상수는 스코프 최상단으로 호이스팅(끌어올림)되지 않는다.
+// {
+  // if (typeof version === 'undefined') {
+  //   let version = 'es6';
+  // }
+  // console.log(version);
+// }
+
+// {
+//     if (!version) {
+//         console.log('version hoisting!');
+//     }
+
+//     let version = 'es6';
+// }
+// console.log(version);
+
 // IIFE 패턴을 사용하여 함수 스코프를 사용하지 않아도, 지역 변수를 생성할 수 있다.
+
+// {
+//   let fn = function() {}
+//   var o = {
+//     f: fn
+//   };
+// }
+
+// console.log(o.f);
 
 // 기존 ES5 코드 환경에서는 var 키워드를 남겨두는 것이 좋다.
 // ECMAScript2015+ 환경에서는 var 보다는 let, const 키워드 사용을 권장한다.
@@ -182,12 +212,12 @@ User.prototype.changeEmail = function(new_mail) {
 
 // CommonJS ----------------------------------------------------------------------
 // http://www.commonjs.org/
-module.exports = {};
+// module.exports = {};
 
 // AMD ---------------------------------------------------------------------------
 // http://requirejs.org/docs/whyamd.html#amd
 // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modularjavascript
-define('module',[],function(){});
+// define('module',[],function(){});
 
 // UMD ---------------------------------------------------------------------------
 // https://github.com/umdjs/umd
@@ -273,9 +303,9 @@ greet({
 // --------------------------------------------------------------
 
 // axios는 프로미스 기반 Ajax 라이브러리
-let promise = axios.get('/employees');
-promise.then(function(data) {});
-promise.catch(function(error) {});
+// let promise = axios.get('/employees');
+// promise.then(function(data) {});
+// promise.catch(function(error) {});
 
 
 
