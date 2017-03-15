@@ -6,7 +6,7 @@
 ($=> {
   'use strict';
 
-  $.capitalize = word => word.replace(/^./, $1 => $1.toUpperCase());
+  $.capitalize = words=>$.map(words.split(' '),word=>word.replace(/^./, $1 => $1.toUpperCase())).join(' ');
 
 })(window.jQuery);
 

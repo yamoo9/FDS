@@ -7,10 +7,12 @@
 (function ($) {
   'use strict';
 
-  $.capitalize = function (word) {
-    return word.replace(/^./, function ($1) {
-      return $1.toUpperCase();
-    });
+  $.capitalize = function (words) {
+    return $.map(words.split(' '), function (word) {
+      return word.replace(/^./, function ($1) {
+        return $1.toUpperCase();
+      });
+    }).join(' ');
   };
 })(window.jQuery);
 
