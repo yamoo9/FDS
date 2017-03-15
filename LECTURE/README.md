@@ -39,8 +39,13 @@ README.md 수업 자료를 정리한 후, 이 곳에 진행된 내용을 작성�
 > - __[0307](README/0307.md)__ | JavaScript Functions, Prototype, call(), apply(), bind()
 > - __[0308](README/0308.md)__ | music play component 만들기
 > - __[0310](README/0310.md)__ | AudioCtrl 함수 제작, localStorage, Model관리를 위한 생성자 함수 추가
+<<<<<<< HEAD
 > - __[0313](README/0313.md)__ | AJAX 활용 실습(HTML, XML, JASON 방식)
 > - __[0314](README/0313.md)__ | AJAX 활용 실습2(json-server, faker, axios, babeljs )
+=======
+> - __[0313](README/0313.md)__ | AJAX 활용 실습 Part.1 (HTML, XML, JASON 방식)
+> - __[0314](README/0314.md)__ | AJAX 활용 실습 Part.2 (json-server, faker, axios, babeljs )
+>>>>>>> 141fc58ff5a05430ab03ebc46922cd882bfd61bb
 
 -
 
