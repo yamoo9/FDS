@@ -1,0 +1,21 @@
+{
+  "scripts": {
+
+    "babel": "./node_modules/.bin/babel",
+
+    "es6"  : "npm run babel -- ./js/es6-test.js -o ./js/es5-converted.js",
+    "es6-w": "npm run es6 -- -w",
+    "es6-ws": "npm run es6 -- -ws",
+    "es6-wsi": "npm run es6-w -- -s inline",
+
+    "es6-d": "npm run babel -- js/es6 -d js/es5",
+    "es6-dw": "npm run es6-d -- -w",
+    "es6-dws": "npm run es6-dw -- -s",
+    "es6-dwsi": "npm run es6-dw -- -s inline"
+
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.2.1"
+  }
+}
