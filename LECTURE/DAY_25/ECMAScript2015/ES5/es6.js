@@ -85,21 +85,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 // 이로 인해 의도치 않은 실수가 발생할 수 있는데 화살표 함수를 사용하면 this 참조가
 // 문맥으로 유지되기 때문에 실수를 미연에 방지할 수 있다.
 
-(function () {
-  'use strict';
-  // this === undefined
-
-  console.log(this);
-})();
+// (function(){
+//     'use strict';
+//     // this === undefined
+//     console.log(this);
+// })();
 
 // VS
 
-(function () {
-  'use strict';
-  // this === 상위 영역의 this 참조
+// (()=>{
+//     'use strict';
+//     // this === 상위 영역의 this 참조
+//     console.log(this);
+// })();
 
-  console.log(undefined);
-})();
 
 ////////////////////////
 // Default Parameters //
@@ -150,8 +149,12 @@ function getPerson() {
   var name = 'Hoon';
   var job = 'Instructor';
   return {
-    name: name,
-    job: job,
+    // name: name,
+    // job: job,
+    get name() {},
+    set name(new_name) {},
+    get job() {},
+    set job(new_job) {},
     greeting: function greeting(you) {
       var message = 'Hello, ' + you + '.';
       message += ' My Name is ' + this.name + ' and My Job is ' + this.job;
@@ -326,25 +329,13 @@ var Animal = function () {
   return Animal;
 }();
 
-var Duck = function (_Animal) {
-  _inherits(Duck, _Animal);
-
-  function Duck(type) {
-    _classCallCheck(this, Duck);
-
-    var _this = _possibleConstructorReturn(this, (Duck.__proto__ || Object.getPrototypeOf(Duck)).call(this, 2, 2));
-
-    _this.type = type;
-    return _this;
-  }
-
-  _createClass(Duck, [{
-    key: 'fly',
-    value: function fly() {}
-  }]);
-
-  return Duck;
-}(Animal);
+// class Duck extends Animal {
+//   constructor(type) {
+//     super(2, 2);
+//     this.type = type;
+//   }
+//   fly() {}
+// }
 // class Dog extends Animal {}
 // class Elephant extends Animal {}
 
@@ -352,6 +343,63 @@ var Duck = function (_Animal) {
 // < e.g) 3: Custom Element API >
 // 사용자설정 요소 v1: 재사용 가능한 웹 구성 요소 | https://goo.gl/DBLw9t
 // https://blog.risingstack.com/writing-a-javascript-framework-the-benefits-of-custom-elements/
+
+var _nickname = new WeakMap();
+
+// < e.g) 4: getter, setter >
+
+var Duck = function (_Animal) {
+  _inherits(Duck, _Animal);
+
+  function Duck(type) {
+    _classCallCheck(this, Duck);
+
+    // Public
+    var _this = _possibleConstructorReturn(this, (Duck.__proto__ || Object.getPrototypeOf(Duck)).call(this, 2, 2));
+
+    _this.type = type;
+    // WeakMap 사용하여 비공개 멤버 등록
+    _nickname.set(_this, null);
+    return _this;
+  }
+  // getter
+
+
+  _createClass(Duck, [{
+    key: 'fly',
+    value: function fly() {}
+  }, {
+    key: 'nickname',
+    get: function get() {
+      return _nickname.get(this) || undefined;
+    }
+    // setter
+    ,
+    set: function set(new_name) {
+      if (new_name === _nickname.get(this)) {
+        console.info('이미 별명이 같습니다.');
+      } else if (new_name) {
+        _nickname.set(this, new_name);
+      }
+    }
+  }]);
+
+  return Duck;
+}(Animal);
+
+var gold_duck = new Duck('황금 알을 낳는 오리');
+
+gold_duck.nickname; // undefined
+gold_duck.nickname = '황금 둥이';
+// gold_duck.nickname = '황금 둥이';
+
+// REST API Service
+// Ajax <-> json
+// HTTP Request Methods
+// GET, POST, PUT, DELETE
+// Front-End <-> json-server <json or js>
+// json-server : API
+// myjson.com, firebase
 
 
 ////////////////////////////
@@ -372,8 +420,6 @@ var Duck = function (_Animal) {
 // UMD ---------------------------------------------------------------------------
 // https://github.com/umdjs/umd
 // https://github.com/umdjs/umd/blob/master/templates/jqueryPlugin.js
-
-
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD

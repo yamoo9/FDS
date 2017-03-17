@@ -77,19 +77,19 @@
 // 이로 인해 의도치 않은 실수가 발생할 수 있는데 화살표 함수를 사용하면 this 참조가
 // 문맥으로 유지되기 때문에 실수를 미연에 방지할 수 있다.
 
-(function(){
-    'use strict';
-    // this === undefined
-    console.log(this);
-})();
+// (function(){
+//     'use strict';
+//     // this === undefined
+//     console.log(this);
+// })();
 
 // VS
 
-(()=>{
-    'use strict';
-    // this === 상위 영역의 this 참조
-    console.log(this);
-})();
+// (()=>{
+//     'use strict';
+//     // this === 상위 영역의 this 참조
+//     console.log(this);
+// })();
 
 
 ////////////////////////
@@ -142,8 +142,12 @@ function getPerson() {
   let name = 'Hoon';
   let job  = 'Instructor';
   return {
-    name: name,
-    job: job,
+    // name: name,
+    // job: job,
+    get name() {},
+    set name(new_name) {},
+    get job() {},
+    set job(new_job) {},
     greeting: function(you) {
       let message = 'Hello, ' + you + '.';
       message += ' My Name is ' + this.name + ' and My Job is ' + this.job;
@@ -282,13 +286,13 @@ class Animal {
   run() {}
 }
 
-class Duck extends Animal {
-  constructor(type) {
-    super(2, 2);
-    this.type = type;
-  }
-  fly() {}
-}
+// class Duck extends Animal {
+//   constructor(type) {
+//     super(2, 2);
+//     this.type = type;
+//   }
+//   fly() {}
+// }
 // class Dog extends Animal {}
 // class Elephant extends Animal {}
 
@@ -297,7 +301,45 @@ class Duck extends Animal {
 // 사용자설정 요소 v1: 재사용 가능한 웹 구성 요소 | https://goo.gl/DBLw9t
 // https://blog.risingstack.com/writing-a-javascript-framework-the-benefits-of-custom-elements/
 
+let _nickname = new WeakMap();
 
+// < e.g) 4: getter, setter >
+class Duck extends Animal {
+  constructor(type) {
+    super(2, 2);
+    // Public
+    this.type = type;
+    // WeakMap 사용하여 비공개 멤버 등록
+    _nickname.set(this, null);
+  }
+  // getter
+  get nickname() {
+    return _nickname.get(this) || undefined;
+  }
+  // setter
+  set nickname(new_name) {
+    if ( new_name === _nickname.get(this) ) {
+      console.info('이미 별명이 같습니다.');
+    } else if (new_name) {
+      _nickname.set(this, new_name);
+    }
+  }
+  fly() {}
+}
+
+let gold_duck = new Duck('황금 알을 낳는 오리');
+
+gold_duck.nickname; // undefined
+gold_duck.nickname = '황금 둥이';
+// gold_duck.nickname = '황금 둥이';
+
+// REST API Service
+// Ajax <-> json
+// HTTP Request Methods
+// GET, POST, PUT, DELETE
+// Front-End <-> json-server <json or js>
+// json-server : API
+// myjson.com, firebase
 
 
 ////////////////////////////
