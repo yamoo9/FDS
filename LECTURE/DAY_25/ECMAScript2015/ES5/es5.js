@@ -152,6 +152,20 @@ function getPerson() {
   };
 }
 
+// ES6
+
+// let getPerson = ()=> {
+//   let name='Hoon', job='Instructor';
+//   return {
+//     name, job,
+//     greeting(you){
+//       let message = `Hello, ${you}.`;
+//       message += `My Name is ${this.name} and My Job is ${this.job}.`;
+//       return message;
+//     }
+//   };
+// };
+
 // console.log( getPerson().name );
 // console.log( getPerson().greeting('Hey Min') );
 
@@ -185,15 +199,16 @@ var json_data = {
 // extends     //
 // super       //
 
+// 생성자 함수
 function User(name, email) {
   this.name = name;
   this.email = email;
 }
-
+// 스태틱 메서드
 User.register = function (name, email) {
   return new User(name, email);
 };
-
+// 프로토타입 메서드(인스턴스 메서드)
 User.prototype.changeEmail = function (new_mail) {
   this.email = new_mail;
 };
