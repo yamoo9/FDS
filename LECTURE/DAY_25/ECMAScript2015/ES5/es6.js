@@ -1,3 +1,19 @@
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _a;
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 /*! ECMAScript2015(ES6).js © yamoo9.net, 2017 */
 
 // - [Babel](http://babeljs.io/)
@@ -22,8 +38,6 @@
 // 강제적으로 변하지 않게(Force Immutability) 하고자 할 경우, Object.freeze()를 사용한다.
 
 
-
-
 /////////////////////////
 // String Additions    //
 /////////////////////////
@@ -39,8 +53,6 @@
 // < e.g) 2: Comment(-=-= . =-=-, =>=>=> . <=<=<=) >
 
 
-
-
 //////////////////////
 // Array Additions  //
 //////////////////////
@@ -53,8 +65,6 @@
 //////////////////////
 
 
-
-
 //////////////////////
 // Template Strings //
 //////////////////////
@@ -65,8 +75,6 @@
 // 보간법(Interpolation, ${}) 활용 가능 (Like Sass)
 // HTML 템플릿(Template) 작성에 탁월!
 // Vue JS 프레임워크에서 유용하게 활용하게 됨.
-
-
 
 
 ////////////////////
@@ -101,8 +109,6 @@
 // < e.g) defaultDiscount() >
 
 
-
-
 ///////////////////////////////
 // Rest or Spread Parameters //
 ///////////////////////////////
@@ -123,15 +129,16 @@
 // 배열 ➤ 개별 값 변경 처리
 // []  ➤ ...numbers
 
-let a1, a2, a3;
+var a1 = void 0,
+    a2 = void 0,
+    a3 = void 0;
 
 a1 = [3, 5, 8];
 a2 = [55, 88];
 // 기존 방식
 // a1.splice(2, 0, a2[0], a2[1]);
 // spread 방식으로 인자 전달하면 배열 데이터의 원소를 각각 풀어서 제공한다.
-a1.splice(2, 0, ...a2);
-
+(_a = a1).splice.apply(_a, [2, 0].concat(_toConsumableArray(a2)));
 
 /////////////////////////
 // Object Enhancements //
@@ -139,8 +146,8 @@ a1.splice(2, 0, ...a2);
 
 // < e.g) 1 >
 function getPerson() {
-  let name = 'Hoon';
-  let job  = 'Instructor';
+  var name = 'Hoon';
+  var job = 'Instructor';
   return {
     // name: name,
     // job: job,
@@ -148,8 +155,8 @@ function getPerson() {
     set name(new_name) {},
     get job() {},
     set job(new_job) {},
-    greeting: function(you) {
-      let message = 'Hello, ' + you + '.';
+    greeting: function greeting(you) {
+      var message = 'Hello, ' + you + '.';
       message += ' My Name is ' + this.name + ' and My Job is ' + this.job;
       return message;
     }
@@ -174,15 +181,16 @@ function getPerson() {
 // console.log( getPerson().greeting('Hey Min') );
 
 
-let age = 10, name = "열", job = "열열";
+var age = 10,
+    name = "열",
+    job = "열열";
 
-let json_data = {
-   name, age, job,
-   getName() {},
-   setAge() {},
-   jobChange() {}
+var json_data = {
+  name: name, age: age, job: job,
+  getName: function getName() {},
+  setAge: function setAge() {},
+  jobChange: function jobChange() {}
 };
-
 
 ///////////////////////////
 // Classes & Inheritance //
@@ -221,22 +229,39 @@ let json_data = {
 // };
 
 // ES6
-class User {
-  constructor(name, email, isAdmin) {
-    this.name    = name;
-    this.email   = email;
+
+var User = function () {
+  function User(name, email, isAdmin) {
+    _classCallCheck(this, User);
+
+    this.name = name;
+    this.email = email;
     this.isAdmin = isAdmin;
   }
-  static register(...params) {
-    return new User(...params);
-  }
-  changeEmail(new_mail) {
-    this.email = new_mail;
-  }
-}
+
+  _createClass(User, [{
+    key: 'changeEmail',
+    value: function changeEmail(new_mail) {
+      this.email = new_mail;
+    }
+  }], [{
+    key: 'register',
+    value: function register() {
+      for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
+        params[_key] = arguments[_key];
+      }
+
+      return new (Function.prototype.bind.apply(User, [null].concat(params)))();
+    }
+  }]);
+
+  return User;
+}();
 
 // user 관리 배열 데이터 생성
-let user_list = [];
+
+
+var user_list = [];
 // 배열에 멤버 추가
 user_list.push(User.register('a', 'a@acon.com', false));
 user_list.push(User.register('v', 'v@fds.net', true));
@@ -258,14 +283,17 @@ user_list.push(User.register('j', 'j@jjcamp.com', false));
 //   return user.email === 'dondong@a.mail';
 // });
 // ES6, Step 3
-user_list.find(user=>user.isAdmin); // return value
-user_list.findIndex(user=>user.isAdmin); // return index
+user_list.find(function (user) {
+  return user.isAdmin;
+}); // return value
+user_list.findIndex(function (user) {
+  return user.isAdmin;
+}); // return index
 
 // filter
-let user_not_admin = user_list.filter(user=>!user.isAdmin);
-
-
-
+var user_not_admin = user_list.filter(function (user) {
+  return !user.isAdmin;
+});
 
 // User
 // users = [ new User, new User, new User ]
@@ -276,15 +304,30 @@ let user_not_admin = user_list.filter(user=>!user.isAdmin);
 
 // 상속(Inheritance)
 
-class Animal {
-  constructor(legs = 4, wings = 0) {
+var Animal = function () {
+  function Animal() {
+    var legs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 4;
+    var wings = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+    _classCallCheck(this, Animal);
+
     this.legs = legs;
     this.wings = wings;
   }
-  eat() {}
-  sleep() {}
-  run() {}
-}
+
+  _createClass(Animal, [{
+    key: 'eat',
+    value: function eat() {}
+  }, {
+    key: 'sleep',
+    value: function sleep() {}
+  }, {
+    key: 'run',
+    value: function run() {}
+  }]);
+
+  return Animal;
+}();
 
 // class Duck extends Animal {
 //   constructor(type) {
@@ -301,33 +344,50 @@ class Animal {
 // 사용자설정 요소 v1: 재사용 가능한 웹 구성 요소 | https://goo.gl/DBLw9t
 // https://blog.risingstack.com/writing-a-javascript-framework-the-benefits-of-custom-elements/
 
-let _nickname = new WeakMap();
+var _nickname = new WeakMap();
 
 // < e.g) 4: getter, setter >
-class Duck extends Animal {
-  constructor(type, nickname) {
-    super(2, 2);
+
+var Duck = function (_Animal) {
+  _inherits(Duck, _Animal);
+
+  function Duck(type, nickname) {
+    _classCallCheck(this, Duck);
+
     // Public
-    this.type = type;
+    var _this = _possibleConstructorReturn(this, (Duck.__proto__ || Object.getPrototypeOf(Duck)).call(this, 2, 2));
+
+    _this.type = type;
     // WeakMap 사용하여 비공개 멤버 등록
-    _nickname.set(this, nickname);
+    _nickname.set(_this, nickname);
+    return _this;
   }
   // getter
-  get nickname() {
-    return _nickname.get(this) || undefined;
-  }
-  // setter
-  set nickname(new_name) {
-    if ( new_name === _nickname.get(this) ) {
-      console.info('이미 별명이 같습니다.');
-    } else if (new_name) {
-      _nickname.set(this, new_name);
-    }
-  }
-  fly() {}
-}
 
-let gold_duck = new Duck('황금 알을 낳는 오리');
+
+  _createClass(Duck, [{
+    key: 'fly',
+    value: function fly() {}
+  }, {
+    key: 'nickname',
+    get: function get() {
+      return _nickname.get(this) || undefined;
+    }
+    // setter
+    ,
+    set: function set(new_name) {
+      if (new_name === _nickname.get(this)) {
+        console.info('이미 별명이 같습니다.');
+      } else if (new_name) {
+        _nickname.set(this, new_name);
+      }
+    }
+  }]);
+
+  return Duck;
+}(Animal);
+
+var gold_duck = new Duck('황금 알을 낳는 오리');
 
 gold_duck.nickname; // undefined
 gold_duck.nickname = '황금 둥이';
@@ -361,14 +421,14 @@ gold_duck.nickname = '황금 둥이';
 // https://github.com/umdjs/umd
 // https://github.com/umdjs/umd/blob/master/templates/jqueryPlugin.js
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD
-    } else if (typeof module === 'object' && module.exports) {
-        // Node/CommonJS
-    } else {
-        // Browser globals
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+  } else if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === 'object' && module.exports) {
+    // Node/CommonJS
+  } else {
+      // Browser globals
     }
-}(function(){}));
+})(function () {});
 
 // ES2015
 // import {show, call, moment} from 'module'
@@ -381,21 +441,21 @@ gold_duck.nickname = '황금 둥이';
 // export default ClassName;
 
 
-
-
 ///////////////////
 // Destructuring //
 ///////////////////
 
 // < e.g) 1: 블록 스코프 내에서 디스트럭쳐링 활용 >
-let product = {
-  productName    : 'TV',
-  maker          : 'LG',
-  features       : [ 'Time Recoding', 'Sharing Screen', 'Speech Recognition' ],
-  productionYear : 2017
+var product = {
+  productName: 'TV',
+  maker: 'LG',
+  features: ['Time Recoding', 'Sharing Screen', 'Speech Recognition'],
+  productionYear: 2017
 };
 
-let { productName, maker, features } = product;
+var productName = product.productName,
+    maker = product.maker,
+    features = product.features;
 
 // {
 //   let name           = product.name;
@@ -405,16 +465,17 @@ let { productName, maker, features } = product;
 // }
 
 // < e.g) 2: 함수 매개변수에 디스트럭쳐링 활용 >
+
 function greet(person) {
-  let name    = person.name;
-  let message = person.message;
+  var name = person.name;
+  var message = person.message;
   return 'Hi! I\'m ' + name + '. Today is ' + message;
 }
 
 greet({
   name: 'Jin Ho',
   age: 22,
-  results: [ 'phone', 'notebook' ],
+  results: ['phone', 'notebook'],
   count: 31,
   message: 'Good Day! :-)'
 });
@@ -423,15 +484,11 @@ greet({
 // import { 속성1, 속성2 } from '모듈'
 
 
-
-
 //////////////////////////////////
 // Module Bundling with Webpack //
 //////////////////////////////////
 
 // webpack.md 참고
-
-
 
 
 /////////////
@@ -472,8 +529,6 @@ greet({
 // promise.catch(function(error) {});
 
 
-
-
 //////////
 // Sets //
 //////////
@@ -487,8 +542,6 @@ greet({
 // .values
 // .forEach
 // [...(new Set('css', 'javascript', 'vue'))].filter(item=>item.length===3);
-
-
 
 
 ////////////////

@@ -1,0 +1,16 @@
+.row
+  &::after
+    content: ''
+    display: block
+    clear: both
+
+$col-width: 60px
+$gutter-width: 20px
+
+@for $i from 1 through 12
+  .col-#{$i}
+    float: left
+    width: $i * $col-width + ($gutter-width * ($i - 1))
+    margin:
+      left: $gutter-width/2
+      right: $gutter-width/2
