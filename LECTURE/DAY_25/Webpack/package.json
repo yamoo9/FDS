@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "webpack": "node_modules/.bin/webpack",
+    "bundle": "npm run webpack -- app/Render.js dist/bundle.js",
+    "watch": "npm run bundle -- -wd"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "babel": {
+    "presets": ["env"]
+  }
+}

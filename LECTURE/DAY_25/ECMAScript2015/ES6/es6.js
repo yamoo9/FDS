@@ -305,12 +305,12 @@ let _nickname = new WeakMap();
 
 // < e.g) 4: getter, setter >
 class Duck extends Animal {
-  constructor(type) {
+  constructor(type, nickname) {
     super(2, 2);
     // Public
     this.type = type;
     // WeakMap 사용하여 비공개 멤버 등록
-    _nickname.set(this, null);
+    _nickname.set(this, nickname);
   }
   // getter
   get nickname() {
@@ -371,7 +371,7 @@ gold_duck.nickname = '황금 둥이';
 }(function(){}));
 
 // ES2015
-// include ~ from
+// import {show, call, moment} from 'module'
 // export
 // default
 
@@ -389,18 +389,20 @@ gold_duck.nickname = '황금 둥이';
 
 // < e.g) 1: 블록 스코프 내에서 디스트럭쳐링 활용 >
 let product = {
-  name           : 'TV',
+  productName    : 'TV',
   maker          : 'LG',
   features       : [ 'Time Recoding', 'Sharing Screen', 'Speech Recognition' ],
   productionYear : 2017
 };
 
-{
-  let name           = product.name;
-  let maker          = product.maker;
-  let features       = product.features;
-  let productionYear = product.productionYear;
-}
+let { productName, maker, features } = product;
+
+// {
+//   let name           = product.name;
+//   let maker          = product.maker;
+//   let features       = product.features;
+//   let productionYear = product.productionYear;
+// }
 
 // < e.g) 2: 함수 매개변수에 디스트럭쳐링 활용 >
 function greet(person) {

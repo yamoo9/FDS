@@ -351,7 +351,7 @@ var _nickname = new WeakMap();
 var Duck = function (_Animal) {
   _inherits(Duck, _Animal);
 
-  function Duck(type) {
+  function Duck(type, nickname) {
     _classCallCheck(this, Duck);
 
     // Public
@@ -359,7 +359,7 @@ var Duck = function (_Animal) {
 
     _this.type = type;
     // WeakMap 사용하여 비공개 멤버 등록
-    _nickname.set(_this, null);
+    _nickname.set(_this, nickname);
     return _this;
   }
   // getter
@@ -431,7 +431,7 @@ gold_duck.nickname = '황금 둥이';
 })(function () {});
 
 // ES2015
-// include ~ from
+// import {show, call, moment} from 'module'
 // export
 // default
 
@@ -447,20 +447,25 @@ gold_duck.nickname = '황금 둥이';
 
 // < e.g) 1: 블록 스코프 내에서 디스트럭쳐링 활용 >
 var product = {
-  name: 'TV',
+  productName: 'TV',
   maker: 'LG',
   features: ['Time Recoding', 'Sharing Screen', 'Speech Recognition'],
   productionYear: 2017
 };
 
-{
-  var _name = product.name;
-  var maker = product.maker;
-  var features = product.features;
-  var productionYear = product.productionYear;
-}
+var productName = product.productName,
+    maker = product.maker,
+    features = product.features;
+
+// {
+//   let name           = product.name;
+//   let maker          = product.maker;
+//   let features       = product.features;
+//   let productionYear = product.productionYear;
+// }
 
 // < e.g) 2: 함수 매개변수에 디스트럭쳐링 활용 >
+
 function greet(person) {
   var name = person.name;
   var message = person.message;
