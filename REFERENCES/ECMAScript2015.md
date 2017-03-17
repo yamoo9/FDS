@@ -561,19 +561,17 @@ function initializeCanvas(options) {
 파라미터에 destructuring을 사용하면 같은 기능을 구현할 수 있습니다.
 
 ```js
-function initializeCanvas(
-    { height=600, width=400, lineStroke='black'}) {
-        // 여기에서 height, width, lineStroke 변수를 사용합니다.
-    }
+function initializeCanvas({ height=600, width=400, lineStroke='black'}) {
+    // 여기에서 height, width, lineStroke 변수를 사용합니다.
+}
 ```
 
 만약 모든 파라미터를 선택적으로 넘기고 싶다면, 다음과 같이 빈 객체로 destructuring 하면 됩니다.
 
 ```js
-function initializeCanvas(
-    { height=600, width=400, lineStroke='black'} = {}) {
-        // ...
-    }
+function initializeCanvas({ height=600, width=400, lineStroke='black'} = {}) {
+    // ...
+}
 ```
 
 ### 전개 연산자(Spread Operator)
