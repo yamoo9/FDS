@@ -8,6 +8,37 @@
   <style>
     body {
       margin: 3rem;
+      font-family: "Spoqa Han Sans";
+      font-weight: 200;
+    }
+
+    hr {
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .demo {
+      width: 80vw;
+    }
+
+    .demo__input {
+      width: 93%;
+      border: 6px solid currentColor;
+      padding: 0.5em 0.76em;
+      color: #fe958f;
+    }
+
+    .demo__print-data {
+      border: 3px solid #fe958f;
+      border-radius: 5px;
+      padding: 1em;
+      background: #fee4e3;
+      color: #aa4b45;
+    }
+
+    .demo__print-area {
+      color: #fe958f;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -17,11 +48,15 @@
 <div class="demo">
   <input type="text" class="demo__input">
   <p class="demo__print">사용자가 입력한 값은 <span class="demo__print-area">...</span>입니다.</p>
+  <hr>
+  <pre class="demo__print-data"></pre>
 </div>
+
 
 <!-- JS Library & Framework -->
 <script src="https://unpkg.com/jquery"></script>
 <script src="https://unpkg.com/vue"></script>
+
 <!-- script -->
 <script data-type="data">
 var data = {
@@ -29,8 +64,8 @@ var data = {
 };
 </script>
 
-<script data-type="domscript">
-  var demo, demo_input, demo_print, demo_print_area;
+<script data-type="dom-script">
+  var demo, demo_input, demo_print, demo_print_area, demo_print_data;
   // 초기화: DOM 준비 완료 시 처리
   function init() {
     // 문서 대상 객체 참조
@@ -38,18 +73,12 @@ var data = {
     demo_input      = document.querySelector('.demo__input');
     demo_print      = document.querySelector('.demo__print');
     demo_print_area = document.querySelector('.demo__print-area');
+    demo_print_data = document.querySelector('.demo__print-data');
 
     // View 업데이트
-    updateView();
+    updateView(data.message, true);
     // 사용자 입력하는 이벤트 감지하여 처리하는 이벤트 바인딩
     bindEvents();
-  }
-
-  function updateView() {
-    // demo_input의 value 값으로 data.message를 설정
-    demo_input.value = data.message;
-    // demo_print_area의 textContent 값으로 data.message를 설정
-    demo_print_area.textContent = data.message;
   }
 
   function bindEvents() {
@@ -59,13 +88,34 @@ var data = {
     demo_input.addEventListener('keyup', updateInputField);
   }
 
-  function updateInputField(e) {
-    // console.log('keyup user input filed');
-    var user_input = e.target.value;
-    demo_print_area.textContent = user_input;
-    data.message = user_input;
-    // console.log('data.message:', data.message);
+  function updateView(value, init) {
+    // demo_input의 value 값으로 data.message를 설정
+    if(init) { demo_input.value = value; }
+    // demo_print_area의 textContent 값으로 data.message를 설정
+    demo_print_area.textContent = value;
+    window.setTimeout(function() {
+      printData(data);
+    }, 100);
   }
+
+  function updateData(value) {
+    data.message = value;
+  }
+
+  function printData(data) {
+    demo_print_data.innerHTML = prettify(JSON.stringify(data));
+  }
+
+  function updateInputField(e) {
+    var user_input = e.target.value;
+    updateView(user_input);
+    updateData(user_input);
+  }
+
+  function prettify(str) { // {key: value}
+    return str.replace(/{/g,'{\n&nbsp;&nbsp;').replace(/}/g,'\n}');
+  }
+
 
   // 준비되면 실행
   init();
