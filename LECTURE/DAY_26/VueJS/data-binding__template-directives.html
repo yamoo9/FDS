@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS 디렉티브 &amp; 템플릿</title>
+  <style>body {margin: 4rem;}</style>
+  <!-- Vue JS 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- root vue instnace -> mounted elementNode -->
+  <div id="app">
+    <p v-once>
+      안녕 {{ people[1].name }}.
+      네가 좋아하는 것이
+        {{ people[1].favorites[people[1].currentIndex] }},
+        {{ people[1].favorites[people[1].currentIndex + 1] }},
+        {{ people[1].favorites[people[1].currentIndex + 2] }}
+    </p>
+  </div>
+
+<script>
+  var people = [
+    {
+      name: 'yamoo9',
+      currentIndex: 0,
+      favorites: ['macbook pro retina', 'apartment', 'car']
+    },
+    {
+      name: 'doraemong',
+      currentIndex: 1,
+      favorites: ['magic bong', 'door', 'japan', 'hate abe']
+    }
+  ];
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      people: people
+    }
+  });
+</script>
+</body>
+</html>

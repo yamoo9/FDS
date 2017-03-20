@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS</title>
+  <style>body {margin: 4rem;}</style>
+  <!-- Vue JS 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- root vue instnace -> mounted elementNode -->
+  <div id="app">
+    <!-- <template v-if="is_show">
+      <p>This is Vue Directive. <code>v-if</code></p>
+    </template> -->
+    <p v-if="is_show === 'show'">This is Vue Directive. <code>v-if</code></p>
+    <p v-else-if="is_show === 'hidden'">This is Vue Directive. <code>v-else-if</code></p>
+    <p v-else>This is Vue Directive. <code>v-else</code></p>
+    <p v-show="is_show">This is Vue Directive. <code>v-show</code></p>
+  </div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    is_show: ''
+  }
+});
+</script>
+</body>
+</html>

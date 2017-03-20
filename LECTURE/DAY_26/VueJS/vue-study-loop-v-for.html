@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: 데이터 순환 처리하여 뷰 구현</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak] {display: none;}
+  </style>
+  <!-- Vue JS 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- root vue instnace -> mounted elementNode -->
+  <div id="app" v-cloak>
+    <h1>{{app_name}}</h1>
+    <ul class="vue-features">
+      <li
+        class="vue-features__item"
+        v-for="feature in vue_features">{{ feature }}</li>
+    </ul>
+    <hr>
+    <pre>{{ vue_features }}</pre>
+  </div>
+
+<script>
+var vue_features = [];
+vue_features.push('고속 렌더링');
+vue_features.push('반응형 시스템');
+vue_features.push('선언적 렌더링');
+vue_features.push('비교적 쉬운 학습 난이도');
+vue_features.push('단일 페이지 애플리케이션 구현 기능에 필요한 모든 기능 제공');
+// console.log('vue_features:', vue_features);
+
+var vm = new Vue({
+  el: '#app',
+  data: {
+    app_name: 'Vue Js Application Features',
+    vue_features: vue_features
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: v-text, v-html</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak] {display: none;}
+  </style>
+</head>
+<body>
+
+  <!-- root vue instnace -> mounted elementNode -->
+  <div id="app" v-cloak>
+    <p v-pre>Vue JS 인기 급상승 중!!!! {{comment}}</p>
+    <hr>
+    <p v-text="comment">Vue JS 인기 급상승 중!!!! </p>
+    <hr>
+    <div v-html="html_string"></div>
+    <hr>
+    <pre v-text="html_string"></pre>
+  </div>
+
+<!-- Vue JS 로드 -->
+<script src="https://unpkg.com/vue"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    comment: '프레임워크 계의 아이돌!',
+    html_string: `
+      <ul>
+        <li><a href="http://angularjs.org/">Angular</a></li>
+        <li><a href="https://facebook.github.io/react/">React</a></li>
+        <li><a href="http://vuejs.org/">Vue</a></li>
+      </ul>
+    `
+  }
+});
+</script>
+</body>
+</html>

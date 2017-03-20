@@ -46,16 +46,19 @@
 
 <!-- template -->
 <div class="demo">
-  <input type="text" class="demo__input">
-  <p class="demo__print">사용자가 입력한 값은 <span class="demo__print-area">...</span>입니다.</p>
+  <input type="text" class="demo__input" v-model="message">
+  <p class="demo__print">
+    사용자가 입력한 값은
+    <span class="demo__print-area">{{ message }}</span>입니다.
+  </p>
   <hr>
-  <pre class="demo__print-data"></pre>
+  <pre class="demo__print-data">{{ this.$data }}</pre>
 </div>
 
 
 <!-- JS Library & Framework -->
-<script src="https://unpkg.com/jquery"></script>
-<!-- <script src="https://unpkg.com/vue"></script> -->
+<!-- <script src="https://unpkg.com/jquery"></script> -->
+<script src="https://unpkg.com/vue"></script>
 
 <!-- script -->
 <script data-type="data">
@@ -131,7 +134,7 @@ var data = {
     'use strict';
 
     // DOM Script 유사
-
+    // jQuery는 DOM 접근/조작에 최적화된 JS 라이브러리
     function init() {
       // jQuery Code
       // var $demo = $('.demo');
@@ -146,13 +149,23 @@ var data = {
       });
     }
 
+    // $(document).ready(function(){});
+    // $(function(){});
     $(init);
 
-  })(window.jQuery);
+  }) // (window.jQuery);
 </script>
 
 <script data-type="vue">
+  (function(Vue){
+    'use strict';
 
+    window.app = new Vue({
+      el: '.demo',
+      data: data
+    });
+
+  })(window.Vue);
 </script>
 </body>
 </html>
