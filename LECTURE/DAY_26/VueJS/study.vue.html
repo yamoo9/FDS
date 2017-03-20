@@ -55,7 +55,7 @@
 
 <!-- JS Library & Framework -->
 <script src="https://unpkg.com/jquery"></script>
-<script src="https://unpkg.com/vue"></script>
+<!-- <script src="https://unpkg.com/vue"></script> -->
 
 <!-- script -->
 <script data-type="data">
@@ -65,64 +65,90 @@ var data = {
 </script>
 
 <script data-type="dom-script">
-  var demo, demo_input, demo_print, demo_print_area, demo_print_data;
-  // 초기화: DOM 준비 완료 시 처리
-  function init() {
-    // 문서 대상 객체 참조
-    demo            = document.querySelector('.demo');
-    demo_input      = document.querySelector('.demo__input');
-    demo_print      = document.querySelector('.demo__print');
-    demo_print_area = document.querySelector('.demo__print-area');
-    demo_print_data = document.querySelector('.demo__print-data');
-
-    // View 업데이트
-    updateView(data.message, true);
-    // 사용자 입력하는 이벤트 감지하여 처리하는 이벤트 바인딩
-    bindEvents();
-  }
-
-  function bindEvents() {
-    // 2000
-    // W3C : addEventListener, removeEventListener (IE 9+)
-    // MS  : attachEvent(), detachEvent()
-    demo_input.addEventListener('keyup', updateInputField);
-  }
-
-  function updateView(value, init) {
-    // demo_input의 value 값으로 data.message를 설정
-    if(init) { demo_input.value = value; }
-    // demo_print_area의 textContent 값으로 data.message를 설정
-    demo_print_area.textContent = value;
-    window.setTimeout(function() {
-      printData(data);
-    }, 100);
-  }
-
-  function updateData(value) {
-    data.message = value;
-  }
-
-  function printData(data) {
-    demo_print_data.innerHTML = prettify(JSON.stringify(data));
-  }
-
-  function updateInputField(e) {
-    var user_input = e.target.value;
-    updateView(user_input);
-    updateData(user_input);
-  }
-
   function prettify(str) { // {key: value}
     return str.replace(/{/g,'{\n&nbsp;&nbsp;').replace(/}/g,'\n}');
   }
+  ;(function(){
+    'use strict';
+    var demo, demo_input, demo_print, demo_print_area, demo_print_data;
+    // 초기화: DOM 준비 완료 시 처리
+    function init() {
+      // 문서 대상 객체 참조
+      demo            = document.querySelector('.demo');
+      demo_input      = document.querySelector('.demo__input');
+      demo_print      = document.querySelector('.demo__print');
+      demo_print_area = document.querySelector('.demo__print-area');
+      demo_print_data = document.querySelector('.demo__print-data');
 
+      // View 업데이트
+      updateView(data.message, true);
+      // 사용자 입력하는 이벤트 감지하여 처리하는 이벤트 바인딩
+      bindEvents();
+    }
 
-  // 준비되면 실행
-  init();
+    function bindEvents() {
+      // 2000
+      // W3C : addEventListener, removeEventListener (IE 9+)
+      // MS  : attachEvent(), detachEvent()
+      demo_input.addEventListener('keyup', updateInputField);
+    }
+
+    function updateView(value, init) {
+      // demo_input의 value 값으로 data.message를 설정
+      if(init) { demo_input.value = value; }
+      // demo_print_area의 textContent 값으로 data.message를 설정
+      demo_print_area.textContent = value;
+      window.setTimeout(function() {
+        printData(data);
+      }, 100);
+    }
+
+    function updateData(value) {
+      data.message = value;
+    }
+
+    function printData(data) {
+      demo_print_data.innerHTML = prettify(JSON.stringify(data));
+    }
+
+    function updateInputField(e) {
+      var user_input = e.target.value;
+      updateView(user_input);
+      updateData(user_input);
+    }
+
+    function prettify(str) { // {key: value}
+      return str.replace(/{/g,'{\n&nbsp;&nbsp;').replace(/}/g,'\n}');
+    }
+
+    // 준비되면 실행
+    init();
+  }) // ();
 </script>
 
 <script data-type="jquery">
+  ;(function($){
+    'use strict';
 
+    // DOM Script 유사
+
+    function init() {
+      // jQuery Code
+      // var $demo = $('.demo');
+      $('.demo input').val( data.message );
+      $('.demo span').text( data.message );
+      $('.demo pre').html( prettify(window.JSON.stringify(data)) );
+
+      $('.demo input').on('keyup', function(e) {
+        $('.demo span').text( $(this).val() );
+        data.message = $(this).val(); // data update
+        $('.demo pre').html( prettify(window.JSON.stringify(data)) );
+      });
+    }
+
+    $(init);
+
+  })(window.jQuery);
 </script>
 
 <script data-type="vue">
