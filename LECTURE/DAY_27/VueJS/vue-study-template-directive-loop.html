@@ -16,8 +16,8 @@
     <!-- input field -->
     <div class="form-area">
       <label for="add-todo__item">Register Todo Item:</label>
-      <input v-model="new_item" v-on:keyup.ctrl.space="addTodoItem" id="add-todo__item" type="text">
-      <button type="button" v-on:click="addTodoItem">Add</button>
+      <input v-model="new_item" @keyup.enter="addTodoItem" id="add-todo__item" type="text">
+      <button type="button" @click="addTodoItem">Add</button>
     </div>
     <hr>
     <!-- list view -->
@@ -35,6 +35,14 @@
 <script>
 (function(global, Vue){
   'use strict';
+
+  ///////////////
+  // Vue 환경 설정
+  ///////////////
+  Vue.config.keyCodes = {
+    g: 71,
+    command: 91
+  };
 
   ////////////////
   // Vue 데이터 객체
