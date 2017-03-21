@@ -13,6 +13,7 @@
 <body>
 
   <div id="app">
+
     <!-- input field -->
     <div class="form-area">
       <label for="add-todo__item">Register Todo Item:</label>
@@ -20,7 +21,10 @@
       <button type="button">Add</button>
     </div>
 
+    <hr>
+
     <!-- list view -->
+    <h3>Todo List</h3>
     <ul class="todo-list" v-cloak>
       <li v-for="task of todos">
         <label>
@@ -29,6 +33,7 @@
         </label>
       </li>
     </ul>
+
   </div>
 
 <script>
@@ -36,10 +41,15 @@
   'use strict';
 
   var data = {
-    todos: [{
-      done: false,
-      desc: 'Learn Vue JS Instance'
-    }]
+    todos: [
+      {
+        done: false,
+        desc: 'Learn Vue JS Instance'
+      }, {
+        done: false,
+        desc: 'Learn jQuery Plugin Develop'
+      }
+    ]
   };
 
   var options = {
@@ -52,6 +62,32 @@
   global.vm = new Vue(options);
 
 })(window, window.Vue);
+
+(function(global){
+  'use strict';
+
+  // global.vm <=== Vue Instance
+  // vm.$data.todos.push({done:false, desc:사용자 입력 값});
+
+  var form_area   = global.document.querySelector('.form-area');
+  var form_input  = form_area.querySelector('input');
+  var form_button = form_area.querySelector('button');
+
+  form_input.addEventListener('keyup', function(e) {
+    if ( e.keyCode === 13 ) {
+      var input = e.target.value.trim();
+      if (!input) { console.error('todo를 입력해주세요.'); return; }
+      vm.$data.todos.push({done:false, desc:input});
+    }
+  });
+
+  form_button.addEventListener('click', function() {
+    var input = form_input.value.trim();
+    if (!input) { console.error('todo를 입력해주세요.'); return; }
+    vm.$data.todos.push({done:false, desc:input});
+  });
+
+})(window);
 </script>
 </body>
 </html>
