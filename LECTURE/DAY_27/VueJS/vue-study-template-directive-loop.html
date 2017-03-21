@@ -16,7 +16,7 @@
     <!-- input field -->
     <div class="form-area">
       <label for="add-todo__item">Register Todo Item:</label>
-      <input v-model="new_item" id="add-todo__item" type="text">
+      <input v-model="new_item" v-on:keyup.ctrl.space="addTodoItem" id="add-todo__item" type="text">
       <button type="button" v-on:click="addTodoItem">Add</button>
     </div>
     <hr>
