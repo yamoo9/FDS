@@ -13,16 +13,13 @@
 <body>
 
   <div id="app">
-
     <!-- input field -->
     <div class="form-area">
       <label for="add-todo__item">Register Todo Item:</label>
       <input v-model="new_item" @keyup.enter="addTodoItem" id="add-todo__item" type="text">
       <button type="button" @click="addTodoItem">Add</button>
     </div>
-
     <hr>
-
     <!-- list view -->
     <h3>Todo List</h3>
     <ul class="todo-list" v-cloak>
@@ -33,7 +30,6 @@
         </label>
       </li>
     </ul>
-
   </div>
 
 <script>
@@ -70,7 +66,6 @@
   var options = {
     // mount될 요소 선택자 설전
     el: '#app',
-    // 데이터 바인딩
     data: data,
     // 인스턴스 메서드
     methods: {
@@ -84,7 +79,6 @@
 
   // Vue 인스턴스 생성 및 전역에 공개
   global.vm = new Vue(options);
-
 })(window, window.Vue);
 
 ;(function(global){
