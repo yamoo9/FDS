@@ -56,14 +56,63 @@
     // mount될 요소 선택자 설전
     el: '#app',
     // 데이터 바인딩
-    data: data
+    data: data,
+    // 이벤트 훅(Event Hook) <- 라이프 사이클
+    // mounted
+    mounted: function() {
+      console.log('mounted');
+      var form_area   = global.document.querySelector('.form-area');
+      var form_input  = form_area.querySelector('input');
+      var form_button = form_area.querySelector('button');
+
+      function addTodoItem(e) {
+        var input;
+        if ( (e.type === 'keyup' && e.keyCode === 13) || e.type === 'click' ) {
+          input = this.value.trim();
+        } // 함수 종료
+          else { return; }
+        if (!input) { console.error('todo를 입력해주세요.'); return; }
+        vm.$data.todos.push({done:false, desc:input});
+      }
+
+      form_input.addEventListener('keyup', addTodoItem);
+      form_button.addEventListener('click', addTodoItem.bind(form_input));
+    },
+    // beforeCreate
+    beforeCreate: function() {
+      console.log('beforeCreate');
+    },
+    // beforeMount
+    beforeMount: function() {
+      console.log('beforeMount');
+    },
+    // created
+    created: function() {
+      console.log('created');
+    },
+    // beforeUpdate
+    beforeUpdate: function() {
+      console.log('beforeUpdate');
+    },
+    // updated
+    updated: function() {
+      console.log('updated');
+    },
+    // beforeDestroy
+    beforeDestroy: function() {
+      console.log('beforeDestroy');
+    },
+    // Destroyed
+    destroyed: function() {
+      console.log('destroyed');
+    },
   };
 
   global.vm = new Vue(options);
 
 })(window, window.Vue);
 
-(function(global){
+;(function(global){
   'use strict';
 
   // global.vm <=== Vue Instance
@@ -86,7 +135,7 @@
   form_input.addEventListener('keyup', addTodoItem);
   form_button.addEventListener('click', addTodoItem.bind(form_input));
 
-})(window);
+}) // (window);
 </script>
 </body>
 </html>
