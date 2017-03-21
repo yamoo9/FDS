@@ -19,21 +19,31 @@
   <div id="app" v-cloak>
     <h1>{{app_name}}</h1>
     <ul class="reset-list vue-features">
-      <template v-for="(feature, index) of vue_features">
+      <!-- 배열 데이터 순환 처리: feature(객체) -->
+      <li v-for="(feature, index) of vue_features">
+        <!-- 객체 데이터 순환 처리: value, key, index 객체의 속성 -->
+        <div v-for="(value, key, index) of feature">
+          ({{ index }}) {{ key }}: {{ value }}
+        </div>
+        <!-- 필요한 경우, 조건 처리를 통해 순환되는 인덱스에 따라
+             결과를 처리할 수 있다. -->
+        <hr v-if="index !== vue_features.length - 1">
+      </li>
+      <!-- <template v-for="(feature, index) of vue_features">
         <li class="vue-features__item">
           {{ feature.context }}
         </li>
         <li class="vue-features__item zebra">
           {{ feature.desc }}
         </li>
-      </template>
+      </template> -->
       <!-- <li
         class="vue-features__item"
         v-for="feature in vue_features">
         {{ vue_features.indexOf(feature) + 1 }}. {{ feature }}
       </li> -->
     </ul>
-    <hr>
+    <!-- <hr> -->
     <pre>{{ vue_features }}</pre>
   </div>
 
