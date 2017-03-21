@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: </title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <!-- input field -->
+    <div class="form-area">
+      <label for="add-todo__item">Register Todo Item:</label>
+      <input id="add-todo__item" type="text">
+      <button type="button">Add</button>
+    </div>
+
+    <!-- list view -->
+    <ul class="todo-list" v-cloak>
+      <li v-for="task of todos">
+        <label>
+          <input type="checkbox" v-model="task.done">
+          {{ task.desc }}
+        </label>
+      </li>
+    </ul>
+  </div>
+
+<script>
+(function(global, Vue){
+  'use strict';
+
+  var data = {
+    todos: [{
+      done: false,
+      desc: 'Learn Vue JS Instance'
+    }]
+  };
+
+  var options = {
+    // mount될 요소 선택자 설전
+    el: '#app',
+    // 데이터 바인딩
+    data: data
+  };
+
+  global.vm = new Vue(options);
+
+})(window, window.Vue);
+</script>
+</body>
+</html>
