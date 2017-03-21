@@ -40,6 +40,9 @@
 (function(global, Vue){
   'use strict';
 
+  ////////////////
+  // Vue 데이터 객체
+  ////////////////
   var data = {
     new_item: '',
     todos: [
@@ -53,6 +56,9 @@
     ]
   };
 
+  ///////////////
+  // Vue 옵션 객체
+  ///////////////
   var options = {
     // mount될 요소 선택자 설전
     el: '#app',
@@ -68,6 +74,7 @@
     }
   };
 
+  // Vue 인스턴스 생성 및 전역에 공개
   global.vm = new Vue(options);
 
 })(window, window.Vue);
