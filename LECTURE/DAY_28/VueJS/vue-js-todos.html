@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS - Todos</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+    .todolist {
+      width: 240px;
+    }
+    .is-completed { position: relative; color: #474cc5; }
+    .is-completed::before {
+      content: '';
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #474cc5;
+    }
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <section class="todolist">
+      <h1>Todo List</h1>
+      <ul>
+        <li v-for="todo in todos" :class="{ 'is-completed': todo.completed }">
+          <label>
+            <input type="checkbox" v-model="todo.completed"> {{todo.task}}
+          </label>
+        </li>
+      </ul>
+    </section>
+    <section class="completed-todolist">
+      <h1>Completed Todo List</h1>
+    </section>
+  </div>
+
+<script>
+var todosData = [
+  {
+    completed: false,
+    task: 'Vue JS 컴포넌트 학습'
+  },
+  {
+    completed: false,
+    task: 'Vue JS 컴포넌트 사이 통신'
+  },
+  {
+    completed: false,
+    task: 'Vue JS - 인스턴스 공부'
+  },
+];
+var todos = new Vue({
+  el: '#app',
+  data: {
+    todos: todosData
+  }
+});
+</script>
+</body>
+</html>
