@@ -16,8 +16,10 @@
       <div
         v-if="!is_started"
         class="scene__before-start">
-        <img class="game__logo" src="images/Logo/sfv-logo.png" alt="Street Fighter" width="292" height="222">
-        <a href class="game__start-message"><!-- START MESSAGE --></a>
+        <img class="game__logo" :src="settings.logo.src" :alt="settings.logo.alt">
+        <a
+          @click.prevent="gameStart"
+          href class="game__start-message">{{ settings.message }}</a>
       </div>
 
       <!-- GAME STARTED -->

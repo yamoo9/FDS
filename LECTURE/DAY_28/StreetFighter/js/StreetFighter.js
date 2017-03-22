@@ -40,6 +40,10 @@
   var model = {
     stageClass: null,
     is_started: false,
+    settings: {
+      logo: { src: 'images/Logo/sfv-logo.png', alt: 'Street Fighter' },
+      message: 'Ready Fight!!!'
+    }
   };
 
   // 뷰 인스턴스 생성
@@ -60,6 +64,9 @@
     methods: {
       choiceStage: function(v) {
         this.stageClass = 'stage-' + choiceStage(v);
+      },
+      gameStart: function() {
+        this.is_started = true;
       }
     }
   });
