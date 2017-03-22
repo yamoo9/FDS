@@ -7,7 +7,7 @@
   <style>
     body {margin: 4rem;}
     [v-cloak]{display: none;}
-    .todolist {
+    #app {
       width: 240px;
     }
     .is-completed { position: relative; color: #474cc5; }
@@ -28,7 +28,7 @@
     <section class="todolist">
       <h1>Todo List</h1>
       <ul>
-        <li v-for="todo in todos" :class="{ 'is-completed': todo.completed }">
+        <li v-for="todo in todos" v-show="!todo.completed">
           <label>
             <input type="checkbox" v-model="todo.completed"> {{todo.task}}
           </label>
@@ -37,6 +37,15 @@
     </section>
     <section class="completed-todolist">
       <h1>Completed Todo List</h1>
+      <ul>
+        <li
+          v-for="todo of completedTodos"
+          :class="{ 'is-completed': todo.completed }">
+          <label>
+            <input type="checkbox" v-model="todo.completed"> {{todo.task}}
+          </label>
+        </li>
+      </ul>
     </section>
   </div>
 
@@ -59,6 +68,13 @@ var todos = new Vue({
   el: '#app',
   data: {
     todos: todosData
+  },
+  computed: {
+    completedTodos: function() {
+      return this.todos.filter(function(todo) {
+        return todo.completed;
+      });
+    }
   }
 });
 </script>
