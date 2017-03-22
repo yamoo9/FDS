@@ -23,6 +23,7 @@
 
   var stages  = ['ryu', 'factory', 'palace', 'air'];
   var players = ['Bison', 'Chun-li', 'Ken', 'Ryu'];
+  // var buttons = ['attack', 'special attack', 'heal', 'give up'];
 
   function choiceStage(v) {
     // 전달 인자가 있으면 해당 번호의 스테이지 이름을 반환
@@ -68,8 +69,10 @@
         style: {
           animation: 'infinite-scale 1.5s infinite alternate 0.6s'
         }
-      },
-    ]
+      }
+    ],
+    // 게임 버튼
+    buttons: ['attack', 'special attack', 'heal', 'give up']
   };
 
   // 뷰 인스턴스 생성
