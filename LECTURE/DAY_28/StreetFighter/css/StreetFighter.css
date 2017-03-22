@@ -1,23 +1,22 @@
 /*! StreetFighter.css © yamoo9.net, 2017 */
 
-[v-cloak] { display: none; }
+[v-cloak] {display: none;}
 
 body {
   margin: 0;
+  font-weight: 300;
   font-size: 1.25rem;
 }
 
-/* STREETFIGHTER ------------------------------------------------------------------------------------------- */
 #StreetFighter {
   background: center no-repeat;
   background-size: cover;
 }
-#StreetFighter.stage-ryu     { background-image: url("../images/Stage/stage__ryu.jpg");                          }
-#StreetFighter.stage-factory { background-image: url("../images/Stage/stage_seven___grand_factory.jpg");         }
-#StreetFighter.stage-palace  { background-image: url("../images/Stage/stage_eight___maharajah_s_palace.jpg");    }
-#StreetFighter.stage-air     { background-image: url("../images/Stage/stage_four___certain_air_force_base.jpg"); }
+#StreetFighter.stage-ryu {background-image: url("../images/Stage/stage__ryu.jpg");}
+#StreetFighter.stage-factory {background-image: url("../images/Stage/stage_seven___grand_factory.jpg");}
+#StreetFighter.stage-palace {background-image: url("../images/Stage/stage_eight___maharajah_s_palace.jpg");}
+#StreetFighter.stage-air {background-image: url("../images/Stage/stage_four___certain_air_force_base.jpg");}
 
-/* SCENE ---------------------------------------------------------------------------------------------------- */
 .scene {
   display: flex;
   min-height: 100vh;
@@ -29,14 +28,14 @@ body {
   backdrop-filter: blur(10px);
 }
 
-/* SCENE: BEFORE START -------------------------------------------------------------------------------------- */
 .scene__before-start {
   display: flex;
   align-items: center;
   flex-flow: column;
 }
 
-/* SCENE: START --------------------------------------------------------------------------------------------- */
+.game__logo {}
+
 .game__start-message {
   font-family: 'Kalam', cursive;
   font-weight: 700;
@@ -49,7 +48,6 @@ a.game__start-message {
   text-decoration: none;
 }
 
-/* SCENE: STARTED ------------------------------------------------------------------------------------------- */
 .scene__started {
   display: flex;
   align-items: center;
@@ -57,51 +55,6 @@ a.game__start-message {
   min-height: inherit;
 }
 
-/* SCENE: FINISHED ------------------------------------------------------------------------------------------ */
-.scene__finished {
-  user-select: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: hsla(0, 0%, 0%, 0.6);
-  color: #fff;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-}
-.scene__finished-message {
-  font-size: 5rem;
-  font-weight: 900;
-  text-shadow: 0 2px 16px #333;
-}
-.scene__finished-buttons * {
-  text-align: center;
-}
-.scene__finished-buttons button {
-  cursor: pointer;
-  flex: 0 0 20%;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 1.2em;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  background: #fff;
-  color: #333;
-  transition: all .3s ease;
-}
-.scene__finished-buttons button:hover,
-.scene__finished-buttons button:focus {
-  color: #fff;
-  background: #000;
-}
-
-/* GAME CHARACTER ------------------------------------------------------------------------------------------- */
 .game__character {
   display: flex;
   flex: 0 0 45%;
@@ -110,7 +63,7 @@ a.game__start-message {
   justify-content: flex-start;
   align-items: center;
 }
-/* HP */
+
 .game__character-hp {
   position: relative;
   width: 50%;
@@ -120,6 +73,7 @@ a.game__start-message {
   backdrop-filter: blur(4px);
   border-radius: 4px;
 }
+
 .game__character-hp--state {
   position: absolute;
   top: 0;
@@ -136,15 +90,22 @@ a.game__start-message {
   color: #fff;
   transition: all 0.4s ease-out 0.1s;
 }
+
 .game__character img {
   margin-top: 22vh;
   width: 40%;
   height: auto;
 }
 
+.game__vs {
+  width: 10%;
+  height: auto;
+  animation: blink 0.6s 2;
+}
+
 @keyframes infinite-scale {
-  from { transform: scale(1); }
-  to { transform: scale(0.97); }
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(0.97) translateY(-20px); }
 }
 
 @keyframes blink {
@@ -156,14 +117,6 @@ a.game__start-message {
   100% { opacity: 0; }
 }
 
-/* VS ----------------------------------------------------------------------------------------------------- */
-.game__vs {
-  width: 10%;
-  height: auto;
-  animation: blink 0.6s 2;
-}
-
-/* GAME CONTROLLER ---------------------------------------------------------------------------------------- */
 .game__controller {
   display: flex;
   justify-content: space-around;
@@ -179,6 +132,7 @@ a.game__start-message {
   backdrop-filter: saturate(0.7) blur(2px);
   transform: scale(0.8);
 }
+
 .game__controller-button {
   cursor: pointer;
   flex: 0 0 20%;
@@ -211,4 +165,50 @@ a.game__start-message {
 }
 .game__controller-button:hover.give-up {
   background: #848988;
+}
+
+.scene__finished {
+  user-select: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: hsla(0, 0%, 0%, 0.6);
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene__finished-message {
+  font-size: 5rem;
+  font-weight: 900;
+  text-shadow: 0 2px 16px #333;
+}
+
+.scene__finished-buttons * {
+  text-align: center;
+}
+
+.scene__finished-buttons button {
+  cursor: pointer;
+  flex: 0 0 20%;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  background: #fff;
+  color: #333;
+  transition: all .3s ease;
+}
+.scene__finished-buttons button:hover,
+.scene__finished-buttons button:focus {
+  color: #fff;
+  background: #000;
 }

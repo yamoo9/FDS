@@ -59,7 +59,7 @@
         name: choicePlayer(),
         HP: 100,
         style: {
-          animation: 'infinite-scale 2s infinite alternate'
+          animation: 'infinite-scale 2.4s infinite alternate'
         }
       },
       {
