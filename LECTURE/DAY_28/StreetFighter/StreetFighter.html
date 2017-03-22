@@ -44,20 +44,21 @@
           <button
             v-for="button in buttons"
             :class="['game__controller-button', button.replace(' ', '-')]"
+            @click="detactAction(button)"
             type="button">{{ button }}</button>
         </div>
       </div>
 
       <!-- FINISH GAME -->
       <!-- FINISH MESSAGE -->
-      <!-- <div class="scene__finished">
-        <h2 class="scene__finished-message"></h2>
+      <div v-if="is_finished" class="scene__finished">
+        <h2 class="scene__finished-message">{{ winner }} Win!</h2>
         <div class="scene__finished-buttons">
           <h3>Try Again Game?</h3>
-          <button type="button">Yes</button>
-          <button type="button">No</button>
+          <button type="button" @click="reGameStart">Yes</button>
+          <button type="button" @click="giveUp">No</button>
         </div>
-      </div> -->
+      </div>
 
     </div>
   </div>
