@@ -27,13 +27,22 @@
     <tasks></tasks>
     <today-message>Sad</today-message>
 
-  </hiv
+  </div>
 
   <div>
     <!-- <today-message></today-message> -->
   </div>
 
 <script>
+
+let vm = new Vue({
+  el: '#app',
+  // 해당 인스턴스에 국한(지역적)하여 컴포넌트 등록
+  components: {
+    'today-message': todayMessage
+  }
+});
+
 var todayMessage = {
   template: '<p>hi, there. Today is <slot/> Day.</p>'
 };
@@ -62,13 +71,6 @@ Vue.component('tasks', {
   }
 });
 
-let vm = new Vue({
-  el: '#app',
-  // 해당 인스턴스에 국한(지역적)하여 컴포넌트 등록
-  components: {
-    'today-message': todayMessage
-  }
-});
 </script>
 </body>
 </html>
