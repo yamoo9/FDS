@@ -16,7 +16,7 @@
       <div
         v-if="!is_started"
         class="scene__before-start">
-        <img class="game__logo" :src="settings.logo.src" :alt="settings.logo.alt">
+        <img ref="gameLogo" class="game__logo" :src="settings.logo.src" :alt="settings.logo.alt">
         <a @click.prevent="gameStart" href class="game__start-message">{{ settings.message }}</a>
       </div>
 

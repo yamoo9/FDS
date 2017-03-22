@@ -95,6 +95,8 @@
     // 마운트 된 시점에 스테이지 배경 설정
     mounted: function() {
       this.choiceStage();
+      this.$el.setAttribute('data-message', 'winner');
+      console.log(this.$refs.gameLogo);
     },
     // 인스턴스 메서드
     methods: {

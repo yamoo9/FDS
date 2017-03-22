@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: 컴포넌트(Component)</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <!-- <p>hi, there. today is Good Day.</p> -->
+
+    <tasks></tasks>
+    <today-message>Good</today-message>
+
+    <tasks></tasks>
+    <today-message>Wow</today-message>
+
+    <tasks></tasks>
+    <today-message>Bad</today-message>
+
+    <tasks></tasks>
+    <today-message>Sad</today-message>
+
+  </hiv
+
+  <div>
+    <!-- <today-message></today-message> -->
+  </div>
+
+<script>
+var todayMessage = {
+  template: '<p>hi, there. Today is <slot/> Day.</p>'
+};
+
+// 전역에 컴포넌트 today-message 등록
+// Vue.component('today-message', todayMessage);
+
+Vue.component('task', {
+  template: '<li class="task"><slot></slot></li>'
+});
+
+Vue.component('tasks', {
+  template: `
+    <ul class="tasks">
+      <task v-for="task in task_list">{{task.desc}}</task>
+    </ul>
+  `,
+  data: function() {
+    return {
+      task_list: [
+        {desc: 'task one'},
+        {desc: 'task two'},
+        {desc: 'task six'},
+      ]
+    }
+  }
+});
+
+let vm = new Vue({
+  el: '#app',
+  // 해당 인스턴스에 국한(지역적)하여 컴포넌트 등록
+  components: {
+    'today-message': todayMessage
+  }
+});
+</script>
+</body>
+</html>
