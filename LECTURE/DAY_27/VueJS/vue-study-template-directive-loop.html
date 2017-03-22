@@ -16,12 +16,20 @@
     <!-- input field -->
     <div class="form-area">
       <label for="add-todo__item">Register Todo Item:</label>
+<<<<<<< HEAD
       <input v-model="new_item" @keyup.enter="addTodoItem" id="add-todo__item" type="text">
       <button type="button" @click="addTodoItem">Add</button>
     </div>
     <hr>
     <!-- list view -->
     <h3>Todo List</h3>
+=======
+      <input id="add-todo__item" type="text">
+      <button type="button">Add</button>
+    </div>
+
+    <!-- list view -->
+>>>>>>> f37faf9549437f8c1a5f79e97ea2733c57d1ab9e
     <ul class="todo-list" v-cloak>
       <li v-for="task of todos">
         <label>
@@ -36,6 +44,7 @@
 (function(global, Vue){
   'use strict';
 
+<<<<<<< HEAD
   ///////////////
   // Vue 환경 설정
   ///////////////
@@ -105,6 +114,25 @@
   form_button.addEventListener('click', addTodoItem.bind(form_input));
 
 }) // (window);
+=======
+  var data = {
+    todos: [{
+      done: false,
+      desc: 'Learn Vue JS Instance'
+    }]
+  };
+
+  var options = {
+    // mount될 요소 선택자 설전
+    el: '#app',
+    // 데이터 바인딩
+    data: data
+  };
+
+  global.vm = new Vue(options);
+
+})(window, window.Vue);
+>>>>>>> f37faf9549437f8c1a5f79e97ea2733c57d1ab9e
 </script>
 </body>
 </html>
