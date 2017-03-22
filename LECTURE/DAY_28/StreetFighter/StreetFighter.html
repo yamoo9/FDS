@@ -17,21 +17,22 @@
         v-if="!is_started"
         class="scene__before-start">
         <img class="game__logo" :src="settings.logo.src" :alt="settings.logo.alt">
-        <a
-          @click.prevent="gameStart"
-          href class="game__start-message">{{ settings.message }}</a>
+        <a @click.prevent="gameStart" href class="game__start-message">{{ settings.message }}</a>
       </div>
 
       <!-- GAME STARTED -->
       <!-- CHARACTER HP -->
       <div v-else class="scene__started">
-        <template>
+        <template v-for="player of players">
           <div class="game__character">
             <div class="game__character-hp">
-              <div class="game__character-hp--state">  </div>
+              <div class="game__character-hp--state"> {{ player.HP }} </div>
             </div>
             <!-- CHARACTER IMAGE -->
-            <img src="" alt="">
+            <img
+              :src="player.src"
+              :alt="player.name"
+              :style="player.style">
           </div>
           <img class="game__vs" src="images/vs.png" alt="VS">
         </template>

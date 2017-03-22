@@ -21,7 +21,8 @@
 (function(global, Vue, bgm){
   'use strict';
 
-  var stages = ['ryu', 'factory', 'palace', 'air'];
+  var stages  = ['ryu', 'factory', 'palace', 'air'];
+  var players = ['Bison', 'Chun-li', 'Ken', 'Ryu'];
 
   function choiceStage(v) {
     // 전달 인자가 있으면 해당 번호의 스테이지 이름을 반환
@@ -38,12 +39,34 @@
   // 스테이지
   // ryu, factory, palace, air
   var model = {
+    // 스테이지 클래스
     stageClass: null,
+    // 상태
     is_started: false,
+    // 스타트 뷰 데이터
     settings: {
       logo: { src: 'images/Logo/sfv-logo.png', alt: 'Street Fighter' },
       message: 'Ready Fight!!!'
-    }
+    },
+    // 게임 플레이어 데이터
+    players: [
+      {
+        name: players[2],
+        HP: 100,
+        src: './images/Chracter/'+ players[2] +'.png',
+        style: {
+          animation: 'infinite-scale 2s infinite alternate'
+        }
+      },
+      {
+        name: players[3],
+        HP: 100,
+        src: './images/Chracter/'+ players[3] +'.png',
+        style: {
+          animation: 'infinite-scale 1.5s infinite alternate 0.6s'
+        }
+      },
+    ]
   };
 
   // 뷰 인스턴스 생성
