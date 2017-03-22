@@ -1,0 +1,23 @@
+// Sass Variable
+$base-font-size: 10px;
+$bg-color: #fff;
+$fg-color: #000;
+
+html {
+	font-size: $base-font-size;
+}
+
+body {
+	font-size: $base-font-size * 1.4;
+	color: $bg-color;
+	background: $fg-color;
+}
+
+body *,
+body *::before,
+body *::after {
+	content: '';
+	box-sizing: border-box;
+}
+
+

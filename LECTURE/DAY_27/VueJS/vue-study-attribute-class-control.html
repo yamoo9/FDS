@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: 속성, class 속성, style 속성 제어</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+    .links_list li {
+      padding-top: 0.3em;
+    }
+    .external-link {
+      position: relative;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 0.1em;
+      text-decoration: none;
+      font-size: 16px;
+      background: #eee;
+      color: #474cc5;
+    }
+    .external-link::after {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      content: '⇾';
+      font-size: 10px;
+      transform: rotate(-45deg);
+    }
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ links_list_name }}</h2>
+    <ul class="links_list">
+      <li v-for="link in links">
+        <!-- Vue 속성 바인딩 디렉티브 -->
+        <a
+           :class="['always', {
+              'external-link': link.external,
+              'a': true,
+              'b': false,
+              'c': true
+            }]"
+           :href="encodingURI(link.href)"
+           :target="isExternal(link.external)"
+           :title="link.external ? '새 탭 열림' : ''">
+          {{ readableLink(link.href) }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+<script>
+var app = new Vue({
+  data: {
+    links_list_name: 'Favorite Website Links',
+    links: [
+      {
+        href: 'http://google.com/',
+        external: true
+      },
+      {
+        href: 'https://developer.mozilla.org/ko/',
+        external: false
+      },{
+        href: 'https://kr.vuejs.org/v2/guide/syntax.html#v-on-약어',
+        external: true
+      }
+    ]
+  },
+  methods: {
+    isExternal: function(is_ex) {
+      return is_ex ? '_blank' : null;
+    },
+    readableLink: function(link) {
+      return link.replace(/(^https?:\/\/|\/$)/g, '');
+    },
+    encodingURI: function(link) {
+      return window.encodeURI(link);
+    }
+  }
+}).$mount('#app');
+</script>
+</body>
+</html>

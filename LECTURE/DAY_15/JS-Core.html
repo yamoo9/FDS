@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Core Syntax</title>
+  <link rel="stylesheet"
+        href="css/ui.css">
+  <script defer
+          src="js/core.js"></script>
+</head>
+<body>
+
+<div class="ui-spinner"
+     role="group">
+  <button type="button"
+          class="ui-spinner__button--dec"
+          aria-label="Decrease Count">-
+  </button>
+  <input type="text"
+         class="ui-spinner__input">
+  <button type="button"
+          class="ui-spinner__button--inc"
+          aria-label="Increase Count">+
+  </button>
+</div>
+
+<script>
+  // One Click Event
+  // 이벤트 속성의 초기 값은 null 이다.
+  document.onclick; // null
+  // 이벤트 연결(Binding)
+  // 이벤트에 연결 가능한 데이터 유형은 오직 함수!
+  document.onclick = function () {
+    this.body.style.backgroundColor = '#926eda';
+    // 이벤트 제거란?
+    // 이벤트 초기 값으로 돌려 놓는 것을 말한다.
+    this.onclick = null;
+  };
+</script>
+</body>
+</html>

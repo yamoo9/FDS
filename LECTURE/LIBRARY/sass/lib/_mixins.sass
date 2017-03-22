@@ -1,0 +1,100 @@
+//
+ * ------------------------------------------------
+ * 웹폰트 믹스인
+ * ------------------------------------------------
+=font($font-path, $font-name, $font-options: normal normal)
+  @font-face
+    font-family: $font-name
+    font-weight: nth($font-options, 1)
+    font-style: nth($font-options, 2)
+    src: url('#{$font-path}.eot')
+    src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-path}.woff') format('woff')
+
+//
+ * ------------------------------------------------
+ * 레이아웃 믹스인
+ * ------------------------------------------------
+=size($width, $height: $width)
+  width: $width
+  height: $height
+
+//
+ * ------------------------------------------------
+ * BEM Mixins
+ * ------------------------------------------------
+
+// b(), bl(), block()
+=block($block)
+  .#{$block}
+    @content
+
+// e(), el(), elem(), element()
+=element($element)
+  &__#{$element}
+    @content
+
+// m(), mod(), modifier()
+=modifier($modifier)
+  &--#{$modifier}
+    @content
+
+
+//
+ * --------------------------------
+ * Flexbox Alignment
+ * --------------------------------
+=flex-align($justify-content, $align-items: $justify-content)
+  display: flex
+  justify-content: $justify-content
+  align-items: $align-items
+
+%flex-center
+  +flex-align(center)
+
+
+//
+ * --------------------------------
+ * Grid Mixins
+ * --------------------------------
+ * display: grid | inline-grid | subgrid
+ * grid-template-rows
+ * grid-template-columns
+ * grid-template-areas
+ * grid-template
+ * grid-row-gap
+ * grid-column-gap
+ * grid-gap
+ * justify-items
+ * align-items
+ * justify-content
+ * align-content
+ *
+ * grid-column-start
+ * grid-column-end
+ * grid-row-start
+ * grid-row-end
+ * grid-column
+ * grid-row
+ * grid-area
+ * justify-self
+ * align-self
+ *
+ * --------------------------------
+=grid()
+  display: grid
+
+=grid-cols($cols)
+  grid-template-columns: $cols
+
+=grid-rows($rows)
+  grid-template-rows: $rows
+
+// =grid-gap($gap)
+//   grid-gap: $gap
+
+=grid-areas($areas)
+  grid-template-areas: $areas
+
+// =grid-area($area)
+//   grid-area: $area

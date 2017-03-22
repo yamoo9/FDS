@@ -1,0 +1,3 @@
+@function em($unit, $base: 16) {
+	@return (de-unit($unit) / de-unit($base)) * 1em;
+}

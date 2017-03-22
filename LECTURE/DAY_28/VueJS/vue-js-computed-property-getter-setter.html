@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <!-- data.number 반응형 속성 -->
+    <code>{{ number * otherNumber }}</code>
+    <!-- 계산된 속성 -->
+    <p>number 값이 변경되면 자동으로 계산되어
+    계산된 속성 값 aDouble이 <span v-text="aDouble"></span>로 변경됩니다.</p>
+    <button type="button" @click="otherNumber = otherNumber + 2">otherNumber + 2</button>
+  </div>
+
+<script>
+// Create Vue Instance
+var vm = new Vue({
+  // #1. 즉시 마운트
+  el: '#app',
+  // Vue 인스턴스가 참조하는 데이터 객체
+  // (computed, methods, watch가 참조하는 반응형 속성)
+  data: {
+    number: 1,
+    otherNumber: 2
+  },
+  // 계산된 속성(사용 시, 함수 처럼 쓰는 것이 아니다!)
+  computed: {
+    // getter function
+    aDouble: function() {
+      return this.number * this.number;
+    },
+    // setter function
+    aDivide: {
+      // getter
+      get: function() {
+        return this.number / 2;
+      },
+      // setter
+      set: function(v) {
+        this.number = this.number / v;
+      }
+    }
+  }
+});
+
+// #2
+// vm에 참조된 Vue 객체에 마운트 시키는 시점을 조정할 수 있는 방법
+// vm.$mount('#app');
+</script>
+</body>
+</html>

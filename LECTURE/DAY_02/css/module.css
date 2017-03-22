@@ -1,0 +1,38 @@
+abbr[title] {
+  cursor: help;
+}
+
+a {
+  text-decoration: none;
+  color: #3fb5c8;
+}
+
+a:hover {
+  padding-bottom: 0.03em;
+  border-bottom: 1px dashed currentColor;
+}
+
+a:focus {
+  outline: none;
+  color: #24717d;
+}
+
+a img {
+  border: 0;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cf::before, .cf::after {
+  content: '';
+  display: table;
+}
+
+.cf::after {
+  clear: both;
+}
+
+/*# sourceMappingURL=../map/module.css.map */

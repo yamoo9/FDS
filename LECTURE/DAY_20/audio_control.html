@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>JavaScript 오디오 컨트롤</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/audio_control.css">
+  <script src="../LIBRARY/js/dom.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="columns">
+      <div class="audio-controls column is-4 is-offset-4">
+        <img class="audio-cover" src="media/cover/001.EdSheeran-ShapeOfYou.jpg" alt="Shape Of You" width="125" height="125">
+        <div class="audio-seekbar">
+          <div class="audio-seekbar-progress"></div>
+        </div>
+        <div class="button-set">
+          <button type="button" class="audio-control__play button is-primary">play</button>
+          <button type="button" class="audio-control__pause button">pause</button>
+          <button type="button" class="audio-control__stop button is-danger">stop</button>
+        </div>
+        <div class="audio-time">
+          <span class="audio-time-current">00:00</span>
+          <span class="audio-time-divider">|</span>
+          <span class="audio-time-total">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <audio
+    controls
+    src="media/source/001.EdSheeran-ShapeOfYou.mp3">
+      <a href="media/source/001.EdSheeran-ShapeOfYou.mp3">Ed Sheeran - Shape Of You</a>
+  </audio> -->
+
+<script src="../LIBRARY/js/HTMLAudioElement.extension.js"></script>
+<script src="js/audio_control.js"></script>
+</body>
+</html>

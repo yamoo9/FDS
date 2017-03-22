@@ -1,0 +1,17 @@
+{
+  "name": "make-documentation",
+  "version": "0.0.1",
+  "description": "JSDOC, SassDoc 문서화",
+  "private": true,
+  "scripts": {
+    "start":"npm run helperJS | npm run yamoo9",
+    "helperJS": "./node_modules/.bin/jsdoc -t ./node_modules/minami ./js/helper.js -d ./DOC/js/helperJS/",
+    "yamoo9": "./node_modules/.bin/sassdoc -t neat ./sass/yamoo9 -d ./DOC/sass/yamoo9/"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.4.3",
+    "minami": "^1.1.1",
+    "sassdoc": "^2.2.0",
+    "sassdoc-theme-neat": "0.0.2"
+  }
+}

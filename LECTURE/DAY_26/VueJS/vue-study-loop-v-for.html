@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: 데이터 순환 처리하여 뷰 구현</title>
+  <style>
+    body {margin: 4rem;}
+    .reset-list { margin: 0; padding-left: 0; list-style: none;}
+    [v-cloak] {display: none;}
+    .zebra {background: #eee;}
+  </style>
+  <!-- Vue JS 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- root vue instnace -> mounted elementNode -->
+  <div id="app" v-cloak>
+    <h1>{{app_name}}</h1>
+    <ul class="reset-list vue-features">
+      <!-- 배열 데이터 순환 처리: feature(객체) -->
+      <li v-for="(feature, index) of vue_features">
+        <!-- 객체 데이터 순환 처리: value, key, index 객체의 속성 -->
+        <div v-for="(value, key, index) of feature">
+          ({{ index }}) {{ key }}: {{ value }}
+        </div>
+        <!-- 필요한 경우, 조건 처리를 통해 순환되는 인덱스에 따라
+             결과를 처리할 수 있다. -->
+        <hr v-if="index !== vue_features.length - 1">
+      </li>
+      <!-- <template v-for="(feature, index) of vue_features">
+        <li class="vue-features__item">
+          {{ feature.context }}
+        </li>
+        <li class="vue-features__item zebra">
+          {{ feature.desc }}
+        </li>
+      </template> -->
+      <!-- <li
+        class="vue-features__item"
+        v-for="feature in vue_features">
+        {{ vue_features.indexOf(feature) + 1 }}. {{ feature }}
+      </li> -->
+    </ul>
+    <!-- <hr> -->
+    <pre>{{ vue_features }}</pre>
+  </div>
+
+<script>
+var vue_features = [];
+vue_features.push({context:'High Speed', desc:'고속 렌더링'});
+vue_features.push({context:'Reactivity', desc:'반응형 시스템'});
+vue_features.push({context:'Rendering', desc:'선언적 렌더링'});
+vue_features.push({context:'Easy', desc:'비교적 쉬운 학습 난이도'});
+vue_features.push({context:'SPA', desc:'단일 페이지 애플리케이션 구현 기능에 필요한 모든 기능 제공'});
+// console.log('vue_features:', vue_features);
+
+var vm = new Vue({
+  el: '#app',
+  data: {
+    app_name: 'Vue Js Application Features',
+    vue_features: vue_features
+  }
+});
+</script>
+</body>
+</html>

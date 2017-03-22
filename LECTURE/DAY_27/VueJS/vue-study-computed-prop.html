@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: 계산된 속성(getter, setter)</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+    .computed {color: #474cc5;}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <!-- <p v-if="is_methods_visible" class="fullname methods">{{ combineFullName() }}</p> -->
+    <!-- <p v-else class="fullname computed">{{ combineFullNameComputed }}</p> -->
+    <p class="fullname computed">{{ combineFullNameComputed }}</p>
+    <p>
+      <label for="full">fullName:</label>
+      <input v-model="combineFullNameComputed" type="text" id="full">
+      <hr>
+      <label for="first">firstName:</label>
+      <input v-model="first" type="text" id="first">
+      <label for="last">lasatName:</label>
+      <input v-model="last" type="text" id="last">
+    </p>
+    <!-- <p>{{ message }}</p>
+    <p class="reverse-message methods">{{ reverseMessage() }}</p>
+    <p class="reverse-message computed">{{ reverseMessageComputed }}</p> -->
+  </div>
+
+<script>
+var app = new Vue({
+  'el': '#app',
+  'data': {
+    'is_methods_visible': true,
+    'fullname': 'Jee Hoon',
+    'first': 'Jee',
+    'last': 'Hoon',
+    'message': '오늘 하루도 수고했어 행복하자 아프지말고'
+  },
+  'methods': {
+    'combineFullName': function() {
+      console.log('methods');
+      return this.first + ' ' + this.last;
+    },
+    'reverseMessage': function() {
+      return this.message.split('').reverse().join('');
+    }
+  },
+  'computed': {
+    'combineFullNameComputed': {
+      get: function() {
+        return this.first + ' ' + this.last;
+      },
+      set: function(new_value) {
+        new_value = new_value.split(' ');
+        this.first = new_value[0];
+        this.last = new_value[new_value.length - 1];
+      },
+    },
+    // getter function
+    'reverseMessageComputed': function() {
+      return this.message.split('').reverse().join('');
+    }
+  }
+});
+</script>
+</body>
+</html>

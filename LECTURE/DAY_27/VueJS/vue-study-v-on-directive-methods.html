@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS: v-on 디렉티브(이벤트 리스너) &amp; 메서드(이벤트 핸들러)</title>
+  <style>
+    body {margin: 4rem;}
+    [v-cloak]{display: none;}
+    .count {font-weight: 900; color: #474cc5;}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <a href="" v-on:click.prevent.once="increaseCount(3)">add count {{count}}</a>
+    <button type="button" v-on:click="resetCount">count reset</button>
+    <button type="button" v-on:click="decreaseCount(6)">remove count {{count}}</button>
+    <p>curernt count is <span class="count" v-text="count"></span></p>
+  </div>
+
+<script>
+// Vue 인스턴스 생성 및 변수에 참조
+var app = new Vue({
+  // 마운트 되는 문서 객체 요소
+  el: '#app',
+  // Vue 인스턴스에 등록된 데이터
+  data: {
+    count: 0
+  },
+  // Vue 인스턴스에 등록된 메서드
+  methods: {
+    increaseCount: function(n, e) {
+      // e.preventDefault();
+      // e.target.textContent += ' ' + this.count;
+      this.count += n;
+    },
+    resetCount: function() { this.count = 0; },
+    decreaseCount: function(n) { this.count -= n; },
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "sass-basic-study",
+  "version": "0.0.1",
+  "description": "Sass 공부합시댜",
+  "scripts": {
+    "start": "npm run dev | npm run sass",
+    "dev": "lite-server",
+    "sass": "node-sass -w -r sass -o css --output-style expanded --source-map-embed",
+    "sass-build": "node-sass -r sass -o css --output-style compressed"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}

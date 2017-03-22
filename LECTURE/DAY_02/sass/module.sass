@@ -1,0 +1,37 @@
+//
+ * --------------------------------
+ * Sass Comment
+ * --------------------------------
+
+abbr[title]
+  cursor: help
+
+a
+  text-decoration: none
+  color: #3fb5c8
+  &:hover
+    padding-bottom: 0.03em
+    border-bottom: 1px dashed currentColor
+  &:focus
+    outline: none
+    // Sass 컬러 함수
+    color: darken(#3fb5c8, 20%)
+  // &:active
+  img
+    border: 0
+    // vertical-align: top
+
+// container module
+.container
+  margin:
+    left: auto
+    right: auto
+
+// Micro Clearfix
+.cf
+  &::before,
+  &::after
+    content: ''
+    display: table
+  &::after
+    clear: both

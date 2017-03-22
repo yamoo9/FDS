@@ -1,0 +1,47 @@
+// UI ─ Button
+// 모양, 색, 글자 크기, 정렬, 버튼 크기
+// 사각형 버튼
+// 둥근 테두리형 버튼
+// 마름모꼴 버튼
+
+// Core
+.button
+  @extend .button-big
+  border: none
+  padding: 0.63em 1.2em
+  text-align: center
+  text-transform: uppercase
+  letter-spacing: -0.021em
+  font-size: 14px
+
+  // Default
+  &.button-default
+    @extend .button-big
+    border: 1px solid #cecece
+    color: #323232
+    background: #fff
+
+  // Extension
+  &:not(.button-default)
+    color: #fff
+  &.button-primary
+    @extend .button-big
+    background: #4b96d0
+  &.button-success
+    @extend .button-big
+    background: #67c067
+  &.button-info
+    @extend .button-big
+    background: #66c7e2
+  &.button-warn
+    @extend .button-big
+    background: #f2b658
+  &.button-danger
+    @extend .button-big
+    background: #de5e59
+  &.button-round
+    @extend .button-big
+    border-radius: 4px
+
+.button-big
+  font-size: 22px

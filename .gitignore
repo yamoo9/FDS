@@ -1,9 +1,24 @@
 ###사용자 정의###
-__*
-reference.md
+.idea
+.idea/codeStyleSettings.xml
+.idea/vcs.xml
+AudioController.mp4
+
+node_modules/
+StreetFighter-finish/
+StreetFighter-finish.*
+
+_/
+__BACKUP__
+__PDF__
+__REFERENCES__
+__RESOURCES__
+__UnUpdated_Resources__
+
+### PSD ###
+21 Cover.psd
 
 ###OSX###
-
 .DS_Store
 .AppleDouble
 .LSOverride

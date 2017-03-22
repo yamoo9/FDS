@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta charset="UTF-8">
+    <title>Client Side JavaScript</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur fuga doloribus odit mollitia voluptates ad quod, ea tempore reprehenderit quisquam, officia ipsam sint rerum! Enim sit iste aut nihil! Aspernatur! <button type="button">Chage Paragraph Color</button></p>
+
+    <!-- <p id="paras">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. До моей алфавит своих скатился взобравшись взгляд всеми он предупреждал.</p> -->
+
+    <script>
+    // console X
+    // JavaScript Code
+    // 변수 선언
+    var element_node;
+
+    // 선언된 변수에 값을 할당(대입) 받는다.
+    // 문서에서 <p> 요소노드를 찾아(선택) 변수에 담는다.
+    // DOM API에서는 문서 객체를 찾을 수 있는 방법(사용법)을 제공한다.
+    para = window.document.getElementById('para');
+    // 웹 브라우저에서 변수에 메모리(기억)된 문서 객체를 올바르게 참조했는가 확인하고자 한다.
+    console.log( 'para:', para );
+    // 노드의 유형을 숫자로 반환하여 처리된 결과를 콘솔에 출력한다.
+    console.log( 'para.nodeType:', para.nodeType );
+    // 요소노드인지를 검증하여 결과를 true 또는 false로 반환하여 콘솔에 출력한다.
+    console.log( 'para는 요소노드인가?:', para.nodeType == document.ELEMENT_NODE );
+
+    var paras = document.getElementById('paras');
+    console.log('paras:', paras);
+
+    // 요소 이름으로 대상들 가져오기
+    // getElementById()  VS getElementsByTagName()
+    // 단수(요소 하나)      VS 복수(요소들을 모은 집합 ※ 모은 집합의 원소가 하나일지라도 집합으로 가져온다.)
+    var paragraphs = document.getElementsByTagName('p');
+    console.log('paragraphs:', paragraphs);
+
+    // 문서에서 컨트롤하고자 하는 요소들을 수집한다.
+    var target_p, btn_control;
+    // console.log('target_p:', target_p);
+    target_p = document.getElementById('para');
+    console.log('target_p:', target_p);
+    btn_control = document.getElementsByTagName('button');
+    console.log('btn_control:', btn_control);
+    // console.log('btn_control:', btn_control);
+    // 버튼 요소, 단락 요소
+    // 버튼요소를 클릭하면,
+    console.log('btn_control 집합의 첫번째 원소(item):', btn_control.item(0));
+    btn_control.item(0).onclick = function() {
+      console.log('clicked button');
+      // 단락의 글자 색상이 변경되어야 한다.
+      target_p.style.color = '#fe4940';
+    };
+    </script>
+
+</body>
+</html>

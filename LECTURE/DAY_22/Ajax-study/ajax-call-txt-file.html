@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Ajax 비동기 통신 스터디</title>
+  <script>
+    // var btn = document.querySelector('button');
+    // console.log(btn); // null
+  </script>
+</head>
+<body>
+
+  <button
+    type="button"
+    class="call-ajax-data"
+    onclick="sendRequest()">Call Data</button>
+
+  <p class="print-callback-data"></p>
+
+  <script>
+    (function(global){
+      'use strict';
+
+      // 생성자 함수로부터 비동기 통신 객체 생성
+      var xhr = new XMLHttpRequest();
+
+      // 화면에 프린트하는 요소 참조
+      var print_callback_data = document.querySelector('.print-callback-data');
+
+      // XHR 객체를 통해 open() 메서드를 사용하여 서버에 통신할 준비
+      // 1. HTTP 메서드(GET, POST, PUT, DELETE)를 설정
+      // 2. 통신할 파일의 경로를 설정
+      // 3. 비동기(async: true), 동기(sync: false, deprecated) 통신 설정
+      // xhr.open('GET', './data/db.txt', true);
+
+      // 동기 통신 설정
+      // xhr.open('GET', './data/db.txt', false);
+      // 비동기 통신 설정
+      xhr.open('GET', './data/db.txt');
+
+      // 서버에 요청
+      // 명시적으로 아무것도 보내지 않음.
+      // xhr.send( null );
+
+      // 동기 방식(기다림....)
+      // 데이터가 도착하면 성공했는지? 실패했는지? 파악하여 처리
+      // 조건 분기
+      // 비동기 처리에서는 데이터를 받았을 때 코드를 실행해야 한다.
+      // 비동기로 데이터를 받았다는 수신을 이벤트로 받아서 처리해야 한다.
+      xhr.onreadystatechange = function() {
+        if ( this.status === 200 ) {
+          if ( this.readyState === 4 ) {
+            console.log('통신 성공!! :-)');
+            print_callback_data.innerText = xhr.responseText;
+          } else {
+            console.log('데이터 로드 중....');
+            print_callback_data.innerText = '데이터 로드 중....';
+          }
+        } else {
+          console.error('데이터 로드에 실패했습니다.');
+        }
+      };
+
+      // sendRequest 함수
+      global.sendRequest = function () {
+        // console.log('call data');
+        xhr.send( null );
+        // if ( xhr.status === 200 ) {
+        //   console.log('통신 성공!! :-)');
+        //   // print_callback_data.innerText = xhr.responseText;
+        //   console.log('xhr.response:', xhr.response);
+        //   console.log('xhr.responseText:', xhr.responseText);
+        //   console.log('xhr.responseXML:', xhr.responseXML);
+        //   console.log('xhr.responseType:', xhr.responseType);
+        // } else {
+        //   console.log('통신 실패!! :-(');
+        // }
+      };
+
+      // 외부 접근이 가능하게 공개
+      global.xhr = xhr;
+
+    })(window);
+  </script>
+</body>
+</html>

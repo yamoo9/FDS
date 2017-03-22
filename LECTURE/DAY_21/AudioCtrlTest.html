@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>AudioCtrl 테스트</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="js/AudioCtrl.js"></script>
+  <script>
+    // READY
+    jQuery(document).ready(function($) {
+      // console.log('$(\'p\').css():', $('p').css('font-size')); // GET
+
+      // SET
+      // $('p').css('font-size', 40);
+
+      // 버튼 컨트롤
+      $('button').on('click', function() {
+        // 절대값 적용
+        // $('p').css('font-size', 40);
+        // $('p').css('font-size', '40px');
+        // 상대값 적용
+        $('p').css('font-size', '+=10px');
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <button type="button">글자 +</button>
+
+  <p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 사명으로 흐르는 그대 피어나는 실수조차도 거추장스런 쿵쿵대는 너야말로 청춘의 쉬지 해도 않고! 꽃처럼 티셔츠 쿵쿵대는, 심장 너 아름답다 피어나는! 흐르는 티셔츠 그대 만들 다 들리는 고동소리 해도.</p>
+
+</body>
+</html>
