@@ -23,18 +23,20 @@
       <!-- GAME STARTED -->
       <!-- CHARACTER HP -->
       <div v-else class="scene__started">
-        <template v-for="player of players">
+        <template v-for="(player, index) of players">
           <div class="game__character">
             <div class="game__character-hp">
-              <div class="game__character-hp--state"> {{ player.HP }} </div>
+              <div
+                :style="{width: player.HP+'%'}"
+                class="game__character-hp--state"> {{ player.HP }} </div>
             </div>
             <!-- CHARACTER IMAGE -->
             <img
-              :src="player.src"
+              :src="playerSrc(player.name)"
               :alt="player.name"
               :style="player.style">
           </div>
-          <img class="game__vs" src="images/vs.png" alt="VS">
+          <img v-if="index === 0" class="game__vs" src="images/vs.png" alt="VS">
         </template>
         <div class="game__controller">
           <!-- LOOP BUTTONS -->

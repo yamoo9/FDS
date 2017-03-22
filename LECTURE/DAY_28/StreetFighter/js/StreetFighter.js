@@ -31,6 +31,11 @@
     else { return stages[randomNumber(stages.length)] }
   }
 
+  function choicePlayer(v) {
+    if ( v && players[v] ) { return players[v]; }
+    else { return players[randomNumber(players.length)]; }
+  }
+
   function randomNumber(max) {
     return Math.floor( Math.random() * max );
   }
@@ -51,17 +56,15 @@
     // 게임 플레이어 데이터
     players: [
       {
-        name: players[2],
+        name: choicePlayer(),
         HP: 100,
-        src: './images/Chracter/'+ players[2] +'.png',
         style: {
           animation: 'infinite-scale 2s infinite alternate'
         }
       },
       {
-        name: players[3],
+        name: choicePlayer(),
         HP: 100,
-        src: './images/Chracter/'+ players[3] +'.png',
         style: {
           animation: 'infinite-scale 1.5s infinite alternate 0.6s'
         }
@@ -90,6 +93,9 @@
       },
       gameStart: function() {
         this.is_started = true;
+      },
+      playerSrc: function(name) {
+        return './images/Chracter/'+ name +'.png'
       }
     }
   });
