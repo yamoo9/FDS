@@ -3,23 +3,20 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
-  <title>Vue JS</title>
+  <title>Vue JS - Dispatcher</title>
   <link rel="stylesheet" href="css/bulma.min.css">
   <link rel="stylesheet" href="css/vue-demo.css">
 </head>
 <body>
 
   <div id="app" v-cloak>
-
+    <app-listener></app-listener>
+    <app-fire></app-fire>
   </div>
 
 <!-- CDN: Vue -->
 <script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
 <!-- Vue Control File -->
-<script>
-  var vm = new Vue({
-    el: '#app',
-  });
-</script>
+<script src="js/vue-event-dispatcher.js"></script>
 </body>
 </html>

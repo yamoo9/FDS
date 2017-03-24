@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/vue-demo.css">
+</head>
+<body>
+
+  <div id="app" v-cloak>
+    <app-message>
+      <h2 slot="header">slot header 2</h2>
+      <p> 동네 한 바퀴 </p>
+      <a href="http://fastcampus.co.kr" slot="footer">패캠</a>
+    </app-message>
+  </div>
+
+<!-- CDN: Vue -->
+<script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
+<!-- Vue Control File -->
+<script>
+  var vm = new Vue({
+    el: '#app',
+    components: {
+      'app-message': {
+        template: `
+          <div class="app-message">
+            <header class="app-message__header">
+              <slot name="header">
+                <h3 class="app-message__headline">우리 모두 다같이!</h3>
+              </slot>
+            </header>
+            <div class="app-message__body">
+              <slot><p>방가워요!</p></slot>
+            </div>
+            <footer class="app-message__footer">
+              <slot name="footer">
+                <a href="http://fds.com">FDS</a>
+              </slot>
+            </footer>
+          </div>
+        `
+      }
+    }
+  });
+</script>
+</body>
+</html>

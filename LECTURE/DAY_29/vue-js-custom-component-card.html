@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS - 사용자 등록 카드 컴포넌트</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/vue-demo.css">
+</head>
+<body>
+
+  <div id="app" v-cloak>
+
+    <app-card></app-card>
+
+    <hr>
+
+    <app-card></app-card>
+
+    <hr>
+
+    <app-card></app-card>
+
+  </div>
+
+<!-- CDN: Vue -->
+<script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
+<!-- Vue Control File -->
+<script>
+  var Card = {
+    template: `
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Component
+          </p>
+          <a class="card-header-icon">
+            <span class="icon">
+              <i class="fa fa-angle-down"></i>
+            </span>
+          </a>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+            <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
+            <br>
+            <small>11:09 PM - 1 Jan 2016</small>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item">Save</a>
+          <a class="card-footer-item">Edit</a>
+          <a class="card-footer-item">Delete</a>
+        </footer>
+      </div>
+    `
+  };
+
+  var vm = new Vue({
+    el: '#app',
+    components: {
+      'app-card': Card
+    }
+  });
+</script>
+</body>
+</html>
