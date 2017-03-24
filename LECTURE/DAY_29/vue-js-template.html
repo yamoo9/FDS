@@ -9,11 +9,19 @@
 </head>
 <body>
 
-  <div id="app">
+  <div id="app" v-cloak>
 
+    <app-header></app-header>
+
+    <!-- <div is="app-header"></div> -->
+    <!-- <app-custom-el></app-custom-el> -->
   </div>
 
+
+
+<!-- CDN: Vue -->
 <script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
+<!-- Vue Control File -->
 <script src="js/vue-demo.js"></script>
 </body>
 </html>

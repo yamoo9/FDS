@@ -1,2 +1,15 @@
+/*! vue-demo.css © yamoo9.net, 2017 */
+
 body {margin: 4rem;}
 [v-cloak]{display: none;}
+
+.app-header {
+  padding: 1.45rem;
+  background: #ffd219;
+}
+
+.app-brand {
+  padding: 0.4rem;
+  background: #000;
+  color: #fff;
+}
