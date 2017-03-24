@@ -10,7 +10,6 @@
     el: '#app',
     components: {
       appHeader: {
-        name: 'app-header',
         props: ['content'],
         template: `
           <header class="app-header">

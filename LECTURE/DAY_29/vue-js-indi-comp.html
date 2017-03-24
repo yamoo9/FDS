@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/vue-demo.css">
+</head>
+<body>
+
+  <div id="app" v-cloak>
+
+    <div v-for="n of 3">
+      <h2>{{n}}번째 컴포넌트</h2>
+      <simple-counter
+        v-on:listen="healing"
+        v-bind:number="n"></simple-counter>
+      <hr v-if="n !== 3">
+    </div>
+
+  </div>
+
+  <!-- 부모 -->
+  <div id="counter-event-example">
+    <p>자식으로부터 전달 받은 메시지 횟수: {{ total }}</p>
+    <!-- 자식 사용 -->
+    <button-counter name="c1" v-on:callme1="updateTotal1"></button-counter>
+    <button-counter name="c2" v-on:callme2="updateTotal2"></button-counter>
+  </div>
+
+
+<!-- CDN: Vue -->
+<script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
+<!-- Vue Control File -->
+<script src="js/vue-indi-comp.js"></script>
+</body>
+</html>
