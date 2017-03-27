@@ -17,7 +17,7 @@
 
 querySelector(), querySelectorAll() 메서드로 수집된 집합은 다른 선택 API 메서드와 달리 라이브 상태가 아니다. 일종의 수집 상태를 기억하는 스냅샷이다. 즉, 문서의 변경된 내용이 반영되지 않는다. 반면 getElementsByTagName(), getElementsByClassName()으로 수집된 집합은 라이브 상태이다.
 
--
+---
 
 ### Node 속성
 
@@ -31,7 +31,7 @@ querySelector(), querySelectorAll() 메서드로 수집된 집합은 다른 선�
 - nodeName
 - nodeValue
 
--
+---
 
 ### Node 메서드
 
@@ -45,14 +45,14 @@ querySelector(), querySelectorAll() 메서드로 수집된 집합은 다른 선�
 - [isEqualNode()](https://developer.mozilla.org/en-US/docs/Web/API/Node/isEqualNode) (IE 9+)
 - [compareDocumentPosition()](https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition) (IE 9+)
 
--
+---
 
 ### Document 메서드
 
 - createElement()
 - createTextNode()
 
--
+---
 
 ### HTML*Element 속성
 
@@ -74,7 +74,7 @@ querySelector(), querySelectorAll() 메서드로 수집된 집합은 다른 선�
   - toggle()
 - dataset (JavaScript 객체로 `data-*` 속성에 사용된 `-`은 모두 camelCase로 처리하여 사용)
 
--
+---
 
 ### HTML*Element 메서드
 
@@ -107,7 +107,7 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
 - 기본적으로 노드는 문서에 구조화된 트리(Tree) 순서에 따라 정렬된다. 요컨데 순서대로 수집된다.
 - `length` 속성을 사용하여 집합 내 노드의 개수를 알 수 있다.
 
--
+---
 
 ### HTML*Element 스타일
 
@@ -119,7 +119,7 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
 - getComputedStyle(요소노드[, 가상요소]) (IE 9+)
   - 최종 계산된 스타일 설정 값을 가져올 수 있음
 
--
+---
 
 ### TextNode 속성/메서드
 
@@ -133,7 +133,7 @@ Nodelist는 새로운 API(e.g `.querySelector()`)를 사용하여 수집한 집�
 - splitText(분리 추출할 텍스트 인덱스)
 - normalize()
 
--
+---
 
 ### DocumentFragment 노드
 
@@ -165,7 +165,7 @@ var created_dom_objecs = new DOMParser('HTML Code', 'MIME Type');
 // Node.js 서버 사이드 환경에서 사용 가능한 라이브러리: https://github.com/component/domify
 ```
 
--
+---
 
 ### CSS 스타일시트/규칙
 
@@ -232,7 +232,7 @@ CSSOM View Module 사양의 대부분 속성은 라이브 상태로 접근 시�
 - width (content-box)
 - height (content-box)
 
--
+---
 
 ### 스크롤링 측정
 
@@ -250,4 +250,11 @@ CSSOM View Module 사양의 대부분 속성은 라이브 상태로 접근 시�
 
 - scrollIntoView()
 
+---
 
+### CSSOM Interactive View
+
+`css width`, `clientWidth`, `offsetWidth`, `scrollWidth`,
+`css height`, `clientHeight`, `offsetHeight`, `scrollHeight` 등을 시각 표현으로 구현.
+
+[CSSOM Interactive View](http://jsfiddle.net/y8Y32/25/)
