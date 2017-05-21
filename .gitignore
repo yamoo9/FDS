@@ -1,6 +1,8 @@
 ###사용자 정의###
-__
-.idea
+_/
+__/
+.idea/
+.vscode/
 reference.md
 
 ###OSX###
