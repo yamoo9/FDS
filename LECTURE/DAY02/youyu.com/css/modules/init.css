@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  overflow-y: scroll;
   font-size: 10px;
 }
 
