@@ -35,6 +35,11 @@ $page-width: ($column-width + $gutter-width) * $columns;
 // 컬럼 개수에 따른 폭(width) 구하는 공식
 // = 컬럼_폭 × 컬럼_개수 + 거터_폭(합) * (컬럼_개수 - 1)
 // calc( 70px * $i + (10px * 2) * ($i - 1) )
-@function column-width($n: 1) {
+@function column-width($n) {
   @return $column-width * $n + $gutter-width * ($n - 1);
+}
+// 옵셋 개수에 따른 마진(margin-left) 구하는 공식
+// = 컬럼_폭 × 컬럼_개수 + (컬럼_폭 + 거터_절반_폭)
+@function offset-width($n) {
+  @return column-width($n) + ($gutter-width + $half-gutter-width);
 }

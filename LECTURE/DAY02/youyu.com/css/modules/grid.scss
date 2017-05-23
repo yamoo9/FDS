@@ -38,7 +38,7 @@
     transparent $half-gutter-width,
     $column-color $half-gutter-width,
     $column-color $column-width + $half-gutter-width,
-    transparent $full-width
+    transparent $column-width + $half-gutter-width
   );
   background-size: $full-width 1px;
   transform: translateX(-50%);
@@ -56,15 +56,22 @@
 // Row Module
 // 컬럼을 감싸는 로우(행) 모듈
 // .row
-.row::after {
-  content: '';
-  display: block;
-  clear: both;
+.row {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  // Nesting Row Module
+  // 중첩 로우(행) 모듈
+  // .row.is-nesting
+  &.is-nesting {
+    & > :first-child { margin-left: 0; }
+    & > :last-child { margin-right: 0; }
+  }
 }
 
-// Nesting Row Module
-// 중첩 로우(행) 모듈
-// .row.is-nesting
+
 
 // Column Module
 // 컬럼(열) 모듈
@@ -79,11 +86,14 @@
   .is-#{$i}  {
     width: column-width($i);
   }
+  // Offeset Module
+  // 컬럼 핸들링 모듈
+  // .is-offset-*
+  .is-offset-#{$i} {
+    margin-left: offset-width($i);
+  }
 }
 
-// Offeset Module
-// 컬럼 핸들링 모듈
-// .is-offset-*
 
 // Utilities Module
 // 유틸리티 모듈
