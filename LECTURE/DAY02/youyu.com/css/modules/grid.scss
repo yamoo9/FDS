@@ -1,38 +1,5 @@
 /*! grid.css @ 2017, yamoo9.net */
-
-// --------------------------------------------
-// 타이포그래피 설계(Typography Design)
-// --------------------------------------------
-// 기본 글꼴 사이즈
-$base-font-size: 14px !default;
-// 글줄 사이(행간) 비율
-$leading-scale: 1.5;
-// 글줄 사이(행간) 간격
-$leading: $base-font-size * $leading-scale;
-// --------------------------------------------
-// 그리드 시스템 설계(Grid System Design)
-// --------------------------------------------
-// 그리드 시스템 가이드라인 토글 클래스
-$toggle-classname: 'show-grid';
-// 그리드 시스템 가이드라인 높이
-$guide-height: 100vh;
-// 컬럼의 총 개수
-$columns: 12;
-// 컬럼 폭
-$column-width: 70px;
-// 컬럼 가이드 색상
-$column-color: rgba(#fb8989, 0.35);
-// 거터 방향
-// before, after, split, no-gutter, inside
-$gutter-position: 'split';
-// 거터 간격
-$gutter-width: 20px;
-
-// 페이지 총 폭의 길이를 구하는 함수
-// 70px * 12 + 20px * 12
-// ($column-width + $gutter-width) * $columns
-$page-width: ($column-width + $gutter-width) * $columns;
-
+@import 'settings';
 
 // Toggle Grid Module
 // 브라우저 뷰에 그리드 가이드를 토글(보임/감춤)하는 스타일 모듈
@@ -62,7 +29,6 @@ $page-width: ($column-width + $gutter-width) * $columns;
   background-size: 1px $leading;
 }
 .#{$toggle-classname}::after {
-  $half-gutter-width: $gutter-width/2;
   $full-width: $column-width + $gutter-width;
   z-index: 10010;
   left: 50%;
@@ -105,24 +71,15 @@ $page-width: ($column-width + $gutter-width) * $columns;
 // .col.is-*
 .col {
   float: left;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: $half-gutter-width;
+  margin-right: $half-gutter-width;
 }
-// 컬럼 개수에 따른 폭(width) 구하는 공식
-// = 컬럼_폭 × 컬럼_개수 + 거터_폭(합) * (컬럼_개수 - 1)
-// calc( 70px * $i + (10px * 2) * ($i - 1) )
-.is-1  { width: 70px;   }
-.is-2  { width: 160px;  }
-.is-3  { width: 250px;  }
-.is-4  { width: 340px;  }
-.is-5  { width: 430px;  }
-.is-6  { width: 520px;  }
-.is-7  { width: 610px;  }
-.is-8  { width: 700px;  }
-.is-9  { width: 790px;  }
-.is-10 { width: 880px;  }
-.is-11 { width: 970px;  }
-.is-12 { width: 1060px; }
+
+@for $i from 1 through $columns {
+  .is-#{$i}  {
+    width: column-width($i);
+  }
+}
 
 // Offeset Module
 // 컬럼 핸들링 모듈
