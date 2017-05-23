@@ -23,7 +23,7 @@
   z-index: 10010;
   left: 50%;
   width: 1080px;
-  background: linear-gradient(90deg, transparent 10px, rgba(235, 107, 107, 0.3) 10px, rgba(235, 107, 107, 0.3) 80px, transparent 80px);
+  background: linear-gradient(90deg, transparent 10px, rgba(251, 137, 137, 0.35) 10px, rgba(251, 137, 137, 0.35) 80px, transparent 90px);
   background-size: 90px 1px;
   transform: translateX(-50%);
 }

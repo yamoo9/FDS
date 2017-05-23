@@ -1,53 +1,88 @@
 /*! grid.css @ 2017, yamoo9.net */
 
-// 설계(Design)
-$base-font-size   : 14px;
-$leading          : 1.5;
-$columns          : 12;
-$column-width     : 70px;
-$gutter-position  : 'split';
-$gutter-width     : 10px;
+// --------------------------------------------
+// 타이포그래피 설계(Typography Design)
+// --------------------------------------------
+// 기본 글꼴 사이즈
+$base-font-size: 14px !default;
+// 글줄 사이(행간) 비율
+$leading-scale: 1.5;
+// 글줄 사이(행간) 간격
+$leading: $base-font-size * $leading-scale;
+// --------------------------------------------
+// 그리드 시스템 설계(Grid System Design)
+// --------------------------------------------
+// 그리드 시스템 가이드라인 토글 클래스
+$toggle-classname: 'show-grid';
+// 그리드 시스템 가이드라인 높이
+$guide-height: 100vh;
+// 컬럼의 총 개수
+$columns: 12;
+// 컬럼 폭
+$column-width: 70px;
+// 컬럼 가이드 색상
+$column-color: rgba(#fb8989, 0.35);
+// 거터 방향
+// before, after, split, no-gutter, inside
+$gutter-position: 'split';
+// 거터 간격
+$gutter-width: 20px;
+
+// 페이지 총 폭의 길이를 구하는 함수
+// 70px * 12 + 20px * 12
+// ($column-width + $gutter-width) * $columns
+$page-width: ($column-width + $gutter-width) * $columns;
+
 
 // Toggle Grid Module
 // 브라우저 뷰에 그리드 가이드를 토글(보임/감춤)하는 스타일 모듈
 // .show-grid
-.show-grid {
+.#{$toggle-classname} {
   position: relative;
 }
-.show-grid::before,
-.show-grid::after {
+.#{$toggle-classname}::before,
+.#{$toggle-classname}::after {
   content: '';
   position: absolute;
   top: 0;
-  height: 100vh;
+  height: $guide-height;
 }
-.show-grid::before {
+.#{$toggle-classname}::before {
+  // 지역 변수
+  $leading-limit: $leading - 1;
+
   z-index: 10000;
   left: 0;
   width: 100%;
-  background: linear-gradient(180deg, transparent 20px, #0cf 20px);
-  background-size: 1px 21px;
+  background: linear-gradient(
+    180deg,
+    transparent $leading-limit,
+    #0cf $leading-limit
+  );
+  background-size: 1px $leading;
 }
-.show-grid::after {
+.#{$toggle-classname}::after {
+  $half-gutter-width: $gutter-width/2;
+  $full-width: $column-width + $gutter-width;
   z-index: 10010;
   left: 50%;
-  width: 1080px;
+  width: $page-width;
   background: linear-gradient(
     90deg,
-    transparent 10px,
-    hsla(0, 76%, 67%, 0.3) 10px,
-    hsla(0, 76%, 67%, 0.3) 80px,
-    transparent 80px
+    transparent $half-gutter-width,
+    $column-color $half-gutter-width,
+    $column-color $column-width + $half-gutter-width,
+    transparent $full-width
   );
-  background-size: 90px 1px;
+  background-size: $full-width 1px;
   transform: translateX(-50%);
 }
 
 // Container Module
-// 그리드 요소들을 감싸는 블록(Block) 모듈
+// 그리드 요소들을 감싸는 블록(Block)
 // .container
 .container {
-  width: 1080px;
+  width: $page-width;
   margin-left: auto;
   margin-right: auto;
 }
