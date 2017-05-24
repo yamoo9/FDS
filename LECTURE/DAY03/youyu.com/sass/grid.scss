@@ -104,12 +104,9 @@
   }
   // Isolate Row Module
   // 격리된 로우(행) 모듈 -> 컬럼에 설정
-  @if $i > 1 {
-    $ii: $i - 1;
-    .is-isolate > .order-#{$ii},
-    .is-isolate > .o-#{$ii} {
-      margin-left: order-width($ii);
-    }
+  .is-isolate > .order-#{$i},
+  .is-isolate > .o-#{$i} {
+    margin-left: order-width($i);
   }
 }
 

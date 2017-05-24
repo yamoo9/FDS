@@ -1,0 +1,57 @@
+.rwd-video {
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  height: 0;
+}
+
+.rwd-video.is-4x3 {
+  padding-bottom: 75%;
+}
+
+.rwd-video.is-16x9 {
+  padding-bottom: 56.25%;
+}
+
+.rwd-video.is-21x9 {
+  padding-bottom: 42.8571%;
+}
+
+.rwd-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.rwd-map {
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  height: 0;
+}
+
+.rwd-map.is-4x3 {
+  padding-bottom: 75%;
+}
+
+.rwd-map.is-16x9 {
+  padding-bottom: 56.25%;
+}
+
+.rwd-map.is-21x9 {
+  padding-bottom: 42.8571%;
+}
+
+.rwd-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/*# sourceMappingURL=../../map/rwd-modules.css.map */
