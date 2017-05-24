@@ -44,6 +44,8 @@ $page-width: ($column-width + $gutter-width) * $columns;
   @return column-width($n) + ($gutter-width + $half-gutter-width);
 }
 // Isolate Floating 방법 사용 시, 사용되는 order-width() 함수
+// 오더(순서)에 따른 폭 구하는 공식
+// 거터_절반_폭 + ( (거터_폭 + 컬럼_폭) * (순서 - 1) )
 @function order-width($n) {
   @return $half-gutter-width + ( ($gutter-width + $column-width) * ($n - 1) );
 }
