@@ -69,6 +69,12 @@
     & > :first-child { margin-left: 0; }
     & > :last-child { margin-right: 0; }
   }
+  // Isolate Row Module
+  // 격리된 로우(행) 모듈 -> 컬럼에 설정
+  // .is-isolate
+  &.is-isolate .col {
+    margin-right: -100%;
+  }
 }
 
 
@@ -83,24 +89,31 @@
 }
 
 @for $i from 1 through $columns {
+
   .is-#{$i}  {
     width: column-width($i);
   }
+
   // Offeset Module
   // 컬럼 핸들링 모듈
   // .is-offset-*
+  $offset-width: offset-width($i);
   .is-offset-#{$i} {
-    $offset-width: offset-width($i);
     margin-left: $offset-width;
     .is-nesting &:first-child {
       margin-left: $offset-width - $half-gutter-width;
     }
   }
-}
+  // Isolate Row Module
+  // 격리된 로우(행) 모듈 -> 컬럼에 설정
+  .is-isolate > .order-#{$i},
+  .is-isolate > .o-#{$i} {
+    margin-left: $offset-width;
+  }
 
+}
 
 // Utilities Module
 // 유틸리티 모듈
-// .isolate
 // .hidden
 // .a11y-hidden
