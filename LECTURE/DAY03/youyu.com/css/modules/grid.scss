@@ -90,7 +90,11 @@
   // 컬럼 핸들링 모듈
   // .is-offset-*
   .is-offset-#{$i} {
-    margin-left: offset-width($i);
+    $offset-width: offset-width($i);
+    margin-left: $offset-width;
+    .is-nesting &:first-child {
+      margin-left: $offset-width - $half-gutter-width;
+    }
   }
 }
 
