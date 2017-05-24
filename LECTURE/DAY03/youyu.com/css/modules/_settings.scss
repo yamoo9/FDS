@@ -43,3 +43,7 @@ $page-width: ($column-width + $gutter-width) * $columns;
 @function offset-width($n) {
   @return column-width($n) + ($gutter-width + $half-gutter-width);
 }
+// Isolate Floating 방법 사용 시, 사용되는 order-width() 함수
+@function order-width($n) {
+  @return $half-gutter-width + ( ($gutter-width + $column-width) * ($n - 1) );
+}
