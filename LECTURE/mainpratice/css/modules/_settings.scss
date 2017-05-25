@@ -1,0 +1,45 @@
+// --------------------------------------------
+// 타이포그래피 설계(Typography Design)
+// --------------------------------------------
+// 기본 글꼴 사이즈
+$base-font-size: 14px !default;
+// 글줄 사이(행간) 비율
+$leading-scale: 1.5;
+// 글줄 사이(행간) 간격
+$leading: $base-font-size * $leading-scale;
+// --------------------------------------------
+// 그리드 시스템 설계(Grid System Design)
+// --------------------------------------------
+// 그리드 시스템 가이드라인 토글 클래스
+$toggle-classname: 'show-grid';
+// 그리드 시스템 가이드라인 높이
+$guide-height: 100vh;
+// 컬럼의 총 개수
+$columns: 12;
+// 컬럼 폭
+$column-width: 70px;
+// 컬럼 가이드 색상
+$column-color: rgba(#fb8989, 0.35);
+// 거터 방향
+// before, after, split, no-gutter, inside
+$gutter-position: 'split';
+// 거터 간격
+$gutter-width: 20px;
+$half-gutter-width: $gutter-width/2;
+
+// 페이지 총 폭의 길이를 구하는 함수
+// 70px * 12 + 20px * 12
+// ($column-width + $gutter-width) * $columns
+$page-width: ($column-width + $gutter-width) * $columns;
+
+// 컬럼 개수에 따른 폭(width) 구하는 공식
+// = 컬럼_폭 × 컬럼_개수 + 거터_폭(합) * (컬럼_개수 - 1)
+// calc( 70px * $i + (10px * 2) * ($i - 1) )
+@function column-width($n) {
+  @return $column-width * $n + $gutter-width * ($n - 1);
+}
+// 옵셋 개수에 따른 마진(margin-left) 구하는 공식
+// = 컬럼_폭 × 컬럼_개수 + (컬럼_폭 + 거터_절반_폭)
+@function offset-width($n) {
+  @return column-width($n) + ($gutter-width + $half-gutter-width);
+}
