@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "sass": "node-sass --output-style expanded sass -o css/modules",
+    "watch": "npm run sass -- --watch --source-map ./map",
+    "build": "node-sass --output-style compressed css/modules/grid.css css/modules/grid.min.css"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
+}

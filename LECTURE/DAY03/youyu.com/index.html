@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>shoppingmall &lt; yuyu.com</title>
+  <link rel="stylesheet" href="./css/modules/init.css">
+  <link rel="stylesheet" href="./css/modules/grid.css">
+  <style>
+    .box-wrapper {
+      background: #ff0;
+    }
+    .box {
+      height: 126px;
+      background: #333;
+      color: #fff;
+      text-align: center;
+      line-height: 126px;
+    }
+    .gap {
+      margin-bottom: 21px;
+    }
+  </style>
+</head>
+<body class="show-grid">
+
+  <div class="container">
+    <div class="row gap">
+      <div class="box col is-4">4</div>
+      <div class="col is-8">
+        <div class="box-wrapper row is-nesting">
+          <div class="box col is-1 is-offset-1">1</div>
+          <div class="box col is-4 is-offset-1">4</div>
+        </div>
+      </div>
+    </div>
+    <div class="row is-isolate">
+      <div class="box col is-1 o-12">column 1</div>
+      <div class="box col is-3 o-2">column 2</div>
+      <div class="box col is-2 o-7">column 3</div>
+    </div>
+  </div>
+
+<script src="./js/toggleGrid.js"></script>
+</body>
+</html>

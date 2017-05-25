@@ -1,0 +1,19 @@
+/*! init.css @ 2017, yamoo9.net */
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 1.4rem; /* 14px */
+  line-height: 1.5;  /* 21px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

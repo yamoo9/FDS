@@ -1,0 +1,54 @@
+[class*="icon-"] {
+  background-image: url('../../images/icons/icons.svg');
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.icon-alam, .icon-alam\:regular {
+  background-position: 0 0;
+}
+.icon-cart, .icon-cart\:regular {
+  background-position: 0 -100px;
+}
+.icon-contact, .icon-contact\:regular {
+  background-position: 0 -200px;
+}
+.icon-facebook, .icon-facebook\:regular {
+  background-position: 0 -300px;
+}
+.icon-filter, .icon-filter\:regular {
+  background-position: 0 -400px;
+}
+.icon-instagram, .icon-instagram\:regular {
+  background-position: 0 -500px;
+}
+.icon-like-on, .icon-like-on\:regular {
+  background-position: 0 -632px;
+}
+.icon-like, .icon-like\:regular {
+  background-position: 0 -732px;
+}
+.icon-profile, .icon-profile\:regular {
+  background-position: 0 -832px;
+}
+.icon-search, .icon-search\:regular {
+  background-position: 0 -932px;
+}
+.icon-shopping-bag, .icon-shopping-bag\:regular {
+  background-position: 0 -1032px;
+}
+.icon-star-on, .icon-star-on\:regular {
+  background-position: 0 -1132px;
+}
+.icon-star, .icon-star\:regular {
+  background-position: 0 -1232px;
+}
+.icon-taobao, .icon-taobao\:regular {
+  background-position: 0 -1332px;
+}
+.icon-wechat, .icon-wechat\:regular {
+  background-position: 0 -1432px;
+}
+.icon-weibo, .icon-weibo\:regular {
+  background-position: 0 -1532px;
+}
