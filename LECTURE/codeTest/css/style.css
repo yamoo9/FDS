@@ -1,0 +1,61 @@
+@keyframes bgAction {
+    from {
+        background-color: red;
+        width: 25%;
+    }
+    to {
+        background-color: red;
+        width: 100%;
+    }
+}
+
+@keyframes bgAction2 {
+    from {
+        width: 25%;
+    }
+    to {
+        width: 100%;
+        border-bottom: solid 1px #ccc;
+    }
+}
+
+@keyframes bgAction3 {
+    from {
+        width: 25%;
+    }
+    to {
+        display: block;
+        width: 100%;
+        border: solid 1px #ccc;
+    }
+}
+
+button {
+    width: 25%;
+    border: none;
+    background: transparent;
+}
+
+.action1,
+action2 {
+    display: inline-block;
+}
+
+.button span {
+    display: inline-block;
+}
+
+.action1:hover span {
+    animation-name: bgAction;
+    animation-duration: 2s;
+}
+
+.action2:hover span {
+    animation-name: bgAction2;
+    animation-duration: 2s;
+}
+
+.action3:hover span {
+    animation-name: bgAction3;
+    animation-duration: 2s;
+}

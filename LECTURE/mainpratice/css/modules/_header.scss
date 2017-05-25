@@ -1,0 +1,60 @@
+@import 'base';
+.header {
+    padding-top: 40px;
+}
+
+.header-logo object {
+    width: 172px;
+    height: 63px;
+}
+
+.search-form {
+    position: relative;
+    margin-top: 10px;
+    $color: #181818;
+    legend {
+        @extend %a11y-hidden;
+    }
+    label {
+        @extend %a11y-hidden;
+    }
+    input {
+        width: 380px;
+        line-height: 40px;
+        padding: 0 10px;
+        border: solid 1px $color;
+        border-bottom-width: 3px;
+    }
+    input:after {
+        content: '검색';
+        display: inline-block;
+    }
+    a {
+        display: inline-block;
+        position: absolute;
+        top: 13px;
+        right: 60px;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.sign-list {
+    margin-top: 24px;
+    @include clearfix;
+    li {
+        float: left;
+        display: inline-block;
+        margin-left: 40px;
+    }
+    li:first-child {
+        margin-left: 0;
+    }
+    button {
+        padding: 0px;
+        font-size: 1.4rem;
+        color: red;
+        background: #fff;
+        border: none;
+    }
+}

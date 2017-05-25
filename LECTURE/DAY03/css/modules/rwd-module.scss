@@ -1,0 +1,31 @@
+$rwd-media: video,
+map;
+@each $product in $rwd-media {
+    // debugger 가능
+    // @debug $product;
+    .rwd-#{$product} {
+        overflow: hidden;
+        position: relative;
+        max-width: 100%;
+        height: 0;
+        &.is-4x3 {
+            padding-bottom: 75%;
+        }
+        &.is-16x9 {
+            padding-bottom: 56.25%;
+        }
+        &.is-21x9 {
+            padding-bottom: 42.8571%;
+        }
+        // padding-bottom: 75%; // 4:3,
+        // padding-bottom: 56.25%; // 16:9
+        // padding-bottom: 42.8571%; // 21:9
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
