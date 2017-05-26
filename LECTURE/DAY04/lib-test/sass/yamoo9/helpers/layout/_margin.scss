@@ -3,7 +3,7 @@
 /// @author  yamoo9
 /// @group   Layout
 /// @param   {List} $args - margin 속성 이름 & 값을 나열
-/// @example
+/// @example sass - margin 속기형 작성을 인라인으로 처리한다.
 /// 	@include margin(left auto right auto)
 @mixin margin($args: 0) {
 
