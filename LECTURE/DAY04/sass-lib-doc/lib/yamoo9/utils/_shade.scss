@@ -1,0 +1,12 @@
+/// shade 컬러 함수
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @param   {Color} $color    - CSS #RRGGBB 값
+/// @param   {Number} $percent - % 단위 값 (검정색과 섞는 비율)
+/// @return  {Color}           - 변경된 색상 값
+/// @example scss
+///   shade(#66e33b, 22%)
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}

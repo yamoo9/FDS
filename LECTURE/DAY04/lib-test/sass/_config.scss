@@ -1,7 +1,6 @@
-/*
- * Susy Global Settings
- * http://susydocs.oddbird.net/en/latest/settings/#global-defaults
- */
+// ------------------------------
+// Susy Global Settings
+// ------------------------------
 $susy: (
 
   // [Flow]
@@ -28,7 +27,7 @@ $susy: (
   // 설정 가능한 값: ( after, before, split, inside, inside-static (column-width 설정 필요) )
   // 기본 값: after
   // ※ inside 설정은 Padding으로 처리됨
-  gutter-position: after,
+  gutter-position: split,
 
   // [Container]
   // 컨테이너 요소의 최대 가로 폭(max-width) 값을 설정
@@ -50,7 +49,7 @@ $susy: (
 
   // Gutters
   // 거터의 폭 설정 (1/4, <gutter-width>/<column-width>)
-  gutters: .25,
+  gutters: 1/4,
 
   // [Column Width]
   // 컬럼의 가로 폭 설정
@@ -79,13 +78,13 @@ $susy: (
     // 설정 가능한 값: ( hide, show, show-columns, show-baseline )
     // 기본 값: hide
     // ※ $base-line-height 설정 값에 따라 베이스라인을 그려줌.
-    image: hide,
+    image: show,
 
     // [color]
     // 그리드 컬럼 색상 설정
     // 설정 가능한 값: ( rgba(#66f, .25), <color> )
     // 기본 값: rgba(#66f, .25)
-    color: rgba(#66f, .25),
+    color: rgba(#66f, .15),
 
     // [output]
     // 그리드 모드

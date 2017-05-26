@@ -1,0 +1,37 @@
+// * Ghost Pseudo
+// * http://css-tricks.com/centering-in-the-unknown/
+// *
+// * Vertical align methods. Line height, Transform, Ghost Pseudo, Auto margins, Negative margins
+// * https://gist.github.com/ZellSnippets/6567695
+
+/// 가운데 정렬되는 요소의 부모 요소에 적용되는 플레이스홀더 선택자
+/// 내부의 자식 <div>가 가운데 배치되는 요소가 됨
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %center-box-block;
+///		}
+%center-box-block {
+	text-align: center;
+
+	// 정가운데 정렬을 위한 고스트 가상 요소
+	&:before {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+
+		// 상황에 따라 간격 조정이 요구됨.
+		margin-right: -0.25em;
+	}
+
+	// 가운데 정렬되는 요소에 적용되는 플레이스홀더 선택자
+	// 상황에 따라 width, height 설정 필요
+	> div {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+}

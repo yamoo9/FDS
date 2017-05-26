@@ -1,0 +1,11 @@
+/// 단위 제거 함수
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @param   {Number} $unit - CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형
+/// @return  {Number}       - 단위가 제거된 숫자 값
+/// @example scss - 단위 제거
+/// 	de-unit(19px) // 19
+@function de-unit($unit) {
+	@return $unit / ($unit * 0 + 1);
+}
