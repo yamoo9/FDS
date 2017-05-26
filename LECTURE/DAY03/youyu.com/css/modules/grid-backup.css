@@ -1,0 +1,119 @@
+/*! grid.css @ 2017, yamoo9.net */
+
+/* -----------------------------------------------------------------------------
+ * 설계(Design)
+ *
+ * $base-font-size  : 14px
+ * $leading         : 1.5 (21px)
+ * $columns         : 12
+ * $column-width    : 70px
+ * $gutter-position : split
+ * $gutter-width    : 10px
+ * --------------------------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------------------------
+ * Toggle Grid Module
+ * 브라우저 뷰에 그리드 가이드를 토글(보임/감춤)하는 스타일 모듈
+ * .show-grid
+ */
+.show-grid {
+  position: relative;
+}
+.show-grid::before,
+.show-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100vh;
+}
+.show-grid::before {
+  z-index: 10000;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, transparent 20px, #0cf 20px);
+  background-size: 1px 21px;
+}
+.show-grid::after {
+  z-index: 10010;
+  left: 50%;
+  width: 1080px;
+  background: linear-gradient(
+    90deg,
+    transparent 10px,
+    hsla(0, 76%, 67%, 0.3) 10px,
+    hsla(0, 76%, 67%, 0.3) 80px,
+    transparent 80px
+  );
+  background-size: 90px 1px;
+  transform: translateX(-50%);
+}
+
+/* -----------------------------------------------------------------------------
+ * Container Module
+ * 그리드 요소들을 감싸는 블록(Block) 모듈
+ * .container
+ */
+.container {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -----------------------------------------------------------------------------
+ * Row Module
+ * 컬럼을 감싸는 로우(행) 모듈
+ * .row
+ */
+.row::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* -----------------------------------------------------------------------------
+ * Nesting Row Module
+ * 중첩 로우(행) 모듈
+ * .row.is-nesting
+ */
+
+/* -----------------------------------------------------------------------------
+ * Column Module
+ * 컬럼(열) 모듈
+ * .col.is-*
+ *
+ * 컬럼 개수에 따른 폭(width) 구하는 공식
+ * = 컬럼_폭 × 컬럼_개수 + 거터_폭(합) * (컬럼_개수 - 1)
+ * calc( 70px * $i + (10px * 2) * ($i - 1) )
+ */
+.col {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.is-1  { width: 70px;   }
+.is-2  { width: 160px;  }
+.is-3  { width: 250px;  }
+.is-4  { width: 340px;  }
+.is-5  { width: 430px;  }
+.is-6  { width: 520px;  }
+.is-7  { width: 610px;  }
+.is-8  { width: 700px;  }
+.is-9  { width: 790px;  }
+.is-10 { width: 880px;  }
+.is-11 { width: 970px;  }
+.is-12 { width: 1060px; }
+
+/* -----------------------------------------------------------------------------
+ * Offeset Module
+ * 컬럼 핸들링 모듈
+ * .is-offset-*
+ */
+
+/* -----------------------------------------------------------------------------
+ * Utilities Module
+ * 유틸리티 모듈
+ * .isolate
+ * .hidden
+ * .a11y-hidden
+ */

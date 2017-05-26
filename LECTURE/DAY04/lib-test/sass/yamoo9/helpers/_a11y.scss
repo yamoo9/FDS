@@ -1,0 +1,63 @@
+/// 스크린리더/브라우저에서 모두 감추는 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %hidden;
+///		}
+%hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+/// 스크린리더에서는 읽기 가능한 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %a11y-hidden;
+///		}
+%a11y-hidden {
+	overflow: hidden;
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip: rect(0, 0, 0, 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+}
+
+/// 스크린리더에서는 읽기 가능 + 포커스 적용 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %a11y-hidden;
+/// 		@extend %focusable;
+///		}
+%focusable:active,
+%focusable:focus {
+	overflow: visible;
+	position: static;
+	clip: auto;
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+
+/// 화면에서는 안 보이지만, 레이아웃 공간 적용되는 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %invisible;
+///		}
+%invisible {
+	visibility: hidden;
+}

@@ -1,0 +1,86 @@
+/// 16진수 헥스 컬러코드에 알파 값을 설정하면 rgba(), rgb()로 바꿔주는 헬퍼 함수
+/// @access  private
+/// @author  yamoo9
+/// @group   Utility
+/// @example scss
+/// 	_rgba(#2348ab, 0.4)
+@function _rgba($hex, $alpha) {
+
+	$red: red($hex);
+	$green: green($hex);
+	$blue: blue($hex);
+
+	@if $alpha >= 1 {
+		@return unquote("rgb(#{$red},#{$green},#{$blue})");
+	}
+	@else {
+		@return unquote("rgba(#{$red},#{$green},#{$blue},#{$alpha})");
+	}
+
+}
+
+/// 16진수 헥스 컬러코드에 알파 값을 설정하면 hsla(), hsl()로 바꿔주는 헬퍼 함수
+/// @access  private
+/// @author  yamoo9
+/// @group   Utility
+/// @example scss
+/// 	_hlsa(#2348ab, 0.4)
+@function _hsla($hex, $alpha) {
+
+	$hue: floor(de-unit(hue($hex)));
+	$saturation: floor(saturation($hex));
+	$lightness: floor(lightness($hex));
+
+	@if $alpha >= 1 {
+		@return unquote("hsl(#{$hue},#{$saturation},#{$lightness})");
+	}
+	@else {
+		@return unquote("hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})");
+	}
+
+}
+
+/// 16진수 헥스 컬러코드에 알파 값을 설정하면 hsla(), hsl(), rgba(), rgb()로 바꿔주는 헬퍼 함수
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @example scss
+/// 	color(#2348ab, 0.4)
+@function color($hex, $alpha) {
+	@if $using-hsla == false {
+		@return _rgba($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+	@else {
+		@return _hsla($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+}
+
+/// 글자 색상에 알파값을 적용가능한 헬퍼 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @example scss
+/// 	.demo {
+///			@include color(#2348ab);
+///		}
+@mixin color($hex, $alpha: null) {
+	@if $polyfill == true {
+		color: $hex;
+	}
+	color: color($hex, $alpha);
+}
+
+/// 배경 색상에 알파값을 적용가능한 헬퍼 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @example scss
+/// 	.demo {
+///			@include bg-color(#2348ab, 0.4);
+///		}
+@mixin bg-color($hex, $alpha: null) {
+	@if $polyfill == true {
+		background-color: $hex;
+	}
+	background-color: color($hex, $alpha);
+}

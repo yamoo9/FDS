@@ -1,0 +1,31 @@
+// 비디오, 맵(iframe) 컴포넌트를 재사용하기 위한 반응형 모듈
+
+$rwd-media: video, map;
+@each $product in $rwd-media {
+  .rwd-#{$product} {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    height: 0;
+    // 4:3
+    &.is-4x3 {
+      padding-bottom: 75%;
+    }
+    // 16:9
+    &.is-16x9 {
+      padding-bottom: 56.25%;
+    }
+    // 21:9
+    &.is-21x9 {
+      padding-bottom: 42.8571%;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/// width, height 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List, Number} $dimension - width, height(옵션) 순으로 추가
+/// @example scss
+/// 	@include size(230px);
+/// 	@include size(230px, 420px);
+@mixin size($dimension: null null) {
+	@if length($dimension) == 2 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 2);
+	}
+
+	@if length($dimension) == 1 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 1);
+	}
+}

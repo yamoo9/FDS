@@ -1,0 +1,124 @@
+/*
+ * Susy Global Settings
+ * http://susydocs.oddbird.net/en/latest/settings/#global-defaults
+ */
+$susy: (
+
+  // [Flow]
+  // 문서의 읽는 방향 설정
+  // 설정 가능한 값: ( ltr, rtl )
+  // 기본 값: ltr
+  flow: ltr,
+
+  // [Math]
+  // float 레이아웃 설정 시, 유동(%) 또는 고정(px) 사용 유무 설정
+  // 설정 가능한 값: ( fluid, static (column-width 설정 필요) )
+  // 기본 값: fluid
+  math: fluid,
+
+  // [Output]
+  // 레이아웃 출력 모드 설정
+  // 설정 가능한 값: ( float, isolate )
+  // 기본 값: float
+  // ※ 현재 Susy 버전은 Float을 메인으로 출력하지만, 향후 Flexbox 등 다양한 방법 지원 예정
+  output: float,
+
+  // [Gutter Position]
+  // 거터의 방향 설정
+  // 설정 가능한 값: ( after, before, split, inside, inside-static (column-width 설정 필요) )
+  // 기본 값: after
+  // ※ inside 설정은 Padding으로 처리됨
+  gutter-position: after,
+
+  // [Container]
+  // 컨테이너 요소의 최대 가로 폭(max-width) 값을 설정
+  // 설정 가능한 값: ( auto, <length> )
+  // 기본 값: auto
+  container: auto,
+
+  // [Container Position]
+  // 상위 요소를 기준으로 하는 컨테이너 요소의 레이아웃 정렬
+  // 설정 가능한 값: ( center, left, right, <length> * 2 )
+  // 기본 값: center
+  container-position: center,
+
+  // [Columns]
+  // 컬럼의 총 개수 설정
+  // 설정 가능한 값: ( 4, <number>, <list> )
+  // 기본 값: 4
+  columns: 4,
+
+  // Gutters
+  // 거터의 폭 설정 (1/4, <gutter-width>/<column-width>)
+  gutters: .25,
+
+  // [Column Width]
+  // 컬럼의 가로 폭 설정
+  // 설정 가능한 값: ( false, null, <length> )
+  // 기본 값: false
+  column-width: false,
+
+  // [Global Box Sizing]
+  // 전역 CSS3 박스 사이즈 설정
+  // 설정 가능한 값: ( content-box, border-box )
+  // 기본 값: content-box
+  global-box-sizing: content-box,
+
+  // [Last Flow]
+  // 레이아웃 내의 마지막 요소 float 방향 설정
+  // 설정 가능한 값: ( to, from )
+  // 기본 값: to
+  last-flow: to,
+
+  // [Debug]
+  // 레이아웃 디버깅 환경 설정
+  debug: (
+
+    // [image]
+    // 그리드 이미지 설정
+    // 설정 가능한 값: ( hide, show, show-columns, show-baseline )
+    // 기본 값: hide
+    // ※ $base-line-height 설정 값에 따라 베이스라인을 그려줌.
+    image: hide,
+
+    // [color]
+    // 그리드 컬럼 색상 설정
+    // 설정 가능한 값: ( rgba(#66f, .25), <color> )
+    // 기본 값: rgba(#66f, .25)
+    color: rgba(#66f, .25),
+
+    // [output]
+    // 그리드 모드
+    // 설정 가능한 값: ( background, overlay )
+    // ※ overlay 설정일 경우, 컨테이너 요소의 ::before 요소를 사용하여 오버레이 함.
+    output: background,
+
+    // [toggle]
+    // 그리드 토글 버튼 위치
+    // 설정 가능한 값: ( top right, <direction> )
+    // ※ overlay 설정에서만 사용 가능.
+    toggle: top right
+  ),
+
+  // Use Custom
+  // 사용자 정의 설정
+  use-custom: (
+
+    // 사용자 정의 background-image() 믹스인 사용 유무: (true, false)
+    // ※ Compass, Bourbon의 믹스인을 사용할 경우, true로 설정
+    background-image: true,
+
+    // 사용자 정의 background-size(), background-origin(), background-clip() 사용 유무 (false, true)
+    background-options: false,
+
+    // 사용자 정의 box-sizing() 사용 유무: (true, false)
+    // ※ Compass, Bourbon의 믹스인을 사용할 경우, true로 설정
+    box-sizing: true,
+
+    // 사용자 정의 clearfix() 사용 유무: (false, true)
+    clearfix: false,
+
+    // 사용자 정의 rem() 사용 유무: (true, false)
+    rem: true
+  )
+);

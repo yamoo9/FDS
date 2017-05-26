@@ -1,0 +1,13 @@
+/// em 단위 변경 함수
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @param   {Number} $unit - CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형
+/// @param   {Number} $base - CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형 (기본 값: 16)
+/// @return  {Number} - 변경된 em 값
+/// @example scss
+/// 	em(21px)     // 1.3125em
+/// 	em(21px, 10) // 2.1em
+@function em($unit, $base: 16) {
+	@return (de-unit($unit) / de-unit($base)) * 1em;
+}
