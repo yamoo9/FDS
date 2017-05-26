@@ -1,0 +1,11 @@
+.box {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+  width: 100px;
+  height: auto;
+  background-color: hsl(0,0%,20%);
+}
+
+/*# sourceMappingURL=../map/style.css.map */
