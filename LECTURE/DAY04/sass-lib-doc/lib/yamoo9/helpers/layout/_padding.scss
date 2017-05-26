@@ -1,0 +1,81 @@
+/// padding 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - padding 속성 이름 & 값을 나열
+/// @example
+/// 	@include padding(left auto right auto)
+@mixin padding($args: 0) {
+
+	$use-null: false;
+
+	@if type-of($args) == "list" {
+		@if type-of(nth($args, 1)) == "string" {
+			@each $dir in top, left, bottom, right {
+				$i: index($args, $dir);
+
+				@if $i {
+					padding-#{$dir}: nth($args, $i + 1);
+				}
+			}
+		}
+		@else {
+			$l: length($args);
+
+			@for $i from 1 through $l {
+				@if nth($args, $i) == null {
+					$use-null: true;
+				}
+			}
+
+			@if not $use-null {
+				@if $l == 2 {
+					$t-b: nth($args, 1);
+					$r-l: nth($args, 2);
+
+					padding: $t-b $r-l;
+				}
+				@else if $l == 3 {
+					$t: nth($args, 1);
+					$r-l: nth($args, 2);
+					$b: nth($args, 3);
+
+					padding: $t $r-l $b;
+				}
+				@else {
+					$t: nth($args, 1);
+					$r: nth($args, 2);
+					$b: nth($args, 3);
+					$l: nth($args, 4);
+
+					padding: $t $r $b $l;
+				}
+			}
+
+			@else {
+				@if $l == 2 {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 1);
+					padding-left: nth($args, 2);
+				}
+				@else if $l == 3 {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 3);
+					padding-left: nth($args, 2);
+				}
+				@else {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 3);
+					padding-left: nth($args, 4);
+				}
+			}
+
+		}
+	}
+	@else {
+		padding: $args;
+	}
+}

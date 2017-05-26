@@ -1,0 +1,111 @@
+/// 마진 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-margin;
+/// 	}
+%reset-margin {
+	margin: 0;
+}
+/// 박스모델 공간 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-box-model;
+/// 	}
+%reset-box-model {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+/// 아웃라인 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-outline;
+/// 	}
+%reset-outline {
+	outline: none;
+}
+/// 하이퍼링크 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-link;
+/// 	}
+%reset-link {
+	text-decoration: none;
+}
+/// 하이퍼링크 내크 이미지 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-a-img;
+/// 	}
+%reset-a-img {
+	border: none;
+	vertical-align: middle;
+}
+/// 목록 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-list;
+/// 	}
+%reset-list {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+}
+/// 테이블 초기화 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@extend %reset-table;
+/// 	}
+%reset-table {
+	margin: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	caption {
+		@extend %a11y-hidden;
+	}
+	th {
+		text-align: left;
+	}
+}
+/// 글로벌 내비게이션 모듈 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	nav.demo {
+/// 		@include %nav;
+/// 	}
+%nav, %navigation {
+	ul {
+		@extend %reset-list;
+		@extend %cf;
+	}
+	li {
+		white-space: nowrap;
+	}
+	a {
+		@extend %reset-link;
+	}
+}
