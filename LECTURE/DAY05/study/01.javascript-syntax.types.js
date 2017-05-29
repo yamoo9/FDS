@@ -213,3 +213,14 @@ var x = 'X',
     y = 'Y',
     z = 'Z';
 
+
+// 미리 살펴보는 DOM Script!
+// DOM Script 에서 Single var pattern을 사용한 예시
+var html = window.document.documentElement,
+    head = window.document.head,
+    body = window.document.body;
+
+console.log('html:', html);
+console.log('head:', head);
+console.log('body:', body);
+
