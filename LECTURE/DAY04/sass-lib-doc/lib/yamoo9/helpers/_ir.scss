@@ -1,0 +1,14 @@
+/// 이미지 대체기법(IR) 플레이스홀더 선택자
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+/// 		@include %ir;
+/// 	}
+%ir, %image-replace {
+	display: block;
+	text-indent: -9999em;
+	white-space: nowrap;
+	overflow: hidden;
+}

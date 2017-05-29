@@ -1,0 +1,20 @@
+/// font-size() 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Helpers
+/// @example scss
+/// 	.demo {
+///			@include font-size(24px);
+///		}
+@mixin font-size($size) {
+	// px-rem 믹스인이 존재할 경우 사용
+	@if mixin-exists(px-rem) {
+		@include px-rem(font-size, $size);
+	}
+	@else {
+		@if $polyfill == true {
+			font-size: $size;
+		}
+		font-size: rem($size);
+	}
+}

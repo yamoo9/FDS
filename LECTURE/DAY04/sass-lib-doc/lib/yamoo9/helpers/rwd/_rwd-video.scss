@@ -1,0 +1,95 @@
+// ----------------------------------------
+// 반응형 웹 디자인
+// 유동 폭 : HTML5 Videos 요소
+
+// HTML5 Video 요소에 적용되나,
+// <iframe>, <object>, <embed> 요소에는
+// 아래 방법이 적용 안됨.
+
+// video {
+// 	max-width: 100%;
+// 	height: auto;
+// }
+
+// ----------------------------------------
+// 반응형 웹 디자인
+// 유동 폭 : iframe, object, embed 요소
+
+// 간단한 트릭으로 이 문제 해결이 가능.
+
+// 비디오 요소를 감싸는 <div> 컨테이너 생성 후,
+// padding-bottom 값을 50 ~ 60% 사이 값으로 설정.
+// 그리고 자식 요소인 <iframe>, <object>, <embed>에
+// 다음과 같은 CSS 코드 설정. 그렇게 하면 강제적으로 포함된
+// 요소의 높이를 넓이에 맞춰 확장하게 됨.
+
+// position : absolute;
+// width    : 100%;
+// height   : 100%;
+
+// ----------------------------------------
+// HTML 마크업 예시
+
+// <div class="video-container">
+// 	<iframe src=""></iframe>
+// </div>
+
+// ----------------------------------------
+// 고정(width)/유동(max-width) 폭 디자인 예시
+
+// .video-wrapper {
+// 	width: <고정 폭>;
+// 	max-width: 100%;
+// }
+
+// <div class="video-wrapper">
+// 	<div class="video-container">
+// 		<iframe src=""></iframe>
+// 	</div>
+// </div>
+
+// ----------------------------------------
+// 참고 URL
+// http://webdesignerwall.com/demo/elastic-videos/
+
+%rwd-video-wrapper {
+	// width: 600px;
+	max-width: 100%;
+}
+
+%rwd-video-container {
+	overflow: hidden;
+	position: relative;
+	height: 0;
+
+	& iframe,
+	& object,
+	& embed {
+		@include absolute(top 0 left 0);
+		@include size(100%);
+	}
+}
+
+/// 고해상도 대응 rwd-video() 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   RWD
+/// @example scss
+/// 	@include retina-video();
+@mixin rwd-video($ratio-16-9: true, $wrapper: null, $wrapper-width: 600px) {
+	@extend %rwd-video-container;
+
+	padding-top: 30px;
+
+	// 16:9 비율 = 56.25%
+	//  4:3 비율 = 75%
+	padding-bottom: if($ratio-16-9 == true, 56.25%, 75%);
+
+	@if $wrapper != null {
+		#{$wrapper} & {
+			width: $wrapper-width;
+
+			@extend %rwd-video-wrapper;
+		}
+	}
+}
