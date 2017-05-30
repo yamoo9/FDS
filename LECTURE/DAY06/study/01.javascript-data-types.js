@@ -283,7 +283,7 @@ console.groupEnd('값 복사(pass by value)');
 // 값 참조(pass by reference)가 이루어지는 데이터 유형은?
 // 참조형 데이터 유형
 // 함수, 배열, 객체
-console.group('값 참조(pass by reference)');
+console.groupCollapsed('값 참조(pass by reference)');
 
 var playlist = music_list;
 console.log('music_list:', music_list);
@@ -295,10 +295,45 @@ console.log('playlist를 변경하면? music_list는 어떻게 될까?');
 // 증명: music_list 또는 playlist의 데이터 값을 변경했을 때, 값을 동시에 변경된다. (동일한 값이기에)
 
 playlist.push('루키'); // length: 4
-
 music_list.author = 'mike';
 
 console.log('music_list:', music_list);
 console.log('playlist:', playlist);
 
 console.groupEnd('값 참조(pass by reference)');
+
+
+// ——————————————————————————————————————
+// 함수 객체 (Function Object)
+// 기본 객체 (Plain Object)
+// ——————————————————————————————————————
+
+// 함수 호이스트 현상
+// 함수 선언문은 영역의 최상위로 몸체가 모두 이동한다.
+// 함수 표현식은 var 함수이름; 만 영역의 최상위로 이동한다.
+
+// 아래 함수를 실행했을 때,
+// 호이스트 현상이 발생하여 doIt()의 경우는 실행되나,
+// sendMail() 함수의 경우는 오류가 발생한다.
+
+// doIt();
+// sendMail();
+
+// 0. 함수 생성자를 통해 함수 객체를 생성
+// 아래와 같은 방법은 사용하지 않는 것이 좋다.
+var myFn = new Function('console.log("create function object from function constructor.")');
+
+// 1. 함수 선언문: 함수 이름 선언
+// function doIt(){} 몸체가 모두 영역 최상위로 끌어올려진다.
+function doIt(){
+  console.log('do it!');
+}
+
+// 2. 함수 표현식: 변수에 함수 표현식(함수 리터럴)을 할당
+// var sendMail; 구문만 영역 최상위로 끌어올려진다.
+var sendMail = function() {
+  console.log('Send Mail to you');
+};
+
+
+// 함수 선언문과 함수 표현식. 그리고 호이스팅(Hoisting)
