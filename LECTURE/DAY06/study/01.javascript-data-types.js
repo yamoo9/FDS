@@ -305,12 +305,13 @@ console.groupEnd('값 참조(pass by reference)');
 
 // ——————————————————————————————————————
 // 함수 객체 (Function Object)
-// 기본 객체 (Plain Object)
 // ——————————————————————————————————————
+
+// 함수 선언문과 함수 표현식. 그리고 호이스팅(Hoisting)
 
 // 함수 호이스트 현상
 // 함수 선언문은 영역의 최상위로 몸체가 모두 이동한다.
-// 함수 표현식은 var 함수이름; 만 영역의 최상위로 이동한다.
+// 함수 표현식은 `var 함수이름;` 만 영역의 최상위로 이동한다.
 
 // 아래 함수를 실행했을 때,
 // 호이스트 현상이 발생하여 doIt()의 경우는 실행되나,
@@ -336,4 +337,56 @@ var sendMail = function() {
 };
 
 
-// 함수 선언문과 함수 표현식. 그리고 호이스팅(Hoisting)
+// ————————————————————————————————————————————————————————
+// 기본 객체 (Plain Object)
+// `속성(key): 값(value)` 쌍(Pair)으로 구성된 집합체(데이터 덩어리)
+// ————————————————————————————————————————————————————————
+
+var init_style_of_body = {
+  // 속성(key): 값(value)
+  'margin'      : 0,
+  'font-size'   : '14px',
+  lineHeight    : 1.5,
+  letterSpacing : 0.04 + 'em',
+  color         : '#313233'
+};
+
+// 변수
+var legs = 4;
+
+// 객체의 속성(객체가 소유한 변수)
+var animal = {};
+
+// animal 객체의 legs 속성에 숫자 값 4를 복사
+animal.legs = 4;
+
+// legs 변수에 복사된 숫자 값 4를 animal 객체의 legs 속성에 복사
+animal.legs = legs;
+
+
+// ——————————————————————————————————————
+// 객체의 리터럴 속성을 출력하는 방법
+// 값 복사/참조
+// ——————————————————————————————————————
+var circle = 8;
+var brand_makers = ['KIA', 'Hyundai', 'Samsung', 'Google'];
+var getMaker = function(brand_index) {
+  return brand_makers[brand_index];
+};
+
+var loreo = {
+  engine: 'V8',
+  wheels: circle,
+  showMaker: getMaker
+};
+
+
+// ——————————————————————————————————————
+// 객체의 속성을 제거할 수 있나?
+// ——————————————————————————————————————
+// delete 객체.속성; // true
+delete loreo.wheels; // true
+
+// 전역객체인 window 객체의 속성은 제거할 수 없다.
+// 전역을 오염시키는 행위는 안티 패턴이다.
+// 전역에 변수를 선언하는 행위를 최소화 하세요.
