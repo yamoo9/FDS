@@ -180,9 +180,12 @@ var audi = new Object(); // Object {}
 // {}
 
 
+// 변수는 하나의 데이터만 담을 수 있다.
+// 그렇기 때문에 다른 데이터가 담기면 이전 데이터는 메모리에서 소멸된다.
+// 자바스크립트 메모리 관리???? [          ]이 한다.
+// "가비지 콜렉터"
 
 // 배열을 활용하는 예시
-// 변수는 하나의 데이터만 담을 수 있다.
 // 데이터 중, 배열은 다수의 데이터를 담을 수 있다.
 // 변수 하나에 다수의 데이터를 담을 수 있는 배열을 담으면
 // 데이터 관리에 용이하다.
@@ -212,7 +215,90 @@ console.log('convert_string_from_number.length:', convert_string_from_number.len
 
 console.groupEnd('Array 리터럴');
 
+// ——————————————————————————————————————
+// 배열 객체
+// 연관형 배열 표기법
+// Array['key'] = value;
+// ——————————————————————————————————————
 
-// 그렇기 때문에 다른 데이터가 담기면 이전 데이터는 메모리에서 소멸된다.
-// 자바스크립트 메모리 관리???? [          ]이 한다.
-// "가비지 콜렉터"
+console.groupCollapsed('연관형 배열과 length');
+
+// 배열 리터럴을 사용하여 변수 music_list에 배열 객체를 참조
+var music_list = [];
+
+// 인덱스를 사용하여 원소을 추가(Add Item)
+music_list[0] = '데칼코마니';
+music_list[1] = '러시안 룰렛';
+music_list[2] = '나야 나';
+
+console.log('music_list.length:', music_list.length); // 3
+
+// 문자 key 값을 사용하여 새로운 원소를 추가
+music_list['author']   = 'yamoo9';
+music_list['maker']    = 'YG';
+music_list['location'] = 'Seoul';
+
+console.log('%c--------------------------------', 'color: #cfcfcf');
+
+console.log("music_list['author']   = 'yamoo9'");
+console.log("music_list['maker']    = 'YG'");
+console.log("music_list['location'] = 'Seoul'");
+
+console.log('%c--------------------------------', 'color: #cfcfcf');
+
+console.log('music_list.length:', music_list.length); // 6 ?
+
+console.dir(music_list);
+
+console.groupEnd('연관형 배열과 length');
+
+
+// ——————————————————————————————————————
+// 값 복사(pass by value)
+// 값 참조(pass by reference)
+// ——————————————————————————————————————
+
+// 값 복사(pass by value)가 이루어지는 데이터 유형은?
+// 원시 데이터 유형
+// number, string, boolean, null, undefined
+console.groupCollapsed('값 복사(pass by value)');
+// 변수 n1을 선언한 후, 값으로 숫자 리터럴(값) 99를 할당한다.
+// 변수 n1을 선언한 후, 숫자 값 99를 변수 n1에 복사한다.
+var n1 = 99;
+// 변수 k2를 선언한 후, n1 변수에 복사된 숫자 값 99를 복사한다.
+var k2 = n1;
+console.log('n1:', n1);
+console.log('k2:', k2);
+
+console.log('n1 값을 수정한 후 ------------------------');
+
+// 가설: n1, k2에 복사된 숫자 데이터는 같은 값으로 보이나, 서로 다른 값이다.
+// 증명: n1의 데이터 값을 변경했을 때, k2는 변화가 없어야 한다.
+n1 = n1 * n1;
+console.log('n1:', n1);
+console.log('k2:', k2);
+console.groupEnd('값 복사(pass by value)');
+
+
+// 값 참조(pass by reference)가 이루어지는 데이터 유형은?
+// 참조형 데이터 유형
+// 함수, 배열, 객체
+console.group('값 참조(pass by reference)');
+
+var playlist = music_list;
+console.log('music_list:', music_list);
+console.log('playlist:', playlist);
+
+console.log('playlist를 변경하면? music_list는 어떻게 될까?');
+
+// 가설: music_list, playlist에 참조된 데이터는 같은 값이다.
+// 증명: music_list 또는 playlist의 데이터 값을 변경했을 때, 값을 동시에 변경된다. (동일한 값이기에)
+
+playlist.push('루키'); // length: 4
+
+music_list.author = 'mike';
+
+console.log('music_list:', music_list);
+console.log('playlist:', playlist);
+
+console.groupEnd('값 참조(pass by reference)');
