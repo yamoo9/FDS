@@ -87,7 +87,7 @@ console.groupEnd('문자 데이터(숫자 + 문자를 포함하는 문자) ➡�
 
 // ———————————————————————————————————————————————————————————
 // 데이터 ➡︎ 불리언 데이터로 변경되는 사례
-console.group('데이터 ➡︎ 불리언 데이터로 변경되는 사례');
+console.groupCollapsed('데이터 ➡︎ 불리언 데이터로 변경되는 사례');
 // 1. Boolean(데이터) 함수 => 불리언 데이터로 변경
 console.log('Boolean(num):', Boolean(num));
 console.log('Boolean(0):', Boolean(0));     // 0 은 false 로 변경
@@ -108,3 +108,45 @@ console.log('!!glass:', !!glass);
 console.log('!!glasses:', !!glasses);
 console.log('!!watchGlass:', !!watchGlass);
 console.groupEnd('데이터 ➡︎ 불리언 데이터로 변경되는 사례');
+
+
+// ——————————————————————————————————————
+// null, undefined 형 변환 체크
+// ——————————————————————————————————————
+
+console.group('null, undefined 형 변환 체크');
+// !!
+console.log('!!null:', !!null);
+console.log('!!undefined:', !!undefined);
+// !
+console.log('!null:', !null);
+console.log('!undefined:', !undefined);
+// + ''
+console.log('null + \'\':', null + '');
+console.log('typeof (null + \'\'):', typeof (null + ''));
+console.log('undefined + \'\':', undefined + '');
+console.log('typeof (undefined + \'\'):', typeof (undefined + ''));
+// String()
+console.log('String(null):', String(null));
+console.log('typeof String(null):', typeof String(null));
+console.log('String(undefined):', String(undefined));
+console.log('typeof String(undefined):', typeof String(undefined));
+// null + 숫자
+console.log('null + 10:', null + 10);
+console.log('undefined + 10:', undefined + 10);
+// Number()
+console.log('Number(null):', Number(null));
+console.log('Number(undefined):', Number(undefined));
+
+console.groupEnd('null, undefined 형 변환 체크');
+
+
+// —————————————————————————————————————————————————————————————
+// 배열 객체 <- 생성자를 통해객체를 생성
+// 생성자란? (일반적으로 JavaScript 에서 앞 글자가 대문자인 함수)
+// Number(), String(), Boolean(), Function(), Array(), Object()
+//
+// 객체 생성을 위한 문법
+// var 생성된_객체를_참조할_변수 = new 생성자()
+// `생성된_객체를_참조할_변수` 에는 `생성된 객체`가 참조됨.
+// —————————————————————————————————————————————————————————————
