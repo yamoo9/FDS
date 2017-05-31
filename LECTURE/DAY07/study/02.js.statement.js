@@ -5,11 +5,13 @@
 // console.dir(classUsingArray);
 // console.dir(classUsingObject);
 
-var tester = classUsingArray[8];
+var tester = classUsingArray[3];
 
 console.log('type(tester.age) === \'number\':', type(tester.age) === 'number');
 console.log('type(tester.school) === \'null\':', type(tester.school) === 'null');
 console.log('type(tester.family) === \'array\':', type(tester.family) === 'array');
 
 // 아래 함수 실행 시, true 결과가 나오는 유틸리티 함수를 작성해보세요.
-isType( tester.name, 'string' );
+console.log("isType(tester.name, 'string'):", isType(tester.name, 'string'));
+console.log("isType(tester.major, 'object'):", isType(tester.major, 'object'));
+console.log("isType(tester.school, 'object'):", isType(tester.school, 'object'));
