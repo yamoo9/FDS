@@ -1,20 +1,8 @@
+/*! data.json @ 2017, yamoo9.net */
 
-// ——————————————————————————————————————
-// 학생 데이터 -> 10명
-// ——————————————————————————————————————
-// 이름
-//    성별
-//    나이
-//    취미
-//    학교
-//      이름
-//      학년
-//    전공
-//    부전공
-//    가족 구성원
-//      [] or {}
 
-var classTypeArray = [
+// 배열을 집합으로 사용한 데이터 포멧
+var classUsingArray = [
   {
     name: '한진아',
     age: 23,
@@ -155,8 +143,11 @@ var classTypeArray = [
 ];
 
 
+// ————————————————————————————————————
 
-var classTypeObject = {
+
+// 객체를 집합으로 사용한 데이터 포멧
+var classUsingObject = {
   '한진아': {
     age: 23,
     email: 'jina.han@fashiongo.com',
