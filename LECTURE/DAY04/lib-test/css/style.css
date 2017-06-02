@@ -1,0 +1,29 @@
+.box {
+  text-align: center;
+}
+
+.box:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
+.box > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.box {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+  background-color: hsla(0,0%,20%,0.9);
+  color: hsl(0,0%,100%);
+}
+
+/*# sourceMappingURL=../map/style.css.map */

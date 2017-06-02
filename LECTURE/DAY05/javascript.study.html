@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript란? &lt; JavaScript 학습</title>
+  <style>
+    body {
+      width: 800px;
+      margin: 100px auto;
+    }
+    .form-control {
+      margin-bottom: 20px;
+    }
+    .control-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+  <script src="study/02.get.data.using.form.elements.js"></script>
+</head>
+
+<body>
+
+  <!--폼-->
+  <form name="user_info">
+    <!--이름-->
+    <div class="form-group">
+      <label class="control-label" for="user_name">이름</label>
+      <input class="form-control" required type="text" id="user_name" name="user_name">
+    </div>
+    <!--이메일-->
+    <div class="form-group">
+      <label for="user_email" class="control-label">이메일</label>
+      <input type="email" required class="form-control" id="user_email" name="user_email" placeholder="user@domain.com">
+    </div>
+    <!--성별-->
+    <div class="form-group">
+      <label for="user_gender" class="control-label">성별</label>
+      <label>
+        <input
+          type="radio"
+          class="form-control"
+          id="user_gender"
+          name="user_gender"
+          required
+          checked
+          value="male"> 남성
+      </label>
+      <label>
+        <input
+          type="radio"
+          class="form-control"
+          name="user_gender"
+          required
+          value="female"> 여성
+      </label>
+    </div>
+    <!--나이-->
+    <div class="form-group">
+      <label for="user_age" class="control-label">나이</label>
+      <input type="number" value="10" min="1" max="150" class="form-control" id="user_age" name="user_age">
+    </div>
+    <!--전송 버튼-->
+    <button type="submit">전송</button>
+  </form>
+
+</body>
+
+</html>

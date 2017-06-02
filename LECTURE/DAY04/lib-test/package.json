@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "sass": "node-sass sass -o css --output-style expanded",
+    "watch": "npm run sass -- -w --source-map ./map"
+  },
+  "devDependencies": {
+    "susy": "^2.2.12"
+  }
+}

@@ -1,0 +1,65 @@
+/// position 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - position 속성 이름 & 값을 나열
+/// @example
+/// 	@include position(relative, bottom 20px)
+@mixin position($position, $args) {
+	position: $position;
+
+	@if $args != null {
+		@each $dir in top, left, bottom, right, z-index {
+			$i: index($args, $dir);
+
+			@if $i {
+				#{$dir}: nth($args, $i + 1);
+			}
+		}
+	}
+}
+
+// --------------------------------
+// 단축 믹스인
+// --------------------------------
+
+/// position - static 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - position: static 속성 이름 & 값을 나열
+/// @example
+/// 	@include static()
+@mixin static {
+	@include position(static, null);
+}
+/// position - relative 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - position: relative 속성 이름 & 값을 나열
+/// @example
+/// 	@include relative(top 20px left 20px)
+@mixin relative($args: null) {
+	@include position(relative, $args);
+}
+/// position - absolute 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - position: absolute 속성 이름 & 값을 나열
+/// @example
+/// 	@include absolute(top 20px left 20px)
+@mixin absolute($args: null) {
+	@include position(absolute, $args);
+}
+/// position - fixed 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   Layout
+/// @param   {List} $args - position: fixed 속성 이름 & 값을 나열
+/// @example
+/// 	@include fixed(top 50% left 50%)
+@mixin fixed($args: null) {
+	@include position(fixed, $args);
+}

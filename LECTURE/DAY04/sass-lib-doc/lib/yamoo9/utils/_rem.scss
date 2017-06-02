@@ -1,0 +1,15 @@
+$base-font-size: 16px !default;
+
+/// rem 단위 변경 함수
+/// @access  public
+/// @author  yamoo9
+/// @group   Utility
+/// @param   {Number} $unit - CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형
+/// @return  {Number}       - 변경된 rem 값
+/// @example scss
+///   rem(24px) // 1.5rem
+///   $base-font-size: 10px
+///   rem(24px) // 2.4rem
+@function rem($unit) {
+  @return (de-unit($unit) / de-unit($base-font-size)) * 1rem;
+}

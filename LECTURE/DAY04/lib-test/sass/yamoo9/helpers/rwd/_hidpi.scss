@@ -1,0 +1,21 @@
+
+/// 고해상도 대응 hidpi() 믹스인
+/// @access  public
+/// @author  yamoo9
+/// @group   RWD
+/// @example scss
+/// 	@include hidpi(2) {
+///
+/// 	}
+@mixin hidpi($ratio) {
+	$hidpi: "only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),";
+	$hidpi: $hidpi + "only screen and (-moz-min-device-pixel-ratio: #{$ratio}),";
+	$hidpi: $hidpi + "only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),";
+	$hidpi: $hidpi + "only screen and (min-device-pixel-ratio: #{$ratio}),";
+	$hidpi: $hidpi + "only screen and (min-resolution: #{96 * $ratio}dpi),";
+	$hidpi: $hidpi + "only screen and (min-resolution: #{$ratio}dppx)";
+
+	@media #{$hidpi} {
+		@content;
+	}
+}

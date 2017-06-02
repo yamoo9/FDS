@@ -1,0 +1,595 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SassDoc</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="SassDoc - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="Release the docs!"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">SassDoc</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="helpers"><a href="#helpers">helpers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="helpers-placeholder"><a href="#helpers-placeholder">placeholders</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="hidden" data-type="placeholder"><a href="#helpers-placeholder-hidden">hidden</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="a11y-hidden" data-type="placeholder"><a href="#helpers-placeholder-a11y-hidden">a11y-hidden</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="focusable" data-type="placeholder"><a href="#helpers-placeholder-focusable">focusable</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="invisible" data-type="placeholder"><a href="#helpers-placeholder-invisible">invisible</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="center-box-block" data-type="placeholder"><a href="#helpers-placeholder-center-box-block">center-box-block</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="cf" data-type="placeholder"><a href="#helpers-placeholder-cf">cf</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="font-smoothing" data-type="placeholder"><a href="#helpers-placeholder-font-smoothing">font-smoothing</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="ir" data-type="placeholder"><a href="#helpers-placeholder-ir">ir</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-margin" data-type="placeholder"><a href="#helpers-placeholder-reset-margin">reset-margin</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-box-model" data-type="placeholder"><a href="#helpers-placeholder-reset-box-model">reset-box-model</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-outline" data-type="placeholder"><a href="#helpers-placeholder-reset-outline">reset-outline</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-link" data-type="placeholder"><a href="#helpers-placeholder-reset-link">reset-link</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-a-img" data-type="placeholder"><a href="#helpers-placeholder-reset-a-img">reset-a-img</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-list" data-type="placeholder"><a href="#helpers-placeholder-reset-list">reset-list</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="reset-table" data-type="placeholder"><a href="#helpers-placeholder-reset-table">reset-table</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="nav" data-type="placeholder"><a href="#helpers-placeholder-nav">nav</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="helpers-mixin"><a href="#helpers-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="font-size" data-type="mixin"><a href="#helpers-mixin-font-size">font-size</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="headings" data-type="mixin"><a href="#helpers-mixin-headings">headings</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="opacity" data-type="mixin"><a href="#helpers-mixin-opacity">opacity</a></li><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="px-rem" data-type="mixin"><a href="#helpers-mixin-px-rem">px-rem</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="helpers-function"><a href="#helpers-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="helpers" data-name="headings" data-type="function"><a href="#helpers-function-headings">headings</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="layout"><a href="#layout">layout</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="layout-mixin"><a href="#layout-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="layout" data-name="float" data-type="mixin"><a href="#layout-mixin-float">float</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="margin" data-type="mixin"><a href="#layout-mixin-margin">margin</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="padding" data-type="mixin"><a href="#layout-mixin-padding">padding</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="position" data-type="mixin"><a href="#layout-mixin-position">position</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="static" data-type="mixin"><a href="#layout-mixin-static">static</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="relative" data-type="mixin"><a href="#layout-mixin-relative">relative</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="absolute" data-type="mixin"><a href="#layout-mixin-absolute">absolute</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="fixed" data-type="mixin"><a href="#layout-mixin-fixed">fixed</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="size" data-type="mixin"><a href="#layout-mixin-size">size</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="rwd"><a href="#rwd">rwd</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="rwd-mixin"><a href="#rwd-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="rwd" data-name="hidpi" data-type="mixin"><a href="#rwd-mixin-hidpi">hidpi</a></li><li class="sidebar__item sassdoc__item" data-group="rwd" data-name="retina-image" data-type="mixin"><a href="#rwd-mixin-retina-image">retina-image</a></li><li class="sidebar__item sassdoc__item" data-group="rwd" data-name="rwd-video" data-type="mixin"><a href="#rwd-mixin-rwd-video">rwd-video</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="utility"><a href="#utility">utility</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="utility-function"><a href="#utility-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="utility" data-name="_rgba" data-type="function"><a href="#utility-function-_rgba">_rgba</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="_hsla" data-type="function"><a href="#utility-function-_hsla">_hsla</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="color" data-type="function"><a href="#utility-function-color">color</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="de-unit" data-type="function"><a href="#utility-function-de-unit">de-unit</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="em" data-type="function"><a href="#utility-function-em">em</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="rem" data-type="function"><a href="#utility-function-rem">rem</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="shade" data-type="function"><a href="#utility-function-shade">shade</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="tint" data-type="function"><a href="#utility-function-tint">tint</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="utility-mixin"><a href="#utility-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="utility" data-name="color" data-type="mixin"><a href="#utility-mixin-color">color</a></li><li class="sidebar__item sassdoc__item" data-group="utility" data-name="bg-color" data-type="mixin"><a href="#utility-mixin-bg-color">bg-color</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="helpers"><div class="container">helpers</div></h1><section class="main__sub-section" id="helpers-placeholder"><h2 class="main__heading--secondary"><div class="container">placeholders</div></h2><section class="main__item container item" id="helpers-placeholder-hidden"><h3 class="item__heading"><a class="item__name" href="#placeholder-hidden">hidden</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%hidden { 
+	display: none !important;
+	visibility: hidden;
+ }" data-collapsed="%hidden { ... }"><code>%hidden { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>스크린리더/브라우저에서 모두 감추는 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %hidden;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-a11y-hidden"><h3 class="item__heading"><a class="item__name" href="#placeholder-a11y-hidden">a11y-hidden</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%a11y-hidden { 
+	overflow: hidden;
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip: rect(0, 0, 0, 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+ }" data-collapsed="%a11y-hidden { ... }"><code>%a11y-hidden { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>스크린리더에서는 읽기 가능한 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %a11y-hidden;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-reset-table"><code>reset-table</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-focusable"><h3 class="item__heading"><a class="item__name" href="#placeholder-focusable">focusable</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%focusable { 
+	overflow: visible;
+	position: static;
+	clip: auto;
+	width: auto;
+	height: auto;
+	margin: 0;
+ }" data-collapsed="%focusable { ... }"><code>%focusable { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>스크린리더에서는 읽기 가능 + 포커스 적용 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %a11y-hidden;
+	@extend %focusable;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-invisible"><h3 class="item__heading"><a class="item__name" href="#placeholder-invisible">invisible</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%invisible { 
+	visibility: hidden;
+ }" data-collapsed="%invisible { ... }"><code>%invisible { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>화면에서는 안 보이지만, 레이아웃 공간 적용되는 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %invisible;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-center-box-block"><h3 class="item__heading"><a class="item__name" href="#placeholder-center-box-block">center-box-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%center-box-block { 
+	text-align: center;
+
+	// 정가운데 정렬을 위한 고스트 가상 요소
+	&amp;:before {
+		content: &quot;&quot;;
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+
+		// 상황에 따라 간격 조정이 요구됨.
+		margin-right: -0.25em;
+	}
+
+	// 가운데 정렬되는 요소에 적용되는 플레이스홀더 선택자
+	// 상황에 따라 width, height 설정 필요
+	&gt; div {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+ }" data-collapsed="%center-box-block { ... }"><code>%center-box-block { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>가운데 정렬되는 요소의 부모 요소에 적용되는 플레이스홀더 선택자 내부의 자식</p><div>가 가운데 배치되는 요소가 됨<p></p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %center-box-block;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></div></section><section class="main__item container item" id="helpers-placeholder-cf"><h3 class="item__heading"><a class="item__name" href="#placeholder-cf">cf</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%cf { 
+
+	// 구형 IE 지원할 경우 조건 처리
+	@if $ie_6_8_support {
+		*zoom: 1;
+	}
+
+	&amp;:before, &amp;:after {
+		content: &quot;&quot;;
+		display: table;
+	}
+
+	&amp;:after {
+		clear: both;
+	}
+
+ }" data-collapsed="%cf { ... }"><code>%cf { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>마이크로 클리어픽스 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %clearfix; /* %cf 단축이름 사용 가능 */
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-nav"><code>nav</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-font-smoothing"><h3 class="item__heading"><a class="item__name" href="#placeholder-font-smoothing">font-smoothing</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%font-smoothing { 
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+ }" data-collapsed="%font-smoothing { ... }"><code>%font-smoothing { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>폰트 스무딩 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>html {
+	@extend %font-smoothing;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-ir"><h3 class="item__heading"><a class="item__name" href="#placeholder-ir">ir</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%ir { 
+	display: block;
+	text-indent: -9999em;
+	white-space: nowrap;
+	overflow: hidden;
+ }" data-collapsed="%ir { ... }"><code>%ir { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>이미지 대체기법(IR) 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include %ir;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-margin"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-margin">reset-margin</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-margin { 
+	margin: 0;
+ }" data-collapsed="%reset-margin { ... }"><code>%reset-margin { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>마진 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-margin;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-box-model"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-box-model">reset-box-model</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-box-model { 
+	margin: 0;
+	border: 0;
+	padding: 0;
+ }" data-collapsed="%reset-box-model { ... }"><code>%reset-box-model { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>박스모델 공간 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-box-model;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-outline"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-outline">reset-outline</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-outline { 
+	outline: none;
+ }" data-collapsed="%reset-outline { ... }"><code>%reset-outline { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>아웃라인 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-outline;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-link"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-link">reset-link</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-link { 
+	text-decoration: none;
+ }" data-collapsed="%reset-link { ... }"><code>%reset-link { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>하이퍼링크 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-link;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-nav"><code>nav</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-a-img"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-a-img">reset-a-img</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-a-img { 
+	border: none;
+	vertical-align: middle;
+ }" data-collapsed="%reset-a-img { ... }"><code>%reset-a-img { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>하이퍼링크 내크 이미지 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-a-img;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-list"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-list">reset-list</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-list { 
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+ }" data-collapsed="%reset-list { ... }"><code>%reset-list { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>목록 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-list;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-nav"><code>nav</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-reset-table"><h3 class="item__heading"><a class="item__name" href="#placeholder-reset-table">reset-table</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%reset-table { 
+	margin: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	caption {
+		@extend %a11y-hidden;
+	}
+	th {
+		text-align: left;
+	}
+ }" data-collapsed="%reset-table { ... }"><code>%reset-table { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>테이블 초기화 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@extend %reset-table;
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-a11y-hidden"><code>a11y-hidden</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-placeholder-nav"><h3 class="item__heading"><a class="item__name" href="#placeholder-nav">nav</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%nav { 
+	ul {
+		@extend %reset-list;
+		@extend %cf;
+	}
+	li {
+		white-space: nowrap;
+	}
+	a {
+		@extend %reset-link;
+	}
+ }" data-collapsed="%nav { ... }"><code>%nav { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>글로벌 내비게이션 모듈 플레이스홀더 선택자</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>nav.demo {
+	@include %nav;
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-reset-list"><code>reset-list</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-cf"><code>cf</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[placeholder]</span> <a href="#helpers-placeholder-reset-link"><code>reset-link</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section><section class="main__sub-section" id="helpers-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="helpers-mixin-font-size"><h3 class="item__heading"><a class="item__name" href="#mixin-font-size">font-size</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin font-size() { 
+	// px-rem 믹스인이 존재할 경우 사용
+	@if mixin-exists(px-rem) {
+		@include px-rem(font-size, $size);
+	}
+	@else {
+		@if $polyfill == true {
+			font-size: $size;
+		}
+		font-size: rem($size);
+	}
+ }" data-collapsed="@mixin font-size() { ... }"><code>@mixin font-size() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>font-size() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include font-size(24px);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-px-rem"><code>px-rem</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-mixin-headings"><h3 class="item__heading"><a class="item__name" href="#mixin-headings">headings</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin headings() { 
+	#{headings($start, $end)} {
+		@content;
+	}
+ }" data-collapsed="@mixin headings() { ... }"><code>@mixin headings() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>headings() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include headings(2, 4)} {
+	/* 제목 스타일링 */
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#helpers-function-headings"><code>headings</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-mixin-opacity"><h3 class="item__heading"><a class="item__name" href="#mixin-opacity">opacity</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin opacity() { 
+
+	@if $ie_6_8_support {
+		filter: alpha(opacity=#{$opacity * 100});
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
+	}
+
+	opacity: $opacity;
+
+ }" data-collapsed="@mixin opacity() { ... }"><code>@mixin opacity() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>IE 6-8 대응 opacity() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include opacity(0.45);
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="helpers-mixin-px-rem"><h3 class="item__heading"><a class="item__name" href="#mixin-px-rem">px-rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin px-rem() { 
+
+	$max: length($values);
+
+	// $values 개수
+	$pxValues: &quot;&quot;;
+	$remValues: &quot;&quot;;
+
+	$base-font: de-unit($base-font-size);
+
+	@for $i from 1 through $max {
+		$value: nth($values, $i);
+
+		// 단위 제거한 $values 리스트의 개별 아이템
+		@if $value != auto and $value != inherit and $value != 0 {
+			$value: de-unit($value);
+		}
+
+		@if $value == auto or $value == inherit or $value == 0 {
+			$pxValues: #{$pxValues + $value};
+			$remValues: #{$remValues + $value};
+		}
+		@else {
+			$pxValues: #{$pxValues + $value}px;
+			$remValues: #{$remValues + $value / $base-font}rem;
+		}
+
+		@if $i &lt; $max {
+			$pxValues: #{$pxValues + &quot; &quot;};
+			$remValues: #{$remValues + &quot; &quot;};
+		}
+	}
+
+	@if $polyfill == true {
+		#{$property}: $pxValues;
+	}
+
+	#{$property}: $remValues;
+
+ }" data-collapsed="@mixin px-rem() { ... }"><code>@mixin px-rem() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>px-rem() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include px-rem(margin-left, 24px); /* rem, px 처리 */
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-font-size"><code>font-size</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section><section class="main__sub-section" id="helpers-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="helpers-function-headings"><h3 class="item__heading"><a class="item__name" href="#function-headings">headings</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function headings() { 
+	@if $start == all {
+		@return &quot;h1, h2, h3, h4, h5, h6&quot;;
+	}
+	@else {
+		@if type-of($start) != number {
+			@error &quot;첫번째 인자 값으로 all 또는 숫자만 적용가능합니다.&quot;;
+		}
+
+		$heading-list: &quot;&quot;;
+
+		@if $end == null {
+			@for $i from 1 through $start {
+				$heading-list: $heading-list + &quot;h#{$i}, &quot;;
+			}
+		}
+		@else {
+			@for $i from $start through $end {
+				$heading-list: $heading-list + &quot;h#{$i}, &quot;;
+			}
+		}
+
+		@return $heading-list;
+	}
+ }" data-collapsed="@function headings() { ... }"><code>@function headings() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>headings() 함수</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>#{headings(2, 4)} /* 출력: h2, h3, h4 {} */</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>첫번째 인자 값으로 all 또는 숫자만 적용가능합니다.</p></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-headings"><code>headings</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="layout"><div class="container">layout</div></h1><section class="main__sub-section" id="layout-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="layout-mixin-float"><h3 class="item__heading"><a class="item__name" href="#mixin-float">float</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin float($args) { 
+	// 초기값 설정
+	$_float: left;
+	$_gutter: after;
+	$_gutter_value: null;
+	$_edge: null;
+
+	// 유효성 검사
+	$_type: type-of($args);
+
+	@if $_type != &quot;list&quot; and $_type != &quot;number&quot; and $_type != &quot;string&quot; {
+		@error &quot;float() 믹스인 전달인자는 리스트 또는 문자, 숫자만 사용해야 합니다&quot;;
+	}
+
+	// 조건이 리스트일 때
+	@if $_type == &quot;list&quot; {
+		$l: length($args);
+
+		@for $i from 1 through $l {
+			$item: nth($args, $i);
+
+			@if $item == left or $item == right or $item == none {
+				$_float: $item;
+			}
+
+			@if $item == inside or $item == after or $item == before or $item == split {
+				$_gutter: $item;
+			}
+
+			@if $item == first or $item == last {
+				$_edge: $item;
+			}
+
+			@if type-of($item) == &quot;number&quot; {
+				$_gutter_value: $item;
+			}
+		}
+	}
+
+	// 조건이 문자일 때
+	@if $_type == &quot;string&quot; {
+		@if $args == left or $args == right or $args == none {
+			$_float: $args;
+		}
+
+		@if $args == inside or $args == after or $args == before or $args == split {
+			$_gutter: $args;
+		}
+
+		@if $args == first or $args == last {
+			$_edge: $args;
+		}
+	}
+
+	// 조건이 숫자일 때
+	@if $_type == &quot;number&quot; {
+		$_gutter_value: $args;
+	}
+
+	// 설정
+	float: $_float;
+
+	@if $_gutter == after {
+		margin-right: if($_edge == last, 0, $_gutter_value);
+	}
+	@else if $_gutter == before {
+		margin-left: if($_edge == first, 0, $_gutter_value);
+	}
+	@else if $_gutter == split {
+		margin: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+	@else if $_gutter == inside {
+		padding: {
+			left: $_gutter_value / 2;
+			right: $_gutter_value / 2;
+		};
+	}
+ }" data-collapsed="@mixin float($args) { ... }"><code>@mixin float($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>float 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>float 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code> or <code>Number</code> or <code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include float(right 10px)
+@include float(14px split)</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>float() 믹스인 전달인자는 리스트 또는 문자, 숫자만 사용해야 합니다</p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-margin"><h3 class="item__heading"><a class="item__name" href="#mixin-margin">margin</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin margin($args) { 
+
+	$use-null: false;
+
+	@if type-of($args) == &quot;list&quot; {
+		@if type-of(nth($args, 1)) == &quot;string&quot; {
+			@each $dir in top, left, bottom, right {
+				$i: index($args, $dir);
+
+				@if $i {
+					margin-#{$dir}: nth($args, $i + 1);
+				}
+			}
+		}
+		@else {
+			$l: length($args);
+
+			@for $i from 1 through $l {
+				@if nth($args, $i) == null {
+					$use-null: true;
+				}
+			}
+
+			@if not $use-null {
+				@if $l == 2 {
+					$t-b: nth($args, 1);
+					$r-l: nth($args, 2);
+
+					margin: $t-b $r-l;
+				}
+				@else if $l == 3 {
+					$t: nth($args, 1);
+					$r-l: nth($args, 2);
+					$b: nth($args, 3);
+
+					margin: $t $r-l $b;
+				}
+				@else {
+					$t: nth($args, 1);
+					$r: nth($args, 2);
+					$b: nth($args, 3);
+					$l: nth($args, 4);
+
+					margin: $t $r $b $l;
+				}
+			}
+
+			@else {
+				@if $l == 2 {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 1);
+					margin-left: nth($args, 2);
+				}
+				@else if $l == 3 {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 3);
+					margin-left: nth($args, 2);
+				}
+				@else {
+					margin-top: nth($args, 1);
+					margin-right: nth($args, 2);
+					margin-bottom: nth($args, 3);
+					margin-left: nth($args, 4);
+				}
+			}
+
+		}
+	}
+	@else {
+		margin: $args;
+	}
+ }" data-collapsed="@mixin margin($args) { ... }"><code>@mixin margin($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>margin 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>margin 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include margin(left auto right auto)</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-padding"><h3 class="item__heading"><a class="item__name" href="#mixin-padding">padding</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin padding($args) { 
+
+	$use-null: false;
+
+	@if type-of($args) == &quot;list&quot; {
+		@if type-of(nth($args, 1)) == &quot;string&quot; {
+			@each $dir in top, left, bottom, right {
+				$i: index($args, $dir);
+
+				@if $i {
+					padding-#{$dir}: nth($args, $i + 1);
+				}
+			}
+		}
+		@else {
+			$l: length($args);
+
+			@for $i from 1 through $l {
+				@if nth($args, $i) == null {
+					$use-null: true;
+				}
+			}
+
+			@if not $use-null {
+				@if $l == 2 {
+					$t-b: nth($args, 1);
+					$r-l: nth($args, 2);
+
+					padding: $t-b $r-l;
+				}
+				@else if $l == 3 {
+					$t: nth($args, 1);
+					$r-l: nth($args, 2);
+					$b: nth($args, 3);
+
+					padding: $t $r-l $b;
+				}
+				@else {
+					$t: nth($args, 1);
+					$r: nth($args, 2);
+					$b: nth($args, 3);
+					$l: nth($args, 4);
+
+					padding: $t $r $b $l;
+				}
+			}
+
+			@else {
+				@if $l == 2 {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 1);
+					padding-left: nth($args, 2);
+				}
+				@else if $l == 3 {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 3);
+					padding-left: nth($args, 2);
+				}
+				@else {
+					padding-top: nth($args, 1);
+					padding-right: nth($args, 2);
+					padding-bottom: nth($args, 3);
+					padding-left: nth($args, 4);
+				}
+			}
+
+		}
+	}
+	@else {
+		padding: $args;
+	}
+ }" data-collapsed="@mixin padding($args) { ... }"><code>@mixin padding($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>padding 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>padding 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include padding(left auto right auto)</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-position"><h3 class="item__heading"><a class="item__name" href="#mixin-position">position</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin position($args) { 
+	position: $position;
+
+	@if $args != null {
+		@each $dir in top, left, bottom, right, z-index {
+			$i: index($args, $dir);
+
+			@if $i {
+				#{$dir}: nth($args, $i + 1);
+			}
+		}
+	}
+ }" data-collapsed="@mixin position($args) { ... }"><code>@mixin position($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>position 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>position 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include position(relative, bottom 20px)</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-static"><code>static</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-relative"><code>relative</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-absolute"><code>absolute</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-fixed"><code>fixed</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-static"><h3 class="item__heading"><a class="item__name" href="#mixin-static">static</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin static($args) { 
+	@include position(static, null);
+ }" data-collapsed="@mixin static($args) { ... }"><code>@mixin static($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>position - static 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>position: static 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include static()</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-position"><code>position</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-relative"><h3 class="item__heading"><a class="item__name" href="#mixin-relative">relative</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin relative($args) { 
+	@include position(relative, $args);
+ }" data-collapsed="@mixin relative($args) { ... }"><code>@mixin relative($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>position - relative 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>position: relative 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include relative(top 20px left 20px)</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-position"><code>position</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-absolute"><h3 class="item__heading"><a class="item__name" href="#mixin-absolute">absolute</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin absolute($args) { 
+	@include position(absolute, $args);
+ }" data-collapsed="@mixin absolute($args) { ... }"><code>@mixin absolute($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>position - absolute 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>position: absolute 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include absolute(top 20px left 20px)</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-position"><code>position</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-fixed"><h3 class="item__heading"><a class="item__name" href="#mixin-fixed">fixed</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin fixed($args) { 
+	@include position(fixed, $args);
+ }" data-collapsed="@mixin fixed($args) { ... }"><code>@mixin fixed($args) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>position - fixed 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$args</code></th><td data-label="desc"><p>position: fixed 속성 이름 &amp; 값을 나열</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include fixed(top 50% left 50%)</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-position"><code>position</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="layout-mixin-size"><h3 class="item__heading"><a class="item__name" href="#mixin-size">size</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin size($dimension) { 
+	@if length($dimension) == 2 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 2);
+	}
+
+	@if length($dimension) == 1 {
+		width: nth($dimension, 1);
+		height: nth($dimension, 1);
+	}
+ }" data-collapsed="@mixin size($dimension) { ... }"><code>@mixin size($dimension) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>width, height 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$dimension</code></th><td data-label="desc"><p>width, height(옵션) 순으로 추가</p></td><td data-label="type"><code>List, number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include size(230px);
+@include size(230px, 420px);</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="rwd"><div class="container">rwd</div></h1><section class="main__sub-section" id="rwd-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="rwd-mixin-hidpi"><h3 class="item__heading"><a class="item__name" href="#mixin-hidpi">hidpi</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin hidpi() { 
+	$hidpi: &quot;only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),&quot;;
+	$hidpi: $hidpi + &quot;only screen and (-moz-min-device-pixel-ratio: #{$ratio}),&quot;;
+	$hidpi: $hidpi + &quot;only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),&quot;;
+	$hidpi: $hidpi + &quot;only screen and (min-device-pixel-ratio: #{$ratio}),&quot;;
+	$hidpi: $hidpi + &quot;only screen and (min-resolution: #{96 * $ratio}dpi),&quot;;
+	$hidpi: $hidpi + &quot;only screen and (min-resolution: #{$ratio}dppx)&quot;;
+
+	@media #{$hidpi} {
+		@content;
+	}
+ }" data-collapsed="@mixin hidpi() { ... }"><code>@mixin hidpi() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>고해상도 대응 hidpi() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include hidpi(2) {
+
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#rwd-mixin-retina-image"><code>retina-image</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="rwd-mixin-retina-image"><h3 class="item__heading"><a class="item__name" href="#mixin-retina-image">retina-image</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin retina-image() { 
+	background-image: url($file + &quot;.&quot; + $extension);
+	width: nth($dimension, 1);
+	height: nth($dimension, 2);
+
+	@for $i from 2 through $ratio {
+		@include hidpi($i) {
+			&amp; {
+				background-image: url($file + &quot;#{$suffix}#{$i}x.&quot; + $extension);
+				background-size: nth($dimension, 1) nth($dimension, 2);
+			}
+		}
+	}
+ }" data-collapsed="@mixin retina-image() { ... }"><code>@mixin retina-image() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>고해상도 대응 retina-image() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include retina-image(&#39;logo&#39;, 120px 46px);</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#rwd-mixin-hidpi"><code>hidpi</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="rwd-mixin-rwd-video"><h3 class="item__heading"><a class="item__name" href="#mixin-rwd-video">rwd-video</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin rwd-video() { 
+	@extend %rwd-video-container;
+
+	padding-top: 30px;
+
+	// 16:9 비율 = 56.25%
+	//  4:3 비율 = 75%
+	padding-bottom: if($ratio-16-9 == true, 56.25%, 75%);
+
+	@if $wrapper != null {
+		#{$wrapper} &amp; {
+			width: $wrapper-width;
+
+			@extend %rwd-video-wrapper;
+		}
+	}
+ }" data-collapsed="@mixin rwd-video() { ... }"><code>@mixin rwd-video() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>고해상도 대응 rwd-video() 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include retina-video();</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="utility"><div class="container">utility</div></h1><section class="main__sub-section" id="utility-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="utility-function-_rgba"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_rgba">_rgba</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _rgba() { 
+
+	$red: red($hex);
+	$green: green($hex);
+	$blue: blue($hex);
+
+	@if $alpha &gt;= 1 {
+		@return unquote(&quot;rgb(#{$red},#{$green},#{$blue})&quot;);
+	}
+	@else {
+		@return unquote(&quot;rgba(#{$red},#{$green},#{$blue},#{$alpha})&quot;);
+	}
+
+ }" data-collapsed="@function _rgba() { ... }"><code>@function _rgba() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>16진수 헥스 컬러코드에 알파 값을 설정하면 rgba(), rgb()로 바꿔주는 헬퍼 함수</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>_rgba(#2348ab, 0.4)</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#utility-function-color"><code>color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-_hsla"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_hsla">_hsla</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _hsla() { 
+
+	$hue: floor(de-unit(hue($hex)));
+	$saturation: floor(saturation($hex));
+	$lightness: floor(lightness($hex));
+
+	@if $alpha &gt;= 1 {
+		@return unquote(&quot;hsl(#{$hue},#{$saturation},#{$lightness})&quot;);
+	}
+	@else {
+		@return unquote(&quot;hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})&quot;);
+	}
+
+ }" data-collapsed="@function _hsla() { ... }"><code>@function _hsla() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>16진수 헥스 컬러코드에 알파 값을 설정하면 hsla(), hsl()로 바꿔주는 헬퍼 함수</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>_hlsa(#2348ab, 0.4)</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#utility-function-color"><code>color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color() { 
+	@if $using-hsla == false {
+		@return _rgba($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+	@else {
+		@return _hsla($hex, if($alpha != null, $alpha, $base-alpha));
+	}
+ }" data-collapsed="@function color() { ... }"><code>@function color() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>16진수 헥스 컬러코드에 알파 값을 설정하면 hsla(), hsl(), rgba(), rgb()로 바꿔주는 헬퍼 함수</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>color(#2348ab, 0.4)</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-_rgba"><code>_rgba</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-_hsla"><code>_hsla</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#utility-mixin-color"><code>color</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#utility-mixin-bg-color"><code>bg-color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-de-unit"><h3 class="item__heading"><a class="item__name" href="#function-de-unit">de-unit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function de-unit($unit) { 
+	@return $unit / ($unit * 0 + 1);
+ }" data-collapsed="@function de-unit($unit) { ... }"><code>@function de-unit($unit) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>단위 제거 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>단위가 제거된 숫자 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>단위 제거</p></div><pre class="example__code language-scss"><code>de-unit(19px) // 19</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-px-rem"><code>px-rem</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-px-rem"><code>px-rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#utility-function-_hsla"><code>_hsla</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#utility-function-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#utility-function-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#utility-function-rem"><code>rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#utility-function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-em"><h3 class="item__heading"><a class="item__name" href="#function-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function em($unit, $base) { 
+	@return (de-unit($unit) / de-unit($base)) * 1em;
+ }" data-collapsed="@function em($unit, $base) { ... }"><code>@function em($unit, $base) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>em 단위 변경 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base</code></th><td data-label="desc"><p>CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형 (기본 값: 16)</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>변경된 em 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>em(21px)     // 1.3125em
+em(21px, 10) // 2.1em</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-rem"><h3 class="item__heading"><a class="item__name" href="#function-rem">rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function rem($unit) { 
+  @return (de-unit($unit) / de-unit($base-font-size)) * 1rem;
+ }" data-collapsed="@function rem($unit) { ... }"><code>@function rem($unit) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>rem 단위 변경 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>CSS 단위 값이 포함되거나, 포함되지 않은 숫자 유형</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>변경된 rem 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>rem(24px) // 1.5rem
+$base-font-size: 10px
+rem(24px) // 2.4rem</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-de-unit"><code>de-unit</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#helpers-mixin-font-size"><code>font-size</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-shade"><h3 class="item__heading"><a class="item__name" href="#function-shade">shade</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function shade($color, $percent) { 
+  @return mix(#000, $color, $percent);
+ }" data-collapsed="@function shade($color, $percent) { ... }"><code>@function shade($color, $percent) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>shade 컬러 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>CSS #RRGGBB 값</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$percent</code></th><td data-label="desc"><p>% 단위 값 (검정색과 섞는 비율)</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>변경된 색상 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>shade(#66e33b, 22%)</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-function-tint"><h3 class="item__heading"><a class="item__name" href="#function-tint">tint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function tint($color, $percent) { 
+  @return mix(#fff, $color, $percent);
+ }" data-collapsed="@function tint($color, $percent) { ... }"><code>@function tint($color, $percent) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>tint 컬러 함수</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>CSS #RRGGBB 값</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$percent</code></th><td data-label="desc"><p>% 단위 값 (하얀색과 섞는 비율)</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>변경된 색상 값</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>tint(#fe4940, 19%)</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section><section class="main__sub-section" id="utility-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="utility-mixin-color"><h3 class="item__heading"><a class="item__name" href="#mixin-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin color() { 
+	@if $polyfill == true {
+		color: $hex;
+	}
+	color: color($hex, $alpha);
+ }" data-collapsed="@mixin color() { ... }"><code>@mixin color() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>글자 색상에 알파값을 적용가능한 헬퍼 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include color(#2348ab);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-color"><code>color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section><section class="main__item container item" id="utility-mixin-bg-color"><h3 class="item__heading"><a class="item__name" href="#mixin-bg-color">bg-color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin bg-color() { 
+	@if $polyfill == true {
+		background-color: $hex;
+	}
+	background-color: color($hex, $alpha);
+ }" data-collapsed="@mixin bg-color() { ... }"><code>@mixin bg-color() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>배경 색상에 알파값을 적용가능한 헬퍼 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.demo {
+	@include bg-color(#2348ab, 0.4);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-function-color"><code>color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>yamoo9</p></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <span class="project-info__name">SassDoc</span><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

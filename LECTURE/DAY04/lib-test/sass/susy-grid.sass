@@ -1,0 +1,24 @@
+@import "susy/susy"
+@import "yamoo9/yamoo9"
+@import "config"
+
+// $base-line-height: $base-font-size * 1.5
+// $base-line-height: 10px
+
+body
+  @extend %reset-margin
+
+.page
+  // 전달인자 1280px은 최대 너비를 말합니다.
+  +container(1280px)
+  height: 100vh
+
+.box
+  // height: rem(42px)
+  +px-rem(height, 42px)
+  &.is-1
+    +span(30%)
+    +bg-color(#333, 0.4)
+  &.is-2
+    +span(30%)
+    +bg-color(#f00, 0.4)

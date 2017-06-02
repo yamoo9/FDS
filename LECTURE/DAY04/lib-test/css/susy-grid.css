@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to right, transparent 10%, rgba(102, 102, 255, 0.15) 10%, rgba(179, 179, 255, 0.15) 90%, transparent 90%);
+  background-size: 25%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top;
+  height: 100vh;
+}
+
+.page:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.box {
+  height: 2.625rem;
+}
+
+.box.is-1 {
+  width: 30%;
+  float: left;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  background-color: hsla(0,0%,20%,0.4);
+}
+
+.box.is-2 {
+  width: 30%;
+  float: left;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  background-color: hsla(0,100%,50%,0.4);
+}
+
+/*# sourceMappingURL=../map/susy-grid.css.map */
