@@ -276,20 +276,24 @@ console.groupEnd('3항 연산자 식 VS switch 문');
 
 // ---------------------------------------
 // try/catch/finally, throw
-try {
-  // 명령이 실행되었을 때
-  // 오류가 발생하지 않았거나
-  // 오류가 발생했거나
-  var last_weekday = weekday.pop(); // 오타 발생!
-  console.log('last_weekday:', last_weekday);
-} catch(error) {
-  // throw  VS  console.error()
-  // console.error()와 달리 throw는 뒤 구문을 중단한다.
-  // console.error(error.message); // 오류 잡아서 오류 메시지 출력
-  throw error.message;
-  last_weekday = weekdays.pop();
-  console.log(last_weekday);
-}
+console.groupCollapsed('try/catch/finally, throw');
+
+// try {
+//   // 명령이 실행되었을 때
+//   // 오류가 발생하지 않았거나
+//   // 오류가 발생했거나
+//   var last_weekday = weekday.pop(); // 오타 발생!
+//   console.log('last_weekday:', last_weekday);
+// } catch(error) {
+//   // throw  VS  console.error()
+//   // console.error()와 달리 throw는 뒤 구문을 중단한다.
+//   // console.error(error.message); // 오류 잡아서 오류 메시지 출력
+//   throw error.message;
+//   last_weekday = weekdays.pop();
+//   console.log(last_weekday);
+// }
+
+console.groupEnd('try/catch/finally, throw');
 
 
 
@@ -298,16 +302,67 @@ try {
 // ——————————————————————————————————————
 
 // ---------------------------------------
-// for
+// while
+
+console.groupCollapsed('while 문');
+
+// 초기 값
+var k = 9;
+
+// 조건 확인
+// 조건 값이 참이면 {} 실행
+while ( k > 0 ) {
+  // break 또는 continue를 설정할 조건
+  // 9, 7, 5, 3, 1
+  // if ( k < 6 ) {
+  //   break;
+  // }
+  // 값 변경
+  // 조건이 거짓이 되는 순간이 와서
+  // 논리 오류에 빠져 무한 반복되지 않는다.
+  k = k - 2;
+  if ( k === 5 ) {
+    continue;
+  }
+  console.log('k:', k);
+}
 
 // ---------------------------------------
-// while
+// break/continue
+
+// break 는 멈춘다.
+// continue 현재 실행되는 부분만 점핑해서 넘어간다.
+// 문 내부의 명령 순서에 따라 결과가 달라질 수 있다.
+
+console.groupEnd('while 문');
+
 
 // ---------------------------------------
 // do...while
 
+console.group('do...while문');
+
+var math = Math;
+var count = 0;
+
+while( isType(math, 'math') ) {
+  console.log('count:', count);
+  console.log('Math is 수학 객체');
+  // 0, 1, 2, 3, 4
+  if ( count++ >= 4 ) {
+    math = new Error(); // Error {} 생성
+    // break;
+  }
+  // count = count + 1;
+  // count += 1;
+  // count++;
+  // ++count;
+}
+
+console.groupEnd('do...while문');
+
 // ---------------------------------------
-// break/continue
+// for
 
 // ---------------------------------------
 // for...in
