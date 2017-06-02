@@ -399,7 +399,7 @@ console.groupEnd('while문: data.js 데이터 순환 필터링');
 // ---------------------------------------
 // for
 
-console.group('for문');
+console.groupCollapsed('for문');
 
 // for(초기선언; 값비교검증; 값변화) {
 // 검증 결과가 참일 때, 반복 수행
@@ -414,15 +414,19 @@ for ( var k=9; k>0; --k ) {
 
 console.groupEnd('for문');
 
-console.group('for문: data.js classUsingArray 순환처리 필터링');
+console.groupCollapsed('for문: data.js classUsingArray 순환처리 필터링');
 
+console.time('for문(정상적인 방법)');
 for ( var classmate, i=0, l=classUsingArray.length, filteredClassmate = []; i<l; ++i ) {
   classmate = classUsingArray[i];
   if ( !isType(classmate.school, 'null') ) {
     filteredClassmate.push(classmate);
   }
 }
+console.log('filteredClassmate:', filteredClassmate);
+console.timeEnd('for문(정상적인 방법)');
 
+console.time('for문(변칙적인 방법)');
 var len = classUsingArray.length,
     filteredClassmate = [],
     classmate;
@@ -432,11 +436,103 @@ for ( ; (classmate = classUsingArray[--len]); ) {
     filteredClassmate.push(classmate);
   }
 }
-
 console.log('filteredClassmate:', filteredClassmate);
+console.timeEnd('for문(변칙적인 방법)');
 
 console.groupEnd('for문: data.js classUsingArray 순환처리 필터링');
 
 
+
 // ---------------------------------------
 // for...in
+
+console.group('for...in문');
+
+var han = classUsingObject.한진아;
+// console.log('han:', han);
+
+// '속성' in 객체
+// console.log('"age" in han:', "age" in han);
+// console.log('"grooming" in han:', "grooming" in han);
+
+// 객체의 속성을 순환하여 처리해보자.
+// 객체는 배열과 달리 length 속성이 존재하지 않는다.
+// 하여 객체를 순환하려면 for...in 문을 사용한다.
+// 배열 또한 for...in문을 사용할 수 있으나,
+// 속도가 느려 for문을 사용하는 것이 좋다.
+
+console.groupCollapsed('han 객체 순환 처리');
+
+for ( var prop in han ) {
+  // 객체 자신이 소유한 속성인지를 판단하여
+  // 자신의 속성일 경우만 출력하라.
+  if ( han.hasOwnProperty(prop) ) {
+    // han 객체의 속성 prop을 순환하여 처리한다.
+    console.log('han 객체의 속성:', prop);
+    // han.age === han['age']
+    // 순환 과정에서 속성 이름을 알 수 없기에,
+    // 변수를 사용한 객체 속성 접근법을 사용해야 한다.
+    // han[prop]
+    console.log('han 객체의 값:', han[prop]);
+  }
+}
+
+console.groupEnd('han 객체 순환 처리');
+
+console.groupCollapsed('classUsingObject 객체 순환 처리');
+
+// console.log('type(classUsingObject):', type(classUsingObject));
+
+for ( var member in classUsingObject ) {
+  if ( classUsingObject.hasOwnProperty(member) ) {
+    var value = classUsingObject[member];
+    console.log('member:', member);
+    // console.log('value:', value);
+  }
+}
+
+console.groupEnd('classUsingObject 객체 순환 처리');
+
+
+console.group('객체 상속과 for...in, 객체.hasOwnProperty()');
+
+// 객체(부모)
+var parent = {
+  name: '김훈남',
+  age: 67,
+  job: '농부',
+  drive: function(mobil) {
+    mobil = mobil || '경운기';
+    return this.job + '인 ' + this.name + '씨가 ' + mobil + '을(를) 타고 드라이브 합니다.';
+  }
+};
+
+// 객체(자식) <- 부모객체의 능력을 상속(Inheritance)
+var child = Object.create(parent);
+// 자식 객체에 속성을 추가 (부모 객체에는 없는 속성)
+child.game_console = 'Sony Playstation 4';
+child.friends = ['토니', '미키', '와사비'];
+
+console.group('hasOwnProperty()를 사용하지 않았을 경우');
+
+for ( var prop in child ) {
+  console.log(prop);
+}
+
+console.groupEnd('hasOwnProperty()를 사용하지 않았을 경우');
+
+console.group('hasOwnProperty()를 사용한 경우');
+
+for ( var prop in child ) {
+  if ( child.hasOwnProperty(prop) ) {
+    console.log(prop);
+  }
+}
+
+console.groupEnd('hasOwnProperty()를 사용한 경우');
+
+
+
+console.groupEnd('객체 상속과 for...in, 객체.hasOwnProperty()');
+
+console.groupEnd('for...in문');
