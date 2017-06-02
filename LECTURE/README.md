@@ -25,3 +25,8 @@
 ## JavaScript 사전 이해도 조사
 
 - [Level TEST](https://goo.gl/forms/vGFN29NjaJD8xS4A3)
+
+## JavaScript 학습
+
+- [JavaScript 안내서, MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide)
+- [JavaScript, MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript)
