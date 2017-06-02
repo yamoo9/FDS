@@ -1,10 +1,8 @@
 /*! utils.js @ 2017, yamoo9.net */
 
-/**
- * JSDOC @Ref: http://usejsdoc.org/
- * @규칙에 대해 참고한 후, 추가
- * @global, @func, @param, @return, ...
- */
+// JSDOC @Ref: http://usejsdoc.org/
+// @규칙에 대해 참고한 후, 추가
+// @global, @func, @param, @return, ...
 
 /**
  * JavaScript 데이터 유형을 완벽하게 문자열로 반환하는 유틸리티 함수
@@ -52,4 +50,17 @@ function validateError(data, kind, error_message) {
     if ( data === kind ) { throw error_message || '두 값은 동일하기에 오류입니다.'; }
   }
   return '오류는 발생하지 않았습니다';
+}
+
+function randomNumber(number) {
+  number = number || 2; // 0, 1
+  validateError(number, '!number', '숫자 값을 전달해주세요.');
+  return Math.floor( Math.random() * number );
+}
+
+function randomMinMax(min, max) {
+  validateError(min, '!number', '첫번째 인자 최솟값을 전달해주세요.');
+  validateError(max, '!number', '두번째 인자 최댓값를 전달해주세요.');
+  max = max - min;
+  return Math.round( Math.random() * max ) + min;
 }
