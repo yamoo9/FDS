@@ -304,6 +304,13 @@ console.groupEnd('try/catch/finally, throw');
 // ---------------------------------------
 // while
 
+// ---------------------------------------
+// break/continue
+
+// break 는 멈춘다.
+// continue 현재 실행되는 부분만 점핑해서 넘어간다.
+// 문 내부의 명령 순서에 따라 결과가 달라질 수 있다.
+
 console.groupCollapsed('while 문');
 
 // 초기 값
@@ -327,20 +334,7 @@ while ( k > 0 ) {
   console.log('k:', k);
 }
 
-// ---------------------------------------
-// break/continue
-
-// break 는 멈춘다.
-// continue 현재 실행되는 부분만 점핑해서 넘어간다.
-// 문 내부의 명령 순서에 따라 결과가 달라질 수 있다.
-
-console.groupEnd('while 문');
-
-
-// ---------------------------------------
-// do...while
-
-console.group('do...while문');
+console.log('--------------------');
 
 var math = Math;
 var count = 0;
@@ -350,8 +344,8 @@ while( isType(math, 'math') ) {
   console.log('Math is 수학 객체');
   // 0, 1, 2, 3, 4
   if ( count++ >= 4 ) {
-    math = new Error(); // Error {} 생성
-    // break;
+    // math = new Error(); // Error {} 생성
+    break;
   }
   // count = count + 1;
   // count += 1;
@@ -359,7 +353,51 @@ while( isType(math, 'math') ) {
   // ++count;
 }
 
+console.groupEnd('while 문');
+
+
+// ---------------------------------------
+// do...while
+
+console.groupCollapsed('do...while문');
+
+var data_collection = [ null, {}, 9, '집합', false, [], function(){} ];
+var n = data_collection.length;
+
+// data_collection 아이템을 역방향 순환하되,
+// 아이템 유형이 함수이면 반복을 중지한다.
+// 단, 아이템 유형이 함수일지라도 1회는 아이템 유형 값을 반드시 출력하라.
+do {
+  console.log( type(data_collection[--n]) );
+} while( !isType(data_collection[n], 'function') );
+
 console.groupEnd('do...while문');
+
+
+console.group('data.js 데이터 순환 필터링');
+
+// classUsingArray
+  // school을 다닌 적이 없는 사람을 제외한 사람들을 필터링하라.
+
+var len = classUsingArray.length;      // 10
+var classmate, filteredClassmate = []; // undefined
+
+// while ( --len > -1 ) {
+while ( len-- ) {
+  classmate = classUsingArray[len];
+  if ( !isType( classmate.school, 'null' ) ) {
+    filteredClassmate.push(classmate);
+  }
+}
+
+console.log('filteredClassmate:', filteredClassmate);
+
+
+// classUsingObject
+
+console.groupEnd('data.js 데이터 순환 필터링');
+
+
 
 // ---------------------------------------
 // for
