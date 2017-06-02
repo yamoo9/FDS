@@ -7,6 +7,7 @@
 // ---------------------------------------
 // if...else, else if
 
+console.groupCollapsed('if 문');
 
 // 상태(Data State)
 var is_opened = true;
@@ -100,12 +101,86 @@ if ( isType(video_obj, 'object') ) {
 
 }
 
+console.groupEnd('if 문');
+
 
 // ---------------------------------------
 // switch...case, default, break
 
+if ( isType(video_obj, 'object') ) {
+  console.groupCollapsed('switch문');
+
+  // CASE 1
+  switch(video_obj.state) {
+    case 'play':
+      console.log('play', video_obj.message );
+    break;
+    case 'pause':
+      console.log('pause', video_obj.message );
+    break;
+    case 'stop':
+      console.log('stop',  video_obj.message );
+    break;
+    default:
+      console.log( video_obj.message );
+  }
+  // CASE 2
+  switch(video_obj.state) {
+    case 'play':
+    case 'pause':
+    case 'stop':
+    default:
+      console.log( video_obj.message );
+  }
+
+  console.groupEnd('switch문');
+
+}
+
+
+console.group('고전 예제: 요일 출력');
+
+var weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+var today    = new Date();
+var weekday  = today.getDay();
+var printDay = function(day) {
+  validateError(day, '!string','전달인자 유형은 문자열이어야 합니다.');
+  return '오늘은 ' + day + '요일입니다';
+};
+
+console.log('// if문');
+if ( weekday === 0 ) { printDay(weekdays[0]); }
+else if ( weekday === 1 ) { console.log(printDay(weekdays[1])); }
+else if ( weekday === 2 ) { console.log(printDay(weekdays[2])); }
+else if ( weekday === 3 ) { console.log(printDay(weekdays[3])); }
+else if ( weekday === 4 ) { console.log(printDay(weekdays[4])); }
+else if ( weekday === 5 ) { console.log(printDay(weekdays[5])); }
+else if ( weekday === 6 ) { console.log(printDay(weekdays[6])); }
+else { console.warn('존재하지 않는 요일입니다'); }
+
+console.log('// switch문');
+switch(weekday) {
+  case 0: console.log(printDay(weekdays[0])); break;
+  case 1: console.log(printDay(weekdays[1])); break;
+  case 2: console.log(printDay(weekdays[2])); break;
+  case 3: console.log(printDay(weekdays[3])); break;
+  case 4: console.log(printDay(weekdays[4])); break;
+  case 5: console.log(printDay(weekdays[5])); break;
+  case 6: console.log(printDay(weekdays[6])); break;
+  default: console.warn('존재하지 않는 요일입니다');
+}
+
+console.groupEnd('고전 예제: 요일 출력');
+
+
+
+
+
+
+
 // ---------------------------------------
 // try/catch/throw
+
 
 
 // ——————————————————————————————————————
