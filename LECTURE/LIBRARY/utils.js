@@ -52,15 +52,49 @@ function validateError(data, kind, error_message) {
   return '오류는 발생하지 않았습니다';
 }
 
-function randomNumber(number) {
-  number = number || 2; // 0, 1
-  validateError(number, '!number', '숫자 값을 전달해주세요.');
-  return Math.floor( Math.random() * number );
+/**
+ * 전달된 숫자보다 하나 작은 수까지의 난수를 반환하는 유틸리티 함수
+ *
+ * @global
+ * @func    randomNumber
+ * @param   {number} n - 난수의 최댓값보다 하나 더 큰 값
+ * @default {number}   - 2
+ * @returns {number}   - 난수
+ */
+function randomNumber(n) {
+  n = n || 2; // 0, 1
+  validateError(n, '!number', '숫자 값을 전달해주세요.');
+  return Math.floor( Math.random() * n );
 }
 
+/**
+ * 전달된 최솟값, 최댓값 사이의 난수를 반환하는 유틸리티 함수
+ *
+ * @global
+ * @func    randomMinMax
+ * @param   {number} min - 최솟값
+ * @param   {number} max - 최댓값
+ * @returns {number}     - 난수
+ */
 function randomMinMax(min, max) {
   validateError(min, '!number', '첫번째 인자 최솟값을 전달해주세요.');
   validateError(max, '!number', '두번째 인자 최댓값를 전달해주세요.');
   max = max - min;
   return Math.round( Math.random() * max ) + min;
+}
+
+/**
+ * 전달된 인자에서 최솟값, 최댓값을 구분한 후, 그 사이의 난수를 반환하는 유틸리티 함수
+ *
+ * @global
+ * @func    randomRange
+ * @param   {number} n1 - 수(최댓 혹은 최솟값)
+ * @param   {number} n2 - 수(최댓 혹은 최솟값)
+ * @returns {number}     - 난수
+ */
+function randomRange(n1, n2) {
+  var min, max;
+  min = Math.min(n1, n2);
+  max = Math.max(n1, n2);
+  return randomMinMax(min, max);
 }

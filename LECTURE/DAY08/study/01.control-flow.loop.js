@@ -100,11 +100,6 @@ if ( isType(video_obj, 'object') ) {
 
 }
 
-/**
- * 랜덤 수 반환 함수
- */
-
-
 
 // ---------------------------------------
 // switch...case, default, break
