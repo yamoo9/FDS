@@ -204,7 +204,7 @@ console.groupEnd('예제 응용: 월/수/금은 시간이 됩니다.');
 // ---------------------------------------
 // 3항 연산식
 // ? :
-console.group('3항 연산자 식');
+console.groupCollapsed('3항 연산자 식 VS if 문');
 
 // 식(Expression)
 var result_message = isType(weekday, 'string') ? 'weekday is String.' : 'weekday isn\'t String.';
@@ -219,10 +219,10 @@ if ( isType(today, 'date') ) {
 }
 console.log(today_is);
 
-console.groupEnd('3항 연산자 식');
+console.groupEnd('3항 연산자 식 VS if 문');
 
 
-console.group('3항 연산자 식 VS switch 문');
+console.groupCollapsed('3항 연산자 식 VS switch 문');
 
 var current_year    = today.getFullYear();
 var current_year_is = null;
@@ -247,13 +247,13 @@ switch( type(current_year) ) {
     current_year_is = 'This is Object Type.';
   break;
   default:
-    current_year_is = 'This is not Number, String, Boolean, Function, Array Object Type.';
+    current_year_is = 'This is not Number, String, Boolean, Function, Array, Object Type.';
 }
 
 console.log('switch 문 결과:', current_year_is);
 
 console.log('// 3항 연산자 식');
-var _type = type(current_year);
+var _type = type(new Date()); // type(current_year);
 var current_year_is =
   (_type === 'number') ?
     'This is Number Type.' :
@@ -267,7 +267,7 @@ var current_year_is =
             'This is Array Type.' :
             (_type === 'object') ?
               'This is Object Type.' :
-              'This is not Number, String, Boolean, Function, Array Object Type.';
+              'This is not Number, String, Boolean, Function, Array, Object Type.';
 
 console.log('3항 연산식 결과:', current_year_is);
 
@@ -275,7 +275,21 @@ console.groupEnd('3항 연산자 식 VS switch 문');
 
 
 // ---------------------------------------
-// try/catch/throw
+// try/catch/finally, throw
+try {
+  // 명령이 실행되었을 때
+  // 오류가 발생하지 않았거나
+  // 오류가 발생했거나
+  var last_weekday = weekday.pop(); // 오타 발생!
+  console.log('last_weekday:', last_weekday);
+} catch(error) {
+  // throw  VS  console.error()
+  // console.error()와 달리 throw는 뒤 구문을 중단한다.
+  // console.error(error.message); // 오류 잡아서 오류 메시지 출력
+  throw error.message;
+  last_weekday = weekdays.pop();
+  console.log(last_weekday);
+}
 
 
 
