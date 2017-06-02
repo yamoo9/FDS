@@ -374,7 +374,7 @@ do {
 console.groupEnd('do...while문');
 
 
-console.group('data.js 데이터 순환 필터링');
+console.groupCollapsed('while문: data.js 데이터 순환 필터링');
 
 // classUsingArray
   // school을 다닌 적이 없는 사람을 제외한 사람들을 필터링하라.
@@ -392,15 +392,51 @@ while ( len-- ) {
 
 console.log('filteredClassmate:', filteredClassmate);
 
-
-// classUsingObject
-
-console.groupEnd('data.js 데이터 순환 필터링');
+console.groupEnd('while문: data.js 데이터 순환 필터링');
 
 
 
 // ---------------------------------------
 // for
+
+console.group('for문');
+
+// for(초기선언; 값비교검증; 값변화) {
+// 검증 결과가 참일 때, 반복 수행
+// }
+
+for ( var k=9; k>0; --k ) {
+  if ( k === 5 ) {
+    continue;
+  }
+  console.log('k:', k);
+}
+
+console.groupEnd('for문');
+
+console.group('for문: data.js classUsingArray 순환처리 필터링');
+
+for ( var classmate, i=0, l=classUsingArray.length, filteredClassmate = []; i<l; ++i ) {
+  classmate = classUsingArray[i];
+  if ( !isType(classmate.school, 'null') ) {
+    filteredClassmate.push(classmate);
+  }
+}
+
+var len = classUsingArray.length,
+    filteredClassmate = [],
+    classmate;
+
+for ( ; (classmate = classUsingArray[--len]); ) {
+  if ( !isType( classmate.school, 'null' ) ) {
+    filteredClassmate.push(classmate);
+  }
+}
+
+console.log('filteredClassmate:', filteredClassmate);
+
+console.groupEnd('for문: data.js classUsingArray 순환처리 필터링');
+
 
 // ---------------------------------------
 // for...in
