@@ -138,7 +138,7 @@ if ( isType(video_obj, 'object') ) {
 }
 
 
-console.group('고전 예제: 요일 출력');
+console.groupCollapsed('고전 예제: 요일 출력');
 
 var weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 var today    = new Date();
@@ -149,7 +149,7 @@ var printDay = function(day) {
 };
 
 console.log('// if문');
-if ( weekday === 0 ) { printDay(weekdays[0]); }
+if ( weekday === 0 ) { console.log(printDay(weekdays[0])); }
 else if ( weekday === 1 ) { console.log(printDay(weekdays[1])); }
 else if ( weekday === 2 ) { console.log(printDay(weekdays[2])); }
 else if ( weekday === 3 ) { console.log(printDay(weekdays[3])); }
@@ -173,9 +173,105 @@ switch(weekday) {
 console.groupEnd('고전 예제: 요일 출력');
 
 
+console.groupCollapsed('예제 응용: 월/수/금은 시간이 됩니다.');
+
+console.log('// if문');
+weekday = 6;
+if (
+  weekday === 1 ||
+  weekday === 3 ||
+  weekday === 5
+) {
+  console.log('월/수/금은 시간이 됩니다.');
+}
+else {
+  console.warn('월/수/금 외에는 시간이 안됩니다.');
+}
+
+console.log('// switch문');
+switch(weekday) {
+  case 1:
+  case 3:
+  case 5:
+    console.log('월/수/금은 시간이 됩니다.');
+  break;
+  default:
+    console.warn('월/수/금 외에는 시간이 안됩니다.');
+}
+
+console.groupEnd('예제 응용: 월/수/금은 시간이 됩니다.');
+
+// ---------------------------------------
+// 3항 연산식
+// ? :
+console.group('3항 연산자 식');
+
+// 식(Expression)
+var result_message = isType(weekday, 'string') ? 'weekday is String.' : 'weekday isn\'t String.';
+console.log('연산 결과:', result_message);
+
+// 문(Statement)
+var today_is = null;
+if ( isType(today, 'date') ) {
+  today_is = 'Date Object';
+} else {
+  today_is = 'Not Date Object';
+}
+console.log(today_is);
+
+console.groupEnd('3항 연산자 식');
 
 
+console.group('3항 연산자 식 VS switch 문');
 
+var current_year    = today.getFullYear();
+var current_year_is = null;
+console.log('// switch 문');
+switch( type(current_year) ) {
+  case 'number':
+    current_year_is = 'This is Number Type.';
+  break;
+  case 'string':
+    current_year_is = 'This is String Type.';
+  break;
+  case 'boolean':
+    current_year_is = 'This is Boolean Type.';
+  break;
+  case 'function':
+    current_year_is = 'This is Function Type.';
+  break;
+  case 'array':
+    current_year_is = 'This is Array Type.';
+  break;
+  case 'object':
+    current_year_is = 'This is Object Type.';
+  break;
+  default:
+    current_year_is = 'This is not Number, String, Boolean, Function, Array Object Type.';
+}
+
+console.log('switch 문 결과:', current_year_is);
+
+console.log('// 3항 연산자 식');
+var _type = type(current_year);
+var current_year_is =
+  (_type === 'number') ?
+    'This is Number Type.' :
+    (_type === 'string') ?
+    'This is String Type.' :
+      (_type === 'boolean') ?
+        'This is Boolean Type.' :
+        (_type === 'function') ?
+          'This is Function Type.' :
+          (_type === 'array') ?
+            'This is Array Type.' :
+            (_type === 'object') ?
+              'This is Object Type.' :
+              'This is not Number, String, Boolean, Function, Array Object Type.';
+
+console.log('3항 연산식 결과:', current_year_is);
+
+console.groupEnd('3항 연산자 식 VS switch 문');
 
 
 // ---------------------------------------
